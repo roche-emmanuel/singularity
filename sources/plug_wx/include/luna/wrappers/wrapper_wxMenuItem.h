@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxMenuItem(lua_State* L, lua_Table* dum, wxMenu * parentMenu = NULL, int id = ::wxID_SEPARATOR, const wxString & text = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL, wxMenu * subMenu = NULL) : wxMenuItem(parentMenu, id, text, helpString, kind, subMenu), luna_wrapper_base(L) {};
+	wrapper_wxMenuItem(lua_State* L, lua_Table* dum, wxMenu * parentMenu = NULL, int id = ::wxID_SEPARATOR, const wxString & text = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL, wxMenu * subMenu = NULL) : wxMenuItem(parentMenu, id, text, helpString, kind, subMenu), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -128,6 +129,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -145,6 +147,16 @@ protected:
 		}
 
 		return wxMenuItem::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

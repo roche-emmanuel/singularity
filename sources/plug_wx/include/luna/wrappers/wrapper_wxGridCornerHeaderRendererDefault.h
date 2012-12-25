@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {
 		if(_obj.pushFunction("DrawBorder")) {
@@ -33,6 +34,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

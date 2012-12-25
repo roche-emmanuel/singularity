@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxDocument(lua_State* L, lua_Table* dum, wxDocument * parent = NULL) : wxDocument(parent), luna_wrapper_base(L) {};
+	wrapper_wxDocument(lua_State* L, lua_Table* dum, wxDocument * parent = NULL) : wxDocument(parent), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -337,6 +338,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -394,6 +396,16 @@ protected:
 		}
 
 		return wxDocument::DoOpenDocument(file);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxSpinCtrlDouble(lua_State* L, lua_Table* dum) : wxSpinCtrlDouble(), luna_wrapper_base(L) {};
-	wrapper_wxSpinCtrlDouble(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxString & value = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxSP_ARROW_KEYS, double min = 0, double max = 100, double initial = 0, double inc = 1, const wxString & name = wxT ("wxSpinCtrlDouble")) : wxSpinCtrlDouble(parent, id, value, pos, size, style, min, max, initial, inc, name), luna_wrapper_base(L) {};
+	wrapper_wxSpinCtrlDouble(lua_State* L, lua_Table* dum) : wxSpinCtrlDouble(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxSpinCtrlDouble(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxString & value = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxSP_ARROW_KEYS, double min = 0, double max = 100, double initial = 0, double inc = 1, const wxString & name = wxT ("wxSpinCtrlDouble")) : wxSpinCtrlDouble(parent, id, value, pos, size, style, min, max, initial, inc, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1021,6 +1022,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1117,6 +1119,16 @@ protected:
 		}
 
 		return wxSpinCtrlDouble::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

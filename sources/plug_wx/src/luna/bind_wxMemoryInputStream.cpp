@@ -81,7 +81,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxMemoryOutputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxMemoryOutputStream >(L,2))) ) return false;
 		return true;
 	}
 
@@ -91,7 +91,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxInputStream >(L,2))) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}

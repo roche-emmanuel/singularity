@@ -8,6 +8,7 @@ local injector = require "bindings.CodeInjector"
 local im = require "bindings.IgnoreManager"
 local snippets = require "bindings.SnippetManager"
 local utils = require "utils"
+local corr = require "bindings.TextCorrector"
 
 local Set = require "std.Set"
 
@@ -197,13 +198,22 @@ function Class:writeFunctionCall(cname,func,args)
 		return
 	end
 	
+	local isProtectedAccessor = false
+	
+	if func:isProtected() and func:getName():sub(1,7)=="public_" then
+		local wname = corr:correct("filename",self._class:getFullName())
+		cname = "wrapper_" .. wname
+		isProtectedAccessor = true
+	end
+	
 	rt:parse() -- ensure the type fields are value.
 
 	local rname = rt:getBaseName()
 	local converter = tc:getToLuaConverter(rt:getName()) or tc:getToLuaConverter(rname)
 	local argname = "lret"
 	
-	local useself = not (func:isGlobal() or func:isStatic() or func:isExtension())
+	local useself = isProtectedAccessor or not (func:isGlobal() or func:isStatic() or func:isExtension())
+	
 	if useself then
 		local bname = nil
 		if func:getParent():isExternal() then
@@ -215,8 +225,6 @@ function Class:writeFunctionCall(cname,func,args)
 		end
 		
 		bname = tm:getBaseTypeMapping(bname)
-		--local isUnsafe = im:ignore(bname,"converter")
-		--local casttype = isUnsafe and "static" or "dynamic"
 		
 		-- the function is a class method, retrieve the object:
 		if cname == bname then
@@ -224,13 +232,8 @@ function Class:writeFunctionCall(cname,func,args)
 		else
 			-- need to dynamic cast:
 			self:writeSubLine("${1}* self=Luna< ${2} >::checkSubType< ${1} >(L,1);",cname, bname);
-			
-			--if isUnsafe then
-			--	self:writeSubLine("${1}* self=static_cast< ${1}* >(Luna< void >::rawPointer(L,1));",cname);			
-			--else
-			--	self:writeSubLine("${1}* self=${3}_cast< ${1}* >(Luna< ${2} >::check(L,1));",cname, bname, casttype);
-			--end
 		end
+		
 		self:writeLine("if(!self) {")
 		self:pushIndent()
 		self:writeSubLine('luna_printStack(L);')

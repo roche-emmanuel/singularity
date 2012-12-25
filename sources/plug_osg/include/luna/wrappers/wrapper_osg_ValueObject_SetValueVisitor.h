@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
 	void apply(bool & value) {
 		if(_obj.pushFunction("apply")) {
@@ -222,6 +223,16 @@ public:
 
 
 
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

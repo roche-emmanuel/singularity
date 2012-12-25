@@ -67,7 +67,7 @@ public:
 		if( lua_isstring(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23837631)) ) return false;
-		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxXmlAttribute* >(Luna< wxXmlAttribute >::check(L,3)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< wxXmlAttribute >::check(L,3)) ) ) return false;
 		return true;
 	}
 

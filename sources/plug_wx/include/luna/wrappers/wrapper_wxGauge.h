@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxGauge(lua_State* L, lua_Table* dum) : wxGauge(), luna_wrapper_base(L) {};
-	wrapper_wxGauge(lua_State* L, lua_Table* dum, wxWindow * parent, int id, int range, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHORIZONTAL, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxGaugeNameStr) : wxGauge(parent, id, range, pos, size, style, validator, name), luna_wrapper_base(L) {};
+	wrapper_wxGauge(lua_State* L, lua_Table* dum) : wxGauge(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGauge(lua_State* L, lua_Table* dum, wxWindow * parent, int id, int range, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHORIZONTAL, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxGaugeNameStr) : wxGauge(parent, id, range, pos, size, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1020,6 +1021,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1116,6 +1118,16 @@ protected:
 		}
 
 		return wxGauge::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

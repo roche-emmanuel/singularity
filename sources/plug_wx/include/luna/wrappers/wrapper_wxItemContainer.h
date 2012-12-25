@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {
 		THROW_IF(!_obj.pushFunction("GetCount"),"No implementation for abstract function wxItemContainerImmutable::GetCount");
@@ -75,6 +76,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

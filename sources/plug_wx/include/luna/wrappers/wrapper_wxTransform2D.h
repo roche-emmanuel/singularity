@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	void Transform(wxPoint2DInt * pt) const {
 		THROW_IF(!_obj.pushFunction("Transform"),"No implementation for abstract function wxTransform2D::Transform");
@@ -95,6 +96,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

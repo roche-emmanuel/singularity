@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxHtmlWindow(lua_State* L, lua_Table* dum) : wxHtmlWindow(), luna_wrapper_base(L) {};
-	wrapper_wxHtmlWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHW_DEFAULT_STYLE, const wxString & name = "htmlWindow") : wxHtmlWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
+	wrapper_wxHtmlWindow(lua_State* L, lua_Table* dum) : wxHtmlWindow(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHtmlWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHW_DEFAULT_STYLE, const wxString & name = "htmlWindow") : wxHtmlWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// bool wxHtmlWindow::LoadPage(const wxString & location)
 	bool LoadPage(const wxString & location) {
 		if(_obj.pushFunction("LoadPage")) {
@@ -86,6 +87,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// bool wxHtmlWindow::OnCellClicked(wxHtmlCell * cell, int x, int y, const wxMouseEvent & event)
 	bool OnCellClicked(wxHtmlCell * cell, int x, int y, const wxMouseEvent & event) {
 		if(_obj.pushFunction("OnCellClicked")) {
@@ -109,6 +111,16 @@ protected:
 		}
 
 		return wxHtmlWindow::OnCellMouseHover(cell, x, y);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

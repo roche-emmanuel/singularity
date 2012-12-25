@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), luna_wrapper_base(L) {};
+	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxString wxGridCellEditor::GetValue() const
 	wxString GetValue() const {
 		THROW_IF(!_obj.pushFunction("GetValue"),"No implementation for abstract function wxGridCellEditor::GetValue");
@@ -158,6 +159,86 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+	// bool wxGridCellNumberEditor::HasRange() const
+	bool public_HasRange() const {
+		return wxGridCellNumberEditor::HasRange();
+	};
+
+	// wxString wxGridCellNumberEditor::GetString() const
+	wxString public_GetString() const {
+		return wxGridCellNumberEditor::GetString();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_HasRange(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_GetString(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// bool wxGridCellNumberEditor::public_HasRange() const
+	static int _bind_public_HasRange(lua_State *L) {
+		if (!_lg_typecheck_public_HasRange(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridCellNumberEditor::public_HasRange() const function, expected prototype:\nbool wxGridCellNumberEditor::public_HasRange() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_wxGridCellNumberEditor* self=Luna< wxGridCellEditor >::checkSubType< wrapper_wxGridCellNumberEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridCellNumberEditor::public_HasRange() const");
+		}
+		bool lret = self->public_HasRange();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxGridCellNumberEditor::public_GetString() const
+	static int _bind_public_GetString(lua_State *L) {
+		if (!_lg_typecheck_public_GetString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxGridCellNumberEditor::public_GetString() const function, expected prototype:\nwxString wxGridCellNumberEditor::public_GetString() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_wxGridCellNumberEditor* self=Luna< wxGridCellEditor >::checkSubType< wrapper_wxGridCellNumberEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxGridCellNumberEditor::public_GetString() const");
+		}
+		wxString lret = self->public_GetString();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"HasRange",_bind_public_HasRange},
+		{"GetString",_bind_public_GetString},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

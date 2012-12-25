@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxComboPopup(lua_State* L, lua_Table* dum) : wxComboPopup(), luna_wrapper_base(L) {};
+	wrapper_wxComboPopup(lua_State* L, lua_Table* dum) : wxComboPopup(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// bool wxComboPopup::Create(wxWindow * parent)
 	bool Create(wxWindow * parent) {
 		THROW_IF(!_obj.pushFunction("Create"),"No implementation for abstract function wxComboPopup::Create");
@@ -149,6 +150,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

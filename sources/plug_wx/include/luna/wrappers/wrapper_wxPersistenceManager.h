@@ -19,10 +19,12 @@ public:
 		}
 	};
 	
-	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) {};
+	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 
 protected:
+	// Protected virtual methods:
 	// wxConfigBase * wxPersistenceManager::GetConfig() const
 	wxConfigBase * GetConfig() const {
 		if(_obj.pushFunction("GetConfig")) {
@@ -41,6 +43,16 @@ protected:
 		}
 
 		return wxPersistenceManager::GetKey(who, name);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

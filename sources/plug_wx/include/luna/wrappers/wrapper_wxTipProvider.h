@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxTipProvider(lua_State* L, lua_Table* dum, size_t currentTip) : wxTipProvider(currentTip), luna_wrapper_base(L) {};
+	wrapper_wxTipProvider(lua_State* L, lua_Table* dum, size_t currentTip) : wxTipProvider(currentTip), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxString wxTipProvider::GetTip()
 	wxString GetTip() {
 		THROW_IF(!_obj.pushFunction("GetTip"),"No implementation for abstract function wxTipProvider::GetTip");
@@ -28,6 +29,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

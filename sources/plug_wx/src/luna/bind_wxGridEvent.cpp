@@ -82,14 +82,14 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
-		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,4)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !(Luna< wxObject >::check(L,4)) ) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( luatop>8 && lua_isboolean(L,9)==0 ) return false;
 		if( luatop>9 && !Luna<void>::has_uniqueid(L,10,92036952) ) return false;
-		if( luatop>9 && (!dynamic_cast< wxKeyboardState* >(Luna< wxKeyboardState >::check(L,10))) ) return false;
+		if( luatop>9 && (!(Luna< wxKeyboardState >::check(L,10))) ) return false;
 		return true;
 	}
 

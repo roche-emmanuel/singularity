@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// bool wxDialUpManager::CancelDialing()
 	bool CancelDialing() {
 		THROW_IF(!_obj.pushFunction("CancelDialing"),"No implementation for abstract function wxDialUpManager::CancelDialing");
@@ -110,6 +111,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

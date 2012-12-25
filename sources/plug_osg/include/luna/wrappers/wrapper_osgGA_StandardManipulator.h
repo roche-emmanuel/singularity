@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_osgGA_StandardManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::StandardManipulator(flags), luna_wrapper_base(L) {};
-	wrapper_osgGA_StandardManipulator(lua_State* L, lua_Table* dum, const osgGA::StandardManipulator & m, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::StandardManipulator(m, copyOp), luna_wrapper_base(L) {};
+	wrapper_osgGA_StandardManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::StandardManipulator(flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgGA_StandardManipulator(lua_State* L, lua_Table* dum, const osgGA::StandardManipulator & m, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::StandardManipulator(m, copyOp), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -404,6 +405,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
 		if(_obj.pushFunction("handleFrame")) {
@@ -644,70 +646,524 @@ protected:
 	};
 
 public:
-// void osgGA::StandardManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
-void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
-	return osgGA::StandardManipulator::addMouseEvent(ea);
-};
+	// Protected non-virtual methods:
+	// void osgGA::StandardManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
+	void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
+		return osgGA::StandardManipulator::addMouseEvent(ea);
+	};
 
-// void osgGA::StandardManipulator::flushMouseEventStack()
-void public_flushMouseEventStack() {
-	return osgGA::StandardManipulator::flushMouseEventStack();
-};
+	// void osgGA::StandardManipulator::flushMouseEventStack()
+	void public_flushMouseEventStack() {
+		return osgGA::StandardManipulator::flushMouseEventStack();
+	};
 
-// float osgGA::StandardManipulator::getThrowScale(const double eventTimeDelta) const
-float public_getThrowScale(const double eventTimeDelta) const {
-	return osgGA::StandardManipulator::getThrowScale(eventTimeDelta);
-};
+	// float osgGA::StandardManipulator::getThrowScale(const double eventTimeDelta) const
+	float public_getThrowScale(const double eventTimeDelta) const {
+		return osgGA::StandardManipulator::getThrowScale(eventTimeDelta);
+	};
 
-// void osgGA::StandardManipulator::fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)
-void public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) {
-	return osgGA::StandardManipulator::fixVerticalAxis(eye, rotation, disallowFlipOver);
-};
+	// void osgGA::StandardManipulator::fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)
+	void public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) {
+		return osgGA::StandardManipulator::fixVerticalAxis(eye, rotation, disallowFlipOver);
+	};
 
-// bool osgGA::StandardManipulator::getRelativeFlag(int index) const
-bool public_getRelativeFlag(int index) const {
-	return osgGA::StandardManipulator::getRelativeFlag(index);
-};
+	// bool osgGA::StandardManipulator::getRelativeFlag(int index) const
+	bool public_getRelativeFlag(int index) const {
+		return osgGA::StandardManipulator::getRelativeFlag(index);
+	};
 
-// void osgGA::StandardManipulator::setRelativeFlag(int index, bool value)
-void public_setRelativeFlag(int index, bool value) {
-	return osgGA::StandardManipulator::setRelativeFlag(index, value);
-};
+	// void osgGA::StandardManipulator::setRelativeFlag(int index, bool value)
+	void public_setRelativeFlag(int index, bool value) {
+		return osgGA::StandardManipulator::setRelativeFlag(index, value);
+	};
 
-// static void osgGA::StandardManipulator::rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))
-static void public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.)) {
-	return osgGA::StandardManipulator::rotateYawPitch(rotation, yaw, pitch, localUp);
-};
+	// static void osgGA::StandardManipulator::rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))
+	static void public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.)) {
+		return osgGA::StandardManipulator::rotateYawPitch(rotation, yaw, pitch, localUp);
+	};
 
-// static void osgGA::StandardManipulator::fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)
-static void public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver) {
-	return osgGA::StandardManipulator::fixVerticalAxis(rotation, localUp, disallowFlipOver);
-};
+	// static void osgGA::StandardManipulator::fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)
+	static void public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver) {
+		return osgGA::StandardManipulator::fixVerticalAxis(rotation, localUp, disallowFlipOver);
+	};
 
-// static void osgGA::StandardManipulator::fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)
-static void public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver) {
-	return osgGA::StandardManipulator::fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
-};
+	// static void osgGA::StandardManipulator::fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)
+	static void public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver) {
+		return osgGA::StandardManipulator::fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
+	};
 
-// static int osgGA::StandardManipulator::allocateRelativeFlag()
-static int public_allocateRelativeFlag() {
-	return osgGA::StandardManipulator::allocateRelativeFlag();
-};
+	// static int osgGA::StandardManipulator::allocateRelativeFlag()
+	static int public_allocateRelativeFlag() {
+		return osgGA::StandardManipulator::allocateRelativeFlag();
+	};
 
-// std::string osgGA::CameraManipulator::getManipulatorName() const
-std::string public_getManipulatorName() const {
-	return osgGA::CameraManipulator::getManipulatorName();
-};
+	// std::string osgGA::CameraManipulator::getManipulatorName() const
+	std::string public_getManipulatorName() const {
+		return osgGA::CameraManipulator::getManipulatorName();
+	};
 
-// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
-void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
-	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
-};
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
 
-// void osg::Referenced::deleteUsingDeleteHandler() const
-void public_deleteUsingDeleteHandler() const {
-	return osg::Referenced::deleteUsingDeleteHandler();
-};
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_addMouseEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_flushMouseEventStack(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_getThrowScale(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_fixVerticalAxis_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,80263306) ) return false;
+		if( (!(Luna< osg::Quat >::check(L,3))) ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_fixVerticalAxis_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,80263306) ) return false;
+		if( (!(Luna< osg::Quat >::check(L,1))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_fixVerticalAxis_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,1))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,4))) ) return false;
+		if( lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_getRelativeFlag(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_setRelativeFlag(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_rotateYawPitch(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,80263306) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_allocateRelativeFlag(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_getManipulatorName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)
+	static int _bind_public_addMouseEvent(lua_State *L) {
+		if (!_lg_typecheck_public_addMouseEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea) function, expected prototype:\nvoid osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
+		if( !ea_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ea in osgGA::StandardManipulator::public_addMouseEvent function");
+		}
+		const osgGA::GUIEventAdapter & ea=*ea_ptr;
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &)");
+		}
+		self->public_addMouseEvent(ea);
+
+		return 0;
+	}
+
+	// void osgGA::StandardManipulator::public_flushMouseEventStack()
+	static int _bind_public_flushMouseEventStack(lua_State *L) {
+		if (!_lg_typecheck_public_flushMouseEventStack(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_flushMouseEventStack() function, expected prototype:\nvoid osgGA::StandardManipulator::public_flushMouseEventStack()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_flushMouseEventStack()");
+		}
+		self->public_flushMouseEventStack();
+
+		return 0;
+	}
+
+	// float osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const
+	static int _bind_public_getThrowScale(lua_State *L) {
+		if (!_lg_typecheck_public_getThrowScale(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const function, expected prototype:\nfloat osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const\nClass arguments details:\n");
+		}
+
+		double eventTimeDelta=(double)lua_tonumber(L,2);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::public_getThrowScale(const double) const");
+		}
+		float lret = self->public_getThrowScale(eventTimeDelta);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)
+	static int _bind_public_fixVerticalAxis_overload_1(lua_State *L) {
+		if (!_lg_typecheck_public_fixVerticalAxis_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) function, expected prototype:\nvoid osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
+		}
+
+		osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
+		if( !eye_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg eye in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		osg::Vec3d & eye=*eye_ptr;
+		osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,3));
+		if( !rotation_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rotation in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		osg::Quat & rotation=*rotation_ptr;
+		bool disallowFlipOver=(bool)(lua_toboolean(L,4)==1);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool)");
+		}
+		self->public_fixVerticalAxis(eye, rotation, disallowFlipOver);
+
+		return 0;
+	}
+
+	// static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)
+	static int _bind_public_fixVerticalAxis_overload_2(lua_State *L) {
+		if (!_lg_typecheck_public_fixVerticalAxis_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 80263306\narg 2 ID = 92303202\n");
+		}
+
+		osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,1));
+		if( !rotation_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rotation in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		osg::Quat & rotation=*rotation_ptr;
+		const osg::Vec3d* localUp_ptr=(Luna< osg::Vec3d >::check(L,2));
+		if( !localUp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		const osg::Vec3d & localUp=*localUp_ptr;
+		bool disallowFlipOver=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat &, const osg::Vec3d &, bool)");
+		}
+		self->public_fixVerticalAxis(rotation, localUp, disallowFlipOver);
+
+		return 0;
+	}
+
+	// static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)
+	static int _bind_public_fixVerticalAxis_overload_3(lua_State *L) {
+		if (!_lg_typecheck_public_fixVerticalAxis_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\narg 4 ID = 92303202\n");
+		}
+
+		const osg::Vec3d* forward_ptr=(Luna< osg::Vec3d >::check(L,1));
+		if( !forward_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg forward in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		const osg::Vec3d & forward=*forward_ptr;
+		const osg::Vec3d* up_ptr=(Luna< osg::Vec3d >::check(L,2));
+		if( !up_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg up in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		const osg::Vec3d & up=*up_ptr;
+		osg::Vec3d* newUp_ptr=(Luna< osg::Vec3d >::check(L,3));
+		if( !newUp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg newUp in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		osg::Vec3d & newUp=*newUp_ptr;
+		const osg::Vec3d* localUp_ptr=(Luna< osg::Vec3d >::check(L,4));
+		if( !localUp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_fixVerticalAxis function");
+		}
+		const osg::Vec3d & localUp=*localUp_ptr;
+		bool disallowFlipOver=(bool)(lua_toboolean(L,5)==1);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, const osg::Vec3d &, bool)");
+		}
+		self->public_fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
+
+		return 0;
+	}
+
+	// Overload binder for osgGA::StandardManipulator::public_fixVerticalAxis
+	static int _bind_public_fixVerticalAxis(lua_State *L) {
+		if (_lg_typecheck_public_fixVerticalAxis_overload_1(L)) return _bind_public_fixVerticalAxis_overload_1(L);
+		if (_lg_typecheck_public_fixVerticalAxis_overload_2(L)) return _bind_public_fixVerticalAxis_overload_2(L);
+		if (_lg_typecheck_public_fixVerticalAxis_overload_3(L)) return _bind_public_fixVerticalAxis_overload_3(L);
+
+		luaL_error(L, "error in function public_fixVerticalAxis, cannot match any of the overloads for function public_fixVerticalAxis:\n  public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool)\n  public_fixVerticalAxis(osg::Quat &, const osg::Vec3d &, bool)\n  public_fixVerticalAxis(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, const osg::Vec3d &, bool)\n");
+		return 0;
+	}
+
+	// bool osgGA::StandardManipulator::public_getRelativeFlag(int index) const
+	static int _bind_public_getRelativeFlag(lua_State *L) {
+		if (!_lg_typecheck_public_getRelativeFlag(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgGA::StandardManipulator::public_getRelativeFlag(int index) const function, expected prototype:\nbool osgGA::StandardManipulator::public_getRelativeFlag(int index) const\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::public_getRelativeFlag(int) const");
+		}
+		bool lret = self->public_getRelativeFlag(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value)
+	static int _bind_public_setRelativeFlag(lua_State *L) {
+		if (!_lg_typecheck_public_setRelativeFlag(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value) function, expected prototype:\nvoid osgGA::StandardManipulator::public_setRelativeFlag(int index, bool value)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+		bool value=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_setRelativeFlag(int, bool)");
+		}
+		self->public_setRelativeFlag(index, value);
+
+		return 0;
+	}
+
+	// static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))
+	static int _bind_public_rotateYawPitch(lua_State *L) {
+		if (!_lg_typecheck_public_rotateYawPitch(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.)) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))\nClass arguments details:\narg 1 ID = 80263306\narg 4 ID = 92303202\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,1));
+		if( !rotation_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rotation in osgGA::StandardManipulator::public_rotateYawPitch function");
+		}
+		osg::Quat & rotation=*rotation_ptr;
+		double yaw=(double)lua_tonumber(L,2);
+		double pitch=(double)lua_tonumber(L,3);
+		const osg::Vec3d* localUp_ptr=luatop>3 ? (Luna< osg::Vec3d >::check(L,4)) : NULL;
+		if( luatop>3 && !localUp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_rotateYawPitch function");
+		}
+		const osg::Vec3d & localUp=luatop>3 ? *localUp_ptr : osg::Vec3d (0., 0., 0.);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat &, const double, const double, const osg::Vec3d &)");
+		}
+		self->public_rotateYawPitch(rotation, yaw, pitch, localUp);
+
+		return 0;
+	}
+
+	// static int osgGA::StandardManipulator::public_allocateRelativeFlag()
+	static int _bind_public_allocateRelativeFlag(lua_State *L) {
+		if (!_lg_typecheck_public_allocateRelativeFlag(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static int osgGA::StandardManipulator::public_allocateRelativeFlag() function, expected prototype:\nstatic int osgGA::StandardManipulator::public_allocateRelativeFlag()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call static int osgGA::StandardManipulator::public_allocateRelativeFlag()");
+		}
+		int lret = self->public_allocateRelativeFlag();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// std::string osgGA::CameraManipulator::public_getManipulatorName() const
+	static int _bind_public_getManipulatorName(lua_State *L) {
+		if (!_lg_typecheck_public_getManipulatorName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const");
+		}
+		std::string lret = self->public_getManipulatorName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"addMouseEvent",_bind_public_addMouseEvent},
+		{"flushMouseEventStack",_bind_public_flushMouseEventStack},
+		{"getThrowScale",_bind_public_getThrowScale},
+		{"fixVerticalAxis",_bind_public_fixVerticalAxis},
+		{"getRelativeFlag",_bind_public_getRelativeFlag},
+		{"setRelativeFlag",_bind_public_setRelativeFlag},
+		{"rotateYawPitch",_bind_public_rotateYawPitch},
+		{"fixVerticalAxis",_bind_public_fixVerticalAxis},
+		{"fixVerticalAxis",_bind_public_fixVerticalAxis},
+		{"allocateRelativeFlag",_bind_public_allocateRelativeFlag},
+		{"getManipulatorName",_bind_public_getManipulatorName},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

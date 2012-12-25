@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxDataObject(lua_State* L, lua_Table* dum) : wxDataObject(), luna_wrapper_base(L) {};
+	wrapper_wxDataObject(lua_State* L, lua_Table* dum) : wxDataObject(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	void GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const {
 		THROW_IF(!_obj.pushFunction("GetAllFormats"),"No implementation for abstract function wxDataObject::GetAllFormats");
@@ -71,6 +72,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

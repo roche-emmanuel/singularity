@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxTreeListItemComparator(lua_State* L, lua_Table* dum) : wxTreeListItemComparator(), luna_wrapper_base(L) {};
+	wrapper_wxTreeListItemComparator(lua_State* L, lua_Table* dum) : wxTreeListItemComparator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)
 	int Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) {
 		THROW_IF(!_obj.pushFunction("Compare"),"No implementation for abstract function wxTreeListItemComparator::Compare");
@@ -32,6 +33,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxGridCellBoolEditor(lua_State* L, lua_Table* dum) : wxGridCellBoolEditor(), luna_wrapper_base(L) {};
+	wrapper_wxGridCellBoolEditor(lua_State* L, lua_Table* dum) : wxGridCellBoolEditor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxString wxGridCellEditor::GetValue() const
 	wxString GetValue() const {
 		THROW_IF(!_obj.pushFunction("GetValue"),"No implementation for abstract function wxGridCellEditor::GetValue");
@@ -148,6 +149,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

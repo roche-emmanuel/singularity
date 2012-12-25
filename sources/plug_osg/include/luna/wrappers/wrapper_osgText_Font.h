@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_osgText_Font(lua_State* L, lua_Table* dum, osgText::Font::FontImplementation * implementation = 0) : osgText::Font(implementation), luna_wrapper_base(L) {};
+	wrapper_osgText_Font(lua_State* L, lua_Table* dum, osgText::Font::FontImplementation * implementation = 0) : osgText::Font(implementation), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -178,21 +179,127 @@ public:
 
 
 
+	// Protected virtual methods:
 
-// void osgText::Font::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)
-void public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) {
-	return osgText::Font::addGlyph(fontRes, charcode, glyph);
-};
+	// Protected non-virtual methods:
+	// void osgText::Font::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)
+	void public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) {
+		return osgText::Font::addGlyph(fontRes, charcode, glyph);
+	};
 
-// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
-void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
-	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
-};
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
 
-// void osg::Referenced::deleteUsingDeleteHandler() const
-void public_deleteUsingDeleteHandler() const {
-	return osg::Referenced::deleteUsingDeleteHandler();
-};
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_addGlyph(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,17799265) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osgText::Font::public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)
+	static int _bind_public_addGlyph(lua_State *L) {
+		if (!_lg_typecheck_public_addGlyph(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Font::public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) function, expected prototype:\nvoid osgText::Font::public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)\nClass arguments details:\narg 1 ID = 17799265\narg 3 ID = 50169651\n");
+		}
+
+		const osgText::FontResolution* fontRes_ptr=(Luna< osgText::FontResolution >::check(L,2));
+		if( !fontRes_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fontRes in osgText::Font::public_addGlyph function");
+		}
+		const osgText::FontResolution & fontRes=*fontRes_ptr;
+		unsigned int charcode=(unsigned int)lua_tointeger(L,3);
+		osgText::Glyph* glyph=(Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,4));
+
+		wrapper_osgText_Font* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Font::public_addGlyph(const osgText::FontResolution &, unsigned int, osgText::Glyph *)");
+		}
+		self->public_addGlyph(fontRes, charcode, glyph);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgText_Font* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgText_Font* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"addGlyph",_bind_public_addGlyph},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

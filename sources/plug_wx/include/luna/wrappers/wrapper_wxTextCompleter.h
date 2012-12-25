@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// bool wxTextCompleter::Start(const wxString & prefix)
 	bool Start(const wxString & prefix) {
 		THROW_IF(!_obj.pushFunction("Start"),"No implementation for abstract function wxTextCompleter::Start");
@@ -34,6 +35,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

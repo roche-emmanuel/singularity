@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxFileDropTarget(lua_State* L, lua_Table* dum) : wxFileDropTarget(), luna_wrapper_base(L) {};
+	wrapper_wxFileDropTarget(lua_State* L, lua_Table* dum) : wxFileDropTarget(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// bool wxDropTarget::GetData()
 	bool GetData() {
 		THROW_IF(!_obj.pushFunction("GetData"),"No implementation for abstract function wxDropTarget::GetData");
@@ -90,6 +91,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -19,9 +19,21 @@ public:
 		}
 	};
 	
-	wrapper_wxPageSetupDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxPageSetupDialogData * data = NULL) : wxPageSetupDialog(parent, data), luna_wrapper_base(L) {};
+	wrapper_wxPageSetupDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxPageSetupDialogData * data = NULL) : wxPageSetupDialog(parent, data), luna_wrapper_base(L) { register_protected_methods(L); };
+
+	// Public virtual methods:
 
 
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

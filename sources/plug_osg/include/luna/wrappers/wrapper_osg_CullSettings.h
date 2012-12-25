@@ -19,10 +19,11 @@ public:
 		}
 	};
 	
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) : osg::CullSettings(), luna_wrapper_base(L) {};
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), luna_wrapper_base(L) {};
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), luna_wrapper_base(L) {};
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) : osg::CullSettings(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
 		if(_obj.pushFunction("setDefaults")) {
@@ -55,6 +56,16 @@ public:
 
 
 
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

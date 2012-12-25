@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	wxColour GetSelectedTextColour(const wxColour & clr) {
 		THROW_IF(!_obj.pushFunction("GetSelectedTextColour"),"No implementation for abstract function wxHtmlRenderingStyle::GetSelectedTextColour");
@@ -35,6 +36,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

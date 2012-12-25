@@ -19,30 +19,31 @@ public:
 		}
 	};
 	
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum) : osg::Uniform(), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, osg::Uniform::Type type, const std::string & name, int numElements = 1) : osg::Uniform(type, name, numElements), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Uniform(rhs, copyop), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, float f) : osg::Uniform(name, f), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i) : osg::Uniform(name, i), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i) : osg::Uniform(name, i), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b) : osg::Uniform(name, b), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec2f & v2) : osg::Uniform(name, v2), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec3f & v3) : osg::Uniform(name, v3), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec4f & v4) : osg::Uniform(name, v4), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2 & m2) : osg::Uniform(name, m2), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3 & m3) : osg::Uniform(name, m3), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixf & m4) : osg::Uniform(name, m4), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixd & m4) : osg::Uniform(name, m4), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1) : osg::Uniform(name, i0, i1), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2) : osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2, int i3) : osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1) : osg::Uniform(name, i0, i1), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2) : osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3) : osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1) : osg::Uniform(name, b0, b1), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2) : osg::Uniform(name, b0, b1, b2), luna_wrapper_base(L) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2, bool b3) : osg::Uniform(name, b0, b1, b2, b3), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum) : osg::Uniform(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, osg::Uniform::Type type, const std::string & name, int numElements = 1) : osg::Uniform(type, name, numElements), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Uniform(rhs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, float f) : osg::Uniform(name, f), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i) : osg::Uniform(name, i), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i) : osg::Uniform(name, i), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b) : osg::Uniform(name, b), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec2f & v2) : osg::Uniform(name, v2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec3f & v3) : osg::Uniform(name, v3), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec4f & v4) : osg::Uniform(name, v4), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2 & m2) : osg::Uniform(name, m2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3 & m3) : osg::Uniform(name, m3), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixf & m4) : osg::Uniform(name, m4), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixd & m4) : osg::Uniform(name, m4), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1) : osg::Uniform(name, i0, i1), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2) : osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2, int i3) : osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1) : osg::Uniform(name, i0, i1), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2) : osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3) : osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1) : osg::Uniform(name, b0, b1), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2) : osg::Uniform(name, b0, b1, b2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2, bool b3) : osg::Uniform(name, b0, b1, b2, b3), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
@@ -169,42 +170,245 @@ public:
 
 
 
+	// Protected virtual methods:
 
-// bool osg::Uniform::isCompatibleType(osg::Uniform::Type t) const
-bool public_isCompatibleType(osg::Uniform::Type t) const {
-	return osg::Uniform::isCompatibleType(t);
-};
+	// Protected non-virtual methods:
+	// bool osg::Uniform::isCompatibleType(osg::Uniform::Type t) const
+	bool public_isCompatibleType(osg::Uniform::Type t) const {
+		return osg::Uniform::isCompatibleType(t);
+	};
 
-// bool osg::Uniform::isScalar() const
-bool public_isScalar() const {
-	return osg::Uniform::isScalar();
-};
+	// bool osg::Uniform::isScalar() const
+	bool public_isScalar() const {
+		return osg::Uniform::isScalar();
+	};
 
-// void osg::Uniform::allocateDataArray()
-void public_allocateDataArray() {
-	return osg::Uniform::allocateDataArray();
-};
+	// void osg::Uniform::allocateDataArray()
+	void public_allocateDataArray() {
+		return osg::Uniform::allocateDataArray();
+	};
 
-// void osg::Uniform::addParent(osg::StateSet * object)
-void public_addParent(osg::StateSet * object) {
-	return osg::Uniform::addParent(object);
-};
+	// void osg::Uniform::addParent(osg::StateSet * object)
+	void public_addParent(osg::StateSet * object) {
+		return osg::Uniform::addParent(object);
+	};
 
-// void osg::Uniform::removeParent(osg::StateSet * object)
-void public_removeParent(osg::StateSet * object) {
-	return osg::Uniform::removeParent(object);
-};
+	// void osg::Uniform::removeParent(osg::StateSet * object)
+	void public_removeParent(osg::StateSet * object) {
+		return osg::Uniform::removeParent(object);
+	};
 
-// osg::Uniform & osg::Uniform::operator=(const osg::Uniform & arg1)
-// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
-void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
-	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
-};
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
 
-// void osg::Referenced::deleteUsingDeleteHandler() const
-void public_deleteUsingDeleteHandler() const {
-	return osg::Referenced::deleteUsingDeleteHandler();
-};
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_isCompatibleType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_isScalar(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_allocateDataArray(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_addParent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_removeParent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const
+	static int _bind_public_isCompatibleType(lua_State *L) {
+		if (!_lg_typecheck_public_isCompatibleType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const function, expected prototype:\nbool osg::Uniform::public_isCompatibleType(osg::Uniform::Type t) const\nClass arguments details:\n");
+		}
+
+		osg::Uniform::Type t=(osg::Uniform::Type)lua_tointeger(L,2);
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type) const");
+		}
+		bool lret = self->public_isCompatibleType(t);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Uniform::public_isScalar() const
+	static int _bind_public_isScalar(lua_State *L) {
+		if (!_lg_typecheck_public_isScalar(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Uniform::public_isScalar() const function, expected prototype:\nbool osg::Uniform::public_isScalar() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isScalar() const");
+		}
+		bool lret = self->public_isScalar();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::Uniform::public_allocateDataArray()
+	static int _bind_public_allocateDataArray(lua_State *L) {
+		if (!_lg_typecheck_public_allocateDataArray(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_allocateDataArray() function, expected prototype:\nvoid osg::Uniform::public_allocateDataArray()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_allocateDataArray()");
+		}
+		self->public_allocateDataArray();
+
+		return 0;
+	}
+
+	// void osg::Uniform::public_addParent(osg::StateSet * object)
+	static int _bind_public_addParent(lua_State *L) {
+		if (!_lg_typecheck_public_addParent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_addParent(osg::StateSet * object) function, expected prototype:\nvoid osg::Uniform::public_addParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_addParent(osg::StateSet *)");
+		}
+		self->public_addParent(object);
+
+		return 0;
+	}
+
+	// void osg::Uniform::public_removeParent(osg::StateSet * object)
+	static int _bind_public_removeParent(lua_State *L) {
+		if (!_lg_typecheck_public_removeParent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::public_removeParent(osg::StateSet * object) function, expected prototype:\nvoid osg::Uniform::public_removeParent(osg::StateSet * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_removeParent(osg::StateSet *)");
+		}
+		self->public_removeParent(object);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"isCompatibleType",_bind_public_isCompatibleType},
+		{"isScalar",_bind_public_isScalar},
+		{"allocateDataArray",_bind_public_allocateDataArray},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

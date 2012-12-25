@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(title, renderer, model_column, width, align, flags), luna_wrapper_base(L) {};
-	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(bitmap, renderer, model_column, width, align, flags), luna_wrapper_base(L) {};
+	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(title, renderer, model_column, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(bitmap, renderer, model_column, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {
 		THROW_IF(!_obj.pushFunction("GetTitle"),"No implementation for abstract function wxHeaderColumn::GetTitle");
@@ -196,6 +197,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

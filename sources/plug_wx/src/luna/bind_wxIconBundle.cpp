@@ -87,7 +87,7 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxInputStream >(L,1))) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
@@ -96,7 +96,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIcon >(L,1))) ) return false;
 		return true;
 	}
 
@@ -104,7 +104,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxIconBundle* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIconBundle >(L,1))) ) return false;
 		return true;
 	}
 
@@ -131,7 +131,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxInputStream >(L,2))) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -141,7 +141,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIcon >(L,2))) ) return false;
 		return true;
 	}
 
@@ -150,7 +150,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxIconBundle* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIconBundle >(L,2))) ) return false;
 		return true;
 	}
 
@@ -170,7 +170,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxInputStream >(L,2))) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -179,7 +179,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIcon >(L,2))) ) return false;
 		return true;
 	}
 
@@ -187,7 +187,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		return true;
 	}
 

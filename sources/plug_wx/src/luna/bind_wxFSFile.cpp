@@ -71,12 +71,12 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxInputStream >(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,57497519) ) return false;
-		if( (!dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,5))) ) return false;
+		if( (!(Luna< wxDateTime >::check(L,5))) ) return false;
 		return true;
 	}
 
@@ -85,12 +85,12 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxInputStream >(L,2)) ) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( lua_isstring(L,5)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,57497519) ) return false;
-		if( (!dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,6))) ) return false;
+		if( (!(Luna< wxDateTime >::check(L,6))) ) return false;
 		return true;
 	}
 

@@ -104,14 +104,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_generateMap(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>2 ) return false;
-
-		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -218,27 +210,6 @@ public:
 		return 0;
 	}
 
-	// void osgUtil::CubeMapGenerator::generateMap(bool use_osg_system = true)
-	static int _bind_generateMap(lua_State *L) {
-		if (!_lg_typecheck_generateMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::CubeMapGenerator::generateMap(bool use_osg_system = true) function, expected prototype:\nvoid osgUtil::CubeMapGenerator::generateMap(bool use_osg_system = true)\nClass arguments details:\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		bool use_osg_system=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-
-		osgUtil::CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::generateMap(bool)");
-		}
-		self->generateMap(use_osg_system);
-
-		return 0;
-	}
-
 
 	// Operator binds:
 
@@ -264,7 +235,6 @@ const int LunaTraits< osgUtil::CubeMapGenerator >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgUtil::CubeMapGenerator >::methods[] = {
 	{"getImage", &luna_wrapper_osgUtil_CubeMapGenerator::_bind_getImage},
-	{"generateMap", &luna_wrapper_osgUtil_CubeMapGenerator::_bind_generateMap},
 	{"__eq", &luna_wrapper_osgUtil_CubeMapGenerator::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_CubeMapGenerator::_bind_getTable},
 	{0,0}

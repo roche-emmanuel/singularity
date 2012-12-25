@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxRibbonPanel(lua_State* L, lua_Table* dum) : wxRibbonPanel(), luna_wrapper_base(L) {};
-	wrapper_wxRibbonPanel(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & minimised_icon = wxNullBitmap, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxRIBBON_PANEL_DEFAULT_STYLE) : wxRibbonPanel(parent, id, label, minimised_icon, pos, size, style), luna_wrapper_base(L) {};
+	wrapper_wxRibbonPanel(lua_State* L, lua_Table* dum) : wxRibbonPanel(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxRibbonPanel(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & minimised_icon = wxNullBitmap, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxRIBBON_PANEL_DEFAULT_STYLE) : wxRibbonPanel(parent, id, label, minimised_icon, pos, size, style), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1039,6 +1040,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1157,6 +1159,16 @@ protected:
 		}
 
 		return wxRibbonPanel::DoGetNextLargerSize(direction, relative_to);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

@@ -275,6 +275,7 @@ function Class:isValidForWrapping()
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
     	and not self:isTemplated()
+		and self:getLuaName()
     	and not self:containsFunctionArg()
     	and not self:getName():find("~")
     	and not im:ignoreFunction(self))
@@ -373,10 +374,17 @@ function Class:isOverloaded()
 	if self._isOverloaded == nil then
 	-- find the overloads in the parent holder:
 	self._overloads = Set();
-	local list = self:isConstructor() and self:getParent():getValidPublicConstructors() 
-		or self:isOperator() and self:getParent():getValidPublicOperators()
-		or self:getParent():getValidPublicFunctions()
 	
+	local protection = self:isPublic() and "Public" or "Protected"
+	
+	--local list = self:isConstructor() and self:getParent():getValidPublicConstructors() 
+	--	or self:isOperator() and self:getParent():getValidPublicOperators()
+	--	or self:getParent():getValidPublicFunctions()
+	
+	local list = self:isConstructor() and self:getParent():getFunctions{"Valid","Constructor",protection} 
+		or self:isOperator() and self:getParent():getFunctions{"Valid","Operator",protection}
+		or self:getParent():getFunctions{"Valid","Method",protection}
+
 	local thisname = self:getLuaName() -- retrieve the lua name as this may make a difference for operator-()
 	 
 	for _,v in list:sequence() do

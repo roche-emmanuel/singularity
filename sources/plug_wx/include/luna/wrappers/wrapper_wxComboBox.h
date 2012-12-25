@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxComboBox(lua_State* L, lua_Table* dum) : wxComboBox(), luna_wrapper_base(L) {};
-	wrapper_wxComboBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) : wxComboBox(parent, id, value, pos, size, choices, style, validator, name), luna_wrapper_base(L) {};
+	wrapper_wxComboBox(lua_State* L, lua_Table* dum) : wxComboBox(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxComboBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) : wxComboBox(parent, id, value, pos, size, choices, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1396,6 +1397,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1492,6 +1494,16 @@ protected:
 		}
 
 		return wxComboBox::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

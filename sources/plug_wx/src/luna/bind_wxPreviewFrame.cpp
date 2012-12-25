@@ -849,11 +849,11 @@ public:
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxSize >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
 		return true;
 	}
 

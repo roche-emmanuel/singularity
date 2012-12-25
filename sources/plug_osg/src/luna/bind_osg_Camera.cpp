@@ -676,18 +676,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getBufferAttachmentMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getBufferAttachmentMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setImplicitBufferAttachmentMask(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
@@ -2928,57 +2916,6 @@ public:
 		return 0;
 	}
 
-	// osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap()
-	static int _bind_getBufferAttachmentMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getBufferAttachmentMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap() function, expected prototype:\nosg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap()\nClass arguments details:\n");
-		}
-
-
-		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap()");
-		}
-		const osg::Camera::BufferAttachmentMap* lret = &self->getBufferAttachmentMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Camera::BufferAttachmentMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap() const
-	static int _bind_getBufferAttachmentMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getBufferAttachmentMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap() const function, expected prototype:\nconst osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap() const\nClass arguments details:\n");
-		}
-
-
-		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera::BufferAttachmentMap & osg::Camera::getBufferAttachmentMap() const");
-		}
-		const osg::Camera::BufferAttachmentMap* lret = &self->getBufferAttachmentMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Camera::BufferAttachmentMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::Camera::getBufferAttachmentMap
-	static int _bind_getBufferAttachmentMap(lua_State *L) {
-		if (_lg_typecheck_getBufferAttachmentMap_overload_1(L)) return _bind_getBufferAttachmentMap_overload_1(L);
-		if (_lg_typecheck_getBufferAttachmentMap_overload_2(L)) return _bind_getBufferAttachmentMap_overload_2(L);
-
-		luaL_error(L, "error in function getBufferAttachmentMap, cannot match any of the overloads for function getBufferAttachmentMap:\n  getBufferAttachmentMap()\n  getBufferAttachmentMap()\n");
-		return 0;
-	}
-
 	// void osg::Camera::setImplicitBufferAttachmentMask(int renderMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT, int resolveMask = osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT)
 	static int _bind_setImplicitBufferAttachmentMask(lua_State *L) {
 		if (!_lg_typecheck_setImplicitBufferAttachmentMask(L)) {
@@ -4576,7 +4513,6 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"getReadBuffer", &luna_wrapper_osg_Camera::_bind_getReadBuffer},
 	{"attach", &luna_wrapper_osg_Camera::_bind_attach},
 	{"detach", &luna_wrapper_osg_Camera::_bind_detach},
-	{"getBufferAttachmentMap", &luna_wrapper_osg_Camera::_bind_getBufferAttachmentMap},
 	{"setImplicitBufferAttachmentMask", &luna_wrapper_osg_Camera::_bind_setImplicitBufferAttachmentMask},
 	{"setImplicitBufferAttachmentRenderMask", &luna_wrapper_osg_Camera::_bind_setImplicitBufferAttachmentRenderMask},
 	{"setImplicitBufferAttachmentResolveMask", &luna_wrapper_osg_Camera::_bind_setImplicitBufferAttachmentResolveMask},

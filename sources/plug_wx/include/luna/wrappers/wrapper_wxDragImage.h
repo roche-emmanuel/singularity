@@ -19,13 +19,14 @@ public:
 		}
 	};
 	
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum) : wxDragImage(), luna_wrapper_base(L) {};
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) {};
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) {};
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(text, cursor, cursorHotspot), luna_wrapper_base(L) {};
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxTreeCtrl & treeCtrl, wxTreeItemId & id) : wxDragImage(treeCtrl, id), luna_wrapper_base(L) {};
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxListCtrl & listCtrl, long id) : wxDragImage(listCtrl, id), luna_wrapper_base(L) {};
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum) : wxDragImage(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(text, cursor, cursorHotspot), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxTreeCtrl & treeCtrl, wxTreeItemId & id) : wxDragImage(treeCtrl, id), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxListCtrl & listCtrl, long id) : wxDragImage(listCtrl, id), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -37,6 +38,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -54,6 +56,16 @@ protected:
 		}
 
 		return wxDragImage::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

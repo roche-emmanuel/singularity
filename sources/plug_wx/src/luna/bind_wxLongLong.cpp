@@ -132,7 +132,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13282555) ) return false;
-		if( (!dynamic_cast< wxLongLong* >(Luna< wxLongLong >::check(L,2))) ) return false;
+		if( (!(Luna< wxLongLong >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -140,7 +140,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13282555) ) return false;
-		if( (!dynamic_cast< wxLongLong* >(Luna< wxLongLong >::check(L,2))) ) return false;
+		if( (!(Luna< wxLongLong >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -148,7 +148,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13282555) ) return false;
-		if( (!dynamic_cast< wxLongLong* >(Luna< wxLongLong >::check(L,2))) ) return false;
+		if( (!(Luna< wxLongLong >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -156,7 +156,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13282555) ) return false;
-		if( (!dynamic_cast< wxLongLong* >(Luna< wxLongLong >::check(L,2))) ) return false;
+		if( (!(Luna< wxLongLong >::check(L,2))) ) return false;
 		return true;
 	}
 

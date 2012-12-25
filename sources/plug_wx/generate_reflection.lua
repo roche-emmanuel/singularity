@@ -239,6 +239,11 @@ ReflectionGenerator.generate{
 		"wxFFile",
 		"wxLL",
 		"wxULL",
+		"SendDestroyEvent",
+		"SafelyProcessEvent",
+		"ProcessPendingEvents",
+		"ProcessThreadEvent",
+		"AllocExclusive",
 	},
 	ignoreWrappers={
 		"wxBitmapComboBox::IsEmpty",

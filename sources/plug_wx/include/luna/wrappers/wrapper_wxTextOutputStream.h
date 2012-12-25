@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// void wxTextOutputStream::WriteDouble(double f)
 	void WriteDouble(double f) {
 		if(_obj.pushFunction("WriteDouble")) {
@@ -41,6 +42,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

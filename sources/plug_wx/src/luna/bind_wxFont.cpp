@@ -55,7 +55,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxFont* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxFont >(L,1))) ) return false;
 		return true;
 	}
 
@@ -78,7 +78,7 @@ public:
 		if( luatop<4 || luatop>7 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,1))) ) return false;
+		if( (!(Luna< wxSize >::check(L,1))) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -99,7 +99,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26059272) ) return false;
-		if( (!dynamic_cast< wxNativeFontInfo* >(Luna< wxNativeFontInfo >::check(L,1))) ) return false;
+		if( (!(Luna< wxNativeFontInfo >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -115,7 +115,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxFont >(L,2))) ) return false;
 		return true;
 	}
 
@@ -140,7 +140,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -163,7 +163,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,26059272) ) return false;
-		if( (!dynamic_cast< wxNativeFontInfo* >(Luna< wxNativeFontInfo >::check(L,2))) ) return false;
+		if( (!(Luna< wxNativeFontInfo >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -353,7 +353,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,26059272) ) return false;
-		if( (!dynamic_cast< wxNativeFontInfo* >(Luna< wxNativeFontInfo >::check(L,2))) ) return false;
+		if( (!(Luna< wxNativeFontInfo >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -458,7 +458,7 @@ public:
 		if( luatop<4 || luatop>7 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,1))) ) return false;
+		if( (!(Luna< wxSize >::check(L,1))) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -473,7 +473,7 @@ public:
 		if( luatop<2 || luatop>5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,1))) ) return false;
+		if( (!(Luna< wxSize >::check(L,1))) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
@@ -485,7 +485,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26059272) ) return false;
-		if( (!dynamic_cast< wxNativeFontInfo* >(Luna< wxNativeFontInfo >::check(L,1))) ) return false;
+		if( (!(Luna< wxNativeFontInfo >::check(L,1))) ) return false;
 		return true;
 	}
 

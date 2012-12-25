@@ -102,18 +102,18 @@ public:
 		if( luatop<7 || luatop>9 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( (!(Luna< wxSize >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
-		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,6))) ) return false;
+		if( (!(Luna< wxArrayString >::check(L,6))) ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
-		if( luatop>7 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8))) ) return false;
+		if( luatop>7 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,8))) ) return false;
 		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
 		return true;
 	}
@@ -131,18 +131,18 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,2)) ) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,5))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,6))) ) return false;
+		if( (!(Luna< wxSize >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
-		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,7))) ) return false;
+		if( (!(Luna< wxArrayString >::check(L,7))) ) return false;
 		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
-		if( luatop>8 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,9))) ) return false;
+		if( luatop>8 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,9))) ) return false;
 		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
 		return true;
 	}
@@ -155,7 +155,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxBitmap >(L,3))) ) return false;
 		return true;
 	}
 
@@ -164,7 +164,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxBitmap >(L,3))) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -174,9 +174,9 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxBitmap >(L,3))) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50457573)) ) return false;
-		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxClientData* >(Luna< wxClientData >::check(L,4)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !(Luna< wxClientData >::check(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -488,11 +488,11 @@ public:
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxSize >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
 		return true;
 	}
 

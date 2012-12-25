@@ -77,7 +77,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxPGCell >(L,1))) ) return false;
 		return true;
 	}
 
@@ -87,11 +87,11 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( luatop>1 && (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< wxObject >::checkSubType< wxBitmap >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxColour >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxColour >(L,4))) ) return false;
 		return true;
 	}
 
@@ -107,7 +107,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxPGCell >(L,2))) ) return false;
 		return true;
 	}
 
@@ -118,11 +118,11 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxBitmap >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxColour >(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
-		if( luatop>4 && (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,5))) ) return false;
+		if( luatop>4 && (!(Luna< wxObject >::checkSubType< wxColour >(L,5))) ) return false;
 		return true;
 	}
 

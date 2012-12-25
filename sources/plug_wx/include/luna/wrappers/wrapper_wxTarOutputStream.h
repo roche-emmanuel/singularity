@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// bool wxTarOutputStream::Close()
 	bool Close() {
 		if(_obj.pushFunction("Close")) {
@@ -62,6 +63,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

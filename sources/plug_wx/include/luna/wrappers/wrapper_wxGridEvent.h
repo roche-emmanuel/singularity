@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) : wxGridEvent(), luna_wrapper_base(L) {};
-	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), luna_wrapper_base(L) {};
+	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) : wxGridEvent(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -66,6 +67,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -83,6 +85,16 @@ protected:
 		}
 
 		return wxGridEvent::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

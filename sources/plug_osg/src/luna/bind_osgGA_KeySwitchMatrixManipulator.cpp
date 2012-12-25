@@ -104,18 +104,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getKeyManipMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getKeyManipMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_getCurrentMatrixManipulator_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -584,57 +572,6 @@ public:
 		}
 		self->selectMatrixManipulator(num);
 
-		return 0;
-	}
-
-	// osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap()
-	static int _bind_getKeyManipMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getKeyManipMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() function, expected prototype:\nosgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap()\nClass arguments details:\n");
-		}
-
-
-		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap()");
-		}
-		const osgGA::KeySwitchMatrixManipulator::KeyManipMap* lret = &self->getKeyManipMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const
-	static int _bind_getKeyManipMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getKeyManipMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const function, expected prototype:\nconst osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const\nClass arguments details:\n");
-		}
-
-
-		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::KeySwitchMatrixManipulator::KeyManipMap & osgGA::KeySwitchMatrixManipulator::getKeyManipMap() const");
-		}
-		const osgGA::KeySwitchMatrixManipulator::KeyManipMap* lret = &self->getKeyManipMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osgGA::KeySwitchMatrixManipulator::getKeyManipMap
-	static int _bind_getKeyManipMap(lua_State *L) {
-		if (_lg_typecheck_getKeyManipMap_overload_1(L)) return _bind_getKeyManipMap_overload_1(L);
-		if (_lg_typecheck_getKeyManipMap_overload_2(L)) return _bind_getKeyManipMap_overload_2(L);
-
-		luaL_error(L, "error in function getKeyManipMap, cannot match any of the overloads for function getKeyManipMap:\n  getKeyManipMap()\n  getKeyManipMap()\n");
 		return 0;
 	}
 
@@ -1905,7 +1842,6 @@ luna_RegType LunaTraits< osgGA::KeySwitchMatrixManipulator >::methods[] = {
 	{"addNumberedMatrixManipulator", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_addNumberedMatrixManipulator},
 	{"getNumMatrixManipulators", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_getNumMatrixManipulators},
 	{"selectMatrixManipulator", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_selectMatrixManipulator},
-	{"getKeyManipMap", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_getKeyManipMap},
 	{"getCurrentMatrixManipulator", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_getCurrentMatrixManipulator},
 	{"getMatrixManipulatorWithIndex", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_getMatrixManipulatorWithIndex},
 	{"getMatrixManipulatorWithKey", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_getMatrixManipulatorWithKey},

@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// void wxRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawCheckBox"),"No implementation for abstract function wxRendererNative::DrawCheckBox");
@@ -222,6 +223,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

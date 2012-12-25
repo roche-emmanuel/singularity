@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxSashWindow(lua_State* L, lua_Table* dum) : wxSashWindow(), luna_wrapper_base(L) {};
-	wrapper_wxSashWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = "sashWindow") : wxSashWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
+	wrapper_wxSashWindow(lua_State* L, lua_Table* dum) : wxSashWindow(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxSashWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = "sashWindow") : wxSashWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1077,6 +1078,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1173,6 +1175,16 @@ protected:
 		}
 
 		return wxSashWindow::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

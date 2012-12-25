@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// wxConfigBase * wxAppTraits::CreateConfig()
 	wxConfigBase * CreateConfig() {
 		if(_obj.pushFunction("CreateConfig")) {
@@ -102,6 +103,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

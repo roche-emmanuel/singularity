@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_osg_ValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueVisitor(), luna_wrapper_base(L) {};
+	wrapper_osg_ValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::ValueVisitor::apply(signed char & arg1)
 	void apply(signed char & arg1) {
 		if(_obj.pushFunction("apply")) {
@@ -243,6 +244,16 @@ public:
 
 
 
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

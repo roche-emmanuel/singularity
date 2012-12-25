@@ -19,10 +19,11 @@ public:
 		}
 	};
 	
-	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(width, height, pos, span, flag, border, userData), luna_wrapper_base(L) {};
-	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(window, pos, span, flag, border, userData), luna_wrapper_base(L) {};
-	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(sizer, pos, span, flag, border, userData), luna_wrapper_base(L) {};
+	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(width, height, pos, span, flag, border, userData), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(window, pos, span, flag, border, userData), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(sizer, pos, span, flag, border, userData), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -81,6 +82,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -98,6 +100,16 @@ protected:
 		}
 
 		return wxGBSizerItem::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

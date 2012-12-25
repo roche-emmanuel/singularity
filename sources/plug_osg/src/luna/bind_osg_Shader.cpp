@@ -263,18 +263,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getCodeInjectionMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getCodeInjectionMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -959,57 +947,6 @@ public:
 		return 0;
 	}
 
-	// osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()
-	static int _bind_getCodeInjectionMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getCodeInjectionMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() function, expected prototype:\nosg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()\nClass arguments details:\n");
-		}
-
-
-		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()");
-		}
-		const osg::Shader::CodeInjectionMap* lret = &self->getCodeInjectionMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Shader::CodeInjectionMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const
-	static int _bind_getCodeInjectionMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getCodeInjectionMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const function, expected prototype:\nconst osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const\nClass arguments details:\n");
-		}
-
-
-		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const");
-		}
-		const osg::Shader::CodeInjectionMap* lret = &self->getCodeInjectionMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Shader::CodeInjectionMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::Shader::getCodeInjectionMap
-	static int _bind_getCodeInjectionMap(lua_State *L) {
-		if (_lg_typecheck_getCodeInjectionMap_overload_1(L)) return _bind_getCodeInjectionMap_overload_1(L);
-		if (_lg_typecheck_getCodeInjectionMap_overload_2(L)) return _bind_getCodeInjectionMap_overload_2(L);
-
-		luaL_error(L, "error in function getCodeInjectionMap, cannot match any of the overloads for function getCodeInjectionMap:\n  getCodeInjectionMap()\n  getCodeInjectionMap()\n");
-		return 0;
-	}
-
 	// void osg::Shader::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
@@ -1506,7 +1443,6 @@ luna_RegType LunaTraits< osg::Shader >::methods[] = {
 	{"getShaderBinary", &luna_wrapper_osg_Shader::_bind_getShaderBinary},
 	{"loadShaderSourceFromFile", &luna_wrapper_osg_Shader::_bind_loadShaderSourceFromFile},
 	{"addCodeInjection", &luna_wrapper_osg_Shader::_bind_addCodeInjection},
-	{"getCodeInjectionMap", &luna_wrapper_osg_Shader::_bind_getCodeInjectionMap},
 	{"releaseGLObjects", &luna_wrapper_osg_Shader::_bind_releaseGLObjects},
 	{"dirtyShader", &luna_wrapper_osg_Shader::_bind_dirtyShader},
 	{"compileShader", &luna_wrapper_osg_Shader::_bind_compileShader},

@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_osg_TransferFunction1D(lua_State* L, lua_Table* dum) : osg::TransferFunction1D(), luna_wrapper_base(L) {};
-	wrapper_osg_TransferFunction1D(lua_State* L, lua_Table* dum, const osg::TransferFunction1D & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction1D(tf, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_TransferFunction1D(lua_State* L, lua_Table* dum) : osg::TransferFunction1D(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_TransferFunction1D(lua_State* L, lua_Table* dum, const osg::TransferFunction1D & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction1D(tf, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -128,21 +129,133 @@ public:
 
 
 
+	// Protected virtual methods:
 
-// void osg::TransferFunction1D::assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c)
-void public_assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c) {
-	return osg::TransferFunction1D::assignToImage(lower_v, lower_c, upper_v, upper_c);
-};
+	// Protected non-virtual methods:
+	// void osg::TransferFunction1D::assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c)
+	void public_assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c) {
+		return osg::TransferFunction1D::assignToImage(lower_v, lower_c, upper_v, upper_c);
+	};
 
-// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
-void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
-	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
-};
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
 
-// void osg::Referenced::deleteUsingDeleteHandler() const
-void public_deleteUsingDeleteHandler() const {
-	return osg::Referenced::deleteUsingDeleteHandler();
-};
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_assignToImage(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,92303235) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osg::TransferFunction1D::public_assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c)
+	static int _bind_public_assignToImage(lua_State *L) {
+		if (!_lg_typecheck_public_assignToImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TransferFunction1D::public_assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c) function, expected prototype:\nvoid osg::TransferFunction1D::public_assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c)\nClass arguments details:\narg 2 ID = 92303235\narg 4 ID = 92303235\n");
+		}
+
+		float lower_v=(float)lua_tonumber(L,2);
+		const osg::Vec4f* lower_c_ptr=(Luna< osg::Vec4f >::check(L,3));
+		if( !lower_c_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg lower_c in osg::TransferFunction1D::public_assignToImage function");
+		}
+		const osg::Vec4f & lower_c=*lower_c_ptr;
+		float upper_v=(float)lua_tonumber(L,4);
+		const osg::Vec4f* upper_c_ptr=(Luna< osg::Vec4f >::check(L,5));
+		if( !upper_c_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg upper_c in osg::TransferFunction1D::public_assignToImage function");
+		}
+		const osg::Vec4f & upper_c=*upper_c_ptr;
+
+		wrapper_osg_TransferFunction1D* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TransferFunction1D >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TransferFunction1D::public_assignToImage(float, const osg::Vec4f &, float, const osg::Vec4f &)");
+		}
+		self->public_assignToImage(lower_v, lower_c, upper_v, upper_c);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osg_TransferFunction1D* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TransferFunction1D >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_TransferFunction1D* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TransferFunction1D >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"assignToImage",_bind_public_assignToImage},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

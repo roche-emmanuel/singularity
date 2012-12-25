@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum) : osgDB::FieldReader(), luna_wrapper_base(L) {};
-	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum, const osgDB::FieldReader & ic) : osgDB::FieldReader(ic), luna_wrapper_base(L) {};
+	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum) : osgDB::FieldReader(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum, const osgDB::FieldReader & ic) : osgDB::FieldReader(ic), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// bool osgDB::FieldReader::eof() const
 	bool eof() const {
 		if(_obj.pushFunction("eof")) {
@@ -31,18 +32,18 @@ public:
 		return FieldReader::eof();
 	};
 
-	// osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)
-	osgDB::FieldReader & operator=(const osgDB::FieldReader & ic) {
-		if(_obj.pushFunction("operator=")) {
-			_obj.pushArg(&ic);
-			return *(_obj.callFunction<osgDB::FieldReader*>());
-		}
 
-		return FieldReader::operator=(ic);
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
-
-
-
 
 
 };

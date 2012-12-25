@@ -231,19 +231,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setAuthenticationMap(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getAuthenticationMap(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setPluginData(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -937,46 +924,6 @@ public:
 		}
 		osgDB::Options::BuildKdTreesHint lret = self->getBuildKdTreesHint();
 		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// void osgDB::Options::setAuthenticationMap(osgDB::AuthenticationMap * authenticationMap)
-	static int _bind_setAuthenticationMap(lua_State *L) {
-		if (!_lg_typecheck_setAuthenticationMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Options::setAuthenticationMap(osgDB::AuthenticationMap * authenticationMap) function, expected prototype:\nvoid osgDB::Options::setAuthenticationMap(osgDB::AuthenticationMap * authenticationMap)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osgDB::AuthenticationMap* authenticationMap=(Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,2));
-
-		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Options::setAuthenticationMap(osgDB::AuthenticationMap *)");
-		}
-		self->setAuthenticationMap(authenticationMap);
-
-		return 0;
-	}
-
-	// const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const
-	static int _bind_getAuthenticationMap(lua_State *L) {
-		if (!_lg_typecheck_getAuthenticationMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const function, expected prototype:\nconst osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const\nClass arguments details:\n");
-		}
-
-
-		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationMap * osgDB::Options::getAuthenticationMap() const");
-		}
-		const osgDB::AuthenticationMap * lret = self->getAuthenticationMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgDB::AuthenticationMap >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1732,8 +1679,6 @@ luna_RegType LunaTraits< osgDB::Options >::methods[] = {
 	{"getPrecisionHint", &luna_wrapper_osgDB_Options::_bind_getPrecisionHint},
 	{"setBuildKdTreesHint", &luna_wrapper_osgDB_Options::_bind_setBuildKdTreesHint},
 	{"getBuildKdTreesHint", &luna_wrapper_osgDB_Options::_bind_getBuildKdTreesHint},
-	{"setAuthenticationMap", &luna_wrapper_osgDB_Options::_bind_setAuthenticationMap},
-	{"getAuthenticationMap", &luna_wrapper_osgDB_Options::_bind_getAuthenticationMap},
 	{"setPluginData", &luna_wrapper_osgDB_Options::_bind_setPluginData},
 	{"getPluginData", &luna_wrapper_osgDB_Options::_bind_getPluginData},
 	{"removePluginData", &luna_wrapper_osgDB_Options::_bind_removePluginData},

@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, int numberOfFramesToRetainObjects = 0) : osg::DeleteHandler(numberOfFramesToRetainObjects), luna_wrapper_base(L) {};
-	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, const osg::DeleteHandler & arg1) : osg::DeleteHandler(arg1), luna_wrapper_base(L) {};
+	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, int numberOfFramesToRetainObjects = 0) : osg::DeleteHandler(numberOfFramesToRetainObjects), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, const osg::DeleteHandler & arg1) : osg::DeleteHandler(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::DeleteHandler::flush()
 	void flush() {
 		if(_obj.pushFunction("flush")) {
@@ -52,8 +53,17 @@ public:
 
 
 
+	// Protected virtual methods:
 
-// osg::DeleteHandler osg::DeleteHandler::operator=(const osg::DeleteHandler & arg1)
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
+
 
 };
 

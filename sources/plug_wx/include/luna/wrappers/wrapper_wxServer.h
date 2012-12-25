@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), luna_wrapper_base(L) {};
+	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxConnectionBase * wxServer::OnAcceptConnection(const wxString & topic)
 	wxConnectionBase * OnAcceptConnection(const wxString & topic) {
 		if(_obj.pushFunction("OnAcceptConnection")) {
@@ -32,6 +33,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

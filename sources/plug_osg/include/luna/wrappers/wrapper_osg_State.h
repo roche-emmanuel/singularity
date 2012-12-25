@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), luna_wrapper_base(L) {};
+	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::State::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {
 		if(_obj.pushFunction("objectDeleted")) {
@@ -42,136 +43,254 @@ public:
 
 
 
+	// Protected virtual methods:
 
-// void osg::State::setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)
-void public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration) {
-	return osg::State::setUpVertexAttribAlias(alias, location, glName, osgName, declaration);
-};
+	// Protected non-virtual methods:
+	// void osg::State::setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)
+	void public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration) {
+		return osg::State::setUpVertexAttribAlias(alias, location, glName, osgName, declaration);
+	};
 
-// bool osg::State::applyMode(unsigned int mode, bool enabled, osg::State::ModeStack & ms)
-bool public_applyMode(unsigned int mode, bool enabled, osg::State::ModeStack & ms) {
-	return osg::State::applyMode(mode, enabled, ms);
-};
+	// void osg::State::loadModelViewMatrix()
+	void public_loadModelViewMatrix() {
+		return osg::State::loadModelViewMatrix();
+	};
 
-// bool osg::State::applyModeOnTexUnit(unsigned int unit, unsigned int mode, bool enabled, osg::State::ModeStack & ms)
-bool public_applyModeOnTexUnit(unsigned int unit, unsigned int mode, bool enabled, osg::State::ModeStack & ms) {
-	return osg::State::applyModeOnTexUnit(unit, mode, enabled, ms);
-};
+	// bool osg::State::computeSecondaryColorSupported() const
+	bool public_computeSecondaryColorSupported() const {
+		return osg::State::computeSecondaryColorSupported();
+	};
 
-// bool osg::State::applyAttribute(const osg::StateAttribute * attribute, osg::State::AttributeStack & as)
-bool public_applyAttribute(const osg::StateAttribute * attribute, osg::State::AttributeStack & as) {
-	return osg::State::applyAttribute(attribute, as);
-};
+	// bool osg::State::computeFogCoordSupported() const
+	bool public_computeFogCoordSupported() const {
+		return osg::State::computeFogCoordSupported();
+	};
 
-// bool osg::State::applyAttributeOnTexUnit(unsigned int unit, const osg::StateAttribute * attribute, osg::State::AttributeStack & as)
-bool public_applyAttributeOnTexUnit(unsigned int unit, const osg::StateAttribute * attribute, osg::State::AttributeStack & as) {
-	return osg::State::applyAttributeOnTexUnit(unit, attribute, as);
-};
+	// bool osg::State::computeVertexBufferObjectSupported() const
+	bool public_computeVertexBufferObjectSupported() const {
+		return osg::State::computeVertexBufferObjectSupported();
+	};
 
-// bool osg::State::applyGlobalDefaultAttribute(osg::State::AttributeStack & as)
-bool public_applyGlobalDefaultAttribute(osg::State::AttributeStack & as) {
-	return osg::State::applyGlobalDefaultAttribute(as);
-};
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
 
-// bool osg::State::applyGlobalDefaultAttributeOnTexUnit(unsigned int unit, osg::State::AttributeStack & as)
-bool public_applyGlobalDefaultAttributeOnTexUnit(unsigned int unit, osg::State::AttributeStack & as) {
-	return osg::State::applyGlobalDefaultAttributeOnTexUnit(unit, as);
-};
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
 
-// ModeMap & osg::State::getOrCreateTextureModeMap(unsigned int unit)
-ModeMap & public_getOrCreateTextureModeMap(unsigned int unit) {
-	return osg::State::getOrCreateTextureModeMap(unit);
-};
 
-// AttributeMap & osg::State::getOrCreateTextureAttributeMap(unsigned int unit)
-AttributeMap & public_getOrCreateTextureAttributeMap(unsigned int unit) {
-	return osg::State::getOrCreateTextureAttributeMap(unit);
-};
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_setUpVertexAttribAlias(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
 
-// void osg::State::applyModeMap(ModeMap & modeMap)
-void public_applyModeMap(ModeMap & modeMap) {
-	return osg::State::applyModeMap(modeMap);
-};
+		if( !Luna<void>::has_uniqueid(L,2,48453816) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		if( lua_isstring(L,6)==0 ) return false;
+		return true;
+	}
 
-// void osg::State::applyAttributeMap(AttributeMap & attributeMap)
-void public_applyAttributeMap(AttributeMap & attributeMap) {
-	return osg::State::applyAttributeMap(attributeMap);
-};
+	inline static bool _lg_typecheck_public_loadModelViewMatrix(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
 
-// void osg::State::applyUniformMap(UniformMap & uniformMap)
-void public_applyUniformMap(UniformMap & uniformMap) {
-	return osg::State::applyUniformMap(uniformMap);
-};
+		return true;
+	}
 
-// void osg::State::applyModeMapOnTexUnit(unsigned int unit, ModeMap & modeMap)
-void public_applyModeMapOnTexUnit(unsigned int unit, ModeMap & modeMap) {
-	return osg::State::applyModeMapOnTexUnit(unit, modeMap);
-};
+	inline static bool _lg_typecheck_public_computeSecondaryColorSupported(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
 
-// void osg::State::applyAttributeMapOnTexUnit(unsigned int unit, AttributeMap & attributeMap)
-void public_applyAttributeMapOnTexUnit(unsigned int unit, AttributeMap & attributeMap) {
-	return osg::State::applyAttributeMapOnTexUnit(unit, attributeMap);
-};
+		return true;
+	}
 
-// void osg::State::haveAppliedMode(ModeMap & modeMap, unsigned int mode, unsigned int value)
-void public_haveAppliedMode(ModeMap & modeMap, unsigned int mode, unsigned int value) {
-	return osg::State::haveAppliedMode(modeMap, mode, value);
-};
+	inline static bool _lg_typecheck_public_computeFogCoordSupported(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
 
-// void osg::State::haveAppliedMode(ModeMap & modeMap, unsigned int mode)
-void public_haveAppliedMode(ModeMap & modeMap, unsigned int mode) {
-	return osg::State::haveAppliedMode(modeMap, mode);
-};
+		return true;
+	}
 
-// void osg::State::haveAppliedAttribute(AttributeMap & attributeMap, const osg::StateAttribute * attribute)
-void public_haveAppliedAttribute(AttributeMap & attributeMap, const osg::StateAttribute * attribute) {
-	return osg::State::haveAppliedAttribute(attributeMap, attribute);
-};
+	inline static bool _lg_typecheck_public_computeVertexBufferObjectSupported(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
 
-// void osg::State::haveAppliedAttribute(AttributeMap & attributeMap, osg::StateAttribute::Type type, unsigned int member)
-void public_haveAppliedAttribute(AttributeMap & attributeMap, osg::StateAttribute::Type type, unsigned int member) {
-	return osg::State::haveAppliedAttribute(attributeMap, type, member);
-};
+		return true;
+	}
 
-// bool osg::State::getLastAppliedMode(const ModeMap & modeMap, unsigned int mode) const
-bool public_getLastAppliedMode(const ModeMap & modeMap, unsigned int mode) const {
-	return osg::State::getLastAppliedMode(modeMap, mode);
-};
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
 
-// const osg::StateAttribute * osg::State::getLastAppliedAttribute(const AttributeMap & attributeMap, osg::StateAttribute::Type type, unsigned int member) const
-const osg::StateAttribute * public_getLastAppliedAttribute(const AttributeMap & attributeMap, osg::StateAttribute::Type type, unsigned int member) const {
-	return osg::State::getLastAppliedAttribute(attributeMap, type, member);
-};
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
 
-// void osg::State::loadModelViewMatrix()
-void public_loadModelViewMatrix() {
-	return osg::State::loadModelViewMatrix();
-};
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
 
-// bool osg::State::computeSecondaryColorSupported() const
-bool public_computeSecondaryColorSupported() const {
-	return osg::State::computeSecondaryColorSupported();
-};
+		return true;
+	}
 
-// bool osg::State::computeFogCoordSupported() const
-bool public_computeFogCoordSupported() const {
-	return osg::State::computeFogCoordSupported();
-};
 
-// bool osg::State::computeVertexBufferObjectSupported() const
-bool public_computeVertexBufferObjectSupported() const {
-	return osg::State::computeVertexBufferObjectSupported();
-};
+	// Protected non-virtual function binds:
+	// void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)
+	static int _bind_public_setUpVertexAttribAlias(lua_State *L) {
+		if (!_lg_typecheck_public_setUpVertexAttribAlias(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration) function, expected prototype:\nvoid osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)\nClass arguments details:\narg 1 ID = 48453816\n");
+		}
 
-// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
-void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
-	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
-};
+		osg::VertexAttribAlias* alias_ptr=(Luna< osg::VertexAttribAlias >::check(L,2));
+		if( !alias_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg alias in osg::State::public_setUpVertexAttribAlias function");
+		}
+		osg::VertexAttribAlias & alias=*alias_ptr;
+		unsigned int location=(unsigned int)lua_tointeger(L,3);
+		std::string glName(lua_tostring(L,4),lua_objlen(L,4));
+		std::string osgName(lua_tostring(L,5),lua_objlen(L,5));
+		std::string declaration(lua_tostring(L,6),lua_objlen(L,6));
 
-// void osg::Referenced::deleteUsingDeleteHandler() const
-void public_deleteUsingDeleteHandler() const {
-	return osg::Referenced::deleteUsingDeleteHandler();
-};
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::State::public_setUpVertexAttribAlias(osg::VertexAttribAlias &, unsigned int, const std::string, const std::string, const std::string &)");
+		}
+		self->public_setUpVertexAttribAlias(alias, location, glName, osgName, declaration);
+
+		return 0;
+	}
+
+	// void osg::State::public_loadModelViewMatrix()
+	static int _bind_public_loadModelViewMatrix(lua_State *L) {
+		if (!_lg_typecheck_public_loadModelViewMatrix(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::State::public_loadModelViewMatrix() function, expected prototype:\nvoid osg::State::public_loadModelViewMatrix()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::State::public_loadModelViewMatrix()");
+		}
+		self->public_loadModelViewMatrix();
+
+		return 0;
+	}
+
+	// bool osg::State::public_computeSecondaryColorSupported() const
+	static int _bind_public_computeSecondaryColorSupported(lua_State *L) {
+		if (!_lg_typecheck_public_computeSecondaryColorSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeSecondaryColorSupported() const function, expected prototype:\nbool osg::State::public_computeSecondaryColorSupported() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::State::public_computeSecondaryColorSupported() const");
+		}
+		bool lret = self->public_computeSecondaryColorSupported();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::State::public_computeFogCoordSupported() const
+	static int _bind_public_computeFogCoordSupported(lua_State *L) {
+		if (!_lg_typecheck_public_computeFogCoordSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeFogCoordSupported() const function, expected prototype:\nbool osg::State::public_computeFogCoordSupported() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::State::public_computeFogCoordSupported() const");
+		}
+		bool lret = self->public_computeFogCoordSupported();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::State::public_computeVertexBufferObjectSupported() const
+	static int _bind_public_computeVertexBufferObjectSupported(lua_State *L) {
+		if (!_lg_typecheck_public_computeVertexBufferObjectSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::State::public_computeVertexBufferObjectSupported() const function, expected prototype:\nbool osg::State::public_computeVertexBufferObjectSupported() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::State::public_computeVertexBufferObjectSupported() const");
+		}
+		bool lret = self->public_computeVertexBufferObjectSupported();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_State* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"setUpVertexAttribAlias",_bind_public_setUpVertexAttribAlias},
+		{"loadModelViewMatrix",_bind_public_loadModelViewMatrix},
+		{"computeSecondaryColorSupported",_bind_public_computeSecondaryColorSupported},
+		{"computeFogCoordSupported",_bind_public_computeFogCoordSupported},
+		{"computeVertexBufferObjectSupported",_bind_public_computeVertexBufferObjectSupported},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

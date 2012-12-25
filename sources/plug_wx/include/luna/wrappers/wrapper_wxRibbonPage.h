@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum) : wxRibbonPage(), luna_wrapper_base(L) {};
-	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) : wxRibbonPage(parent, id, label, icon, style), luna_wrapper_base(L) {};
+	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum) : wxRibbonPage(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) : wxRibbonPage(parent, id, label, icon, style), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1039,6 +1040,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1157,6 +1159,16 @@ protected:
 		}
 
 		return wxRibbonPage::DoGetNextLargerSize(direction, relative_to);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

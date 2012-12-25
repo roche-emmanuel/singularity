@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxAuiDefaultToolBarArt(lua_State* L, lua_Table* dum) : wxAuiDefaultToolBarArt(), luna_wrapper_base(L) {};
+	wrapper_wxAuiDefaultToolBarArt(lua_State* L, lua_Table* dum) : wxAuiDefaultToolBarArt(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxAuiToolBarArt * wxAuiDefaultToolBarArt::Clone()
 	wxAuiToolBarArt * Clone() {
 		if(_obj.pushFunction("Clone")) {
@@ -245,6 +246,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

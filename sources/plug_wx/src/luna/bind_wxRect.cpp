@@ -74,9 +74,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,1))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -84,9 +84,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,1))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -94,7 +94,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,1))) ) return false;
+		if( (!(Luna< wxSize >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -130,7 +130,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -138,7 +138,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
-		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		if( (!(Luna< wxRect >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -154,7 +154,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -269,7 +269,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
-		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (!(Luna< wxSize >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -292,7 +292,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
-		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		if( (!(Luna< wxRect >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -300,7 +300,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
-		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		if( (!(Luna< wxRect >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -329,7 +329,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
-		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
+		if( (!(Luna< wxPoint >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -372,7 +372,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
-		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		if( (!(Luna< wxRect >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -380,7 +380,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
-		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		if( (!(Luna< wxRect >::check(L,2))) ) return false;
 		return true;
 	}
 

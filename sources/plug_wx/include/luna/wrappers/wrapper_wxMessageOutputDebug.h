@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxMessageOutputDebug(lua_State* L, lua_Table* dum) : wxMessageOutputDebug(), luna_wrapper_base(L) {};
+	wrapper_wxMessageOutputDebug(lua_State* L, lua_Table* dum) : wxMessageOutputDebug(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {
 		THROW_IF(!_obj.pushFunction("Output"),"No implementation for abstract function wxMessageOutput::Output");
@@ -29,6 +30,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

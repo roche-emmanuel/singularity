@@ -67,42 +67,6 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=0 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,1))) ) return false;
-		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		if( lua_istable(L,1)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<2 || luatop>3 ) return false;
-
-		if( lua_istable(L,1)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,2))) ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
-		return true;
-	}
-
 
 	// Function checkers:
 	inline static bool _lg_typecheck_cloneType(lua_State *L) {
@@ -261,20 +225,6 @@ public:
 	inline static bool _lg_typecheck_getNumMipmapLevels(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		return true;
-	}
-
-	inline static bool _lg_typecheck_copyTexSubImageCubeMap(lua_State *L) {
-		if( lua_gettop(L)!=9 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		return true;
 	}
 
@@ -479,85 +429,6 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// osg::TextureCubeMap::TextureCubeMap()
-	static osg::TextureCubeMap* _bind_ctor_overload_1(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TextureCubeMap::TextureCubeMap() function, expected prototype:\nosg::TextureCubeMap::TextureCubeMap()\nClass arguments details:\n");
-		}
-
-
-		return new osg::TextureCubeMap();
-	}
-
-	// osg::TextureCubeMap::TextureCubeMap(const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
-	static osg::TextureCubeMap* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TextureCubeMap::TextureCubeMap(const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TextureCubeMap::TextureCubeMap(const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		const osg::TextureCubeMap* cm_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,1));
-		if( !cm_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg cm in osg::TextureCubeMap::TextureCubeMap function");
-		}
-		const osg::TextureCubeMap & cm=*cm_ptr;
-		const osg::CopyOp* copyop_ptr=luatop>1 ? (Luna< osg::CopyOp >::check(L,2)) : NULL;
-		if( luatop>1 && !copyop_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TextureCubeMap::TextureCubeMap function");
-		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
-
-		return new osg::TextureCubeMap(cm, copyop);
-	}
-
-	// osg::TextureCubeMap::TextureCubeMap(lua_Table * data)
-	static osg::TextureCubeMap* _bind_ctor_overload_3(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TextureCubeMap::TextureCubeMap(lua_Table * data) function, expected prototype:\nosg::TextureCubeMap::TextureCubeMap(lua_Table * data)\nClass arguments details:\n");
-		}
-
-
-		return new wrapper_osg_TextureCubeMap(L,NULL);
-	}
-
-	// osg::TextureCubeMap::TextureCubeMap(lua_Table * data, const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
-	static osg::TextureCubeMap* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TextureCubeMap::TextureCubeMap(lua_Table * data, const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::TextureCubeMap::TextureCubeMap(lua_Table * data, const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		const osg::TextureCubeMap* cm_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,2));
-		if( !cm_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg cm in osg::TextureCubeMap::TextureCubeMap function");
-		}
-		const osg::TextureCubeMap & cm=*cm_ptr;
-		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
-		if( luatop>2 && !copyop_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TextureCubeMap::TextureCubeMap function");
-		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
-
-		return new wrapper_osg_TextureCubeMap(L,NULL, cm, copyop);
-	}
-
-	// Overload binder for osg::TextureCubeMap::TextureCubeMap
-	static osg::TextureCubeMap* _bind_ctor(lua_State *L) {
-		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
-		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
-		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
-
-		luaL_error(L, "error in function TextureCubeMap, cannot match any of the overloads for function TextureCubeMap:\n  TextureCubeMap()\n  TextureCubeMap(const osg::TextureCubeMap &, const osg::CopyOp &)\n  TextureCubeMap(lua_Table *)\n  TextureCubeMap(lua_Table *, const osg::TextureCubeMap &, const osg::CopyOp &)\n");
-		return NULL;
-	}
-
 
 	// Function binds:
 	// osg::Object * osg::TextureCubeMap::cloneType() const
@@ -1061,36 +932,6 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
-	}
-
-	// void osg::TextureCubeMap::copyTexSubImageCubeMap(osg::State & state, int face, int xoffset, int yoffset, int x, int y, int width, int height)
-	static int _bind_copyTexSubImageCubeMap(lua_State *L) {
-		if (!_lg_typecheck_copyTexSubImageCubeMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TextureCubeMap::copyTexSubImageCubeMap(osg::State & state, int face, int xoffset, int yoffset, int x, int y, int width, int height) function, expected prototype:\nvoid osg::TextureCubeMap::copyTexSubImageCubeMap(osg::State & state, int face, int xoffset, int yoffset, int x, int y, int width, int height)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
-		if( !state_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureCubeMap::copyTexSubImageCubeMap function");
-		}
-		osg::State & state=*state_ptr;
-		int face=(int)lua_tointeger(L,3);
-		int xoffset=(int)lua_tointeger(L,4);
-		int yoffset=(int)lua_tointeger(L,5);
-		int x=(int)lua_tointeger(L,6);
-		int y=(int)lua_tointeger(L,7);
-		int width=(int)lua_tointeger(L,8);
-		int height=(int)lua_tointeger(L,9);
-
-		osg::TextureCubeMap* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::copyTexSubImageCubeMap(osg::State &, int, int, int, int, int, int, int)");
-		}
-		self->copyTexSubImageCubeMap(state, face, xoffset, yoffset, x, y, width, height);
-
-		return 0;
 	}
 
 	// void osg::TextureCubeMap::apply(osg::State & state) const
@@ -1749,7 +1590,7 @@ public:
 };
 
 osg::TextureCubeMap* LunaTraits< osg::TextureCubeMap >::_bind_ctor(lua_State *L) {
-	return luna_wrapper_osg_TextureCubeMap::_bind_ctor(L);
+	return NULL; // No valid default constructor.
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }
@@ -1788,7 +1629,6 @@ luna_RegType LunaTraits< osg::TextureCubeMap >::methods[] = {
 	{"getSubloadCallback", &luna_wrapper_osg_TextureCubeMap::_bind_getSubloadCallback},
 	{"setNumMipmapLevels", &luna_wrapper_osg_TextureCubeMap::_bind_setNumMipmapLevels},
 	{"getNumMipmapLevels", &luna_wrapper_osg_TextureCubeMap::_bind_getNumMipmapLevels},
-	{"copyTexSubImageCubeMap", &luna_wrapper_osg_TextureCubeMap::_bind_copyTexSubImageCubeMap},
 	{"apply", &luna_wrapper_osg_TextureCubeMap::_bind_apply},
 	{"base_setName", &luna_wrapper_osg_TextureCubeMap::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_TextureCubeMap::_bind_base_computeDataVariance},

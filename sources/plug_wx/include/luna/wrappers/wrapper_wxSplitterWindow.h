@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxSplitterWindow(lua_State* L, lua_Table* dum) : wxSplitterWindow(), luna_wrapper_base(L) {};
-	wrapper_wxSplitterWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0x0200|0x0100), const wxString & name = "splitterWindow") : wxSplitterWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
+	wrapper_wxSplitterWindow(lua_State* L, lua_Table* dum) : wxSplitterWindow(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxSplitterWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0x0200|0x0100), const wxString & name = "splitterWindow") : wxSplitterWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1056,6 +1057,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1152,6 +1154,16 @@ protected:
 		}
 
 		return wxSplitterWindow::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

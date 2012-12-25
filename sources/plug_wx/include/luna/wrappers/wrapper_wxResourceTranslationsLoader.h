@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {
 		THROW_IF(!_obj.pushFunction("LoadCatalog"),"No implementation for abstract function wxTranslationsLoader::LoadCatalog");
@@ -37,6 +38,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxString wxResourceTranslationsLoader::GetResourceType() const
 	wxString GetResourceType() const {
 		if(_obj.pushFunction("GetResourceType")) {
@@ -44,6 +46,16 @@ protected:
 		}
 
 		return wxResourceTranslationsLoader::GetResourceType();
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

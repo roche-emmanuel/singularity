@@ -110,19 +110,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_SafelyProcessEvent(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ProcessPendingEvents(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_DeletePendingEvents(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -224,7 +211,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -235,7 +222,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
@@ -245,7 +232,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
@@ -254,7 +241,7 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -266,7 +253,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( lua_isfunction(L,4)==0 ) return false;
@@ -277,7 +264,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isfunction(L,3)==0 ) return false;
 		return true;
@@ -450,48 +437,6 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
-	}
-
-	// bool wxEvtHandler::SafelyProcessEvent(wxEvent & event)
-	static int _bind_SafelyProcessEvent(lua_State *L) {
-		if (!_lg_typecheck_SafelyProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::SafelyProcessEvent(wxEvent & event) function, expected prototype:\nbool wxEvtHandler::SafelyProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
-		}
-
-		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
-		if( !event_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg event in wxEvtHandler::SafelyProcessEvent function");
-		}
-		wxEvent & event=*event_ptr;
-
-		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEvtHandler::SafelyProcessEvent(wxEvent &)");
-		}
-		bool lret = self->SafelyProcessEvent(event);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// void wxEvtHandler::ProcessPendingEvents()
-	static int _bind_ProcessPendingEvents(lua_State *L) {
-		if (!_lg_typecheck_ProcessPendingEvents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxEvtHandler::ProcessPendingEvents() function, expected prototype:\nvoid wxEvtHandler::ProcessPendingEvents()\nClass arguments details:\n");
-		}
-
-
-		wxEvtHandler* self=Luna< wxObject >::checkSubType< wxEvtHandler >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEvtHandler::ProcessPendingEvents()");
-		}
-		self->ProcessPendingEvents();
-
-		return 0;
 	}
 
 	// void wxEvtHandler::DeletePendingEvents()
@@ -1040,8 +985,6 @@ luna_RegType LunaTraits< wxEvtHandler >::methods[] = {
 	{"AddPendingEvent", &luna_wrapper_wxEvtHandler::_bind_AddPendingEvent},
 	{"ProcessEvent", &luna_wrapper_wxEvtHandler::_bind_ProcessEvent},
 	{"ProcessEventLocally", &luna_wrapper_wxEvtHandler::_bind_ProcessEventLocally},
-	{"SafelyProcessEvent", &luna_wrapper_wxEvtHandler::_bind_SafelyProcessEvent},
-	{"ProcessPendingEvents", &luna_wrapper_wxEvtHandler::_bind_ProcessPendingEvents},
 	{"DeletePendingEvents", &luna_wrapper_wxEvtHandler::_bind_DeletePendingEvents},
 	{"GetClientData", &luna_wrapper_wxEvtHandler::_bind_GetClientData},
 	{"GetClientObject", &luna_wrapper_wxEvtHandler::_bind_GetClientObject},

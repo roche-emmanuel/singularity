@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxDialog(lua_State* L, lua_Table* dum) : wxDialog(), luna_wrapper_base(L) {};
-	wrapper_wxDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ( wxCAPTION | wxSYSTEM_MENU | wxCLOSE_BOX ), const wxString & name = wxDialogNameStr) : wxDialog(parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
+	wrapper_wxDialog(lua_State* L, lua_Table* dum) : wxDialog(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ( wxCAPTION | wxSYSTEM_MENU | wxCLOSE_BOX ), const wxString & name = wxDialogNameStr) : wxDialog(parent, id, title, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1209,6 +1210,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1305,6 +1307,16 @@ protected:
 		}
 
 		return wxDialog::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

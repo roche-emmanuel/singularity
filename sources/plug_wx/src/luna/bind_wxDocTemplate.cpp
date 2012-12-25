@@ -72,7 +72,7 @@ public:
 		if( luatop<7 || luatop>10 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxDocManager >(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
@@ -80,9 +80,9 @@ public:
 		if( lua_isstring(L,6)==0 ) return false;
 		if( lua_isstring(L,7)==0 ) return false;
 		if( luatop>7 && (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,96106697)) ) return false;
-		if( luatop>7 && (lua_isnil(L,8)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,8)) ) ) return false;
+		if( luatop>7 && (lua_isnil(L,8)==0 && !(Luna< wxClassInfo >::check(L,8)) ) ) return false;
 		if( luatop>8 && (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,96106697)) ) return false;
-		if( luatop>8 && (lua_isnil(L,9)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,9)) ) ) return false;
+		if( luatop>8 && (lua_isnil(L,9)==0 && !(Luna< wxClassInfo >::check(L,9)) ) ) return false;
 		if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		return true;
 	}
@@ -93,7 +93,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxDocManager >(L,2)) ) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( lua_isstring(L,5)==0 ) return false;
@@ -101,9 +101,9 @@ public:
 		if( lua_isstring(L,7)==0 ) return false;
 		if( lua_isstring(L,8)==0 ) return false;
 		if( luatop>8 && (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,96106697)) ) return false;
-		if( luatop>8 && (lua_isnil(L,9)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,9)) ) ) return false;
+		if( luatop>8 && (lua_isnil(L,9)==0 && !(Luna< wxClassInfo >::check(L,9)) ) ) return false;
 		if( luatop>9 && (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,96106697)) ) return false;
-		if( luatop>9 && (lua_isnil(L,10)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,10)) ) ) return false;
+		if( luatop>9 && (lua_isnil(L,10)==0 && !(Luna< wxClassInfo >::check(L,10)) ) ) return false;
 		if( luatop>10 && (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 		return true;
 	}

@@ -19,10 +19,11 @@ public:
 		}
 	};
 	
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) : wxFileOutputStream(ofileName), luna_wrapper_base(L) {};
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) : wxFileOutputStream(file), luna_wrapper_base(L) {};
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) : wxFileOutputStream(fd), luna_wrapper_base(L) {};
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) : wxFileOutputStream(ofileName), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) : wxFileOutputStream(file), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) : wxFileOutputStream(fd), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -119,6 +120,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -156,6 +158,58 @@ protected:
 		}
 
 		return wxFileOutputStream::OnSysTell();
+	};
+
+public:
+	// Protected non-virtual methods:
+	// size_t wxOutputStream::OnSysWrite(const void * buffer, size_t bufsize)
+	size_t public_OnSysWrite(const void * buffer, size_t bufsize) {
+		return wxOutputStream::OnSysWrite(buffer, bufsize);
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_OnSysWrite(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// size_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize)
+	static int _bind_public_OnSysWrite(lua_State *L) {
+		if (!_lg_typecheck_public_OnSysWrite(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize) function, expected prototype:\nsize_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize)\nClass arguments details:\n");
+		}
+
+		void* buffer=(Luna< void >::check(L,2));
+		size_t bufsize=(size_t)lua_tointeger(L,3);
+
+		wrapper_wxFileOutputStream* self=Luna< wxObject >::checkSubType< wrapper_wxFileOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxOutputStream::public_OnSysWrite(const void *, size_t)");
+		}
+		size_t lret = self->public_OnSysWrite(buffer, bufsize);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"OnSysWrite",_bind_public_OnSysWrite},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
 	};
 
 

@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxHtmlParser(lua_State* L, lua_Table* dum) : wxHtmlParser(), luna_wrapper_base(L) {};
+	wrapper_wxHtmlParser(lua_State* L, lua_Table* dum) : wxHtmlParser(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler)
 	void AddTagHandler(wxHtmlTagHandler * handler) {
 		if(_obj.pushFunction("AddTagHandler")) {
@@ -67,6 +68,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void wxHtmlParser::AddText(const wxString & arg1)
 	void AddText(const wxString & arg1) {
 		THROW_IF(!_obj.pushFunction("AddText"),"No implementation for abstract function wxHtmlParser::AddText");
@@ -82,6 +84,16 @@ protected:
 		}
 
 		return wxHtmlParser::AddTag(tag);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

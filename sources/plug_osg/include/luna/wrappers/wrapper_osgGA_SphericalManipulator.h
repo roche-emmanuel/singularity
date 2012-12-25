@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_osgGA_SphericalManipulator(lua_State* L, lua_Table* dum) : osgGA::SphericalManipulator(), luna_wrapper_base(L) {};
+	wrapper_osgGA_SphericalManipulator(lua_State* L, lua_Table* dum) : osgGA::SphericalManipulator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -340,41 +341,246 @@ public:
 
 
 
+	// Protected virtual methods:
 
-// void osgGA::SphericalManipulator::flushMouseEventStack()
-void public_flushMouseEventStack() {
-	return osgGA::SphericalManipulator::flushMouseEventStack();
-};
+	// Protected non-virtual methods:
+	// void osgGA::SphericalManipulator::flushMouseEventStack()
+	void public_flushMouseEventStack() {
+		return osgGA::SphericalManipulator::flushMouseEventStack();
+	};
 
-// void osgGA::SphericalManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
-void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
-	return osgGA::SphericalManipulator::addMouseEvent(ea);
-};
+	// void osgGA::SphericalManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
+	void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
+		return osgGA::SphericalManipulator::addMouseEvent(ea);
+	};
 
-// bool osgGA::SphericalManipulator::calcMovement()
-bool public_calcMovement() {
-	return osgGA::SphericalManipulator::calcMovement();
-};
+	// bool osgGA::SphericalManipulator::calcMovement()
+	bool public_calcMovement() {
+		return osgGA::SphericalManipulator::calcMovement();
+	};
 
-// bool osgGA::SphericalManipulator::isMouseMoving()
-bool public_isMouseMoving() {
-	return osgGA::SphericalManipulator::isMouseMoving();
-};
+	// bool osgGA::SphericalManipulator::isMouseMoving()
+	bool public_isMouseMoving() {
+		return osgGA::SphericalManipulator::isMouseMoving();
+	};
 
-// std::string osgGA::CameraManipulator::getManipulatorName() const
-std::string public_getManipulatorName() const {
-	return osgGA::CameraManipulator::getManipulatorName();
-};
+	// std::string osgGA::CameraManipulator::getManipulatorName() const
+	std::string public_getManipulatorName() const {
+		return osgGA::CameraManipulator::getManipulatorName();
+	};
 
-// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
-void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
-	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
-};
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
 
-// void osg::Referenced::deleteUsingDeleteHandler() const
-void public_deleteUsingDeleteHandler() const {
-	return osg::Referenced::deleteUsingDeleteHandler();
-};
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_flushMouseEventStack(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_addMouseEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_calcMovement(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_isMouseMoving(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_getManipulatorName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osgGA::SphericalManipulator::public_flushMouseEventStack()
+	static int _bind_public_flushMouseEventStack(lua_State *L) {
+		if (!_lg_typecheck_public_flushMouseEventStack(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::public_flushMouseEventStack() function, expected prototype:\nvoid osgGA::SphericalManipulator::public_flushMouseEventStack()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::public_flushMouseEventStack()");
+		}
+		self->public_flushMouseEventStack();
+
+		return 0;
+	}
+
+	// void osgGA::SphericalManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)
+	static int _bind_public_addMouseEvent(lua_State *L) {
+		if (!_lg_typecheck_public_addMouseEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea) function, expected prototype:\nvoid osgGA::SphericalManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter & ea)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
+		if( !ea_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ea in osgGA::SphericalManipulator::public_addMouseEvent function");
+		}
+		const osgGA::GUIEventAdapter & ea=*ea_ptr;
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &)");
+		}
+		self->public_addMouseEvent(ea);
+
+		return 0;
+	}
+
+	// bool osgGA::SphericalManipulator::public_calcMovement()
+	static int _bind_public_calcMovement(lua_State *L) {
+		if (!_lg_typecheck_public_calcMovement(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgGA::SphericalManipulator::public_calcMovement() function, expected prototype:\nbool osgGA::SphericalManipulator::public_calcMovement()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::public_calcMovement()");
+		}
+		bool lret = self->public_calcMovement();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osgGA::SphericalManipulator::public_isMouseMoving()
+	static int _bind_public_isMouseMoving(lua_State *L) {
+		if (!_lg_typecheck_public_isMouseMoving(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgGA::SphericalManipulator::public_isMouseMoving() function, expected prototype:\nbool osgGA::SphericalManipulator::public_isMouseMoving()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::public_isMouseMoving()");
+		}
+		bool lret = self->public_isMouseMoving();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// std::string osgGA::CameraManipulator::public_getManipulatorName() const
+	static int _bind_public_getManipulatorName(lua_State *L) {
+		if (!_lg_typecheck_public_getManipulatorName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgGA::CameraManipulator::public_getManipulatorName() const function, expected prototype:\nstd::string osgGA::CameraManipulator::public_getManipulatorName() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const");
+		}
+		std::string lret = self->public_getManipulatorName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgGA_SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_SphericalManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"flushMouseEventStack",_bind_public_flushMouseEventStack},
+		{"addMouseEvent",_bind_public_addMouseEvent},
+		{"calcMovement",_bind_public_calcMovement},
+		{"isMouseMoving",_bind_public_isMouseMoving},
+		{"getManipulatorName",_bind_public_getManipulatorName},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

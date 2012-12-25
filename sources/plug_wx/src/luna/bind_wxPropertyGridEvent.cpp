@@ -82,7 +82,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,2))) ) return false;
 		return true;
 	}
 

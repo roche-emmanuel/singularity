@@ -19,9 +19,10 @@ public:
 		}
 	};
 	
-	wrapper_wxProcess(lua_State* L, lua_Table* dum, wxEvtHandler * parent = NULL, int id = -1) : wxProcess(parent, id), luna_wrapper_base(L) {};
-	wrapper_wxProcess(lua_State* L, lua_Table* dum, int flags) : wxProcess(flags), luna_wrapper_base(L) {};
+	wrapper_wxProcess(lua_State* L, lua_Table* dum, wxEvtHandler * parent = NULL, int id = -1) : wxProcess(parent, id), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxProcess(lua_State* L, lua_Table* dum, int flags) : wxProcess(flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -94,6 +95,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -131,6 +133,16 @@ protected:
 		}
 
 		return wxProcess::TryAfter(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

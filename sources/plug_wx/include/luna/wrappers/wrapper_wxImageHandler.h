@@ -19,8 +19,9 @@ public:
 		}
 	};
 	
-	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) : wxImageHandler(), luna_wrapper_base(L) {};
+	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) : wxImageHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -64,6 +65,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -88,6 +90,16 @@ protected:
 		THROW_IF(!_obj.pushFunction("DoCanRead"),"No implementation for abstract function wxImageHandler::DoCanRead");
 		_obj.pushArg(&arg1);
 		return (_obj.callFunction<bool>());
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

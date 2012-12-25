@@ -163,14 +163,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_createRequiredTexturesAndApplyGenerateMipMap(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_attach(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -440,30 +432,6 @@ public:
 		return 1;
 	}
 
-	// void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const
-	static int _bind_createRequiredTexturesAndApplyGenerateMipMap(lua_State *L) {
-		if (!_lg_typecheck_createRequiredTexturesAndApplyGenerateMipMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
-		}
-
-		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
-		if( !state_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap function");
-		}
-		osg::State & state=*state_ptr;
-		const osg::FBOExtensions* ext=(Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,3));
-
-		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State &, const osg::FBOExtensions *) const");
-		}
-		self->createRequiredTexturesAndApplyGenerateMipMap(state, ext);
-
-		return 0;
-	}
-
 	// void osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const
 	static int _bind_attach(lua_State *L) {
 		if (!_lg_typecheck_attach(L)) {
@@ -716,7 +684,6 @@ const int LunaTraits< osg::FrameBufferAttachment >::uniqueIDs[] = {90669884,0};
 
 luna_RegType LunaTraits< osg::FrameBufferAttachment >::methods[] = {
 	{"isMultisample", &luna_wrapper_osg_FrameBufferAttachment::_bind_isMultisample},
-	{"createRequiredTexturesAndApplyGenerateMipMap", &luna_wrapper_osg_FrameBufferAttachment::_bind_createRequiredTexturesAndApplyGenerateMipMap},
 	{"attach", &luna_wrapper_osg_FrameBufferAttachment::_bind_attach},
 	{"compare", &luna_wrapper_osg_FrameBufferAttachment::_bind_compare},
 	{"getRenderBuffer", &luna_wrapper_osg_FrameBufferAttachment::_bind_getRenderBuffer},

@@ -20,6 +20,7 @@ public:
 	};
 	
 
+	// Public virtual methods:
 	// bool wxFontEnumerator::EnumerateEncodings(const wxString & font = wxEmptyString)
 	bool EnumerateEncodings(const wxString & font = wxEmptyString) {
 		if(_obj.pushFunction("EnumerateEncodings")) {
@@ -63,6 +64,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

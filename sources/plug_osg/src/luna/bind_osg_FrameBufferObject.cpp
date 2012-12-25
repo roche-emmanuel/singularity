@@ -143,12 +143,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getAttachmentMap(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setAttachment(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -588,27 +582,6 @@ public:
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// const osg::FrameBufferObject::AttachmentMap & osg::FrameBufferObject::getAttachmentMap() const
-	static int _bind_getAttachmentMap(lua_State *L) {
-		if (!_lg_typecheck_getAttachmentMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::FrameBufferObject::AttachmentMap & osg::FrameBufferObject::getAttachmentMap() const function, expected prototype:\nconst osg::FrameBufferObject::AttachmentMap & osg::FrameBufferObject::getAttachmentMap() const\nClass arguments details:\n");
-		}
-
-
-		osg::FrameBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::FrameBufferObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::FrameBufferObject::AttachmentMap & osg::FrameBufferObject::getAttachmentMap() const");
-		}
-		const osg::FrameBufferObject::AttachmentMap* lret = &self->getAttachmentMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::FrameBufferObject::AttachmentMap >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1372,7 +1345,6 @@ luna_RegType LunaTraits< osg::FrameBufferObject >::methods[] = {
 	{"libraryName", &luna_wrapper_osg_FrameBufferObject::_bind_libraryName},
 	{"className", &luna_wrapper_osg_FrameBufferObject::_bind_className},
 	{"getType", &luna_wrapper_osg_FrameBufferObject::_bind_getType},
-	{"getAttachmentMap", &luna_wrapper_osg_FrameBufferObject::_bind_getAttachmentMap},
 	{"setAttachment", &luna_wrapper_osg_FrameBufferObject::_bind_setAttachment},
 	{"getAttachment", &luna_wrapper_osg_FrameBufferObject::_bind_getAttachment},
 	{"hasAttachment", &luna_wrapper_osg_FrameBufferObject::_bind_hasAttachment},
