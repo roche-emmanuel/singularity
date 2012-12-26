@@ -11,9 +11,16 @@
 class wrapper_wxStandardPaths : public wxStandardPaths, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxStandardPaths() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// wxString wxStandardPaths::GetAppDocumentsDir() const
 	wxString GetAppDocumentsDir() const {
 		if(_obj.pushFunction("GetAppDocumentsDir")) {
@@ -134,6 +141,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

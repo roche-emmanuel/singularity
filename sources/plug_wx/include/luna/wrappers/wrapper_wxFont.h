@@ -11,15 +11,22 @@
 class wrapper_wxFont : public wxFont, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxFont() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxFont(lua_State* L, lua_Table* dum) : wxFont(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxFont & font) : wxFont(font), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFont(lua_State* L, lua_Table* dum, int pointSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pointSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxSize & pixelSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pixelSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxString & nativeInfoString) : wxFont(nativeInfoString), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxNativeFontInfo & nativeInfo) : wxFont(nativeInfo), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxFont(lua_State* L, lua_Table* dum) : wxFont(), luna_wrapper_base(L) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxFont & font) : wxFont(font), luna_wrapper_base(L) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, int pointSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pointSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxSize & pixelSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pixelSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxString & nativeInfoString) : wxFont(nativeInfoString), luna_wrapper_base(L) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxNativeFontInfo & nativeInfo) : wxFont(nativeInfo), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -201,6 +208,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -218,6 +226,16 @@ protected:
 		}
 
 		return wxFont::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

@@ -11,10 +11,17 @@
 class wrapper_wxStackWalker : public wxStackWalker, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxStackWalker() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxStackWalker(lua_State* L, lua_Table* dum, const char * argv0 = NULL) : wxStackWalker(argv0), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxStackWalker(lua_State* L, lua_Table* dum, const char * argv0 = NULL) : wxStackWalker(argv0), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200))
 	void Walk(size_t skip = 1, size_t maxDepth = (200)) {
 		if(_obj.pushFunction("Walk")) {
@@ -38,11 +45,22 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void wxStackWalker::OnStackFrame(const wxStackFrame & frame)
 	void OnStackFrame(const wxStackFrame & frame) {
 		THROW_IF(!_obj.pushFunction("OnStackFrame"),"No implementation for abstract function wxStackWalker::OnStackFrame");
 		_obj.pushArg(&frame);
 		return (_obj.callFunction<void>());
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

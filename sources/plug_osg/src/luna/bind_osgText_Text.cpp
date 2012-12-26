@@ -78,9 +78,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!dynamic_cast< osgText::Text* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -97,9 +97,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osgText::Text* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osgText::Text >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -142,7 +142,7 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgText::Font >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -302,12 +302,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getTextureGlyphQuadMap(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_base_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -449,7 +443,7 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgText::Font >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -1187,27 +1181,6 @@ public:
 		return 1;
 	}
 
-	// const osgText::Text::TextureGlyphQuadMap & osgText::Text::getTextureGlyphQuadMap() const
-	static int _bind_getTextureGlyphQuadMap(lua_State *L) {
-		if (!_lg_typecheck_getTextureGlyphQuadMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Text::TextureGlyphQuadMap & osgText::Text::getTextureGlyphQuadMap() const function, expected prototype:\nconst osgText::Text::TextureGlyphQuadMap & osgText::Text::getTextureGlyphQuadMap() const\nClass arguments details:\n");
-		}
-
-
-		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::TextureGlyphQuadMap & osgText::Text::getTextureGlyphQuadMap() const");
-		}
-		const osgText::Text::TextureGlyphQuadMap* lret = &self->getTextureGlyphQuadMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgText::Text::TextureGlyphQuadMap >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// void osgText::Text::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -1791,7 +1764,6 @@ luna_RegType LunaTraits< osgText::Text >::methods[] = {
 	{"drawImplementation", &luna_wrapper_osgText_Text::_bind_drawImplementation},
 	{"releaseGLObjects", &luna_wrapper_osgText_Text::_bind_releaseGLObjects},
 	{"getGlyphQuads", &luna_wrapper_osgText_Text::_bind_getGlyphQuads},
-	{"getTextureGlyphQuadMap", &luna_wrapper_osgText_Text::_bind_getTextureGlyphQuadMap},
 	{"base_setName", &luna_wrapper_osgText_Text::_bind_base_setName},
 	{"base_setUserData", &luna_wrapper_osgText_Text::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osgText_Text::_bind_base_getUserData},

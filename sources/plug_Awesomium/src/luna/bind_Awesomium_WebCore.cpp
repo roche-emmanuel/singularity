@@ -6,6 +6,30 @@ class luna_wrapper_Awesomium_WebCore {
 public:
 	typedef Luna< Awesomium::WebCore > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -54,6 +78,8 @@ public:
 		return luna_dynamicCast(L,converters,"Awesomium::WebCore",name);
 	}
 
+
+	// Constructor checkers:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_Initialize(lua_State *L) {
@@ -135,6 +161,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// static Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config)
@@ -365,7 +393,8 @@ public:
 };
 
 Awesomium::WebCore* LunaTraits< Awesomium::WebCore >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	// Awesomium::WebView * Awesomium::WebCore::CreateWebView(int width, int height, Awesomium::WebSession * session = 0, Awesomium::WebViewType type = Awesomium::kWebViewType_Offscreen)
@@ -402,6 +431,7 @@ luna_RegType LunaTraits< Awesomium::WebCore >::methods[] = {
 	{"version_string", &luna_wrapper_Awesomium_WebCore::_bind_version_string},
 	{"dynCast", &luna_wrapper_Awesomium_WebCore::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebCore::_bind___eq},
+	{"getTable", &luna_wrapper_Awesomium_WebCore::_bind_getTable},
 	{0,0}
 };
 

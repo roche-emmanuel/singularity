@@ -29,12 +29,13 @@ function Class:initialize(options)
 		self:pushParent(self._root,sizer)
 	end
 	
-	evtman:addListener("AppClosing",self)
-	evtman:addListener("LicenseChanged",self)
+	self._closingCb = evtman:addListener{event="AppClosing",object=self}
+	self._licenseCb = evtman:addListener{event="LicenseChanged",object=self}
 end
 
 function Class:uninitialize()
-	evtman:removeListener(self)
+	evtman:removeListener(self._closingCb)
+	evtman:removeListener(self._licenseCb)
 end
 
 function Class:onAppClosing()

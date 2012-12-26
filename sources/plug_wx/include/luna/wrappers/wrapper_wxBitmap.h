@@ -11,16 +11,23 @@
 class wrapper_wxBitmap : public wxBitmap, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxBitmap() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum) : wxBitmap(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxBitmap(bitmap), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) : wxBitmap(width, height, depth), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) : wxBitmap(sz, depth), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) : wxBitmap(bits), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) : wxBitmap(name, type), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxImage & img, int depth = (-1)) : wxBitmap(img, depth), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum) : wxBitmap(), luna_wrapper_base(L) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxBitmap(bitmap), luna_wrapper_base(L) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) : wxBitmap(width, height, depth), luna_wrapper_base(L) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) : wxBitmap(sz, depth), luna_wrapper_base(L) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) : wxBitmap(bits), luna_wrapper_base(L) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) : wxBitmap(name, type), luna_wrapper_base(L) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxImage & img, int depth = (-1)) : wxBitmap(img, depth), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -211,6 +218,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -228,6 +236,16 @@ protected:
 		}
 
 		return wxBitmap::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

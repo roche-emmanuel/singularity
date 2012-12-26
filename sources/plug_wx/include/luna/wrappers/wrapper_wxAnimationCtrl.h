@@ -11,10 +11,17 @@
 class wrapper_wxAnimationCtrl : public wxAnimationCtrl, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxAnimationCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxAnimationCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxAnimation & anim = wxNullAnimation, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxAC_DEFAULT_STYLE, const wxString & name = wxAnimationCtrlNameStr) : wxAnimationCtrl(parent, id, anim, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxAnimationCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxAnimation & anim = wxNullAnimation, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxAC_DEFAULT_STYLE, const wxString & name = wxAnimationCtrlNameStr) : wxAnimationCtrl(parent, id, anim, pos, size, style, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1082,6 +1089,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1178,6 +1186,16 @@ protected:
 		}
 
 		return wxAnimationCtrl::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

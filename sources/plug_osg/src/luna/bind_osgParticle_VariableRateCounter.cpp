@@ -80,9 +80,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osgParticle::VariableRateCounter* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osgParticle::VariableRateCounter >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -117,7 +117,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!dynamic_cast< osgParticle::rangef* >(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
 		return true;
 	}
 

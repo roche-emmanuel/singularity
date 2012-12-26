@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,69274883) ) return false;
-		if( (!dynamic_cast< wxPGChoices* >(Luna< wxPGChoices >::check(L,1))) ) return false;
+		if( (!(Luna< wxPGChoices >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -73,9 +73,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,59507769) ) return false;
-		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,1))) ) return false;
+		if( (!(Luna< wxArrayString >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,47342076) ) return false;
-		if( luatop>1 && (!dynamic_cast< wxArrayInt* >(Luna< wxArrayInt >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< wxArrayInt >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -83,7 +83,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,60960840)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -179,7 +179,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -219,12 +219,6 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,47342076) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_AllocExclusive(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
 		return true;
 	}
 
@@ -761,24 +755,6 @@ public:
 		return 0;
 	}
 
-	// void wxPGChoices::AllocExclusive()
-	static int _bind_AllocExclusive(lua_State *L) {
-		if (!_lg_typecheck_AllocExclusive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGChoices::AllocExclusive() function, expected prototype:\nvoid wxPGChoices::AllocExclusive()\nClass arguments details:\n");
-		}
-
-
-		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoices::AllocExclusive()");
-		}
-		self->AllocExclusive();
-
-		return 0;
-	}
-
 	// wxArrayString wxPGChoices::GetLabels() const
 	static int _bind_GetLabels(lua_State *L) {
 		if (!_lg_typecheck_GetLabels(L)) {
@@ -892,7 +868,6 @@ luna_RegType LunaTraits< wxPGChoices >::methods[] = {
 	{"Item", &luna_wrapper_wxPGChoices::_bind_Item},
 	{"RemoveAt", &luna_wrapper_wxPGChoices::_bind_RemoveAt},
 	{"Set", &luna_wrapper_wxPGChoices::_bind_Set},
-	{"AllocExclusive", &luna_wrapper_wxPGChoices::_bind_AllocExclusive},
 	{"GetLabels", &luna_wrapper_wxPGChoices::_bind_GetLabels},
 	{"op_index", &luna_wrapper_wxPGChoices::_bind_op_index},
 	{"dynCast", &luna_wrapper_wxPGChoices::_bind_dynCast},

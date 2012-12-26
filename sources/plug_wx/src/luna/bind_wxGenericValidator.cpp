@@ -71,7 +71,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxGenericValidator >(L,1))) ) return false;
 		return true;
 	}
 
@@ -100,7 +100,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,47342076)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxArrayInt* >(Luna< wxArrayInt >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxArrayInt >::check(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -108,7 +108,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,57497519)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxDateTime >::check(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -116,7 +116,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,53530938)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxFileName* >(Luna< wxFileName >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxFileName >::check(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -139,7 +139,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxGenericValidator >(L,2))) ) return false;
 		return true;
 	}
 
@@ -172,7 +172,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,47342076)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxArrayInt* >(Luna< wxArrayInt >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxArrayInt >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -181,7 +181,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,57497519)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxDateTime >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -190,7 +190,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,53530938)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxFileName* >(Luna< wxFileName >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxFileName >::check(L,2)) ) ) return false;
 		return true;
 	}
 

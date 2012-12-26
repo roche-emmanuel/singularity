@@ -164,7 +164,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
-		if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec2f >::check(L,2))) ) return false;
 		return true;
 	}
 

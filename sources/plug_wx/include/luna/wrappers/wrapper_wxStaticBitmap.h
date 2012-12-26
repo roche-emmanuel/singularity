@@ -11,11 +11,18 @@
 class wrapper_wxStaticBitmap : public wxStaticBitmap, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxStaticBitmap() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum) : wxStaticBitmap(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxBitmap & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxStaticBitmapNameStr) : wxStaticBitmap(parent, id, label, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum) : wxStaticBitmap(), luna_wrapper_base(L) {};
-	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxBitmap & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxStaticBitmapNameStr) : wxStaticBitmap(parent, id, label, pos, size, style, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1043,6 +1050,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1139,6 +1147,16 @@ protected:
 		}
 
 		return wxStaticBitmap::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

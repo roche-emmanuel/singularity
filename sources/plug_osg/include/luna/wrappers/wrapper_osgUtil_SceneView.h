@@ -11,11 +11,18 @@
 class wrapper_osgUtil_SceneView : public osgUtil::SceneView, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgUtil_SceneView() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), luna_wrapper_base(L) {};
-	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -266,6 +273,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// bool osgUtil::SceneView::cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport)
 	bool cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport) {
 		if(_obj.pushFunction("cullStage")) {
@@ -279,6 +287,229 @@ protected:
 		}
 
 		return SceneView::cullStage(projection, modelview, cullVisitor, rendergraph, renderStage, viewport);
+	};
+
+public:
+	// Protected non-virtual methods:
+	// void osgUtil::SceneView::computeLeftEyeViewport(const osg::Viewport * viewport)
+	void public_computeLeftEyeViewport(const osg::Viewport * viewport) {
+		return osgUtil::SceneView::computeLeftEyeViewport(viewport);
+	};
+
+	// void osgUtil::SceneView::computeRightEyeViewport(const osg::Viewport * viewport)
+	void public_computeRightEyeViewport(const osg::Viewport * viewport) {
+		return osgUtil::SceneView::computeRightEyeViewport(viewport);
+	};
+
+	// const osg::Matrixd osgUtil::SceneView::computeMVPW() const
+	const osg::Matrixd public_computeMVPW() const {
+		return osgUtil::SceneView::computeMVPW();
+	};
+
+	// void osgUtil::SceneView::clearArea(int x, int y, int width, int height, const osg::Vec4f & color)
+	void public_clearArea(int x, int y, int width, int height, const osg::Vec4f & color) {
+		return osgUtil::SceneView::clearArea(x, y, width, height, color);
+	};
+
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
+
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_computeLeftEyeViewport(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_computeRightEyeViewport(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_computeMVPW(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_clearArea(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,92303235) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osgUtil::SceneView::public_computeLeftEyeViewport(const osg::Viewport * viewport)
+	static int _bind_public_computeLeftEyeViewport(lua_State *L) {
+		if (!_lg_typecheck_public_computeLeftEyeViewport(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::SceneView::public_computeLeftEyeViewport(const osg::Viewport * viewport) function, expected prototype:\nvoid osgUtil::SceneView::public_computeLeftEyeViewport(const osg::Viewport * viewport)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Viewport* viewport=(Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,2));
+
+		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_computeLeftEyeViewport(const osg::Viewport *)");
+		}
+		self->public_computeLeftEyeViewport(viewport);
+
+		return 0;
+	}
+
+	// void osgUtil::SceneView::public_computeRightEyeViewport(const osg::Viewport * viewport)
+	static int _bind_public_computeRightEyeViewport(lua_State *L) {
+		if (!_lg_typecheck_public_computeRightEyeViewport(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::SceneView::public_computeRightEyeViewport(const osg::Viewport * viewport) function, expected prototype:\nvoid osgUtil::SceneView::public_computeRightEyeViewport(const osg::Viewport * viewport)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Viewport* viewport=(Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,2));
+
+		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_computeRightEyeViewport(const osg::Viewport *)");
+		}
+		self->public_computeRightEyeViewport(viewport);
+
+		return 0;
+	}
+
+	// const osg::Matrixd osgUtil::SceneView::public_computeMVPW() const
+	static int _bind_public_computeMVPW(lua_State *L) {
+		if (!_lg_typecheck_public_computeMVPW(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Matrixd osgUtil::SceneView::public_computeMVPW() const function, expected prototype:\nconst osg::Matrixd osgUtil::SceneView::public_computeMVPW() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Matrixd osgUtil::SceneView::public_computeMVPW() const");
+		}
+		const osg::Matrixd stack_lret = self->public_computeMVPW();
+		const osg::Matrixd* lret = new const osg::Matrixd(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrixd >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void osgUtil::SceneView::public_clearArea(int x, int y, int width, int height, const osg::Vec4f & color)
+	static int _bind_public_clearArea(lua_State *L) {
+		if (!_lg_typecheck_public_clearArea(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::SceneView::public_clearArea(int x, int y, int width, int height, const osg::Vec4f & color) function, expected prototype:\nvoid osgUtil::SceneView::public_clearArea(int x, int y, int width, int height, const osg::Vec4f & color)\nClass arguments details:\narg 5 ID = 92303235\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int width=(int)lua_tointeger(L,4);
+		int height=(int)lua_tointeger(L,5);
+		const osg::Vec4f* color_ptr=(Luna< osg::Vec4f >::check(L,6));
+		if( !color_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg color in osgUtil::SceneView::public_clearArea function");
+		}
+		const osg::Vec4f & color=*color_ptr;
+
+		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_clearArea(int, int, int, int, const osg::Vec4f &)");
+		}
+		self->public_clearArea(x, y, width, height, color);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"protected_computeLeftEyeViewport",_bind_public_computeLeftEyeViewport},
+		{"protected_computeRightEyeViewport",_bind_public_computeRightEyeViewport},
+		{"protected_computeMVPW",_bind_public_computeMVPW},
+		{"protected_clearArea",_bind_public_clearArea},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
 	};
 
 

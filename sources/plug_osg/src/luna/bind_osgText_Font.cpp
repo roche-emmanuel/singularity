@@ -72,7 +72,7 @@ public:
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -82,7 +82,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,2)) ) ) return false;
 		return true;
 	}
 

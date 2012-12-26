@@ -8,36 +8,36 @@
 template<>
 class LunaTraits< FANN::training_data > {
 public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static FANN::training_data* _bind_ctor(lua_State *L);
-    static void _bind_dtor(FANN::training_data* obj);
-    typedef FANN::training_data parent_t;
-    typedef FANN::training_data base_t;
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static FANN::training_data* _bind_ctor(lua_State *L);
+	static void _bind_dtor(FANN::training_data* obj);
+	typedef FANN::training_data parent_t;
+	typedef FANN::training_data base_t;
 	static luna_ConverterType converters[];
 };
 
 template<>
 class LunaTraits< FANN::neural_net > {
 public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static FANN::neural_net* _bind_ctor(lua_State *L);
-    static void _bind_dtor(FANN::neural_net* obj);
-    typedef FANN::neural_net parent_t;
-    typedef FANN::neural_net base_t;
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static FANN::neural_net* _bind_ctor(lua_State *L);
+	static void _bind_dtor(FANN::neural_net* obj);
+	typedef FANN::neural_net parent_t;
+	typedef FANN::neural_net base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -45,15 +45,15 @@ public:
 template<>
 class LunaType< 45173508 > {
 public:
-    typedef FANN::training_data type;
-    
+	typedef FANN::training_data type;
+	
 };
 
 template<>
 class LunaType< 71064061 > {
 public:
-    typedef FANN::neural_net type;
-    
+	typedef FANN::neural_net type;
+	
 };
 
 

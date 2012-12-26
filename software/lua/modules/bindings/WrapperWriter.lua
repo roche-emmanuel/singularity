@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="WrapperWriter",bases="io.BufferWriter"};
+local Class = require("classBuilder"){name="WrapperWriter",bases="bindings.FunctionWriter"};
 
 local rm = require "bindings.ReflectionManager"
 local corr = require "bindings.TextCorrector"
@@ -20,9 +20,9 @@ function Class:writeConstructor(cons)
 	local wname = corr:correct("filename",cname)
 	
 	if cons:getNumParameters()>0 then
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), luna_wrapper_base(L) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), luna_wrapper_base(L) { register_protected_methods(L); };",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
 	else
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), luna_wrapper_base(L) {};",wname,cname)			
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), luna_wrapper_base(L) { register_protected_methods(L); };",wname,cname)			
 	end	
 end
 
@@ -50,7 +50,7 @@ function Class:pushParam(param,k)
 	self:writeSubLine("_obj.pushArg(${1});",name)
 end
 
-function Class:writeFunctionCall(func)
+function Class:writeFunctionCall2(func)
 	local params = func:getParameters()
 	
 	for k,param in params:sequence() do
@@ -78,13 +78,15 @@ function Class:writeFunctionBody(func)
 	local cname = class:getFullName()
 	local wname = corr:correct("filename",cname)
 
+	local fname = func:getLuaName() or func:getName()
+	
 	if func:isAbstract() then
-		buf:writeSubLine('THROW_IF(!_obj.pushFunction("${1}"),"No implementation for abstract function ${2}");',func:getName(),func:getFullName())
-		self:writeFunctionCall(func)
+		buf:writeSubLine('THROW_IF(!_obj.pushFunction("${1}"),"No implementation for abstract function ${2}");',fname,func:getFullName())
+		self:writeFunctionCall2(func)
 	else
-		buf:writeSubLine('if(_obj.pushFunction("${1}")) {',func:getName())
+		buf:writeSubLine('if(_obj.pushFunction("${1}")) {',fname)
 		buf:pushIndent()
-		self:writeFunctionCall(func)
+		self:writeFunctionCall2(func)
 		buf:popIndent()
 		buf:writeLine("}")
 		buf:newLine()
@@ -98,6 +100,25 @@ function Class:writeFunction(func)
 	buf:writeLine(func:getPrototype(true,false,true).." {");
 	buf:pushIndent()
 	self:writeFunctionBody(func)
+	buf:popIndent();
+	buf:writeLine("};")
+	buf:newLine()
+end
+
+function Class:writeProtectedFunction(func)
+	local buf = self;
+	
+	if not func:getLuaName() then
+		return
+	end
+	
+	local name = func:getName()
+	func:setName("public_".. func:getLuaName())
+	buf:writeLine(func:getPrototype(true,false,true).." {");
+	func:setName(name)
+	
+	buf:pushIndent()
+		buf:writeSubLine("return ${3}::${1}(${2});",func:getName(),func:getArgumentNames(),func:getParent():getFullName());
 	buf:popIndent();
 	buf:writeLine("};")
 	buf:newLine()
@@ -143,6 +164,17 @@ function Class:writeHeader()
 	
 	buf:pushIndent()
 	
+	local str = [[~wrapper_${1}() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	]]
+	local destructor = class:getDestructor()
+	if not destructor or not destructor:isPrivate() then
+		buf:writeSubLine(str,wname)
+	end
+	
 	for _,cons in constructors:sequence() do
 		if not cons:isWrapper() then
 			self:writeConstructor(cons)
@@ -156,6 +188,7 @@ function Class:writeHeader()
 	
 	-- buf:writeLine("public:")
 	
+	buf:writeLine("// Public virtual methods:")
 	for _,func in publicFuncs:sequence() do
 		buf:writeLine("// "..func:getPrototype(true,true,true))
 		self:writeFunction(func)
@@ -165,12 +198,64 @@ function Class:writeHeader()
 	
 	buf:writeLine(protectedFuncs:empty() and "" or "protected:") -- not needed if empty.
 	buf:pushIndent()
+	buf:writeLine("// Protected virtual methods:")
 	for _,func in protectedFuncs:sequence() do
 		buf:writeLine("// "..func:getPrototype(true,true,true))
 		self:writeFunction(func)
 	end
 	buf:popIndent()
 
+	buf:writeLine(protectedFuncs:empty() and "" or "public:")
+	-- write the public wrapping for the protected non virtual functions:
+	local notVirtualFuncs = class:getProtectedFunctions():filterItems{"Valid"}
+	buf:pushIndent()
+	buf:writeLine("// Protected non-virtual methods:")
+	for _,func in notVirtualFuncs:sequence() do
+		buf:writeLine("// "..func:getPrototype(true,true,true))
+		self:writeProtectedFunction(func)
+	end
+	buf:newLine()
+	
+	for _,func in notVirtualFuncs:sequence() do
+		func:setName("public_" .. func:getName())
+	end
+	
+	buf:writeLine("// Protected non-virtual checkers:")
+	buf:writeForAll(notVirtualFuncs,self._typeChecker)
+	buf:newLine()
+	
+	buf:writeLine("// Protected non-virtual function binds:")
+	buf:writeForAll(notVirtualFuncs,self._writeBind,self._writeOverloadBind)
+	buf:newLine()
+	
+	for _,func in notVirtualFuncs:sequence() do
+		func:setName(func:getName():sub(8))
+	end
+	
+	-- Now write the registeration table:
+	buf:writeSubLine("void register_protected_methods(lua_State* L) {")
+	buf:pushIndent()
+	if not notVirtualFuncs:empty() then
+		buf:writeSubLine("static const luaL_Reg wrapper_lib[] = {")
+		for _,func in notVirtualFuncs:sequence() do
+			buf:writeSubLine('{"protected_${1}",_bind_public_${1}},',func:getName())
+		end
+		buf:writeSubLine("{NULL,NULL}")
+		buf:writeSubLine("};")
+		buf:newLine()
+		
+		-- Push the object on the stack:
+		buf:writeSubLine("pushTable();")
+		buf:writeSubLine("luaL_register(L, NULL, wrapper_lib);");
+		buf:writeSubLine("lua_pop(L, 1);");
+	end
+	buf:popIndent()
+	buf:writeSubLine("};")
+	buf:newLine();
+	
+	buf:popIndent()
+	
+	
 	buf:newLine();
 
 	-- Now we write the invalid functions wrappers:

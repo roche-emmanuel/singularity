@@ -11,9 +11,16 @@
 class wrapper_wxDirTraverser : public wxDirTraverser, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDirTraverser() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	wxDirTraverseResult OnDir(const wxString & dirname) {
 		THROW_IF(!_obj.pushFunction("OnDir"),"No implementation for abstract function wxDirTraverser::OnDir");
@@ -39,6 +46,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

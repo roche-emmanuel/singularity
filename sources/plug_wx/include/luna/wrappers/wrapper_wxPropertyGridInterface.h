@@ -11,9 +11,16 @@
 class wrapper_wxPropertyGridInterface : public wxPropertyGridInterface, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxPropertyGridInterface() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void wxPropertyGridInterface::Clear()
 	void Clear() {
 		THROW_IF(!_obj.pushFunction("Clear"),"No implementation for abstract function wxPropertyGridInterface::Clear");
@@ -21,6 +28,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

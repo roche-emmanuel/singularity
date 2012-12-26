@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="BasicWrapper",bases="base.Object"};
 
 require "osg"
+Class:generateWrapping(osgDB.ObjectWrapper)
 
 local SimpleSerializer = require "serialization.SimpleSerializer"
 
@@ -9,7 +10,7 @@ function Class:create(options)
 	local proto = options.proto or require(options.class)();
 	local name = options.name or proto:libraryName().."::"..proto:className()
 	local associates = "osg::Object " .. options.associates .. " " .. name	
-	self:generateWrapping(osgDB.ObjectWrapper,proto:getWrapper(),name,associates)
+	self:createWrapper(osgDB.ObjectWrapper,proto:getWrapper(),name,associates)
 end
 
 function Class:addDouble(name,defValue)

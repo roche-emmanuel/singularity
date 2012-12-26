@@ -11,10 +11,17 @@
 class wrapper_wxDataViewIndexListModel : public wxDataViewIndexListModel, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDataViewIndexListModel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDataViewIndexListModel(lua_State* L, lua_Table* dum, unsigned int initial_size = 0) : wxDataViewIndexListModel(initial_size), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDataViewIndexListModel(lua_State* L, lua_Table* dum, unsigned int initial_size = 0) : wxDataViewIndexListModel(initial_size), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {
 		if(_obj.pushFunction("Cleared")) {
@@ -135,6 +142,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 public:

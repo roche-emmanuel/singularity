@@ -78,7 +78,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,19881034) ) return false;
-		if( (!dynamic_cast< wxFile* >(Luna< wxFile >::check(L,1))) ) return false;
+		if( (!(Luna< wxFile >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -102,7 +102,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,19881034) ) return false;
-		if( (!dynamic_cast< wxFile* >(Luna< wxFile >::check(L,2))) ) return false;
+		if( (!(Luna< wxFile >::check(L,2))) ) return false;
 		return true;
 	}
 

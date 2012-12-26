@@ -11,18 +11,25 @@
 class wrapper_wxGenericValidator : public wxGenericValidator, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxGenericValidator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, const wxGenericValidator & validator) : wxGenericValidator(validator), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, bool * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxString * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, int * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxArrayInt * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxDateTime * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxFileName * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, float * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, double * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, const wxGenericValidator & validator) : wxGenericValidator(validator), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, bool * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxString * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, int * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxArrayInt * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxDateTime * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxFileName * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, float * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, double * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -121,6 +128,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -158,6 +166,16 @@ protected:
 		}
 
 		return wxGenericValidator::TryAfter(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

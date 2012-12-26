@@ -64,11 +64,11 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxColour >(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxColour >(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( (!dynamic_cast< wxFont* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxFont >(L,3))) ) return false;
 		return true;
 	}
 

@@ -11,10 +11,17 @@
 class wrapper_wxBitmapDataObject : public wxBitmapDataObject, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxBitmapDataObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxBitmapDataObject(lua_State* L, lua_Table* dum, const wxBitmap & bitmap = wxNullBitmap) : wxBitmapDataObject(bitmap), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxBitmapDataObject(lua_State* L, lua_Table* dum, const wxBitmap & bitmap = wxNullBitmap) : wxBitmapDataObject(bitmap), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	void GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const {
 		THROW_IF(!_obj.pushFunction("GetAllFormats"),"No implementation for abstract function wxDataObject::GetAllFormats");
@@ -87,6 +94,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

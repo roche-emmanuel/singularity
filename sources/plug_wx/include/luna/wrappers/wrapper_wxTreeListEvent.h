@@ -11,9 +11,16 @@
 class wrapper_wxTreeListEvent : public wxTreeListEvent, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxTreeListEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// wxEvent * wxEvent::Clone() const
 	wxEvent * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
@@ -31,6 +38,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -48,6 +56,16 @@ protected:
 		}
 
 		return wxTreeListEvent::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

@@ -8,10 +8,8 @@
 
 #include <Awesomium/WebViewListener.h>
 
-class wrapper_WebViewListener_InputMethodEditor : public WebViewListener::InputMethodEditor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_WebViewListener_InputMethodEditor : public WebViewListener::InputMethodEditor, public luna_wrapper_base {
+
 public:
 	
 

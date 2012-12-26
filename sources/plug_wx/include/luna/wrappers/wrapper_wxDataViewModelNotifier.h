@@ -11,10 +11,17 @@
 class wrapper_wxDataViewModelNotifier : public wxDataViewModelNotifier, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDataViewModelNotifier() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDataViewModelNotifier(lua_State* L, lua_Table* dum) : wxDataViewModelNotifier(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDataViewModelNotifier(lua_State* L, lua_Table* dum) : wxDataViewModelNotifier(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool wxDataViewModelNotifier::Cleared()
 	bool Cleared() {
 		THROW_IF(!_obj.pushFunction("Cleared"),"No implementation for abstract function wxDataViewModelNotifier::Cleared");
@@ -91,6 +98,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

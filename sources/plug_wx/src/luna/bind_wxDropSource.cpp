@@ -85,13 +85,13 @@ public:
 		if( luatop<0 || luatop>4 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( luatop>1 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,4))) ) return false;
 		return true;
 	}
 
@@ -100,15 +100,15 @@ public:
 		if( luatop<1 || luatop>5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,55398761) ) return false;
-		if( (!dynamic_cast< wxDataObject* >(Luna< wxDataObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxDataObject >::check(L,1))) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,2)) ) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
-		if( luatop>4 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5))) ) return false;
+		if( luatop>4 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,5))) ) return false;
 		return true;
 	}
 
@@ -118,13 +118,13 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,2)) ) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
-		if( luatop>4 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5))) ) return false;
+		if( luatop>4 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,5))) ) return false;
 		return true;
 	}
 
@@ -134,15 +134,15 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,55398761) ) return false;
-		if( (!dynamic_cast< wxDataObject* >(Luna< wxDataObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxDataObject >::check(L,2))) ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
-		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,3)) ) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
-		if( luatop>4 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5))) ) return false;
+		if( luatop>4 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,5))) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
-		if( luatop>5 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,6))) ) return false;
+		if( luatop>5 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,6))) ) return false;
 		return true;
 	}
 

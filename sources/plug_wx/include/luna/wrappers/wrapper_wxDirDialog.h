@@ -11,10 +11,17 @@
 class wrapper_wxDirDialog : public wxDirDialog, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDirDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDirDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxDirSelectorPromptStr, const wxString & defaultPath = wxEmptyString, long style = wxDD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxDirDialogNameStr) : wxDirDialog(parent, message, defaultPath, style, pos, size, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDirDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxDirSelectorPromptStr, const wxString & defaultPath = wxEmptyString, long style = wxDD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxDirDialogNameStr) : wxDirDialog(parent, message, defaultPath, style, pos, size, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1240,6 +1247,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1336,6 +1344,16 @@ protected:
 		}
 
 		return wxDirDialog::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,18903788) ) return false;
-		if( (!dynamic_cast< osg::Matrix2* >(Luna< osg::Matrix2 >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Matrix2 >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -84,7 +84,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903788) ) return false;
-		if( (!dynamic_cast< osg::Matrix2* >(Luna< osg::Matrix2 >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Matrix2 >::check(L,2))) ) return false;
 		return true;
 	}
 

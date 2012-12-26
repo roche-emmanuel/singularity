@@ -494,11 +494,11 @@ inline static bool _lg_typecheck_createTexturedQuadGeometry_overload_1(lua_State
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
 	if( lua_isnumber(L,4)==0 ) return false;
 	if( lua_isnumber(L,5)==0 ) return false;
 	if( lua_isnumber(L,6)==0 ) return false;
@@ -511,11 +511,11 @@ inline static bool _lg_typecheck_createTexturedQuadGeometry_overload_2(lua_State
 	if( luatop<3 || luatop>5 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
 	if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 	if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 	return true;
@@ -630,7 +630,7 @@ inline static bool _lg_typecheck_gluScaleImage_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,58853759)) ) return false;
-	if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::PixelStorageModes* >(Luna< osg::PixelStorageModes >::check(L,1)) ) ) return false;
+	if( (lua_isnil(L,1)==0 && !(Luna< osg::PixelStorageModes >::check(L,1)) ) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -797,7 +797,7 @@ inline static bool _lg_typecheck_createGeodeForImage_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-	if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+	if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1)) ) ) return false;
 	return true;
 }
 
@@ -805,7 +805,7 @@ inline static bool _lg_typecheck_createGeodeForImage_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-	if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+	if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1)) ) ) return false;
 	if( lua_isnumber(L,2)==0 ) return false;
 	if( lua_isnumber(L,3)==0 ) return false;
 	return true;
@@ -1107,9 +1107,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303171) ) return false;
-	if( (!dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec2d >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303171) ) return false;
-	if( (!dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec2d >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1117,9 +1117,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303173) ) return false;
-	if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec2f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
-	if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec2f >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1127,9 +1127,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303186) ) return false;
-	if( (!dynamic_cast< osg::Vec2s* >(Luna< osg::Vec2s >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec2s >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303186) ) return false;
-	if( (!dynamic_cast< osg::Vec2s* >(Luna< osg::Vec2s >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec2s >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1137,9 +1137,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_4(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
-	if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3d >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-	if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1147,9 +1147,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_5(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1157,9 +1157,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_6(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303217) ) return false;
-	if( (!dynamic_cast< osg::Vec3s* >(Luna< osg::Vec3s >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3s >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303217) ) return false;
-	if( (!dynamic_cast< osg::Vec3s* >(Luna< osg::Vec3s >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3s >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1167,9 +1167,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_7(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303233) ) return false;
-	if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec4d >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303233) ) return false;
-	if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec4d >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1177,9 +1177,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_8(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303235) ) return false;
-	if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec4f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
-	if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec4f >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1187,9 +1187,9 @@ inline static bool _lg_typecheck_componentMultiply_overload_9(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303248) ) return false;
-	if( (!dynamic_cast< osg::Vec4s* >(Luna< osg::Vec4s >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec4s >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303248) ) return false;
-	if( (!dynamic_cast< osg::Vec4s* >(Luna< osg::Vec4s >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec4s >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1197,9 +1197,9 @@ inline static bool _lg_typecheck_componentDivide_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303171) ) return false;
-	if( (!dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec2d >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303171) ) return false;
-	if( (!dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec2d >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1207,9 +1207,9 @@ inline static bool _lg_typecheck_componentDivide_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303173) ) return false;
-	if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec2f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
-	if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec2f >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1217,9 +1217,9 @@ inline static bool _lg_typecheck_componentDivide_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303186) ) return false;
-	if( (!dynamic_cast< osg::Vec2s* >(Luna< osg::Vec2s >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec2s >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303186) ) return false;
-	if( (!dynamic_cast< osg::Vec2s* >(Luna< osg::Vec2s >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec2s >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1227,9 +1227,9 @@ inline static bool _lg_typecheck_componentDivide_overload_4(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
-	if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3d >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-	if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1237,9 +1237,9 @@ inline static bool _lg_typecheck_componentDivide_overload_5(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-	if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1247,9 +1247,9 @@ inline static bool _lg_typecheck_componentDivide_overload_6(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303217) ) return false;
-	if( (!dynamic_cast< osg::Vec3s* >(Luna< osg::Vec3s >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec3s >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303217) ) return false;
-	if( (!dynamic_cast< osg::Vec3s* >(Luna< osg::Vec3s >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec3s >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1257,9 +1257,9 @@ inline static bool _lg_typecheck_componentDivide_overload_7(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303233) ) return false;
-	if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec4d >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303233) ) return false;
-	if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec4d >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1267,9 +1267,9 @@ inline static bool _lg_typecheck_componentDivide_overload_8(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303235) ) return false;
-	if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec4f >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
-	if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec4f >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -1277,9 +1277,9 @@ inline static bool _lg_typecheck_componentDivide_overload_9(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,92303248) ) return false;
-	if( (!dynamic_cast< osg::Vec4s* >(Luna< osg::Vec4s >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Vec4s >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303248) ) return false;
-	if( (!dynamic_cast< osg::Vec4s* >(Luna< osg::Vec4s >::check(L,2))) ) return false;
+	if( (!(Luna< osg::Vec4s >::check(L,2))) ) return false;
 	return true;
 }
 
@@ -3283,7 +3283,7 @@ inline static bool _lg_typecheck_openArchive_overload_2(lua_State *L) {
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
-	if( (lua_isnil(L,4)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,4)) ) ) return false;
+	if( (lua_isnil(L,4)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,4)) ) ) return false;
 	return true;
 }
 
@@ -3589,7 +3589,7 @@ inline static bool _lg_typecheck_setDataFilePathList_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,54591957) ) return false;
-	if( (!dynamic_cast< osgDB::FilePathList* >(Luna< osgDB::FilePathList >::check(L,1))) ) return false;
+	if( (!(Luna< osgDB::FilePathList >::check(L,1))) ) return false;
 	return true;
 }
 
@@ -3621,7 +3621,7 @@ inline static bool _lg_typecheck_findDataFile_overload_2(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
@@ -3630,7 +3630,7 @@ inline static bool _lg_typecheck_setLibraryFilePathList_overload_1(lua_State *L)
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,54591957) ) return false;
-	if( (!dynamic_cast< osgDB::FilePathList* >(Luna< osgDB::FilePathList >::check(L,1))) ) return false;
+	if( (!(Luna< osgDB::FilePathList >::check(L,1))) ) return false;
 	return true;
 }
 
@@ -3715,7 +3715,7 @@ inline static bool _lg_typecheck_readObjectFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3731,7 +3731,7 @@ inline static bool _lg_typecheck_readImageFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3747,7 +3747,7 @@ inline static bool _lg_typecheck_readHeightFieldFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3763,7 +3763,7 @@ inline static bool _lg_typecheck_readNodeFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3779,7 +3779,7 @@ inline static bool _lg_typecheck_readShaderFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3796,7 +3796,7 @@ inline static bool _lg_typecheck_readShaderFile_overload_3(lua_State *L) {
 	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-	if( (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
 }
 
@@ -3813,7 +3813,7 @@ inline static bool _lg_typecheck_readRefObjectFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3829,7 +3829,7 @@ inline static bool _lg_typecheck_readRefImageFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3845,7 +3845,7 @@ inline static bool _lg_typecheck_readRefHeightFieldFile_overload_1(lua_State *L)
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3861,7 +3861,7 @@ inline static bool _lg_typecheck_readRefNodeFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3877,7 +3877,7 @@ inline static bool _lg_typecheck_readRefShaderFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 
@@ -3899,10 +3899,10 @@ inline static bool _lg_typecheck_writeObjectFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-	if( (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
 }
 
@@ -3910,7 +3910,7 @@ inline static bool _lg_typecheck_writeObjectFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
@@ -3919,10 +3919,10 @@ inline static bool _lg_typecheck_writeImageFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-	if( (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
 }
 
@@ -3930,7 +3930,7 @@ inline static bool _lg_typecheck_writeImageFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
@@ -3939,10 +3939,10 @@ inline static bool _lg_typecheck_writeHeightFieldFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-	if( (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
 }
 
@@ -3950,7 +3950,7 @@ inline static bool _lg_typecheck_writeHeightFieldFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
@@ -3959,10 +3959,10 @@ inline static bool _lg_typecheck_writeNodeFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-	if( (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
 }
 
@@ -3970,7 +3970,7 @@ inline static bool _lg_typecheck_writeNodeFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
@@ -3979,10 +3979,10 @@ inline static bool _lg_typecheck_writeShaderFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-	if( (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
 }
 
@@ -3990,7 +3990,7 @@ inline static bool _lg_typecheck_writeShaderFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-	if( (!dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+	if( (!(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1))) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
@@ -4000,7 +4000,7 @@ inline static bool _lg_typecheck_readXmlFile_overload_1(lua_State *L) {
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-	if( (lua_isnil(L,2)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
 }
 

@@ -11,10 +11,17 @@
 class wrapper_wxFontMapper : public wxFontMapper, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxFontMapper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxFontMapper(lua_State* L, lua_Table* dum) : wxFontMapper(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxFontMapper(lua_State* L, lua_Table* dum) : wxFontMapper(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true)
 	wxFontEncoding CharsetToEncoding(const wxString & charset, bool interactive = true) {
 		if(_obj.pushFunction("CharsetToEncoding")) {
@@ -38,6 +45,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -113,7 +113,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303204)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec3f >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -122,7 +122,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303173)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec2f >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -131,7 +131,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303235)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec4f >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -140,7 +140,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303202)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec3d >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -149,7 +149,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303171)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec2d >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -158,7 +158,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303233)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec4d >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -224,7 +224,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -232,7 +232,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
-		if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec2f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -240,7 +240,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
-		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec4f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -348,36 +348,12 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPrimitiveCountMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getPrimitiveCountMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getPrimitiveValueMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getPrimitiveValueMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_base_setVertexArray_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303204)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec3f >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -386,7 +362,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303173)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec2f >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -395,7 +371,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303235)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec4f >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -404,7 +380,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303202)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec3d >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -413,7 +389,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303171)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec2d >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -422,7 +398,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303233)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Vec4d >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -482,7 +458,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -490,7 +466,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
-		if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec2f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -498,7 +474,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
-		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec4f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1258,108 +1234,6 @@ public:
 		return 0;
 	}
 
-	// osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()
-	static int _bind_getPrimitiveCountMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getPrimitiveCountMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()");
-		}
-		const osgUtil::Statistics::PrimitiveCountMap* lret = &self->getPrimitiveCountMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgUtil::Statistics::PrimitiveCountMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const
-	static int _bind_getPrimitiveCountMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getPrimitiveCountMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const\nClass arguments details:\n");
-		}
-
-
-		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const");
-		}
-		const osgUtil::Statistics::PrimitiveCountMap* lret = &self->getPrimitiveCountMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgUtil::Statistics::PrimitiveCountMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osgUtil::Statistics::getPrimitiveCountMap
-	static int _bind_getPrimitiveCountMap(lua_State *L) {
-		if (_lg_typecheck_getPrimitiveCountMap_overload_1(L)) return _bind_getPrimitiveCountMap_overload_1(L);
-		if (_lg_typecheck_getPrimitiveCountMap_overload_2(L)) return _bind_getPrimitiveCountMap_overload_2(L);
-
-		luaL_error(L, "error in function getPrimitiveCountMap, cannot match any of the overloads for function getPrimitiveCountMap:\n  getPrimitiveCountMap()\n  getPrimitiveCountMap()\n");
-		return 0;
-	}
-
-	// osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()
-	static int _bind_getPrimitiveValueMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getPrimitiveValueMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()");
-		}
-		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->getPrimitiveValueMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgUtil::Statistics::PrimitiveValueMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const
-	static int _bind_getPrimitiveValueMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getPrimitiveValueMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const\nClass arguments details:\n");
-		}
-
-
-		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const");
-		}
-		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->getPrimitiveValueMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgUtil::Statistics::PrimitiveValueMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osgUtil::Statistics::getPrimitiveValueMap
-	static int _bind_getPrimitiveValueMap(lua_State *L) {
-		if (_lg_typecheck_getPrimitiveValueMap_overload_1(L)) return _bind_getPrimitiveValueMap_overload_1(L);
-		if (_lg_typecheck_getPrimitiveValueMap_overload_2(L)) return _bind_getPrimitiveValueMap_overload_2(L);
-
-		luaL_error(L, "error in function getPrimitiveValueMap, cannot match any of the overloads for function getPrimitiveValueMap:\n  getPrimitiveValueMap()\n  getPrimitiveValueMap()\n");
-		return 0;
-	}
-
 	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices)
 	static int _bind_base_setVertexArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_setVertexArray_overload_1(L)) {
@@ -1812,8 +1686,6 @@ luna_RegType LunaTraits< osgUtil::Statistics >::methods[] = {
 	{"addStateGraphs", &luna_wrapper_osgUtil_Statistics::_bind_addStateGraphs},
 	{"addOrderedLeaves", &luna_wrapper_osgUtil_Statistics::_bind_addOrderedLeaves},
 	{"add", &luna_wrapper_osgUtil_Statistics::_bind_add},
-	{"getPrimitiveCountMap", &luna_wrapper_osgUtil_Statistics::_bind_getPrimitiveCountMap},
-	{"getPrimitiveValueMap", &luna_wrapper_osgUtil_Statistics::_bind_getPrimitiveValueMap},
 	{"base_setVertexArray", &luna_wrapper_osgUtil_Statistics::_bind_base_setVertexArray},
 	{"base_drawArrays", &luna_wrapper_osgUtil_Statistics::_bind_base_drawArrays},
 	{"base_drawElements", &luna_wrapper_osgUtil_Statistics::_bind_base_drawElements},

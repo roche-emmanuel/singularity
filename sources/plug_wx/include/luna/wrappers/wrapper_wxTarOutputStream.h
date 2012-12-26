@@ -11,9 +11,16 @@
 class wrapper_wxTarOutputStream : public wxTarOutputStream, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxTarOutputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// bool wxTarOutputStream::Close()
 	bool Close() {
 		if(_obj.pushFunction("Close")) {
@@ -56,6 +63,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

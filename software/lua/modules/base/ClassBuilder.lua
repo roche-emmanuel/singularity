@@ -99,18 +99,37 @@ function Class:__call(options)
 		end
 	end
 	
-	function result:generateWrapping(wrapper,...) 
+	function result:generateWrapping(wrapper,index)
+		index = index or 1
+		
+		for name,func in pairs(wrapper) do
+			if type(func)=="function" and (not result[name]) and name~="new" and name~="__eq" and name~="__gc" and name~="delete" then
+				--self:info("Adding auto wrapped function: ",name)
+				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
+				result[name] = function(self, ...) 
+					local obj = self._wrappers[index]
+					return obj[wname](obj, ...) 
+				end
+			end
+		end			
+	end
+	
+	function result:createWrapper(wrapper,...) 
 		self._wrappers = self._wrappers or {}
 		local obj = wrapper(self,...)
 		self:check(obj,"Could not create wrapper object.");
 		
-		table.insert(self._wrappers, obj)
+		table.insert(self._wrappers, obj)		
 		
-		for name,func in pairs(wrapper) do
-			if(type(func)=="function" and not self[name]) and name~="new" and name~="__eq" and name~="__gc" then
-				--self:info("Adding auto wrapped function: ",name)
-				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
-				self[name] = function(arg1, ...) obj[wname](obj, ...) end
+		-- also wrapper the protected methods now:
+		for name,func in pairs(self) do
+			if type(func)=="function" and (name:sub(1,10)=="protected_") then
+				local rname = name:sub(11)
+				if not self[rname] then
+					self[rname] = function(self, ...)
+						return self[name](obj,...)
+					end
+				end
 			end
 		end			
 	end

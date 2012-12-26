@@ -11,12 +11,19 @@
 class wrapper_osgViewer_CompositeViewer : public osgViewer::CompositeViewer, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgViewer_CompositeViewer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum) : osgViewer::CompositeViewer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::CompositeViewer(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::CompositeViewer(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum) : osgViewer::CompositeViewer(), luna_wrapper_base(L) {};
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::CompositeViewer(arg1, copyop), luna_wrapper_base(L) {};
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::CompositeViewer(arguments), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -337,6 +344,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void osgViewer::CompositeViewer::viewerInit()
 	void viewerInit() {
 		if(_obj.pushFunction("viewerInit")) {
@@ -344,6 +352,209 @@ protected:
 		}
 
 		return CompositeViewer::viewerInit();
+	};
+
+public:
+	// Protected non-virtual methods:
+	// void osgViewer::CompositeViewer::constructorInit()
+	void public_constructorInit() {
+		return osgViewer::CompositeViewer::constructorInit();
+	};
+
+	// void osgViewer::ViewerBase::viewerBaseInit()
+	void public_viewerBaseInit() {
+		return osgViewer::ViewerBase::viewerBaseInit();
+	};
+
+	// void osgViewer::ViewerBase::makeCurrent(osg::GraphicsContext * gc)
+	void public_makeCurrent(osg::GraphicsContext * gc) {
+		return osgViewer::ViewerBase::makeCurrent(gc);
+	};
+
+	// void osgViewer::ViewerBase::releaseContext()
+	void public_releaseContext() {
+		return osgViewer::ViewerBase::releaseContext();
+	};
+
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
+
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_constructorInit(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_viewerBaseInit(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_makeCurrent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_releaseContext(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osgViewer::CompositeViewer::public_constructorInit()
+	static int _bind_public_constructorInit(lua_State *L) {
+		if (!_lg_typecheck_public_constructorInit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::public_constructorInit() function, expected prototype:\nvoid osgViewer::CompositeViewer::public_constructorInit()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::public_constructorInit()");
+		}
+		self->public_constructorInit();
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::public_viewerBaseInit()
+	static int _bind_public_viewerBaseInit(lua_State *L) {
+		if (!_lg_typecheck_public_viewerBaseInit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::public_viewerBaseInit() function, expected prototype:\nvoid osgViewer::ViewerBase::public_viewerBaseInit()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_viewerBaseInit()");
+		}
+		self->public_viewerBaseInit();
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::public_makeCurrent(osg::GraphicsContext * gc)
+	static int _bind_public_makeCurrent(lua_State *L) {
+		if (!_lg_typecheck_public_makeCurrent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::public_makeCurrent(osg::GraphicsContext * gc) function, expected prototype:\nvoid osgViewer::ViewerBase::public_makeCurrent(osg::GraphicsContext * gc)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::GraphicsContext* gc=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
+
+		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_makeCurrent(osg::GraphicsContext *)");
+		}
+		self->public_makeCurrent(gc);
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::public_releaseContext()
+	static int _bind_public_releaseContext(lua_State *L) {
+		if (!_lg_typecheck_public_releaseContext(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::public_releaseContext() function, expected prototype:\nvoid osgViewer::ViewerBase::public_releaseContext()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_releaseContext()");
+		}
+		self->public_releaseContext();
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"protected_constructorInit",_bind_public_constructorInit},
+		{"protected_viewerBaseInit",_bind_public_viewerBaseInit},
+		{"protected_makeCurrent",_bind_public_makeCurrent},
+		{"protected_releaseContext",_bind_public_releaseContext},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
 	};
 
 

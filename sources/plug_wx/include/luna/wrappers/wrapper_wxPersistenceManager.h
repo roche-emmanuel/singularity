@@ -11,12 +11,20 @@
 class wrapper_wxPersistenceManager : public wxPersistenceManager, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxPersistenceManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 
 protected:
+	// Protected virtual methods:
 	// wxConfigBase * wxPersistenceManager::GetConfig() const
 	wxConfigBase * GetConfig() const {
 		if(_obj.pushFunction("GetConfig")) {
@@ -35,6 +43,16 @@ protected:
 		}
 
 		return wxPersistenceManager::GetKey(who, name);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

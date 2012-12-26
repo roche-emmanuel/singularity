@@ -11,11 +11,18 @@
 class wrapper_wxDropSource : public wxDropSource, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDropSource() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDropSource(lua_State* L, lua_Table* dum, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) : wxDropSource(win, iconCopy, iconMove, iconNone), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDropSource(lua_State* L, lua_Table* dum, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) : wxDropSource(data, win, iconCopy, iconMove, iconNone), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDropSource(lua_State* L, lua_Table* dum, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) : wxDropSource(win, iconCopy, iconMove, iconNone), luna_wrapper_base(L) {};
-	wrapper_wxDropSource(lua_State* L, lua_Table* dum, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) : wxDropSource(data, win, iconCopy, iconMove, iconNone), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)
 	wxDragResult DoDragDrop(int flags = ::wxDrag_CopyOnly) {
 		if(_obj.pushFunction("DoDragDrop")) {
@@ -37,6 +44,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

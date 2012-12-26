@@ -11,11 +11,18 @@
 class wrapper_wxImageList : public wxImageList, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxImageList() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxImageList(lua_State* L, lua_Table* dum) : wxImageList(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxImageList(lua_State* L, lua_Table* dum, int width, int height, bool mask = true, int initialCount = 1) : wxImageList(width, height, mask, initialCount), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxImageList(lua_State* L, lua_Table* dum) : wxImageList(), luna_wrapper_base(L) {};
-	wrapper_wxImageList(lua_State* L, lua_Table* dum, int width, int height, bool mask = true, int initialCount = 1) : wxImageList(width, height, mask, initialCount), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -63,6 +70,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -80,6 +88,16 @@ protected:
 		}
 
 		return wxImageList::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

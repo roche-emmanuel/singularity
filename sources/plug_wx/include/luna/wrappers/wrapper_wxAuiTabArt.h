@@ -11,10 +11,17 @@
 class wrapper_wxAuiTabArt : public wxAuiTabArt, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxAuiTabArt() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxAuiTabArt * wxAuiTabArt::Clone()
 	wxAuiTabArt * Clone() {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxAuiTabArt::Clone");
@@ -145,6 +152,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

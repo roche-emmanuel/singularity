@@ -1,1 +1,7 @@
 
+namespace osg {
+
+class Image {
+};
+
+};

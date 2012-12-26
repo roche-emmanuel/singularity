@@ -8,10 +8,8 @@
 
 #include <Awesomium/WebCore.h>
 
-class wrapper_Awesomium_WebCore : public Awesomium::WebCore {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_WebCore : public Awesomium::WebCore, public luna_wrapper_base {
+
 public:
 	
 

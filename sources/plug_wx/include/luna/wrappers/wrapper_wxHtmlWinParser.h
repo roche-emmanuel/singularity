@@ -11,9 +11,16 @@
 class wrapper_wxHtmlWinParser : public wxHtmlWinParser, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxHtmlWinParser() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler)
 	void AddTagHandler(wxHtmlTagHandler * handler) {
 		if(_obj.pushFunction("AddTagHandler")) {
@@ -80,6 +87,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void wxHtmlParser::AddText(const wxString & arg1)
 	void AddText(const wxString & arg1) {
 		THROW_IF(!_obj.pushFunction("AddText"),"No implementation for abstract function wxHtmlParser::AddText");
@@ -95,6 +103,16 @@ protected:
 		}
 
 		return wxHtmlWinParser::AddTag(tag);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

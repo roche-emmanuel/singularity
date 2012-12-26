@@ -149,7 +149,7 @@ ${3}
 class wrapper_${1} : public ${2}, public luna_wrapper_base {
 
 public:
-	
+		
 ]]
 	
 	local wname = corr:correct("filename",class:getFullName())

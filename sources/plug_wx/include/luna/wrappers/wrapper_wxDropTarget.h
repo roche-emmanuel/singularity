@@ -11,10 +11,17 @@
 class wrapper_wxDropTarget : public wxDropTarget, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDropTarget() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDropTarget(lua_State* L, lua_Table* dum, wxDataObject * data = NULL) : wxDropTarget(data), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDropTarget(lua_State* L, lua_Table* dum, wxDataObject * data = NULL) : wxDropTarget(data), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool wxDropTarget::GetData()
 	bool GetData() {
 		THROW_IF(!_obj.pushFunction("GetData"),"No implementation for abstract function wxDropTarget::GetData");
@@ -75,6 +82,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

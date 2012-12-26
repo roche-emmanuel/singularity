@@ -78,9 +78,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!dynamic_cast< osg::AnimationPath* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -97,9 +97,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::AnimationPath* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -142,7 +142,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903840) ) return false;
-		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Matrixf >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -151,7 +151,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
-		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -160,7 +160,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903840) ) return false;
-		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Matrixf >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -169,7 +169,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
-		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -215,25 +215,6 @@ public:
 	}
 
 	inline static bool _lg_typecheck_getLoopMode(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setTimeControlPointMap(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,87612809) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getTimeControlPointMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getTimeControlPointMap_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -798,80 +779,6 @@ public:
 		return 1;
 	}
 
-	// void osg::AnimationPath::setTimeControlPointMap(osg::AnimationPath::TimeControlPointMap & tcpm)
-	static int _bind_setTimeControlPointMap(lua_State *L) {
-		if (!_lg_typecheck_setTimeControlPointMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::setTimeControlPointMap(osg::AnimationPath::TimeControlPointMap & tcpm) function, expected prototype:\nvoid osg::AnimationPath::setTimeControlPointMap(osg::AnimationPath::TimeControlPointMap & tcpm)\nClass arguments details:\narg 1 ID = 87612809\n");
-		}
-
-		osg::AnimationPath::TimeControlPointMap* tcpm_ptr=(Luna< osg::AnimationPath::TimeControlPointMap >::check(L,2));
-		if( !tcpm_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg tcpm in osg::AnimationPath::setTimeControlPointMap function");
-		}
-		osg::AnimationPath::TimeControlPointMap & tcpm=*tcpm_ptr;
-
-		osg::AnimationPath* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::setTimeControlPointMap(osg::AnimationPath::TimeControlPointMap &)");
-		}
-		self->setTimeControlPointMap(tcpm);
-
-		return 0;
-	}
-
-	// osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap()
-	static int _bind_getTimeControlPointMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getTimeControlPointMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap() function, expected prototype:\nosg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPath* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap()");
-		}
-		const osg::AnimationPath::TimeControlPointMap* lret = &self->getTimeControlPointMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::AnimationPath::TimeControlPointMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap() const
-	static int _bind_getTimeControlPointMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getTimeControlPointMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap() const function, expected prototype:\nconst osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap() const\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPath* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::AnimationPath::TimeControlPointMap & osg::AnimationPath::getTimeControlPointMap() const");
-		}
-		const osg::AnimationPath::TimeControlPointMap* lret = &self->getTimeControlPointMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::AnimationPath::TimeControlPointMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::AnimationPath::getTimeControlPointMap
-	static int _bind_getTimeControlPointMap(lua_State *L) {
-		if (_lg_typecheck_getTimeControlPointMap_overload_1(L)) return _bind_getTimeControlPointMap_overload_1(L);
-		if (_lg_typecheck_getTimeControlPointMap_overload_2(L)) return _bind_getTimeControlPointMap_overload_2(L);
-
-		luaL_error(L, "error in function getTimeControlPointMap, cannot match any of the overloads for function getTimeControlPointMap:\n  getTimeControlPointMap()\n  getTimeControlPointMap()\n");
-		return 0;
-	}
-
 	// bool osg::AnimationPath::empty() const
 	static int _bind_empty(lua_State *L) {
 		if (!_lg_typecheck_empty(L)) {
@@ -1250,8 +1157,6 @@ luna_RegType LunaTraits< osg::AnimationPath >::methods[] = {
 	{"getPeriod", &luna_wrapper_osg_AnimationPath::_bind_getPeriod},
 	{"setLoopMode", &luna_wrapper_osg_AnimationPath::_bind_setLoopMode},
 	{"getLoopMode", &luna_wrapper_osg_AnimationPath::_bind_getLoopMode},
-	{"setTimeControlPointMap", &luna_wrapper_osg_AnimationPath::_bind_setTimeControlPointMap},
-	{"getTimeControlPointMap", &luna_wrapper_osg_AnimationPath::_bind_getTimeControlPointMap},
 	{"empty", &luna_wrapper_osg_AnimationPath::_bind_empty},
 	{"clear", &luna_wrapper_osg_AnimationPath::_bind_clear},
 	{"read", &luna_wrapper_osg_AnimationPath::_bind_read},

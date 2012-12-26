@@ -53,6 +53,9 @@ protected:
 
 };
 
+class __int64 {
+};
+
 namespace std {
 
 class istream {

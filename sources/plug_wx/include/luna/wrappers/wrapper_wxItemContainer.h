@@ -11,9 +11,16 @@
 class wrapper_wxItemContainer : public wxItemContainer, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxItemContainer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {
 		THROW_IF(!_obj.pushFunction("GetCount"),"No implementation for abstract function wxItemContainerImmutable::GetCount");
@@ -69,6 +76,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

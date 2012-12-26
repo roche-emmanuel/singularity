@@ -11,10 +11,17 @@
 class wrapper_wxDataViewListStore : public wxDataViewListStore, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDataViewListStore() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDataViewListStore(lua_State* L, lua_Table* dum) : wxDataViewListStore(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDataViewListStore(lua_State* L, lua_Table* dum) : wxDataViewListStore(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {
 		if(_obj.pushFunction("Cleared")) {
@@ -141,6 +148,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 public:

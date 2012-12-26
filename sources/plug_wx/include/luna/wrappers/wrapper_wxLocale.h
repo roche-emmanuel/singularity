@@ -11,12 +11,19 @@
 class wrapper_wxLocale : public wxLocale, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxLocale() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxLocale(lua_State* L, lua_Table* dum) : wxLocale(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxLocale(lua_State* L, lua_Table* dum, int language, int flags = ::wxLOCALE_LOAD_DEFAULT) : wxLocale(language, flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxLocale(lua_State* L, lua_Table* dum, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true) : wxLocale(name, shortName, locale, bLoadDefault), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxLocale(lua_State* L, lua_Table* dum) : wxLocale(), luna_wrapper_base(L) {};
-	wrapper_wxLocale(lua_State* L, lua_Table* dum, int language, int flags = ::wxLOCALE_LOAD_DEFAULT) : wxLocale(language, flags), luna_wrapper_base(L) {};
-	wrapper_wxLocale(lua_State* L, lua_Table* dum, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true) : wxLocale(name, shortName, locale, bLoadDefault), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// const wxString & wxLocale::GetString(const wxString & origString, const wxString & domain = wxEmptyString) const
 	const wxString & GetString(const wxString & origString, const wxString & domain = wxEmptyString) const {
 		if(_obj.pushFunction("GetString")) {
@@ -42,6 +49,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

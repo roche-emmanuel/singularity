@@ -11,12 +11,19 @@
 class wrapper_wxMemoryInputStream : public wxMemoryInputStream, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxMemoryInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, const void * data, size_t len) : wxMemoryInputStream(data, len), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, const wxMemoryOutputStream & stream) : wxMemoryInputStream(stream), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, long long len = wxInvalidOffset) : wxMemoryInputStream(stream, len), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, const void * data, size_t len) : wxMemoryInputStream(data, len), luna_wrapper_base(L) {};
-	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, const wxMemoryOutputStream & stream) : wxMemoryInputStream(stream), luna_wrapper_base(L) {};
-	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, long long len = wxInvalidOffset) : wxMemoryInputStream(stream, len), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -131,6 +138,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -176,6 +184,16 @@ protected:
 		_obj.pushArg(buffer);
 		_obj.pushArg(bufsize);
 		return (_obj.callFunction<size_t>());
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

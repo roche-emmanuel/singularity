@@ -11,11 +11,18 @@
 class wrapper_wxGenericDirCtrl : public wxGenericDirCtrl, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxGenericDirCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxGenericDirCtrl(lua_State* L, lua_Table* dum) : wxGenericDirCtrl(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGenericDirCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, const int id = ::wxID_ANY, const wxString & dir = wxDirDialogDefaultFolderStr, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDIRCTRL_3D_INTERNAL, const wxString & filter = wxEmptyString, int defaultFilter = 0, const wxString & name = wxTreeCtrlNameStr) : wxGenericDirCtrl(parent, id, dir, pos, size, style, filter, defaultFilter, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxGenericDirCtrl(lua_State* L, lua_Table* dum) : wxGenericDirCtrl(), luna_wrapper_base(L) {};
-	wrapper_wxGenericDirCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, const int id = ::wxID_ANY, const wxString & dir = wxDirDialogDefaultFolderStr, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDIRCTRL_3D_INTERNAL, const wxString & filter = wxEmptyString, int defaultFilter = 0, const wxString & name = wxTreeCtrlNameStr) : wxGenericDirCtrl(parent, id, dir, pos, size, style, filter, defaultFilter, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1215,6 +1222,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1311,6 +1319,16 @@ protected:
 		}
 
 		return wxGenericDirCtrl::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

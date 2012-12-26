@@ -99,7 +99,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2))) ) return false;
 		return true;
 	}
 
@@ -107,7 +107,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56095127) ) return false;
-		if( (!dynamic_cast< osgDB::basic_type_wrapper* >(Luna< osgDB::basic_type_wrapper >::check(L,2))) ) return false;
+		if( (!(Luna< osgDB::basic_type_wrapper >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -200,7 +200,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -208,9 +208,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -218,11 +218,11 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -230,13 +230,13 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		return true;
 	}
 
@@ -244,15 +244,15 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		return true;
 	}
 
@@ -260,17 +260,17 @@ public:
 		if( lua_gettop(L)!=7 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -278,19 +278,19 @@ public:
 		if( lua_gettop(L)!=8 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
 		return true;
 	}
 
@@ -298,21 +298,21 @@ public:
 		if( lua_gettop(L)!=9 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,9))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,9))) ) return false;
 		return true;
 	}
 
@@ -328,7 +328,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -337,9 +337,9 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -348,11 +348,11 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		return true;
 	}
 
@@ -361,13 +361,13 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		return true;
 	}
 
@@ -376,15 +376,15 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -393,17 +393,17 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
 		return true;
 	}
 
@@ -412,19 +412,19 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,9))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,9))) ) return false;
 		return true;
 	}
 
@@ -433,21 +433,21 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,8))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,9))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,9))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,67360031) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser::Parameter* >(Luna< osg::ArgumentParser::Parameter >::check(L,10))) ) return false;
+		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,10))) ) return false;
 		return true;
 	}
 
@@ -461,7 +461,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2))) ) return false;
 		return true;
 	}
 
@@ -469,7 +469,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56095127) ) return false;
-		if( (!dynamic_cast< osgDB::basic_type_wrapper* >(Luna< osgDB::basic_type_wrapper >::check(L,2))) ) return false;
+		if( (!(Luna< osgDB::basic_type_wrapper >::check(L,2))) ) return false;
 		return true;
 	}
 

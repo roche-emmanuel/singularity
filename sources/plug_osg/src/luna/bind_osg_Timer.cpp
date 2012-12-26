@@ -77,7 +77,8 @@ public:
 	inline static bool _lg_typecheck_setStartTick_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
+		if( (!(Luna< __int64 >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -114,32 +115,32 @@ public:
 	inline static bool _lg_typecheck_delta_s(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_delta_m(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_delta_u(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_delta_n(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 		return true;
 	}
 
@@ -186,8 +187,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call __int64 osg::Timer::tick() const");
 		}
-		__int64 lret = self->tick();
-		lua_pushnumber(L,lret);
+		__int64 stack_lret = self->tick();
+		__int64* lret = new __int64(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< __int64 >::push(L,lret,true);
 
 		return 1;
 	}
@@ -214,10 +218,14 @@ public:
 	static int _bind_setStartTick_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setStartTick_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Timer::setStartTick(__int64 t) function, expected prototype:\nvoid osg::Timer::setStartTick(__int64 t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Timer::setStartTick(__int64 t) function, expected prototype:\nvoid osg::Timer::setStartTick(__int64 t)\nClass arguments details:\narg 1 ID = 32973728\n");
 		}
 
-		__int64 t=(__int64)lua_tointeger(L,2);
+		__int64* t_ptr=(Luna< __int64 >::check(L,2));
+		if( !t_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t in osg::Timer::setStartTick function");
+		}
+		__int64 t=*t_ptr;
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
@@ -251,8 +259,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call __int64 osg::Timer::getStartTick() const");
 		}
-		__int64 lret = self->getStartTick();
-		lua_pushnumber(L,lret);
+		__int64 stack_lret = self->getStartTick();
+		__int64* lret = new __int64(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< __int64 >::push(L,lret,true);
 
 		return 1;
 	}
@@ -337,11 +348,19 @@ public:
 	static int _bind_delta_s(lua_State *L) {
 		if (!_lg_typecheck_delta_s(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_s(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_s(__int64 t1, __int64 t2) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_s(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_s(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
 		}
 
-		__int64 t1=(__int64)lua_tointeger(L,2);
-		__int64 t2=(__int64)lua_tointeger(L,3);
+		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
+		if( !t1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t1 in osg::Timer::delta_s function");
+		}
+		__int64 t1=*t1_ptr;
+		__int64* t2_ptr=(Luna< __int64 >::check(L,3));
+		if( !t2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t2 in osg::Timer::delta_s function");
+		}
+		__int64 t2=*t2_ptr;
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
@@ -358,11 +377,19 @@ public:
 	static int _bind_delta_m(lua_State *L) {
 		if (!_lg_typecheck_delta_m(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_m(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_m(__int64 t1, __int64 t2) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_m(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_m(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
 		}
 
-		__int64 t1=(__int64)lua_tointeger(L,2);
-		__int64 t2=(__int64)lua_tointeger(L,3);
+		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
+		if( !t1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t1 in osg::Timer::delta_m function");
+		}
+		__int64 t1=*t1_ptr;
+		__int64* t2_ptr=(Luna< __int64 >::check(L,3));
+		if( !t2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t2 in osg::Timer::delta_m function");
+		}
+		__int64 t2=*t2_ptr;
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
@@ -379,11 +406,19 @@ public:
 	static int _bind_delta_u(lua_State *L) {
 		if (!_lg_typecheck_delta_u(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_u(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_u(__int64 t1, __int64 t2) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_u(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_u(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
 		}
 
-		__int64 t1=(__int64)lua_tointeger(L,2);
-		__int64 t2=(__int64)lua_tointeger(L,3);
+		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
+		if( !t1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t1 in osg::Timer::delta_u function");
+		}
+		__int64 t1=*t1_ptr;
+		__int64* t2_ptr=(Luna< __int64 >::check(L,3));
+		if( !t2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t2 in osg::Timer::delta_u function");
+		}
+		__int64 t2=*t2_ptr;
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
@@ -400,11 +435,19 @@ public:
 	static int _bind_delta_n(lua_State *L) {
 		if (!_lg_typecheck_delta_n(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_n(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_n(__int64 t1, __int64 t2) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osg::Timer::delta_n(__int64 t1, __int64 t2) const function, expected prototype:\ndouble osg::Timer::delta_n(__int64 t1, __int64 t2) const\nClass arguments details:\narg 1 ID = 32973728\narg 2 ID = 32973728\n");
 		}
 
-		__int64 t1=(__int64)lua_tointeger(L,2);
-		__int64 t2=(__int64)lua_tointeger(L,3);
+		__int64* t1_ptr=(Luna< __int64 >::check(L,2));
+		if( !t1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t1 in osg::Timer::delta_n function");
+		}
+		__int64 t1=*t1_ptr;
+		__int64* t2_ptr=(Luna< __int64 >::check(L,3));
+		if( !t2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg t2 in osg::Timer::delta_n function");
+		}
+		__int64 t2=*t2_ptr;
 
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {

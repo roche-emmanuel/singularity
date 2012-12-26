@@ -79,7 +79,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osgViewer::ViewerBase* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,2))) ) return false;
 		return true;
 	}
 
@@ -399,7 +399,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,48105087) ) return false;
-		if( (!dynamic_cast< osgViewer::ViewerBase::Contexts* >(Luna< osgViewer::ViewerBase::Contexts >::check(L,2))) ) return false;
+		if( (!(Luna< osgViewer::ViewerBase::Contexts >::check(L,2))) ) return false;
 		return true;
 	}
 

@@ -1,19 +1,18 @@
 local Class = require("classBuilder"){name="BasicNode",bases="osg.BasicObject"};
 
+require "osg"
+Class:generateWrapping(osg.Node)
+
 function Class:initialize(options)	
-	self:info("Creating BasicNode object...");
-	require "osg"
-	self:generateWrapping(osg.Node)
+	self:debug2("Creating BasicNode object");
+	
+	self:createWrapper(osg.Node)
 	
 	self:addAssociate("osg::Node")
-	
-	self:defineMember{name="doubleValue",defVal=5.3}
-	self:defineMember{name="boolValue"}
 end
 
 function Class:buildObjectWrapper(wrapper)
-	wrapper:addDouble("DoubleValue",5.3)
-	wrapper:addBool("BoolValue")
+	-- nothing to serialize.
 end
 
 return Class

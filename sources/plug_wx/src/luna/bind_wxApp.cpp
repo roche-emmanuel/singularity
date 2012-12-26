@@ -249,12 +249,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_base_ProcessPendingEvents(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_base_OnCmdLineError(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -895,24 +889,6 @@ public:
 		return 1;
 	}
 
-	// void wxApp::base_ProcessPendingEvents()
-	static int _bind_base_ProcessPendingEvents(lua_State *L) {
-		if (!_lg_typecheck_base_ProcessPendingEvents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxApp::base_ProcessPendingEvents() function, expected prototype:\nvoid wxApp::base_ProcessPendingEvents()\nClass arguments details:\n");
-		}
-
-
-		wxApp* self=Luna< wxObject >::checkSubType< wxApp >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxApp::base_ProcessPendingEvents()");
-		}
-		self->wxApp::ProcessPendingEvents();
-
-		return 0;
-	}
-
 	// bool wxApp::base_OnCmdLineError(wxCmdLineParser & parser)
 	static int _bind_base_OnCmdLineError(lua_State *L) {
 		if (!_lg_typecheck_base_OnCmdLineError(L)) {
@@ -1371,7 +1347,6 @@ luna_RegType LunaTraits< wxApp >::methods[] = {
 	{"base_ExitMainLoop", &luna_wrapper_wxApp::_bind_base_ExitMainLoop},
 	{"base_FilterEvent", &luna_wrapper_wxApp::_bind_base_FilterEvent},
 	{"base_UsesEventLoop", &luna_wrapper_wxApp::_bind_base_UsesEventLoop},
-	{"base_ProcessPendingEvents", &luna_wrapper_wxApp::_bind_base_ProcessPendingEvents},
 	{"base_OnCmdLineError", &luna_wrapper_wxApp::_bind_base_OnCmdLineError},
 	{"base_OnCmdLineHelp", &luna_wrapper_wxApp::_bind_base_OnCmdLineHelp},
 	{"base_OnCmdLineParsed", &luna_wrapper_wxApp::_bind_base_OnCmdLineParsed},

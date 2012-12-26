@@ -2,12 +2,14 @@ local Class = require("classBuilder"){name="Timer",bases="base.Object"};
 
 local wx = require "wx"
 
+Class:generateWrapping(wx.wxTimer)
+
 --- The Scheduler is used to register timers.
 function Class:initialize(options)
 	self:check(options and (options.frequency or options.delay), "Invalid inputs for Timer.")
 	self:check(options.callback, "Invalid callback.")
 	
-	self:generateWrapping(wx.wxTimer)
+	self:createWrapper(wx.wxTimer)
 	
 	self._interval = math.floor((options.delay or 1.0/options.frequency)*1000.0 + 0.5);
 	self._callback = options.callback

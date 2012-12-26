@@ -216,6 +216,18 @@ function Class:getVirtualFunctions()
 	return virtualFuncs
 end
 
+function Class:getProtectedFunctions()
+	-- find all the non virtual functions in this class:
+	local funcs = self:getFunctions{"Method","Protected","NonVirtual"}
+	funcs:append(self:getFunctions{"Operator","Protected","NonVirtual"})	
+	
+	for _,v in self:getBases():sequence() do
+		funcs:append(v:getProtectedFunctions()) 
+	end
+	
+	return funcs
+end
+
 --- Check if this class should be ignored.
 -- Request the IgnoreManager whever this class should be
 -- ignored or not for the bindings generation.

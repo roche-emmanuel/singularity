@@ -173,20 +173,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getAttributeMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getAttributeMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_collectStats_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -207,7 +193,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
-		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( (!(Luna< std::ostream >::check(L,2))) ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
@@ -217,7 +203,7 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
-		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( (!(Luna< std::ostream >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		return true;
@@ -489,59 +475,6 @@ public:
 		return 0;
 	}
 
-	// osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int frameNumber)
-	static int _bind_getAttributeMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getAttributeMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int frameNumber) function, expected prototype:\nosg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int frameNumber)\nClass arguments details:\n");
-		}
-
-		unsigned int frameNumber=(unsigned int)lua_tointeger(L,2);
-
-		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int)");
-		}
-		const osg::Stats::AttributeMap* lret = &self->getAttributeMap(frameNumber);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Stats::AttributeMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int frameNumber) const
-	static int _bind_getAttributeMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getAttributeMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int frameNumber) const function, expected prototype:\nconst osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int frameNumber) const\nClass arguments details:\n");
-		}
-
-		unsigned int frameNumber=(unsigned int)lua_tointeger(L,2);
-
-		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int) const");
-		}
-		const osg::Stats::AttributeMap* lret = &self->getAttributeMap(frameNumber);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Stats::AttributeMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::Stats::getAttributeMap
-	static int _bind_getAttributeMap(lua_State *L) {
-		if (_lg_typecheck_getAttributeMap_overload_1(L)) return _bind_getAttributeMap_overload_1(L);
-		if (_lg_typecheck_getAttributeMap_overload_2(L)) return _bind_getAttributeMap_overload_2(L);
-
-		luaL_error(L, "error in function getAttributeMap, cannot match any of the overloads for function getAttributeMap:\n  getAttributeMap(unsigned int)\n  getAttributeMap(unsigned int)\n");
-		return 0;
-	}
-
 	// void osg::Stats::collectStats(const std::string & str, bool flag)
 	static int _bind_collectStats_overload_1(lua_State *L) {
 		if (!_lg_typecheck_collectStats_overload_1(L)) {
@@ -684,7 +617,6 @@ luna_RegType LunaTraits< osg::Stats >::methods[] = {
 	{"setAttribute", &luna_wrapper_osg_Stats::_bind_setAttribute},
 	{"getAttribute", &luna_wrapper_osg_Stats::_bind_getAttribute},
 	{"getAveragedAttribute", &luna_wrapper_osg_Stats::_bind_getAveragedAttribute},
-	{"getAttributeMap", &luna_wrapper_osg_Stats::_bind_getAttributeMap},
 	{"collectStats", &luna_wrapper_osg_Stats::_bind_collectStats},
 	{"report", &luna_wrapper_osg_Stats::_bind_report},
 	{"__eq", &luna_wrapper_osg_Stats::_bind___eq},

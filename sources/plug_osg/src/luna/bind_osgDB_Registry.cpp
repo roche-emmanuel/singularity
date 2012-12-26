@@ -580,25 +580,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setAuthenticationMap(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getAuthenticationMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getAuthenticationMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setCreateNodeFromImage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -647,7 +628,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54591957) ) return false;
-		if( (!dynamic_cast< osgDB::FilePathList* >(Luna< osgDB::FilePathList >::check(L,2))) ) return false;
+		if( (!(Luna< osgDB::FilePathList >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -680,7 +661,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54591957) ) return false;
-		if( (!dynamic_cast< osgDB::FilePathList* >(Luna< osgDB::FilePathList >::check(L,2))) ) return false;
+		if( (!(Luna< osgDB::FilePathList >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -2452,76 +2433,6 @@ public:
 		return 0;
 	}
 
-	// void osgDB::Registry::setAuthenticationMap(osgDB::AuthenticationMap * authenticationMap)
-	static int _bind_setAuthenticationMap(lua_State *L) {
-		if (!_lg_typecheck_setAuthenticationMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::Registry::setAuthenticationMap(osgDB::AuthenticationMap * authenticationMap) function, expected prototype:\nvoid osgDB::Registry::setAuthenticationMap(osgDB::AuthenticationMap * authenticationMap)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osgDB::AuthenticationMap* authenticationMap=(Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,2));
-
-		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Registry::setAuthenticationMap(osgDB::AuthenticationMap *)");
-		}
-		self->setAuthenticationMap(authenticationMap);
-
-		return 0;
-	}
-
-	// osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap()
-	static int _bind_getAuthenticationMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getAuthenticationMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap() function, expected prototype:\nosgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap()\nClass arguments details:\n");
-		}
-
-
-		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap()");
-		}
-		osgDB::AuthenticationMap * lret = self->getAuthenticationMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgDB::AuthenticationMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap() const
-	static int _bind_getAuthenticationMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getAuthenticationMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap() const function, expected prototype:\nconst osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap() const\nClass arguments details:\n");
-		}
-
-
-		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationMap * osgDB::Registry::getAuthenticationMap() const");
-		}
-		const osgDB::AuthenticationMap * lret = self->getAuthenticationMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgDB::AuthenticationMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osgDB::Registry::getAuthenticationMap
-	static int _bind_getAuthenticationMap(lua_State *L) {
-		if (_lg_typecheck_getAuthenticationMap_overload_1(L)) return _bind_getAuthenticationMap_overload_1(L);
-		if (_lg_typecheck_getAuthenticationMap_overload_2(L)) return _bind_getAuthenticationMap_overload_2(L);
-
-		luaL_error(L, "error in function getAuthenticationMap, cannot match any of the overloads for function getAuthenticationMap:\n  getAuthenticationMap()\n  getAuthenticationMap()\n");
-		return 0;
-	}
-
 	// void osgDB::Registry::setCreateNodeFromImage(bool flag)
 	static int _bind_setCreateNodeFromImage(lua_State *L) {
 		if (!_lg_typecheck_setCreateNodeFromImage(L)) {
@@ -3443,8 +3354,6 @@ luna_RegType LunaTraits< osgDB::Registry >::methods[] = {
 	{"getKdTreeBuilder", &luna_wrapper_osgDB_Registry::_bind_getKdTreeBuilder},
 	{"setFileCache", &luna_wrapper_osgDB_Registry::_bind_setFileCache},
 	{"getFileCache", &luna_wrapper_osgDB_Registry::_bind_getFileCache},
-	{"setAuthenticationMap", &luna_wrapper_osgDB_Registry::_bind_setAuthenticationMap},
-	{"getAuthenticationMap", &luna_wrapper_osgDB_Registry::_bind_getAuthenticationMap},
 	{"setCreateNodeFromImage", &luna_wrapper_osgDB_Registry::_bind_setCreateNodeFromImage},
 	{"getCreateNodeFromImage", &luna_wrapper_osgDB_Registry::_bind_getCreateNodeFromImage},
 	{"setOptions", &luna_wrapper_osgDB_Registry::_bind_setOptions},

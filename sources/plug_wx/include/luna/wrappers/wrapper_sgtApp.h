@@ -11,9 +11,16 @@
 class wrapper_sgtApp : public sgtApp, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_sgtApp() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -108,15 +115,6 @@ public:
 		}
 
 		return sgtApp::UsesEventLoop();
-	};
-
-	// void wxAppConsole::ProcessPendingEvents()
-	void ProcessPendingEvents() {
-		if(_obj.pushFunction("ProcessPendingEvents")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return sgtApp::ProcessPendingEvents();
 	};
 
 	// bool wxAppConsole::OnCmdLineError(wxCmdLineParser & parser)
@@ -313,6 +311,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -359,6 +358,16 @@ protected:
 		}
 
 		return sgtApp::CreateTraits();
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

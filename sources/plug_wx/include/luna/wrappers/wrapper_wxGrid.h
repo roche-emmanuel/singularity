@@ -11,11 +11,18 @@
 class wrapper_wxGrid : public wxGrid, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxGrid() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), luna_wrapper_base(L) {};
-	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxPen wxGrid::GetColGridLinePen(int col)
 	wxPen GetColGridLinePen(int col) {
 		if(_obj.pushFunction("GetColGridLinePen")) {
@@ -97,6 +104,187 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+	// bool wxGrid::CanHaveAttributes() const
+	bool public_CanHaveAttributes() const {
+		return wxGrid::CanHaveAttributes();
+	};
+
+	// int wxGrid::GetColMinimalWidth(int col) const
+	int public_GetColMinimalWidth(int col) const {
+		return wxGrid::GetColMinimalWidth(col);
+	};
+
+	// int wxGrid::GetColRight(int col) const
+	int public_GetColRight(int col) const {
+		return wxGrid::GetColRight(col);
+	};
+
+	// int wxGrid::GetColLeft(int col) const
+	int public_GetColLeft(int col) const {
+		return wxGrid::GetColLeft(col);
+	};
+
+	// int wxGrid::GetRowMinimalHeight(int col) const
+	int public_GetRowMinimalHeight(int col) const {
+		return wxGrid::GetRowMinimalHeight(col);
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_CanHaveAttributes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_GetColMinimalWidth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_GetColRight(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_GetColLeft(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_GetRowMinimalHeight(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// bool wxGrid::public_CanHaveAttributes() const
+	static int _bind_public_CanHaveAttributes(lua_State *L) {
+		if (!_lg_typecheck_public_CanHaveAttributes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGrid::public_CanHaveAttributes() const function, expected prototype:\nbool wxGrid::public_CanHaveAttributes() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGrid::public_CanHaveAttributes() const");
+		}
+		bool lret = self->public_CanHaveAttributes();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int wxGrid::public_GetColMinimalWidth(int col) const
+	static int _bind_public_GetColMinimalWidth(lua_State *L) {
+		if (!_lg_typecheck_public_GetColMinimalWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxGrid::public_GetColMinimalWidth(int col) const function, expected prototype:\nint wxGrid::public_GetColMinimalWidth(int col) const\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColMinimalWidth(int) const");
+		}
+		int lret = self->public_GetColMinimalWidth(col);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxGrid::public_GetColRight(int col) const
+	static int _bind_public_GetColRight(lua_State *L) {
+		if (!_lg_typecheck_public_GetColRight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxGrid::public_GetColRight(int col) const function, expected prototype:\nint wxGrid::public_GetColRight(int col) const\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColRight(int) const");
+		}
+		int lret = self->public_GetColRight(col);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxGrid::public_GetColLeft(int col) const
+	static int _bind_public_GetColLeft(lua_State *L) {
+		if (!_lg_typecheck_public_GetColLeft(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxGrid::public_GetColLeft(int col) const function, expected prototype:\nint wxGrid::public_GetColLeft(int col) const\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColLeft(int) const");
+		}
+		int lret = self->public_GetColLeft(col);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxGrid::public_GetRowMinimalHeight(int col) const
+	static int _bind_public_GetRowMinimalHeight(lua_State *L) {
+		if (!_lg_typecheck_public_GetRowMinimalHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxGrid::public_GetRowMinimalHeight(int col) const function, expected prototype:\nint wxGrid::public_GetRowMinimalHeight(int col) const\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetRowMinimalHeight(int) const");
+		}
+		int lret = self->public_GetRowMinimalHeight(col);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"protected_CanHaveAttributes",_bind_public_CanHaveAttributes},
+		{"protected_GetColMinimalWidth",_bind_public_GetColMinimalWidth},
+		{"protected_GetColRight",_bind_public_GetColRight},
+		{"protected_GetColLeft",_bind_public_GetColLeft},
+		{"protected_GetRowMinimalHeight",_bind_public_GetRowMinimalHeight},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

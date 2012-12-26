@@ -8,10 +8,8 @@
 
 #include <Awesomium/WebSession.h>
 
-class wrapper_Awesomium_WebSession : public Awesomium::WebSession {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_WebSession : public Awesomium::WebSession, public luna_wrapper_base {
+
 public:
 	
 

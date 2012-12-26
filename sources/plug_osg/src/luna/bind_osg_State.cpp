@@ -275,7 +275,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -283,7 +283,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
-		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -402,7 +402,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -550,7 +550,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -601,7 +601,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -857,7 +857,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -887,7 +887,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -916,7 +916,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -952,7 +952,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -988,7 +988,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -1018,7 +1018,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -1092,7 +1092,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,3)) ) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
@@ -1320,7 +1320,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -1384,7 +1384,7 @@ public:
 	inline static bool _lg_typecheck_setStartTick(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 		return true;
 	}
 
@@ -1409,7 +1409,7 @@ public:
 	inline static bool _lg_typecheck_setGpuTimestamp(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -5244,8 +5244,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call __int64 osg::State::getStartTick() const");
 		}
-		__int64 lret = self->getStartTick();
-		lua_pushnumber(L,lret);
+		__int64 stack_lret = self->getStartTick();
+		__int64* lret = new __int64(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< __int64 >::push(L,lret,true);
 
 		return 1;
 	}
@@ -5254,10 +5257,14 @@ public:
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::setStartTick(__int64 tick) function, expected prototype:\nvoid osg::State::setStartTick(__int64 tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::setStartTick(__int64 tick) function, expected prototype:\nvoid osg::State::setStartTick(__int64 tick)\nClass arguments details:\narg 1 ID = 32973728\n");
 		}
 
-		__int64 tick=(__int64)lua_tointeger(L,2);
+		__int64* tick_ptr=(Luna< __int64 >::check(L,2));
+		if( !tick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tick in osg::State::setStartTick function");
+		}
+		__int64 tick=*tick_ptr;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -5282,8 +5289,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call __int64 osg::State::getGpuTick() const");
 		}
-		__int64 lret = self->getGpuTick();
-		lua_pushnumber(L,lret);
+		__int64 stack_lret = self->getGpuTick();
+		__int64* lret = new __int64(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< __int64 >::push(L,lret,true);
 
 		return 1;
 	}
@@ -5330,10 +5340,14 @@ public:
 	static int _bind_setGpuTimestamp(lua_State *L) {
 		if (!_lg_typecheck_setGpuTimestamp(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::setGpuTimestamp(__int64 tick, unsigned long long int timestamp) function, expected prototype:\nvoid osg::State::setGpuTimestamp(__int64 tick, unsigned long long int timestamp)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::setGpuTimestamp(__int64 tick, unsigned long long int timestamp) function, expected prototype:\nvoid osg::State::setGpuTimestamp(__int64 tick, unsigned long long int timestamp)\nClass arguments details:\narg 1 ID = 32973728\n");
 		}
 
-		__int64 tick=(__int64)lua_tointeger(L,2);
+		__int64* tick_ptr=(Luna< __int64 >::check(L,2));
+		if( !tick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tick in osg::State::setGpuTimestamp function");
+		}
+		__int64 tick=*tick_ptr;
 		unsigned long long int timestamp=(unsigned long long int)lua_tointeger(L,3);
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);

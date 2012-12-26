@@ -11,9 +11,16 @@
 class wrapper_osg_StateAttribute_ModeUsage : public osg::StateAttribute::ModeUsage, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osg_StateAttribute_ModeUsage() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
 	void usesMode(unsigned int mode) {
 		THROW_IF(!_obj.pushFunction("usesMode"),"No implementation for abstract function osg::StateAttribute::ModeUsage::usesMode");
@@ -29,6 +36,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

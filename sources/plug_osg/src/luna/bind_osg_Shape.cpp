@@ -80,9 +80,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Shape >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -124,7 +124,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,36301858) ) return false;
-		if( (!dynamic_cast< osg::ShapeVisitor* >(Luna< osg::ShapeVisitor >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ShapeVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -132,7 +132,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45826538) ) return false;
-		if( (!dynamic_cast< osg::ConstShapeVisitor* >(Luna< osg::ConstShapeVisitor >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ConstShapeVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 

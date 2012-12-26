@@ -72,7 +72,7 @@ public:
 		if( luatop<1 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,2993706) ) return false;
-		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,1))) ) return false;
+		if( (!(Luna< std::ostream >::check(L,1))) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
@@ -84,7 +84,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
-		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( (!(Luna< std::ostream >::check(L,2))) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;

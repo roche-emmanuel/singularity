@@ -77,7 +77,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullStack* >(Luna< osg::CullSettings >::check(L,1))) ) return false;
+		if( (!(Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1))) ) return false;
 		return true;
 	}
 
@@ -93,7 +93,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullStack* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,2))) ) return false;
 		return true;
 	}
 
@@ -186,7 +186,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -195,7 +195,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -203,7 +203,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -212,7 +212,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -234,7 +234,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
-		if( (!dynamic_cast< std::vector< osg::Vec3f >* >(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
+		if( (!(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -242,7 +242,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -250,7 +250,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -258,7 +258,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2))) ) return false;
 		return true;
 	}
 
@@ -387,7 +387,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -395,7 +395,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}

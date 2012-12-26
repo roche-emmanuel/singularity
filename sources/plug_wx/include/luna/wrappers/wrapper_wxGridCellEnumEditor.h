@@ -11,10 +11,17 @@
 class wrapper_wxGridCellEnumEditor : public wxGridCellEnumEditor, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxGridCellEnumEditor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxGridCellEnumEditor(lua_State* L, lua_Table* dum, const wxString & choices = wxEmptyString) : wxGridCellEnumEditor(choices), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxGridCellEnumEditor(lua_State* L, lua_Table* dum, const wxString & choices = wxEmptyString) : wxGridCellEnumEditor(choices), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxString wxGridCellEditor::GetValue() const
 	wxString GetValue() const {
 		THROW_IF(!_obj.pushFunction("GetValue"),"No implementation for abstract function wxGridCellEditor::GetValue");
@@ -152,6 +159,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -11,10 +11,17 @@
 class wrapper_wxAuiDockArt : public wxAuiDockArt, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxAuiDockArt() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
 	void DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) {
 		THROW_IF(!_obj.pushFunction("DrawBackground"),"No implementation for abstract function wxAuiDockArt::DrawBackground");
@@ -124,6 +131,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

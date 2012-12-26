@@ -11,12 +11,20 @@
 class wrapper_wxTextWrapper : public wxTextWrapper, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxTextWrapper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxTextWrapper(lua_State* L, lua_Table* dum) : wxTextWrapper(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxTextWrapper(lua_State* L, lua_Table* dum) : wxTextWrapper(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 
 protected:
+	// Protected virtual methods:
 	// void wxTextWrapper::OnOutputLine(const wxString & line)
 	void OnOutputLine(const wxString & line) {
 		THROW_IF(!_obj.pushFunction("OnOutputLine"),"No implementation for abstract function wxTextWrapper::OnOutputLine");
@@ -31,6 +39,16 @@ protected:
 		}
 
 		return wxTextWrapper::OnNewLine();
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

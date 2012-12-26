@@ -11,10 +11,17 @@
 class wrapper_wxEvtHandler : public wxEvtHandler, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxEvtHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxEvtHandler(lua_State* L, lua_Table* dum) : wxEvtHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxEvtHandler(lua_State* L, lua_Table* dum) : wxEvtHandler(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -76,6 +83,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -113,6 +121,16 @@ protected:
 		}
 
 		return wxEvtHandler::TryAfter(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

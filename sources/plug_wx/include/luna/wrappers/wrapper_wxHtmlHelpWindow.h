@@ -11,11 +11,18 @@
 class wrapper_wxHtmlHelpWindow : public wxHtmlHelpWindow, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxHtmlHelpWindow() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxHtmlHelpWindow(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpWindow(data), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHtmlHelpWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) : wxHtmlHelpWindow(parent, wxWindowID, pos, size, style, helpStyle, data), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxHtmlHelpWindow(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpWindow(data), luna_wrapper_base(L) {};
-	wrapper_wxHtmlHelpWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) : wxHtmlHelpWindow(parent, wxWindowID, pos, size, style, helpStyle, data), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -995,6 +1002,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1102,6 +1110,113 @@ protected:
 		}
 
 		return wxHtmlHelpWindow::AddToolbarButtons(toolBar, style);
+	};
+
+public:
+	// Protected non-virtual methods:
+	// void wxHtmlHelpWindow::CreateSearch()
+	void public_CreateSearch() {
+		return wxHtmlHelpWindow::CreateSearch();
+	};
+
+	// void wxHtmlHelpWindow::CreateContents()
+	void public_CreateContents() {
+		return wxHtmlHelpWindow::CreateContents();
+	};
+
+	// void wxHtmlHelpWindow::CreateIndex()
+	void public_CreateIndex() {
+		return wxHtmlHelpWindow::CreateIndex();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_CreateSearch(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_CreateContents(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_CreateIndex(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void wxHtmlHelpWindow::public_CreateSearch()
+	static int _bind_public_CreateSearch(lua_State *L) {
+		if (!_lg_typecheck_public_CreateSearch(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateSearch() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateSearch()\nClass arguments details:\n");
+		}
+
+
+		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch()");
+		}
+		self->public_CreateSearch();
+
+		return 0;
+	}
+
+	// void wxHtmlHelpWindow::public_CreateContents()
+	static int _bind_public_CreateContents(lua_State *L) {
+		if (!_lg_typecheck_public_CreateContents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateContents() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateContents()\nClass arguments details:\n");
+		}
+
+
+		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents()");
+		}
+		self->public_CreateContents();
+
+		return 0;
+	}
+
+	// void wxHtmlHelpWindow::public_CreateIndex()
+	static int _bind_public_CreateIndex(lua_State *L) {
+		if (!_lg_typecheck_public_CreateIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateIndex() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateIndex()\nClass arguments details:\n");
+		}
+
+
+		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex()");
+		}
+		self->public_CreateIndex();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"protected_CreateSearch",_bind_public_CreateSearch},
+		{"protected_CreateContents",_bind_public_CreateContents},
+		{"protected_CreateIndex",_bind_public_CreateIndex},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
 	};
 
 

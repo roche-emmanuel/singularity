@@ -14,6 +14,10 @@ typedef double GLdouble;
 typedef double GLclampd;
 typedef void GLvoid;
 
+class __int64 {
+};
+
+
 class GLUtesselator {
 protected:
 	~GLUtesselator();

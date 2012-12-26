@@ -74,7 +74,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxDataViewRenderer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,3)) ) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
@@ -88,9 +88,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxBitmap >(L,2))) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxDataViewRenderer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,3)) ) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;

@@ -11,10 +11,17 @@
 class wrapper_osg_ConstArrayVisitor : public osg::ConstArrayVisitor, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osg_ConstArrayVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osg_ConstArrayVisitor(lua_State* L, lua_Table* dum) : osg::ConstArrayVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osg_ConstArrayVisitor(lua_State* L, lua_Table* dum) : osg::ConstArrayVisitor(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void osg::ConstArrayVisitor::apply(const osg::Array & arg1)
 	void apply(const osg::Array & arg1) {
 		if(_obj.pushFunction("apply")) {
@@ -246,6 +253,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

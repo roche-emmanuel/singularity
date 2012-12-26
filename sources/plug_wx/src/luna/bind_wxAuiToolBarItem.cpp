@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,95634835) ) return false;
-		if( (!dynamic_cast< wxAuiToolBarItem* >(Luna< wxAuiToolBarItem >::check(L,1))) ) return false;
+		if( (!(Luna< wxAuiToolBarItem >::check(L,1))) ) return false;
 		return true;
 	}
 

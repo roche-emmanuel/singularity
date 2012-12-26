@@ -19,6 +19,11 @@ package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path
 
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
+local tm = require "bindings.TypeManager"
+tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
+tm:registerExternals(sgt_path .. "sources/plug_osg/classes.luna")
+tm:registerExternalFunctions(sgt_path .. "sources/plug_osg/functions.luna")
+
 ReflectionGenerator.generate{
 	xmlpath=xml_path,
 	luaOpenName=project,

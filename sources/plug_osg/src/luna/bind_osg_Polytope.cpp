@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26652350) ) return false;
-		if( (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Polytope >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -72,7 +72,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,33161232) ) return false;
-		if( (!dynamic_cast< osg::Polytope::PlaneList* >(Luna< osg::Polytope::PlaneList >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Polytope::PlaneList >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -218,7 +218,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
-		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -226,7 +226,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
-		if( (!dynamic_cast< std::vector< osg::Vec3f >* >(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
+		if( (!(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -234,7 +234,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -242,7 +242,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -250,7 +250,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
-		if( (!dynamic_cast< std::vector< osg::Vec3f >* >(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
+		if( (!(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -258,7 +258,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -266,7 +266,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 

@@ -111,6 +111,14 @@ ReflectionGenerator.generate{
 		"StateSetManipulator::clone", -- ignore terrain stuff for now.
 		"XmlNode::Input",
 		"ControlMap",
+		"Texture3D::computeRequiredTextureDimensions",
+		"Map%(",
+		"Map%)",
+		"PrecipitationDrawableSet",
+		"ModeStack",
+		"AttributeStack",
+		"AttributeMap",
+		"ModeMap",
 	},
 	ignoreWrappers={
 		"StateSetManipulator::clone",

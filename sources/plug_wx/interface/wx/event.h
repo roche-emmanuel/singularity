@@ -1170,7 +1170,7 @@ protected:
             @true if this object itself defines a handler for this event and
             the handler didn't skip the event.
      */
-    bool TryThis(wxEvent& event);
+    //bool TryThis(wxEvent& event);
 
     /**
         Method called by ProcessEvent() as last resort.

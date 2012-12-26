@@ -11,11 +11,29 @@
 class wrapper_wxURLDataObject : public wxURLDataObject, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxURLDataObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxURLDataObject(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURLDataObject(url), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxURLDataObject(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURLDataObject(url), luna_wrapper_base(L) {};
+	// Public virtual methods:
 
 
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 public:

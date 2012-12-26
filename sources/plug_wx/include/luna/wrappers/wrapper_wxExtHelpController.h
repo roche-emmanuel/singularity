@@ -11,9 +11,16 @@
 class wrapper_wxExtHelpController : public wxExtHelpController, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxExtHelpController() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// bool wxHelpController::DisplayContextPopup(int contextId)
 	bool DisplayContextPopup(int contextId) {
 		if(_obj.pushFunction("DisplayContextPopup")) {
@@ -55,6 +62,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

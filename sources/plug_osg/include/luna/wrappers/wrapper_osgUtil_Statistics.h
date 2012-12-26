@@ -11,10 +11,17 @@
 class wrapper_osgUtil_Statistics : public osgUtil::Statistics, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgUtil_Statistics() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osgUtil_Statistics(lua_State* L, lua_Table* dum) : osgUtil::Statistics(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osgUtil_Statistics(lua_State* L, lua_Table* dum) : osgUtil::Statistics(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices)
 	void setVertexArray(unsigned int count, const osg::Vec3f * vertices) {
 		if(_obj.pushFunction("setVertexArray")) {
@@ -215,6 +222,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

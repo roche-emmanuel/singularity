@@ -11,10 +11,17 @@
 class wrapper_osgUtil_IntersectionVisitor : public osgUtil::IntersectionVisitor, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgUtil_IntersectionVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osgUtil_IntersectionVisitor(lua_State* L, lua_Table* dum, osgUtil::Intersector * intersector = 0, osgUtil::IntersectionVisitor::ReadCallback * readCallback = 0) : osgUtil::IntersectionVisitor(intersector, readCallback), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osgUtil_IntersectionVisitor(lua_State* L, lua_Table* dum, osgUtil::Intersector * intersector = 0, osgUtil::IntersectionVisitor::ReadCallback * readCallback = 0) : osgUtil::IntersectionVisitor(intersector, readCallback), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
@@ -184,6 +191,247 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+	// bool osgUtil::IntersectionVisitor::enter(const osg::Node & node)
+	bool public_enter(const osg::Node & node) {
+		return osgUtil::IntersectionVisitor::enter(node);
+	};
+
+	// void osgUtil::IntersectionVisitor::leave()
+	void public_leave() {
+		return osgUtil::IntersectionVisitor::leave();
+	};
+
+	// void osgUtil::IntersectionVisitor::intersect(osg::Drawable * drawable)
+	void public_intersect(osg::Drawable * drawable) {
+		return osgUtil::IntersectionVisitor::intersect(drawable);
+	};
+
+	// void osgUtil::IntersectionVisitor::push_clone()
+	void public_push_clone() {
+		return osgUtil::IntersectionVisitor::push_clone();
+	};
+
+	// void osgUtil::IntersectionVisitor::pop_clone()
+	void public_pop_clone() {
+		return osgUtil::IntersectionVisitor::pop_clone();
+	};
+
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
+
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_enter(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_leave(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_intersect(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_push_clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_pop_clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// bool osgUtil::IntersectionVisitor::public_enter(const osg::Node & node)
+	static int _bind_public_enter(lua_State *L) {
+		if (!_lg_typecheck_public_enter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgUtil::IntersectionVisitor::public_enter(const osg::Node & node) function, expected prototype:\nbool osgUtil::IntersectionVisitor::public_enter(const osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		if( !node_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg node in osgUtil::IntersectionVisitor::public_enter function");
+		}
+		const osg::Node & node=*node_ptr;
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectionVisitor::public_enter(const osg::Node &)");
+		}
+		bool lret = self->public_enter(node);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osgUtil::IntersectionVisitor::public_leave()
+	static int _bind_public_leave(lua_State *L) {
+		if (!_lg_typecheck_public_leave(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::public_leave() function, expected prototype:\nvoid osgUtil::IntersectionVisitor::public_leave()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::public_leave()");
+		}
+		self->public_leave();
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::public_intersect(osg::Drawable * drawable)
+	static int _bind_public_intersect(lua_State *L) {
+		if (!_lg_typecheck_public_intersect(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::public_intersect(osg::Drawable * drawable) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::public_intersect(osg::Drawable * drawable)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::public_intersect(osg::Drawable *)");
+		}
+		self->public_intersect(drawable);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::public_push_clone()
+	static int _bind_public_push_clone(lua_State *L) {
+		if (!_lg_typecheck_public_push_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::public_push_clone() function, expected prototype:\nvoid osgUtil::IntersectionVisitor::public_push_clone()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::public_push_clone()");
+		}
+		self->public_push_clone();
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::public_pop_clone()
+	static int _bind_public_pop_clone(lua_State *L) {
+		if (!_lg_typecheck_public_pop_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::public_pop_clone() function, expected prototype:\nvoid osgUtil::IntersectionVisitor::public_pop_clone()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::public_pop_clone()");
+		}
+		self->public_pop_clone();
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgUtil_IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"protected_enter",_bind_public_enter},
+		{"protected_leave",_bind_public_leave},
+		{"protected_intersect",_bind_public_intersect},
+		{"protected_push_clone",_bind_public_push_clone},
+		{"protected_pop_clone",_bind_public_pop_clone},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

@@ -11,10 +11,17 @@
 class wrapper_wxGridCellBoolRenderer : public wxGridCellBoolRenderer, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxGridCellBoolRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxGridCellBoolRenderer(lua_State* L, lua_Table* dum) : wxGridCellBoolRenderer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxGridCellBoolRenderer(lua_State* L, lua_Table* dum) : wxGridCellBoolRenderer(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxGridCellRenderer::Clone");
@@ -46,6 +53,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -11,11 +11,18 @@
 class wrapper_wxRadioBox : public wxRadioBox, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxRadioBox() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxRadioBox(lua_State* L, lua_Table* dum) : wxRadioBox(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxRadioBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr) : wxRadioBox(parent, id, label, pos, size, choices, majorDimension, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxRadioBox(lua_State* L, lua_Table* dum) : wxRadioBox(), luna_wrapper_base(L) {};
-	wrapper_wxRadioBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr) : wxRadioBox(parent, id, label, pos, size, choices, majorDimension, style, validator, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1097,6 +1104,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1193,6 +1201,16 @@ protected:
 		}
 
 		return wxRadioBox::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

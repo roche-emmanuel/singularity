@@ -11,11 +11,18 @@
 class wrapper_osg_DrawPixels : public osg::DrawPixels, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osg_DrawPixels() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum) : osg::DrawPixels(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum, const osg::DrawPixels & drawimage, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawPixels(drawimage, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum) : osg::DrawPixels(), luna_wrapper_base(L) {};
-	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum, const osg::DrawPixels & drawimage, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawPixels(drawimage, copyop), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -236,6 +243,314 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
+	void public_setBound(const osg::BoundingBoxd & bb) const {
+		return osg::Drawable::setBound(bb);
+	};
+
+	// void osg::Drawable::addParent(osg::Node * node)
+	void public_addParent(osg::Node * node) {
+		return osg::Drawable::addParent(node);
+	};
+
+	// void osg::Drawable::removeParent(osg::Node * node)
+	void public_removeParent(osg::Node * node) {
+		return osg::Drawable::removeParent(node);
+	};
+
+	// void osg::Drawable::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+	void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+		return osg::Drawable::setNumChildrenRequiringUpdateTraversal(num);
+	};
+
+	// unsigned int osg::Drawable::getNumChildrenRequiringUpdateTraversal() const
+	unsigned int public_getNumChildrenRequiringUpdateTraversal() const {
+		return osg::Drawable::getNumChildrenRequiringUpdateTraversal();
+	};
+
+	// void osg::Drawable::setNumChildrenRequiringEventTraversal(unsigned int num)
+	void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+		return osg::Drawable::setNumChildrenRequiringEventTraversal(num);
+	};
+
+	// unsigned int osg::Drawable::getNumChildrenRequiringEventTraversal() const
+	unsigned int public_getNumChildrenRequiringEventTraversal() const {
+		return osg::Drawable::getNumChildrenRequiringEventTraversal();
+	};
+
+	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+	};
+
+	// void osg::Referenced::deleteUsingDeleteHandler() const
+	void public_deleteUsingDeleteHandler() const {
+		return osg::Referenced::deleteUsingDeleteHandler();
+	};
+
+
+	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_setBound(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_addParent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_removeParent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_setNumChildrenRequiringUpdateTraversal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_getNumChildrenRequiringUpdateTraversal(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_setNumChildrenRequiringEventTraversal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_getNumChildrenRequiringEventTraversal(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_deleteUsingDeleteHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Protected non-virtual function binds:
+	// void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const
+	static int _bind_public_setBound(lua_State *L) {
+		if (!_lg_typecheck_public_setBound(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
+		}
+
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		if( !bb_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Drawable::public_setBound function");
+		}
+		const osg::BoundingBoxd & bb=*bb_ptr;
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const");
+		}
+		self->public_setBound(bb);
+
+		return 0;
+	}
+
+	// void osg::Drawable::public_addParent(osg::Node * node)
+	static int _bind_public_addParent(lua_State *L) {
+		if (!_lg_typecheck_public_addParent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_addParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_addParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *)");
+		}
+		self->public_addParent(node);
+
+		return 0;
+	}
+
+	// void osg::Drawable::public_removeParent(osg::Node * node)
+	static int _bind_public_removeParent(lua_State *L) {
+		if (!_lg_typecheck_public_removeParent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_removeParent(osg::Node * node) function, expected prototype:\nvoid osg::Drawable::public_removeParent(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *)");
+		}
+		self->public_removeParent(node);
+
+		return 0;
+	}
+
+	// void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)
+	static int _bind_public_setNumChildrenRequiringUpdateTraversal(lua_State *L) {
+		if (!_lg_typecheck_public_setNumChildrenRequiringUpdateTraversal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int num)\nClass arguments details:\n");
+		}
+
+		unsigned int num=(unsigned int)lua_tointeger(L,2);
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int)");
+		}
+		self->public_setNumChildrenRequiringUpdateTraversal(num);
+
+		return 0;
+	}
+
+	// unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const
+	static int _bind_public_getNumChildrenRequiringUpdateTraversal(lua_State *L) {
+		if (!_lg_typecheck_public_getNumChildrenRequiringUpdateTraversal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const");
+		}
+		unsigned int lret = self->public_getNumChildrenRequiringUpdateTraversal();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)
+	static int _bind_public_setNumChildrenRequiringEventTraversal(lua_State *L) {
+		if (!_lg_typecheck_public_setNumChildrenRequiringEventTraversal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num) function, expected prototype:\nvoid osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int num)\nClass arguments details:\n");
+		}
+
+		unsigned int num=(unsigned int)lua_tointeger(L,2);
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int)");
+		}
+		self->public_setNumChildrenRequiringEventTraversal(num);
+
+		return 0;
+	}
+
+	// unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const
+	static int _bind_public_getNumChildrenRequiringEventTraversal(lua_State *L) {
+		if (!_lg_typecheck_public_getNumChildrenRequiringEventTraversal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const function, expected prototype:\nunsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const");
+		}
+		unsigned int lret = self->public_getNumChildrenRequiringEventTraversal();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
+	static int _bind_public_signalObserversAndDelete(lua_State *L) {
+		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const function, expected prototype:\nvoid osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const\nClass arguments details:\n");
+		}
+
+		bool signalDelete=(bool)(lua_toboolean(L,2)==1);
+		bool doDelete=(bool)(lua_toboolean(L,3)==1);
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+		}
+		self->public_signalObserversAndDelete(signalDelete, doDelete);
+
+		return 0;
+	}
+
+	// void osg::Referenced::public_deleteUsingDeleteHandler() const
+	static int _bind_public_deleteUsingDeleteHandler(lua_State *L) {
+		if (!_lg_typecheck_public_deleteUsingDeleteHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Referenced::public_deleteUsingDeleteHandler() const function, expected prototype:\nvoid osg::Referenced::public_deleteUsingDeleteHandler() const\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_DrawPixels* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_DrawPixels >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+		}
+		self->public_deleteUsingDeleteHandler();
+
+		return 0;
+	}
+
+
+	void register_protected_methods(lua_State* L) {
+		static const luaL_Reg wrapper_lib[] = {
+		{"protected_setBound",_bind_public_setBound},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
+		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{NULL,NULL}
+		};
+
+		pushTable();
+		luaL_register(L, NULL, wrapper_lib);
+		lua_pop(L, 1);
+	};
 
 
 };

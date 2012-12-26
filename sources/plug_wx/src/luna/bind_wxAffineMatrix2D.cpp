@@ -117,7 +117,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,87062627) ) return false;
-		if( (!dynamic_cast< wxPoint2DDouble* >(Luna< wxPoint2DDouble >::check(L,2))) ) return false;
+		if( (!(Luna< wxPoint2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -133,7 +133,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,87062627) ) return false;
-		if( (!dynamic_cast< wxPoint2DDouble* >(Luna< wxPoint2DDouble >::check(L,2))) ) return false;
+		if( (!(Luna< wxPoint2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 

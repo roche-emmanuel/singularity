@@ -11,9 +11,16 @@
 class wrapper_wxEventLoopBase : public wxEventLoopBase, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxEventLoopBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// int wxEventLoopBase::Run()
 	int Run() {
 		THROW_IF(!_obj.pushFunction("Run"),"No implementation for abstract function wxEventLoopBase::Run");
@@ -100,6 +107,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void wxEventLoopBase::OnExit()
 	void OnExit() {
 		if(_obj.pushFunction("OnExit")) {
@@ -107,6 +115,16 @@ protected:
 		}
 
 		return wxEventLoopBase::OnExit();
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

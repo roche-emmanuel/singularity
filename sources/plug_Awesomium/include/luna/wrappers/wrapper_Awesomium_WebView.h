@@ -8,10 +8,8 @@
 
 #include <Awesomium/WebView.h>
 
-class wrapper_Awesomium_WebView : public Awesomium::WebView {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_WebView : public Awesomium::WebView, public luna_wrapper_base {
+
 public:
 	
 
@@ -510,6 +508,26 @@ public:
 
 
 
+
+public:
+// void Awesomium::WebView::set_parent_window(NativeWindow parent)
+void set_parent_window(NativeWindow) {
+	THROW_IF(true,"The function call void Awesomium::WebView::set_parent_window(NativeWindow) is not implemented in wrapper.");
+};
+
+public:
+// NativeWindow Awesomium::WebView::parent_window()
+NativeWindow parent_window() {
+	THROW_IF(true,"The function call NativeWindow Awesomium::WebView::parent_window() is not implemented in wrapper.");
+	return NativeWindow();
+};
+
+public:
+// NativeWindow Awesomium::WebView::window()
+NativeWindow window() {
+	THROW_IF(true,"The function call NativeWindow Awesomium::WebView::window() is not implemented in wrapper.");
+	return NativeWindow();
+};
 
 };
 

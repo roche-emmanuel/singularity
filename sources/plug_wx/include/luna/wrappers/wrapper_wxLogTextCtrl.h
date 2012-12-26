@@ -11,10 +11,17 @@
 class wrapper_wxLogTextCtrl : public wxLogTextCtrl, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxLogTextCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxLogTextCtrl(lua_State* L, lua_Table* dum, wxTextCtrl * pTextCtrl) : wxLogTextCtrl(pTextCtrl), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxLogTextCtrl(lua_State* L, lua_Table* dum, wxTextCtrl * pTextCtrl) : wxLogTextCtrl(pTextCtrl), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void wxLog::Flush()
 	void Flush() {
 		if(_obj.pushFunction("Flush")) {
@@ -26,6 +33,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
 	void DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) {
 		if(_obj.pushFunction("DoLogRecord")) {
@@ -57,6 +65,16 @@ protected:
 		}
 
 		return wxLogTextCtrl::DoLogText(msg);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

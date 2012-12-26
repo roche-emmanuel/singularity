@@ -11,10 +11,17 @@
 class wrapper_wxTaskBarIcon : public wxTaskBarIcon, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxTaskBarIcon() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxTaskBarIcon(lua_State* L, lua_Table* dum) : wxTaskBarIcon(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxTaskBarIcon(lua_State* L, lua_Table* dum) : wxTaskBarIcon(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -106,6 +113,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -152,6 +160,16 @@ protected:
 		}
 
 		return wxTaskBarIcon::CreatePopupMenu();
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

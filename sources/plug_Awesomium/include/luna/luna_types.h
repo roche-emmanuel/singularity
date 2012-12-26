@@ -764,6 +764,24 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< osg::Image > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Image* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Image* obj);
+	typedef osg::Image parent_t;
+	typedef osg::Image base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 23910648 > {
@@ -1028,6 +1046,13 @@ template<>
 class LunaType< 85723603 > {
 public:
 	typedef WebViewListener::InputMethodEditor type;
+	
+};
+
+template<>
+class LunaType< 80535448 > {
+public:
+	typedef osg::Image type;
 	
 };
 

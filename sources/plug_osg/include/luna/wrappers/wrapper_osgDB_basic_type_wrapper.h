@@ -11,9 +11,16 @@
 class wrapper_osgDB_basic_type_wrapper : public osgDB::basic_type_wrapper, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgDB_basic_type_wrapper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const
 	bool matches(const osg::Object * proto) const {
 		THROW_IF(!_obj.pushFunction("matches"),"No implementation for abstract function osgDB::basic_type_wrapper::matches");
@@ -22,6 +29,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

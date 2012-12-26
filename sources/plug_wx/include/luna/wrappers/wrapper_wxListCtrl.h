@@ -11,11 +11,18 @@
 class wrapper_wxListCtrl : public wxListCtrl, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxListCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxListCtrl(lua_State* L, lua_Table* dum) : wxListCtrl(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr) : wxListCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxListCtrl(lua_State* L, lua_Table* dum) : wxListCtrl(), luna_wrapper_base(L) {};
-	wrapper_wxListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr) : wxListCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1005,6 +1012,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1154,6 +1162,16 @@ protected:
 		}
 
 		return wxListCtrl::OnGetItemText(item, column);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

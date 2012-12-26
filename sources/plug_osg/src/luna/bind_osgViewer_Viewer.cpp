@@ -89,7 +89,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,99527028) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
+		if( (!(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -98,9 +98,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!dynamic_cast< osgViewer::Viewer* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -116,7 +116,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -126,9 +126,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osgViewer::Viewer* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -214,7 +214,7 @@ public:
 	inline static bool _lg_typecheck_setStartTick(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 		return true;
 	}
 
@@ -520,7 +520,7 @@ public:
 	inline static bool _lg_typecheck_base_setStartTick(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 		return true;
 	}
 
@@ -1007,10 +1007,14 @@ public:
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::Viewer::setStartTick(__int64 tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::Viewer::setStartTick(__int64 tick)\nClass arguments details:\narg 1 ID = 32973728\n");
 		}
 
-		__int64 tick=(__int64)lua_tointeger(L,2);
+		__int64* tick_ptr=(Luna< __int64 >::check(L,2));
+		if( !tick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tick in osgViewer::Viewer::setStartTick function");
+		}
+		__int64 tick=*tick_ptr;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1951,10 +1955,14 @@ public:
 	static int _bind_base_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_base_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::base_setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::Viewer::base_setStartTick(__int64 tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::base_setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::Viewer::base_setStartTick(__int64 tick)\nClass arguments details:\narg 1 ID = 32973728\n");
 		}
 
-		__int64 tick=(__int64)lua_tointeger(L,2);
+		__int64* tick_ptr=(Luna< __int64 >::check(L,2));
+		if( !tick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tick in osgViewer::Viewer::base_setStartTick function");
+		}
+		__int64 tick=*tick_ptr;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {

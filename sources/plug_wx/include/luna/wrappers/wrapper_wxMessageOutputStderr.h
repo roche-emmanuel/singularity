@@ -11,9 +11,16 @@
 class wrapper_wxMessageOutputStderr : public wxMessageOutputStderr, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxMessageOutputStderr() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {
 		THROW_IF(!_obj.pushFunction("Output"),"No implementation for abstract function wxMessageOutput::Output");
@@ -22,6 +29,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

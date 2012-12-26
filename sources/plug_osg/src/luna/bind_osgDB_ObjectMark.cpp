@@ -67,7 +67,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,60066730) ) return false;
-		if( (!dynamic_cast< osgDB::ObjectMark* >(Luna< osgDB::ObjectMark >::check(L,1))) ) return false;
+		if( (!(Luna< osgDB::ObjectMark >::check(L,1))) ) return false;
 		return true;
 	}
 

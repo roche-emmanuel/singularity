@@ -11,10 +11,17 @@
 class wrapper_wxDirPickerCtrl : public wxDirPickerCtrl, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDirPickerCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxDirPickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & path = wxEmptyString, const wxString & message = wxDirSelectorPromptStr, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDIRP_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxDirPickerCtrlNameStr) : wxDirPickerCtrl(parent, id, path, message, pos, size, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxDirPickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & path = wxEmptyString, const wxString & message = wxDirSelectorPromptStr, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDIRP_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxDirPickerCtrlNameStr) : wxDirPickerCtrl(parent, id, path, message, pos, size, style, validator, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1004,6 +1011,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1100,6 +1108,16 @@ protected:
 		}
 
 		return wxDirPickerCtrl::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

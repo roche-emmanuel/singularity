@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26059272) ) return false;
-		if( (!dynamic_cast< wxNativeFontInfo* >(Luna< wxNativeFontInfo >::check(L,1))) ) return false;
+		if( (!(Luna< wxNativeFontInfo >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -177,7 +177,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
-		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,2))) ) return false;
+		if( (!(Luna< wxArrayString >::check(L,2))) ) return false;
 		return true;
 	}
 

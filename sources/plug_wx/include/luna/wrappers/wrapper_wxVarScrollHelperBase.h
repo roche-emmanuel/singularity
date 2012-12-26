@@ -11,10 +11,17 @@
 class wrapper_wxVarScrollHelperBase : public wxVarScrollHelperBase, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxVarScrollHelperBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxVarScrollHelperBase(lua_State* L, lua_Table* dum, wxWindow * winToScroll) : wxVarScrollHelperBase(winToScroll), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxVarScrollHelperBase(lua_State* L, lua_Table* dum, wxWindow * winToScroll) : wxVarScrollHelperBase(winToScroll), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// int wxVarScrollHelperBase::GetNonOrientationTargetSize() const
 	int GetNonOrientationTargetSize() const {
 		THROW_IF(!_obj.pushFunction("GetNonOrientationTargetSize"),"No implementation for abstract function wxVarScrollHelperBase::GetNonOrientationTargetSize");
@@ -72,6 +79,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
 	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
 		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
@@ -97,6 +105,16 @@ protected:
 		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
 		_obj.pushArg(unit);
 		return (_obj.callFunction<int>());
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

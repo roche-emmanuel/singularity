@@ -1,0 +1,51 @@
+local Class = require("classBuilder"){name="WebImage",bases="base.Object"};
+
+local Event = require "base.Event"
+local webman = require "web.WebManager"
+local osg = require "osg"
+local gl = require "luagl"
+
+function Class:initialize(options)	
+	options = options or {}
+	local ww = options.width or 1024
+	local hh = options.height or 800;
+	
+	-- create a webview for this tile:
+	self._webView = webman:createWebView{width=ww,height=hh};
+
+	-- create the corresponding image:
+	self._image = osg.Image();
+	self._image:setAllocationMode(osg.Image.USE_NEW_DELETE)
+	self._image:allocateImage(ww, hh, 1, gl.RGBA, gl.UNSIGNED_BYTE)
+	--self:getEventManager():addListener(Event.FRAME,self)	
+end
+
+function Class:getWebView()
+	return self._webView;
+end
+
+function Class:getImage()
+	return self._image;
+end
+
+function Class:update()
+	-- retrieve the surface from the webview:
+	local surface = self._webView:surface()
+	
+	if not surface then
+		self:warn("Invalid surface...");
+		return;
+	end
+	
+	surface = surface:dynCast("Awesomium::BitmapSurface");
+	self:check(surface,"Invalid surface for WebImage");
+	
+    if not surface:is_dirty() then
+		return
+	end
+
+	self:info("Updating image from webview...")
+    surface:copyTo(self._image);
+end
+
+return Class

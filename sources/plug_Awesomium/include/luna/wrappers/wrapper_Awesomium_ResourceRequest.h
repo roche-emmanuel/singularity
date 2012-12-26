@@ -8,10 +8,8 @@
 
 #include <Awesomium/ResourceInterceptor.h>
 
-class wrapper_Awesomium_ResourceRequest : public Awesomium::ResourceRequest {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_ResourceRequest : public Awesomium::ResourceRequest, public luna_wrapper_base {
+
 public:
 	
 

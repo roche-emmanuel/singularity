@@ -8,14 +8,12 @@
 
 #include <Awesomium/DataPak.h>
 
-class wrapper_Awesomium_DataPakSource : public Awesomium::DataPakSource {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_DataPakSource : public Awesomium::DataPakSource, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_Awesomium_DataPakSource(lua_State* L, lua_Table* dum, const Awesomium::WebString & pak_path) : Awesomium::DataPakSource(pak_path), _obj(L,-1) {};
+	wrapper_Awesomium_DataPakSource(lua_State* L, lua_Table* dum, const Awesomium::WebString & pak_path) : Awesomium::DataPakSource(pak_path), luna_wrapper_base(L) {};
 
 	// void Awesomium::DataPakSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	void OnRequest(int request_id, const Awesomium::WebString & path) {

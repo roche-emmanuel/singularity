@@ -11,9 +11,16 @@
 class wrapper_wxTarInputStream : public wxTarInputStream, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxTarInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// bool wxTarInputStream::CloseEntry()
 	bool CloseEntry() {
 		if(_obj.pushFunction("CloseEntry")) {
@@ -24,6 +31,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

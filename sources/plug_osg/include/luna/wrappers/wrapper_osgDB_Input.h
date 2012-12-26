@@ -11,10 +11,17 @@
 class wrapper_osgDB_Input : public osgDB::Input, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgDB_Input() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osgDB_Input(lua_State* L, lua_Table* dum) : osgDB::Input(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osgDB_Input(lua_State* L, lua_Table* dum) : osgDB::Input(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool osgDB::FieldReaderIterator::eof() const
 	bool eof() const {
 		if(_obj.pushFunction("eof")) {
@@ -169,6 +176,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

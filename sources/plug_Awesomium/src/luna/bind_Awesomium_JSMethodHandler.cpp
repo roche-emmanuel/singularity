@@ -6,6 +6,30 @@ class luna_wrapper_Awesomium_JSMethodHandler {
 public:
 	typedef Luna< Awesomium::JSMethodHandler > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		Awesomium::JSMethodHandler* self=(Luna< Awesomium::JSMethodHandler >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -55,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_OnMethodCall(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
@@ -79,6 +105,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void Awesomium::JSMethodHandler::OnMethodCall(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args)
@@ -145,7 +173,8 @@ public:
 };
 
 Awesomium::JSMethodHandler* LunaTraits< Awesomium::JSMethodHandler >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void Awesomium::JSMethodHandler::OnMethodCall(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args)
 	// Awesomium::JSValue Awesomium::JSMethodHandler::OnMethodCallWithReturnValue(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args)
@@ -167,6 +196,7 @@ luna_RegType LunaTraits< Awesomium::JSMethodHandler >::methods[] = {
 	{"OnMethodCallWithReturnValue", &luna_wrapper_Awesomium_JSMethodHandler::_bind_OnMethodCallWithReturnValue},
 	{"dynCast", &luna_wrapper_Awesomium_JSMethodHandler::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_JSMethodHandler::_bind___eq},
+	{"getTable", &luna_wrapper_Awesomium_JSMethodHandler::_bind_getTable},
 	{0,0}
 };
 

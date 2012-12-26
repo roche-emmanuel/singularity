@@ -112,3 +112,17 @@ void main() {
 	
 	log:info("Tests","Vec3Array test done.")
 end
+
+function test_protected_function_access()
+	log:info("Tests","Testing protection function access.")
+	local BasicNode = require "osg.BasicNode"
+	local osg = require "osg"
+	
+	local node = BasicNode()
+	local grp = osg.Group()
+	node:addParent(grp)
+	node:setNumChildrenRequiringUpdateTraversal(1)
+
+	log:info("Tests","Protection function access test done.")
+end
+

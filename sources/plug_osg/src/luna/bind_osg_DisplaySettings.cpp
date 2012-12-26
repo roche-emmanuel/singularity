@@ -77,7 +77,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,99527028) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
+		if( (!(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -85,7 +85,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1))) ) return false;
 		return true;
 	}
 
@@ -101,7 +101,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -110,7 +110,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2))) ) return false;
 		return true;
 	}
 

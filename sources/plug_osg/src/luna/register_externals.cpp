@@ -1,5 +1,11 @@
 #include <plug_common.h>
 
+const char LunaTraits< __int64 >::className[] = "int64";
+const char LunaTraits< __int64 >::fullName[] = "__int64";
+const char LunaTraits< __int64 >::moduleName[] = "sgt";
+const int LunaTraits< __int64 >::hash = 32973728;
+const int LunaTraits< __int64 >::uniqueIDs[] = {32973728,0};
+
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
 const char LunaTraits< osg::Referenced >::moduleName[] = "osg";

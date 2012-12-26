@@ -72,13 +72,13 @@ public:
 		if( luatop<0 || luatop>6 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxMenu >(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,56813631)) ) return false;
-		if( luatop>5 && (lua_isnil(L,6)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,6)) ) ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !(Luna< wxObject >::checkSubType< wxMenu >(L,6)) ) ) return false;
 		return true;
 	}
 
@@ -88,13 +88,13 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxMenu >(L,2)) ) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
-		if( luatop>6 && (lua_isnil(L,7)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,7)) ) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !(Luna< wxObject >::checkSubType< wxMenu >(L,7)) ) ) return false;
 		return true;
 	}
 

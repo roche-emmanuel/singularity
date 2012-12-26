@@ -11,9 +11,16 @@
 class wrapper_osgGA_GUIActionAdapter : public osgGA::GUIActionAdapter, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osgGA_GUIActionAdapter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// osg::View * osgGA::GUIActionAdapter::asView()
 	osg::View * asView() {
 		if(_obj.pushFunction("asView")) {
@@ -45,6 +52,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

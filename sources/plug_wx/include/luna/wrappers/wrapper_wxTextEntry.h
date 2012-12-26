@@ -11,9 +11,16 @@
 class wrapper_wxTextEntry : public wxTextEntry, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxTextEntry() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void wxTextEntry::AppendText(const wxString & text)
 	void AppendText(const wxString & text) {
 		if(_obj.pushFunction("AppendText")) {
@@ -322,6 +329,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

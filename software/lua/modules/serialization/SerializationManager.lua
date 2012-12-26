@@ -7,7 +7,7 @@ function Class:initialize(options)
 	local Set = require "std.Set"
 	self._wrapperList = Set();
 
-	self:getEventManager():addListener(Event.APP_CLOSING,self)
+	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:registerWrappers();
 	--[[
@@ -37,7 +37,9 @@ end
 
 function Class:registerWrappers()
 	local list = {
+		"osg.BasicObject",
 		"osg.BasicNode",
+		"osg.BasicNodeTest",
 	};
 	
 	self:info("Loading wrappers...")

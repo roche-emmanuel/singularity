@@ -81,11 +81,11 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
-		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,4)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !(Luna< wxObject >::check(L,4)) ) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
-		if( (lua_isnil(L,7)==0 && !dynamic_cast< wxControl* >(Luna< wxObject >::check(L,7)) ) ) return false;
+		if( (lua_isnil(L,7)==0 && !(Luna< wxObject >::checkSubType< wxControl >(L,7)) ) ) return false;
 		return true;
 	}
 

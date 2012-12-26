@@ -11,9 +11,16 @@
 class wrapper_osg_ValueObject_SetValueVisitor : public osg::ValueObject::SetValueVisitor, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osg_ValueObject_SetValueVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
 	void apply(bool & value) {
 		if(_obj.pushFunction("apply")) {
@@ -215,6 +222,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

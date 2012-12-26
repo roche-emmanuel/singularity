@@ -11,13 +11,20 @@
 class wrapper_wxPen : public wxPen, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxPen() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxPen(lua_State* L, lua_Table* dum) : wxPen(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) : wxPen(colour, width, style), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) : wxPen(stipple, width), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxPen & pen) : wxPen(pen), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxPen(lua_State* L, lua_Table* dum) : wxPen(), luna_wrapper_base(L) {};
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) : wxPen(colour, width, style), luna_wrapper_base(L) {};
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) : wxPen(stipple, width), luna_wrapper_base(L) {};
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxPen & pen) : wxPen(pen), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -164,6 +171,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -181,6 +189,16 @@ protected:
 		}
 
 		return wxPen::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

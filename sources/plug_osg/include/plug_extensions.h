@@ -19,6 +19,16 @@ namespace osg {
 };
 
 /** LUNA_CLASS_EXTENSION  */
+inline void setInt(osg::Uniform* unif, int val) {
+	unif->set(val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setFloat(osg::Uniform* unif, float val) {
+	unif->set(val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
 double readDouble(osgDB::InputStream& is);
 
 /** LUNA_CLASS_EXTENSION  */

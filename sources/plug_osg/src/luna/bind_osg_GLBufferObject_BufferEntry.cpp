@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,69650430) ) return false;
-		if( (!dynamic_cast< osg::GLBufferObject::BufferEntry* >(Luna< osg::GLBufferObject::BufferEntry >::check(L,1))) ) return false;
+		if( (!(Luna< osg::GLBufferObject::BufferEntry >::check(L,1))) ) return false;
 		return true;
 	}
 

@@ -78,9 +78,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!dynamic_cast< osg::TransferFunction1D* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::TransferFunction1D >(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -97,9 +97,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::TransferFunction1D* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::TransferFunction1D >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -191,18 +191,6 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getColorMap_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getColorMap_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
 		return true;
 	}
 
@@ -656,57 +644,6 @@ public:
 		return 1;
 	}
 
-	// osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap()
-	static int _bind_getColorMap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getColorMap_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap() function, expected prototype:\nosg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap()\nClass arguments details:\n");
-		}
-
-
-		osg::TransferFunction1D* self=Luna< osg::Referenced >::checkSubType< osg::TransferFunction1D >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap()");
-		}
-		const osg::TransferFunction1D::ColorMap* lret = &self->getColorMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::TransferFunction1D::ColorMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap() const
-	static int _bind_getColorMap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getColorMap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap() const function, expected prototype:\nconst osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap() const\nClass arguments details:\n");
-		}
-
-
-		osg::TransferFunction1D* self=Luna< osg::Referenced >::checkSubType< osg::TransferFunction1D >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::TransferFunction1D::ColorMap & osg::TransferFunction1D::getColorMap() const");
-		}
-		const osg::TransferFunction1D::ColorMap* lret = &self->getColorMap();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::TransferFunction1D::ColorMap >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::TransferFunction1D::getColorMap
-	static int _bind_getColorMap(lua_State *L) {
-		if (_lg_typecheck_getColorMap_overload_1(L)) return _bind_getColorMap_overload_1(L);
-		if (_lg_typecheck_getColorMap_overload_2(L)) return _bind_getColorMap_overload_2(L);
-
-		luaL_error(L, "error in function getColorMap, cannot match any of the overloads for function getColorMap:\n  getColorMap()\n  getColorMap()\n");
-		return 0;
-	}
-
 	// void osg::TransferFunction1D::assign(const osg::TransferFunction1D::ColorMap & vcm)
 	static int _bind_assign(lua_State *L) {
 		if (!_lg_typecheck_assign(L)) {
@@ -1017,7 +954,6 @@ luna_RegType LunaTraits< osg::TransferFunction1D >::methods[] = {
 	{"getNumberImageCells", &luna_wrapper_osg_TransferFunction1D::_bind_getNumberImageCells},
 	{"setColor", &luna_wrapper_osg_TransferFunction1D::_bind_setColor},
 	{"getColor", &luna_wrapper_osg_TransferFunction1D::_bind_getColor},
-	{"getColorMap", &luna_wrapper_osg_TransferFunction1D::_bind_getColorMap},
 	{"assign", &luna_wrapper_osg_TransferFunction1D::_bind_assign},
 	{"updateImage", &luna_wrapper_osg_TransferFunction1D::_bind_updateImage},
 	{"base_setName", &luna_wrapper_osg_TransferFunction1D::_bind_base_setName},

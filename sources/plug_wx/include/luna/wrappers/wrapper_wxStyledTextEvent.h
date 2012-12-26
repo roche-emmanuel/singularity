@@ -11,11 +11,18 @@
 class wrapper_wxStyledTextEvent : public wxStyledTextEvent, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxStyledTextEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxStyledTextEvent(commandType, id), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) : wxStyledTextEvent(event), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxStyledTextEvent(commandType, id), luna_wrapper_base(L) {};
-	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) : wxStyledTextEvent(event), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -42,6 +49,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -59,6 +67,16 @@ protected:
 		}
 
 		return wxStyledTextEvent::CloneRefData(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

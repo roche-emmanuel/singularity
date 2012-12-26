@@ -19,7 +19,7 @@ function Class:initialize(options)
 	self._defaultQuality = wx.wxIMAGE_QUALITY_HIGH
 	self._defaultLinkProp = 0.5 -- link taking half of the size of the image.
 	
-	evtman:addListener(Event.APP_CLOSING,self)
+	evtman:addListener{event=Event.APP_CLOSING,object=self}
 end
 
 function Class:onAppClosing()

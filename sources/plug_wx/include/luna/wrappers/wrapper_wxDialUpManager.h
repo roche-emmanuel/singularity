@@ -11,9 +11,16 @@
 class wrapper_wxDialUpManager : public wxDialUpManager, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxDialUpManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// bool wxDialUpManager::CancelDialing()
 	bool CancelDialing() {
 		THROW_IF(!_obj.pushFunction("CancelDialing"),"No implementation for abstract function wxDialUpManager::CancelDialing");
@@ -104,6 +111,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

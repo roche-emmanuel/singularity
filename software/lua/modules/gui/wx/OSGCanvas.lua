@@ -25,18 +25,11 @@ function Class:initialize(options)
 	self:check(gl.DEPTH_BUFFER_BIT,"Invalid value DEPTH_BUFFER_BIT")
 	
 	self._attribs = options.attribs or {wx.WX_GL_RGBA,wx.WX_GL_DOUBLEBUFFER}
-	
-	--self._intf:addListener("InterfaceClosing",self)
-	
+		
 	self:create()
 	
 	self:debug4("OSG Canvas initialization done.")
 end
-
---function Class:onInterfaceClosing()
-	--self:info("Deleting viewer...")
-	--self._viewer = nil
---end
 
 function Class:create()
 	
@@ -52,7 +45,6 @@ function Class:create()
 	
 	-- create a viewer:
 	self._viewer = osgViewer.Viewer()
-	
 	
 	self._viewer:setSceneData(self._root);
 	self._viewer:getCamera():setGraphicsContext(self._gw)
@@ -78,78 +70,17 @@ function Class:create()
 		self._viewer:frame();
 	end)
 
-	self:getEventManager():addListener(Event.FRAME,self)
+	self:getEventManager():addListener{event=Event.FRAME,object=self}
 end
 
 function Class:onFrame()
 	--self:info("Rendering frame...")
 	self._viewer:frame();
+	--self:info("Done rendering frame.")
 end
 
--- Function used to load a model from a file.
-function Class:loadModel(filename)
-	self:checkString(filename,"Invalid model filename")
-	local node = osg.readNodeFile(filename)
-	if not node then
-		self:warn("Cannot load model from file: ",filename)
-		return;
-	end
-	
-	-- The node was loaded properly,
-	-- now add it to the scenegraph:
-	self._viewer:getSceneData():addChild(node)
-	self:debug2_v("Successfully loaded model from file ", filename)
-end
-
-function Class:createScreenQuad()
-	self:debug3("Creating screen quad.");
-	
-	local geode = osg.Geode()
-	self._root:addChild(geode)
-	geode:setCullingActive(false);
-	
-	local geom = osg.Geometry()
-	geode:addDrawable(geom);
-
-	local vertices = osg.Vec2Array();
-	geom:setVertexArray(vertices);
-
-    vertices:push_back(osg.Vec2f(-1.0,-1.0));
-    vertices:push_back(osg.Vec2f(1.0,-1.0));
-    vertices:push_back(osg.Vec2f(-1.0,1.0));
-    vertices:push_back(osg.Vec2f(1.0,1.0));
-	
-    local colors = osg.Vec4Array()
-    colors:push_back(osg.Vec4f(0.0,0.0,1.0,1.0));
-    geom:setColorArray(colors)
-    geom:setColorBinding(osg.Geometry.BIND_OVERALL)
-	
-	geom:addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.TRIANGLE_STRIP,0,4));
-	
-	local prog = osg.Program();
-	
-	local vs = osg.Shader(osg.Shader.VERTEX);
-	vs:setShaderSource([[
-varying vec2 coords;
-
-void main() {
-    gl_Position = gl_Vertex;
-    coords = (gl_Vertex.xy+vec2(1.0,1.0))/2.0;
-}	
-	]]);
-	
-	local fs = osg.Shader(osg.Shader.FRAGMENT);	
-	fs:setShaderSource([[
-void main() {
-    gl_FragColor = vec4(0.0,1.0,0.0,1.0);
-}
-	]]);
-	
-	prog:addShader(vs)
-	prog:addShader(fs)
-	
-	local ss = geode:getOrCreateStateSet()	
-	ss:setAttributeAndModes(prog)	
+function Class:getRoot()
+	return self._root
 end
 
 return Class

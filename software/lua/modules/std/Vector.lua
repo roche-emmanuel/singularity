@@ -65,6 +65,10 @@ function Class:pop_back()
     return table.remove(self._data)
 end
 
+function Class:sort(fn)
+	table.sort(self._data,fn)
+end
+
 --- Pop the first item from the vector.
 -- This function will remove the first item from the vector and return it.
 -- @return the popped item

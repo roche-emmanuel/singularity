@@ -77,7 +77,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,1))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIcon >(L,1))) ) return false;
 		return true;
 	}
 
@@ -103,7 +103,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,82682189) ) return false;
-		if( (!dynamic_cast< wxIconLocation* >(Luna< wxIconLocation >::check(L,1))) ) return false;
+		if( (!(Luna< wxIconLocation >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -119,7 +119,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxIcon >(L,2))) ) return false;
 		return true;
 	}
 
@@ -148,7 +148,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,82682189) ) return false;
-		if( (!dynamic_cast< wxIconLocation* >(Luna< wxIconLocation >::check(L,2))) ) return false;
+		if( (!(Luna< wxIconLocation >::check(L,2))) ) return false;
 		return true;
 	}
 

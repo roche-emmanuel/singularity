@@ -11,11 +11,18 @@
 class wrapper_wxPropertyGrid : public wxPropertyGrid, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxPropertyGrid() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum) : wxPropertyGrid(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0), const wxString & name = wxPropertyGridNameStr) : wxPropertyGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum) : wxPropertyGrid(), luna_wrapper_base(L) {};
-	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0), const wxString & name = wxPropertyGridNameStr) : wxPropertyGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
@@ -1064,6 +1071,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
@@ -1160,6 +1168,16 @@ protected:
 		}
 
 		return wxPropertyGrid::AddPendingEvent(event);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 

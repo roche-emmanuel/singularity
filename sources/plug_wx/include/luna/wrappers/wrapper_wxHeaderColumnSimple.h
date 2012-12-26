@@ -11,11 +11,18 @@
 class wrapper_wxHeaderColumnSimple : public wxHeaderColumnSimple, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxHeaderColumnSimple() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(title, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(bitmap, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(title, width, align, flags), luna_wrapper_base(L) {};
-	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(bitmap, width, align, flags), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool wxHeaderColumn::IsResizeable() const
 	bool IsResizeable() const {
 		if(_obj.pushFunction("IsResizeable")) {
@@ -235,6 +242,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

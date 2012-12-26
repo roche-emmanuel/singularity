@@ -11,9 +11,16 @@
 class wrapper_wxSettableHeaderColumn : public wxSettableHeaderColumn, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxSettableHeaderColumn() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {
 		THROW_IF(!_obj.pushFunction("GetTitle"),"No implementation for abstract function wxHeaderColumn::GetTitle");
@@ -188,6 +195,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

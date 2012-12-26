@@ -137,7 +137,7 @@ function test_basicnode_serialization()
 	local grp = osg.Group()
 	grp:setName("my_root")
 	
-	local BasicNode = require "osg.BasicNode"
+	local BasicNode = require "osg.BasicNodeTest"
 	
 	local child1 = BasicNode();
 	--child1:setMyValue(234.8);

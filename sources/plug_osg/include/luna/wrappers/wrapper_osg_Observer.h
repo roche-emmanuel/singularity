@@ -11,10 +11,17 @@
 class wrapper_osg_Observer : public osg::Observer, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_osg_Observer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_osg_Observer(lua_State* L, lua_Table* dum) : osg::Observer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_osg_Observer(lua_State* L, lua_Table* dum) : osg::Observer(), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void osg::Observer::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {
 		if(_obj.pushFunction("objectDeleted")) {
@@ -26,6 +33,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

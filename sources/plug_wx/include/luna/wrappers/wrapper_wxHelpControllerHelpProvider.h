@@ -11,10 +11,17 @@
 class wrapper_wxHelpControllerHelpProvider : public wxHelpControllerHelpProvider, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxHelpControllerHelpProvider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxHelpControllerHelpProvider(lua_State* L, lua_Table* dum, wxHelpController * hc = NULL) : wxHelpControllerHelpProvider(hc), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxHelpControllerHelpProvider(lua_State* L, lua_Table* dum, wxHelpController * hc = NULL) : wxHelpControllerHelpProvider(hc), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {
 		if(_obj.pushFunction("AddHelp")) {
@@ -77,6 +84,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

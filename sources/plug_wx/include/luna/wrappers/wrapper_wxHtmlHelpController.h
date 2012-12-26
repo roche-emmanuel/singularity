@@ -11,10 +11,17 @@
 class wrapper_wxHtmlHelpController : public wxHtmlHelpController, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_wxHtmlHelpController() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) {};
-
+	// Public virtual methods:
 	// bool wxHtmlHelpController::DisplayContents()
 	bool DisplayContents() {
 		if(_obj.pushFunction("DisplayContents")) {
@@ -59,6 +66,7 @@ public:
 
 
 protected:
+	// Protected virtual methods:
 	// wxHtmlHelpDialog * wxHtmlHelpController::CreateHelpDialog(wxHtmlHelpData * data)
 	wxHtmlHelpDialog * CreateHelpDialog(wxHtmlHelpData * data) {
 		if(_obj.pushFunction("CreateHelpDialog")) {
@@ -77,6 +85,16 @@ protected:
 		}
 
 		return wxHtmlHelpController::CreateHelpFrame(data);
+	};
+
+public:
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
 	};
 
 
