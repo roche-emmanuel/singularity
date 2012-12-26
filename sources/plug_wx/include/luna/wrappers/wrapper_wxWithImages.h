@@ -109,8 +109,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"HasImageList",_bind_public_HasImageList},
-		{"GetImage",_bind_public_GetImage},
+		{"protected_HasImageList",_bind_public_HasImageList},
+		{"protected_GetImage",_bind_public_GetImage},
 		{NULL,NULL}
 		};
 

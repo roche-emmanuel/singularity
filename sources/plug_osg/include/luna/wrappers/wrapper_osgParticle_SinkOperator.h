@@ -489,12 +489,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"getValue",_bind_public_getValue},
-		{"kill",_bind_public_kill},
-		{"computeNewBasis",_bind_public_computeNewBasis},
-		{"ignore",_bind_public_ignore},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_getValue",_bind_public_getValue},
+		{"protected_kill",_bind_public_kill},
+		{"protected_computeNewBasis",_bind_public_computeNewBasis},
+		{"protected_ignore",_bind_public_ignore},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

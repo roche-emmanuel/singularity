@@ -225,10 +225,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"GetAnchor",_bind_public_GetAnchor},
-		{"GetLeftLocation",_bind_public_GetLeftLocation},
-		{"GetProtocol",_bind_public_GetProtocol},
-		{"GetRightLocation",_bind_public_GetRightLocation},
+		{"protected_GetAnchor",_bind_public_GetAnchor},
+		{"protected_GetLeftLocation",_bind_public_GetLeftLocation},
+		{"protected_GetProtocol",_bind_public_GetProtocol},
+		{"protected_GetRightLocation",_bind_public_GetRightLocation},
 		{NULL,NULL}
 		};
 

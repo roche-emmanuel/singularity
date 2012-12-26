@@ -273,11 +273,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"CanHaveAttributes",_bind_public_CanHaveAttributes},
-		{"GetColMinimalWidth",_bind_public_GetColMinimalWidth},
-		{"GetColRight",_bind_public_GetColRight},
-		{"GetColLeft",_bind_public_GetColLeft},
-		{"GetRowMinimalHeight",_bind_public_GetRowMinimalHeight},
+		{"protected_CanHaveAttributes",_bind_public_CanHaveAttributes},
+		{"protected_GetColMinimalWidth",_bind_public_GetColMinimalWidth},
+		{"protected_GetColRight",_bind_public_GetColRight},
+		{"protected_GetColLeft",_bind_public_GetColLeft},
+		{"protected_GetRowMinimalHeight",_bind_public_GetRowMinimalHeight},
 		{NULL,NULL}
 		};
 

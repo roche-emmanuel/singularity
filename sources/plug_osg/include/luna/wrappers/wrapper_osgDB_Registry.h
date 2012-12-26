@@ -157,10 +157,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"destruct",_bind_public_destruct},
-		{"trim",_bind_public_trim},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_destruct",_bind_public_destruct},
+		{"protected_trim",_bind_public_trim},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -395,13 +395,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"isCompatibleType",_bind_public_isCompatibleType},
-		{"isScalar",_bind_public_isScalar},
-		{"allocateDataArray",_bind_public_allocateDataArray},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_isCompatibleType",_bind_public_isCompatibleType},
+		{"protected_isScalar",_bind_public_isScalar},
+		{"protected_allocateDataArray",_bind_public_allocateDataArray},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -689,18 +689,18 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"update_bounds",_bind_public_update_bounds},
-		{"single_pass_render",_bind_public_single_pass_render},
-		{"render_vertex_array",_bind_public_render_vertex_array},
-		{"setBound",_bind_public_setBound},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
-		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_update_bounds",_bind_public_update_bounds},
+		{"protected_single_pass_render",_bind_public_single_pass_render},
+		{"protected_render_vertex_array",_bind_public_render_vertex_array},
+		{"protected_setBound",_bind_public_setBound},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
+		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

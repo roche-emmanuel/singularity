@@ -155,8 +155,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"AddDependency",_bind_public_AddDependency},
-		{"AddDependency",_bind_public_AddDependency},
+		{"protected_AddDependency",_bind_public_AddDependency},
+		{"protected_AddDependency",_bind_public_AddDependency},
 		{NULL,NULL}
 		};
 

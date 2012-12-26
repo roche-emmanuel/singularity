@@ -165,9 +165,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"GetTitle",_bind_public_GetTitle},
-		{"GetSeverityIcon",_bind_public_GetSeverityIcon},
-		{"Clear",_bind_public_Clear},
+		{"protected_GetTitle",_bind_public_GetTitle},
+		{"protected_GetSeverityIcon",_bind_public_GetSeverityIcon},
+		{"protected_Clear",_bind_public_Clear},
 		{NULL,NULL}
 		};
 

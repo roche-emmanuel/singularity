@@ -630,18 +630,18 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"compileGLObjects",_bind_public_compileGLObjects},
-		{"update",_bind_public_update},
-		{"createGeometry",_bind_public_createGeometry},
-		{"setUpGeometries",_bind_public_setUpGeometries},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
-		{"setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_compileGLObjects",_bind_public_compileGLObjects},
+		{"protected_update",_bind_public_update},
+		{"protected_createGeometry",_bind_public_createGeometry},
+		{"protected_setUpGeometries",_bind_public_setUpGeometries},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"protected_setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
+		{"protected_setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

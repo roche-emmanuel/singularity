@@ -305,10 +305,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"setUpHUDCamera",_bind_public_setUpHUDCamera},
-		{"setUpScene",_bind_public_setUpScene},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_setUpHUDCamera",_bind_public_setUpHUDCamera},
+		{"protected_setUpScene",_bind_public_setUpScene},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

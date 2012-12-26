@@ -128,9 +128,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"_init",_bind_public__init},
-		{"_free",_bind_public__free},
-		{"_copy",_bind_public__copy},
+		{"protected__init",_bind_public__init},
+		{"protected__free",_bind_public__free},
+		{"protected__copy",_bind_public__copy},
 		{NULL,NULL}
 		};
 

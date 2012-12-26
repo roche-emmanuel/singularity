@@ -120,6 +120,18 @@ function Class:__call(options)
 		self:check(obj,"Could not create wrapper object.");
 		
 		table.insert(self._wrappers, obj)		
+		
+		-- also wrapper the protected methods now:
+		for name,func in pairs(self) do
+			if type(func)=="function" and (name:sub(1,10)=="protected_") then
+				local rname = name:sub(11)
+				if not self[rname] then
+					self[rname] = function(self, ...)
+						return self[name](obj,...)
+					end
+				end
+			end
+		end			
 	end
 	
 	-- return the resulting class:

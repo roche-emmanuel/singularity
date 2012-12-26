@@ -277,13 +277,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"setUpVertexAttribAlias",_bind_public_setUpVertexAttribAlias},
-		{"loadModelViewMatrix",_bind_public_loadModelViewMatrix},
-		{"computeSecondaryColorSupported",_bind_public_computeSecondaryColorSupported},
-		{"computeFogCoordSupported",_bind_public_computeFogCoordSupported},
-		{"computeVertexBufferObjectSupported",_bind_public_computeVertexBufferObjectSupported},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_setUpVertexAttribAlias",_bind_public_setUpVertexAttribAlias},
+		{"protected_loadModelViewMatrix",_bind_public_loadModelViewMatrix},
+		{"protected_computeSecondaryColorSupported",_bind_public_computeSecondaryColorSupported},
+		{"protected_computeFogCoordSupported",_bind_public_computeFogCoordSupported},
+		{"protected_computeVertexBufferObjectSupported",_bind_public_computeVertexBufferObjectSupported},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

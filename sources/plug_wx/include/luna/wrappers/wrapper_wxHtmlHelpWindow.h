@@ -1208,9 +1208,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"CreateSearch",_bind_public_CreateSearch},
-		{"CreateContents",_bind_public_CreateContents},
-		{"CreateIndex",_bind_public_CreateIndex},
+		{"protected_CreateSearch",_bind_public_CreateSearch},
+		{"protected_CreateContents",_bind_public_CreateContents},
+		{"protected_CreateIndex",_bind_public_CreateIndex},
 		{NULL,NULL}
 		};
 

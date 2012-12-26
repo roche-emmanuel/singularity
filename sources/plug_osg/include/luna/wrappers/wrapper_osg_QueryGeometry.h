@@ -743,21 +743,21 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"verifyBindings",_bind_public_verifyBindings},
-		{"verifyBindings",_bind_public_verifyBindings},
-		{"computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
-		{"computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
-		{"addVertexBufferObjectIfRequired",_bind_public_addVertexBufferObjectIfRequired},
-		{"addElementBufferObjectIfRequired",_bind_public_addElementBufferObjectIfRequired},
-		{"setBound",_bind_public_setBound},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
-		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_verifyBindings",_bind_public_verifyBindings},
+		{"protected_verifyBindings",_bind_public_verifyBindings},
+		{"protected_computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
+		{"protected_computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
+		{"protected_addVertexBufferObjectIfRequired",_bind_public_addVertexBufferObjectIfRequired},
+		{"protected_addElementBufferObjectIfRequired",_bind_public_addElementBufferObjectIfRequired},
+		{"protected_setBound",_bind_public_setBound},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
+		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

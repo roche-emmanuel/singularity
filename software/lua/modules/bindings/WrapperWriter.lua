@@ -238,7 +238,7 @@ function Class:writeHeader()
 	if not notVirtualFuncs:empty() then
 		buf:writeSubLine("static const luaL_Reg wrapper_lib[] = {")
 		for _,func in notVirtualFuncs:sequence() do
-			buf:writeSubLine('{"${1}",_bind_public_${1}},',func:getName())
+			buf:writeSubLine('{"protected_${1}",_bind_public_${1}},',func:getName())
 		end
 		buf:writeSubLine("{NULL,NULL}")
 		buf:writeSubLine("};")

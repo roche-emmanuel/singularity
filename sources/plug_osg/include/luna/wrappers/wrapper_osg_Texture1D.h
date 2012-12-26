@@ -899,22 +899,22 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"applyTexImage1D",_bind_public_applyTexImage1D},
-		{"computeInternalFormatWithImage",_bind_public_computeInternalFormatWithImage},
-		{"computeRequiredTextureDimensions",_bind_public_computeRequiredTextureDimensions},
-		{"computeInternalFormatType",_bind_public_computeInternalFormatType},
-		{"applyTexParameters",_bind_public_applyTexParameters},
-		{"isHardwareMipmapGenerationEnabled",_bind_public_isHardwareMipmapGenerationEnabled},
-		{"isSafeToUnrefImageData",_bind_public_isSafeToUnrefImageData},
-		{"mipmapBeforeTexImage",_bind_public_mipmapBeforeTexImage},
-		{"mipmapAfterTexImage",_bind_public_mipmapAfterTexImage},
-		{"generateMipmap",_bind_public_generateMipmap},
-		{"compareTexture",_bind_public_compareTexture},
-		{"compareTextureObjects",_bind_public_compareTextureObjects},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_applyTexImage1D",_bind_public_applyTexImage1D},
+		{"protected_computeInternalFormatWithImage",_bind_public_computeInternalFormatWithImage},
+		{"protected_computeRequiredTextureDimensions",_bind_public_computeRequiredTextureDimensions},
+		{"protected_computeInternalFormatType",_bind_public_computeInternalFormatType},
+		{"protected_applyTexParameters",_bind_public_applyTexParameters},
+		{"protected_isHardwareMipmapGenerationEnabled",_bind_public_isHardwareMipmapGenerationEnabled},
+		{"protected_isSafeToUnrefImageData",_bind_public_isSafeToUnrefImageData},
+		{"protected_mipmapBeforeTexImage",_bind_public_mipmapBeforeTexImage},
+		{"protected_mipmapAfterTexImage",_bind_public_mipmapAfterTexImage},
+		{"protected_generateMipmap",_bind_public_generateMipmap},
+		{"protected_compareTexture",_bind_public_compareTexture},
+		{"protected_compareTextureObjects",_bind_public_compareTextureObjects},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -308,10 +308,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"readFileList",_bind_public_readFileList},
-		{"removeFileFromBlackListed",_bind_public_removeFileFromBlackListed},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_readFileList",_bind_public_readFileList},
+		{"protected_removeFileFromBlackListed",_bind_public_removeFileFromBlackListed},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

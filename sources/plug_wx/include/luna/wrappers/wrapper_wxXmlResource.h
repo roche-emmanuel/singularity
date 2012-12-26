@@ -106,7 +106,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"ReportError",_bind_public_ReportError},
+		{"protected_ReportError",_bind_public_ReportError},
 		{NULL,NULL}
 		};
 

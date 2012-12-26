@@ -672,15 +672,15 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"intersect",_bind_public_intersect},
-		{"_stop",_bind_public__stop},
-		{"_keyDown",_bind_public__keyDown},
-		{"_keyUp",_bind_public__keyUp},
-		{"_frame",_bind_public__frame},
-		{"_adjustPosition",_bind_public__adjustPosition},
-		{"getManipulatorName",_bind_public_getManipulatorName},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_intersect",_bind_public_intersect},
+		{"protected__stop",_bind_public__stop},
+		{"protected__keyDown",_bind_public__keyDown},
+		{"protected__keyUp",_bind_public__keyUp},
+		{"protected__frame",_bind_public__frame},
+		{"protected__adjustPosition",_bind_public__adjustPosition},
+		{"protected_getManipulatorName",_bind_public_getManipulatorName},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

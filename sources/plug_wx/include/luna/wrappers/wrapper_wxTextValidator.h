@@ -244,8 +244,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"ContainsOnlyIncludedCharacters",_bind_public_ContainsOnlyIncludedCharacters},
-		{"ContainsExcludedCharacters",_bind_public_ContainsExcludedCharacters},
+		{"protected_ContainsOnlyIncludedCharacters",_bind_public_ContainsOnlyIncludedCharacters},
+		{"protected_ContainsExcludedCharacters",_bind_public_ContainsExcludedCharacters},
 		{NULL,NULL}
 		};
 

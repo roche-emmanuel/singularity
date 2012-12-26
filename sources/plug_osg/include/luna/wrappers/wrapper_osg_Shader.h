@@ -267,10 +267,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"addProgramRef",_bind_public_addProgramRef},
-		{"removeProgramRef",_bind_public_removeProgramRef},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_addProgramRef",_bind_public_addProgramRef},
+		{"protected_removeProgramRef",_bind_public_removeProgramRef},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -187,11 +187,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"init",_bind_public_init},
-		{"assignTexCoordDispatchers",_bind_public_assignTexCoordDispatchers},
-		{"assignVertexAttribDispatchers",_bind_public_assignVertexAttribDispatchers},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_init",_bind_public_init},
+		{"protected_assignTexCoordDispatchers",_bind_public_assignTexCoordDispatchers},
+		{"protected_assignVertexAttribDispatchers",_bind_public_assignVertexAttribDispatchers},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -591,12 +591,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"addCamera",_bind_public_addCamera},
-		{"removeCamera",_bind_public_removeCamera},
-		{"registerGraphicsContext",_bind_public_registerGraphicsContext},
-		{"unregisterGraphicsContext",_bind_public_unregisterGraphicsContext},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_addCamera",_bind_public_addCamera},
+		{"protected_removeCamera",_bind_public_removeCamera},
+		{"protected_registerGraphicsContext",_bind_public_registerGraphicsContext},
+		{"protected_unregisterGraphicsContext",_bind_public_unregisterGraphicsContext},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

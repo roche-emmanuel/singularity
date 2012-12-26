@@ -120,7 +120,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"ParseInner",_bind_public_ParseInner},
+		{"protected_ParseInner",_bind_public_ParseInner},
 		{NULL,NULL}
 		};
 

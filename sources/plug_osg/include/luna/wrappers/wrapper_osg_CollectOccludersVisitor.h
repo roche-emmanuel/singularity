@@ -412,12 +412,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
-		{"handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
-		{"computeFrustumVolume",_bind_public_computeFrustumVolume},
-		{"createOrReuseMatrix",_bind_public_createOrReuseMatrix},
+		{"protected_handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
+		{"protected_handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_computeFrustumVolume",_bind_public_computeFrustumVolume},
+		{"protected_createOrReuseMatrix",_bind_public_createOrReuseMatrix},
 		{NULL,NULL}
 		};
 

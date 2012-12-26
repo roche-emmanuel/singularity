@@ -410,12 +410,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"handle_callbacks",_bind_public_handle_callbacks},
-		{"handle_callbacks_and_traverse",_bind_public_handle_callbacks_and_traverse},
-		{"handle_geode_callbacks",_bind_public_handle_geode_callbacks},
-		{"traverseGeode",_bind_public_traverseGeode},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_handle_callbacks",_bind_public_handle_callbacks},
+		{"protected_handle_callbacks_and_traverse",_bind_public_handle_callbacks_and_traverse},
+		{"protected_handle_geode_callbacks",_bind_public_handle_geode_callbacks},
+		{"protected_traverseGeode",_bind_public_traverseGeode},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

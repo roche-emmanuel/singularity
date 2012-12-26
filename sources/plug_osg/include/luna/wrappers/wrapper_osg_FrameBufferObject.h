@@ -448,13 +448,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"updateDrawBuffers",_bind_public_updateDrawBuffers},
-		{"dirtyAll",_bind_public_dirtyAll},
-		{"convertBufferComponentToGLenum",_bind_public_convertBufferComponentToGLenum},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_updateDrawBuffers",_bind_public_updateDrawBuffers},
+		{"protected_dirtyAll",_bind_public_dirtyAll},
+		{"protected_convertBufferComponentToGLenum",_bind_public_convertBufferComponentToGLenum},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

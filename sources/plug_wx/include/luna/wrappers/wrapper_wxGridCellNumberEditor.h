@@ -230,8 +230,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"HasRange",_bind_public_HasRange},
-		{"GetString",_bind_public_GetString},
+		{"protected_HasRange",_bind_public_HasRange},
+		{"protected_GetString",_bind_public_GetString},
 		{NULL,NULL}
 		};
 

@@ -434,15 +434,15 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"shareTexture",_bind_public_shareTexture},
-		{"shareStateSet",_bind_public_shareStateSet},
-		{"process",_bind_public_process},
-		{"find",_bind_public_find},
-		{"find",_bind_public_find},
-		{"setStateSet",_bind_public_setStateSet},
-		{"shareTextures",_bind_public_shareTextures},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_shareTexture",_bind_public_shareTexture},
+		{"protected_shareStateSet",_bind_public_shareStateSet},
+		{"protected_process",_bind_public_process},
+		{"protected_find",_bind_public_find},
+		{"protected_find",_bind_public_find},
+		{"protected_setStateSet",_bind_public_setStateSet},
+		{"protected_shareTextures",_bind_public_shareTextures},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

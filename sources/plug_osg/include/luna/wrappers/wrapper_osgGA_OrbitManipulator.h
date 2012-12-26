@@ -1370,21 +1370,21 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"trackball",_bind_public_trackball},
-		{"tb_project_to_sphere",_bind_public_tb_project_to_sphere},
-		{"addMouseEvent",_bind_public_addMouseEvent},
-		{"flushMouseEventStack",_bind_public_flushMouseEventStack},
-		{"getThrowScale",_bind_public_getThrowScale},
-		{"fixVerticalAxis",_bind_public_fixVerticalAxis},
-		{"getRelativeFlag",_bind_public_getRelativeFlag},
-		{"setRelativeFlag",_bind_public_setRelativeFlag},
-		{"rotateYawPitch",_bind_public_rotateYawPitch},
-		{"fixVerticalAxis",_bind_public_fixVerticalAxis},
-		{"fixVerticalAxis",_bind_public_fixVerticalAxis},
-		{"allocateRelativeFlag",_bind_public_allocateRelativeFlag},
-		{"getManipulatorName",_bind_public_getManipulatorName},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_trackball",_bind_public_trackball},
+		{"protected_tb_project_to_sphere",_bind_public_tb_project_to_sphere},
+		{"protected_addMouseEvent",_bind_public_addMouseEvent},
+		{"protected_flushMouseEventStack",_bind_public_flushMouseEventStack},
+		{"protected_getThrowScale",_bind_public_getThrowScale},
+		{"protected_fixVerticalAxis",_bind_public_fixVerticalAxis},
+		{"protected_getRelativeFlag",_bind_public_getRelativeFlag},
+		{"protected_setRelativeFlag",_bind_public_setRelativeFlag},
+		{"protected_rotateYawPitch",_bind_public_rotateYawPitch},
+		{"protected_fixVerticalAxis",_bind_public_fixVerticalAxis},
+		{"protected_fixVerticalAxis",_bind_public_fixVerticalAxis},
+		{"protected_allocateRelativeFlag",_bind_public_allocateRelativeFlag},
+		{"protected_getManipulatorName",_bind_public_getManipulatorName},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

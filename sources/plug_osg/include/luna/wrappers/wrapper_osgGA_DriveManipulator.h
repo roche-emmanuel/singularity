@@ -628,14 +628,14 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"intersect",_bind_public_intersect},
-		{"flushMouseEventStack",_bind_public_flushMouseEventStack},
-		{"addMouseEvent",_bind_public_addMouseEvent},
-		{"computePosition",_bind_public_computePosition},
-		{"calcMovement",_bind_public_calcMovement},
-		{"getManipulatorName",_bind_public_getManipulatorName},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_intersect",_bind_public_intersect},
+		{"protected_flushMouseEventStack",_bind_public_flushMouseEventStack},
+		{"protected_addMouseEvent",_bind_public_addMouseEvent},
+		{"protected_computePosition",_bind_public_computePosition},
+		{"protected_calcMovement",_bind_public_calcMovement},
+		{"protected_getManipulatorName",_bind_public_getManipulatorName},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

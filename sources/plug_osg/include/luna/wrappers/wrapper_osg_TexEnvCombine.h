@@ -419,12 +419,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"needsTexEnvCombiner",_bind_public_needsTexEnvCombiner},
-		{"computeNeedForTexEnvCombiners",_bind_public_computeNeedForTexEnvCombiners},
-		{"addParent",_bind_public_addParent},
-		{"removeParent",_bind_public_removeParent},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_needsTexEnvCombiner",_bind_public_needsTexEnvCombiner},
+		{"protected_computeNeedForTexEnvCombiners",_bind_public_computeNeedForTexEnvCombiners},
+		{"protected_addParent",_bind_public_addParent},
+		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

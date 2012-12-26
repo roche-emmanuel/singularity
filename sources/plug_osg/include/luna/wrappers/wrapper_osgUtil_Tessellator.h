@@ -500,20 +500,20 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"reduceArray",_bind_public_reduceArray},
-		{"collectTessellation",_bind_public_collectTessellation},
-		{"addContour",_bind_public_addContour},
-		{"addContour",_bind_public_addContour},
-		{"begin",_bind_public_begin},
-		{"vertex",_bind_public_vertex},
-		{"end",_bind_public_end},
-		{"error",_bind_public_error},
-		{"beginCallback",_bind_public_beginCallback},
-		{"vertexCallback",_bind_public_vertexCallback},
-		{"endCallback",_bind_public_endCallback},
-		{"errorCallback",_bind_public_errorCallback},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_reduceArray",_bind_public_reduceArray},
+		{"protected_collectTessellation",_bind_public_collectTessellation},
+		{"protected_addContour",_bind_public_addContour},
+		{"protected_addContour",_bind_public_addContour},
+		{"protected_begin",_bind_public_begin},
+		{"protected_vertex",_bind_public_vertex},
+		{"protected_end",_bind_public_end},
+		{"protected_error",_bind_public_error},
+		{"protected_beginCallback",_bind_public_beginCallback},
+		{"protected_vertexCallback",_bind_public_vertexCallback},
+		{"protected_endCallback",_bind_public_endCallback},
+		{"protected_errorCallback",_bind_public_errorCallback},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

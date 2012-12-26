@@ -345,11 +345,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"toggleFullscreen",_bind_public_toggleFullscreen},
-		{"changeWindowedResolution",_bind_public_changeWindowedResolution},
-		{"getNearestResolution",_bind_public_getNearestResolution},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_toggleFullscreen",_bind_public_toggleFullscreen},
+		{"protected_changeWindowedResolution",_bind_public_changeWindowedResolution},
+		{"protected_getNearestResolution",_bind_public_getNearestResolution},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

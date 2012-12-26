@@ -498,12 +498,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"computeLeftEyeViewport",_bind_public_computeLeftEyeViewport},
-		{"computeRightEyeViewport",_bind_public_computeRightEyeViewport},
-		{"computeMVPW",_bind_public_computeMVPW},
-		{"clearArea",_bind_public_clearArea},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_computeLeftEyeViewport",_bind_public_computeLeftEyeViewport},
+		{"protected_computeRightEyeViewport",_bind_public_computeRightEyeViewport},
+		{"protected_computeMVPW",_bind_public_computeMVPW},
+		{"protected_clearArea",_bind_public_clearArea},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

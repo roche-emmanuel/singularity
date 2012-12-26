@@ -407,13 +407,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"intersect",_bind_public_intersect},
-		{"pushMatrix",_bind_public_pushMatrix},
-		{"popMatrix",_bind_public_popMatrix},
-		{"enterNode",_bind_public_enterNode},
-		{"leaveNode",_bind_public_leaveNode},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_intersect",_bind_public_intersect},
+		{"protected_pushMatrix",_bind_public_pushMatrix},
+		{"protected_popMatrix",_bind_public_popMatrix},
+		{"protected_enterNode",_bind_public_enterNode},
+		{"protected_leaveNode",_bind_public_leaveNode},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

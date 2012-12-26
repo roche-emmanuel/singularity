@@ -202,7 +202,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"OnSysWrite",_bind_public_OnSysWrite},
+		{"protected_OnSysWrite",_bind_public_OnSysWrite},
 		{NULL,NULL}
 		};
 

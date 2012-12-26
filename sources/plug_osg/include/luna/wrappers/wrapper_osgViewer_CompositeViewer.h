@@ -543,12 +543,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"constructorInit",_bind_public_constructorInit},
-		{"viewerBaseInit",_bind_public_viewerBaseInit},
-		{"makeCurrent",_bind_public_makeCurrent},
-		{"releaseContext",_bind_public_releaseContext},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_constructorInit",_bind_public_constructorInit},
+		{"protected_viewerBaseInit",_bind_public_viewerBaseInit},
+		{"protected_makeCurrent",_bind_public_makeCurrent},
+		{"protected_releaseContext",_bind_public_releaseContext},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -361,11 +361,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"addCallbackToViewer",_bind_public_addCallbackToViewer},
-		{"removeCallbackFromViewer",_bind_public_removeCallbackFromViewer},
-		{"findAppropriateCameraForCallback",_bind_public_findAppropriateCameraForCallback},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_addCallbackToViewer",_bind_public_addCallbackToViewer},
+		{"protected_removeCallbackFromViewer",_bind_public_removeCallbackFromViewer},
+		{"protected_findAppropriateCameraForCallback",_bind_public_findAppropriateCameraForCallback},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -603,16 +603,16 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"setUpHUDCamera",_bind_public_setUpHUDCamera},
-		{"createBackgroundRectangle",_bind_public_createBackgroundRectangle},
-		{"createGeometry",_bind_public_createGeometry},
-		{"createFrameMarkers",_bind_public_createFrameMarkers},
-		{"createTick",_bind_public_createTick},
-		{"createTimeStatsLine",_bind_public_createTimeStatsLine},
-		{"createCameraTimeStats",_bind_public_createCameraTimeStats},
-		{"setUpScene",_bind_public_setUpScene},
-		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"protected_setUpHUDCamera",_bind_public_setUpHUDCamera},
+		{"protected_createBackgroundRectangle",_bind_public_createBackgroundRectangle},
+		{"protected_createGeometry",_bind_public_createGeometry},
+		{"protected_createFrameMarkers",_bind_public_createFrameMarkers},
+		{"protected_createTick",_bind_public_createTick},
+		{"protected_createTimeStatsLine",_bind_public_createTimeStatsLine},
+		{"protected_createCameraTimeStats",_bind_public_createCameraTimeStats},
+		{"protected_setUpScene",_bind_public_setUpScene},
+		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

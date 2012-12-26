@@ -132,8 +132,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"computeFrustumVolume",_bind_public_computeFrustumVolume},
-		{"createOrReuseMatrix",_bind_public_createOrReuseMatrix},
+		{"protected_computeFrustumVolume",_bind_public_computeFrustumVolume},
+		{"protected_createOrReuseMatrix",_bind_public_createOrReuseMatrix},
 		{NULL,NULL}
 		};
 
