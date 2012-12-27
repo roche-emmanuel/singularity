@@ -62,6 +62,14 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_addAdditionalOption(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,51132402)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -80,6 +88,21 @@ public:
 
 
 	// Function binds:
+	// void Awesomium::WebConfig::addAdditionalOption(Awesomium::WebConfig * config, std::string & option)
+	static int _bind_addAdditionalOption(lua_State *L) {
+		if (!_lg_typecheck_addAdditionalOption(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::addAdditionalOption(Awesomium::WebConfig * config, std::string & option) function, expected prototype:\nvoid Awesomium::WebConfig::addAdditionalOption(Awesomium::WebConfig * config, std::string & option)\nClass arguments details:\narg 1 ID = 51132402\n");
+		}
+
+		Awesomium::WebConfig* config=(Luna< Awesomium::WebConfig >::check(L,1));
+		std::string option(lua_tostring(L,2),lua_objlen(L,2));
+
+		addAdditionalOption(config, option);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -103,6 +126,7 @@ const int LunaTraits< Awesomium::WebConfig >::hash = 51132402;
 const int LunaTraits< Awesomium::WebConfig >::uniqueIDs[] = {51132402,0};
 
 luna_RegType LunaTraits< Awesomium::WebConfig >::methods[] = {
+	{"addAdditionalOption", &luna_wrapper_Awesomium_WebConfig::_bind_addAdditionalOption},
 	{"dynCast", &luna_wrapper_Awesomium_WebConfig::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebConfig::_bind___eq},
 	{0,0}

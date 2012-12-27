@@ -11,9 +11,16 @@
 class wrapper_WebViewListener_Menu : public WebViewListener::Menu, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_WebViewListener_Menu() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
 	void OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info) {
 		THROW_IF(!_obj.pushFunction("OnShowPopupMenu"),"No implementation for abstract function WebViewListener::Menu::OnShowPopupMenu");
@@ -31,6 +38,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

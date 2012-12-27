@@ -22,11 +22,9 @@ end
 function Class:eraseValue(item)
    	for k,v in ipairs(self._data) do
         if v == item then
-            table.remove(self._data,k)
-            return true;
+			return self:erase(k)
         end
     end
-    return false;
 end
 
 --- Append item at set back.

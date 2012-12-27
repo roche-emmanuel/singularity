@@ -11,9 +11,16 @@
 class wrapper_Awesomium_JSMethodHandler : public Awesomium::JSMethodHandler, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_JSMethodHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void Awesomium::JSMethodHandler::OnMethodCall(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args)
 	void OnMethodCall(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args) {
 		THROW_IF(!_obj.pushFunction("OnMethodCall"),"No implementation for abstract function Awesomium::JSMethodHandler::OnMethodCall");
@@ -35,6 +42,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

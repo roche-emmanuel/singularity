@@ -11,9 +11,16 @@
 class wrapper_Awesomium_UploadElement : public Awesomium::UploadElement, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_UploadElement() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// bool Awesomium::UploadElement::IsFilePath() const
 	bool IsFilePath() const {
 		THROW_IF(!_obj.pushFunction("IsFilePath"),"No implementation for abstract function Awesomium::UploadElement::IsFilePath");
@@ -45,6 +52,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

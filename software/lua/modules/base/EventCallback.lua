@@ -23,6 +23,7 @@ function Class:initialize(desc)
 	self._object = desc.object
 	self._args = desc.args or {}
 	self._oneShot = desc.oneShot
+	self._isValid = true;
 	
 	-- insert the object as first argument is available:
 	if self._object then
@@ -30,10 +31,32 @@ function Class:initialize(desc)
 	end
 end
 
-function Class:__call(...)
-	-- call the callback with some extra arguments:
-	return self._func(unpack(self._args),...)		
+function Class:setValid(valid)
+	self._isValid = valid
 end
+
+function Class:isValid()
+	return self._isValid
+end
+
+function Class:invalidate()
+	self._isValid = false;
+end
+
+function Class:validate()
+	self._isValid = true;
+end
+
+function Class:__call(...)
+	if self._isValid then
+		return self._func(unpack(self._args),...)		
+	end
+end
+
+--function Class:__eq(rhs)
+--	self:info("Checking EventCallback equality...")
+--	return (self._object == rhs._object and self._func == rhs._func and self._event == rhs._event)
+--end
 
 function Class:isOneShot()
 	return self._oneShot

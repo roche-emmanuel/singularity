@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,47180827) ) return false;
-		if( (!dynamic_cast< Awesomium::JSObject* >(Luna< Awesomium::JSObject >::check(L,1))) ) return false;
+		if( (!(Luna< Awesomium::JSObject >::check(L,1))) ) return false;
 		return true;
 	}
 

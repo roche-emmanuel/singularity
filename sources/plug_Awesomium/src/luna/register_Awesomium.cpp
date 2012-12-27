@@ -18,6 +18,7 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	luna_popModule(L);
 
 	luna_pushModule(L,"Awesomium");
+	Luna< SurfaceSubloadCallback >::Register(L);
 	Luna< Awesomium::Surface >::Register(L);
 	Luna< Awesomium::BitmapSurface >::Register(L);
 	Luna< Awesomium::SurfaceFactory >::Register(L);

@@ -71,7 +71,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,62259121) ) return false;
-		if( (!dynamic_cast< Awesomium::WebMenuItemArray* >(Luna< Awesomium::WebMenuItemArray >::check(L,1))) ) return false;
+		if( (!(Luna< Awesomium::WebMenuItemArray >::check(L,1))) ) return false;
 		return true;
 	}
 

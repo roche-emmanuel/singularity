@@ -11,9 +11,16 @@
 class wrapper_Awesomium_WebCore : public Awesomium::WebCore, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_WebCore() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	Awesomium::WebSession * CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) {
 		THROW_IF(!_obj.pushFunction("CreateWebSession"),"No implementation for abstract function Awesomium::WebCore::CreateWebSession");
@@ -71,6 +78,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -1,4 +1,5 @@
 module=Awesomium
+SurfaceSubloadCallback => SurfaceSubloadCallback
 Awesomium::Surface => Awesomium::Surface
 Awesomium::BitmapSurface => Awesomium::Surface
 Awesomium::SurfaceFactory => Awesomium::SurfaceFactory

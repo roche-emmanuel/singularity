@@ -8,6 +8,7 @@ local i18n = require "i18n"
 local cfg = require "config"
 local gl = require "luagl"
 local Event = require "base.Event"
+local prof = require "debugging.Profiler"
 
 --- Create an OSG Canvas:
 function Class:initialize(options)
@@ -75,7 +76,9 @@ end
 
 function Class:onFrame()
 	--self:info("Rendering frame...")
+	prof:start("OSG frame")
 	self._viewer:frame();
+	prof:stop()
 	--self:info("Done rendering frame.")
 end
 

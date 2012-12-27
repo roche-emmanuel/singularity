@@ -14,7 +14,6 @@ end
 
 function Class:close()
 	self:debug("Closing ControlInterface...")
-	
 	require("gui.wx.BasicInterface").close(self)
 end
 

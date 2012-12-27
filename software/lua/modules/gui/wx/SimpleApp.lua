@@ -7,10 +7,14 @@ local cfg = require "config"
 local evtman = require "base.EventManager"
 local winman = require "gui.wx.WindowManager"
 local Event = require "base.Event"
+local prof = require "debugging.Profiler"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
 	self:debug4("Initializing mainframe.")
+	
+	self._onStartFunc = options.onStart;
+	self._profileFile = options.profileFile
 	
 	self._eventManager = evtman
 	
@@ -30,7 +34,7 @@ function Class:initialize(options)
     wx.wxGetApp():SetExitOnFrameDelete(true)
     
     self._frame:connect(wx.wxID_ANY,wx.wxEVT_CLOSE_WINDOW,function(event)
-		self._eventManager:fireEvent(Event.APP_CLOSING)
+		self:getEventManager():fireEvent(Event.APP_CLOSING)
 		self:debug("Destroying mainframe."); 
 		self._frame:Destroy(); 
 	end)
@@ -44,11 +48,46 @@ function Class:getFrame()
 	return self._frame
 end
 
+function Class:onStart()
+	if self._onStartFunc then
+		self._onStartFunc(self._frame)
+	end
+end
+
+function Class:onStop()
+	-- Do nothing.
+end
+
+function Class:start()
+	prof:begin()
+	self:onStart()
+end
+
+function Class:stop()
+	self:onStop()
+
+	-- cleanup:
+	self:info("Cleaning up.")
+	collectgarbage('collect')
+	
+	prof:finish()
+	prof:writeReport(self._profileFile or "profile.log")
+end
+
 function Class:run()
+
+	self:start()
+	
 	-- run the application event loop:
 	self:debug4("Running application event loop...")
+	
+	prof:start("MainLoop")
 	wx.wxGetApp():MainLoop();
+	prof:stop("MainLoop")
+	
 	self:debug4("Application event loop done.")
+
+	self:stop()
 end
 
 return Class -- return class instance.

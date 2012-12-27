@@ -3,6 +3,7 @@
 
 #include <plug_common.h>
 
+#include <plug_extensions.h>
 #include <Awesomium/Surface.h>
 #include <Awesomium/BitmapSurface.h>
 #include <Awesomium/DataSource.h>
@@ -25,6 +26,24 @@
 #include <Awesomium/WebURL.h>
 #include <Awesomium/WebView.h>
 #include <Awesomium/WebViewListener.h>
+
+template<>
+class LunaTraits< SurfaceSubloadCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SurfaceSubloadCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SurfaceSubloadCallback* obj);
+	typedef SurfaceSubloadCallback parent_t;
+	typedef SurfaceSubloadCallback base_t;
+	static luna_ConverterType converters[];
+};
 
 template<>
 class LunaTraits< Awesomium::Surface > {
@@ -782,6 +801,49 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< osg::Texture2D > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Texture2D* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Texture2D* obj);
+	typedef osg::Texture2D parent_t;
+	typedef osg::Texture2D base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::State > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::State* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::State* obj);
+	typedef osg::State parent_t;
+	typedef osg::State base_t;
+	static luna_ConverterType converters[];
+};
+
+
+template<>
+class LunaType< 92967815 > {
+public:
+	typedef SurfaceSubloadCallback type;
+	
+};
 
 template<>
 class LunaType< 23910648 > {
@@ -1053,6 +1115,20 @@ template<>
 class LunaType< 80535448 > {
 public:
 	typedef osg::Image type;
+	
+};
+
+template<>
+class LunaType< 71812813 > {
+public:
+	typedef osg::Texture2D type;
+	
+};
+
+template<>
+class LunaType< 89979598 > {
+public:
+	typedef osg::State type;
 	
 };
 

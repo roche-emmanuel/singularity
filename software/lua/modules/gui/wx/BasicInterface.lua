@@ -53,7 +53,6 @@ function Class:close()
 	self:debug("Closing BasicInterface...")
 	self:fireEvent("InterfaceClosing")
 	self:disconnectHandlers()
-	--self._root:DestroyChildren()
 	
 	self:uninitialize()
 end

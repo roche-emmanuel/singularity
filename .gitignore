@@ -37,6 +37,7 @@ software/tests/*.sql
 software/tests/*.net
 software/tests/*.png
 
+software/cache
 
 #sgtLauncher
 

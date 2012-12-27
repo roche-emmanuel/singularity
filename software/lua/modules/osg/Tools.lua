@@ -39,7 +39,10 @@ function Class:createTexture(options)
 	self:check(options.image,"Invalid image for texture creation.");
 	
 	-- we only support texture 2D for the moment.
-	local tex = osg.Texture2D(options.image);
+	--local tex = osg.Texture2D(options.image);
+	local tex = osg.TextureRectangle(options.image);
+	tex:setTextureSize(options.image:s(),options.image:t());
+	
 	tex:setWrap(osg.Texture.WRAP_S,osg.Texture.CLAMP_TO_EDGE);
     tex:setWrap(osg.Texture.WRAP_T,osg.Texture.CLAMP_TO_EDGE);
     tex:setWrap(osg.Texture.WRAP_R,osg.Texture.CLAMP_TO_EDGE);
@@ -79,7 +82,7 @@ void main() {
 	return prog
 end
 
-function Class:createTextureProgram(options)
+function Class:createTexture2DProgram(options)
 	options = options or {}
 	
 	local ss = options.stateSet;
@@ -106,6 +109,42 @@ void main() {
 	if ss then
 		ss:setAttributeAndModes(prog)
 		ss:getOrCreateUniform("tex",osg.Uniform.SAMPLER_2D):setInt(0);
+	end
+	
+	return prog
+end
+
+function Class:createTextureRectProgram(options)
+	options = options or {}
+	
+	local ss = options.stateSet;
+	
+	local prog = osg.Program();
+	
+	local vs = osg.Shader(osg.Shader.VERTEX);
+	vs:setShaderSource(default_quad_vs);
+	
+	local fs = osg.Shader(osg.Shader.FRAGMENT);	
+	fs:setShaderSource(([[
+uniform sampler2DRect tex;
+
+varying vec2 coords;
+
+void main() {
+    vec4 color = texture2DRect(tex,vec2(coords.x*%.1f,coords.y*%.1f));  
+    gl_FragColor = color;
+}
+	]]):format(options.texture:getTextureWidth(),options.texture:getTextureHeight()));
+	
+	--self:info("Texture width:",options.texture:getTextureWidth(),", texture height:",options.texture:getTextureHeight());
+	
+	prog:addShader(vs)
+	prog:addShader(fs)	
+	
+	if ss then
+		ss:setAttributeAndModes(prog)
+		ss:getOrCreateUniform("tex",osg.Uniform.INT):setInt(0);
+		--ss:getOrCreateUniform("sizes",osg.Uniform.FLOAT_VEC2):set(options.texture:getTextureWidth(),options.texture:getTextureHeight());
 	end
 	
 	return prog
@@ -149,7 +188,8 @@ function Class:createScreenQuad(options)
 	if img then
 		local tex=self:createTexture{image=img}
 		ss:setTextureAttributeAndModes(0,tex);
-		self:createTextureProgram{stateSet=ss,texture=tex}
+		self:createTextureRectProgram{stateSet=ss,texture=tex}
+		--self:createTexture2DProgram{stateSet=ss,texture=tex}
 	else
 		self:createColorProgram{stateSet=ss}
 	end

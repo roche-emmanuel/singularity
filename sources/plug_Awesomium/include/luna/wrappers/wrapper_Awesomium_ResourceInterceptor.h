@@ -11,9 +11,16 @@
 class wrapper_Awesomium_ResourceInterceptor : public Awesomium::ResourceInterceptor, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_ResourceInterceptor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
 	Awesomium::ResourceResponse * OnRequest(Awesomium::ResourceRequest * request) {
 		if(_obj.pushFunction("OnRequest")) {
@@ -25,6 +32,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -11,9 +11,16 @@
 class wrapper_WebViewListener_View : public WebViewListener::View, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_WebViewListener_View() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void WebViewListener::View::OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title)
 	void OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title) {
 		THROW_IF(!_obj.pushFunction("OnChangeTitle"),"No implementation for abstract function WebViewListener::View::OnChangeTitle");
@@ -75,6 +82,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

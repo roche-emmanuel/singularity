@@ -9,6 +9,8 @@ local Event = require "base.Event"
 local Set = require "std.Set"
 local Timer = require "gui.wx.Timer"
 
+local prof = require "debugging.Profiler"
+
 --- The Scheduler is used to register timers.
 function Class:initialize(options)
 	self:debug4("Initializing scheduler.")
@@ -19,7 +21,9 @@ function Class:initialize(options)
 	
 	self:addTimer{frequency=cfg.master_framerate,callback=function(event) 
 		--self:info("Handing frame timer event...");
+		prof:start("Frame event")
 		evtman:fireEvent(Event.FRAME) 
+		prof:stop()
 	end}
 end
 

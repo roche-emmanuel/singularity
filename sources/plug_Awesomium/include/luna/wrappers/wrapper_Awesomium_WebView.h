@@ -11,9 +11,16 @@
 class wrapper_Awesomium_WebView : public Awesomium::WebView, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_WebView() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void Awesomium::WebView::Destroy()
 	void Destroy() {
 		THROW_IF(!_obj.pushFunction("Destroy"),"No implementation for abstract function Awesomium::WebView::Destroy");
@@ -507,6 +514,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 public:

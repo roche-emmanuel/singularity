@@ -11,9 +11,16 @@
 class wrapper_WebViewListener_Dialog : public WebViewListener::Dialog, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_WebViewListener_Dialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
 
-
+	// Public virtual methods:
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	void OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info) {
 		THROW_IF(!_obj.pushFunction("OnShowFileChooser"),"No implementation for abstract function WebViewListener::Dialog::OnShowFileChooser");
@@ -31,6 +38,17 @@ public:
 	};
 
 
+
+	// Protected virtual methods:
+
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

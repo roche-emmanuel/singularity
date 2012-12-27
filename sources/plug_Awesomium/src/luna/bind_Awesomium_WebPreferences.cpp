@@ -62,6 +62,14 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_useWebGL(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,51772222)) ) return false;
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -80,6 +88,21 @@ public:
 
 
 	// Function binds:
+	// void Awesomium::WebPreferences::useWebGL(Awesomium::WebPreferences * prefs, bool enabled)
+	static int _bind_useWebGL(lua_State *L) {
+		if (!_lg_typecheck_useWebGL(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebPreferences::useWebGL(Awesomium::WebPreferences * prefs, bool enabled) function, expected prototype:\nvoid Awesomium::WebPreferences::useWebGL(Awesomium::WebPreferences * prefs, bool enabled)\nClass arguments details:\narg 1 ID = 51772222\n");
+		}
+
+		Awesomium::WebPreferences* prefs=(Luna< Awesomium::WebPreferences >::check(L,1));
+		bool enabled=(bool)(lua_toboolean(L,2)==1);
+
+		useWebGL(prefs, enabled);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -103,6 +126,7 @@ const int LunaTraits< Awesomium::WebPreferences >::hash = 51772222;
 const int LunaTraits< Awesomium::WebPreferences >::uniqueIDs[] = {51772222,0};
 
 luna_RegType LunaTraits< Awesomium::WebPreferences >::methods[] = {
+	{"useWebGL", &luna_wrapper_Awesomium_WebPreferences::_bind_useWebGL},
 	{"dynCast", &luna_wrapper_Awesomium_WebPreferences::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebPreferences::_bind___eq},
 	{0,0}
