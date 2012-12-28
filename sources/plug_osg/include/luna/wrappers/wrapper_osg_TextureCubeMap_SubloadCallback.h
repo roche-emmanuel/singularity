@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap & texture, osg::State & state) const
 	void load(const osg::TextureCubeMap & texture, osg::State & state) const {
@@ -37,9 +42,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

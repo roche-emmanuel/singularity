@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_Operator(lua_State* L, lua_Table* dum) : osgParticle::Operator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_Operator(lua_State* L, lua_Table* dum, const osgParticle::Operator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Operator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -159,9 +164,6 @@ public:
 		return Operator::endOperate();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

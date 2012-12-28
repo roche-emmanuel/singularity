@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_Interpolator(lua_State* L, lua_Table* dum) : osgParticle::Interpolator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_Interpolator(lua_State* L, lua_Table* dum, const osgParticle::Interpolator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Interpolator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -166,9 +171,6 @@ public:
 		return Interpolator::interpolate(t, y1, y2);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

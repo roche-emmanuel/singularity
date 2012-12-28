@@ -22,6 +22,11 @@ public:
 	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxPen wxGrid::GetColGridLinePen(int col)
 	wxPen GetColGridLinePen(int col) {
@@ -103,9 +108,6 @@ public:
 		return wxGrid::Fit();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool wxGrid::CanHaveAttributes() const

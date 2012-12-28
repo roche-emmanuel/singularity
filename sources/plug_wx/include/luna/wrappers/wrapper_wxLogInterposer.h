@@ -21,17 +21,8 @@ public:
 	
 	wrapper_wxLogInterposer(lua_State* L, lua_Table* dum) : wxLogInterposer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// void wxLog::Flush()
-	void Flush() {
-		if(_obj.pushFunction("Flush")) {
-			return (_obj.callFunction<void>());
-		}
 
-		return wxLogInterposer::Flush();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
@@ -68,6 +59,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// void wxLog::Flush()
+	void Flush() {
+		if(_obj.pushFunction("Flush")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxLogInterposer::Flush();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

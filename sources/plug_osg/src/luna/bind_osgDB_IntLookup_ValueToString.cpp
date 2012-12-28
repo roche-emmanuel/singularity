@@ -80,7 +80,7 @@ void LunaTraits< osgDB::IntLookup::ValueToString >::_bind_dtor(osgDB::IntLookup:
 
 const char LunaTraits< osgDB::IntLookup::ValueToString >::className[] = "ValueToString";
 const char LunaTraits< osgDB::IntLookup::ValueToString >::fullName[] = "osgDB::IntLookup::ValueToString";
-const char LunaTraits< osgDB::IntLookup::ValueToString >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::IntLookup::ValueToString >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::IntLookup::ValueToString >::parents[] = {0};
 const int LunaTraits< osgDB::IntLookup::ValueToString >::hash = 27498346;
 const int LunaTraits< osgDB::IntLookup::ValueToString >::uniqueIDs[] = {27498346,0};

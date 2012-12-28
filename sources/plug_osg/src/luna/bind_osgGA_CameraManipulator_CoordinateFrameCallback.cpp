@@ -128,7 +128,7 @@ void LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::_bind_dtor
 
 const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::className[] = "CoordinateFrameCallback";
 const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::fullName[] = "osgGA::CameraManipulator::CoordinateFrameCallback";
-const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::moduleName[] = "osgGA";
+const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::moduleName[] = "osg";
 const char* LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::hash = 51007007;
 const int LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::uniqueIDs[] = {50169651,0};

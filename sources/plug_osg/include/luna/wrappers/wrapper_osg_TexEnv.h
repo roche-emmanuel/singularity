@@ -22,6 +22,11 @@ public:
 	wrapper_osg_TexEnv(lua_State* L, lua_Table* dum, osg::TexEnv::Mode mode = osg::TexEnv::MODULATE) : osg::TexEnv(mode), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_TexEnv(lua_State* L, lua_Table* dum, const osg::TexEnv & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexEnv(texenv, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -222,9 +227,6 @@ public:
 		return TexEnv::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)

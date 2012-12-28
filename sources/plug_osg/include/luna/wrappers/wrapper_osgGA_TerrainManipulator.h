@@ -22,6 +22,310 @@ public:
 	wrapper_osgGA_TerrainManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::TerrainManipulator(flags), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgGA_TerrainManipulator(lua_State* L, lua_Table* dum, const osgGA::TerrainManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::TerrainManipulator(tm, copyOp), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleFrame")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleFrame(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleResize")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleResize(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseMove")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleMouseMove(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDrag")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleMouseDrag(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMousePush")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleMousePush(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseRelease")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleMouseRelease(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyDown")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleKeyDown(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyUp")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleKeyUp(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDeltaMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleMouseDeltaMovement(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::performMovement()
+	bool performMovement() {
+		if(_obj.pushFunction("performMovement")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::performMovement();
+	};
+
+	// bool osgGA::StandardManipulator::performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("performAnimationMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::performAnimationMovement(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::isMouseMoving() const
+	bool isMouseMoving() const {
+		if(_obj.pushFunction("isMouseMoving")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::isMouseMoving();
+	};
+
+	// void osgGA::StandardManipulator::centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	void centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("centerMousePointer")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::centerMousePointer(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("setCenterByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::setCenterByMousePointerIntersection(ea, us);
+	};
+
+	// bool osgGA::OrbitManipulator::handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseWheel")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::handleMouseWheel(ea, us);
+	};
+
+	// bool osgGA::OrbitManipulator::performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementLeftMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::performMovementLeftMouseButton(eventTimeDelta, dx, dy);
+	};
+
+	// bool osgGA::OrbitManipulator::performMouseDeltaMovement(const float dx, const float dy)
+	bool performMouseDeltaMovement(const float dx, const float dy) {
+		if(_obj.pushFunction("performMouseDeltaMovement")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::performMouseDeltaMovement(dx, dy);
+	};
+
+	// void osgGA::OrbitManipulator::applyAnimationStep(const double currentProgress, const double prevProgress)
+	void applyAnimationStep(const double currentProgress, const double prevProgress) {
+		if(_obj.pushFunction("applyAnimationStep")) {
+			_obj.pushArg(currentProgress);
+			_obj.pushArg(prevProgress);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::applyAnimationStep(currentProgress, prevProgress);
+	};
+
+	// void osgGA::OrbitManipulator::rotateTrackball(const float px0, const float py0, const float px1, const float py1, const float scale)
+	void rotateTrackball(const float px0, const float py0, const float px1, const float py1, const float scale) {
+		if(_obj.pushFunction("rotateTrackball")) {
+			_obj.pushArg(px0);
+			_obj.pushArg(py0);
+			_obj.pushArg(px1);
+			_obj.pushArg(py1);
+			_obj.pushArg(scale);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::rotateTrackball(px0, py0, px1, py1, scale);
+	};
+
+	// void osgGA::OrbitManipulator::rotateWithFixedVertical(const float dx, const float dy)
+	void rotateWithFixedVertical(const float dx, const float dy) {
+		if(_obj.pushFunction("rotateWithFixedVertical")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::rotateWithFixedVertical(dx, dy);
+	};
+
+	// void osgGA::OrbitManipulator::rotateWithFixedVertical(const float dx, const float dy, const osg::Vec3f & up)
+	void rotateWithFixedVertical(const float dx, const float dy, const osg::Vec3f & up) {
+		if(_obj.pushFunction("rotateWithFixedVertical")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			_obj.pushArg(&up);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::rotateWithFixedVertical(dx, dy, up);
+	};
+
+	// void osgGA::OrbitManipulator::panModel(const float dx, const float dy, const float dz = 0.f)
+	void panModel(const float dx, const float dy, const float dz = 0.f) {
+		if(_obj.pushFunction("panModel")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			_obj.pushArg(dz);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::panModel(dx, dy, dz);
+	};
+
+	// void osgGA::OrbitManipulator::zoomModel(const float dy, bool pushForwardIfNeeded = true)
+	void zoomModel(const float dy, bool pushForwardIfNeeded = true) {
+		if(_obj.pushFunction("zoomModel")) {
+			_obj.pushArg(dy);
+			_obj.pushArg(pushForwardIfNeeded);
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::zoomModel(dy, pushForwardIfNeeded);
+	};
+
+	// bool osgGA::OrbitManipulator::startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("startAnimationByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::startAnimationByMousePointerIntersection(ea, us);
+	};
+
+	// void osgGA::OrbitManipulator::allocAnimationData()
+	void allocAnimationData() {
+		if(_obj.pushFunction("allocAnimationData")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return TerrainManipulator::allocAnimationData();
+	};
+
+	// bool osgGA::TerrainManipulator::performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementMiddleMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::performMovementMiddleMouseButton(eventTimeDelta, dx, dy);
+	};
+
+	// bool osgGA::TerrainManipulator::performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementRightMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return TerrainManipulator::performMovementRightMouseButton(eventTimeDelta, dx, dy);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -488,308 +792,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleFrame")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleFrame(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleResize")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleResize(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseMove")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleMouseMove(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseDrag")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleMouseDrag(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMousePush")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleMousePush(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseRelease")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleMouseRelease(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleKeyDown")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleKeyDown(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleKeyUp")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleKeyUp(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseDeltaMovement")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleMouseDeltaMovement(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::performMovement()
-	bool performMovement() {
-		if(_obj.pushFunction("performMovement")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::performMovement();
-	};
-
-	// bool osgGA::StandardManipulator::performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("performAnimationMovement")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::performAnimationMovement(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::isMouseMoving() const
-	bool isMouseMoving() const {
-		if(_obj.pushFunction("isMouseMoving")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::isMouseMoving();
-	};
-
-	// void osgGA::StandardManipulator::centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	void centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("centerMousePointer")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::centerMousePointer(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("setCenterByMousePointerIntersection")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::setCenterByMousePointerIntersection(ea, us);
-	};
-
-	// bool osgGA::OrbitManipulator::handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseWheel")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::handleMouseWheel(ea, us);
-	};
-
-	// bool osgGA::OrbitManipulator::performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy)
-	bool performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy) {
-		if(_obj.pushFunction("performMovementLeftMouseButton")) {
-			_obj.pushArg(eventTimeDelta);
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::performMovementLeftMouseButton(eventTimeDelta, dx, dy);
-	};
-
-	// bool osgGA::OrbitManipulator::performMouseDeltaMovement(const float dx, const float dy)
-	bool performMouseDeltaMovement(const float dx, const float dy) {
-		if(_obj.pushFunction("performMouseDeltaMovement")) {
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::performMouseDeltaMovement(dx, dy);
-	};
-
-	// void osgGA::OrbitManipulator::applyAnimationStep(const double currentProgress, const double prevProgress)
-	void applyAnimationStep(const double currentProgress, const double prevProgress) {
-		if(_obj.pushFunction("applyAnimationStep")) {
-			_obj.pushArg(currentProgress);
-			_obj.pushArg(prevProgress);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::applyAnimationStep(currentProgress, prevProgress);
-	};
-
-	// void osgGA::OrbitManipulator::rotateTrackball(const float px0, const float py0, const float px1, const float py1, const float scale)
-	void rotateTrackball(const float px0, const float py0, const float px1, const float py1, const float scale) {
-		if(_obj.pushFunction("rotateTrackball")) {
-			_obj.pushArg(px0);
-			_obj.pushArg(py0);
-			_obj.pushArg(px1);
-			_obj.pushArg(py1);
-			_obj.pushArg(scale);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::rotateTrackball(px0, py0, px1, py1, scale);
-	};
-
-	// void osgGA::OrbitManipulator::rotateWithFixedVertical(const float dx, const float dy)
-	void rotateWithFixedVertical(const float dx, const float dy) {
-		if(_obj.pushFunction("rotateWithFixedVertical")) {
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::rotateWithFixedVertical(dx, dy);
-	};
-
-	// void osgGA::OrbitManipulator::rotateWithFixedVertical(const float dx, const float dy, const osg::Vec3f & up)
-	void rotateWithFixedVertical(const float dx, const float dy, const osg::Vec3f & up) {
-		if(_obj.pushFunction("rotateWithFixedVertical")) {
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			_obj.pushArg(&up);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::rotateWithFixedVertical(dx, dy, up);
-	};
-
-	// void osgGA::OrbitManipulator::panModel(const float dx, const float dy, const float dz = 0.f)
-	void panModel(const float dx, const float dy, const float dz = 0.f) {
-		if(_obj.pushFunction("panModel")) {
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			_obj.pushArg(dz);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::panModel(dx, dy, dz);
-	};
-
-	// void osgGA::OrbitManipulator::zoomModel(const float dy, bool pushForwardIfNeeded = true)
-	void zoomModel(const float dy, bool pushForwardIfNeeded = true) {
-		if(_obj.pushFunction("zoomModel")) {
-			_obj.pushArg(dy);
-			_obj.pushArg(pushForwardIfNeeded);
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::zoomModel(dy, pushForwardIfNeeded);
-	};
-
-	// bool osgGA::OrbitManipulator::startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("startAnimationByMousePointerIntersection")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::startAnimationByMousePointerIntersection(ea, us);
-	};
-
-	// void osgGA::OrbitManipulator::allocAnimationData()
-	void allocAnimationData() {
-		if(_obj.pushFunction("allocAnimationData")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return TerrainManipulator::allocAnimationData();
-	};
-
-	// bool osgGA::TerrainManipulator::performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy)
-	bool performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy) {
-		if(_obj.pushFunction("performMovementMiddleMouseButton")) {
-			_obj.pushArg(eventTimeDelta);
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::performMovementMiddleMouseButton(eventTimeDelta, dx, dy);
-	};
-
-	// bool osgGA::TerrainManipulator::performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy)
-	bool performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy) {
-		if(_obj.pushFunction("performMovementRightMouseButton")) {
-			_obj.pushArg(eventTimeDelta);
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return TerrainManipulator::performMovementRightMouseButton(eventTimeDelta, dx, dy);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// bool osgGA::TerrainManipulator::intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const
 	bool public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const {

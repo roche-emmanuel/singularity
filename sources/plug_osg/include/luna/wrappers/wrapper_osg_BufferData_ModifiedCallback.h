@@ -22,6 +22,11 @@ public:
 	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum) : osg::BufferData::ModifiedCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum, const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2) : osg::BufferData::ModifiedCallback(arg1, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -137,9 +142,6 @@ public:
 		return ModifiedCallback::modified(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

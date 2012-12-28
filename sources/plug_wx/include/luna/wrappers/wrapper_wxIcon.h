@@ -25,26 +25,8 @@ public:
 	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1) : wxIcon(name, type, desiredWidth, desiredHeight), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIconLocation & loc) : wxIcon(loc), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxIcon::GetClassInfo();
-	};
-
-	// bool wxIcon::IsOk() const
-	bool IsOk() const {
-		if(_obj.pushFunction("IsOk")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxIcon::IsOk();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -67,6 +49,26 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxIcon::GetClassInfo();
+	};
+
+	// bool wxIcon::IsOk() const
+	bool IsOk() const {
+		if(_obj.pushFunction("IsOk")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxIcon::IsOk();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

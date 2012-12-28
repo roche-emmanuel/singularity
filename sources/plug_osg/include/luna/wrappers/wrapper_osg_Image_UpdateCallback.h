@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -136,9 +141,6 @@ public:
 		return UpdateCallback::operator()(arg1, arg2);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

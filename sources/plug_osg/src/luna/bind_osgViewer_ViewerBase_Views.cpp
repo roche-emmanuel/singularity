@@ -80,7 +80,7 @@ void LunaTraits< osgViewer::ViewerBase::Views >::_bind_dtor(osgViewer::ViewerBas
 
 const char LunaTraits< osgViewer::ViewerBase::Views >::className[] = "Views";
 const char LunaTraits< osgViewer::ViewerBase::Views >::fullName[] = "osgViewer::ViewerBase::Views";
-const char LunaTraits< osgViewer::ViewerBase::Views >::moduleName[] = "osgViewer";
+const char LunaTraits< osgViewer::ViewerBase::Views >::moduleName[] = "osg";
 const char* LunaTraits< osgViewer::ViewerBase::Views >::parents[] = {0};
 const int LunaTraits< osgViewer::ViewerBase::Views >::hash = 2917259;
 const int LunaTraits< osgViewer::ViewerBase::Views >::uniqueIDs[] = {2917259,0};

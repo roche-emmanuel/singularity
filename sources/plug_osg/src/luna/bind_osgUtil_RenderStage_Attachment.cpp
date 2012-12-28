@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::RenderStage::Attachment >::_bind_dtor(osgUtil::RenderS
 
 const char LunaTraits< osgUtil::RenderStage::Attachment >::className[] = "Attachment";
 const char LunaTraits< osgUtil::RenderStage::Attachment >::fullName[] = "osgUtil::RenderStage::Attachment";
-const char LunaTraits< osgUtil::RenderStage::Attachment >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::RenderStage::Attachment >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::RenderStage::Attachment >::parents[] = {0};
 const int LunaTraits< osgUtil::RenderStage::Attachment >::hash = 25782964;
 const int LunaTraits< osgUtil::RenderStage::Attachment >::uniqueIDs[] = {25782964,0};

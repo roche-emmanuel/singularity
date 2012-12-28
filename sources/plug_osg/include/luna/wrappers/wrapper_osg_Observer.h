@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_Observer(lua_State* L, lua_Table* dum) : osg::Observer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Observer::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {
@@ -32,9 +37,6 @@ public:
 		return Observer::objectDeleted(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

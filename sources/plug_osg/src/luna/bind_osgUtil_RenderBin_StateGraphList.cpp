@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::RenderBin::StateGraphList >::_bind_dtor(osgUtil::Rende
 
 const char LunaTraits< osgUtil::RenderBin::StateGraphList >::className[] = "StateGraphList";
 const char LunaTraits< osgUtil::RenderBin::StateGraphList >::fullName[] = "osgUtil::RenderBin::StateGraphList";
-const char LunaTraits< osgUtil::RenderBin::StateGraphList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::RenderBin::StateGraphList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::RenderBin::StateGraphList >::parents[] = {0};
 const int LunaTraits< osgUtil::RenderBin::StateGraphList >::hash = 60103097;
 const int LunaTraits< osgUtil::RenderBin::StateGraphList >::uniqueIDs[] = {60103097,0};

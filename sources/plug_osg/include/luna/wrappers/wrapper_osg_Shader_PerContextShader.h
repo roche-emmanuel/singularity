@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osg_Shader_PerContextShader(lua_State* L, lua_Table* dum, const osg::Shader * shader, unsigned int contextID) : osg::Shader::PerContextShader(shader, contextID), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

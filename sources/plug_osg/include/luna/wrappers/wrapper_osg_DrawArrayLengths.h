@@ -25,6 +25,11 @@ public:
 	wrapper_osg_DrawArrayLengths(lua_State* L, lua_Table* dum, unsigned int mode, int first, unsigned int no) : osg::DrawArrayLengths(mode, first, no), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_DrawArrayLengths(lua_State* L, lua_Table* dum, unsigned int mode, int first) : osg::DrawArrayLengths(mode, first), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -233,9 +238,6 @@ public:
 		return DrawArrayLengths::getNumPrimitives();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

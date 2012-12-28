@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::_bind_dtor(osgUtil::Sha
 
 const char LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::className[] = "StateSetMap";
 const char LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::fullName[] = "osgUtil::ShaderGenCache::StateSetMap";
-const char LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::parents[] = {0};
 const int LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::hash = 11745068;
 const int LunaTraits< osgUtil::ShaderGenCache::StateSetMap >::uniqueIDs[] = {11745068,0};

@@ -324,7 +324,7 @@ void LunaTraits< osgText::Font::FontImplementation >::_bind_dtor(osgText::Font::
 
 const char LunaTraits< osgText::Font::FontImplementation >::className[] = "FontImplementation";
 const char LunaTraits< osgText::Font::FontImplementation >::fullName[] = "osgText::Font::FontImplementation";
-const char LunaTraits< osgText::Font::FontImplementation >::moduleName[] = "osgText";
+const char LunaTraits< osgText::Font::FontImplementation >::moduleName[] = "osg";
 const char* LunaTraits< osgText::Font::FontImplementation >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgText::Font::FontImplementation >::hash = 12538320;
 const int LunaTraits< osgText::Font::FontImplementation >::uniqueIDs[] = {50169651,0};

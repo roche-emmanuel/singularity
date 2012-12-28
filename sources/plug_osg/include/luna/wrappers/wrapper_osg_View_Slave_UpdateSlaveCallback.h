@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)
 	void updateSlave(osg::View & view, osg::View::Slave & slave) {
@@ -29,9 +34,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

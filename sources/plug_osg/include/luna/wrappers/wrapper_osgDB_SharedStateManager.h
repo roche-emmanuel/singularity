@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_SharedStateManager(lua_State* L, lua_Table* dum, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) : osgDB::SharedStateManager(mode), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::NodeVisitor::reset()
 	void reset() {
@@ -120,9 +125,6 @@ public:
 		return SharedStateManager::apply(geode);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgDB::SharedStateManager::shareTexture(osg::Object::DataVariance variance)

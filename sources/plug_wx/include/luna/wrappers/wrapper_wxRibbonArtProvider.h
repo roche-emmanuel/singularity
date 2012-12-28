@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxRibbonArtProvider(lua_State* L, lua_Table* dum) : wxRibbonArtProvider(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxRibbonArtProvider * wxRibbonArtProvider::Clone() const
 	wxRibbonArtProvider * Clone() const {
@@ -365,9 +370,6 @@ public:
 		return *(_obj.callFunction<wxSize*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

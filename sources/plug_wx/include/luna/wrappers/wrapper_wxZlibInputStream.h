@@ -22,6 +22,58 @@ public:
 	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, int flags = 3) : wxZlibInputStream(stream, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream, int flags = 3) : wxZlibInputStream(stream, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxZlibInputStream::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxZlibInputStream::CloneRefData(data);
+	};
+
+	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
+	long long OnSysSeek(long long pos, wxSeekMode mode) {
+		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg(pos);
+			_obj.pushArg(mode);
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxZlibInputStream::OnSysSeek(pos, mode);
+	};
+
+	// long long wxStreamBase::OnSysTell() const
+	long long OnSysTell() const {
+		if(_obj.pushFunction("OnSysTell")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxZlibInputStream::OnSysTell();
+	};
+
+	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
+	size_t OnSysRead(void * buffer, size_t bufsize) {
+		THROW_IF(!_obj.pushFunction("OnSysRead"),"No implementation for abstract function wxInputStream::OnSysRead");
+		_obj.pushArg(buffer);
+		_obj.pushArg(bufsize);
+		return (_obj.callFunction<size_t>());
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -136,56 +188,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxZlibInputStream::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxZlibInputStream::CloneRefData(data);
-	};
-
-	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
-	long long OnSysSeek(long long pos, wxSeekMode mode) {
-		if(_obj.pushFunction("OnSysSeek")) {
-			_obj.pushArg(pos);
-			_obj.pushArg(mode);
-			return (_obj.callFunction<long long>());
-		}
-
-		return wxZlibInputStream::OnSysSeek(pos, mode);
-	};
-
-	// long long wxStreamBase::OnSysTell() const
-	long long OnSysTell() const {
-		if(_obj.pushFunction("OnSysTell")) {
-			return (_obj.callFunction<long long>());
-		}
-
-		return wxZlibInputStream::OnSysTell();
-	};
-
-	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
-	size_t OnSysRead(void * buffer, size_t bufsize) {
-		THROW_IF(!_obj.pushFunction("OnSysRead"),"No implementation for abstract function wxInputStream::OnSysRead");
-		_obj.pushArg(buffer);
-		_obj.pushArg(bufsize);
-		return (_obj.callFunction<size_t>());
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

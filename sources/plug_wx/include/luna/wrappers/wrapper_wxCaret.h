@@ -23,6 +23,11 @@ public:
 	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, int width, int height) : wxCaret(window, width, height), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, const wxSize & size) : wxCaret(window, size), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxCaret::Hide()
 	void Hide() {
@@ -43,9 +48,6 @@ public:
 		return wxCaret::Show(show);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

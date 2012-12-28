@@ -80,7 +80,7 @@ void LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::_bind_dtor(os
 
 const char LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::className[] = "KeyManipMap";
 const char LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::fullName[] = "osgGA::KeySwitchMatrixManipulator::KeyManipMap";
-const char LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::moduleName[] = "osgGA";
+const char LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::moduleName[] = "osg";
 const char* LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::parents[] = {0};
 const int LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::hash = 71456208;
 const int LunaTraits< osgGA::KeySwitchMatrixManipulator::KeyManipMap >::uniqueIDs[] = {71456208,0};

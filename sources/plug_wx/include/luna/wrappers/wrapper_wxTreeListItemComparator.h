@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxTreeListItemComparator(lua_State* L, lua_Table* dum) : wxTreeListItemComparator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)
 	int Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) {
@@ -32,9 +37,6 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

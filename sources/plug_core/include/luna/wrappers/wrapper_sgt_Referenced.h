@@ -21,6 +21,11 @@ public:
 	
 	wrapper_sgt_Referenced(lua_State* L, lua_Table* dum) : sgt::Referenced(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -32,9 +37,6 @@ public:
 		return Referenced::setThreadSafeRefUnref(threadSafe);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

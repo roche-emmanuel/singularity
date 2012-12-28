@@ -23,10 +23,12 @@ public:
 	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const osgDB::DynamicLibrary & arg1) : osgDB::DynamicLibrary(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const std::string & name, void * handle) : osgDB::DynamicLibrary(name, handle), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// static void * osgDB::DynamicLibrary::getLibraryHandle(const std::string & libraryName)

@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::BarrierOperation::release()
 	void release() {
@@ -40,9 +45,6 @@ public:
 		return BarrierOperation::operator()(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

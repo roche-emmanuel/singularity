@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osg_GLBufferObjectSet(lua_State* L, lua_Table* dum, osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile) : osg::GLBufferObjectSet(parent, profile), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

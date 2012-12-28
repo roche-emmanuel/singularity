@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_NodeVisitor_DatabaseRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::DatabaseRequestHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0)
 	void requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0) {
@@ -34,9 +39,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

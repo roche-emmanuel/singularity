@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_RecordCameraPathHandler(lua_State* L, lua_Table* dum, const std::string & filename = "saved_animation.path", float fps = 25.0f) : osgViewer::RecordCameraPathHandler(filename, fps), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -169,9 +174,6 @@ public:
 		return RecordCameraPathHandler::handle(arg1, arg2);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

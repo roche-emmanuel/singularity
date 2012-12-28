@@ -22,6 +22,31 @@ public:
 	wrapper_osgParticle_ModularEmitter(lua_State* L, lua_Table* dum) : osgParticle::ModularEmitter(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_ModularEmitter(lua_State* L, lua_Table* dum, const osgParticle::ModularEmitter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ModularEmitter(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgParticle::Emitter::process(double dt)
+	void process(double dt) {
+		if(_obj.pushFunction("process")) {
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return ModularEmitter::process(dt);
+	};
+
+	// void osgParticle::ModularEmitter::emitParticles(double dt)
+	void emitParticles(double dt) {
+		if(_obj.pushFunction("emitParticles")) {
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return ModularEmitter::emitParticles(dt);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -239,29 +264,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgParticle::Emitter::process(double dt)
-	void process(double dt) {
-		if(_obj.pushFunction("process")) {
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModularEmitter::process(dt);
-	};
-
-	// void osgParticle::ModularEmitter::emitParticles(double dt)
-	void emitParticles(double dt) {
-		if(_obj.pushFunction("emitParticles")) {
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModularEmitter::emitParticles(dt);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::Node::addParent(osg::Group * node)
 	void public_addParent(osg::Group * node) {

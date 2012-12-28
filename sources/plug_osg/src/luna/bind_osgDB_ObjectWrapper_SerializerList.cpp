@@ -80,7 +80,7 @@ void LunaTraits< osgDB::ObjectWrapper::SerializerList >::_bind_dtor(osgDB::Objec
 
 const char LunaTraits< osgDB::ObjectWrapper::SerializerList >::className[] = "SerializerList";
 const char LunaTraits< osgDB::ObjectWrapper::SerializerList >::fullName[] = "osgDB::ObjectWrapper::SerializerList";
-const char LunaTraits< osgDB::ObjectWrapper::SerializerList >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ObjectWrapper::SerializerList >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ObjectWrapper::SerializerList >::parents[] = {0};
 const int LunaTraits< osgDB::ObjectWrapper::SerializerList >::hash = 21896453;
 const int LunaTraits< osgDB::ObjectWrapper::SerializerList >::uniqueIDs[] = {21896453,0};

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_IntersectionVisitor(lua_State* L, lua_Table* dum, osgUtil::Intersector * intersector = 0, osgUtil::IntersectionVisitor::ReadCallback * readCallback = 0) : osgUtil::IntersectionVisitor(intersector, readCallback), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
@@ -190,9 +195,6 @@ public:
 		return IntersectionVisitor::apply(camera);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgUtil::IntersectionVisitor::enter(const osg::Node & node)

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_Scene(lua_State* L, lua_Table* dum) : osgViewer::Scene(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osgViewer::Scene::className() const
 	const char * className() const {
@@ -31,9 +36,6 @@ public:
 		return Scene::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// static osgViewer::Scene * osgViewer::Scene::getOrCreateScene(osg::Node * node)

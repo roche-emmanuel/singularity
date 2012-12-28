@@ -152,7 +152,7 @@ public:
 	inline static bool _lg_typecheck_SetState(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92036952) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		return true;
 	}
 

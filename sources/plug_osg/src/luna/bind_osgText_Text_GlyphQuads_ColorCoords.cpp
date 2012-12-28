@@ -80,7 +80,7 @@ void LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::_bind_dtor(osgText::T
 
 const char LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::className[] = "ColorCoords";
 const char LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::fullName[] = "osgText::Text::GlyphQuads::ColorCoords";
-const char LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::moduleName[] = "osgText";
+const char LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::moduleName[] = "osg";
 const char* LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::parents[] = {0};
 const int LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::hash = 26979605;
 const int LunaTraits< osgText::Text::GlyphQuads::ColorCoords >::uniqueIDs[] = {26979605,0};

@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxTarOutputStream::Close()
 	bool Close() {
@@ -62,9 +67,6 @@ public:
 		return wxTarOutputStream::PutNextEntry(name, dt, size);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

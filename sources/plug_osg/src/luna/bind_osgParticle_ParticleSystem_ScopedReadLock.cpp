@@ -80,7 +80,7 @@ void LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::_bind_dtor(osgPa
 
 const char LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::className[] = "ScopedReadLock";
 const char LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::fullName[] = "osgParticle::ParticleSystem::ScopedReadLock";
-const char LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::moduleName[] = "osgParticle";
+const char LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::moduleName[] = "osg";
 const char* LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::parents[] = {0};
 const int LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::hash = 61073220;
 const int LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::uniqueIDs[] = {61073220,0};

@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxTextEntry::AppendText(const wxString & text)
 	void AppendText(const wxString & text) {
@@ -328,9 +333,6 @@ public:
 		return wxTextEntry::WriteText(text);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

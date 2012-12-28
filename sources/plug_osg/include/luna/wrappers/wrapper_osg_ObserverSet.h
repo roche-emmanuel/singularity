@@ -22,10 +22,12 @@ public:
 	wrapper_osg_ObserverSet(lua_State* L, lua_Table* dum, const osg::Referenced * observedObject) : osg::ObserverSet(observedObject), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ObserverSet(lua_State* L, lua_Table* dum, const osg::ObserverSet & rhs) : osg::ObserverSet(rhs), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

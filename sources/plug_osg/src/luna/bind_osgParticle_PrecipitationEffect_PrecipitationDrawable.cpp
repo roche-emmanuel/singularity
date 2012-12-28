@@ -1276,7 +1276,7 @@ void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::_bin
 
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::className[] = "PrecipitationDrawable";
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::fullName[] = "osgParticle::PrecipitationEffect::PrecipitationDrawable";
-const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::moduleName[] = "osgParticle";
+const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::moduleName[] = "osg";
 const char* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::parents[] = {"osg.Drawable", 0};
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::hash = 83449039;
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable >::uniqueIDs[] = {50169651,0};

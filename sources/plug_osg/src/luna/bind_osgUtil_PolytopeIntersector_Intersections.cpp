@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::PolytopeIntersector::Intersections >::_bind_dtor(osgUt
 
 const char LunaTraits< osgUtil::PolytopeIntersector::Intersections >::className[] = "Intersections";
 const char LunaTraits< osgUtil::PolytopeIntersector::Intersections >::fullName[] = "osgUtil::PolytopeIntersector::Intersections";
-const char LunaTraits< osgUtil::PolytopeIntersector::Intersections >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::PolytopeIntersector::Intersections >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::PolytopeIntersector::Intersections >::parents[] = {0};
 const int LunaTraits< osgUtil::PolytopeIntersector::Intersections >::hash = 63717560;
 const int LunaTraits< osgUtil::PolytopeIntersector::Intersections >::uniqueIDs[] = {63717560,0};

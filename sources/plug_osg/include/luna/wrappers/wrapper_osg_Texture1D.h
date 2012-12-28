@@ -23,6 +23,30 @@ public:
 	wrapper_osg_Texture1D(lua_State* L, lua_Table* dum, osg::Image * image) : osg::Texture1D(image), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Texture1D(lua_State* L, lua_Table* dum, const osg::Texture1D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture1D(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::Texture1D::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture1D::computeInternalFormat();
+	};
+
+	// void osg::Texture1D::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg(&state);
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture1D::allocateMipmap(state);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -300,28 +324,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::Texture1D::computeInternalFormat() const
-	void computeInternalFormat() const {
-		if(_obj.pushFunction("computeInternalFormat")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return Texture1D::computeInternalFormat();
-	};
-
-	// void osg::Texture1D::allocateMipmap(osg::State & state) const
-	void allocateMipmap(osg::State & state) const {
-		if(_obj.pushFunction("allocateMipmap")) {
-			_obj.pushArg(&state);
-			return (_obj.callFunction<void>());
-		}
-
-		return Texture1D::allocateMipmap(state);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::Texture1D::applyTexImage1D(unsigned int target, osg::Image * image, osg::State & state, int & width, int & numMipmapLevels) const
 	void public_applyTexImage1D(unsigned int target, osg::Image * image, osg::State & state, int & width, int & numMipmapLevels) const {

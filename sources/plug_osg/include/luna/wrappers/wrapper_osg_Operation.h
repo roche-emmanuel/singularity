@@ -23,6 +23,11 @@ public:
 	wrapper_osg_Operation(lua_State* L, lua_Table* dum) : osg::Operation(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const osg::Operation & op) : osg::Operation(op), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Operation::release()
 	void release() {
@@ -40,9 +45,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

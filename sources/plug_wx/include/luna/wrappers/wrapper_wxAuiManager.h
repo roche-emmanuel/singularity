@@ -21,6 +21,61 @@ public:
 	
 	wrapper_wxAuiManager(lua_State* L, lua_Table* dum, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) : wxAuiManager(managed_wnd, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxAuiManager::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxAuiManager::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxAuiManager::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxAuiManager::TryAfter(event);
+	};
+
+	// bool wxAuiManager::ProcessDockResult(wxAuiPaneInfo & target, const wxAuiPaneInfo & new_pos)
+	bool ProcessDockResult(wxAuiPaneInfo & target, const wxAuiPaneInfo & new_pos) {
+		if(_obj.pushFunction("ProcessDockResult")) {
+			_obj.pushArg(&target);
+			_obj.pushArg(&new_pos);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxAuiManager::ProcessDockResult(target, new_pos);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -101,59 +156,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxAuiManager::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxAuiManager::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxAuiManager::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxAuiManager::TryAfter(event);
-	};
-
-	// bool wxAuiManager::ProcessDockResult(wxAuiPaneInfo & target, const wxAuiPaneInfo & new_pos)
-	bool ProcessDockResult(wxAuiPaneInfo & target, const wxAuiPaneInfo & new_pos) {
-		if(_obj.pushFunction("ProcessDockResult")) {
-			_obj.pushArg(&target);
-			_obj.pushArg(&new_pos);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxAuiManager::ProcessDockResult(target, new_pos);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

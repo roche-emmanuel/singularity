@@ -22,6 +22,11 @@ public:
 	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum) : sgt::TimeProvider(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) : sgt::TimeProvider(tm, co), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -156,9 +161,6 @@ public:
 		return TimeProvider::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

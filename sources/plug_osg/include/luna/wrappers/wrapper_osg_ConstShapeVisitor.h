@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_ConstShapeVisitor(lua_State* L, lua_Table* dum) : osg::ConstShapeVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::ConstShapeVisitor::apply(const osg::Shape & arg1)
 	void apply(const osg::Shape & arg1) {
@@ -132,9 +137,6 @@ public:
 		return ConstShapeVisitor::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

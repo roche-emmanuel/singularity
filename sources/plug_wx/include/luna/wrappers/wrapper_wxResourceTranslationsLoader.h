@@ -20,6 +20,20 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxString wxResourceTranslationsLoader::GetResourceType() const
+	wxString GetResourceType() const {
+		if(_obj.pushFunction("GetResourceType")) {
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxResourceTranslationsLoader::GetResourceType();
+	};
+
+public:
 	// Public virtual methods:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {
@@ -37,18 +51,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxString wxResourceTranslationsLoader::GetResourceType() const
-	wxString GetResourceType() const {
-		if(_obj.pushFunction("GetResourceType")) {
-			return *(_obj.callFunction<wxString*>());
-		}
-
-		return wxResourceTranslationsLoader::GetResourceType();
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

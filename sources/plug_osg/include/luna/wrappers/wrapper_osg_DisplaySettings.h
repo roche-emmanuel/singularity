@@ -23,10 +23,12 @@ public:
 	wrapper_osg_DisplaySettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::DisplaySettings(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_DisplaySettings(lua_State* L, lua_Table* dum, const osg::DisplaySettings & vs) : osg::DisplaySettings(vs), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

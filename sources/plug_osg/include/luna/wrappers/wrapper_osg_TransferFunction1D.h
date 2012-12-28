@@ -22,6 +22,11 @@ public:
 	wrapper_osg_TransferFunction1D(lua_State* L, lua_Table* dum) : osg::TransferFunction1D(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_TransferFunction1D(lua_State* L, lua_Table* dum, const osg::TransferFunction1D & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction1D(tf, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -127,9 +132,6 @@ public:
 		return TransferFunction1D::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::TransferFunction1D::assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c)

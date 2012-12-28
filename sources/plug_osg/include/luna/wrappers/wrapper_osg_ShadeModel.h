@@ -22,6 +22,11 @@ public:
 	wrapper_osg_ShadeModel(lua_State* L, lua_Table* dum, osg::ShadeModel::Mode mode = osg::ShadeModel::SMOOTH) : osg::ShadeModel(mode), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ShadeModel(lua_State* L, lua_Table* dum, const osg::ShadeModel & sm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShadeModel(sm, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -222,9 +227,6 @@ public:
 		return ShadeModel::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)

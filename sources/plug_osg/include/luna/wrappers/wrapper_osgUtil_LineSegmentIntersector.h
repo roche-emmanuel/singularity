@@ -23,6 +23,11 @@ public:
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) : osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osgUtil::Intersector * osgUtil::LineSegmentIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
@@ -82,9 +87,6 @@ public:
 		return LineSegmentIntersector::containsIntersections();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgUtil::LineSegmentIntersector::intersects(const osg::BoundingSphered & bs)

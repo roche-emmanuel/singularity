@@ -21,17 +21,8 @@ public:
 	
 	wrapper_wxColourData(lua_State* L, lua_Table* dum) : wxColourData(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxColourData::GetClassInfo();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -54,6 +45,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxColourData::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

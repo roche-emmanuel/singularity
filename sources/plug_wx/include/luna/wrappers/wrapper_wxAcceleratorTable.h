@@ -22,17 +22,8 @@ public:
 	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum) : wxAcceleratorTable(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum, const wxString & resource) : wxAcceleratorTable(resource), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxAcceleratorTable::GetClassInfo();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -55,6 +46,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxAcceleratorTable::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

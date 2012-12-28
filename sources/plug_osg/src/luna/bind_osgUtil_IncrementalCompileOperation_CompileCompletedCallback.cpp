@@ -94,7 +94,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback 
 
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::className[] = "CompileCompletedCallback";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileCompletedCallback";
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::hash = 59036340;
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::uniqueIDs[] = {50169651,0};

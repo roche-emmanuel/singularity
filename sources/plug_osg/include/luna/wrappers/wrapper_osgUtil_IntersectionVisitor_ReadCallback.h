@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string & filename)
 	osg::Node * readNodeFile(const std::string & filename) {
@@ -28,9 +33,6 @@ public:
 		return (_obj.callFunction<osg::Node*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

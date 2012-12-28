@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::EdgeCollector::PointSet >::_bind_dtor(osgUtil::EdgeCol
 
 const char LunaTraits< osgUtil::EdgeCollector::PointSet >::className[] = "PointSet";
 const char LunaTraits< osgUtil::EdgeCollector::PointSet >::fullName[] = "osgUtil::EdgeCollector::PointSet";
-const char LunaTraits< osgUtil::EdgeCollector::PointSet >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::EdgeCollector::PointSet >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::EdgeCollector::PointSet >::parents[] = {0};
 const int LunaTraits< osgUtil::EdgeCollector::PointSet >::hash = 34110025;
 const int LunaTraits< osgUtil::EdgeCollector::PointSet >::uniqueIDs[] = {34110025,0};

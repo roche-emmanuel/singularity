@@ -26,6 +26,11 @@ public:
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, double a, double b, double c, double d) : osg::ClipPlane(no, a, b, c, d), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClipPlane(cp, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -226,9 +231,6 @@ public:
 		return ClipPlane::apply(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)

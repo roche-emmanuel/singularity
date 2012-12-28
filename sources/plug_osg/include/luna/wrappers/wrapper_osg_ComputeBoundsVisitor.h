@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_ComputeBoundsVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN) : osg::ComputeBoundsVisitor(traversalMode), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
@@ -130,9 +135,6 @@ public:
 		return ComputeBoundsVisitor::apply(geode);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

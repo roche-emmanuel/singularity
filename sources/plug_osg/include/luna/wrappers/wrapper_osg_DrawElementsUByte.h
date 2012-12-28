@@ -24,6 +24,11 @@ public:
 	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0) : osg::DrawElementsUByte(mode, no, ptr, numInstances), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no) : osg::DrawElementsUByte(mode, no), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -273,9 +278,6 @@ public:
 		return DrawElementsUByte::addElement(v);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

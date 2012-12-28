@@ -16,6 +16,7 @@ SET(DEP_MYSQL ${DEPS_DIR}/${FLAVOR}/mysql-5.5.25 CACHE STRING "mysql path")
 SET(DEP_FIREBIRD ${DEPS_DIR}/${FLAVOR}/Firebird-2.5.1.26351-0 CACHE STRING "firebird path")
 SET(DEP_ZLIB ${DEPS_DIR}/${FLAVOR}/zlib-1.2.7 CACHE STRING "zlib path")
 SET(DEP_OPENSSL ${DEPS_DIR}/${FLAVOR}/openssl-0.9.8x CACHE STRING "openssl path")
+SET(DEP_SPARK ${DEPS_DIR}/${FLAVOR}/SPARK-1.5.5 CACHE STRING "spark path")
 #SET(DEP_AWESOMIUM ${DEPS_DIR}/${FLAVOR}/awesomium-1.6.6 CACHE STRING "awesomium path")
 SET(DEP_AWESOMIUM ${DEPS_DIR}/${FLAVOR}/awesomium-1.7-rc3 CACHE STRING "awesomium path")
 

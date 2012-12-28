@@ -23,10 +23,12 @@ public:
 	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::LineSegment & seg) : osg::LineSegment(seg), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::Vec3d & s, const osg::Vec3d & e) : osg::LineSegment(s, e), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// static bool osg::LineSegment::intersectAndClip(osg::Vec3d & s, osg::Vec3d & e, const osg::BoundingBoxd & bb)

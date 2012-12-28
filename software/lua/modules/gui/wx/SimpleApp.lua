@@ -13,6 +13,7 @@ local prof = require "debugging.Profiler"
 function Class:initialize(options)
 	self:debug4("Initializing mainframe.")
 	
+	options = options or {}
 	self._onStartFunc = options.onStart;
 	self._profileFile = options.profileFile
 	

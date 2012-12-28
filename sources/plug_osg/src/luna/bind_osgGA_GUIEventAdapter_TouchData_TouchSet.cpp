@@ -80,7 +80,7 @@ void LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::_bind_dtor(osgGA
 
 const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::className[] = "TouchSet";
 const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::fullName[] = "osgGA::GUIEventAdapter::TouchData::TouchSet";
-const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::moduleName[] = "osgGA";
+const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::moduleName[] = "osg";
 const char* LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::parents[] = {0};
 const int LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::hash = 77825770;
 const int LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchSet >::uniqueIDs[] = {77825770,0};

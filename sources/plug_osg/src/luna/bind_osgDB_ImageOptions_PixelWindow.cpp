@@ -129,7 +129,7 @@ void LunaTraits< osgDB::ImageOptions::PixelWindow >::_bind_dtor(osgDB::ImageOpti
 
 const char LunaTraits< osgDB::ImageOptions::PixelWindow >::className[] = "PixelWindow";
 const char LunaTraits< osgDB::ImageOptions::PixelWindow >::fullName[] = "osgDB::ImageOptions::PixelWindow";
-const char LunaTraits< osgDB::ImageOptions::PixelWindow >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ImageOptions::PixelWindow >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ImageOptions::PixelWindow >::parents[] = {0};
 const int LunaTraits< osgDB::ImageOptions::PixelWindow >::hash = 68659525;
 const int LunaTraits< osgDB::ImageOptions::PixelWindow >::uniqueIDs[] = {68659525,0};

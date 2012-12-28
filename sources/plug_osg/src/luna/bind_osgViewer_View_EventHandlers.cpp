@@ -80,7 +80,7 @@ void LunaTraits< osgViewer::View::EventHandlers >::_bind_dtor(osgViewer::View::E
 
 const char LunaTraits< osgViewer::View::EventHandlers >::className[] = "EventHandlers";
 const char LunaTraits< osgViewer::View::EventHandlers >::fullName[] = "osgViewer::View::EventHandlers";
-const char LunaTraits< osgViewer::View::EventHandlers >::moduleName[] = "osgViewer";
+const char LunaTraits< osgViewer::View::EventHandlers >::moduleName[] = "osg";
 const char* LunaTraits< osgViewer::View::EventHandlers >::parents[] = {0};
 const int LunaTraits< osgViewer::View::EventHandlers >::hash = 62378713;
 const int LunaTraits< osgViewer::View::EventHandlers >::uniqueIDs[] = {62378713,0};

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxMessageOutputMessageBox(lua_State* L, lua_Table* dum) : wxMessageOutputMessageBox(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {
@@ -29,9 +34,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

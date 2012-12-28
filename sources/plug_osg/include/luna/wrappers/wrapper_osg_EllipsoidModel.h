@@ -22,6 +22,11 @@ public:
 	wrapper_osg_EllipsoidModel(lua_State* L, lua_Table* dum, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) : osg::EllipsoidModel(radiusEquator, radiusPolar), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_EllipsoidModel(lua_State* L, lua_Table* dum, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::EllipsoidModel(et, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -127,9 +132,6 @@ public:
 		return EllipsoidModel::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::EllipsoidModel::computeCoefficients()

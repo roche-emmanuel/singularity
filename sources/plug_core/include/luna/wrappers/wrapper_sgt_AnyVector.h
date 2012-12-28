@@ -21,6 +21,11 @@ public:
 	
 	wrapper_sgt_AnyVector(lua_State* L, lua_Table* dum) : sgt::AnyVector(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -155,9 +160,6 @@ public:
 		return AnyVector::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -22,6 +22,250 @@ public:
 	wrapper_osgGA_FirstPersonManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::FirstPersonManipulator(flags), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgGA_FirstPersonManipulator(lua_State* L, lua_Table* dum, const osgGA::FirstPersonManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::FirstPersonManipulator(fpm, copyOp), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleFrame")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleFrame(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleResize")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleResize(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseMove")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseMove(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDrag")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseDrag(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMousePush")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMousePush(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseRelease")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseRelease(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyDown")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleKeyDown(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyUp")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleKeyUp(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDeltaMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseDeltaMovement(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::performMovement()
+	bool performMovement() {
+		if(_obj.pushFunction("performMovement")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovement();
+	};
+
+	// bool osgGA::StandardManipulator::performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementMiddleMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovementMiddleMouseButton(eventTimeDelta, dx, dy);
+	};
+
+	// bool osgGA::StandardManipulator::performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementRightMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovementRightMouseButton(eventTimeDelta, dx, dy);
+	};
+
+	// bool osgGA::StandardManipulator::performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("performAnimationMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performAnimationMovement(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::isMouseMoving() const
+	bool isMouseMoving() const {
+		if(_obj.pushFunction("isMouseMoving")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::isMouseMoving();
+	};
+
+	// void osgGA::StandardManipulator::centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	void centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("centerMousePointer")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<void>());
+		}
+
+		return FirstPersonManipulator::centerMousePointer(ea, us);
+	};
+
+	// bool osgGA::StandardManipulator::setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("setCenterByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::setCenterByMousePointerIntersection(ea, us);
+	};
+
+	// bool osgGA::FirstPersonManipulator::handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseWheel")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseWheel(ea, us);
+	};
+
+	// bool osgGA::FirstPersonManipulator::performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementLeftMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovementLeftMouseButton(eventTimeDelta, dx, dy);
+	};
+
+	// bool osgGA::FirstPersonManipulator::performMouseDeltaMovement(const float dx, const float dy)
+	bool performMouseDeltaMovement(const float dx, const float dy) {
+		if(_obj.pushFunction("performMouseDeltaMovement")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMouseDeltaMovement(dx, dy);
+	};
+
+	// void osgGA::FirstPersonManipulator::applyAnimationStep(const double currentProgress, const double prevProgress)
+	void applyAnimationStep(const double currentProgress, const double prevProgress) {
+		if(_obj.pushFunction("applyAnimationStep")) {
+			_obj.pushArg(currentProgress);
+			_obj.pushArg(prevProgress);
+			return (_obj.callFunction<void>());
+		}
+
+		return FirstPersonManipulator::applyAnimationStep(currentProgress, prevProgress);
+	};
+
+	// bool osgGA::FirstPersonManipulator::startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("startAnimationByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::startAnimationByMousePointerIntersection(ea, us);
+	};
+
+	// void osgGA::FirstPersonManipulator::allocAnimationData()
+	void allocAnimationData() {
+		if(_obj.pushFunction("allocAnimationData")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return FirstPersonManipulator::allocAnimationData();
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -471,248 +715,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleFrame")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleFrame(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleResize")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleResize(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseMove")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleMouseMove(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseDrag")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleMouseDrag(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMousePush")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleMousePush(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseRelease")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleMouseRelease(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleKeyDown")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleKeyDown(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleKeyUp")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleKeyUp(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseDeltaMovement")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleMouseDeltaMovement(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::performMovement()
-	bool performMovement() {
-		if(_obj.pushFunction("performMovement")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::performMovement();
-	};
-
-	// bool osgGA::StandardManipulator::performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy)
-	bool performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy) {
-		if(_obj.pushFunction("performMovementMiddleMouseButton")) {
-			_obj.pushArg(eventTimeDelta);
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::performMovementMiddleMouseButton(eventTimeDelta, dx, dy);
-	};
-
-	// bool osgGA::StandardManipulator::performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy)
-	bool performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy) {
-		if(_obj.pushFunction("performMovementRightMouseButton")) {
-			_obj.pushArg(eventTimeDelta);
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::performMovementRightMouseButton(eventTimeDelta, dx, dy);
-	};
-
-	// bool osgGA::StandardManipulator::performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("performAnimationMovement")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::performAnimationMovement(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::isMouseMoving() const
-	bool isMouseMoving() const {
-		if(_obj.pushFunction("isMouseMoving")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::isMouseMoving();
-	};
-
-	// void osgGA::StandardManipulator::centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	void centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("centerMousePointer")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<void>());
-		}
-
-		return FirstPersonManipulator::centerMousePointer(ea, us);
-	};
-
-	// bool osgGA::StandardManipulator::setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("setCenterByMousePointerIntersection")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::setCenterByMousePointerIntersection(ea, us);
-	};
-
-	// bool osgGA::FirstPersonManipulator::handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("handleMouseWheel")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::handleMouseWheel(ea, us);
-	};
-
-	// bool osgGA::FirstPersonManipulator::performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy)
-	bool performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy) {
-		if(_obj.pushFunction("performMovementLeftMouseButton")) {
-			_obj.pushArg(eventTimeDelta);
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::performMovementLeftMouseButton(eventTimeDelta, dx, dy);
-	};
-
-	// bool osgGA::FirstPersonManipulator::performMouseDeltaMovement(const float dx, const float dy)
-	bool performMouseDeltaMovement(const float dx, const float dy) {
-		if(_obj.pushFunction("performMouseDeltaMovement")) {
-			_obj.pushArg(dx);
-			_obj.pushArg(dy);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::performMouseDeltaMovement(dx, dy);
-	};
-
-	// void osgGA::FirstPersonManipulator::applyAnimationStep(const double currentProgress, const double prevProgress)
-	void applyAnimationStep(const double currentProgress, const double prevProgress) {
-		if(_obj.pushFunction("applyAnimationStep")) {
-			_obj.pushArg(currentProgress);
-			_obj.pushArg(prevProgress);
-			return (_obj.callFunction<void>());
-		}
-
-		return FirstPersonManipulator::applyAnimationStep(currentProgress, prevProgress);
-	};
-
-	// bool osgGA::FirstPersonManipulator::startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
-	bool startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
-		if(_obj.pushFunction("startAnimationByMousePointerIntersection")) {
-			_obj.pushArg(&ea);
-			_obj.pushArg(&us);
-			return (_obj.callFunction<bool>());
-		}
-
-		return FirstPersonManipulator::startAnimationByMousePointerIntersection(ea, us);
-	};
-
-	// void osgGA::FirstPersonManipulator::allocAnimationData()
-	void allocAnimationData() {
-		if(_obj.pushFunction("allocAnimationData")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return FirstPersonManipulator::allocAnimationData();
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgGA::FirstPersonManipulator::moveForward(const double distance)
 	void public_moveForward(const double distance) {

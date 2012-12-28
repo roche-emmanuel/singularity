@@ -29,7 +29,7 @@ function Class:setName(name)
 		-- this name contains a namespace, we should discard it:
 		self._name = name:match("::([%a%d_]+)$")
 		if not self._name then
-			self._name = name:match("::([%a%d_<>%s:,]+)$")
+			self._name = name:match("::([%a%d_<>%*%s:,]+)$")
 			self:debug2("Performed extended match on name '", name,"', result is: '", self._name,"'")
 		end
 		
@@ -144,7 +144,7 @@ end
 function Class:getRootNamespace()
 	local prevParent = nil;
 	local parent = self:getParent();
-	while(parent and parent:getName()~="") do
+	while(parent and parent:getName()~="" and parent:isNamespace()) do
 		prevParent = parent
 		parent = parent:getParent();
 	end

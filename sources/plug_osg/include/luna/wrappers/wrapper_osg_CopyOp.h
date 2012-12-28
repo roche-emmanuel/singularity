@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_CopyOp(lua_State* L, lua_Table* dum, unsigned int flags = osg::CopyOp::SHALLOW_COPY) : osg::CopyOp(flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const
 	osg::Referenced * operator()(const osg::Referenced * ref) const {
@@ -162,9 +167,6 @@ public:
 		return CopyOp::operator()(stateattributecallback);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

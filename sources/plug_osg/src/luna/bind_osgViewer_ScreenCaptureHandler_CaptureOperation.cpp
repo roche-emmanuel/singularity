@@ -126,7 +126,7 @@ void LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::_bind_dtor
 
 const char LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::className[] = "CaptureOperation";
 const char LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::fullName[] = "osgViewer::ScreenCaptureHandler::CaptureOperation";
-const char LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::moduleName[] = "osgViewer";
+const char LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::moduleName[] = "osg";
 const char* LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::hash = 72677450;
 const int LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::uniqueIDs[] = {50169651,0};

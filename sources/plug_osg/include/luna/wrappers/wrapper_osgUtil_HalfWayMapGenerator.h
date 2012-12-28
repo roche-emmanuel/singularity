@@ -22,8 +22,8 @@ public:
 	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osg::Vec3f & light_direction, int texture_size = 64) : osgUtil::HalfWayMapGenerator(light_direction, texture_size), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) : osgUtil::HalfWayMapGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// osg::Vec4f osgUtil::HalfWayMapGenerator::compute_color(const osg::Vec3f & R) const
@@ -37,6 +37,8 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+
 	// Protected non-virtual methods:
 	// void osgUtil::CubeMapGenerator::set_pixel(int index, int c, int r, const osg::Vec4f & color)
 	void public_set_pixel(int index, int c, int r, const osg::Vec4f & color) {

@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osgUtil_ShaderGenCache(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenCache(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// osg::StateSet * osgUtil::ShaderGenCache::createStateSet(int stateMask) const

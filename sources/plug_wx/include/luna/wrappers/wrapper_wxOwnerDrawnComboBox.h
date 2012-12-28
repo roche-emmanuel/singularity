@@ -22,6 +22,187 @@ public:
 	wrapper_wxOwnerDrawnComboBox(lua_State* L, lua_Table* dum) : wxOwnerDrawnComboBox(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxOwnerDrawnComboBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = "comboBox") : wxOwnerDrawnComboBox(parent, id, value, pos, size, choices, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxOwnerDrawnComboBox::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxOwnerDrawnComboBox::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxOwnerDrawnComboBox::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxOwnerDrawnComboBox::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxOwnerDrawnComboBox::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxOwnerDrawnComboBox::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::AddPendingEvent(event);
+	};
+
+	// bool wxComboCtrl::AnimateShow(const wxRect & rect, int flags)
+	bool AnimateShow(const wxRect & rect, int flags) {
+		if(_obj.pushFunction("AnimateShow")) {
+			_obj.pushArg(&rect);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxOwnerDrawnComboBox::AnimateShow(rect, flags);
+	};
+
+	// void wxComboCtrl::DoSetPopupControl(wxComboPopup * popup)
+	void DoSetPopupControl(wxComboPopup * popup) {
+		if(_obj.pushFunction("DoSetPopupControl")) {
+			_obj.pushArg(popup);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::DoSetPopupControl(popup);
+	};
+
+	// void wxComboCtrl::DoShowPopup(const wxRect & rect, int flags)
+	void DoShowPopup(const wxRect & rect, int flags) {
+		if(_obj.pushFunction("DoShowPopup")) {
+			_obj.pushArg(&rect);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::DoShowPopup(rect, flags);
+	};
+
+	// void wxOwnerDrawnComboBox::OnDrawBackground(wxDC & dc, const wxRect & rect, int item, int flags) const
+	void OnDrawBackground(wxDC & dc, const wxRect & rect, int item, int flags) const {
+		if(_obj.pushFunction("OnDrawBackground")) {
+			_obj.pushArg(&dc);
+			_obj.pushArg(&rect);
+			_obj.pushArg(item);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::OnDrawBackground(dc, rect, item, flags);
+	};
+
+	// void wxOwnerDrawnComboBox::OnDrawItem(wxDC & dc, const wxRect & rect, int item, int flags) const
+	void OnDrawItem(wxDC & dc, const wxRect & rect, int item, int flags) const {
+		if(_obj.pushFunction("OnDrawItem")) {
+			_obj.pushArg(&dc);
+			_obj.pushArg(&rect);
+			_obj.pushArg(item);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxOwnerDrawnComboBox::OnDrawItem(dc, rect, item, flags);
+	};
+
+	// int wxOwnerDrawnComboBox::OnMeasureItem(size_t item) const
+	int OnMeasureItem(size_t item) const {
+		if(_obj.pushFunction("OnMeasureItem")) {
+			_obj.pushArg(item);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxOwnerDrawnComboBox::OnMeasureItem(item);
+	};
+
+	// int wxOwnerDrawnComboBox::OnMeasureItemWidth(size_t item) const
+	int OnMeasureItemWidth(size_t item) const {
+		if(_obj.pushFunction("OnMeasureItemWidth")) {
+			_obj.pushArg(item);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxOwnerDrawnComboBox::OnMeasureItemWidth(item);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1373,185 +1554,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxOwnerDrawnComboBox::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxOwnerDrawnComboBox::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxOwnerDrawnComboBox::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxOwnerDrawnComboBox::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxOwnerDrawnComboBox::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxOwnerDrawnComboBox::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::AddPendingEvent(event);
-	};
-
-	// bool wxComboCtrl::AnimateShow(const wxRect & rect, int flags)
-	bool AnimateShow(const wxRect & rect, int flags) {
-		if(_obj.pushFunction("AnimateShow")) {
-			_obj.pushArg(&rect);
-			_obj.pushArg(flags);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxOwnerDrawnComboBox::AnimateShow(rect, flags);
-	};
-
-	// void wxComboCtrl::DoSetPopupControl(wxComboPopup * popup)
-	void DoSetPopupControl(wxComboPopup * popup) {
-		if(_obj.pushFunction("DoSetPopupControl")) {
-			_obj.pushArg(popup);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::DoSetPopupControl(popup);
-	};
-
-	// void wxComboCtrl::DoShowPopup(const wxRect & rect, int flags)
-	void DoShowPopup(const wxRect & rect, int flags) {
-		if(_obj.pushFunction("DoShowPopup")) {
-			_obj.pushArg(&rect);
-			_obj.pushArg(flags);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::DoShowPopup(rect, flags);
-	};
-
-	// void wxOwnerDrawnComboBox::OnDrawBackground(wxDC & dc, const wxRect & rect, int item, int flags) const
-	void OnDrawBackground(wxDC & dc, const wxRect & rect, int item, int flags) const {
-		if(_obj.pushFunction("OnDrawBackground")) {
-			_obj.pushArg(&dc);
-			_obj.pushArg(&rect);
-			_obj.pushArg(item);
-			_obj.pushArg(flags);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::OnDrawBackground(dc, rect, item, flags);
-	};
-
-	// void wxOwnerDrawnComboBox::OnDrawItem(wxDC & dc, const wxRect & rect, int item, int flags) const
-	void OnDrawItem(wxDC & dc, const wxRect & rect, int item, int flags) const {
-		if(_obj.pushFunction("OnDrawItem")) {
-			_obj.pushArg(&dc);
-			_obj.pushArg(&rect);
-			_obj.pushArg(item);
-			_obj.pushArg(flags);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxOwnerDrawnComboBox::OnDrawItem(dc, rect, item, flags);
-	};
-
-	// int wxOwnerDrawnComboBox::OnMeasureItem(size_t item) const
-	int OnMeasureItem(size_t item) const {
-		if(_obj.pushFunction("OnMeasureItem")) {
-			_obj.pushArg(item);
-			return (_obj.callFunction<int>());
-		}
-
-		return wxOwnerDrawnComboBox::OnMeasureItem(item);
-	};
-
-	// int wxOwnerDrawnComboBox::OnMeasureItemWidth(size_t item) const
-	int OnMeasureItemWidth(size_t item) const {
-		if(_obj.pushFunction("OnMeasureItemWidth")) {
-			_obj.pushArg(item);
-			return (_obj.callFunction<int>());
-		}
-
-		return wxOwnerDrawnComboBox::OnMeasureItemWidth(item);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

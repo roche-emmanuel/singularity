@@ -1,5 +1,11 @@
-WebConfig conf;
-conf.log_level = kLogLevel_Verbose;
-conf.additional_options.Push(WSLit("--use-gl=desktop"));
+- Libraries:
 
-webCore = WebCore::Initialize(conf);
+* SFML : http://www.sfml-dev.org/index-fr.php
+* ngPlant
+
+- Todo:
+
+* generate spark examples
+* Proper registration of sub classes in classes (like UpdateCallback in Drawable)
+* Auto generate lunaTraits for needed template types.
+* Prevent parent table overriding with enums.

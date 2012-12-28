@@ -22,6 +22,11 @@ public:
 	wrapper_osg_Drawable_EventCallback(lua_State* L, lua_Table* dum) : osg::Drawable::EventCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Drawable_EventCallback(lua_State* L, lua_Table* dum, const osg::Drawable::EventCallback & arg1, const osg::CopyOp & arg2) : osg::Drawable::EventCallback(arg1, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -138,9 +143,6 @@ public:
 		return EventCallback::event(arg1, arg2);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

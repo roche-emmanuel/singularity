@@ -80,7 +80,7 @@ void LunaTraits< osgDB::Registry::ReaderWriterList >::_bind_dtor(osgDB::Registry
 
 const char LunaTraits< osgDB::Registry::ReaderWriterList >::className[] = "ReaderWriterList";
 const char LunaTraits< osgDB::Registry::ReaderWriterList >::fullName[] = "osgDB::Registry::ReaderWriterList";
-const char LunaTraits< osgDB::Registry::ReaderWriterList >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::Registry::ReaderWriterList >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::Registry::ReaderWriterList >::parents[] = {0};
 const int LunaTraits< osgDB::Registry::ReaderWriterList >::hash = 48032032;
 const int LunaTraits< osgDB::Registry::ReaderWriterList >::uniqueIDs[] = {48032032,0};

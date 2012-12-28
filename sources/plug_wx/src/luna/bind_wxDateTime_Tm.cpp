@@ -130,7 +130,7 @@ void LunaTraits< wxDateTime::Tm >::_bind_dtor(wxDateTime::Tm* obj) {
 
 const char LunaTraits< wxDateTime::Tm >::className[] = "Tm";
 const char LunaTraits< wxDateTime::Tm >::fullName[] = "wxDateTime::Tm";
-const char LunaTraits< wxDateTime::Tm >::moduleName[] = "wxDateTime";
+const char LunaTraits< wxDateTime::Tm >::moduleName[] = "wx";
 const char* LunaTraits< wxDateTime::Tm >::parents[] = {0};
 const int LunaTraits< wxDateTime::Tm >::hash = 62164632;
 const int LunaTraits< wxDateTime::Tm >::uniqueIDs[] = {62164632,0};

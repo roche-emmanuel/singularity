@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxHelpController::DisplayContextPopup(int contextId)
 	bool DisplayContextPopup(int contextId) {
@@ -61,9 +66,6 @@ public:
 		return wxExtHelpController::SetParentWindow(parentWindow);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

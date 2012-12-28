@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::EdgeCollector::TriangleMap >::_bind_dtor(osgUtil::Edge
 
 const char LunaTraits< osgUtil::EdgeCollector::TriangleMap >::className[] = "TriangleMap";
 const char LunaTraits< osgUtil::EdgeCollector::TriangleMap >::fullName[] = "osgUtil::EdgeCollector::TriangleMap";
-const char LunaTraits< osgUtil::EdgeCollector::TriangleMap >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::EdgeCollector::TriangleMap >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::EdgeCollector::TriangleMap >::parents[] = {0};
 const int LunaTraits< osgUtil::EdgeCollector::TriangleMap >::hash = 62982009;
 const int LunaTraits< osgUtil::EdgeCollector::TriangleMap >::uniqueIDs[] = {62982009,0};

@@ -22,6 +22,107 @@ public:
 	wrapper_osgParticle_BounceOperator(lua_State* L, lua_Table* dum) : osgParticle::BounceOperator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_BounceOperator(lua_State* L, lua_Table* dum, const osgParticle::BounceOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::BounceOperator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgParticle::DomainOperator::handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handlePoint")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handlePoint(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleLineSegment")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handleLineSegment(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleBox")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handleBox(domain, P, dt);
+	};
+
+	// void osgParticle::BounceOperator::handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleTriangle")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handleTriangle(domain, P, dt);
+	};
+
+	// void osgParticle::BounceOperator::handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleRectangle")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handleRectangle(domain, P, dt);
+	};
+
+	// void osgParticle::BounceOperator::handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handlePlane")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handlePlane(domain, P, dt);
+	};
+
+	// void osgParticle::BounceOperator::handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleSphere")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handleSphere(domain, P, dt);
+	};
+
+	// void osgParticle::BounceOperator::handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleDisk")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return BounceOperator::handleDisk(domain, P, dt);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -169,105 +270,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgParticle::DomainOperator::handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handlePoint")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handlePoint(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleLineSegment")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handleLineSegment(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleBox")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handleBox(domain, P, dt);
-	};
-
-	// void osgParticle::BounceOperator::handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleTriangle")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handleTriangle(domain, P, dt);
-	};
-
-	// void osgParticle::BounceOperator::handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleRectangle")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handleRectangle(domain, P, dt);
-	};
-
-	// void osgParticle::BounceOperator::handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handlePlane")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handlePlane(domain, P, dt);
-	};
-
-	// void osgParticle::BounceOperator::handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleSphere")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handleSphere(domain, P, dt);
-	};
-
-	// void osgParticle::BounceOperator::handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleDisk")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return BounceOperator::handleDisk(domain, P, dt);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgParticle::DomainOperator::computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
 	void public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4) {

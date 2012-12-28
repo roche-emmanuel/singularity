@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_PickVisitor(lua_State* L, lua_Table* dum, const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my) : osgUtil::PickVisitor(viewport, proj, view, mx, my), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
@@ -120,9 +125,6 @@ public:
 		return PickVisitor::apply(camera);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgUtil::IntersectVisitor::intersect(osg::Drawable & gset)

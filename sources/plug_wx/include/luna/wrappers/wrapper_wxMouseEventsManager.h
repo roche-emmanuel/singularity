@@ -22,67 +22,8 @@ public:
 	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum) : wxMouseEventsManager(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum, wxWindow * win) : wxMouseEventsManager(win), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxMouseEventsManager::GetClassInfo();
-	};
-
-	// void wxEvtHandler::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxMouseEventsManager::QueueEvent(event);
-	};
-
-	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxMouseEventsManager::AddPendingEvent(event);
-	};
-
-	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMouseEventsManager::ProcessEvent(event);
-	};
-
-	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
-	void SetNextHandler(wxEvtHandler * handler) {
-		if(_obj.pushFunction("SetNextHandler")) {
-			_obj.pushArg(handler);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxMouseEventsManager::SetNextHandler(handler);
-	};
-
-	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
-	void SetPreviousHandler(wxEvtHandler * handler) {
-		if(_obj.pushFunction("SetPreviousHandler")) {
-			_obj.pushArg(handler);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxMouseEventsManager::SetPreviousHandler(handler);
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -190,6 +131,67 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxMouseEventsManager::GetClassInfo();
+	};
+
+	// void wxEvtHandler::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxMouseEventsManager::QueueEvent(event);
+	};
+
+	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxMouseEventsManager::AddPendingEvent(event);
+	};
+
+	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxMouseEventsManager::ProcessEvent(event);
+	};
+
+	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
+	void SetNextHandler(wxEvtHandler * handler) {
+		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg(handler);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxMouseEventsManager::SetNextHandler(handler);
+	};
+
+	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
+	void SetPreviousHandler(wxEvtHandler * handler) {
+		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg(handler);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxMouseEventsManager::SetPreviousHandler(handler);
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

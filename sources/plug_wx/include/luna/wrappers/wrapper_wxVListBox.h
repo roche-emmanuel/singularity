@@ -20,6 +20,163 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxVListBox::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxVListBox::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxVListBox::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxVListBox::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVListBox::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxVListBox::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVListBox::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxVListBox::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVListBox::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVListBox::AddPendingEvent(event);
+	};
+
+	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
+	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
+		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
+			_obj.pushArg(unitMin);
+			_obj.pushArg(unitMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVListBox::OnGetUnitsSizeHint(unitMin, unitMax);
+	};
+
+	// int wxVarScrollHelperBase::EstimateTotalSize() const
+	int EstimateTotalSize() const {
+		if(_obj.pushFunction("EstimateTotalSize")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxVListBox::EstimateTotalSize();
+	};
+
+	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
+	int OnGetUnitSize(size_t unit) const {
+		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
+		_obj.pushArg(unit);
+		return (_obj.callFunction<int>());
+	};
+
+	// void wxVarVScrollHelper::OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const
+	void OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const {
+		if(_obj.pushFunction("OnGetRowsHeightHint")) {
+			_obj.pushArg(rowMin);
+			_obj.pushArg(rowMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVListBox::OnGetRowsHeightHint(rowMin, rowMax);
+	};
+
+	// int wxVarVScrollHelper::EstimateTotalHeight() const
+	int EstimateTotalHeight() const {
+		if(_obj.pushFunction("EstimateTotalHeight")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxVListBox::EstimateTotalHeight();
+	};
+
+	// int wxVarVScrollHelper::OnGetRowHeight(size_t row) const
+	int OnGetRowHeight(size_t row) const {
+		THROW_IF(!_obj.pushFunction("OnGetRowHeight"),"No implementation for abstract function wxVarVScrollHelper::OnGetRowHeight");
+		_obj.pushArg(row);
+		return (_obj.callFunction<int>());
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1075,161 +1232,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxVListBox::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxVListBox::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxVListBox::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxVListBox::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVListBox::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxVListBox::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVListBox::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxVListBox::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVListBox::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVListBox::AddPendingEvent(event);
-	};
-
-	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
-	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
-		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
-			_obj.pushArg(unitMin);
-			_obj.pushArg(unitMax);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVListBox::OnGetUnitsSizeHint(unitMin, unitMax);
-	};
-
-	// int wxVarScrollHelperBase::EstimateTotalSize() const
-	int EstimateTotalSize() const {
-		if(_obj.pushFunction("EstimateTotalSize")) {
-			return (_obj.callFunction<int>());
-		}
-
-		return wxVListBox::EstimateTotalSize();
-	};
-
-	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-	int OnGetUnitSize(size_t unit) const {
-		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
-		_obj.pushArg(unit);
-		return (_obj.callFunction<int>());
-	};
-
-	// void wxVarVScrollHelper::OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const
-	void OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const {
-		if(_obj.pushFunction("OnGetRowsHeightHint")) {
-			_obj.pushArg(rowMin);
-			_obj.pushArg(rowMax);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVListBox::OnGetRowsHeightHint(rowMin, rowMax);
-	};
-
-	// int wxVarVScrollHelper::EstimateTotalHeight() const
-	int EstimateTotalHeight() const {
-		if(_obj.pushFunction("EstimateTotalHeight")) {
-			return (_obj.callFunction<int>());
-		}
-
-		return wxVListBox::EstimateTotalHeight();
-	};
-
-	// int wxVarVScrollHelper::OnGetRowHeight(size_t row) const
-	int OnGetRowHeight(size_t row) const {
-		THROW_IF(!_obj.pushFunction("OnGetRowHeight"),"No implementation for abstract function wxVarVScrollHelper::OnGetRowHeight");
-		_obj.pushArg(row);
-		return (_obj.callFunction<int>());
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

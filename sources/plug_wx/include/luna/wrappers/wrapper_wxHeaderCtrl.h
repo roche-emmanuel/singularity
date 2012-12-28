@@ -22,6 +22,149 @@ public:
 	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum) : wxHeaderCtrl(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr) : wxHeaderCtrl(parent, winid, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHeaderCtrl::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHeaderCtrl::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHeaderCtrl::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHeaderCtrl::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::DoCentre(direction);
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHeaderCtrl::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::AddPendingEvent(event);
+	};
+
+	// const wxHeaderColumn & wxHeaderCtrl::GetColumn(unsigned int idx) const
+	const wxHeaderColumn & GetColumn(unsigned int idx) const {
+		THROW_IF(!_obj.pushFunction("GetColumn"),"No implementation for abstract function wxHeaderCtrl::GetColumn");
+		_obj.pushArg(idx);
+		return *(_obj.callFunction<wxHeaderColumn*>());
+	};
+
+	// void wxHeaderCtrl::UpdateColumnVisibility(unsigned int idx, bool show)
+	void UpdateColumnVisibility(unsigned int idx, bool show) {
+		if(_obj.pushFunction("UpdateColumnVisibility")) {
+			_obj.pushArg(idx);
+			_obj.pushArg(show);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::UpdateColumnVisibility(idx, show);
+	};
+
+	// void wxHeaderCtrl::UpdateColumnsOrder(const wxArrayInt & order)
+	void UpdateColumnsOrder(const wxArrayInt & order) {
+		if(_obj.pushFunction("UpdateColumnsOrder")) {
+			_obj.pushArg(&order);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::UpdateColumnsOrder(order);
+	};
+
+	// bool wxHeaderCtrl::UpdateColumnWidthToFit(unsigned int idx, int widthTitle)
+	bool UpdateColumnWidthToFit(unsigned int idx, int widthTitle) {
+		if(_obj.pushFunction("UpdateColumnWidthToFit")) {
+			_obj.pushArg(idx);
+			_obj.pushArg(widthTitle);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHeaderCtrl::UpdateColumnWidthToFit(idx, widthTitle);
+	};
+
+	// void wxHeaderCtrl::OnColumnCountChanging(unsigned int count)
+	void OnColumnCountChanging(unsigned int count) {
+		if(_obj.pushFunction("OnColumnCountChanging")) {
+			_obj.pushArg(count);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHeaderCtrl::OnColumnCountChanging(count);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1011,147 +1154,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxHeaderCtrl::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxHeaderCtrl::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHeaderCtrl::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHeaderCtrl::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::DoCentre(direction);
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHeaderCtrl::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::AddPendingEvent(event);
-	};
-
-	// const wxHeaderColumn & wxHeaderCtrl::GetColumn(unsigned int idx) const
-	const wxHeaderColumn & GetColumn(unsigned int idx) const {
-		THROW_IF(!_obj.pushFunction("GetColumn"),"No implementation for abstract function wxHeaderCtrl::GetColumn");
-		_obj.pushArg(idx);
-		return *(_obj.callFunction<wxHeaderColumn*>());
-	};
-
-	// void wxHeaderCtrl::UpdateColumnVisibility(unsigned int idx, bool show)
-	void UpdateColumnVisibility(unsigned int idx, bool show) {
-		if(_obj.pushFunction("UpdateColumnVisibility")) {
-			_obj.pushArg(idx);
-			_obj.pushArg(show);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::UpdateColumnVisibility(idx, show);
-	};
-
-	// void wxHeaderCtrl::UpdateColumnsOrder(const wxArrayInt & order)
-	void UpdateColumnsOrder(const wxArrayInt & order) {
-		if(_obj.pushFunction("UpdateColumnsOrder")) {
-			_obj.pushArg(&order);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::UpdateColumnsOrder(order);
-	};
-
-	// bool wxHeaderCtrl::UpdateColumnWidthToFit(unsigned int idx, int widthTitle)
-	bool UpdateColumnWidthToFit(unsigned int idx, int widthTitle) {
-		if(_obj.pushFunction("UpdateColumnWidthToFit")) {
-			_obj.pushArg(idx);
-			_obj.pushArg(widthTitle);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHeaderCtrl::UpdateColumnWidthToFit(idx, widthTitle);
-	};
-
-	// void wxHeaderCtrl::OnColumnCountChanging(unsigned int count)
-	void OnColumnCountChanging(unsigned int count) {
-		if(_obj.pushFunction("OnColumnCountChanging")) {
-			_obj.pushArg(count);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHeaderCtrl::OnColumnCountChanging(count);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

@@ -20,6 +20,20 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void wxEventLoopBase::OnExit()
+	void OnExit() {
+		if(_obj.pushFunction("OnExit")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEventLoopBase::OnExit();
+	};
+
+public:
 	// Public virtual methods:
 	// int wxEventLoopBase::Run()
 	int Run() {
@@ -106,18 +120,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void wxEventLoopBase::OnExit()
-	void OnExit() {
-		if(_obj.pushFunction("OnExit")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return wxEventLoopBase::OnExit();
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

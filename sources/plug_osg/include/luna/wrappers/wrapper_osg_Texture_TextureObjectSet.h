@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osg_Texture_TextureObjectSet(lua_State* L, lua_Table* dum, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile) : osg::Texture::TextureObjectSet(parent, profile), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

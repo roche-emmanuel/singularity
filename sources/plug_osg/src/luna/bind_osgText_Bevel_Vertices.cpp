@@ -80,7 +80,7 @@ void LunaTraits< osgText::Bevel::Vertices >::_bind_dtor(osgText::Bevel::Vertices
 
 const char LunaTraits< osgText::Bevel::Vertices >::className[] = "Vertices";
 const char LunaTraits< osgText::Bevel::Vertices >::fullName[] = "osgText::Bevel::Vertices";
-const char LunaTraits< osgText::Bevel::Vertices >::moduleName[] = "osgText";
+const char LunaTraits< osgText::Bevel::Vertices >::moduleName[] = "osg";
 const char* LunaTraits< osgText::Bevel::Vertices >::parents[] = {0};
 const int LunaTraits< osgText::Bevel::Vertices >::hash = 78061823;
 const int LunaTraits< osgText::Bevel::Vertices >::uniqueIDs[] = {78061823,0};

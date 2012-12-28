@@ -80,7 +80,7 @@ void LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::_bind_dto
 
 const char LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::className[] = "CameraViewList";
 const char LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::fullName[] = "osgGA::CameraViewSwitchManipulator::CameraViewList";
-const char LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::moduleName[] = "osgGA";
+const char LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::moduleName[] = "osg";
 const char* LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::parents[] = {0};
 const int LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::hash = 14581426;
 const int LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::uniqueIDs[] = {14581426,0};

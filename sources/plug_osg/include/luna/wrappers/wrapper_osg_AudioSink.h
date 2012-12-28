@@ -21,6 +21,24 @@ public:
 	
 	wrapper_osg_AudioSink(lua_State* L, lua_Table* dum) : osg::AudioSink(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+private:
+	// Private virtual methods:
+	// osg::AudioSink * osg::AudioSink::cloneType() const
+	osg::AudioSink * cloneType() const {
+		THROW_IF(!_obj.pushFunction("cloneType"),"No implementation for abstract function osg::AudioSink::cloneType");
+		return (_obj.callFunction<osg::AudioSink*>());
+	};
+
+	// osg::AudioSink * osg::AudioSink::clone(const osg::CopyOp & arg1) const
+	osg::AudioSink * clone(const osg::CopyOp & arg1) const {
+		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function osg::AudioSink::clone");
+		_obj.pushArg(&arg1);
+		return (_obj.callFunction<osg::AudioSink*>());
+	};
+
+
+	// Protected virtual methods:
+public:
 	// Public virtual methods:
 	// bool osg::Object::isSameKindAs(const osg::Object * arg1) const
 	bool isSameKindAs(const osg::Object * arg1) const {
@@ -169,9 +187,6 @@ public:
 		return AudioSink::getVolume();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

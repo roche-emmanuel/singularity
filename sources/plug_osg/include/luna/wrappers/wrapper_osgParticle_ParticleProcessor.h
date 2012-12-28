@@ -22,6 +22,18 @@ public:
 	wrapper_osgParticle_ParticleProcessor(lua_State* L, lua_Table* dum) : osgParticle::ParticleProcessor(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_ParticleProcessor(lua_State* L, lua_Table* dum, const osgParticle::ParticleProcessor & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ParticleProcessor(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgParticle::ParticleProcessor::process(double dt)
+	void process(double dt) {
+		THROW_IF(!_obj.pushFunction("process"),"No implementation for abstract function osgParticle::ParticleProcessor::process");
+		_obj.pushArg(dt);
+		return (_obj.callFunction<void>());
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -239,16 +251,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgParticle::ParticleProcessor::process(double dt)
-	void process(double dt) {
-		THROW_IF(!_obj.pushFunction("process"),"No implementation for abstract function osgParticle::ParticleProcessor::process");
-		_obj.pushArg(dt);
-		return (_obj.callFunction<void>());
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::Node::addParent(osg::Group * node)
 	void public_addParent(osg::Group * node) {

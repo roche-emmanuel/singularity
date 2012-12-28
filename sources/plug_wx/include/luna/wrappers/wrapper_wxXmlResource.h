@@ -20,17 +20,8 @@ public:
 	};
 	
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxXmlResource::GetClassInfo();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -65,6 +56,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxXmlResource::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 	// void wxXmlResource::ReportError(const wxXmlNode * context, const wxString & message)
 	void public_ReportError(const wxXmlNode * context, const wxString & message) {

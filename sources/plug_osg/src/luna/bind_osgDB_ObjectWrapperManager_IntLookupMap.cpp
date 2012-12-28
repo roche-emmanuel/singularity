@@ -80,7 +80,7 @@ void LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::_bind_dtor(osgDB::
 
 const char LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::className[] = "IntLookupMap";
 const char LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::fullName[] = "osgDB::ObjectWrapperManager::IntLookupMap";
-const char LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::parents[] = {0};
 const int LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::hash = 42677985;
 const int LunaTraits< osgDB::ObjectWrapperManager::IntLookupMap >::uniqueIDs[] = {42677985,0};

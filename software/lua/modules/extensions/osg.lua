@@ -26,3 +26,7 @@ end
 osg.Vec3d._v = function(self,id)
 	return (id==0 and self:x()) or (id==1 and self:y()) or (id==2 and self:z()) 
 end
+
+osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)
+osg.YAXIS = osg.Vec3d(0.0,1.0,0.0)
+osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)

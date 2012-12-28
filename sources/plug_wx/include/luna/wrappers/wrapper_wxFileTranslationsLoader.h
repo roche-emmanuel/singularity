@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {
@@ -36,9 +41,6 @@ public:
 		return *(_obj.callFunction<wxArrayString*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

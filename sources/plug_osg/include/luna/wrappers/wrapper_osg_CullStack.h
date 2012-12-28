@@ -22,6 +22,11 @@ public:
 	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) : osg::CullStack(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) : osg::CullStack(cs), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
@@ -53,9 +58,6 @@ public:
 		return CullStack::inheritCullSettings(settings, inheritanceMask);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::CullStack::computeFrustumVolume()

@@ -269,7 +269,11 @@ function Class:isVirtual()
 end
 
 function Class:getTypeName()
-	return self:getMappedType() and self:getMappedType():getName() or self:getFullName()
+	local mtype = self:getMappedType() and self:getMappedType():getName()
+	if mtype then
+		tm:registerMappedType(mtype)
+	end
+	return  mtype or self:getFullName()
 end
 
 function Class:isValidForWrapping()

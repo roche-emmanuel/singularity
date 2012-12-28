@@ -23,6 +23,11 @@ public:
 	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, int width, int height, unsigned int internalFormat, int samples = 0, int colorSamples = 0) : osg::RenderBuffer(width, height, internalFormat, samples, colorSamples), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, const osg::RenderBuffer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::RenderBuffer(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -128,9 +133,6 @@ public:
 		return RenderBuffer::releaseGLObjects(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::RenderBuffer::dirtyAll() const

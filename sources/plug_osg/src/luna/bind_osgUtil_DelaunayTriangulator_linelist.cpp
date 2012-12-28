@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::DelaunayTriangulator::linelist >::_bind_dtor(osgUtil::
 
 const char LunaTraits< osgUtil::DelaunayTriangulator::linelist >::className[] = "linelist";
 const char LunaTraits< osgUtil::DelaunayTriangulator::linelist >::fullName[] = "osgUtil::DelaunayTriangulator::linelist";
-const char LunaTraits< osgUtil::DelaunayTriangulator::linelist >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::DelaunayTriangulator::linelist >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::DelaunayTriangulator::linelist >::parents[] = {0};
 const int LunaTraits< osgUtil::DelaunayTriangulator::linelist >::hash = 91536996;
 const int LunaTraits< osgUtil::DelaunayTriangulator::linelist >::uniqueIDs[] = {91536996,0};

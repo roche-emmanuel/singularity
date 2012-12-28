@@ -23,6 +23,11 @@ public:
 	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxPGCell & other) : wxPGCell(other), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) : wxPGCell(text, bitmap, fgCol, bgCol), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -33,9 +38,6 @@ public:
 		return wxPGCell::GetClassInfo();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

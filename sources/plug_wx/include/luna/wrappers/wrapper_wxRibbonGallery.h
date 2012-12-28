@@ -22,6 +22,131 @@ public:
 	wrapper_wxRibbonGallery(lua_State* L, lua_Table* dum) : wxRibbonGallery(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxRibbonGallery(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) : wxRibbonGallery(parent, id, pos, size, style), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxRibbonGallery::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxRibbonGallery::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRibbonGallery::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRibbonGallery::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRibbonGallery::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxRibbonGallery::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRibbonGallery::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRibbonGallery::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRibbonGallery::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRibbonGallery::AddPendingEvent(event);
+	};
+
+	// wxSize wxRibbonControl::DoGetNextSmallerSize(wxOrientation direction, wxSize relative_to) const
+	wxSize DoGetNextSmallerSize(wxOrientation direction, wxSize relative_to) const {
+		if(_obj.pushFunction("DoGetNextSmallerSize")) {
+			_obj.pushArg(direction);
+			_obj.pushArg(relative_to);
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxRibbonGallery::DoGetNextSmallerSize(direction, relative_to);
+	};
+
+	// wxSize wxRibbonControl::DoGetNextLargerSize(wxOrientation direction, wxSize relative_to) const
+	wxSize DoGetNextLargerSize(wxOrientation direction, wxSize relative_to) const {
+		if(_obj.pushFunction("DoGetNextLargerSize")) {
+			_obj.pushArg(direction);
+			_obj.pushArg(relative_to);
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxRibbonGallery::DoGetNextLargerSize(direction, relative_to);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1039,129 +1164,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxRibbonGallery::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxRibbonGallery::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRibbonGallery::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRibbonGallery::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRibbonGallery::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxRibbonGallery::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRibbonGallery::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRibbonGallery::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRibbonGallery::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRibbonGallery::AddPendingEvent(event);
-	};
-
-	// wxSize wxRibbonControl::DoGetNextSmallerSize(wxOrientation direction, wxSize relative_to) const
-	wxSize DoGetNextSmallerSize(wxOrientation direction, wxSize relative_to) const {
-		if(_obj.pushFunction("DoGetNextSmallerSize")) {
-			_obj.pushArg(direction);
-			_obj.pushArg(relative_to);
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxRibbonGallery::DoGetNextSmallerSize(direction, relative_to);
-	};
-
-	// wxSize wxRibbonControl::DoGetNextLargerSize(wxOrientation direction, wxSize relative_to) const
-	wxSize DoGetNextLargerSize(wxOrientation direction, wxSize relative_to) const {
-		if(_obj.pushFunction("DoGetNextLargerSize")) {
-			_obj.pushArg(direction);
-			_obj.pushArg(relative_to);
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxRibbonGallery::DoGetNextLargerSize(direction, relative_to);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

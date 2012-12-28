@@ -80,7 +80,7 @@ void LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::_bind_d
 
 const char LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::className[] = "FinishedObjectReadCallbackList";
 const char LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::fullName[] = "osgDB::ObjectWrapper::FinishedObjectReadCallbackList";
-const char LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::parents[] = {0};
 const int LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::hash = 87742033;
 const int LunaTraits< osgDB::ObjectWrapper::FinishedObjectReadCallbackList >::uniqueIDs[] = {87742033,0};

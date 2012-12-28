@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_PointPlacer(lua_State* L, lua_Table* dum) : osgParticle::PointPlacer(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_PointPlacer(lua_State* L, lua_Table* dum, const osgParticle::PointPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::PointPlacer(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -155,9 +160,6 @@ public:
 		return PointPlacer::getControlPosition();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

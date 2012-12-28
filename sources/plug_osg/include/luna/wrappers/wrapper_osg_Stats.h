@@ -22,10 +22,12 @@ public:
 	wrapper_osg_Stats(lua_State* L, lua_Table* dum, const std::string & name) : osg::Stats(name), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Stats(lua_State* L, lua_Table* dum, const std::string & name, unsigned int numberOfFrames) : osg::Stats(name, numberOfFrames), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// int osg::Stats::getIndex(unsigned int frameNumber) const

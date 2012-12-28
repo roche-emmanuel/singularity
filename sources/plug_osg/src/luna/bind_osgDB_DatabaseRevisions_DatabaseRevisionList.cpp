@@ -80,7 +80,7 @@ void LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::_bind_dtor(os
 
 const char LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::className[] = "DatabaseRevisionList";
 const char LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::fullName[] = "osgDB::DatabaseRevisions::DatabaseRevisionList";
-const char LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::parents[] = {0};
 const int LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::hash = 52474503;
 const int LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::uniqueIDs[] = {52474503,0};

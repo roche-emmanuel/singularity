@@ -3,22 +3,6 @@
 // module and use them from all other osg modules.
 namespace osg {
 
-// class Referenced {
-// protected:
-	// ~Referenced();
-// };
-
-// class Object : public osg::Referenced {
-// public:
-	// virtual Object* cloneType() const = 0;
-	// virtual Object* clone(const CopyOp&) const = 0;
-	// virtual const char* libraryName() const = 0;
-	// virtual const char* className() const = 0;	
-// protected:
-	// ~Object();
-// };
-
-
 /** LUNA_EXTERNAL osg */
 class DeleteHandler {
 protected:

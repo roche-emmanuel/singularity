@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgGA_DriveManipulator(lua_State* L, lua_Table* dum) : osgGA::DriveManipulator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -329,9 +334,6 @@ public:
 		return DriveManipulator::getUsage(usage);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgGA::DriveManipulator::intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const

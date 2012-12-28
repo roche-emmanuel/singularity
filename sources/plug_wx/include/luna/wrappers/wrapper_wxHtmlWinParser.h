@@ -20,6 +20,28 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void wxHtmlParser::AddText(const wxString & arg1)
+	void AddText(const wxString & arg1) {
+		THROW_IF(!_obj.pushFunction("AddText"),"No implementation for abstract function wxHtmlParser::AddText");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxHtmlParser::AddTag(const wxHtmlTag & tag)
+	void AddTag(const wxHtmlTag & tag) {
+		if(_obj.pushFunction("AddTag")) {
+			_obj.pushArg(&tag);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlWinParser::AddTag(tag);
+	};
+
+public:
 	// Public virtual methods:
 	// void wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler)
 	void AddTagHandler(wxHtmlTagHandler * handler) {
@@ -86,26 +108,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void wxHtmlParser::AddText(const wxString & arg1)
-	void AddText(const wxString & arg1) {
-		THROW_IF(!_obj.pushFunction("AddText"),"No implementation for abstract function wxHtmlParser::AddText");
-		_obj.pushArg(arg1);
-		return (_obj.callFunction<void>());
-	};
-
-	// void wxHtmlParser::AddTag(const wxHtmlTag & tag)
-	void AddTag(const wxHtmlTag & tag) {
-		if(_obj.pushFunction("AddTag")) {
-			_obj.pushArg(&tag);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlWinParser::AddTag(tag);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

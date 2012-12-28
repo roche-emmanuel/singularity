@@ -21,36 +21,8 @@ public:
 	
 	wrapper_wxSizerXmlHandler(lua_State* L, lua_Table* dum) : wxSizerXmlHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxSizerXmlHandler::GetClassInfo();
-	};
-
-	// wxObject * wxSizerXmlHandler::DoCreateResource()
-	wxObject * DoCreateResource() {
-		if(_obj.pushFunction("DoCreateResource")) {
-			return (_obj.callFunction<wxObject*>());
-		}
-
-		return wxSizerXmlHandler::DoCreateResource();
-	};
-
-	// bool wxSizerXmlHandler::CanHandle(wxXmlNode * node)
-	bool CanHandle(wxXmlNode * node) {
-		if(_obj.pushFunction("CanHandle")) {
-			_obj.pushArg(node);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxSizerXmlHandler::CanHandle(node);
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -93,6 +65,36 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxSizerXmlHandler::GetClassInfo();
+	};
+
+	// wxObject * wxSizerXmlHandler::DoCreateResource()
+	wxObject * DoCreateResource() {
+		if(_obj.pushFunction("DoCreateResource")) {
+			return (_obj.callFunction<wxObject*>());
+		}
+
+		return wxSizerXmlHandler::DoCreateResource();
+	};
+
+	// bool wxSizerXmlHandler::CanHandle(wxXmlNode * node)
+	bool CanHandle(wxXmlNode * node) {
+		if(_obj.pushFunction("CanHandle")) {
+			_obj.pushArg(node);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSizerXmlHandler::CanHandle(node);
+	};
+
+
 	// Protected non-virtual methods:
 	// void wxXmlResourceHandler::AddStyle(const wxString & name, int value)
 	void public_AddStyle(const wxString & name, int value) {

@@ -22,6 +22,11 @@ public:
 	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum, osgUtil::ShaderGenCache * stateCache) : osgUtil::ShaderGenVisitor(stateCache), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
@@ -121,9 +126,6 @@ public:
 		return ShaderGenVisitor::reset();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgUtil::ShaderGenVisitor::update(osg::Drawable * drawable)

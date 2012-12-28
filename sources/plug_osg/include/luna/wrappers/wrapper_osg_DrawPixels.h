@@ -22,6 +22,11 @@ public:
 	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum) : osg::DrawPixels(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum, const osg::DrawPixels & drawimage, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawPixels(drawimage, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -242,9 +247,6 @@ public:
 		return DrawPixels::computeBound();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const

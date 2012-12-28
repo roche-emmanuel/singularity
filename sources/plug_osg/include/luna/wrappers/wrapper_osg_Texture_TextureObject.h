@@ -23,10 +23,12 @@ public:
 	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, const osg::Texture::TextureProfile & profile) : osg::Texture::TextureObject(texture, id, profile), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, unsigned int target, int numMipmapLevels, unsigned int internalFormat, int width, int height, int depth, int border) : osg::Texture::TextureObject(texture, id, target, numMipmapLevels, internalFormat, width, height, depth, border), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

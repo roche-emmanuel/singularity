@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_PositionalStateContainer(lua_State* L, lua_Table* dum) : osgUtil::PositionalStateContainer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -170,9 +175,6 @@ public:
 		return PositionalStateContainer::draw(state, previous, postMultMatrix);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

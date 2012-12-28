@@ -22,6 +22,11 @@ public:
 	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum) : wxDelegateRendererNative(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum, wxRendererNative & rendererNative) : wxDelegateRendererNative(rendererNative), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxRendererNative::DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
@@ -272,9 +277,6 @@ public:
 		return wxDelegateRendererNative::GetVersion();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

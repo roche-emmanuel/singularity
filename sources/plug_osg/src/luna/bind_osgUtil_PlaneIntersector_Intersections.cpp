@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::PlaneIntersector::Intersections >::_bind_dtor(osgUtil:
 
 const char LunaTraits< osgUtil::PlaneIntersector::Intersections >::className[] = "Intersections";
 const char LunaTraits< osgUtil::PlaneIntersector::Intersections >::fullName[] = "osgUtil::PlaneIntersector::Intersections";
-const char LunaTraits< osgUtil::PlaneIntersector::Intersections >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::PlaneIntersector::Intersections >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::PlaneIntersector::Intersections >::parents[] = {0};
 const int LunaTraits< osgUtil::PlaneIntersector::Intersections >::hash = 23612133;
 const int LunaTraits< osgUtil::PlaneIntersector::Intersections >::uniqueIDs[] = {23612133,0};

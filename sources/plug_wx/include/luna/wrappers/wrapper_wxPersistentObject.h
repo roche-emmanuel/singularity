@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxPersistentObject(lua_State* L, lua_Table* dum, void * obj) : wxPersistentObject(obj), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxPersistentObject::Save() const
 	void Save() const {
@@ -46,9 +51,6 @@ public:
 		return *(_obj.callFunction<wxString*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

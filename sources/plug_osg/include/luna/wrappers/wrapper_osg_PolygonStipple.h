@@ -23,6 +23,11 @@ public:
 	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const unsigned char * mask) : osg::PolygonStipple(mask), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const osg::PolygonStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonStipple(lw, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -223,9 +228,6 @@ public:
 		return PolygonStipple::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)

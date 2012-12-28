@@ -55,7 +55,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::_bind_dtor
 
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::className[] = "CompileInfo";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileInfo";
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::parents[] = {"osg.RenderInfo", 0};
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::hash = 36834898;
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo >::uniqueIDs[] = {2286263,0};

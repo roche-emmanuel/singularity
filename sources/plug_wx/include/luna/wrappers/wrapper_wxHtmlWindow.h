@@ -22,6 +22,36 @@ public:
 	wrapper_wxHtmlWindow(lua_State* L, lua_Table* dum) : wxHtmlWindow(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxHtmlWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHW_DEFAULT_STYLE, const wxString & name = "htmlWindow") : wxHtmlWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// bool wxHtmlWindow::OnCellClicked(wxHtmlCell * cell, int x, int y, const wxMouseEvent & event)
+	bool OnCellClicked(wxHtmlCell * cell, int x, int y, const wxMouseEvent & event) {
+		if(_obj.pushFunction("OnCellClicked")) {
+			_obj.pushArg(cell);
+			_obj.pushArg(x);
+			_obj.pushArg(y);
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlWindow::OnCellClicked(cell, x, y, event);
+	};
+
+	// void wxHtmlWindow::OnCellMouseHover(wxHtmlCell * cell, int x, int y)
+	void OnCellMouseHover(wxHtmlCell * cell, int x, int y) {
+		if(_obj.pushFunction("OnCellMouseHover")) {
+			_obj.pushArg(cell);
+			_obj.pushArg(x);
+			_obj.pushArg(y);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlWindow::OnCellMouseHover(cell, x, y);
+	};
+
+public:
 	// Public virtual methods:
 	// bool wxHtmlWindow::LoadPage(const wxString & location)
 	bool LoadPage(const wxString & location) {
@@ -86,34 +116,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// bool wxHtmlWindow::OnCellClicked(wxHtmlCell * cell, int x, int y, const wxMouseEvent & event)
-	bool OnCellClicked(wxHtmlCell * cell, int x, int y, const wxMouseEvent & event) {
-		if(_obj.pushFunction("OnCellClicked")) {
-			_obj.pushArg(cell);
-			_obj.pushArg(x);
-			_obj.pushArg(y);
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHtmlWindow::OnCellClicked(cell, x, y, event);
-	};
-
-	// void wxHtmlWindow::OnCellMouseHover(wxHtmlCell * cell, int x, int y)
-	void OnCellMouseHover(wxHtmlCell * cell, int x, int y) {
-		if(_obj.pushFunction("OnCellMouseHover")) {
-			_obj.pushArg(cell);
-			_obj.pushArg(x);
-			_obj.pushArg(y);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlWindow::OnCellMouseHover(cell, x, y);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

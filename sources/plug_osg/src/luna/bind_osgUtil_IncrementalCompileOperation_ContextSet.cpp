@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::_bind_dtor(
 
 const char LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::className[] = "ContextSet";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::fullName[] = "osgUtil::IncrementalCompileOperation::ContextSet";
-const char LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::parents[] = {0};
 const int LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::hash = 67276006;
 const int LunaTraits< osgUtil::IncrementalCompileOperation::ContextSet >::uniqueIDs[] = {67276006,0};

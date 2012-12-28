@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxTextDropTarget(lua_State* L, lua_Table* dum) : wxTextDropTarget(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxDropTarget::GetData()
 	bool GetData() {
@@ -90,9 +95,6 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

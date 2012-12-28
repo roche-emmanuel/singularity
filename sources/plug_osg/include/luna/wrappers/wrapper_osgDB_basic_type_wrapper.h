@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const
 	bool matches(const osg::Object * proto) const {
@@ -28,9 +33,6 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

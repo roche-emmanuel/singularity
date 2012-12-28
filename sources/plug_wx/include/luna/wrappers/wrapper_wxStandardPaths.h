@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxString wxStandardPaths::GetAppDocumentsDir() const
 	wxString GetAppDocumentsDir() const {
@@ -140,9 +145,6 @@ public:
 		return wxStandardPaths::GetUserLocalDataDir();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

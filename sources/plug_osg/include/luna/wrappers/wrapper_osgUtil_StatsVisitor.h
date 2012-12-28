@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_StatsVisitor(lua_State* L, lua_Table* dum) : osgUtil::StatsVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
@@ -160,9 +165,6 @@ public:
 		return StatsVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

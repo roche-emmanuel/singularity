@@ -20,6 +20,30 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::TextureCubeMap::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureCubeMap::computeInternalFormat();
+	};
+
+	// void osg::TextureCubeMap::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg(&state);
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureCubeMap::allocateMipmap(state);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -297,28 +321,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::TextureCubeMap::computeInternalFormat() const
-	void computeInternalFormat() const {
-		if(_obj.pushFunction("computeInternalFormat")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return TextureCubeMap::computeInternalFormat();
-	};
-
-	// void osg::TextureCubeMap::allocateMipmap(osg::State & state) const
-	void allocateMipmap(osg::State & state) const {
-		if(_obj.pushFunction("allocateMipmap")) {
-			_obj.pushArg(&state);
-			return (_obj.callFunction<void>());
-		}
-
-		return TextureCubeMap::allocateMipmap(state);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// bool osg::TextureCubeMap::imagesValid() const
 	bool public_imagesValid() const {

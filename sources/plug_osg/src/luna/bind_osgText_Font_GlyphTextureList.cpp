@@ -80,7 +80,7 @@ void LunaTraits< osgText::Font::GlyphTextureList >::_bind_dtor(osgText::Font::Gl
 
 const char LunaTraits< osgText::Font::GlyphTextureList >::className[] = "GlyphTextureList";
 const char LunaTraits< osgText::Font::GlyphTextureList >::fullName[] = "osgText::Font::GlyphTextureList";
-const char LunaTraits< osgText::Font::GlyphTextureList >::moduleName[] = "osgText";
+const char LunaTraits< osgText::Font::GlyphTextureList >::moduleName[] = "osg";
 const char* LunaTraits< osgText::Font::GlyphTextureList >::parents[] = {0};
 const int LunaTraits< osgText::Font::GlyphTextureList >::hash = 5080884;
 const int LunaTraits< osgText::Font::GlyphTextureList >::uniqueIDs[] = {5080884,0};

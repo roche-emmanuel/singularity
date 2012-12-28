@@ -23,6 +23,11 @@ public:
 	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, unsigned int vertexMode, unsigned int fragmentMode, unsigned int readMode) : osg::ClampColor(vertexMode, fragmentMode, readMode), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, const osg::ClampColor & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClampColor(rhs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -223,9 +228,6 @@ public:
 		return ClampColor::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)

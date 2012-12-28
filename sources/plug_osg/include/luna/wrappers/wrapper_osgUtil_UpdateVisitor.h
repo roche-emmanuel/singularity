@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_UpdateVisitor(lua_State* L, lua_Table* dum) : osgUtil::UpdateVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
@@ -200,9 +205,6 @@ public:
 		return UpdateVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgUtil::UpdateVisitor::handle_callbacks(osg::StateSet * stateset)

@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osg_GLBufferObject(lua_State* L, lua_Table* dum, unsigned int contextID, osg::BufferObject * bufferObject, unsigned int glObjectID = 0) : osg::GLBufferObject(contextID, bufferObject, glObjectID), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// unsigned int osg::GLBufferObject::computeBufferAlignment(unsigned int pos, unsigned int bufferAlignment) const

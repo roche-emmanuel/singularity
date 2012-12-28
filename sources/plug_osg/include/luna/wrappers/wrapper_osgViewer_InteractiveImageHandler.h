@@ -24,6 +24,11 @@ public:
 	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum) : osgViewer::InteractiveImageHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, const osgViewer::InteractiveImageHandler & arg1, const osg::CopyOp & arg2 = osg::CopyOp::SHALLOW_COPY) : osgViewer::InteractiveImageHandler(arg1, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -186,9 +191,6 @@ public:
 		return InteractiveImageHandler::cull(nv, drawable, renderInfo);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgViewer::InteractiveImageHandler::mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const

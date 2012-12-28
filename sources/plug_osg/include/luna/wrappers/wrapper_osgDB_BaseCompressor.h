@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_BaseCompressor(lua_State* L, lua_Table* dum) : osgDB::BaseCompressor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)
 	bool compress(std::ostream & arg1, const std::string & arg2) {
@@ -38,9 +43,6 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

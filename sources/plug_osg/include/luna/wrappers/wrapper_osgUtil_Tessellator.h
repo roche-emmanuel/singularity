@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osgUtil_Tessellator(lua_State* L, lua_Table* dum) : osgUtil::Tessellator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgUtil::Tessellator::reduceArray(osg::Array * cold, const unsigned int nnu)

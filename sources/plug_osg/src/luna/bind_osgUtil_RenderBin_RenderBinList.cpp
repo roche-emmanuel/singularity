@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::RenderBin::RenderBinList >::_bind_dtor(osgUtil::Render
 
 const char LunaTraits< osgUtil::RenderBin::RenderBinList >::className[] = "RenderBinList";
 const char LunaTraits< osgUtil::RenderBin::RenderBinList >::fullName[] = "osgUtil::RenderBin::RenderBinList";
-const char LunaTraits< osgUtil::RenderBin::RenderBinList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::RenderBin::RenderBinList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::RenderBin::RenderBinList >::parents[] = {0};
 const int LunaTraits< osgUtil::RenderBin::RenderBinList >::hash = 38528519;
 const int LunaTraits< osgUtil::RenderBin::RenderBinList >::uniqueIDs[] = {38528519,0};

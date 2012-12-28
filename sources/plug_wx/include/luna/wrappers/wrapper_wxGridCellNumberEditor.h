@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxString wxGridCellEditor::GetValue() const
 	wxString GetValue() const {
@@ -158,9 +163,6 @@ public:
 		return wxGridCellNumberEditor::SetParameters(params);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool wxGridCellNumberEditor::HasRange() const

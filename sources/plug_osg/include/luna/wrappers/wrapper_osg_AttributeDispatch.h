@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)
 	void assign(const void * arg1, const osg::IndexArray * arg2) {
@@ -42,9 +47,6 @@ public:
 		return AttributeDispatch::operator()(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -80,7 +80,7 @@ void LunaTraits< osgGA::EventQueue::Events >::_bind_dtor(osgGA::EventQueue::Even
 
 const char LunaTraits< osgGA::EventQueue::Events >::className[] = "Events";
 const char LunaTraits< osgGA::EventQueue::Events >::fullName[] = "osgGA::EventQueue::Events";
-const char LunaTraits< osgGA::EventQueue::Events >::moduleName[] = "osgGA";
+const char LunaTraits< osgGA::EventQueue::Events >::moduleName[] = "osg";
 const char* LunaTraits< osgGA::EventQueue::Events >::parents[] = {0};
 const int LunaTraits< osgGA::EventQueue::Events >::hash = 42735238;
 const int LunaTraits< osgGA::EventQueue::Events >::uniqueIDs[] = {42735238,0};

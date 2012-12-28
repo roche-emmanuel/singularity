@@ -22,6 +22,11 @@ public:
 	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum) : osg::TransferFunction(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum, const osg::TransferFunction & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction(tf, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -127,9 +132,6 @@ public:
 		return TransferFunction::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

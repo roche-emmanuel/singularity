@@ -48,12 +48,10 @@ function Class:writeFile()
 		end
 	end
 
-	-- self:info_v("Passed valid public operators...")
-
 	if not external then
 		-- self:info_v("Testing virtual class...")
 		local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
-		local bname = tm:getBaseTypeMapping(bclass:getFullName())
+		local bname = tm:getExternalBase(bclass:getFullName()) or tm:getBaseTypeMapping(bclass:getFullName())
 		local hash = utils.getHash(bname)
 		
 		if isVirtual then 
@@ -207,8 +205,10 @@ function Class:writeFile()
 	end
 	
 	-- Write the lunatraits properties:
-	buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",cshortname));
-	buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',cname);
+	local tname = class:getMappedType() and class:getTypeName() or class:getName()
+	
+	buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",tname));
+	buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',class:getTypeName());
 	buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname,class:getModule() or mname);
 	buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);
 	buf:writeSubLine('const int LunaTraits< ${1} >::hash = ${2};',cname,utils.getHash(class:getFullName()));

@@ -134,7 +134,7 @@ void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >
 
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::className[] = "Cell";
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::fullName[] = "osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell";
-const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::moduleName[] = "osgParticle";
+const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::moduleName[] = "osg";
 const char* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::parents[] = {0};
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::hash = 4475636;
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::uniqueIDs[] = {4475636,0};

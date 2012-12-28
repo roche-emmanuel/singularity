@@ -23,6 +23,11 @@ public:
 	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, osgUtil::RenderBin::SortMode mode) : osgUtil::RenderStage(mode), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, const osgUtil::RenderStage & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::RenderStage(rhs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -288,9 +293,6 @@ public:
 		return RenderStage::releaseGLObjects(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

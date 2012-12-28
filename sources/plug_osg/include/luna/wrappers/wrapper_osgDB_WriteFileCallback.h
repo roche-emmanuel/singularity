@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options) {
@@ -81,9 +86,6 @@ public:
 		return WriteFileCallback::writeShader(obj, fileName, options);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

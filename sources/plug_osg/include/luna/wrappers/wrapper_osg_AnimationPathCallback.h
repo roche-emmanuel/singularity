@@ -24,6 +24,11 @@ public:
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) : osg::AnimationPathCallback(ap, timeOffset, timeMultiplier), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) : osg::AnimationPathCallback(pivot, axis, angularVelocity), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -158,9 +163,6 @@ public:
 		return AnimationPathCallback::operator()(node, nv);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

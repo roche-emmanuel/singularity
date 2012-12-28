@@ -22,6 +22,11 @@ public:
 	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::PrimitiveSet(primType, mode, numInstances), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PrimitiveSet(prim, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -212,9 +217,6 @@ public:
 		return PrimitiveSet::computeRange();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

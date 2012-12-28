@@ -128,7 +128,7 @@ void LunaTraits< osgUtil::RenderBin::DrawCallback >::_bind_dtor(osgUtil::RenderB
 
 const char LunaTraits< osgUtil::RenderBin::DrawCallback >::className[] = "DrawCallback";
 const char LunaTraits< osgUtil::RenderBin::DrawCallback >::fullName[] = "osgUtil::RenderBin::DrawCallback";
-const char LunaTraits< osgUtil::RenderBin::DrawCallback >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::RenderBin::DrawCallback >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::RenderBin::DrawCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::RenderBin::DrawCallback >::hash = 94600367;
 const int LunaTraits< osgUtil::RenderBin::DrawCallback >::uniqueIDs[] = {50169651,0};

@@ -93,8 +93,8 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::_bin
 
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::className[] = "CompileDrawableOp";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileDrawableOp";
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::moduleName[] = "osgUtil";
-const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::parents[] = {"osgUtil.CompileOp", 0};
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::moduleName[] = "osg";
+const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::parents[] = {"osg.CompileOp", 0};
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::hash = 33076037;
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp >::uniqueIDs[] = {50169651,0};
 

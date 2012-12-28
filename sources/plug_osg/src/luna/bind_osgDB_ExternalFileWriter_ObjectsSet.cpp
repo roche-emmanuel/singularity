@@ -80,7 +80,7 @@ void LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::_bind_dtor(osgDB::Exte
 
 const char LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::className[] = "ObjectsSet";
 const char LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::fullName[] = "osgDB::ExternalFileWriter::ObjectsSet";
-const char LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::parents[] = {0};
 const int LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::hash = 51931662;
 const int LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::uniqueIDs[] = {51931662,0};

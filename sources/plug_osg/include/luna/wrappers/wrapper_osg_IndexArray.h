@@ -22,6 +22,11 @@ public:
 	wrapper_osg_IndexArray(lua_State* L, lua_Table* dum, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0) : osg::IndexArray(arrayType, dataSize, dataType), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_IndexArray(lua_State* L, lua_Table* dum, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::IndexArray(array, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -193,9 +198,6 @@ public:
 		return (_obj.callFunction<unsigned int>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

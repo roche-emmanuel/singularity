@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_Archive(lua_State* L, lua_Table* dum) : osgDB::Archive(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -330,9 +335,6 @@ public:
 		return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

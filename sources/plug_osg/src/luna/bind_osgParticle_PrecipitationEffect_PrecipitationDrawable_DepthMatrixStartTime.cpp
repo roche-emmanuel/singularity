@@ -111,7 +111,7 @@ void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthM
 
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::className[] = "DepthMatrixStartTime";
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::fullName[] = "osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime";
-const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::moduleName[] = "osgParticle";
+const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::moduleName[] = "osg";
 const char* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::parents[] = {0};
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::hash = 87684634;
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::uniqueIDs[] = {87684634,0};

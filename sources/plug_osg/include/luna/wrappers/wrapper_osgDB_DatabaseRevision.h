@@ -22,6 +22,11 @@ public:
 	wrapper_osgDB_DatabaseRevision(lua_State* L, lua_Table* dum) : osgDB::DatabaseRevision(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_DatabaseRevision(lua_State* L, lua_Table* dum, const osgDB::DatabaseRevision & revision, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) : osgDB::DatabaseRevision(revision, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -127,9 +132,6 @@ public:
 		return DatabaseRevision::className();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

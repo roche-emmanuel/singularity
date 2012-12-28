@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxFontEnumerator::EnumerateEncodings(const wxString & font = wxEmptyString)
 	bool EnumerateEncodings(const wxString & font = wxEmptyString) {
@@ -63,9 +68,6 @@ public:
 		return wxFontEnumerator::OnFontEncoding(font, encoding);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

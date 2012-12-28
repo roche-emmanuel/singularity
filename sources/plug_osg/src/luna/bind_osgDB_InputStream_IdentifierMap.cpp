@@ -80,7 +80,7 @@ void LunaTraits< osgDB::InputStream::IdentifierMap >::_bind_dtor(osgDB::InputStr
 
 const char LunaTraits< osgDB::InputStream::IdentifierMap >::className[] = "IdentifierMap";
 const char LunaTraits< osgDB::InputStream::IdentifierMap >::fullName[] = "osgDB::InputStream::IdentifierMap";
-const char LunaTraits< osgDB::InputStream::IdentifierMap >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::InputStream::IdentifierMap >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::InputStream::IdentifierMap >::parents[] = {0};
 const int LunaTraits< osgDB::InputStream::IdentifierMap >::hash = 35514121;
 const int LunaTraits< osgDB::InputStream::IdentifierMap >::uniqueIDs[] = {35514121,0};

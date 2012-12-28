@@ -22,6 +22,11 @@ public:
 	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum) : osgDB::ImageProcessor(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::ImageProcessor(rw, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -142,9 +147,6 @@ public:
 		return ImageProcessor::compress(arg1, arg2, arg3, arg4, arg5, arg6);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -67,8 +67,8 @@ void LunaTraits< osgDB::XmlNode::Input >::_bind_dtor(osgDB::XmlNode::Input* obj)
 
 const char LunaTraits< osgDB::XmlNode::Input >::className[] = "Input";
 const char LunaTraits< osgDB::XmlNode::Input >::fullName[] = "osgDB::XmlNode::Input";
-const char LunaTraits< osgDB::XmlNode::Input >::moduleName[] = "osgDB";
-const char* LunaTraits< osgDB::XmlNode::Input >::parents[] = {"osgDB.ControlMap", 0};
+const char LunaTraits< osgDB::XmlNode::Input >::moduleName[] = "osg";
+const char* LunaTraits< osgDB::XmlNode::Input >::parents[] = {"osg.ControlMap", 0};
 const int LunaTraits< osgDB::XmlNode::Input >::hash = 63781548;
 const int LunaTraits< osgDB::XmlNode::Input >::uniqueIDs[] = {95509303,0};
 

@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::_bind_dtor(osgUtil::S
 
 const char LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::className[] = "PrimitiveValueMap";
 const char LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::fullName[] = "osgUtil::Statistics::PrimitiveValueMap";
-const char LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::parents[] = {0};
 const int LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::hash = 74391787;
 const int LunaTraits< osgUtil::Statistics::PrimitiveValueMap >::uniqueIDs[] = {74391787,0};

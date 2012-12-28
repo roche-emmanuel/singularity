@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_BlockAndFlushOperation(lua_State* L, lua_Table* dum) : osg::BlockAndFlushOperation(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::BlockAndFlushOperation::release()
 	void release() {
@@ -41,9 +46,6 @@ public:
 		return BlockAndFlushOperation::operator()(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

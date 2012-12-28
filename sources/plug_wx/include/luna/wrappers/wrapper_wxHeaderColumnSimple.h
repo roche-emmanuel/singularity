@@ -22,6 +22,11 @@ public:
 	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(title, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(bitmap, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxHeaderColumn::IsResizeable() const
 	bool IsResizeable() const {
@@ -241,9 +246,6 @@ public:
 		return wxHeaderColumnSimple::IsSortOrderAscending();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

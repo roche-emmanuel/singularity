@@ -21,8 +21,8 @@ public:
 	
 	wrapper_wxTextWrapper(lua_State* L, lua_Table* dum) : wxTextWrapper(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// void wxTextWrapper::OnOutputLine(const wxString & line)
@@ -42,6 +42,8 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

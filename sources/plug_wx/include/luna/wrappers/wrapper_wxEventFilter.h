@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxEventFilter(lua_State* L, lua_Table* dum) : wxEventFilter(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// int wxEventFilter::FilterEvent(wxEvent & event)
 	int FilterEvent(wxEvent & event) {
@@ -29,9 +34,6 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

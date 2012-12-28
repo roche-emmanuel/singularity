@@ -22,10 +22,12 @@ public:
 	wrapper_osg_FrameStamp(lua_State* L, lua_Table* dum) : osg::FrameStamp(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_FrameStamp(lua_State* L, lua_Table* dum, const osg::FrameStamp & fs) : osg::FrameStamp(fs), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

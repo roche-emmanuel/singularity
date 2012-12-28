@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgText_Font_FontImplementation(lua_State* L, lua_Table* dum) : osgText::Font::FontImplementation(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// std::string osgText::Font::FontImplementation::getFileName() const
 	std::string getFileName() const {
@@ -64,9 +69,6 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::StatsVisitor::NodeSet >::_bind_dtor(osgUtil::StatsVisi
 
 const char LunaTraits< osgUtil::StatsVisitor::NodeSet >::className[] = "NodeSet";
 const char LunaTraits< osgUtil::StatsVisitor::NodeSet >::fullName[] = "osgUtil::StatsVisitor::NodeSet";
-const char LunaTraits< osgUtil::StatsVisitor::NodeSet >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::StatsVisitor::NodeSet >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::StatsVisitor::NodeSet >::parents[] = {0};
 const int LunaTraits< osgUtil::StatsVisitor::NodeSet >::hash = 22793184;
 const int LunaTraits< osgUtil::StatsVisitor::NodeSet >::uniqueIDs[] = {22793184,0};

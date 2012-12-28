@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::GeometryCollector::GeometryList >::_bind_dtor(osgUtil:
 
 const char LunaTraits< osgUtil::GeometryCollector::GeometryList >::className[] = "GeometryList";
 const char LunaTraits< osgUtil::GeometryCollector::GeometryList >::fullName[] = "osgUtil::GeometryCollector::GeometryList";
-const char LunaTraits< osgUtil::GeometryCollector::GeometryList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::GeometryCollector::GeometryList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::GeometryCollector::GeometryList >::parents[] = {0};
 const int LunaTraits< osgUtil::GeometryCollector::GeometryList >::hash = 43037357;
 const int LunaTraits< osgUtil::GeometryCollector::GeometryList >::uniqueIDs[] = {43037357,0};

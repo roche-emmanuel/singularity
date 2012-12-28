@@ -22,6 +22,26 @@ public:
 	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// bool osgUtil::SceneView::cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport)
+	bool cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport) {
+		if(_obj.pushFunction("cullStage")) {
+			_obj.pushArg(&projection);
+			_obj.pushArg(&modelview);
+			_obj.pushArg(cullVisitor);
+			_obj.pushArg(rendergraph);
+			_obj.pushArg(renderStage);
+			_obj.pushArg(viewport);
+			return (_obj.callFunction<bool>());
+		}
+
+		return SceneView::cullStage(projection, modelview, cullVisitor, rendergraph, renderStage, viewport);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -272,24 +292,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// bool osgUtil::SceneView::cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport)
-	bool cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport) {
-		if(_obj.pushFunction("cullStage")) {
-			_obj.pushArg(&projection);
-			_obj.pushArg(&modelview);
-			_obj.pushArg(cullVisitor);
-			_obj.pushArg(rendergraph);
-			_obj.pushArg(renderStage);
-			_obj.pushArg(viewport);
-			return (_obj.callFunction<bool>());
-		}
-
-		return SceneView::cullStage(projection, modelview, cullVisitor, rendergraph, renderStage, viewport);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgUtil::SceneView::computeLeftEyeViewport(const osg::Viewport * viewport)
 	void public_computeLeftEyeViewport(const osg::Viewport * viewport) {

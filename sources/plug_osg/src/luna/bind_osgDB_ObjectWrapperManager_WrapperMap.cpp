@@ -80,7 +80,7 @@ void LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::_bind_dtor(osgDB::Ob
 
 const char LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::className[] = "WrapperMap";
 const char LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::fullName[] = "osgDB::ObjectWrapperManager::WrapperMap";
-const char LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::parents[] = {0};
 const int LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::hash = 48773478;
 const int LunaTraits< osgDB::ObjectWrapperManager::WrapperMap >::uniqueIDs[] = {48773478,0};

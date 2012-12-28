@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgGA_EventVisitor(lua_State* L, lua_Table* dum) : osgGA::EventVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
@@ -200,9 +205,6 @@ public:
 		return EventVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgGA::EventVisitor::handle_callbacks(osg::StateSet * stateset)

@@ -22,6 +22,24 @@ public:
 	wrapper_osg_Texture(lua_State* L, lua_Table* dum) : osg::Texture(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Texture(lua_State* L, lua_Table* dum, const osg::Texture & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::Texture::computeInternalFormat() const
+	void computeInternalFormat() const {
+		THROW_IF(!_obj.pushFunction("computeInternalFormat"),"No implementation for abstract function osg::Texture::computeInternalFormat");
+		return (_obj.callFunction<void>());
+	};
+
+	// void osg::Texture::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		THROW_IF(!_obj.pushFunction("allocateMipmap"),"No implementation for abstract function osg::Texture::allocateMipmap");
+		_obj.pushArg(&state);
+		return (_obj.callFunction<void>());
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -272,22 +290,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::Texture::computeInternalFormat() const
-	void computeInternalFormat() const {
-		THROW_IF(!_obj.pushFunction("computeInternalFormat"),"No implementation for abstract function osg::Texture::computeInternalFormat");
-		return (_obj.callFunction<void>());
-	};
-
-	// void osg::Texture::allocateMipmap(osg::State & state) const
-	void allocateMipmap(osg::State & state) const {
-		THROW_IF(!_obj.pushFunction("allocateMipmap"),"No implementation for abstract function osg::Texture::allocateMipmap");
-		_obj.pushArg(&state);
-		return (_obj.callFunction<void>());
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::Texture::computeInternalFormatWithImage(const osg::Image & image) const
 	void public_computeInternalFormatWithImage(const osg::Image & image) const {

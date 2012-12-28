@@ -401,7 +401,7 @@ void LunaTraits< osgText::Text::GlyphQuads >::_bind_dtor(osgText::Text::GlyphQua
 
 const char LunaTraits< osgText::Text::GlyphQuads >::className[] = "GlyphQuads";
 const char LunaTraits< osgText::Text::GlyphQuads >::fullName[] = "osgText::Text::GlyphQuads";
-const char LunaTraits< osgText::Text::GlyphQuads >::moduleName[] = "osgText";
+const char LunaTraits< osgText::Text::GlyphQuads >::moduleName[] = "osg";
 const char* LunaTraits< osgText::Text::GlyphQuads >::parents[] = {0};
 const int LunaTraits< osgText::Text::GlyphQuads >::hash = 89190250;
 const int LunaTraits< osgText::Text::GlyphQuads >::uniqueIDs[] = {89190250,0};

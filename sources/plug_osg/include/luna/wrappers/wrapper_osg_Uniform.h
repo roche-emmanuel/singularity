@@ -43,6 +43,11 @@ public:
 	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2) : osg::Uniform(name, b0, b1, b2), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2, bool b3) : osg::Uniform(name, b0, b1, b2, b3), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
@@ -168,9 +173,6 @@ public:
 		return Uniform::compareData(rhs);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osg::Uniform::isCompatibleType(osg::Uniform::Type t) const

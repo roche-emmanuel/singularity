@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::StandardNotifyHandler::notify(osg::NotifySeverity severity, const char * message)
 	void notify(osg::NotifySeverity severity, const char * message) {
@@ -32,9 +37,6 @@ public:
 		return StandardNotifyHandler::notify(severity, message);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

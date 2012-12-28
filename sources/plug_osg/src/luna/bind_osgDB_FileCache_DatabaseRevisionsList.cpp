@@ -80,7 +80,7 @@ void LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::_bind_dtor(osgDB::Fi
 
 const char LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::className[] = "DatabaseRevisionsList";
 const char LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::fullName[] = "osgDB::FileCache::DatabaseRevisionsList";
-const char LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::parents[] = {0};
 const int LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::hash = 2520362;
 const int LunaTraits< osgDB::FileCache::DatabaseRevisionsList >::uniqueIDs[] = {2520362,0};

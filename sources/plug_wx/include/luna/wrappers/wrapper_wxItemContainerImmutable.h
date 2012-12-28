@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxItemContainerImmutable(lua_State* L, lua_Table* dum) : wxItemContainerImmutable(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {
@@ -76,9 +81,6 @@ public:
 		return wxItemContainerImmutable::GetStringSelection();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

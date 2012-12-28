@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_Vec3Array(lua_State* L, lua_Table* dum) : osg::Vec3Array(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -215,9 +220,6 @@ public:
 		return Vec3Array::clone(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

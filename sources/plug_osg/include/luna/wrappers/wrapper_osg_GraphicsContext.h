@@ -22,6 +22,30 @@ public:
 	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum) : osg::GraphicsContext(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum, const osg::GraphicsContext & arg1, const osg::CopyOp & arg2) : osg::GraphicsContext(arg1, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// osg::Object * osg::GraphicsContext::cloneType() const
+	osg::Object * cloneType() const {
+		if(_obj.pushFunction("cloneType")) {
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsContext::cloneType();
+	};
+
+	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
+	osg::Object * clone(const osg::CopyOp & arg1) const {
+		if(_obj.pushFunction("clone")) {
+			_obj.pushArg(&arg1);
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsContext::clone(arg1);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -187,28 +211,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// osg::Object * osg::GraphicsContext::cloneType() const
-	osg::Object * cloneType() const {
-		if(_obj.pushFunction("cloneType")) {
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return GraphicsContext::cloneType();
-	};
-
-	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
-	osg::Object * clone(const osg::CopyOp & arg1) const {
-		if(_obj.pushFunction("clone")) {
-			_obj.pushArg(&arg1);
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return GraphicsContext::clone(arg1);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::GraphicsContext::addCamera(osg::Camera * camera)
 	void public_addCamera(osg::Camera * camera) {

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_EndOfDynamicDrawBlock(lua_State* L, lua_Table* dum, unsigned int arg1) : osg::EndOfDynamicDrawBlock(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::EndOfDynamicDrawBlock::completed(osg::State * state)
 	void completed(osg::State * state) {
@@ -32,9 +37,6 @@ public:
 		return EndOfDynamicDrawBlock::completed(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

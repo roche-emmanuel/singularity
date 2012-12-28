@@ -22,8 +22,8 @@ public:
 	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::CubeMapGenerator(texture_size), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::CubeMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::CubeMapGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// osg::Vec4f osgUtil::CubeMapGenerator::compute_color(const osg::Vec3f & R) const
@@ -34,6 +34,8 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+
 	// Protected non-virtual methods:
 	// void osgUtil::CubeMapGenerator::set_pixel(int index, int c, int r, const osg::Vec4f & color)
 	void public_set_pixel(int index, int c, int r, const osg::Vec4f & color) {

@@ -22,6 +22,11 @@ public:
 	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(title, renderer, model_column, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(bitmap, renderer, model_column, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {
@@ -196,9 +201,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

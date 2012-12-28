@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_FluidFrictionOperator(lua_State* L, lua_Table* dum) : osgParticle::FluidFrictionOperator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_FluidFrictionOperator(lua_State* L, lua_Table* dum, const osgParticle::FluidFrictionOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::FluidFrictionOperator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -168,9 +173,6 @@ public:
 		return FluidFrictionOperator::beginOperate(prg);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

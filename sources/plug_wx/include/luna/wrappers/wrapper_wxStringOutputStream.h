@@ -20,6 +20,50 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxStringOutputStream::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxStringOutputStream::CloneRefData(data);
+	};
+
+	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
+	long long OnSysSeek(long long pos, wxSeekMode mode) {
+		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg(pos);
+			_obj.pushArg(mode);
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxStringOutputStream::OnSysSeek(pos, mode);
+	};
+
+	// long long wxStreamBase::OnSysTell() const
+	long long OnSysTell() const {
+		if(_obj.pushFunction("OnSysTell")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxStringOutputStream::OnSysTell();
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -116,48 +160,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxStringOutputStream::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxStringOutputStream::CloneRefData(data);
-	};
-
-	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
-	long long OnSysSeek(long long pos, wxSeekMode mode) {
-		if(_obj.pushFunction("OnSysSeek")) {
-			_obj.pushArg(pos);
-			_obj.pushArg(mode);
-			return (_obj.callFunction<long long>());
-		}
-
-		return wxStringOutputStream::OnSysSeek(pos, mode);
-	};
-
-	// long long wxStreamBase::OnSysTell() const
-	long long OnSysTell() const {
-		if(_obj.pushFunction("OnSysTell")) {
-			return (_obj.callFunction<long long>());
-		}
-
-		return wxStringOutputStream::OnSysTell();
-	};
-
-public:
 	// Protected non-virtual methods:
 	// size_t wxOutputStream::OnSysWrite(const void * buffer, size_t bufsize)
 	size_t public_OnSysWrite(const void * buffer, size_t bufsize) {

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_DepthPartitionSettings(lua_State* L, lua_Table* dum, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) : osgViewer::DepthPartitionSettings(mode), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)
 	bool getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) {
@@ -35,9 +40,6 @@ public:
 		return DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

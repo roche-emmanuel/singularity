@@ -23,6 +23,20 @@ public:
 	wrapper_osg_Texture2DMultisample(lua_State* L, lua_Table* dum, int numSamples, unsigned char fixedsamplelocations) : osg::Texture2DMultisample(numSamples, fixedsamplelocations), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Texture2DMultisample(lua_State* L, lua_Table* dum, const osg::Texture2DMultisample & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture2DMultisample(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::Texture2DMultisample::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture2DMultisample::computeInternalFormat();
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -310,18 +324,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::Texture2DMultisample::computeInternalFormat() const
-	void computeInternalFormat() const {
-		if(_obj.pushFunction("computeInternalFormat")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return Texture2DMultisample::computeInternalFormat();
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::Texture::computeInternalFormatWithImage(const osg::Image & image) const
 	void public_computeInternalFormatWithImage(const osg::Image & image) const {

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxTranslationsLoader(lua_State* L, lua_Table* dum) : wxTranslationsLoader(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {
@@ -37,9 +42,6 @@ public:
 		return *(_obj.callFunction<wxArrayString*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

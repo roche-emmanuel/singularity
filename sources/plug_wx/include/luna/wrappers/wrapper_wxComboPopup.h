@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxComboPopup(lua_State* L, lua_Table* dum) : wxComboPopup(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxComboPopup::Create(wxWindow * parent)
 	bool Create(wxWindow * parent) {
@@ -149,9 +154,6 @@ public:
 		return wxComboPopup::SetStringValue(value);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxTextOutputStream::WriteDouble(double f)
 	void WriteDouble(double f) {
@@ -41,9 +46,6 @@ public:
 		return wxTextOutputStream::WriteString(string);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

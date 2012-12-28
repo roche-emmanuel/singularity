@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {
@@ -140,9 +145,6 @@ public:
 		return wxDataViewListModel::ValueChanged(item, col);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

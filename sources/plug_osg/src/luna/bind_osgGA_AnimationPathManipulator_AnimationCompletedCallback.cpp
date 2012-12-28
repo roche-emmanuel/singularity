@@ -120,7 +120,7 @@ void LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::
 
 const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::className[] = "AnimationCompletedCallback";
 const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::fullName[] = "osgGA::AnimationPathManipulator::AnimationCompletedCallback";
-const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::moduleName[] = "osgGA";
+const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::moduleName[] = "osg";
 const char* LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::hash = 63965896;
 const int LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::uniqueIDs[] = {50169651,0};

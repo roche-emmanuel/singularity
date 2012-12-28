@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {
@@ -75,9 +80,6 @@ public:
 		return wxItemContainer::GetStringSelection();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

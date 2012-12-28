@@ -22,6 +22,11 @@ public:
 	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) : osgUtil::CullVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) : osgUtil::CullVisitor(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
@@ -323,9 +328,6 @@ public:
 		return CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgUtil::CullVisitor::handle_cull_callbacks_and_traverse(osg::Node & node)

@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::RenderBin::RenderLeafList >::_bind_dtor(osgUtil::Rende
 
 const char LunaTraits< osgUtil::RenderBin::RenderLeafList >::className[] = "RenderLeafList";
 const char LunaTraits< osgUtil::RenderBin::RenderLeafList >::fullName[] = "osgUtil::RenderBin::RenderLeafList";
-const char LunaTraits< osgUtil::RenderBin::RenderLeafList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::RenderBin::RenderLeafList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::RenderBin::RenderLeafList >::parents[] = {0};
 const int LunaTraits< osgUtil::RenderBin::RenderLeafList >::hash = 21382558;
 const int LunaTraits< osgUtil::RenderBin::RenderLeafList >::uniqueIDs[] = {21382558,0};

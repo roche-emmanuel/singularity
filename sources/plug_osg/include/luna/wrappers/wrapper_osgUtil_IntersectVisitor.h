@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_IntersectVisitor(lua_State* L, lua_Table* dum) : osgUtil::IntersectVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
@@ -170,9 +175,6 @@ public:
 		return IntersectVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgUtil::IntersectVisitor::intersect(osg::Drawable & gset)

@@ -24,6 +24,11 @@ public:
 	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) : osg::ClusterCullingCallback(controlPoint, normal, deviation), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Drawable * drawable) : osg::ClusterCullingCallback(drawable), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -152,9 +157,6 @@ public:
 		return ClusterCullingCallback::operator()(node, nv);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

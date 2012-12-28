@@ -22,6 +22,11 @@ public:
 	wrapper_osg_KdTreeBuilder(lua_State* L, lua_Table* dum) : osg::KdTreeBuilder(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_KdTreeBuilder(lua_State* L, lua_Table* dum, const osg::KdTreeBuilder & rhs) : osg::KdTreeBuilder(rhs), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::NodeVisitor::reset()
 	void reset() {
@@ -120,9 +125,6 @@ public:
 		return KdTreeBuilder::apply(geode);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

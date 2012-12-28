@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_ValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::ValueVisitor::apply(signed char & arg1)
 	void apply(signed char & arg1) {
@@ -242,9 +247,6 @@ public:
 		return ValueVisitor::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -23,6 +23,11 @@ public:
 	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) : wxXmlNode(type, name, content, lineNo), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, const wxXmlNode & node) : wxXmlNode(node), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxXmlNode::AddAttribute(const wxString & name, const wxString & value)
 	void AddAttribute(const wxString & name, const wxString & value) {
@@ -97,9 +102,6 @@ public:
 		return wxXmlNode::RemoveChild(child);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

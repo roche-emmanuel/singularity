@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_WindowSizeHandler(lua_State* L, lua_Table* dum) : osgViewer::WindowSizeHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -169,9 +174,6 @@ public:
 		return WindowSizeHandler::handle(arg1, arg2);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgViewer::WindowSizeHandler::toggleFullscreen(osgViewer::GraphicsWindow * window)

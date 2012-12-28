@@ -21,6 +21,31 @@ public:
 	
 	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxHtmlHelpDialog * wxHtmlHelpController::CreateHelpDialog(wxHtmlHelpData * data)
+	wxHtmlHelpDialog * CreateHelpDialog(wxHtmlHelpData * data) {
+		if(_obj.pushFunction("CreateHelpDialog")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxHtmlHelpDialog*>());
+		}
+
+		return wxHtmlHelpController::CreateHelpDialog(data);
+	};
+
+	// wxHtmlHelpFrame * wxHtmlHelpController::CreateHelpFrame(wxHtmlHelpData * data)
+	wxHtmlHelpFrame * CreateHelpFrame(wxHtmlHelpData * data) {
+		if(_obj.pushFunction("CreateHelpFrame")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxHtmlHelpFrame*>());
+		}
+
+		return wxHtmlHelpController::CreateHelpFrame(data);
+	};
+
+public:
 	// Public virtual methods:
 	// bool wxHtmlHelpController::DisplayContents()
 	bool DisplayContents() {
@@ -65,29 +90,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxHtmlHelpDialog * wxHtmlHelpController::CreateHelpDialog(wxHtmlHelpData * data)
-	wxHtmlHelpDialog * CreateHelpDialog(wxHtmlHelpData * data) {
-		if(_obj.pushFunction("CreateHelpDialog")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxHtmlHelpDialog*>());
-		}
-
-		return wxHtmlHelpController::CreateHelpDialog(data);
-	};
-
-	// wxHtmlHelpFrame * wxHtmlHelpController::CreateHelpFrame(wxHtmlHelpData * data)
-	wxHtmlHelpFrame * CreateHelpFrame(wxHtmlHelpData * data) {
-		if(_obj.pushFunction("CreateHelpFrame")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxHtmlHelpFrame*>());
-		}
-
-		return wxHtmlHelpController::CreateHelpFrame(data);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

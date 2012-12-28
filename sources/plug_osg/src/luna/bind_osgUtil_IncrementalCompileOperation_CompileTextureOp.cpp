@@ -93,8 +93,8 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::_bind
 
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::className[] = "CompileTextureOp";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileTextureOp";
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::moduleName[] = "osgUtil";
-const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::parents[] = {"osgUtil.CompileOp", 0};
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::moduleName[] = "osg";
+const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::parents[] = {"osg.CompileOp", 0};
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::hash = 42224763;
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp >::uniqueIDs[] = {50169651,0};
 

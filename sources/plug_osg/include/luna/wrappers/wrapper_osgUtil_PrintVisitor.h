@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_PrintVisitor(lua_State* L, lua_Table* dum, std::ostream & out, int indent = 0, int step = 2) : osgUtil::PrintVisitor(out, indent, step), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
@@ -110,9 +115,6 @@ public:
 		return PrintVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::StateToCompile::DrawableSet >::_bind_dtor(osgUtil::Sta
 
 const char LunaTraits< osgUtil::StateToCompile::DrawableSet >::className[] = "DrawableSet";
 const char LunaTraits< osgUtil::StateToCompile::DrawableSet >::fullName[] = "osgUtil::StateToCompile::DrawableSet";
-const char LunaTraits< osgUtil::StateToCompile::DrawableSet >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::StateToCompile::DrawableSet >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::StateToCompile::DrawableSet >::parents[] = {0};
 const int LunaTraits< osgUtil::StateToCompile::DrawableSet >::hash = 70884799;
 const int LunaTraits< osgUtil::StateToCompile::DrawableSet >::uniqueIDs[] = {70884799,0};

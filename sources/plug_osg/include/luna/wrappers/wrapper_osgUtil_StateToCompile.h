@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_StateToCompile(lua_State* L, lua_Table* dum, unsigned int mode) : osgUtil::StateToCompile(mode), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
@@ -150,9 +155,6 @@ public:
 		return StateToCompile::apply(texture);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

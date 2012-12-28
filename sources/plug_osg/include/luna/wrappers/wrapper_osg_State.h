@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::State::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {
@@ -41,9 +46,6 @@ public:
 		return State::frameCompleted();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::State::setUpVertexAttribAlias(osg::VertexAttribAlias & alias, unsigned int location, const std::string glName, const std::string osgName, const std::string & declaration)

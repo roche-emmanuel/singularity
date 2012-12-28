@@ -21,6 +21,21 @@ public:
 	
 	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) : osgViewer::Renderer(camera), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgViewer::Renderer::updateSceneView(osgUtil::SceneView * sceneView)
+	void updateSceneView(osgUtil::SceneView * sceneView) {
+		if(_obj.pushFunction("updateSceneView")) {
+			_obj.pushArg(sceneView);
+			return (_obj.callFunction<void>());
+		}
+
+		return Renderer::updateSceneView(sceneView);
+	};
+
+public:
 	// Public virtual methods:
 	// void osgViewer::Renderer::cull()
 	void cull() {
@@ -88,19 +103,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgViewer::Renderer::updateSceneView(osgUtil::SceneView * sceneView)
-	void updateSceneView(osgUtil::SceneView * sceneView) {
-		if(_obj.pushFunction("updateSceneView")) {
-			_obj.pushArg(sceneView);
-			return (_obj.callFunction<void>());
-		}
-
-		return Renderer::updateSceneView(sceneView);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgViewer::Renderer::initialize(osg::State * state)
 	void public_initialize(osg::State * state) {

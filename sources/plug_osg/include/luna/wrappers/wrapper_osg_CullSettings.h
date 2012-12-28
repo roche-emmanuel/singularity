@@ -23,6 +23,11 @@ public:
 	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
@@ -54,9 +59,6 @@ public:
 		return CullSettings::inheritCullSettings(settings, inheritanceMask);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

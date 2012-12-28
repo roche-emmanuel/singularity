@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_NodeVisitor_ImageRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::ImageRequestHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const
 	double getPreLoadTime() const {
@@ -46,9 +51,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

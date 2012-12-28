@@ -22,6 +22,17 @@ public:
 	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum) : osgViewer::ViewerBase(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum, const osgViewer::ViewerBase & vb) : osgViewer::ViewerBase(vb), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgViewer::ViewerBase::viewerInit()
+	void viewerInit() {
+		THROW_IF(!_obj.pushFunction("viewerInit"),"No implementation for abstract function osgViewer::ViewerBase::viewerInit");
+		return (_obj.callFunction<void>());
+	};
+
+public:
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -269,15 +280,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgViewer::ViewerBase::viewerInit()
-	void viewerInit() {
-		THROW_IF(!_obj.pushFunction("viewerInit"),"No implementation for abstract function osgViewer::ViewerBase::viewerInit");
-		return (_obj.callFunction<void>());
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgViewer::ViewerBase::viewerBaseInit()
 	void public_viewerBaseInit() {

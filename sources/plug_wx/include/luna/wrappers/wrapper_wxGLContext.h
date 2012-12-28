@@ -21,27 +21,8 @@ public:
 	
 	wrapper_wxGLContext(lua_State* L, lua_Table* dum, wxGLCanvas * win, const wxGLContext * other = NULL) : wxGLContext(win, other), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxGLContext::GetClassInfo();
-	};
-
-	// bool wxGLContext::SetCurrent(const wxGLCanvas & win) const
-	bool SetCurrent(const wxGLCanvas & win) const {
-		if(_obj.pushFunction("SetCurrent")) {
-			_obj.pushArg(&win);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxGLContext::SetCurrent(win);
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -64,6 +45,27 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxGLContext::GetClassInfo();
+	};
+
+	// bool wxGLContext::SetCurrent(const wxGLCanvas & win) const
+	bool SetCurrent(const wxGLCanvas & win) const {
+		if(_obj.pushFunction("SetCurrent")) {
+			_obj.pushArg(&win);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxGLContext::SetCurrent(win);
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

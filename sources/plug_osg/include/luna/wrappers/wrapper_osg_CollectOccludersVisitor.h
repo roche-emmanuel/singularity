@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_CollectOccludersVisitor(lua_State* L, lua_Table* dum) : osg::CollectOccludersVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
@@ -199,9 +204,6 @@ public:
 		return CollectOccludersVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::CollectOccludersVisitor::handle_cull_callbacks_and_traverse(osg::Node & node)

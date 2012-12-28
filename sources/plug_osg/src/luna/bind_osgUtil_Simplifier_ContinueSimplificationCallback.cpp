@@ -167,7 +167,7 @@ void LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::_bind_dt
 
 const char LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::className[] = "ContinueSimplificationCallback";
 const char LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::fullName[] = "osgUtil::Simplifier::ContinueSimplificationCallback";
-const char LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::hash = 84446537;
 const int LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::uniqueIDs[] = {50169651,0};

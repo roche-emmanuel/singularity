@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgText_Font(lua_State* L, lua_Table* dum, osgText::Font::FontImplementation * implementation = 0) : osgText::Font(implementation), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -177,9 +182,6 @@ public:
 		return Font::releaseGLObjects(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgText::Font::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)

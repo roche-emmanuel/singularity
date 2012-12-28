@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_ScreenCaptureHandler(lua_State* L, lua_Table* dum, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1) : osgViewer::ScreenCaptureHandler(defaultOperation, numFrames), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -179,9 +184,6 @@ public:
 		return ScreenCaptureHandler::getUsage(usage);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgViewer::ScreenCaptureHandler::addCallbackToViewer(osgViewer::ViewerBase & viewer)

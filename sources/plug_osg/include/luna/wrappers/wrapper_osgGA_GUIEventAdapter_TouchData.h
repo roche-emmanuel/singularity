@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osgGA_GUIEventAdapter_TouchData(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter::TouchData(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgGA::GUIEventAdapter::TouchData::addTouchPoint(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count)

@@ -23,6 +23,20 @@ public:
 	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::CompositeViewer(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::CompositeViewer(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgViewer::CompositeViewer::viewerInit()
+	void viewerInit() {
+		if(_obj.pushFunction("viewerInit")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::viewerInit();
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -343,18 +357,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgViewer::CompositeViewer::viewerInit()
-	void viewerInit() {
-		if(_obj.pushFunction("viewerInit")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return CompositeViewer::viewerInit();
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgViewer::CompositeViewer::constructorInit()
 	void public_constructorInit() {

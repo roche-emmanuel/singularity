@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_ImagePager(lua_State* L, lua_Table* dum) : osgDB::ImagePager(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// double osgDB::ImagePager::getPreLoadTime() const
 	double getPreLoadTime() const {
@@ -74,9 +79,6 @@ public:
 		return ImagePager::updateSceneGraph(frameStamp);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

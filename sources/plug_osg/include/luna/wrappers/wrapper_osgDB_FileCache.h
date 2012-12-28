@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) : osgDB::FileCache(path), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgDB::FileCache::isFileAppropriateForFileCache(const std::string & originalFileName) const
 	bool isFileAppropriateForFileCache(const std::string & originalFileName) const {
@@ -168,9 +173,6 @@ public:
 		return FileCache::writeShader(shader, originalFileName, options);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// osgDB::FileList * osgDB::FileCache::readFileList(const std::string & originalFileName) const

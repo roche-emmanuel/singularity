@@ -22,6 +22,11 @@ public:
 	wrapper_osg_UserDataContainer(lua_State* L, lua_Table* dum) : osg::UserDataContainer(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_UserDataContainer(lua_State* L, lua_Table* dum, const osg::UserDataContainer & udc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::UserDataContainer(udc, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -224,9 +229,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

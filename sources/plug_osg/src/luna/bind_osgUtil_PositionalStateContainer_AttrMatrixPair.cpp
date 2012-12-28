@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::_bind_dtor
 
 const char LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::className[] = "AttrMatrixPair";
 const char LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::fullName[] = "osgUtil::PositionalStateContainer::AttrMatrixPair";
-const char LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::parents[] = {0};
 const int LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::hash = 92627939;
 const int LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::uniqueIDs[] = {92627939,0};

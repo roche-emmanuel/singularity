@@ -23,6 +23,11 @@ public:
 	wrapper_osg_Light(lua_State* L, lua_Table* dum, unsigned int lightnum) : osg::Light(lightnum), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Light(lua_State* L, lua_Table* dum, const osg::Light & light, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Light(light, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -223,9 +228,6 @@ public:
 		return Light::apply(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Light::init()

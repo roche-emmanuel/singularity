@@ -20,6 +20,9 @@ function TypeManager:__init()
     object._externalParents = Map()
     object._externalFuncs = Map()
     object._deleters = Map()
+	object._referencedExternals = Set();
+	object._registeredMappedTypes = Set()
+	
     -- this is a mapping of the actual root namespace of a class to the lua module that will be used for it.
     -- if no such mapping is available then
     -- 1. The class is placed in the default module in case this root namespace is the default namespace.
@@ -43,6 +46,16 @@ end
 
 function TypeManager:setMappedModuleName(mname, mapped)
 	self._moduleNameMap:set(mname,mapped)
+end
+
+function TypeManager:registerMappedType(mtype)
+	if not self._externals:get(mtype) then -- We should ignore external types at this point.
+		self._registeredMappedTypes:push_back(mtype)
+	end
+end
+
+function TypeManager:getRegisteredMappedTypes()
+	return self._registeredMappedTypes
 end
 
 function TypeManager:registerType(type)
@@ -101,6 +114,7 @@ function TypeManager:registerExternals(file)
 end
 
 function TypeManager:registerExternalClass(mod,className,baseName)
+	baseName = baseName or className
 	self:info_v("Registering external class: ",className," with parent: ", baseName," in module ", mod)
 	self._externals:set(className,mod)
 	self._externalParents:set(className,baseName)
@@ -145,6 +159,23 @@ function TypeManager:getAbsoluteBaseName(class)
 	
 	local tname = class:getTypeName()
 	return self._externalParents:get(tname) or class:getFullName()
+end
+
+function TypeManager:getExternalBase(tname,noRef)
+	if not tname then
+		return
+	end
+	
+	local parentClass = self._externalParents:get(tname)
+	if parentClass then
+		self._referencedExternals:push_back(parentClass)
+		self._referencedExternals:push_back(tname)
+	end
+	return parentClass
+end
+
+function TypeManager:getReferencedExternals()
+	return self._referencedExternals
 end
 
 function TypeManager:getFunctionModule(func)

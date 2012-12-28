@@ -21,10 +21,12 @@ public:
 	
 	wrapper_osgDB_Registry(lua_State* L, lua_Table* dum) : osgDB::Registry(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgDB::Registry::destruct()

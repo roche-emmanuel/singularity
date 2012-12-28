@@ -22,6 +22,11 @@ public:
 	wrapper_osg_PixelDataBufferObject(lua_State* L, lua_Table* dum) : osg::PixelDataBufferObject(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_PixelDataBufferObject(lua_State* L, lua_Table* dum, const osg::PixelDataBufferObject & pbo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PixelDataBufferObject(pbo, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -167,9 +172,6 @@ public:
 		return PixelDataBufferObject::unbindBuffer(contextID);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

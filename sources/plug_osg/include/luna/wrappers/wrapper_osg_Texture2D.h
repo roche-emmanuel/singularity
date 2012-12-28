@@ -23,6 +23,30 @@ public:
 	wrapper_osg_Texture2D(lua_State* L, lua_Table* dum, osg::Image * image) : osg::Texture2D(image), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Texture2D(lua_State* L, lua_Table* dum, const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture2D(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::Texture2D::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture2D::computeInternalFormat();
+	};
+
+	// void osg::Texture2D::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg(&state);
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture2D::allocateMipmap(state);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -300,28 +324,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::Texture2D::computeInternalFormat() const
-	void computeInternalFormat() const {
-		if(_obj.pushFunction("computeInternalFormat")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return Texture2D::computeInternalFormat();
-	};
-
-	// void osg::Texture2D::allocateMipmap(osg::State & state) const
-	void allocateMipmap(osg::State & state) const {
-		if(_obj.pushFunction("allocateMipmap")) {
-			_obj.pushArg(&state);
-			return (_obj.callFunction<void>());
-		}
-
-		return Texture2D::allocateMipmap(state);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// bool osg::Texture2D::textureObjectValid(osg::State & state) const
 	bool public_textureObjectValid(osg::State & state) const {

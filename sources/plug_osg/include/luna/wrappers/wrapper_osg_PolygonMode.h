@@ -23,6 +23,11 @@ public:
 	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum, osg::PolygonMode::Face face, osg::PolygonMode::Mode mode) : osg::PolygonMode(face, mode), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum, const osg::PolygonMode & pm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonMode(pm, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -223,9 +228,6 @@ public:
 		return PolygonMode::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)

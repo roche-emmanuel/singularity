@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::Hit::VecIndexList >::_bind_dtor(osgUtil::Hit::VecIndex
 
 const char LunaTraits< osgUtil::Hit::VecIndexList >::className[] = "VecIndexList";
 const char LunaTraits< osgUtil::Hit::VecIndexList >::fullName[] = "osgUtil::Hit::VecIndexList";
-const char LunaTraits< osgUtil::Hit::VecIndexList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::Hit::VecIndexList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::Hit::VecIndexList >::parents[] = {0};
 const int LunaTraits< osgUtil::Hit::VecIndexList >::hash = 26842661;
 const int LunaTraits< osgUtil::Hit::VecIndexList >::uniqueIDs[] = {26842661,0};

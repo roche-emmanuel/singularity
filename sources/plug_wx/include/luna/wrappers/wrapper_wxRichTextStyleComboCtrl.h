@@ -20,6 +20,141 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxRichTextStyleComboCtrl::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxRichTextStyleComboCtrl::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRichTextStyleComboCtrl::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRichTextStyleComboCtrl::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRichTextStyleComboCtrl::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxRichTextStyleComboCtrl::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRichTextStyleComboCtrl::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRichTextStyleComboCtrl::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRichTextStyleComboCtrl::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRichTextStyleComboCtrl::AddPendingEvent(event);
+	};
+
+	// bool wxComboCtrl::AnimateShow(const wxRect & rect, int flags)
+	bool AnimateShow(const wxRect & rect, int flags) {
+		if(_obj.pushFunction("AnimateShow")) {
+			_obj.pushArg(&rect);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxRichTextStyleComboCtrl::AnimateShow(rect, flags);
+	};
+
+	// void wxComboCtrl::DoSetPopupControl(wxComboPopup * popup)
+	void DoSetPopupControl(wxComboPopup * popup) {
+		if(_obj.pushFunction("DoSetPopupControl")) {
+			_obj.pushArg(popup);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRichTextStyleComboCtrl::DoSetPopupControl(popup);
+	};
+
+	// void wxComboCtrl::DoShowPopup(const wxRect & rect, int flags)
+	void DoShowPopup(const wxRect & rect, int flags) {
+		if(_obj.pushFunction("DoShowPopup")) {
+			_obj.pushArg(&rect);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxRichTextStyleComboCtrl::DoShowPopup(rect, flags);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1371,139 +1506,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxRichTextStyleComboCtrl::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxRichTextStyleComboCtrl::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRichTextStyleComboCtrl::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRichTextStyleComboCtrl::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRichTextStyleComboCtrl::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxRichTextStyleComboCtrl::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRichTextStyleComboCtrl::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRichTextStyleComboCtrl::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRichTextStyleComboCtrl::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRichTextStyleComboCtrl::AddPendingEvent(event);
-	};
-
-	// bool wxComboCtrl::AnimateShow(const wxRect & rect, int flags)
-	bool AnimateShow(const wxRect & rect, int flags) {
-		if(_obj.pushFunction("AnimateShow")) {
-			_obj.pushArg(&rect);
-			_obj.pushArg(flags);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxRichTextStyleComboCtrl::AnimateShow(rect, flags);
-	};
-
-	// void wxComboCtrl::DoSetPopupControl(wxComboPopup * popup)
-	void DoSetPopupControl(wxComboPopup * popup) {
-		if(_obj.pushFunction("DoSetPopupControl")) {
-			_obj.pushArg(popup);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRichTextStyleComboCtrl::DoSetPopupControl(popup);
-	};
-
-	// void wxComboCtrl::DoShowPopup(const wxRect & rect, int flags)
-	void DoShowPopup(const wxRect & rect, int flags) {
-		if(_obj.pushFunction("DoShowPopup")) {
-			_obj.pushArg(&rect);
-			_obj.pushArg(flags);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxRichTextStyleComboCtrl::DoShowPopup(rect, flags);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

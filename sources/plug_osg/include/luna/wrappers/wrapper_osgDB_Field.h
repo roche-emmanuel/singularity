@@ -22,10 +22,12 @@ public:
 	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) : osgDB::Field(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) : osgDB::Field(field), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgDB::Field::_init()

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_TransformCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity) : osgUtil::TransformCallback(pivot, axis, angularVelocity), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -137,9 +142,6 @@ public:
 		return TransformCallback::operator()(node, nv);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

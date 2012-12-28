@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxDataViewIndexListModel(lua_State* L, lua_Table* dum, unsigned int initial_size = 0) : wxDataViewIndexListModel(initial_size), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {
@@ -141,9 +146,6 @@ public:
 		return wxDataViewIndexListModel::ValueChanged(item, col);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

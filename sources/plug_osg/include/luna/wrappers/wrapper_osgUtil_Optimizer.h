@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_Optimizer(lua_State* L, lua_Table* dum) : osgUtil::Optimizer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osgUtil::Optimizer::optimize(osg::Node * node, unsigned int options)
 	void optimize(osg::Node * node, unsigned int options) {
@@ -33,9 +38,6 @@ public:
 		return Optimizer::optimize(node, options);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

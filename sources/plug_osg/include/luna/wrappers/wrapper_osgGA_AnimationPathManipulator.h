@@ -22,6 +22,11 @@ public:
 	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, osg::AnimationPath * animationPath = 0) : osgGA::AnimationPathManipulator(animationPath), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, const std::string & filename) : osgGA::AnimationPathManipulator(filename), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -342,9 +347,6 @@ public:
 		return AnimationPathManipulator::getUsage(usage);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgGA::AnimationPathManipulator::handleFrame(double time)

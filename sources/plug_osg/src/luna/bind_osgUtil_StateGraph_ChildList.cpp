@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::StateGraph::ChildList >::_bind_dtor(osgUtil::StateGrap
 
 const char LunaTraits< osgUtil::StateGraph::ChildList >::className[] = "ChildList";
 const char LunaTraits< osgUtil::StateGraph::ChildList >::fullName[] = "osgUtil::StateGraph::ChildList";
-const char LunaTraits< osgUtil::StateGraph::ChildList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::StateGraph::ChildList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::StateGraph::ChildList >::parents[] = {0};
 const int LunaTraits< osgUtil::StateGraph::ChildList >::hash = 8678160;
 const int LunaTraits< osgUtil::StateGraph::ChildList >::uniqueIDs[] = {8678160,0};

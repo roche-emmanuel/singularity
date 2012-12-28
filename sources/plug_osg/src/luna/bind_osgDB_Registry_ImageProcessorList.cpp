@@ -80,7 +80,7 @@ void LunaTraits< osgDB::Registry::ImageProcessorList >::_bind_dtor(osgDB::Regist
 
 const char LunaTraits< osgDB::Registry::ImageProcessorList >::className[] = "ImageProcessorList";
 const char LunaTraits< osgDB::Registry::ImageProcessorList >::fullName[] = "osgDB::Registry::ImageProcessorList";
-const char LunaTraits< osgDB::Registry::ImageProcessorList >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::Registry::ImageProcessorList >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::Registry::ImageProcessorList >::parents[] = {0};
 const int LunaTraits< osgDB::Registry::ImageProcessorList >::hash = 47131645;
 const int LunaTraits< osgDB::Registry::ImageProcessorList >::uniqueIDs[] = {47131645,0};

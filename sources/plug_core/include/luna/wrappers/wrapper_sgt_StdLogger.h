@@ -21,6 +21,11 @@ public:
 	
 	wrapper_sgt_StdLogger(lua_State* L, lua_Table* dum, const std::string & name = "") : sgt::StdLogger(name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -56,9 +61,6 @@ public:
 		return StdLogger::output(level, trace, msg);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

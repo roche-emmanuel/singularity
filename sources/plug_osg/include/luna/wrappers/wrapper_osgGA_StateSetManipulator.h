@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgGA_StateSetManipulator(lua_State* L, lua_Table* dum, osg::StateSet * stateset = 0) : osgGA::StateSetManipulator(stateset), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -178,9 +183,6 @@ public:
 		return StateSetManipulator::getUsage(usage);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// osg::PolygonMode * osgGA::StateSetManipulator::getOrCreatePolygonMode()

@@ -40,6 +40,10 @@ function Class:getNamespaces()
 	return self._datamap:getAllNamespaces()
 end
 
+function Class:getRootNamespace()
+	return self._datamap:getGlobalNamespace()
+end
+
 function Class:getEnums()
 	return self._datamap:getAllEnums()
 end
@@ -84,6 +88,15 @@ function Class:writeSource(filename,buf)
 	writer:newLine()
 	
 	self:writeFile("src/luna/" .. filename,writer) 
+end
+
+function Class:writeDefaultFile(filename,buf)
+	local writer = require("io.BufferWriter")()
+			
+	-- write the buffer content:
+	writer:appendBuffer(buf)
+		
+	self:writeFile(filename,writer) 
 end
 
 function Class:writeFile(filename,buf)

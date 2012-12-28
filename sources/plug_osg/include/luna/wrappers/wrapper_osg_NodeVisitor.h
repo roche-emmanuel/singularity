@@ -22,6 +22,11 @@ public:
 	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(tm), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(type, tm), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
@@ -311,9 +316,6 @@ public:
 		return NodeVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -21,8 +21,8 @@ public:
 	
 	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxConfigBase * wxPersistenceManager::GetConfig() const
@@ -46,6 +46,8 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

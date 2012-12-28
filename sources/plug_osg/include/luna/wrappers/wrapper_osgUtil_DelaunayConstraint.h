@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_DelaunayConstraint(lua_State* L, lua_Table* dum) : osgUtil::DelaunayConstraint(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -261,9 +266,6 @@ public:
 		return DelaunayConstraint::outside(testpoint);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osg::Geometry::verifyBindings(const osg::Geometry::ArrayData & arrayData) const

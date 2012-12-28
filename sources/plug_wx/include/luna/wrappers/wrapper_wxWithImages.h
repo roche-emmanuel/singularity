@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxWithImages(lua_State* L, lua_Table* dum) : wxWithImages(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxWithImages::SetImageList(wxImageList * imageList)
 	void SetImageList(wxImageList * imageList) {
@@ -32,9 +37,6 @@ public:
 		return wxWithImages::SetImageList(imageList);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool wxWithImages::HasImageList() const

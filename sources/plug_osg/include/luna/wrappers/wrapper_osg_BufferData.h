@@ -22,6 +22,11 @@ public:
 	wrapper_osg_BufferData(lua_State* L, lua_Table* dum) : osg::BufferData(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_BufferData(lua_State* L, lua_Table* dum, const osg::BufferData & bd, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BufferData(bd, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -133,9 +138,6 @@ public:
 		return BufferData::releaseGLObjects(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -22,6 +22,24 @@ public:
 	wrapper_osgText_TextBase(lua_State* L, lua_Table* dum) : osgText::TextBase(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgText_TextBase(lua_State* L, lua_Table* dum, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::TextBase(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgText::TextBase::computePositions(unsigned int contextID) const
+	void computePositions(unsigned int contextID) const {
+		THROW_IF(!_obj.pushFunction("computePositions"),"No implementation for abstract function osgText::TextBase::computePositions");
+		_obj.pushArg(contextID);
+		return (_obj.callFunction<void>());
+	};
+
+	// void osgText::TextBase::computeGlyphRepresentation()
+	void computeGlyphRepresentation() {
+		THROW_IF(!_obj.pushFunction("computeGlyphRepresentation"),"No implementation for abstract function osgText::TextBase::computeGlyphRepresentation");
+		return (_obj.callFunction<void>());
+	};
+
+public:
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -254,22 +272,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgText::TextBase::computePositions(unsigned int contextID) const
-	void computePositions(unsigned int contextID) const {
-		THROW_IF(!_obj.pushFunction("computePositions"),"No implementation for abstract function osgText::TextBase::computePositions");
-		_obj.pushArg(contextID);
-		return (_obj.callFunction<void>());
-	};
-
-	// void osgText::TextBase::computeGlyphRepresentation()
-	void computeGlyphRepresentation() {
-		THROW_IF(!_obj.pushFunction("computeGlyphRepresentation"),"No implementation for abstract function osgText::TextBase::computeGlyphRepresentation");
-		return (_obj.callFunction<void>());
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgText::TextBase::positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength)
 	void public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength) {

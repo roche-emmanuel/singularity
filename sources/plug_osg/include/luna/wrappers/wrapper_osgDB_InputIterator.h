@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_InputIterator(lua_State* L, lua_Table* dum) : osgDB::InputIterator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgDB::InputIterator::isBinary() const
 	bool isBinary() const {
@@ -174,9 +179,6 @@ public:
 		return InputIterator::advanceToCurrentEndBracket();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -22,6 +22,11 @@ public:
 	wrapper_osg_InfinitePlane(lua_State* L, lua_Table* dum) : osg::InfinitePlane(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_InfinitePlane(lua_State* L, lua_Table* dum, const osg::InfinitePlane & plane, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::InfinitePlane(plane, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -147,9 +152,6 @@ public:
 		return InfinitePlane::accept(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

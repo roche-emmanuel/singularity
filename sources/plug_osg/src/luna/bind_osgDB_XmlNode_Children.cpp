@@ -80,7 +80,7 @@ void LunaTraits< osgDB::XmlNode::Children >::_bind_dtor(osgDB::XmlNode::Children
 
 const char LunaTraits< osgDB::XmlNode::Children >::className[] = "Children";
 const char LunaTraits< osgDB::XmlNode::Children >::fullName[] = "osgDB::XmlNode::Children";
-const char LunaTraits< osgDB::XmlNode::Children >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::XmlNode::Children >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::XmlNode::Children >::parents[] = {0};
 const int LunaTraits< osgDB::XmlNode::Children >::hash = 5928633;
 const int LunaTraits< osgDB::XmlNode::Children >::uniqueIDs[] = {5928633,0};

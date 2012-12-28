@@ -80,7 +80,7 @@ void LunaTraits< osgText::Text::TextureGlyphQuadMap >::_bind_dtor(osgText::Text:
 
 const char LunaTraits< osgText::Text::TextureGlyphQuadMap >::className[] = "TextureGlyphQuadMap";
 const char LunaTraits< osgText::Text::TextureGlyphQuadMap >::fullName[] = "osgText::Text::TextureGlyphQuadMap";
-const char LunaTraits< osgText::Text::TextureGlyphQuadMap >::moduleName[] = "osgText";
+const char LunaTraits< osgText::Text::TextureGlyphQuadMap >::moduleName[] = "osg";
 const char* LunaTraits< osgText::Text::TextureGlyphQuadMap >::parents[] = {0};
 const int LunaTraits< osgText::Text::TextureGlyphQuadMap >::hash = 48619134;
 const int LunaTraits< osgText::Text::TextureGlyphQuadMap >::uniqueIDs[] = {48619134,0};

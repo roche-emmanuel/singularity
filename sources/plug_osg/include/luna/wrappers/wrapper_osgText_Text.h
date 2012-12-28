@@ -22,6 +22,30 @@ public:
 	wrapper_osgText_Text(lua_State* L, lua_Table* dum) : osgText::Text(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgText_Text(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::Text(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgText::Text::computeGlyphRepresentation()
+	void computeGlyphRepresentation() {
+		if(_obj.pushFunction("computeGlyphRepresentation")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Text::computeGlyphRepresentation();
+	};
+
+	// void osgText::Text::computePositions(unsigned int contextID) const
+	void computePositions(unsigned int contextID) const {
+		if(_obj.pushFunction("computePositions")) {
+			_obj.pushArg(contextID);
+			return (_obj.callFunction<void>());
+		}
+
+		return Text::computePositions(contextID);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -263,28 +287,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgText::Text::computeGlyphRepresentation()
-	void computeGlyphRepresentation() {
-		if(_obj.pushFunction("computeGlyphRepresentation")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return Text::computeGlyphRepresentation();
-	};
-
-	// void osgText::Text::computePositions(unsigned int contextID) const
-	void computePositions(unsigned int contextID) const {
-		if(_obj.pushFunction("computePositions")) {
-			_obj.pushArg(contextID);
-			return (_obj.callFunction<void>());
-		}
-
-		return Text::computePositions(contextID);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// osgText::Font * osgText::Text::getActiveFont()
 	osgText::Font * public_getActiveFont() {

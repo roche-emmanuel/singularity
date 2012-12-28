@@ -22,6 +22,20 @@ public:
 	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum) : osg::ImageSequence(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum, const osg::ImageSequence & ImageSequence, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageSequence(ImageSequence, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::ImageSequence::applyLoopingMode()
+	void applyLoopingMode() {
+		if(_obj.pushFunction("applyLoopingMode")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageSequence::applyLoopingMode();
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -444,18 +458,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::ImageSequence::applyLoopingMode()
-	void applyLoopingMode() {
-		if(_obj.pushFunction("applyLoopingMode")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return ImageSequence::applyLoopingMode();
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::ImageSequence::setImageToChild(const osg::Image * image)
 	void public_setImageToChild(const osg::Image * image) {

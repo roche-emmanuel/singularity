@@ -22,6 +22,11 @@ public:
 	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum) : osgGA::CameraManipulator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum, const osgGA::CameraManipulator & mm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::CameraManipulator(mm, copyOp), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -330,9 +335,6 @@ public:
 		return CameraManipulator::handle(ea, us);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// std::string osgGA::CameraManipulator::getManipulatorName() const

@@ -129,7 +129,7 @@ void LunaTraits< osgDB::ImageOptions::RatioWindow >::_bind_dtor(osgDB::ImageOpti
 
 const char LunaTraits< osgDB::ImageOptions::RatioWindow >::className[] = "RatioWindow";
 const char LunaTraits< osgDB::ImageOptions::RatioWindow >::fullName[] = "osgDB::ImageOptions::RatioWindow";
-const char LunaTraits< osgDB::ImageOptions::RatioWindow >::moduleName[] = "osgDB";
+const char LunaTraits< osgDB::ImageOptions::RatioWindow >::moduleName[] = "osg";
 const char* LunaTraits< osgDB::ImageOptions::RatioWindow >::parents[] = {0};
 const int LunaTraits< osgDB::ImageOptions::RatioWindow >::hash = 44466488;
 const int LunaTraits< osgDB::ImageOptions::RatioWindow >::uniqueIDs[] = {44466488,0};

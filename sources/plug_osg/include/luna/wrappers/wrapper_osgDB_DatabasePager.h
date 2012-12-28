@@ -22,6 +22,21 @@ public:
 	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum) : osgDB::DatabasePager(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum, const osgDB::DatabasePager & rhs) : osgDB::DatabasePager(rhs), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgDB::DatabasePager::removeExpiredSubgraphs(const osg::FrameStamp & frameStamp)
+	void removeExpiredSubgraphs(const osg::FrameStamp & frameStamp) {
+		if(_obj.pushFunction("removeExpiredSubgraphs")) {
+			_obj.pushArg(&frameStamp);
+			return (_obj.callFunction<void>());
+		}
+
+		return DatabasePager::removeExpiredSubgraphs(frameStamp);
+	};
+
+public:
 	// Public virtual methods:
 	// const char * osgDB::DatabasePager::className() const
 	const char * className() const {
@@ -124,19 +139,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgDB::DatabasePager::removeExpiredSubgraphs(const osg::FrameStamp & frameStamp)
-	void removeExpiredSubgraphs(const osg::FrameStamp & frameStamp) {
-		if(_obj.pushFunction("removeExpiredSubgraphs")) {
-			_obj.pushArg(&frameStamp);
-			return (_obj.callFunction<void>());
-		}
-
-		return DatabasePager::removeExpiredSubgraphs(frameStamp);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgDB::DatabasePager::compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest)
 	void public_compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest) {

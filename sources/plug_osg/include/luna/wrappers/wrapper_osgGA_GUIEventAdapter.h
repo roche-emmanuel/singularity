@@ -22,6 +22,11 @@ public:
 	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum, const osgGA::GUIEventAdapter & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgGA::GUIEventAdapter(rhs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -145,9 +150,6 @@ public:
 		return GUIEventAdapter::getKey();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -22,10 +22,12 @@ public:
 	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum) : osgUtil::TangentSpaceGenerator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::TangentSpaceGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgUtil::TangentSpaceGenerator::compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC)

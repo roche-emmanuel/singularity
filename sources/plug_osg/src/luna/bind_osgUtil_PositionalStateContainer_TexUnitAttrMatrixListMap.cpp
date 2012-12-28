@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::
 
 const char LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::className[] = "TexUnitAttrMatrixListMap";
 const char LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::fullName[] = "osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap";
-const char LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::parents[] = {0};
 const int LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::hash = 42744840;
 const int LunaTraits< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::uniqueIDs[] = {42744840,0};

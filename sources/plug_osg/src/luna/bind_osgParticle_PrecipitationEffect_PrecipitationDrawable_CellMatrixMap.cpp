@@ -80,7 +80,7 @@ void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMa
 
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::className[] = "CellMatrixMap";
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::fullName[] = "osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap";
-const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::moduleName[] = "osgParticle";
+const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::moduleName[] = "osg";
 const char* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::parents[] = {0};
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::hash = 30297084;
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::uniqueIDs[] = {30297084,0};

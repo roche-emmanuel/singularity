@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_BaseOptimizerVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer, unsigned int operation) : osgUtil::BaseOptimizerVisitor(optimizer, operation), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
@@ -310,9 +315,6 @@ public:
 		return BaseOptimizerVisitor::apply(node);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

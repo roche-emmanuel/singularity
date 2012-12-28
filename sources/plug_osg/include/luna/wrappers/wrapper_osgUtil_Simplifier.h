@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_Simplifier(lua_State* L, lua_Table* dum, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) : osgUtil::Simplifier(sampleRatio, maximumError, maximumLength), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::NodeVisitor::reset()
 	void reset() {
@@ -122,9 +127,6 @@ public:
 		return Simplifier::apply(geode);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

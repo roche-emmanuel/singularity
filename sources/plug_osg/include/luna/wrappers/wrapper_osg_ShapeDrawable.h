@@ -23,6 +23,11 @@ public:
 	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, osg::Shape * shape, osg::TessellationHints * hints = 0) : osg::ShapeDrawable(shape, hints), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShapeDrawable(pg, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -243,9 +248,6 @@ public:
 		return ShapeDrawable::computeBound();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const

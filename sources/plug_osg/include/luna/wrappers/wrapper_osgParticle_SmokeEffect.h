@@ -23,6 +23,32 @@ public:
 	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::SmokeEffect(position, scale, intensity), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, const osgParticle::SmokeEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SmokeEffect(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return SmokeEffect::childRemoved(arg1, arg2);
+	};
+
+	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return SmokeEffect::childInserted(arg1);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -357,30 +383,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
-	void childRemoved(unsigned int arg1, unsigned int arg2) {
-		if(_obj.pushFunction("childRemoved")) {
-			_obj.pushArg(arg1);
-			_obj.pushArg(arg2);
-			return (_obj.callFunction<void>());
-		}
-
-		return SmokeEffect::childRemoved(arg1, arg2);
-	};
-
-	// void osg::Group::childInserted(unsigned int arg1)
-	void childInserted(unsigned int arg1) {
-		if(_obj.pushFunction("childInserted")) {
-			_obj.pushArg(arg1);
-			return (_obj.callFunction<void>());
-		}
-
-		return SmokeEffect::childInserted(arg1);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::Node::addParent(osg::Group * node)
 	void public_addParent(osg::Group * node) {

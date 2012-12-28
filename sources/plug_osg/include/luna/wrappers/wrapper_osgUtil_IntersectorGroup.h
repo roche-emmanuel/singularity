@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_IntersectorGroup(lua_State* L, lua_Table* dum) : osgUtil::IntersectorGroup(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osgUtil::Intersector * osgUtil::IntersectorGroup::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
@@ -80,9 +85,6 @@ public:
 		return IntersectorGroup::containsIntersections();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

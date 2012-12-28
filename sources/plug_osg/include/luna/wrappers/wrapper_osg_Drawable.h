@@ -22,6 +22,11 @@ public:
 	wrapper_osg_Drawable(lua_State* L, lua_Table* dum) : osg::Drawable(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Drawable(lua_State* L, lua_Table* dum, const osg::Drawable & drawable, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Drawable(drawable, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -233,9 +238,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const

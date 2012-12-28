@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_VertexAccessOrderVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::VertexAccessOrderVisitor(optimizer), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
@@ -110,9 +115,6 @@ public:
 		return VertexAccessOrderVisitor::apply(geode);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

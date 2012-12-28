@@ -24,17 +24,8 @@ public:
 	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxMask(bitmap), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, const wxColour & colour) : wxMask(bitmap, colour), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxMask::GetClassInfo();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -57,6 +48,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxMask::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

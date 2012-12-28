@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
 	void apply(bool & value) {
@@ -221,9 +226,6 @@ public:
 		return SetValueVisitor::apply(value);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

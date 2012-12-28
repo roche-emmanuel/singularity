@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::_bind_dtor(osgUtil::E
 
 const char LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::className[] = "IndexArrayList";
 const char LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::fullName[] = "osgUtil::EdgeCollector::IndexArrayList";
-const char LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::parents[] = {0};
 const int LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::hash = 655286;
 const int LunaTraits< osgUtil::EdgeCollector::IndexArrayList >::uniqueIDs[] = {655286,0};

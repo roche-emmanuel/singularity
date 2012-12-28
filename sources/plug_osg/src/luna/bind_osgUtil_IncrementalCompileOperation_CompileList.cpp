@@ -80,7 +80,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::_bind_dtor
 
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::className[] = "CompileList";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileList";
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::moduleName[] = "osgUtil";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::moduleName[] = "osg";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::parents[] = {0};
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::hash = 36919874;
 const int LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::uniqueIDs[] = {36919874,0};

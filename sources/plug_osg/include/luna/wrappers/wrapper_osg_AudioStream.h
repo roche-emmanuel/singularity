@@ -22,6 +22,11 @@ public:
 	wrapper_osg_AudioStream(lua_State* L, lua_Table* dum) : osg::AudioStream(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_AudioStream(lua_State* L, lua_Table* dum, const osg::AudioStream & audio, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AudioStream(audio, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -154,9 +159,6 @@ public:
 		return (osg::AudioStream::SampleFormat)(_obj.callFunction<int>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

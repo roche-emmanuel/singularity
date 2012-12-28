@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick)
 	void checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick) {
@@ -57,9 +62,6 @@ public:
 		return OpenGLQuerySupport::initialize(state, startTick);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

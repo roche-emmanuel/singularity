@@ -22,6 +22,11 @@ public:
 	wrapper_osg_StateSet(lua_State* L, lua_Table* dum) : osg::StateSet(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_StateSet(lua_State* L, lua_Table* dum, const osg::StateSet & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::StateSet(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -127,9 +132,6 @@ public:
 		return StateSet::releaseGLObjects(state);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::StateSet::addParent(osg::Object * object)

@@ -22,6 +22,11 @@ public:
 	wrapper_osg_Geode(lua_State* L, lua_Table* dum) : osg::Geode(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_Geode(lua_State* L, lua_Table* dum, const osg::Geode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Geode(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -291,9 +296,6 @@ public:
 		return Geode::releaseGLObjects(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Node::addParent(osg::Group * node)
