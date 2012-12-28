@@ -40,6 +40,12 @@ function Class:initialize(options)
 		self._frame:Destroy(); 
 	end)
 	
+    --[[self._frame:connect(wx.wxID_ANY,wx.wxEVT_IDLE,function(event)
+		collectgarbage('collect')
+		local mem = collectgarbage("count")
+		self:info("(idle) Memory usage: ", mem, " KBs")
+	end)]]
+
 	winman:setMainFrame(self._frame)
 	
 	self:debug("Mainframe initialization done.")

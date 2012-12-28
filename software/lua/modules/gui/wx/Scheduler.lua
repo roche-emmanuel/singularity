@@ -23,6 +23,9 @@ function Class:initialize(options)
 		--self:info("Handing frame timer event...");
 		prof:start("Frame event")
 		evtman:fireEvent(Event.FRAME) 
+		collectgarbage('collect')
+		--local mem = collectgarbage("count")
+		--self:info("Memory usage: ", mem, " KBs")
 		prof:stop()
 	end}
 end

@@ -17,6 +17,9 @@ core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 local App = require "gui.wx.OSGTestApp"
 local app = App{profileFile="test_spark_profile.log"}
 
+app:loadModel("tests/data/glider.osgt")
+--app:createCube(10)
+
 app:run()
 	
 log:notice "Script execution done."
