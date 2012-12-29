@@ -174,7 +174,7 @@ void LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::_bind_dtor(
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::className[] = "ClampProjectionMatrixCallback";
+const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::className[] = "CullSettings_ClampProjectionMatrixCallback";
 const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::fullName[] = "osg::CullSettings::ClampProjectionMatrixCallback";
 const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::parents[] = {"osg.Referenced", 0};

@@ -599,7 +599,7 @@ void LunaTraits< osg::GLBufferObject::Extensions >::_bind_dtor(osg::GLBufferObje
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::GLBufferObject::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::GLBufferObject::Extensions >::className[] = "GLBufferObject_Extensions";
 const char LunaTraits< osg::GLBufferObject::Extensions >::fullName[] = "osg::GLBufferObject::Extensions";
 const char LunaTraits< osg::GLBufferObject::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::GLBufferObject::Extensions >::parents[] = {"osg.Referenced", 0};

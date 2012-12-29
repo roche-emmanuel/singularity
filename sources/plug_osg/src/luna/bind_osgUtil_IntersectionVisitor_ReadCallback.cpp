@@ -121,9 +121,9 @@ void LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::_bind_dtor(osgUti
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::className[] = "ReadCallback";
+const char LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::className[] = "IntersectionVisitor_ReadCallback";
 const char LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::fullName[] = "osgUtil::IntersectionVisitor::ReadCallback";
-const char LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::hash = 39625449;
 const int LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::uniqueIDs[] = {50169651,0};

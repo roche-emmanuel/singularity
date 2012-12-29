@@ -118,7 +118,7 @@ void LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::_bind_dt
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::className[] = "DynamicObjectRenderingCompletedCallback";
+const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::className[] = "State_DynamicObjectRenderingCompletedCallback";
 const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::fullName[] = "osg::State::DynamicObjectRenderingCompletedCallback";
 const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::parents[] = {"osg.Referenced", 0};

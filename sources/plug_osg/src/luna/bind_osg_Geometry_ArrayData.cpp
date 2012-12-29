@@ -222,7 +222,7 @@ void LunaTraits< osg::Geometry::ArrayData >::_bind_dtor(osg::Geometry::ArrayData
 	delete obj;
 }
 
-const char LunaTraits< osg::Geometry::ArrayData >::className[] = "ArrayData";
+const char LunaTraits< osg::Geometry::ArrayData >::className[] = "Geometry_ArrayData";
 const char LunaTraits< osg::Geometry::ArrayData >::fullName[] = "osg::Geometry::ArrayData";
 const char LunaTraits< osg::Geometry::ArrayData >::moduleName[] = "osg";
 const char* LunaTraits< osg::Geometry::ArrayData >::parents[] = {0};

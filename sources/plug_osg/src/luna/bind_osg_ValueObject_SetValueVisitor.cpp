@@ -1298,7 +1298,7 @@ void LunaTraits< osg::ValueObject::SetValueVisitor >::_bind_dtor(osg::ValueObjec
 	delete obj;
 }
 
-const char LunaTraits< osg::ValueObject::SetValueVisitor >::className[] = "SetValueVisitor";
+const char LunaTraits< osg::ValueObject::SetValueVisitor >::className[] = "ValueObject_SetValueVisitor";
 const char LunaTraits< osg::ValueObject::SetValueVisitor >::fullName[] = "osg::ValueObject::SetValueVisitor";
 const char LunaTraits< osg::ValueObject::SetValueVisitor >::moduleName[] = "osg";
 const char* LunaTraits< osg::ValueObject::SetValueVisitor >::parents[] = {0};

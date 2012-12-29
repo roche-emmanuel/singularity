@@ -126,9 +126,9 @@ void LunaTraits< osgUtil::PlaneIntersector::Intersection >::_bind_dtor(osgUtil::
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::className[] = "Intersection";
+const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::className[] = "PlaneIntersector_Intersection";
 const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::fullName[] = "osgUtil::PlaneIntersector::Intersection";
-const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::PlaneIntersector::Intersection >::parents[] = {0};
 const int LunaTraits< osgUtil::PlaneIntersector::Intersection >::hash = 761678;
 const int LunaTraits< osgUtil::PlaneIntersector::Intersection >::uniqueIDs[] = {761678,0};

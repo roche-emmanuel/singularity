@@ -1401,7 +1401,7 @@ void LunaTraits< osgDB::DatabasePager >::_bind_dtor(osgDB::DatabasePager* obj) {
 const char LunaTraits< osgDB::DatabasePager >::className[] = "DatabasePager";
 const char LunaTraits< osgDB::DatabasePager >::fullName[] = "osgDB::DatabasePager";
 const char LunaTraits< osgDB::DatabasePager >::moduleName[] = "osgDB";
-const char* LunaTraits< osgDB::DatabasePager >::parents[] = {"osg.DatabaseRequestHandler", 0};
+const char* LunaTraits< osgDB::DatabasePager >::parents[] = {"osg.NodeVisitor_DatabaseRequestHandler", 0};
 const int LunaTraits< osgDB::DatabasePager >::hash = 75878640;
 const int LunaTraits< osgDB::DatabasePager >::uniqueIDs[] = {50169651,0};
 

@@ -796,7 +796,7 @@ void LunaTraits< osg::Drawable::CullCallback >::_bind_dtor(osg::Drawable::CullCa
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Drawable::CullCallback >::className[] = "CullCallback";
+const char LunaTraits< osg::Drawable::CullCallback >::className[] = "Drawable_CullCallback";
 const char LunaTraits< osg::Drawable::CullCallback >::fullName[] = "osg::Drawable::CullCallback";
 const char LunaTraits< osg::Drawable::CullCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Drawable::CullCallback >::parents[] = {"osg.Object", 0};

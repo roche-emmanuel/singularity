@@ -200,7 +200,7 @@ void LunaTraits< osg::NodeVisitor::ImageRequestHandler >::_bind_dtor(osg::NodeVi
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::className[] = "ImageRequestHandler";
+const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::className[] = "NodeVisitor_ImageRequestHandler";
 const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::fullName[] = "osg::NodeVisitor::ImageRequestHandler";
 const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::moduleName[] = "osg";
 const char* LunaTraits< osg::NodeVisitor::ImageRequestHandler >::parents[] = {"osg.Referenced", 0};

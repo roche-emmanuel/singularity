@@ -1159,7 +1159,7 @@ void LunaTraits< osg::ClusterCullingCallback >::_bind_dtor(osg::ClusterCullingCa
 const char LunaTraits< osg::ClusterCullingCallback >::className[] = "ClusterCullingCallback";
 const char LunaTraits< osg::ClusterCullingCallback >::fullName[] = "osg::ClusterCullingCallback";
 const char LunaTraits< osg::ClusterCullingCallback >::moduleName[] = "osg";
-const char* LunaTraits< osg::ClusterCullingCallback >::parents[] = {"osg.CullCallback", "osg.NodeCallback", 0};
+const char* LunaTraits< osg::ClusterCullingCallback >::parents[] = {"osg.Drawable_CullCallback", "osg.NodeCallback", 0};
 const int LunaTraits< osg::ClusterCullingCallback >::hash = 69111348;
 const int LunaTraits< osg::ClusterCullingCallback >::uniqueIDs[] = {50169651,0};
 

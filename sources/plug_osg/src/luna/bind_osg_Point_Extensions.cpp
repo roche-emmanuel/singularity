@@ -351,7 +351,7 @@ void LunaTraits< osg::Point::Extensions >::_bind_dtor(osg::Point::Extensions* ob
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Point::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Point::Extensions >::className[] = "Point_Extensions";
 const char LunaTraits< osg::Point::Extensions >::fullName[] = "osg::Point::Extensions";
 const char LunaTraits< osg::Point::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Point::Extensions >::parents[] = {"osg.Referenced", 0};

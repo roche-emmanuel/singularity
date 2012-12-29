@@ -200,12 +200,12 @@ function Class:writeFile()
 	local parentList = ""
 	for k,v in class:getBases():sequence() do
 		if v:isValidForWrapping() then
-			parentList = parentList .. '"'.. (v:getModule() or mname) .. "." .. v:getName() .. '", '; --v:getFullName():gsub("::",".")
+			parentList = parentList .. '"'.. v:getFullLuaName(true) .. '", '; --v:getFullName():gsub("::",".")
 		end
 	end
 	
 	-- Write the lunatraits properties:
-	local tname = class:getMappedType() and class:getTypeName() or class:getName()
+	local tname = class:getMappedType() and class:getTypeName() or class:getFullLuaName()
 	
 	buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",tname));
 	buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',class:getTypeName());

@@ -20,7 +20,7 @@ __luna.copyParentMethods = function(class,p) -- __luna.copyParentMethods or
 	for pname in string.gmatch(p, '%.(%w+)$') do
   		parent = parent[pname]
 	end
-
+	
 	if not parent then
   		log:error("Luna",'Cannot find parent class: ' .. p .. '. Please register this class before loading ' .. class._CLASSNAME_);
 	end

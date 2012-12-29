@@ -710,7 +710,7 @@ void LunaTraits< osg::Node::ComputeBoundingSphereCallback >::_bind_dtor(osg::Nod
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::className[] = "ComputeBoundingSphereCallback";
+const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::className[] = "Node_ComputeBoundingSphereCallback";
 const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::fullName[] = "osg::Node::ComputeBoundingSphereCallback";
 const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Node::ComputeBoundingSphereCallback >::parents[] = {"osg.Object", 0};

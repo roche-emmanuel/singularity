@@ -118,7 +118,7 @@ void LunaTraits< osg::GraphicsContext::SwapCallback >::_bind_dtor(osg::GraphicsC
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::GraphicsContext::SwapCallback >::className[] = "SwapCallback";
+const char LunaTraits< osg::GraphicsContext::SwapCallback >::className[] = "GraphicsContext_SwapCallback";
 const char LunaTraits< osg::GraphicsContext::SwapCallback >::fullName[] = "osg::GraphicsContext::SwapCallback";
 const char LunaTraits< osg::GraphicsContext::SwapCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::GraphicsContext::SwapCallback >::parents[] = {"osg.Referenced", 0};

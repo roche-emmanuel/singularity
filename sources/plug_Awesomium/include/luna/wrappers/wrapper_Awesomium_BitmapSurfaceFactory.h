@@ -21,6 +21,11 @@ public:
 	
 	wrapper_Awesomium_BitmapSurfaceFactory(lua_State* L, lua_Table* dum) : Awesomium::BitmapSurfaceFactory(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// Awesomium::Surface * Awesomium::BitmapSurfaceFactory::CreateSurface(Awesomium::WebView * view, int width, int height)
 	Awesomium::Surface * CreateSurface(Awesomium::WebView * view, int width, int height) {
@@ -44,9 +49,6 @@ public:
 		return BitmapSurfaceFactory::DestroySurface(surface);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -1,6 +1,9 @@
 
 namespace osg {
 
+class Referenced {
+};
+
 class Image {
 };
 

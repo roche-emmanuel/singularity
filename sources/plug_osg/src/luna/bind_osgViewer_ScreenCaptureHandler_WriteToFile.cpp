@@ -236,10 +236,10 @@ void LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::_bind_dtor(osgV
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::className[] = "WriteToFile";
+const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::className[] = "ScreenCaptureHandler_WriteToFile";
 const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::fullName[] = "osgViewer::ScreenCaptureHandler::WriteToFile";
-const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::moduleName[] = "osg";
-const char* LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::parents[] = {"osg.CaptureOperation", 0};
+const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::moduleName[] = "osgViewer";
+const char* LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::parents[] = {"osgViewer.ScreenCaptureHandler_CaptureOperation", 0};
 const int LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::hash = 53456537;
 const int LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::uniqueIDs[] = {50169651,0};
 

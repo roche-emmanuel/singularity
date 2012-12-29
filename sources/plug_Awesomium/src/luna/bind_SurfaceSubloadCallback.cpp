@@ -105,12 +105,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::Texture2D* texture_ptr=(Luna< osg::Texture2D >::check(L,2));
+		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
 		if( !texture_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg texture in SurfaceSubloadCallback::load function");
 		}
 		const osg::Texture2D & texture=*texture_ptr;
-		osg::State* state_ptr=(Luna< osg::State >::check(L,3));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in SurfaceSubloadCallback::load function");
 		}
@@ -133,12 +133,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::Texture2D* texture_ptr=(Luna< osg::Texture2D >::check(L,2));
+		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
 		if( !texture_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg texture in SurfaceSubloadCallback::subload function");
 		}
 		const osg::Texture2D & texture=*texture_ptr;
-		osg::State* state_ptr=(Luna< osg::State >::check(L,3));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in SurfaceSubloadCallback::subload function");
 		}

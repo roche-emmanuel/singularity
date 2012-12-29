@@ -188,7 +188,13 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxDatePickerCtrl >::Register(L);
 	Luna< wxDateSpan >::Register(L);
 	Luna< wxDateTime >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wxDateTime");
+	luna_pushModule(L,"wxDateTime",-1);
 	Luna< wxDateTime::Tm >::Register(L);
+	luna_popModule(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wx");
 	Luna< wxDateTimeHolidayAuthority >::Register(L);
 	Luna< wxDateTimeWorkDays >::Register(L);
 	Luna< wxDCBrushChanger >::Register(L);
@@ -392,8 +398,14 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxIdleEvent >::Register(L);
 	Luna< wxIdManager >::Register(L);
 	Luna< wxImage >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wxImage");
+	luna_pushModule(L,"wxImage",-1);
 	Luna< wxImage::HSVValue >::Register(L);
 	Luna< wxImage::RGBValue >::Register(L);
+	luna_popModule(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wx");
 	Luna< wxImageHandler >::Register(L);
 	Luna< wxImageHistogram >::Register(L);
 	Luna< wxImageList >::Register(L);
@@ -775,6 +787,8 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	luna_popModule(L);
 
 	luna_copyParents(L,"wx");
+	luna_copyParents(L,"wxDateTime");
+	luna_copyParents(L,"wxImage");
 
 	luna_pushModule(L,"wx");
 	return 1;

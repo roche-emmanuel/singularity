@@ -158,7 +158,7 @@ void LunaTraits< osg::KdTree::Triangle >::_bind_dtor(osg::KdTree::Triangle* obj)
 	delete obj;
 }
 
-const char LunaTraits< osg::KdTree::Triangle >::className[] = "Triangle";
+const char LunaTraits< osg::KdTree::Triangle >::className[] = "KdTree_Triangle";
 const char LunaTraits< osg::KdTree::Triangle >::fullName[] = "osg::KdTree::Triangle";
 const char LunaTraits< osg::KdTree::Triangle >::moduleName[] = "osg";
 const char* LunaTraits< osg::KdTree::Triangle >::parents[] = {0};

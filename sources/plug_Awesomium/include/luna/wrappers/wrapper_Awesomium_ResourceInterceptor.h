@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
 	Awesomium::ResourceResponse * OnRequest(Awesomium::ResourceRequest * request) {
@@ -31,9 +36,6 @@ public:
 		return ResourceInterceptor::OnRequest(request);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -353,7 +353,7 @@ void LunaTraits< osg::Shader::PerContextShader >::_bind_dtor(osg::Shader::PerCon
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Shader::PerContextShader >::className[] = "PerContextShader";
+const char LunaTraits< osg::Shader::PerContextShader >::className[] = "Shader_PerContextShader";
 const char LunaTraits< osg::Shader::PerContextShader >::fullName[] = "osg::Shader::PerContextShader";
 const char LunaTraits< osg::Shader::PerContextShader >::moduleName[] = "osg";
 const char* LunaTraits< osg::Shader::PerContextShader >::parents[] = {"osg.Referenced", 0};

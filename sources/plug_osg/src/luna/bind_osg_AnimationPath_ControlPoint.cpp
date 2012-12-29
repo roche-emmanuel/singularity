@@ -601,7 +601,7 @@ void LunaTraits< osg::AnimationPath::ControlPoint >::_bind_dtor(osg::AnimationPa
 	delete obj;
 }
 
-const char LunaTraits< osg::AnimationPath::ControlPoint >::className[] = "ControlPoint";
+const char LunaTraits< osg::AnimationPath::ControlPoint >::className[] = "AnimationPath_ControlPoint";
 const char LunaTraits< osg::AnimationPath::ControlPoint >::fullName[] = "osg::AnimationPath::ControlPoint";
 const char LunaTraits< osg::AnimationPath::ControlPoint >::moduleName[] = "osg";
 const char* LunaTraits< osg::AnimationPath::ControlPoint >::parents[] = {0};

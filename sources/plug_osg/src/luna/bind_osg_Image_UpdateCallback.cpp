@@ -424,7 +424,7 @@ void LunaTraits< osg::Image::UpdateCallback >::_bind_dtor(osg::Image::UpdateCall
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Image::UpdateCallback >::className[] = "UpdateCallback";
+const char LunaTraits< osg::Image::UpdateCallback >::className[] = "Image_UpdateCallback";
 const char LunaTraits< osg::Image::UpdateCallback >::fullName[] = "osg::Image::UpdateCallback";
 const char LunaTraits< osg::Image::UpdateCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Image::UpdateCallback >::parents[] = {"osg.StateAttributeCallback", 0};

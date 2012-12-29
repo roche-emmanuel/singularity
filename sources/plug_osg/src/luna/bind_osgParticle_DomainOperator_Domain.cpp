@@ -97,9 +97,9 @@ void LunaTraits< osgParticle::DomainOperator::Domain >::_bind_dtor(osgParticle::
 	delete obj;
 }
 
-const char LunaTraits< osgParticle::DomainOperator::Domain >::className[] = "Domain";
+const char LunaTraits< osgParticle::DomainOperator::Domain >::className[] = "DomainOperator_Domain";
 const char LunaTraits< osgParticle::DomainOperator::Domain >::fullName[] = "osgParticle::DomainOperator::Domain";
-const char LunaTraits< osgParticle::DomainOperator::Domain >::moduleName[] = "osg";
+const char LunaTraits< osgParticle::DomainOperator::Domain >::moduleName[] = "osgParticle";
 const char* LunaTraits< osgParticle::DomainOperator::Domain >::parents[] = {0};
 const int LunaTraits< osgParticle::DomainOperator::Domain >::hash = 60781756;
 const int LunaTraits< osgParticle::DomainOperator::Domain >::uniqueIDs[] = {60781756,0};

@@ -362,7 +362,7 @@ void LunaTraits< osg::VertexProgram::Extensions >::_bind_dtor(osg::VertexProgram
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::VertexProgram::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::VertexProgram::Extensions >::className[] = "VertexProgram_Extensions";
 const char LunaTraits< osg::VertexProgram::Extensions >::fullName[] = "osg::VertexProgram::Extensions";
 const char LunaTraits< osg::VertexProgram::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::VertexProgram::Extensions >::parents[] = {"osg.Referenced", 0};

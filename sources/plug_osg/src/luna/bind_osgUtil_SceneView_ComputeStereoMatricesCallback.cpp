@@ -231,9 +231,9 @@ void LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::_bind_dtor
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::className[] = "ComputeStereoMatricesCallback";
+const char LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::className[] = "SceneView_ComputeStereoMatricesCallback";
 const char LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::fullName[] = "osgUtil::SceneView::ComputeStereoMatricesCallback";
-const char LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::hash = 42058343;
 const int LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::uniqueIDs[] = {50169651,0};

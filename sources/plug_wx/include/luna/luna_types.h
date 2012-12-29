@@ -13697,6 +13697,7 @@ public:
 };
 
 
+
 template<>
 class LunaType< 81056638 > {
 public:
@@ -15402,6 +15403,20 @@ template<>
 class LunaType< 33321875 > {
 public:
 	typedef wxTreeListItems type;
+	
+};
+
+template<>
+class LunaType< 32777408 > {
+public:
+	typedef wxScrolled< wxWindow > type;
+	
+};
+
+template<>
+class LunaType< 5676023 > {
+public:
+	typedef wxVector< wxTreeListItem > type;
 	
 };
 

@@ -1206,6 +1206,7 @@ public:
 };
 
 
+
 template<>
 class LunaType< 20484188 > {
 public:
@@ -1406,6 +1407,34 @@ template<>
 class LunaType< 94328851 > {
 public:
 	typedef GL::GLExtHandler type;
+	
+};
+
+template<>
+class LunaType< 36285581 > {
+public:
+	typedef std::vector< SPK::System * > type;
+	
+};
+
+template<>
+class LunaType< 15140483 > {
+public:
+	typedef std::map< std::string, SparkDrawable::ImageAttribute > type;
+	
+};
+
+template<>
+class LunaType< 28491752 > {
+public:
+	typedef SPK::ArrayBuffer< float > type;
+	
+};
+
+template<>
+class LunaType< 5928724 > {
+public:
+	typedef SPK::ArrayBufferCreator< float > type;
 	
 };
 

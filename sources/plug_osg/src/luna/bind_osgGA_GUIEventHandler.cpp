@@ -1119,7 +1119,7 @@ void LunaTraits< osgGA::GUIEventHandler >::_bind_dtor(osgGA::GUIEventHandler* ob
 const char LunaTraits< osgGA::GUIEventHandler >::className[] = "GUIEventHandler";
 const char LunaTraits< osgGA::GUIEventHandler >::fullName[] = "osgGA::GUIEventHandler";
 const char LunaTraits< osgGA::GUIEventHandler >::moduleName[] = "osgGA";
-const char* LunaTraits< osgGA::GUIEventHandler >::parents[] = {"osg.NodeCallback", "osg.EventCallback", 0};
+const char* LunaTraits< osgGA::GUIEventHandler >::parents[] = {"osg.NodeCallback", "osg.Drawable_EventCallback", 0};
 const int LunaTraits< osgGA::GUIEventHandler >::hash = 29676225;
 const int LunaTraits< osgGA::GUIEventHandler >::uniqueIDs[] = {50169651,0};
 

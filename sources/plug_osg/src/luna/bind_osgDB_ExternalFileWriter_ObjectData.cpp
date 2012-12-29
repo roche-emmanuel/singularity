@@ -127,9 +127,9 @@ void LunaTraits< osgDB::ExternalFileWriter::ObjectData >::_bind_dtor(osgDB::Exte
 	delete obj;
 }
 
-const char LunaTraits< osgDB::ExternalFileWriter::ObjectData >::className[] = "ObjectData";
+const char LunaTraits< osgDB::ExternalFileWriter::ObjectData >::className[] = "ExternalFileWriter_ObjectData";
 const char LunaTraits< osgDB::ExternalFileWriter::ObjectData >::fullName[] = "osgDB::ExternalFileWriter::ObjectData";
-const char LunaTraits< osgDB::ExternalFileWriter::ObjectData >::moduleName[] = "osg";
+const char LunaTraits< osgDB::ExternalFileWriter::ObjectData >::moduleName[] = "osgDB";
 const char* LunaTraits< osgDB::ExternalFileWriter::ObjectData >::parents[] = {0};
 const int LunaTraits< osgDB::ExternalFileWriter::ObjectData >::hash = 50545385;
 const int LunaTraits< osgDB::ExternalFileWriter::ObjectData >::uniqueIDs[] = {50545385,0};

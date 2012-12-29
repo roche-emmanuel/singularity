@@ -194,7 +194,7 @@ void LunaTraits< osg::EndOfDynamicDrawBlock >::_bind_dtor(osg::EndOfDynamicDrawB
 const char LunaTraits< osg::EndOfDynamicDrawBlock >::className[] = "EndOfDynamicDrawBlock";
 const char LunaTraits< osg::EndOfDynamicDrawBlock >::fullName[] = "osg::EndOfDynamicDrawBlock";
 const char LunaTraits< osg::EndOfDynamicDrawBlock >::moduleName[] = "osg";
-const char* LunaTraits< osg::EndOfDynamicDrawBlock >::parents[] = {"osg.DynamicObjectRenderingCompletedCallback", 0};
+const char* LunaTraits< osg::EndOfDynamicDrawBlock >::parents[] = {"osg.State_DynamicObjectRenderingCompletedCallback", 0};
 const int LunaTraits< osg::EndOfDynamicDrawBlock >::hash = 64833397;
 const int LunaTraits< osg::EndOfDynamicDrawBlock >::uniqueIDs[] = {50169651,0};
 

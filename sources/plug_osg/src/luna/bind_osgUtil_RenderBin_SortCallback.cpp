@@ -118,9 +118,9 @@ void LunaTraits< osgUtil::RenderBin::SortCallback >::_bind_dtor(osgUtil::RenderB
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::RenderBin::SortCallback >::className[] = "SortCallback";
+const char LunaTraits< osgUtil::RenderBin::SortCallback >::className[] = "RenderBin_SortCallback";
 const char LunaTraits< osgUtil::RenderBin::SortCallback >::fullName[] = "osgUtil::RenderBin::SortCallback";
-const char LunaTraits< osgUtil::RenderBin::SortCallback >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::RenderBin::SortCallback >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::RenderBin::SortCallback >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::RenderBin::SortCallback >::hash = 60083473;
 const int LunaTraits< osgUtil::RenderBin::SortCallback >::uniqueIDs[] = {50169651,0};

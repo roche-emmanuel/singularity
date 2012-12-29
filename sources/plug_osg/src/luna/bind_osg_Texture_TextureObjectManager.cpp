@@ -1151,7 +1151,7 @@ void LunaTraits< osg::Texture::TextureObjectManager >::_bind_dtor(osg::Texture::
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Texture::TextureObjectManager >::className[] = "TextureObjectManager";
+const char LunaTraits< osg::Texture::TextureObjectManager >::className[] = "Texture_TextureObjectManager";
 const char LunaTraits< osg::Texture::TextureObjectManager >::fullName[] = "osg::Texture::TextureObjectManager";
 const char LunaTraits< osg::Texture::TextureObjectManager >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture::TextureObjectManager >::parents[] = {"osg.Referenced", 0};

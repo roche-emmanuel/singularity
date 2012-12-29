@@ -694,7 +694,7 @@ void LunaTraits< osg::BufferData::ModifiedCallback >::_bind_dtor(osg::BufferData
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::BufferData::ModifiedCallback >::className[] = "ModifiedCallback";
+const char LunaTraits< osg::BufferData::ModifiedCallback >::className[] = "BufferData_ModifiedCallback";
 const char LunaTraits< osg::BufferData::ModifiedCallback >::fullName[] = "osg::BufferData::ModifiedCallback";
 const char LunaTraits< osg::BufferData::ModifiedCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::BufferData::ModifiedCallback >::parents[] = {"osg.Object", 0};

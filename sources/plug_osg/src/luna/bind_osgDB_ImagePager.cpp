@@ -475,7 +475,7 @@ void LunaTraits< osgDB::ImagePager >::_bind_dtor(osgDB::ImagePager* obj) {
 const char LunaTraits< osgDB::ImagePager >::className[] = "ImagePager";
 const char LunaTraits< osgDB::ImagePager >::fullName[] = "osgDB::ImagePager";
 const char LunaTraits< osgDB::ImagePager >::moduleName[] = "osgDB";
-const char* LunaTraits< osgDB::ImagePager >::parents[] = {"osg.ImageRequestHandler", 0};
+const char* LunaTraits< osgDB::ImagePager >::parents[] = {"osg.NodeVisitor_ImageRequestHandler", 0};
 const int LunaTraits< osgDB::ImagePager >::hash = 34619519;
 const int LunaTraits< osgDB::ImagePager >::uniqueIDs[] = {50169651,0};
 

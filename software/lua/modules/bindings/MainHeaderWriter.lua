@@ -5,6 +5,7 @@ local injector = require "bindings.CodeInjector"
 local im = require "bindings.IgnoreManager"
 local snippets = require "bindings.SnippetManager"
 local utils = require "utils"
+local tm = require "bindings.TypeManager"
 
 local Set = require "std.Set"
 
@@ -53,6 +54,25 @@ function Class:writeFile()
 	
 	buf:newLine()
 	
+	local types = tm:getRegisteredMappedTypes()
+	
+	for _,classname in types:sequence() do
+		if not writtenTypes:contains(classname) then
+			writtenTypes:push_back(classname)
+		else
+			classname = nil	
+		end
+		
+		if classname and not im:ignore(classname,"class_declaration") then
+			self:debug0_v("Writing class declaration for type ",classname)
+			buf:writeLine(snippets:getLunaTraitsCode(classname,classname,add))
+		else
+			self:notice("Ignoring class declaration for type ", classname)
+		end
+	end
+	
+	buf:newLine()
+	
 	-- write the LunaTypes for all the absolute base classes:
 	local writtenTypes = Set();
 	
@@ -66,6 +86,16 @@ function Class:writeFile()
 			else
 				self:warn("Luna type already written for hash=",hash," type=",v:getFullName())
 			end
+		end
+	end
+	
+	for _,cname in types:sequence() do
+		local hash = utils.getHash(cname)
+		if not writtenTypes:contains(hash) and not im:ignore(cname,"class_declaration") then
+			buf:writeLine(snippets:getLunaTypeCode(hash,cname))
+			writtenTypes:push_back(hash)
+		else
+			self:warn("Luna type already written for hash=",hash," type=",cname)
 		end
 	end
 	

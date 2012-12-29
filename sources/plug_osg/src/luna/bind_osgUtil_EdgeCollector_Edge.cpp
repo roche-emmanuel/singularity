@@ -352,9 +352,9 @@ void LunaTraits< osgUtil::EdgeCollector::Edge >::_bind_dtor(osgUtil::EdgeCollect
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::EdgeCollector::Edge >::className[] = "Edge";
+const char LunaTraits< osgUtil::EdgeCollector::Edge >::className[] = "EdgeCollector_Edge";
 const char LunaTraits< osgUtil::EdgeCollector::Edge >::fullName[] = "osgUtil::EdgeCollector::Edge";
-const char LunaTraits< osgUtil::EdgeCollector::Edge >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::EdgeCollector::Edge >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::EdgeCollector::Edge >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgUtil::EdgeCollector::Edge >::hash = 2207058;
 const int LunaTraits< osgUtil::EdgeCollector::Edge >::uniqueIDs[] = {50169651,0};

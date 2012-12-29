@@ -128,7 +128,7 @@ void LunaTraits< osg::PagedLOD::PerRangeData >::_bind_dtor(osg::PagedLOD::PerRan
 	delete obj;
 }
 
-const char LunaTraits< osg::PagedLOD::PerRangeData >::className[] = "PerRangeData";
+const char LunaTraits< osg::PagedLOD::PerRangeData >::className[] = "PagedLOD_PerRangeData";
 const char LunaTraits< osg::PagedLOD::PerRangeData >::fullName[] = "osg::PagedLOD::PerRangeData";
 const char LunaTraits< osg::PagedLOD::PerRangeData >::moduleName[] = "osg";
 const char* LunaTraits< osg::PagedLOD::PerRangeData >::parents[] = {0};

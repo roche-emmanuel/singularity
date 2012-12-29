@@ -193,7 +193,7 @@ void LunaTraits< SparkDrawable::SortParticlesOperator >::_bind_dtor(SparkDrawabl
 
 const char LunaTraits< SparkDrawable::SortParticlesOperator >::className[] = "SortParticlesOperator";
 const char LunaTraits< SparkDrawable::SortParticlesOperator >::fullName[] = "SparkDrawable::SortParticlesOperator";
-const char LunaTraits< SparkDrawable::SortParticlesOperator >::moduleName[] = "spark";
+const char LunaTraits< SparkDrawable::SortParticlesOperator >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::SortParticlesOperator >::parents[] = {0};
 const int LunaTraits< SparkDrawable::SortParticlesOperator >::hash = 7585549;
 const int LunaTraits< SparkDrawable::SortParticlesOperator >::uniqueIDs[] = {7585549,0};

@@ -126,7 +126,7 @@ void LunaTraits< osg::KdTree::LineSegmentIntersection >::_bind_dtor(osg::KdTree:
 	delete obj;
 }
 
-const char LunaTraits< osg::KdTree::LineSegmentIntersection >::className[] = "LineSegmentIntersection";
+const char LunaTraits< osg::KdTree::LineSegmentIntersection >::className[] = "KdTree_LineSegmentIntersection";
 const char LunaTraits< osg::KdTree::LineSegmentIntersection >::fullName[] = "osg::KdTree::LineSegmentIntersection";
 const char LunaTraits< osg::KdTree::LineSegmentIntersection >::moduleName[] = "osg";
 const char* LunaTraits< osg::KdTree::LineSegmentIntersection >::parents[] = {0};

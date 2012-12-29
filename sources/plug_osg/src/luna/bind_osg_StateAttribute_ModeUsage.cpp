@@ -158,7 +158,7 @@ void LunaTraits< osg::StateAttribute::ModeUsage >::_bind_dtor(osg::StateAttribut
 	delete obj;
 }
 
-const char LunaTraits< osg::StateAttribute::ModeUsage >::className[] = "ModeUsage";
+const char LunaTraits< osg::StateAttribute::ModeUsage >::className[] = "StateAttribute_ModeUsage";
 const char LunaTraits< osg::StateAttribute::ModeUsage >::fullName[] = "osg::StateAttribute::ModeUsage";
 const char LunaTraits< osg::StateAttribute::ModeUsage >::moduleName[] = "osg";
 const char* LunaTraits< osg::StateAttribute::ModeUsage >::parents[] = {0};

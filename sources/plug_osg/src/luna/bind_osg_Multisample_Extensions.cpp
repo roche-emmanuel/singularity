@@ -295,7 +295,7 @@ void LunaTraits< osg::Multisample::Extensions >::_bind_dtor(osg::Multisample::Ex
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Multisample::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Multisample::Extensions >::className[] = "Multisample_Extensions";
 const char LunaTraits< osg::Multisample::Extensions >::fullName[] = "osg::Multisample::Extensions";
 const char LunaTraits< osg::Multisample::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Multisample::Extensions >::parents[] = {"osg.Referenced", 0};

@@ -149,7 +149,7 @@ void LunaTraits< SparkDrawable::DeferredSystemHandler >::_bind_dtor(SparkDrawabl
 
 const char LunaTraits< SparkDrawable::DeferredSystemHandler >::className[] = "DeferredSystemHandler";
 const char LunaTraits< SparkDrawable::DeferredSystemHandler >::fullName[] = "SparkDrawable::DeferredSystemHandler";
-const char LunaTraits< SparkDrawable::DeferredSystemHandler >::moduleName[] = "spark";
+const char LunaTraits< SparkDrawable::DeferredSystemHandler >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::DeferredSystemHandler >::parents[] = {"osg.UpdateCallback", 0};
 const int LunaTraits< SparkDrawable::DeferredSystemHandler >::hash = 4324218;
 const int LunaTraits< SparkDrawable::DeferredSystemHandler >::uniqueIDs[] = {5213827,0};

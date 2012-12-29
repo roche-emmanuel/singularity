@@ -80,7 +80,7 @@ void LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::_bind_dto
 
 const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::className[] = "PosAndRotate";
 const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::fullName[] = "SparkDrawable::DeferredSystemHandler::PosAndRotate";
-const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::moduleName[] = "spark";
+const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::parents[] = {0};
 const int LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::hash = 2783204;
 const int LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::uniqueIDs[] = {2783204,0};

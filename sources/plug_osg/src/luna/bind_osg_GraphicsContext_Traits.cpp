@@ -147,10 +147,10 @@ void LunaTraits< osg::GraphicsContext::Traits >::_bind_dtor(osg::GraphicsContext
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::GraphicsContext::Traits >::className[] = "Traits";
+const char LunaTraits< osg::GraphicsContext::Traits >::className[] = "GraphicsContext_Traits";
 const char LunaTraits< osg::GraphicsContext::Traits >::fullName[] = "osg::GraphicsContext::Traits";
 const char LunaTraits< osg::GraphicsContext::Traits >::moduleName[] = "osg";
-const char* LunaTraits< osg::GraphicsContext::Traits >::parents[] = {"osg.Referenced", "osg.ScreenIdentifier", 0};
+const char* LunaTraits< osg::GraphicsContext::Traits >::parents[] = {"osg.Referenced", "osg.GraphicsContext_ScreenIdentifier", 0};
 const int LunaTraits< osg::GraphicsContext::Traits >::hash = 19159633;
 const int LunaTraits< osg::GraphicsContext::Traits >::uniqueIDs[] = {50169651, 83590106,0};
 

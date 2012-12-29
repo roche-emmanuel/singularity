@@ -46,6 +46,7 @@ function Class:writeFile()
 	local currentModule = nil
 	local moduleSet = Set();
 	local classes = rm:getClasses()
+	local currentParent = nil
 	
 	for _,v in classes:sequence() do
 		local tname = v:getTypeName()
@@ -53,22 +54,48 @@ function Class:writeFile()
 			written:push_back(tname)
 			
 			-- check if we should change the currentModule:
-			local mod = v:getModule() or mname
-			if currentModule ~= mod then
+			local modName = v:getModule() or mname
+			if currentModule ~= modName then
+				if currentParent then
+					buf:writeSubLine("luna_popModule(L);")
+					currentParent = nil
+				end
+				
 				if currentModule then
 					buf:writeSubLine("luna_popModule(L);")
 				end
-				buf:writeSubLine('luna_pushModule(L,"${1}");',mod)
-				currentModule = mod
-				moduleSet:push_back(mod) -- add the module to the set.
+				buf:writeSubLine('luna_pushModule(L,"${1}");',modName)
+				currentModule = modName
+				moduleSet:push_back(modName) -- add the module to the set.
 			end
-			self:info("Would write class ", tname, " in module ", v:getModule())
+			self:info("Would write class ", tname, " in module ", modName)
 			
+			local parentName = nil
+			if v:getParent():isClass() then
+				--parentName = v:getParent():getName()
+			end
+
+			if parentName~=currentParent then
+				if currentParent then
+					buf:writeSubLine("luna_popModule(L);")
+				end
+				
+				currentParent = parentName
+				if currentParent then
+					buf:writeSubLine('luna_pushModule(L,"${1}",-1);',currentParent)
+				end
+			end
+				
 			buf:writeSubLine("Luna< ${1} >::Register(L);",tname)
 		else
 			self:warn("Ignoring registration for class ", tname)
 		end
 	end
+	
+	if currentParent then
+		buf:writeSubLine("luna_popModule(L);")
+	end
+	
 	buf:writeSubLine("luna_popModule(L);") -- pop the module at the end.	
 	--buf:writeForeach(buf.classes,"Luna< ${1} >::Register(L);",getValueName)
 	buf:newLine()

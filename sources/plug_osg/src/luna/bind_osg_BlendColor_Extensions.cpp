@@ -248,7 +248,7 @@ void LunaTraits< osg::BlendColor::Extensions >::_bind_dtor(osg::BlendColor::Exte
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::BlendColor::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::BlendColor::Extensions >::className[] = "BlendColor_Extensions";
 const char LunaTraits< osg::BlendColor::Extensions >::fullName[] = "osg::BlendColor::Extensions";
 const char LunaTraits< osg::BlendColor::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::BlendColor::Extensions >::parents[] = {"osg.Referenced", 0};

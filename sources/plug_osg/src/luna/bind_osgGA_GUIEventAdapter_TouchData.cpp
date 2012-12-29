@@ -190,9 +190,9 @@ void LunaTraits< osgGA::GUIEventAdapter::TouchData >::_bind_dtor(osgGA::GUIEvent
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgGA::GUIEventAdapter::TouchData >::className[] = "TouchData";
+const char LunaTraits< osgGA::GUIEventAdapter::TouchData >::className[] = "GUIEventAdapter_TouchData";
 const char LunaTraits< osgGA::GUIEventAdapter::TouchData >::fullName[] = "osgGA::GUIEventAdapter::TouchData";
-const char LunaTraits< osgGA::GUIEventAdapter::TouchData >::moduleName[] = "osg";
+const char LunaTraits< osgGA::GUIEventAdapter::TouchData >::moduleName[] = "osgGA";
 const char* LunaTraits< osgGA::GUIEventAdapter::TouchData >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgGA::GUIEventAdapter::TouchData >::hash = 51484548;
 const int LunaTraits< osgGA::GUIEventAdapter::TouchData >::uniqueIDs[] = {50169651,0};

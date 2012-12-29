@@ -670,7 +670,7 @@ void LunaTraits< osg::StateSet::Callback >::_bind_dtor(osg::StateSet::Callback* 
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::StateSet::Callback >::className[] = "Callback";
+const char LunaTraits< osg::StateSet::Callback >::className[] = "StateSet_Callback";
 const char LunaTraits< osg::StateSet::Callback >::fullName[] = "osg::StateSet::Callback";
 const char LunaTraits< osg::StateSet::Callback >::moduleName[] = "osg";
 const char* LunaTraits< osg::StateSet::Callback >::parents[] = {"osg.Object", 0};

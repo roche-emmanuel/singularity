@@ -80,7 +80,7 @@ void LunaTraits< SparkDrawable::ImageAttribute >::_bind_dtor(SparkDrawable::Imag
 
 const char LunaTraits< SparkDrawable::ImageAttribute >::className[] = "ImageAttribute";
 const char LunaTraits< SparkDrawable::ImageAttribute >::fullName[] = "SparkDrawable::ImageAttribute";
-const char LunaTraits< SparkDrawable::ImageAttribute >::moduleName[] = "spark";
+const char LunaTraits< SparkDrawable::ImageAttribute >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::ImageAttribute >::parents[] = {0};
 const int LunaTraits< SparkDrawable::ImageAttribute >::hash = 36168738;
 const int LunaTraits< SparkDrawable::ImageAttribute >::uniqueIDs[] = {36168738,0};

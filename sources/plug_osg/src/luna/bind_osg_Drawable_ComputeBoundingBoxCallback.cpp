@@ -710,7 +710,7 @@ void LunaTraits< osg::Drawable::ComputeBoundingBoxCallback >::_bind_dtor(osg::Dr
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Drawable::ComputeBoundingBoxCallback >::className[] = "ComputeBoundingBoxCallback";
+const char LunaTraits< osg::Drawable::ComputeBoundingBoxCallback >::className[] = "Drawable_ComputeBoundingBoxCallback";
 const char LunaTraits< osg::Drawable::ComputeBoundingBoxCallback >::fullName[] = "osg::Drawable::ComputeBoundingBoxCallback";
 const char LunaTraits< osg::Drawable::ComputeBoundingBoxCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Drawable::ComputeBoundingBoxCallback >::parents[] = {"osg.Object", 0};

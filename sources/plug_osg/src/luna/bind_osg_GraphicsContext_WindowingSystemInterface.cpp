@@ -124,7 +124,7 @@ void LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::_bind_dtor(os
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::className[] = "WindowingSystemInterface";
+const char LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::className[] = "GraphicsContext_WindowingSystemInterface";
 const char LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::fullName[] = "osg::GraphicsContext::WindowingSystemInterface";
 const char LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::moduleName[] = "osg";
 const char* LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::parents[] = {"osg.Referenced", 0};

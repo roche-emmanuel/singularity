@@ -8,6 +8,7 @@ local utils = require "utils"
 
 local tm = require "bindings.TypeManager"
 local im = require "bindings.IgnoreManager"
+local rm = require "bindings.ReflectionManager"
 local ItemSet = require "reflection.ItemSet"
 
 function Class:initialize(options)
@@ -18,6 +19,22 @@ end
 
 function Class:getMappedType()
 	return self.mappedType
+end
+
+function Class:getFullLuaName(withModule)
+	local result = ""
+	if self:getParent():isClass() then
+		result = self:getParent():getFullLuaName() .. "_"
+	end
+	
+	result = result .. self:getName()
+	
+	if withModule then
+		local mname = rm:getDefaultModuleName()
+		result = (self:getModule() or mname) .. "." .. result
+	end
+	
+	return result
 end
 
 function Class:setMappedType(type)
@@ -270,7 +287,7 @@ end
 
 function Class:getTypeName()
 	local mtype = self:getMappedType() and self:getMappedType():getName()
-	if mtype then
+	if mtype and self:isRecursivePublic() then
 		tm:registerMappedType(mtype)
 	end
 	return  mtype or self:getFullName()

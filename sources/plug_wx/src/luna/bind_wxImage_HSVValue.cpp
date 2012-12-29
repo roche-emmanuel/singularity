@@ -106,7 +106,7 @@ void LunaTraits< wxImage::HSVValue >::_bind_dtor(wxImage::HSVValue* obj) {
 
 const char LunaTraits< wxImage::HSVValue >::className[] = "HSVValue";
 const char LunaTraits< wxImage::HSVValue >::fullName[] = "wxImage::HSVValue";
-const char LunaTraits< wxImage::HSVValue >::moduleName[] = "wx";
+const char LunaTraits< wxImage::HSVValue >::moduleName[] = "wxImage";
 const char* LunaTraits< wxImage::HSVValue >::parents[] = {0};
 const int LunaTraits< wxImage::HSVValue >::hash = 41631892;
 const int LunaTraits< wxImage::HSVValue >::uniqueIDs[] = {41631892,0};

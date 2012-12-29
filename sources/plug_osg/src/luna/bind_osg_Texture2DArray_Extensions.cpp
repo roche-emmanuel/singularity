@@ -639,7 +639,7 @@ void LunaTraits< osg::Texture2DArray::Extensions >::_bind_dtor(osg::Texture2DArr
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Texture2DArray::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Texture2DArray::Extensions >::className[] = "Texture2DArray_Extensions";
 const char LunaTraits< osg::Texture2DArray::Extensions >::fullName[] = "osg::Texture2DArray::Extensions";
 const char LunaTraits< osg::Texture2DArray::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture2DArray::Extensions >::parents[] = {"osg.Referenced", 0};

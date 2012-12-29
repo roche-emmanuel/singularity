@@ -843,7 +843,7 @@ void LunaTraits< osgViewer::InteractiveImageHandler >::_bind_dtor(osgViewer::Int
 const char LunaTraits< osgViewer::InteractiveImageHandler >::className[] = "InteractiveImageHandler";
 const char LunaTraits< osgViewer::InteractiveImageHandler >::fullName[] = "osgViewer::InteractiveImageHandler";
 const char LunaTraits< osgViewer::InteractiveImageHandler >::moduleName[] = "osgViewer";
-const char* LunaTraits< osgViewer::InteractiveImageHandler >::parents[] = {"osgGA.GUIEventHandler", "osg.CullCallback", 0};
+const char* LunaTraits< osgViewer::InteractiveImageHandler >::parents[] = {"osgGA.GUIEventHandler", "osg.Drawable_CullCallback", 0};
 const int LunaTraits< osgViewer::InteractiveImageHandler >::hash = 75863370;
 const int LunaTraits< osgViewer::InteractiveImageHandler >::uniqueIDs[] = {50169651,0};
 

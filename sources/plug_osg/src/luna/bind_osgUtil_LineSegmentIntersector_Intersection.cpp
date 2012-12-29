@@ -236,9 +236,9 @@ void LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::_bind_dtor(osg
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::className[] = "Intersection";
+const char LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::className[] = "LineSegmentIntersector_Intersection";
 const char LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::fullName[] = "osgUtil::LineSegmentIntersector::Intersection";
-const char LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::parents[] = {0};
 const int LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::hash = 74825011;
 const int LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::uniqueIDs[] = {74825011,0};

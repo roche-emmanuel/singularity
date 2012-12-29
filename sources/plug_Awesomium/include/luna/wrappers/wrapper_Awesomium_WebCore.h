@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	Awesomium::WebSession * CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) {
@@ -77,9 +82,6 @@ public:
 		return (_obj.callFunction<const char*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

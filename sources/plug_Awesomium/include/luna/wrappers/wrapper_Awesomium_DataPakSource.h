@@ -21,6 +21,11 @@ public:
 	
 	wrapper_Awesomium_DataPakSource(lua_State* L, lua_Table* dum, const Awesomium::WebString & pak_path) : Awesomium::DataPakSource(pak_path), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void Awesomium::DataPakSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	void OnRequest(int request_id, const Awesomium::WebString & path) {
@@ -33,9 +38,6 @@ public:
 		return DataPakSource::OnRequest(request_id, path);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void Awesomium::DataSource::set_session(Awesomium::WebSession * session, int data_source_id)

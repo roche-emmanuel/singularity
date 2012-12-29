@@ -784,6 +784,24 @@ public:
 };
 
 template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< osg::Image > {
 public:
 	static const char className[];
@@ -836,6 +854,7 @@ public:
 	typedef osg::State base_t;
 	static luna_ConverterType converters[];
 };
+
 
 
 template<>
@@ -1108,6 +1127,13 @@ template<>
 class LunaType< 85723603 > {
 public:
 	typedef WebViewListener::InputMethodEditor type;
+	
+};
+
+template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
 	
 };
 

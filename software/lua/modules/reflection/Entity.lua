@@ -132,6 +132,10 @@ function Class:isPublic()
 	return self._section == Class.SECTION_PUBLIC
 end
 
+function Class:isRecursivePublic()
+	 return self:isPublic() and (not self:getParent() or self:getParent():isRecursivePublic())
+end
+
 function Class:isProtected()
 	return self._section == Class.SECTION_PROTECTED
 end
@@ -144,7 +148,7 @@ end
 function Class:getRootNamespace()
 	local prevParent = nil;
 	local parent = self:getParent();
-	while(parent and parent:getName()~="" and parent:isNamespace()) do
+	while(parent and parent:getName()~="") do
 		prevParent = parent
 		parent = parent:getParent();
 	end

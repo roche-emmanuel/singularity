@@ -811,7 +811,7 @@ void LunaTraits< osg::Program::ProgramBinary >::_bind_dtor(osg::Program::Program
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Program::ProgramBinary >::className[] = "ProgramBinary";
+const char LunaTraits< osg::Program::ProgramBinary >::className[] = "Program_ProgramBinary";
 const char LunaTraits< osg::Program::ProgramBinary >::fullName[] = "osg::Program::ProgramBinary";
 const char LunaTraits< osg::Program::ProgramBinary >::moduleName[] = "osg";
 const char* LunaTraits< osg::Program::ProgramBinary >::parents[] = {"osg.Object", 0};

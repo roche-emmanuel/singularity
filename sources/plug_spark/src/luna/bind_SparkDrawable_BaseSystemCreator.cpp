@@ -142,7 +142,7 @@ void LunaTraits< SparkDrawable::BaseSystemCreator >::_bind_dtor(SparkDrawable::B
 
 const char LunaTraits< SparkDrawable::BaseSystemCreator >::className[] = "BaseSystemCreator";
 const char LunaTraits< SparkDrawable::BaseSystemCreator >::fullName[] = "SparkDrawable::BaseSystemCreator";
-const char LunaTraits< SparkDrawable::BaseSystemCreator >::moduleName[] = "spark";
+const char LunaTraits< SparkDrawable::BaseSystemCreator >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::BaseSystemCreator >::parents[] = {0};
 const int LunaTraits< SparkDrawable::BaseSystemCreator >::hash = 81795760;
 const int LunaTraits< SparkDrawable::BaseSystemCreator >::uniqueIDs[] = {81795760,0};

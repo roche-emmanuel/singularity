@@ -126,9 +126,9 @@ void LunaTraits< osgUtil::PolytopeIntersector::Intersection >::_bind_dtor(osgUti
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::className[] = "Intersection";
+const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::className[] = "PolytopeIntersector_Intersection";
 const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::fullName[] = "osgUtil::PolytopeIntersector::Intersection";
-const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::moduleName[] = "osg";
+const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::PolytopeIntersector::Intersection >::parents[] = {0};
 const int LunaTraits< osgUtil::PolytopeIntersector::Intersection >::hash = 31087672;
 const int LunaTraits< osgUtil::PolytopeIntersector::Intersection >::uniqueIDs[] = {31087672,0};

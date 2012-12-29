@@ -216,7 +216,7 @@ void LunaTraits< osg::TextureCubeMap::Extensions >::_bind_dtor(osg::TextureCubeM
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::TextureCubeMap::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::TextureCubeMap::Extensions >::className[] = "TextureCubeMap_Extensions";
 const char LunaTraits< osg::TextureCubeMap::Extensions >::fullName[] = "osg::TextureCubeMap::Extensions";
 const char LunaTraits< osg::TextureCubeMap::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::TextureCubeMap::Extensions >::parents[] = {"osg.Referenced", 0};

@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
 	void OnUnresponsive(Awesomium::WebView * caller) {
@@ -43,9 +48,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

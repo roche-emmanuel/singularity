@@ -380,7 +380,7 @@ void LunaTraits< osg::View::Slave >::_bind_dtor(osg::View::Slave* obj) {
 	delete obj;
 }
 
-const char LunaTraits< osg::View::Slave >::className[] = "Slave";
+const char LunaTraits< osg::View::Slave >::className[] = "View_Slave";
 const char LunaTraits< osg::View::Slave >::fullName[] = "osg::View::Slave";
 const char LunaTraits< osg::View::Slave >::moduleName[] = "osg";
 const char* LunaTraits< osg::View::Slave >::parents[] = {0};

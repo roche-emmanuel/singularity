@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,45173508) ) return false;
-		if( (!dynamic_cast< FANN::training_data* >(Luna< FANN::training_data >::check(L,1))) ) return false;
+		if( (!(Luna< FANN::training_data >::check(L,1))) ) return false;
 		return true;
 	}
 

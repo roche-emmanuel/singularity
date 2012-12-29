@@ -19,13 +19,23 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 
 	luna_pushModule(L,"spark");
 	Luna< SparkDrawable >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"SparkDrawable");
+	luna_pushModule(L,"SparkDrawable",-1);
 	Luna< std::vector< SPK::System * > >::Register(L);
 	Luna< std::map< std::string, SparkDrawable::ImageAttribute > >::Register(L);
 	Luna< SparkDrawable::BaseSystemCreator >::Register(L);
 	Luna< SparkDrawable::DeferredSystemHandler >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"DeferredSystemHandler",-1);
 	Luna< SparkDrawable::DeferredSystemHandler::PosAndRotate >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"SparkDrawable",-1);
 	Luna< SparkDrawable::ImageAttribute >::Register(L);
 	Luna< SparkDrawable::SortParticlesOperator >::Register(L);
+	luna_popModule(L);
+	luna_popModule(L);
+	luna_pushModule(L,"spark");
 	Luna< SparkUpdatingHandler >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"SPK");
@@ -95,6 +105,7 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	luna_popModule(L);
 
 	luna_copyParents(L,"spark");
+	luna_copyParents(L,"SparkDrawable");
 	luna_copyParents(L,"SPK");
 	luna_copyParents(L,"GL");
 

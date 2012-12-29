@@ -284,7 +284,7 @@ void LunaTraits< osg::ArgumentParser::Parameter >::_bind_dtor(osg::ArgumentParse
 	delete obj;
 }
 
-const char LunaTraits< osg::ArgumentParser::Parameter >::className[] = "Parameter";
+const char LunaTraits< osg::ArgumentParser::Parameter >::className[] = "ArgumentParser_Parameter";
 const char LunaTraits< osg::ArgumentParser::Parameter >::fullName[] = "osg::ArgumentParser::Parameter";
 const char LunaTraits< osg::ArgumentParser::Parameter >::moduleName[] = "osg";
 const char* LunaTraits< osg::ArgumentParser::Parameter >::parents[] = {0};

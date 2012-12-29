@@ -167,9 +167,9 @@ void LunaTraits< osgDB::ImageOptions::TexCoordRange >::_bind_dtor(osgDB::ImageOp
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::className[] = "TexCoordRange";
+const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::className[] = "ImageOptions_TexCoordRange";
 const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::fullName[] = "osgDB::ImageOptions::TexCoordRange";
-const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::moduleName[] = "osg";
+const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::moduleName[] = "osgDB";
 const char* LunaTraits< osgDB::ImageOptions::TexCoordRange >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< osgDB::ImageOptions::TexCoordRange >::hash = 56995153;
 const int LunaTraits< osgDB::ImageOptions::TexCoordRange >::uniqueIDs[] = {50169651,0};

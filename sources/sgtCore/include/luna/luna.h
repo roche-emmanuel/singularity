@@ -41,7 +41,7 @@ SGTCORE_EXPORT LunaConverterMap& luna_getConverterMap(std::string baseName);
 SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, std::string baseName, std::string derivedName);
 SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, std::string baseName, std::string derivedName);
 
-SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname);
+SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname, int index = LUA_GLOBALSINDEX);
 SGTCORE_EXPORT int luna_popModule(lua_State* L);
 
 class SGTCORE_EXPORT luna_wrapper_base {
@@ -234,8 +234,8 @@ class LunaTraits
 		static luna_RegType methods[];
 		static luna_ConverterType converters[];
 		static luna_RegEnumType enumValues[];
-		static void* _bind_ctor(lua_State *L);
-		static void _bind_dtor(void* obj);
+		static T* _bind_ctor(lua_State *L);
+		static void _bind_dtor(T* obj);
 		typedef T base_t;
 		typedef T parent_t;
 };

@@ -216,7 +216,7 @@ void LunaTraits< osg::Stencil::Extensions >::_bind_dtor(osg::Stencil::Extensions
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Stencil::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Stencil::Extensions >::className[] = "Stencil_Extensions";
 const char LunaTraits< osg::Stencil::Extensions >::fullName[] = "osg::Stencil::Extensions";
 const char LunaTraits< osg::Stencil::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Stencil::Extensions >::parents[] = {"osg.Referenced", 0};

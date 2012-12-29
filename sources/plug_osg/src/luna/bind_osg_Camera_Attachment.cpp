@@ -170,7 +170,7 @@ void LunaTraits< osg::Camera::Attachment >::_bind_dtor(osg::Camera::Attachment* 
 	delete obj;
 }
 
-const char LunaTraits< osg::Camera::Attachment >::className[] = "Attachment";
+const char LunaTraits< osg::Camera::Attachment >::className[] = "Camera_Attachment";
 const char LunaTraits< osg::Camera::Attachment >::fullName[] = "osg::Camera::Attachment";
 const char LunaTraits< osg::Camera::Attachment >::moduleName[] = "osg";
 const char* LunaTraits< osg::Camera::Attachment >::parents[] = {0};

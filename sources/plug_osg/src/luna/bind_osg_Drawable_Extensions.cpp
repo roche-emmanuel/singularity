@@ -1984,7 +1984,7 @@ void LunaTraits< osg::Drawable::Extensions >::_bind_dtor(osg::Drawable::Extensio
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Drawable::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Drawable::Extensions >::className[] = "Drawable_Extensions";
 const char LunaTraits< osg::Drawable::Extensions >::fullName[] = "osg::Drawable::Extensions";
 const char LunaTraits< osg::Drawable::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Drawable::Extensions >::parents[] = {"osg.Referenced", 0};

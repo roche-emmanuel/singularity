@@ -127,7 +127,7 @@ void LunaTraits< osg::Program::ActiveVarInfo >::_bind_dtor(osg::Program::ActiveV
 	delete obj;
 }
 
-const char LunaTraits< osg::Program::ActiveVarInfo >::className[] = "ActiveVarInfo";
+const char LunaTraits< osg::Program::ActiveVarInfo >::className[] = "Program_ActiveVarInfo";
 const char LunaTraits< osg::Program::ActiveVarInfo >::fullName[] = "osg::Program::ActiveVarInfo";
 const char LunaTraits< osg::Program::ActiveVarInfo >::moduleName[] = "osg";
 const char* LunaTraits< osg::Program::ActiveVarInfo >::parents[] = {0};

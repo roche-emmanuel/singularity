@@ -126,7 +126,7 @@ void LunaTraits< osg::GraphicsContext::ResizedCallback >::_bind_dtor(osg::Graphi
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::GraphicsContext::ResizedCallback >::className[] = "ResizedCallback";
+const char LunaTraits< osg::GraphicsContext::ResizedCallback >::className[] = "GraphicsContext_ResizedCallback";
 const char LunaTraits< osg::GraphicsContext::ResizedCallback >::fullName[] = "osg::GraphicsContext::ResizedCallback";
 const char LunaTraits< osg::GraphicsContext::ResizedCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::GraphicsContext::ResizedCallback >::parents[] = {"osg.Referenced", 0};

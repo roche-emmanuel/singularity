@@ -502,6 +502,7 @@ public:
 };
 
 
+
 template<>
 class LunaType< 32973728 > {
 public:
@@ -604,6 +605,41 @@ template<>
 class LunaType< 2993706 > {
 public:
 	typedef std::ostream type;
+	
+};
+
+template<>
+class LunaType< 84922662 > {
+public:
+	typedef osg::ref_ptr< osg::Referenced > type;
+	
+};
+
+template<>
+class LunaType< 20265607 > {
+public:
+	typedef std::vector< osg::ref_ptr< sgt::LogSink > > type;
+	
+};
+
+template<>
+class LunaType< 79429939 > {
+public:
+	typedef std::map< int, int > type;
+	
+};
+
+template<>
+class LunaType< 27704170 > {
+public:
+	typedef std::map< std::string, int > type;
+	
+};
+
+template<>
+class LunaType< 74170402 > {
+public:
+	typedef std::set< std::string > type;
 	
 };
 

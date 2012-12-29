@@ -244,7 +244,7 @@ void LunaTraits< osg::ClampColor::Extensions >::_bind_dtor(osg::ClampColor::Exte
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::ClampColor::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::ClampColor::Extensions >::className[] = "ClampColor_Extensions";
 const char LunaTraits< osg::ClampColor::Extensions >::fullName[] = "osg::ClampColor::Extensions";
 const char LunaTraits< osg::ClampColor::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::ClampColor::Extensions >::parents[] = {"osg.Referenced", 0};

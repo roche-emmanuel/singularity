@@ -128,7 +128,7 @@ void LunaTraits< osg::View::Slave::UpdateSlaveCallback >::_bind_dtor(osg::View::
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::className[] = "UpdateSlaveCallback";
+const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::className[] = "View_Slave_UpdateSlaveCallback";
 const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::fullName[] = "osg::View::Slave::UpdateSlaveCallback";
 const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::View::Slave::UpdateSlaveCallback >::parents[] = {"osg.Referenced", 0};

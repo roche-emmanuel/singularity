@@ -1394,24 +1394,6 @@ public:
 };
 
 template<>
-class LunaTraits< std::vector< std::pair< osg::StateAttribute const *, unsigned int > > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< std::pair< osg::StateAttribute const *, unsigned int > >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< std::pair< osg::StateAttribute const *, unsigned int > >* obj);
-	typedef osg::StateAttributeUIntPairList parent_t;
-	typedef std::vector< std::pair< osg::StateAttribute const *, unsigned int > > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
 class LunaTraits< osg::Referenced > {
 public:
 	static const char className[];
@@ -14264,6 +14246,7 @@ public:
 };
 
 
+
 template<>
 class LunaType< 32973728 > {
 public:
@@ -17012,6 +16995,1420 @@ template<>
 class LunaType< 2993706 > {
 public:
 	typedef std::ostream type;
+	
+};
+
+template<>
+class LunaType< 46527738 > {
+public:
+	typedef osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 72312551 > {
+public:
+	typedef osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 77568465 > {
+public:
+	typedef osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > type;
+	
+};
+
+template<>
+class LunaType< 76345736 > {
+public:
+	typedef osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 59968751 > {
+public:
+	typedef osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 14674410 > {
+public:
+	typedef osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > type;
+	
+};
+
+template<>
+class LunaType< 66705573 > {
+public:
+	typedef osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > type;
+	
+};
+
+template<>
+class LunaType< 40646071 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 38996958 > {
+public:
+	typedef osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 16762640 > {
+public:
+	typedef osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 18397997 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 66655983 > {
+public:
+	typedef osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 49027762 > {
+public:
+	typedef osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 75159211 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 14704447 > {
+public:
+	typedef osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 88202160 > {
+public:
+	typedef osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 18847939 > {
+public:
+	typedef osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 21777619 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 76760649 > {
+public:
+	typedef osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > type;
+	
+};
+
+template<>
+class LunaType< 41229192 > {
+public:
+	typedef osg::BoundingBoxImpl< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 41227270 > {
+public:
+	typedef osg::BoundingBoxImpl< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 65872657 > {
+public:
+	typedef osg::BoundingSphereImpl< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 65870735 > {
+public:
+	typedef osg::BoundingSphereImpl< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 13747477 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::GLBufferObject > > type;
+	
+};
+
+template<>
+class LunaType< 95974838 > {
+public:
+	typedef std::pair< double, double > type;
+	
+};
+
+template<>
+class LunaType< 88937738 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Node > > type;
+	
+};
+
+template<>
+class LunaType< 35913554 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Image > > type;
+	
+};
+
+template<>
+class LunaType< 83725871 > {
+public:
+	typedef std::vector< osg::Node * > type;
+	
+};
+
+template<>
+class LunaType< 88076696 > {
+public:
+	typedef std::vector< osg::NodePath > type;
+	
+};
+
+template<>
+class LunaType< 70215012 > {
+public:
+	typedef std::vector< osg::Matrixd > type;
+	
+};
+
+template<>
+class LunaType< 49500314 > {
+public:
+	typedef osg::MixinVector< int > type;
+	
+};
+
+template<>
+class LunaType< 78221228 > {
+public:
+	typedef osg::MixinVector< unsigned char > type;
+	
+};
+
+template<>
+class LunaType< 37920625 > {
+public:
+	typedef osg::MixinVector< unsigned short > type;
+	
+};
+
+template<>
+class LunaType< 24387920 > {
+public:
+	typedef osg::MixinVector< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 17530095 > {
+public:
+	typedef std::vector< osg::ShaderComponent * > type;
+	
+};
+
+template<>
+class LunaType< 75920513 > {
+public:
+	typedef std::vector< osg::ShadowVolumeOccluder > type;
+	
+};
+
+template<>
+class LunaType< 80514588 > {
+public:
+	typedef osg::TemplateValueObject< std::string > type;
+	
+};
+
+template<>
+class LunaType< 18260122 > {
+public:
+	typedef osg::TemplateValueObject< bool > type;
+	
+};
+
+template<>
+class LunaType< 40013318 > {
+public:
+	typedef osg::TemplateValueObject< char > type;
+	
+};
+
+template<>
+class LunaType< 53494760 > {
+public:
+	typedef osg::TemplateValueObject< unsigned char > type;
+	
+};
+
+template<>
+class LunaType< 53475946 > {
+public:
+	typedef osg::TemplateValueObject< short > type;
+	
+};
+
+template<>
+class LunaType< 71399125 > {
+public:
+	typedef osg::TemplateValueObject< unsigned short > type;
+	
+};
+
+template<>
+class LunaType< 45736059 > {
+public:
+	typedef osg::TemplateValueObject< int > type;
+	
+};
+
+template<>
+class LunaType< 84880641 > {
+public:
+	typedef osg::TemplateValueObject< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 29941919 > {
+public:
+	typedef osg::TemplateValueObject< float > type;
+	
+};
+
+template<>
+class LunaType< 38023804 > {
+public:
+	typedef osg::TemplateValueObject< double > type;
+	
+};
+
+template<>
+class LunaType< 85635457 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec2f > type;
+	
+};
+
+template<>
+class LunaType< 85665248 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 85695039 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 85633535 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec2d > type;
+	
+};
+
+template<>
+class LunaType< 85663326 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 85693117 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec4d > type;
+	
+};
+
+template<>
+class LunaType< 45362523 > {
+public:
+	typedef osg::TemplateValueObject< osg::Quat > type;
+	
+};
+
+template<>
+class LunaType< 60958792 > {
+public:
+	typedef osg::TemplateValueObject< osg::Plane > type;
+	
+};
+
+template<>
+class LunaType< 54002088 > {
+public:
+	typedef osg::TemplateValueObject< osg::Matrixf > type;
+	
+};
+
+template<>
+class LunaType< 54000166 > {
+public:
+	typedef osg::TemplateValueObject< osg::Matrixd > type;
+	
+};
+
+template<>
+class LunaType< 30218166 > {
+public:
+	typedef std::vector< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 21911421 > {
+public:
+	typedef std::vector< osg::StateSet const * > type;
+	
+};
+
+template<>
+class LunaType< 75051431 > {
+public:
+	typedef std::map< double, osg::AnimationPath::ControlPoint > type;
+	
+};
+
+template<>
+class LunaType< 29293820 > {
+public:
+	typedef std::map< std::string, std::string > type;
+	
+};
+
+template<>
+class LunaType< 56481134 > {
+public:
+	typedef std::map< std::string, osg::ArgumentParser::ErrorSeverity > type;
+	
+};
+
+template<>
+class LunaType< 30220088 > {
+public:
+	typedef std::vector< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 51751322 > {
+public:
+	typedef std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > type;
+	
+};
+
+template<>
+class LunaType< 53517213 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::ClipPlane > > type;
+	
+};
+
+template<>
+class LunaType< 28893306 > {
+public:
+	typedef std::set< osg::ShadowVolumeOccluder > type;
+	
+};
+
+template<>
+class LunaType< 35991211 > {
+public:
+	typedef std::vector< osg::ConvexPlanarPolygon > type;
+	
+};
+
+template<>
+class LunaType< 88384434 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > type;
+	
+};
+
+template<>
+class LunaType< 42640190 > {
+public:
+	typedef std::vector< osg::CullingSet::StateFrustumPair > type;
+	
+};
+
+template<>
+class LunaType< 3779006 > {
+public:
+	typedef std::vector< osg::CullingSet > type;
+	
+};
+
+template<>
+class LunaType< 62448773 > {
+public:
+	typedef std::pair< unsigned int, const osg::Referenced * > type;
+	
+};
+
+template<>
+class LunaType< 79657515 > {
+public:
+	typedef std::list< osg::DeleteHandler::FrameNumberObjectPair > type;
+	
+};
+
+template<>
+class LunaType< 83621066 > {
+public:
+	typedef std::map< unsigned int, osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 60758143 > {
+public:
+	typedef std::map< unsigned int, osg::Matrixd > type;
+	
+};
+
+template<>
+class LunaType< 33736258 > {
+public:
+	typedef std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment > type;
+	
+};
+
+template<>
+class LunaType< 27834872 > {
+public:
+	typedef std::vector< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 68126022 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Drawable > > type;
+	
+};
+
+template<>
+class LunaType< 40737742 > {
+public:
+	typedef std::vector< osg::Geometry::ArrayData > type;
+	
+};
+
+template<>
+class LunaType< 41652406 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::PrimitiveSet > > type;
+	
+};
+
+template<>
+class LunaType< 44000933 > {
+public:
+	typedef std::vector< osg::Array * > type;
+	
+};
+
+template<>
+class LunaType< 66006148 > {
+public:
+	typedef std::vector< osg::DrawElements * > type;
+	
+};
+
+template<>
+class LunaType< 51480349 > {
+public:
+	typedef std::vector< osg::GraphicsContext::ScreenSettings > type;
+	
+};
+
+template<>
+class LunaType< 81169401 > {
+public:
+	typedef std::vector< osg::GraphicsContext * > type;
+	
+};
+
+template<>
+class LunaType< 67665559 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::Operation > > type;
+	
+};
+
+template<>
+class LunaType< 29668977 > {
+public:
+	typedef std::list< osg::Camera * > type;
+	
+};
+
+template<>
+class LunaType< 95416160 > {
+public:
+	typedef std::vector< std::string > type;
+	
+};
+
+template<>
+class LunaType< 64675596 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::AudioStream > > type;
+	
+};
+
+template<>
+class LunaType< 63704215 > {
+public:
+	typedef std::vector< osg::KdTree::LineSegmentIntersection > type;
+	
+};
+
+template<>
+class LunaType< 11129999 > {
+public:
+	typedef std::vector< osg::KdTree::KdNode > type;
+	
+};
+
+template<>
+class LunaType< 95925804 > {
+public:
+	typedef std::vector< osg::KdTree::Triangle > type;
+	
+};
+
+template<>
+class LunaType< 4564820 > {
+public:
+	typedef std::vector< double > type;
+	
+};
+
+template<>
+class LunaType< 3653432 > {
+public:
+	typedef std::pair< float, float > type;
+	
+};
+
+template<>
+class LunaType< 15056692 > {
+public:
+	typedef std::vector< osg::LOD::MinMaxPair > type;
+	
+};
+
+template<>
+class LunaType< 91690910 > {
+public:
+	typedef std::vector< osg::Group * > type;
+	
+};
+
+template<>
+class LunaType< 32905741 > {
+public:
+	typedef std::set< osg::Observer * > type;
+	
+};
+
+template<>
+class LunaType< 97507829 > {
+public:
+	typedef std::set< osg::OperationThread * > type;
+	
+};
+
+template<>
+class LunaType< 912958 > {
+public:
+	typedef std::vector< osg::PagedLOD::PerRangeData > type;
+	
+};
+
+template<>
+class LunaType< 5512969 > {
+public:
+	typedef std::vector< osg::Plane > type;
+	
+};
+
+template<>
+class LunaType< 4254188 > {
+public:
+	typedef osg::fast_back_stack< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 72783721 > {
+public:
+	typedef std::map< std::string, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 35507604 > {
+public:
+	typedef std::map< unsigned int, osg::Program::ActiveVarInfo > type;
+	
+};
+
+template<>
+class LunaType< 32685379 > {
+public:
+	typedef std::map< std::string, osg::Program::ActiveVarInfo > type;
+	
+};
+
+template<>
+class LunaType< 8358127 > {
+public:
+	typedef std::map< std::string, osg::Program::UniformBlockInfo > type;
+	
+};
+
+template<>
+class LunaType< 49716686 > {
+public:
+	typedef std::multimap< float, std::string > type;
+	
+};
+
+template<>
+class LunaType< 97623200 > {
+public:
+	typedef std::vector< const osg::Shader * > type;
+	
+};
+
+template<>
+class LunaType< 14490510 > {
+public:
+	typedef std::vector< osg::Polytope > type;
+	
+};
+
+template<>
+class LunaType< 77249888 > {
+public:
+	typedef std::vector< float > type;
+	
+};
+
+template<>
+class LunaType< 37696109 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Shape > > type;
+	
+};
+
+template<>
+class LunaType< 60202548 > {
+public:
+	typedef std::pair< osg::StateAttribute::Type, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 63753525 > {
+public:
+	typedef std::vector< osg::StateSet * > type;
+	
+};
+
+template<>
+class LunaType< 57488909 > {
+public:
+	typedef std::vector< osg::Object * > type;
+	
+};
+
+template<>
+class LunaType< 50375310 > {
+public:
+	typedef std::map< unsigned int, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 36696863 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 94158825 > {
+public:
+	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
+	
+};
+
+template<>
+class LunaType< 68848182 > {
+public:
+	typedef std::vector< osg::StateSet::ModeList > type;
+	
+};
+
+template<>
+class LunaType< 27505286 > {
+public:
+	typedef std::vector< osg::StateSet::AttributeList > type;
+	
+};
+
+template<>
+class LunaType< 61531030 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 97138515 > {
+public:
+	typedef std::map< std::string, osg::StateSet::RefUniformPair > type;
+	
+};
+
+template<>
+class LunaType< 50211746 > {
+public:
+	typedef std::map< std::string, double > type;
+	
+};
+
+template<>
+class LunaType< 12653154 > {
+public:
+	typedef std::vector< osg::Stats::AttributeMap > type;
+	
+};
+
+template<>
+class LunaType< 59271773 > {
+public:
+	typedef std::map< std::string, bool > type;
+	
+};
+
+template<>
+class LunaType< 61721661 > {
+public:
+	typedef std::vector< bool > type;
+	
+};
+
+template<>
+class LunaType< 56376547 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::Texture::TextureObject > > type;
+	
+};
+
+template<>
+class LunaType< 55588956 > {
+public:
+	typedef std::map< float, osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 79889541 > {
+public:
+	typedef std::deque< std::string > type;
+	
+};
+
+template<>
+class LunaType< 69347293 > {
+public:
+	typedef std::list< std::string > type;
+	
+};
+
+template<>
+class LunaType< 14972349 > {
+public:
+	typedef std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > type;
+	
+};
+
+template<>
+class LunaType< 79134225 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::DatabaseRevision > > type;
+	
+};
+
+template<>
+class LunaType< 49100922 > {
+public:
+	typedef std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > type;
+	
+};
+
+template<>
+class LunaType< 87953072 > {
+public:
+	typedef std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > type;
+	
+};
+
+template<>
+class LunaType< 14435376 > {
+public:
+	typedef std::map< unsigned int, osg::ref_ptr< osg::Array > > type;
+	
+};
+
+template<>
+class LunaType< 22678240 > {
+public:
+	typedef std::map< unsigned int, osg::ref_ptr< osg::Object > > type;
+	
+};
+
+template<>
+class LunaType< 81767982 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::BaseSerializer > > type;
+	
+};
+
+template<>
+class LunaType< 18642457 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > type;
+	
+};
+
+template<>
+class LunaType< 75452281 > {
+public:
+	typedef std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > type;
+	
+};
+
+template<>
+class LunaType< 45885100 > {
+public:
+	typedef std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > type;
+	
+};
+
+template<>
+class LunaType< 78063648 > {
+public:
+	typedef std::map< std::string, osgDB::IntLookup > type;
+	
+};
+
+template<>
+class LunaType< 70617331 > {
+public:
+	typedef std::map< const osg::Array *, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 66769651 > {
+public:
+	typedef std::map< const osg::Object *, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 16674959 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::ReaderWriter > > type;
+	
+};
+
+template<>
+class LunaType< 34672077 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::ImageProcessor > > type;
+	
+};
+
+template<>
+class LunaType< 16309392 > {
+public:
+	typedef std::map< int, std::string > type;
+	
+};
+
+template<>
+class LunaType< 42497827 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::XmlNode > > type;
+	
+};
+
+template<>
+class LunaType< 54803080 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::CameraView > > type;
+	
+};
+
+template<>
+class LunaType< 1490680 > {
+public:
+	typedef std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > type;
+	
+};
+
+template<>
+class LunaType< 7273346 > {
+public:
+	typedef std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > type;
+	
+};
+
+template<>
+class LunaType< 95430599 > {
+public:
+	typedef std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > type;
+	
+};
+
+template<>
+class LunaType< 83573716 > {
+public:
+	typedef std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > type;
+	
+};
+
+template<>
+class LunaType< 42175463 > {
+public:
+	typedef osgParticle::range< float > type;
+	
+};
+
+template<>
+class LunaType< 67760540 > {
+public:
+	typedef osgParticle::range< osg::Vec2f > type;
+	
+};
+
+template<>
+class LunaType< 67790331 > {
+public:
+	typedef osgParticle::range< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 67820122 > {
+public:
+	typedef osgParticle::range< osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 84875541 > {
+public:
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
+	
+};
+
+template<>
+class LunaType< 98510513 > {
+public:
+	typedef std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > type;
+	
+};
+
+template<>
+class LunaType< 52265949 > {
+public:
+	typedef std::pair< unsigned int, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 41678074 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgText::GlyphTexture > > type;
+	
+};
+
+template<>
+class LunaType< 30190297 > {
+public:
+	typedef std::vector< osg::Vec2f > type;
+	
+};
+
+template<>
+class LunaType< 99215215 > {
+public:
+	typedef std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > type;
+	
+};
+
+template<>
+class LunaType< 57567263 > {
+public:
+	typedef std::vector< osgText::Glyph * > type;
+	
+};
+
+template<>
+class LunaType< 30249879 > {
+public:
+	typedef std::vector< osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 90059382 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > type;
+	
+};
+
+template<>
+class LunaType< 91716752 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::UIntArray > > type;
+	
+};
+
+template<>
+class LunaType< 17405453 > {
+public:
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > type;
+	
+};
+
+template<>
+class LunaType< 57514973 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > type;
+	
+};
+
+template<>
+class LunaType< 83036857 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > type;
+	
+};
+
+template<>
+class LunaType< 14213870 > {
+public:
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > type;
+	
+};
+
+template<>
+class LunaType< 26981281 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > type;
+	
+};
+
+template<>
+class LunaType< 17460986 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > type;
+	
+};
+
+template<>
+class LunaType< 71050428 > {
+public:
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > type;
+	
+};
+
+template<>
+class LunaType< 18974895 > {
+public:
+	typedef std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > type;
+	
+};
+
+template<>
+class LunaType< 76374875 > {
+public:
+	typedef std::set< osg::Drawable * > type;
+	
+};
+
+template<>
+class LunaType< 97002577 > {
+public:
+	typedef std::set< osg::StateSet * > type;
+	
+};
+
+template<>
+class LunaType< 55546203 > {
+public:
+	typedef std::set< osg::Texture * > type;
+	
+};
+
+template<>
+class LunaType< 89238351 > {
+public:
+	typedef std::set< osg::Program * > type;
+	
+};
+
+template<>
+class LunaType< 37168712 > {
+public:
+	typedef std::set< osg::GraphicsContext * > type;
+	
+};
+
+template<>
+class LunaType< 19762195 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > type;
+	
+};
+
+template<>
+class LunaType< 51869738 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > type;
+	
+};
+
+template<>
+class LunaType< 4029618 > {
+public:
+	typedef std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > type;
+	
+};
+
+template<>
+class LunaType< 65377831 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > type;
+	
+};
+
+template<>
+class LunaType< 92299338 > {
+public:
+	typedef std::vector< int > type;
+	
+};
+
+template<>
+class LunaType< 9645394 > {
+public:
+	typedef std::multiset< osgUtil::LineSegmentIntersector::Intersection > type;
+	
+};
+
+template<>
+class LunaType< 32154383 > {
+public:
+	typedef std::set< osg::Geometry * > type;
+	
+};
+
+template<>
+class LunaType< 22531800 > {
+public:
+	typedef std::vector< osgUtil::PlaneIntersector::Intersection > type;
+	
+};
+
+template<>
+class LunaType< 94863276 > {
+public:
+	typedef std::set< osgUtil::PolytopeIntersector::Intersection > type;
+	
+};
+
+template<>
+class LunaType< 59166565 > {
+public:
+	typedef std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > type;
+	
+};
+
+template<>
+class LunaType< 94794184 > {
+public:
+	typedef std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > type;
+	
+};
+
+template<>
+class LunaType< 88896285 > {
+public:
+	typedef std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > type;
+	
+};
+
+template<>
+class LunaType< 19090615 > {
+public:
+	typedef std::vector< osgUtil::RenderLeaf * > type;
+	
+};
+
+template<>
+class LunaType< 53124285 > {
+public:
+	typedef std::vector< osgUtil::StateGraph * > type;
+	
+};
+
+template<>
+class LunaType< 85481090 > {
+public:
+	typedef std::map< int, osg::ref_ptr< osgUtil::RenderBin > > type;
+	
+};
+
+template<>
+class LunaType< 83064258 > {
+public:
+	typedef std::map< int, osg::ref_ptr< osg::StateSet > > type;
+	
+};
+
+template<>
+class LunaType< 4476781 > {
+public:
+	typedef std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > type;
+	
+};
+
+template<>
+class LunaType< 49937795 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > type;
+	
+};
+
+template<>
+class LunaType< 14759504 > {
+public:
+	typedef std::map< unsigned int, osgUtil::Statistics::PrimitivePair > type;
+	
+};
+
+template<>
+class LunaType< 73927809 > {
+public:
+	typedef std::set< osg::Node * > type;
+	
+};
+
+template<>
+class LunaType< 70560566 > {
+public:
+	typedef std::list< osgViewer::View * > type;
+	
+};
+
+template<>
+class LunaType< 69446139 > {
+public:
+	typedef std::list< osg::ref_ptr< osgGA::GUIEventHandler > > type;
+	
+};
+
+template<>
+class LunaType< 26989213 > {
+public:
+	typedef std::vector< osg::Camera * > type;
+	
+};
+
+template<>
+class LunaType< 20911347 > {
+public:
+	typedef std::vector< osgViewer::GraphicsWindow * > type;
+	
+};
+
+template<>
+class LunaType< 9185441 > {
+public:
+	typedef std::vector< OpenThreads::Thread * > type;
+	
+};
+
+template<>
+class LunaType< 51846713 > {
+public:
+	typedef std::vector< osg::OperationThread * > type;
+	
+};
+
+template<>
+class LunaType< 36779322 > {
+public:
+	typedef std::vector< osgViewer::Scene * > type;
+	
+};
+
+template<>
+class LunaType< 21902908 > {
+public:
+	typedef std::vector< osgViewer::View * > type;
 	
 };
 

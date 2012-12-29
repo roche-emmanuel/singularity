@@ -165,7 +165,7 @@ void LunaTraits< osg::Texture2DArray::SubloadCallback >::_bind_dtor(osg::Texture
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Texture2DArray::SubloadCallback >::className[] = "SubloadCallback";
+const char LunaTraits< osg::Texture2DArray::SubloadCallback >::className[] = "Texture2DArray_SubloadCallback";
 const char LunaTraits< osg::Texture2DArray::SubloadCallback >::fullName[] = "osg::Texture2DArray::SubloadCallback";
 const char LunaTraits< osg::Texture2DArray::SubloadCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture2DArray::SubloadCallback >::parents[] = {"osg.Referenced", 0};

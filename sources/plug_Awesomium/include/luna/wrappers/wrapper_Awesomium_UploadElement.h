@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool Awesomium::UploadElement::IsFilePath() const
 	bool IsFilePath() const {
@@ -51,9 +56,6 @@ public:
 		return *(_obj.callFunction<Awesomium::WebString*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

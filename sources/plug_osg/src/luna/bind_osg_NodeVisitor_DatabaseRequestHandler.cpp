@@ -153,7 +153,7 @@ void LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::_bind_dtor(osg::Nod
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::className[] = "DatabaseRequestHandler";
+const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::className[] = "NodeVisitor_DatabaseRequestHandler";
 const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::fullName[] = "osg::NodeVisitor::DatabaseRequestHandler";
 const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::moduleName[] = "osg";
 const char* LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::parents[] = {"osg.Referenced", 0};

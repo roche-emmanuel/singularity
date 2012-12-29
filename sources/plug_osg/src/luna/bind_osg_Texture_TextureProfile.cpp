@@ -276,7 +276,7 @@ void LunaTraits< osg::Texture::TextureProfile >::_bind_dtor(osg::Texture::Textur
 	delete obj;
 }
 
-const char LunaTraits< osg::Texture::TextureProfile >::className[] = "TextureProfile";
+const char LunaTraits< osg::Texture::TextureProfile >::className[] = "Texture_TextureProfile";
 const char LunaTraits< osg::Texture::TextureProfile >::fullName[] = "osg::Texture::TextureProfile";
 const char LunaTraits< osg::Texture::TextureProfile >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture::TextureProfile >::parents[] = {0};

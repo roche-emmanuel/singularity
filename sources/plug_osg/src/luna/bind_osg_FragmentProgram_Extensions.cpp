@@ -362,7 +362,7 @@ void LunaTraits< osg::FragmentProgram::Extensions >::_bind_dtor(osg::FragmentPro
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::FragmentProgram::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::FragmentProgram::Extensions >::className[] = "FragmentProgram_Extensions";
 const char LunaTraits< osg::FragmentProgram::Extensions >::fullName[] = "osg::FragmentProgram::Extensions";
 const char LunaTraits< osg::FragmentProgram::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::FragmentProgram::Extensions >::parents[] = {"osg.Referenced", 0};

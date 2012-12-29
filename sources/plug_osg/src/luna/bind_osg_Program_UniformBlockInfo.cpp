@@ -125,7 +125,7 @@ void LunaTraits< osg::Program::UniformBlockInfo >::_bind_dtor(osg::Program::Unif
 	delete obj;
 }
 
-const char LunaTraits< osg::Program::UniformBlockInfo >::className[] = "UniformBlockInfo";
+const char LunaTraits< osg::Program::UniformBlockInfo >::className[] = "Program_UniformBlockInfo";
 const char LunaTraits< osg::Program::UniformBlockInfo >::fullName[] = "osg::Program::UniformBlockInfo";
 const char LunaTraits< osg::Program::UniformBlockInfo >::moduleName[] = "osg";
 const char* LunaTraits< osg::Program::UniformBlockInfo >::parents[] = {0};

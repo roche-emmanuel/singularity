@@ -670,7 +670,7 @@ void LunaTraits< osg::Uniform::Callback >::_bind_dtor(osg::Uniform::Callback* ob
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Uniform::Callback >::className[] = "Callback";
+const char LunaTraits< osg::Uniform::Callback >::className[] = "Uniform_Callback";
 const char LunaTraits< osg::Uniform::Callback >::fullName[] = "osg::Uniform::Callback";
 const char LunaTraits< osg::Uniform::Callback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Uniform::Callback >::parents[] = {"osg.Object", 0};

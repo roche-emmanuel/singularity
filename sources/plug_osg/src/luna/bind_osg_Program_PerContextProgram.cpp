@@ -658,7 +658,7 @@ void LunaTraits< osg::Program::PerContextProgram >::_bind_dtor(osg::Program::Per
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Program::PerContextProgram >::className[] = "PerContextProgram";
+const char LunaTraits< osg::Program::PerContextProgram >::className[] = "Program_PerContextProgram";
 const char LunaTraits< osg::Program::PerContextProgram >::fullName[] = "osg::Program::PerContextProgram";
 const char LunaTraits< osg::Program::PerContextProgram >::moduleName[] = "osg";
 const char* LunaTraits< osg::Program::PerContextProgram >::parents[] = {"osg.Referenced", 0};

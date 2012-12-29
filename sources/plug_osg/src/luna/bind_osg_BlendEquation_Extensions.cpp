@@ -319,7 +319,7 @@ void LunaTraits< osg::BlendEquation::Extensions >::_bind_dtor(osg::BlendEquation
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::BlendEquation::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::BlendEquation::Extensions >::className[] = "BlendEquation_Extensions";
 const char LunaTraits< osg::BlendEquation::Extensions >::fullName[] = "osg::BlendEquation::Extensions";
 const char LunaTraits< osg::BlendEquation::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::BlendEquation::Extensions >::parents[] = {"osg.Referenced", 0};

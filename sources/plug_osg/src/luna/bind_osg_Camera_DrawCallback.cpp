@@ -713,7 +713,7 @@ void LunaTraits< osg::Camera::DrawCallback >::_bind_dtor(osg::Camera::DrawCallba
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Camera::DrawCallback >::className[] = "DrawCallback";
+const char LunaTraits< osg::Camera::DrawCallback >::className[] = "Camera_DrawCallback";
 const char LunaTraits< osg::Camera::DrawCallback >::fullName[] = "osg::Camera::DrawCallback";
 const char LunaTraits< osg::Camera::DrawCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Camera::DrawCallback >::parents[] = {"osg.Object", 0};

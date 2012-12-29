@@ -20,9 +20,15 @@ function Class:writeFile()
 		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and v:isExternal() then
 			written:push_back(tname)
 			self:debug0_v("writing external declaration for class ", v:getFullName(), " with Typename: ", tname)
-
+			
+			local modName = v:getModule()
 			local cname = v:getFullName()
-			buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",tname)); --v:getName()
+			local className = tname
+			if className:sub(1,modName:len()+2) == modName.."::" then
+				className = className:sub(modName:len()+3)
+			end
+			
+			buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",className)); --v:getName()
 			buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',tname);
 			buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname,v:getModule() or self:getModuleName());
 			--buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);
