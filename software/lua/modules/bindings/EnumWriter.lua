@@ -21,7 +21,7 @@ function Class:writeFile()
 	local headers = Set();
 	for _,enum in enums:sequence() do
 		local header = enum:getHeaderFile()
-		if header and not im:ignoreHeader(header) then
+		if header and not im:ignoreHeader(header) and enum:getParent():isNamespace() and not enum:isEmpty() then
 			headers:push_back(header)
 		end		
 	end
@@ -44,36 +44,39 @@ function Class:writeFile()
 		for _,v in enums:sequence() do
 			-- write the ennumeration content here:
 			
-			-- write a new table:
-			buf:writeSubLine("lua_newtable(L); // enum ${1}",v:getName())
-			buf:newLine()
-			-- Assume the parent container is already on the stack.
-			for _,val in v:getValues():sequence() do
-				if not im:ignore(val:getFullName(),"enum_value") then
-					buf:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
-				end
-			end
-			
-			--buf:writeForeach(v:getValues(),
-			buf:newLine()
-			-- push the table in the module:
-			buf:writeSubLine('lua_setfield(L,-2,"${1}");',v:getName());
-			buf:newLine()
-			
-			-- Now write the enum values again but in the module table directly:
-			for _,val in v:getValues():sequence() do
-				if not im:ignore(val:getFullName(),"enum_value") then
-					if writtenValues:contains(val:getFullName()) then
-						self:warn("Overriding enum value ",val:getFullName(), " in module context.")
+			if v:getParent():isNamespace() and not v:isEmpty() then
+			 
+				-- write a new table:
+				buf:writeSubLine("lua_newtable(L); // enum ${1}",v:getName())
+				buf:newLine()
+				-- Assume the parent container is already on the stack.
+				for _,val in v:getValues():sequence() do
+					if not im:ignore(val:getFullName(),"enum_value") then
+						buf:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
 					end
-					
-					writtenValues:push_back(val:getFullName())
-					buf:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
 				end
+				
+				--buf:writeForeach(v:getValues(),
+				buf:newLine()
+				-- push the table in the module:
+				buf:writeSubLine('lua_setfield(L,-2,"${1}");',v:getName());
+				buf:newLine()
+				
+				-- Now write the enum values again but in the module table directly:
+				for _,val in v:getValues():sequence() do
+					if not im:ignore(val:getFullName(),"enum_value") then
+						if writtenValues:contains(val:getFullName()) then
+							self:warn("Overriding enum value ",val:getFullName(), " in module context.")
+						end
+						
+						writtenValues:push_back(val:getFullName())
+						buf:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
+					end
+				end
+				
+				buf:newLine()
+				buf:newLine()
 			end
-			
-			buf:newLine()
-			buf:newLine()
 		end
 	buf:popIndent()
 	buf:writeLine("}")

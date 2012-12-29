@@ -8,7 +8,7 @@ __luna.copyParentMethods = function(class,p) -- __luna.copyParentMethods or
 	log:debug4("Luna",'Copying parent methods from ' .. p .. ' for class '.. class._CLASSNAME_);
 	local parent = _G;
 	local ns = '_G';
-	for pname in string.gmatch(p, '(%w+)%.') do
+	for pname in string.gmatch(p, '([%w_]+)%.') do
   		ns = ns .. '.' .. pname;
   		parent = parent[pname]
 	  	if not parent then
@@ -17,7 +17,7 @@ __luna.copyParentMethods = function(class,p) -- __luna.copyParentMethods or
 	  	end
 	end
 	
-	for pname in string.gmatch(p, '%.(%w+)$') do
+	for pname in string.gmatch(p, '%.([%w_]+)$') do
   		parent = parent[pname]
 	end
 	
@@ -32,7 +32,7 @@ __luna.copyParentMethods = function(class,p) -- __luna.copyParentMethods or
 	end
 
 	if not parent._PARENTS_ then
-  		log:error("Luna",'Cannot find parent table in class: ' .. (parent._CLASSNAME_ or "[no name]") .. ' while loading ' .. class._CLASSNAME_);
+  		log:error("Luna",'Cannot find parent table in class: ' .. p .. ' while loading ' .. class._CLASSNAME_); --(parent._CLASSNAME_ or "[no name]")
 	end
 				
 	-- iterate on the parent's of the parent:
