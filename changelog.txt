@@ -1,0 +1,7 @@
+
+== Singularity release v0.1.0 - ??? ==
+
+   * Changes:
+   
+- Now using complete name for sub class registration in modules (like osg.Drawable_CullCallback).
+- Auto generation of LunaTraits for needed types.

@@ -6,6 +6,5 @@
 - Todo:
 
 * generate spark examples
-* Proper registration of sub classes in classes (like UpdateCallback in Drawable)
-* Auto generate lunaTraits for needed template types.
 * Prevent parent table overriding with enums.
+* improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)
