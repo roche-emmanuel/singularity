@@ -1,6 +1,6 @@
 #include <plug_common.h>
 
-const char LunaTraits< osg::Drawable >::className[] = "osg_Drawable";
+const char LunaTraits< osg::Drawable >::className[] = "Drawable";
 const char LunaTraits< osg::Drawable >::fullName[] = "osg::Drawable";
 const char LunaTraits< osg::Drawable >::moduleName[] = "osg";
 const int LunaTraits< osg::Drawable >::hash = 20484188;
@@ -12,13 +12,13 @@ const char LunaTraits< SparkDrawable::TextureIDMap >::moduleName[] = "osg";
 const int LunaTraits< SparkDrawable::TextureIDMap >::hash = 92954997;
 const int LunaTraits< SparkDrawable::TextureIDMap >::uniqueIDs[] = {65712176,0};
 
-const char LunaTraits< osg::Drawable::UpdateCallback >::className[] = "osg_Drawable_UpdateCallback";
+const char LunaTraits< osg::Drawable::UpdateCallback >::className[] = "Drawable_UpdateCallback";
 const char LunaTraits< osg::Drawable::UpdateCallback >::fullName[] = "osg::Drawable::UpdateCallback";
 const char LunaTraits< osg::Drawable::UpdateCallback >::moduleName[] = "osg";
 const int LunaTraits< osg::Drawable::UpdateCallback >::hash = 5213827;
 const int LunaTraits< osg::Drawable::UpdateCallback >::uniqueIDs[] = {50169651,0};
 
-const char LunaTraits< osgGA::GUIEventHandler >::className[] = "osgGA_GUIEventHandler";
+const char LunaTraits< osgGA::GUIEventHandler >::className[] = "GUIEventHandler";
 const char LunaTraits< osgGA::GUIEventHandler >::fullName[] = "osgGA::GUIEventHandler";
 const char LunaTraits< osgGA::GUIEventHandler >::moduleName[] = "osgGA";
 const int LunaTraits< osgGA::GUIEventHandler >::hash = 29676225;

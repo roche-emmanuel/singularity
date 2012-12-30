@@ -78,7 +78,7 @@ void LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::_bind_dto
 	delete obj;
 }
 
-const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::className[] = "PosAndRotate";
+const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::className[] = "SparkDrawable_DeferredSystemHandler_PosAndRotate";
 const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::fullName[] = "SparkDrawable::DeferredSystemHandler::PosAndRotate";
 const char LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate >::parents[] = {0};

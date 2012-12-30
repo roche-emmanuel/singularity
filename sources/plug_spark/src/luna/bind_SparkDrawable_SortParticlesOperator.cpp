@@ -191,7 +191,7 @@ void LunaTraits< SparkDrawable::SortParticlesOperator >::_bind_dtor(SparkDrawabl
 	delete obj;
 }
 
-const char LunaTraits< SparkDrawable::SortParticlesOperator >::className[] = "SortParticlesOperator";
+const char LunaTraits< SparkDrawable::SortParticlesOperator >::className[] = "SparkDrawable_SortParticlesOperator";
 const char LunaTraits< SparkDrawable::SortParticlesOperator >::fullName[] = "SparkDrawable::SortParticlesOperator";
 const char LunaTraits< SparkDrawable::SortParticlesOperator >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::SortParticlesOperator >::parents[] = {0};

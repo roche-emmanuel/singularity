@@ -39,7 +39,7 @@ function Class:createCube(size)
 	return geode	
 end
 
-function Class:createAnimationPath(radius, duration )
+function Class:createCircleAnimationPath(radius, duration )
 	local path = osg.AnimationPath();
 	path:setLoopMode(osg.AnimationPath.LOOP)
 	    
@@ -48,12 +48,23 @@ function Class:createAnimationPath(radius, duration )
     local delta_time = duration / numSamples;
     for i=0,numSamples-1 do
         local yaw = delta_yaw * i;
-        local pos = osg.Vec3f(math.sin(yaw)*radius, math.cos(yaw)*radius, 0.0);
+        local pos = osg.Vec3d(math.sin(yaw)*radius, math.cos(yaw)*radius, 0.0);
         local rot = osg.Quat( -yaw, osg.ZAXIS );
-        path:insert( delta_time * i, osg.AnimationPath.ControlPoint(pos, rot) );
+        path:insert( delta_time * i, osg.AnimationPath_ControlPoint(pos, rot) );
     end
 	
     return path;    
+end
+
+function Class:applyCircleAnimation(model, radius, dur)
+	local apcb = osg.AnimationPathCallback();
+	apcb:setAnimationPath( self:createCircleAnimationPath(radius, dur));
+	model:setUpdateCallback( apcb );
+end
+
+function Class:createBase(options)
+	local base = tools:createQuad()
+	self._canvas:getRoot():addChild(base)
 end
 
 return Class -- return class instance.

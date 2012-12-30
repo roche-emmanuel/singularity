@@ -6,3 +6,6 @@
 - Now using complete name for sub class registration in modules (like osg.Drawable_CullCallback).
 - Auto generation of LunaTraits for needed types.
 - Removed class enum reflection from global scope (class enum values are found directly in the parent class table).
+- Added simple animationPath test.
+- Added simple base checker support.
+

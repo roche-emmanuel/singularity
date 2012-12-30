@@ -140,7 +140,7 @@ void LunaTraits< SparkDrawable::BaseSystemCreator >::_bind_dtor(SparkDrawable::B
 	delete obj;
 }
 
-const char LunaTraits< SparkDrawable::BaseSystemCreator >::className[] = "BaseSystemCreator";
+const char LunaTraits< SparkDrawable::BaseSystemCreator >::className[] = "SparkDrawable_BaseSystemCreator";
 const char LunaTraits< SparkDrawable::BaseSystemCreator >::fullName[] = "SparkDrawable::BaseSystemCreator";
 const char LunaTraits< SparkDrawable::BaseSystemCreator >::moduleName[] = "SparkDrawable";
 const char* LunaTraits< SparkDrawable::BaseSystemCreator >::parents[] = {0};

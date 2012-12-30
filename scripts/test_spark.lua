@@ -14,11 +14,15 @@ local core = require "core"
 
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
-local App = require "gui.wx.OSGTestApp"
+local App = require "osg.OSGTestApp"
 local app = App{profileFile="test_spark_profile.log"}
 
-app:loadModel("tests/data/glider.osgt")
---app:createCube(10)
+local mt = app:loadModel("tests/data/glider.osgt")
+app:createCube(1)
+app:createBase()
+app:applyCircleAnimation(mt, 4.0, 6.0)
+
+--local spark = require "spark"
 
 app:run()
 	

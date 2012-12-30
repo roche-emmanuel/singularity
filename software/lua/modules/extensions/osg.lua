@@ -30,3 +30,7 @@ end
 osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)
 osg.YAXIS = osg.Vec3d(0.0,1.0,0.0)
 osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)
+
+osg.Vec2 = osg.Vec2f
+osg.Vec3 = osg.Vec3f
+osg.Vec4 = osg.Vec4f
