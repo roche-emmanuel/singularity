@@ -128,7 +128,7 @@ void LunaTraits< wxDateTime::Tm >::_bind_dtor(wxDateTime::Tm* obj) {
 	delete obj;
 }
 
-const char LunaTraits< wxDateTime::Tm >::className[] = "Tm";
+const char LunaTraits< wxDateTime::Tm >::className[] = "wxDateTime_Tm";
 const char LunaTraits< wxDateTime::Tm >::fullName[] = "wxDateTime::Tm";
 const char LunaTraits< wxDateTime::Tm >::moduleName[] = "wxDateTime";
 const char* LunaTraits< wxDateTime::Tm >::parents[] = {0};

@@ -43,6 +43,35 @@ protected:
 		return wxConnectionBase::CloneRefData(data);
 	};
 
+	// bool wxConnectionBase::DoExecute(const void * arg1, size_t arg2, wxIPCFormat arg3)
+	bool DoExecute(const void * arg1, size_t arg2, wxIPCFormat arg3) {
+		THROW_IF(!_obj.pushFunction("DoExecute"),"No implementation for abstract function wxConnectionBase::DoExecute");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		_obj.pushArg(arg3);
+		return (_obj.callFunction<bool>());
+	};
+
+	// bool wxConnectionBase::DoPoke(const wxString & arg1, const void * arg2, size_t arg3, wxIPCFormat arg4)
+	bool DoPoke(const wxString & arg1, const void * arg2, size_t arg3, wxIPCFormat arg4) {
+		THROW_IF(!_obj.pushFunction("DoPoke"),"No implementation for abstract function wxConnectionBase::DoPoke");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		_obj.pushArg(arg3);
+		_obj.pushArg(arg4);
+		return (_obj.callFunction<bool>());
+	};
+
+	// bool wxConnectionBase::DoAdvise(const wxString & arg1, const void * arg2, size_t arg3, wxIPCFormat arg4)
+	bool DoAdvise(const wxString & arg1, const void * arg2, size_t arg3, wxIPCFormat arg4) {
+		THROW_IF(!_obj.pushFunction("DoAdvise"),"No implementation for abstract function wxConnectionBase::DoAdvise");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		_obj.pushArg(arg3);
+		_obj.pushArg(arg4);
+		return (_obj.callFunction<bool>());
+	};
+
 public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
@@ -52,6 +81,35 @@ public:
 		}
 
 		return wxConnectionBase::GetClassInfo();
+	};
+
+	// const void * wxConnectionBase::Request(const wxString & arg1, size_t * arg2, wxIPCFormat arg3)
+	const void * Request(const wxString & arg1, size_t * arg2, wxIPCFormat arg3) {
+		THROW_IF(!_obj.pushFunction("Request"),"No implementation for abstract function wxConnectionBase::Request");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		_obj.pushArg(arg3);
+		return (_obj.callFunction<void*>());
+	};
+
+	// bool wxConnectionBase::StartAdvise(const wxString & arg1)
+	bool StartAdvise(const wxString & arg1) {
+		THROW_IF(!_obj.pushFunction("StartAdvise"),"No implementation for abstract function wxConnectionBase::StartAdvise");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<bool>());
+	};
+
+	// bool wxConnectionBase::StopAdvise(const wxString & arg1)
+	bool StopAdvise(const wxString & arg1) {
+		THROW_IF(!_obj.pushFunction("StopAdvise"),"No implementation for abstract function wxConnectionBase::StopAdvise");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<bool>());
+	};
+
+	// bool wxConnectionBase::Disconnect()
+	bool Disconnect() {
+		THROW_IF(!_obj.pushFunction("Disconnect"),"No implementation for abstract function wxConnectionBase::Disconnect");
+		return (_obj.callFunction<bool>());
 	};
 
 

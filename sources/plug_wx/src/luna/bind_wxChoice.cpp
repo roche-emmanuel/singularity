@@ -80,39 +80,13 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=0 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<5 || luatop>8 ) return false;
-
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
-		if( (!(Luna< wxPoint >::check(L,3))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( (!(Luna< wxSize >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,59507769) ) return false;
-		if( (!(Luna< wxArrayString >::check(L,5))) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
-		if( luatop>6 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<6 || luatop>9 ) return false;
 
@@ -1000,57 +974,9 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxChoice::wxChoice()
+	// wxChoice::wxChoice(lua_Table * data)
 	static wxChoice* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxChoice::wxChoice() function, expected prototype:\nwxChoice::wxChoice()\nClass arguments details:\n");
-		}
-
-
-		return new wxChoice();
-	}
-
-	// wxChoice::wxChoice(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr)
-	static wxChoice* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxChoice::wxChoice(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr) function, expected prototype:\nwxChoice::wxChoice(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 5 ID = 59507769\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=(int)lua_tointeger(L,2);
-		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,3));
-		if( !pos_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxChoice::wxChoice function");
-		}
-		const wxPoint & pos=*pos_ptr;
-		const wxSize* size_ptr=(Luna< wxSize >::check(L,4));
-		if( !size_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg size in wxChoice::wxChoice function");
-		}
-		const wxSize & size=*size_ptr;
-		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,5));
-		if( !choices_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxChoice::wxChoice function");
-		}
-		const wxArrayString & choices=*choices_ptr;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
-		const wxValidator* validator_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxValidator >(L,7)) : NULL;
-		if( luatop>6 && !validator_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxChoice::wxChoice function");
-		}
-		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
-		wxString name(lua_tostring(L,8),lua_objlen(L,8));
-
-		return new wxChoice(parent, id, pos, size, choices, style, validator, name);
-	}
-
-	// wxChoice::wxChoice(lua_Table * data)
-	static wxChoice* _bind_ctor_overload_3(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxChoice::wxChoice(lua_Table * data) function, expected prototype:\nwxChoice::wxChoice(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -1060,8 +986,8 @@ public:
 	}
 
 	// wxChoice::wxChoice(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr)
-	static wxChoice* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
+	static wxChoice* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxChoice::wxChoice(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr) function, expected prototype:\nwxChoice::wxChoice(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
 		}
@@ -1100,10 +1026,8 @@ public:
 	static wxChoice* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
-		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxChoice, cannot match any of the overloads for function wxChoice:\n  wxChoice()\n  wxChoice(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxChoice(lua_Table *)\n  wxChoice(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxChoice, cannot match any of the overloads for function wxChoice:\n  wxChoice(lua_Table *)\n  wxChoice(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -3672,6 +3596,11 @@ wxChoice* LunaTraits< wxChoice >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxChoice::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	// void wxItemContainer::DoClear()
+	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 }
 
 void LunaTraits< wxChoice >::_bind_dtor(wxChoice* obj) {

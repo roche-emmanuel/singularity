@@ -11,3 +11,6 @@
 - Fixed the spark module loading issue (just rebuilt the module with fresh files).
 - Added support for automatic default constructor generation for wrappers.
 - Redirecting OSG log messages to log manager with custom NotifyHandler.
+- Added support for config table in reflection manager
+- Disabled wrapper_default_constructor config entry for wxWidgets module (because of missing protected and/or abstract methods in interface description).
+

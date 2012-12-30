@@ -197,9 +197,17 @@ public:
 */
 class wxItemContainer : public wxItemContainerImmutable
 {
+protected:
+    virtual void DoSetItemClientData(unsigned int,void *) = 0;
+    virtual void *DoGetItemClientData(unsigned int) const = 0;
+    virtual void DoClear(void) = 0;
+    virtual void DoDeleteOneItem(unsigned int) = 0;
+	virtual int DoInsertItems(const wxArrayStringsAdapter &,unsigned int,void **,wxClientDataType) = 0;
+
 public:
     // at open curl
 
+		
     /**
         Appends item into the control.
 

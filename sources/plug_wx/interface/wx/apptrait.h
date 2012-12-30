@@ -130,5 +130,15 @@ public:
         Returns @true to suppress subsequent asserts, @false to continue as before.
     */
     virtual bool ShowAssertDialog(const wxString& msg) = 0;
+	
+	wxTimerImpl *wxAppTraitsBase::CreateTimerImpl(wxTimer *) = 0;
+        
+	virtual void *BeforeChildWaitLoop(void) = 0;
+	virtual void AfterChildWaitLoop(void *) = 0;
+	virtual bool DoMessageFromThreadWait(void) = 0;
+	virtual WXDWORD WaitForThread(WXHANDLE,int) = 0;
+	virtual bool CanUseStderr(void) = 0;
+	virtual bool WriteToStderr(const wxString &) = 0;
+	
 };
 

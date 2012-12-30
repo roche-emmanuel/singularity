@@ -1213,6 +1213,7 @@ function ReflectionGenerator.generate(options)
 	rm:setLuaOpenName(options.luaOpenName)
 	rm:setDestFolder(options.destpath)
 	rm:setDataMap(datamap)
+	rm:setConfig(options.config or {})
 	
     datamap:setModuleName(options.modName)
 	datamap:setLuaOpenName(options.luaOpenName)

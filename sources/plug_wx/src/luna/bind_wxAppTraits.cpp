@@ -158,6 +158,45 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_CreateTimerImpl(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_BeforeChildWaitLoop(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_AfterChildWaitLoop(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_DoMessageFromThreadWait(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_CanUseStderr(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_WriteToStderr(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_CreateConfig(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -424,6 +463,126 @@ public:
 		return 1;
 	}
 
+	// wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)
+	static int _bind_CreateTimerImpl(lua_State *L) {
+		if (!_lg_typecheck_CreateTimerImpl(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1) function, expected prototype:\nwxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxTimer* _arg1=(Luna< wxObject >::checkSubType< wxTimer >(L,2));
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *)");
+		}
+		wxTimerImpl * lret = self->CreateTimerImpl(_arg1);
+		////////////////////////////////////////////////////////////////////
+		// ERROR: Cannot decide the argument type for 'wxTimerImpl *'
+		////////////////////////////////////////////////////////////////////
+
+		return 1;
+	}
+
+	// void * wxAppTraits::BeforeChildWaitLoop()
+	static int _bind_BeforeChildWaitLoop(lua_State *L) {
+		if (!_lg_typecheck_BeforeChildWaitLoop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void * wxAppTraits::BeforeChildWaitLoop() function, expected prototype:\nvoid * wxAppTraits::BeforeChildWaitLoop()\nClass arguments details:\n");
+		}
+
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void * wxAppTraits::BeforeChildWaitLoop()");
+		}
+		void * lret = self->BeforeChildWaitLoop();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< void >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxAppTraits::AfterChildWaitLoop(void * arg1)
+	static int _bind_AfterChildWaitLoop(lua_State *L) {
+		if (!_lg_typecheck_AfterChildWaitLoop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppTraits::AfterChildWaitLoop(void * arg1) function, expected prototype:\nvoid wxAppTraits::AfterChildWaitLoop(void * arg1)\nClass arguments details:\n");
+		}
+
+		void* _arg1=(Luna< void >::check(L,2));
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppTraits::AfterChildWaitLoop(void *)");
+		}
+		self->AfterChildWaitLoop(_arg1);
+
+		return 0;
+	}
+
+	// bool wxAppTraits::DoMessageFromThreadWait()
+	static int _bind_DoMessageFromThreadWait(lua_State *L) {
+		if (!_lg_typecheck_DoMessageFromThreadWait(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::DoMessageFromThreadWait() function, expected prototype:\nbool wxAppTraits::DoMessageFromThreadWait()\nClass arguments details:\n");
+		}
+
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::DoMessageFromThreadWait()");
+		}
+		bool lret = self->DoMessageFromThreadWait();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAppTraits::CanUseStderr()
+	static int _bind_CanUseStderr(lua_State *L) {
+		if (!_lg_typecheck_CanUseStderr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::CanUseStderr() function, expected prototype:\nbool wxAppTraits::CanUseStderr()\nClass arguments details:\n");
+		}
+
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::CanUseStderr()");
+		}
+		bool lret = self->CanUseStderr();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAppTraits::WriteToStderr(const wxString & arg1)
+	static int _bind_WriteToStderr(lua_State *L) {
+		if (!_lg_typecheck_WriteToStderr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::WriteToStderr(const wxString & arg1) function, expected prototype:\nbool wxAppTraits::WriteToStderr(const wxString & arg1)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString _arg1(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::WriteToStderr(const wxString &)");
+		}
+		bool lret = self->WriteToStderr(_arg1);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// wxConfigBase * wxAppTraits::base_CreateConfig()
 	static int _bind_base_CreateConfig(lua_State *L) {
 		if (!_lg_typecheck_base_CreateConfig(L)) {
@@ -485,6 +644,13 @@ wxAppTraits* LunaTraits< wxAppTraits >::_bind_ctor(lua_State *L) {
 	// bool wxAppTraits::HasStderr()
 	// bool wxAppTraits::IsUsingUniversalWidgets() const
 	// bool wxAppTraits::ShowAssertDialog(const wxString & msg)
+	// wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)
+	// void * wxAppTraits::BeforeChildWaitLoop()
+	// void wxAppTraits::AfterChildWaitLoop(void * arg1)
+	// bool wxAppTraits::DoMessageFromThreadWait()
+	// WXDWORD wxAppTraits::WaitForThread(WXHANDLE arg1, int arg2)
+	// bool wxAppTraits::CanUseStderr()
+	// bool wxAppTraits::WriteToStderr(const wxString & arg1)
 }
 
 void LunaTraits< wxAppTraits >::_bind_dtor(wxAppTraits* obj) {
@@ -511,6 +677,12 @@ luna_RegType LunaTraits< wxAppTraits >::methods[] = {
 	{"HasStderr", &luna_wrapper_wxAppTraits::_bind_HasStderr},
 	{"IsUsingUniversalWidgets", &luna_wrapper_wxAppTraits::_bind_IsUsingUniversalWidgets},
 	{"ShowAssertDialog", &luna_wrapper_wxAppTraits::_bind_ShowAssertDialog},
+	{"CreateTimerImpl", &luna_wrapper_wxAppTraits::_bind_CreateTimerImpl},
+	{"BeforeChildWaitLoop", &luna_wrapper_wxAppTraits::_bind_BeforeChildWaitLoop},
+	{"AfterChildWaitLoop", &luna_wrapper_wxAppTraits::_bind_AfterChildWaitLoop},
+	{"DoMessageFromThreadWait", &luna_wrapper_wxAppTraits::_bind_DoMessageFromThreadWait},
+	{"CanUseStderr", &luna_wrapper_wxAppTraits::_bind_CanUseStderr},
+	{"WriteToStderr", &luna_wrapper_wxAppTraits::_bind_WriteToStderr},
 	{"base_CreateConfig", &luna_wrapper_wxAppTraits::_bind_base_CreateConfig},
 	{"base_GetStandardPaths", &luna_wrapper_wxAppTraits::_bind_base_GetStandardPaths},
 	{"dynCast", &luna_wrapper_wxAppTraits::_bind_dynCast},

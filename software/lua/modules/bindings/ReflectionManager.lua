@@ -1,5 +1,20 @@
 local Class = require("classBuilder"){name="ReflectionManager",bases="base.Object"};
 
+function Class:initialize()
+	self._config = {}
+	self._config.wrapper_default_constructor = true
+end
+
+function Class:setConfig(cfg)
+	for k,v in pairs(cfg) do
+		self._config[k] = v
+	end
+end
+
+function Class:getConfig()
+	return self._config
+end
+
 function Class:setDefaultModuleName(modname)
 	self:checkNonEmptyString(modname,"Invalid default module name argument.");
 	self._defaultModuleName = modname

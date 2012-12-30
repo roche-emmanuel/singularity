@@ -25,6 +25,9 @@ ReflectionGenerator.generate{
 	luaOpenName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path,
+	config={
+		wrapper_default_constructor=false,
+	},
 	ignoreFunctions={
 		"iterator",
 		"Mac",
@@ -244,6 +247,8 @@ ReflectionGenerator.generate{
 		"ProcessPendingEvents",
 		"ProcessThreadEvent",
 		"AllocExclusive",
+		
+		"WaitForThread",
 	},
 	ignoreWrappers={
 		"wxBitmapComboBox::IsEmpty",

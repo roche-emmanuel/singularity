@@ -158,7 +158,9 @@ function Class:writeHeader()
 	buf:clearContent();
 	
 	-- Add the default constructor if needed.
-	class:addDefaultConstructor()
+	if rm:getConfig().wrapper_default_constructor then
+		class:addDefaultConstructor()
+	end
 	
 	local funcs = self._class:getVirtualFunctions():filterItems({"ValidWrapper"},{self._class})
 	local allConstructors = self._class:getFunctions{"Constructor","Public"} + self._class:getFunctions{"Constructor","Protected"}

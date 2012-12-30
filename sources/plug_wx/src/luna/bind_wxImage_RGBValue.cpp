@@ -104,7 +104,7 @@ void LunaTraits< wxImage::RGBValue >::_bind_dtor(wxImage::RGBValue* obj) {
 	delete obj;
 }
 
-const char LunaTraits< wxImage::RGBValue >::className[] = "RGBValue";
+const char LunaTraits< wxImage::RGBValue >::className[] = "wxImage_RGBValue";
 const char LunaTraits< wxImage::RGBValue >::fullName[] = "wxImage::RGBValue";
 const char LunaTraits< wxImage::RGBValue >::moduleName[] = "wxImage";
 const char* LunaTraits< wxImage::RGBValue >::parents[] = {0};

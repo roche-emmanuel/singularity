@@ -2949,6 +2949,11 @@ wxControlWithItems* LunaTraits< wxControlWithItems >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	// void wxItemContainer::DoClear()
+	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	// wxString wxItemContainerImmutable::GetString(unsigned int n) const
 	// void wxItemContainerImmutable::SetString(unsigned int n, const wxString & string)

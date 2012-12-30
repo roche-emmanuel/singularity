@@ -190,9 +190,7 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxDateTime >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"wxDateTime");
-	luna_pushModule(L,"wxDateTime",-1);
 	Luna< wxDateTime::Tm >::Register(L);
-	luna_popModule(L);
 	luna_popModule(L);
 	luna_pushModule(L,"wx");
 	Luna< wxDateTimeHolidayAuthority >::Register(L);
@@ -400,10 +398,8 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxImage >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"wxImage");
-	luna_pushModule(L,"wxImage",-1);
 	Luna< wxImage::HSVValue >::Register(L);
 	Luna< wxImage::RGBValue >::Register(L);
-	luna_popModule(L);
 	luna_popModule(L);
 	luna_pushModule(L,"wx");
 	Luna< wxImageHandler >::Register(L);

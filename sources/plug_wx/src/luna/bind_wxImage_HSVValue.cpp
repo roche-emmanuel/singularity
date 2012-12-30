@@ -104,7 +104,7 @@ void LunaTraits< wxImage::HSVValue >::_bind_dtor(wxImage::HSVValue* obj) {
 	delete obj;
 }
 
-const char LunaTraits< wxImage::HSVValue >::className[] = "HSVValue";
+const char LunaTraits< wxImage::HSVValue >::className[] = "wxImage_HSVValue";
 const char LunaTraits< wxImage::HSVValue >::fullName[] = "wxImage::HSVValue";
 const char LunaTraits< wxImage::HSVValue >::moduleName[] = "wxImage";
 const char* LunaTraits< wxImage::HSVValue >::parents[] = {0};
