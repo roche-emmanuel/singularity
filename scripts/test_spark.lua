@@ -22,7 +22,7 @@ app:createCube(1)
 app:createBase()
 app:applyCircleAnimation(mt, 4.0, 6.0)
 
---local spark = require "spark"
+local spark = require "spark"
 
 app:run()
 	
