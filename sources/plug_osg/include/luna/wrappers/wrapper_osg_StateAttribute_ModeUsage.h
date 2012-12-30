@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_StateAttribute_ModeUsage(lua_State* L, lua_Table* dum) : osg::StateAttribute::ModeUsage(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

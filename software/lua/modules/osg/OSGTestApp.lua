@@ -28,6 +28,10 @@ function Class:loadModel(filename)
 	return mt
 end
 
+function Class:home()
+	self._canvas:home()
+end
+
 function Class:createCube(size)
 	local cube = osg.Box(osg.Vec3f(0.0,0.0,0.0),size)
 	local drawable = osg.ShapeDrawable(cube,nil)

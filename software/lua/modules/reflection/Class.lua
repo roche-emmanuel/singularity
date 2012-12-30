@@ -313,6 +313,21 @@ function Class:isExternal()
 	return self.externalModule or tm:getModule(self)
 end
 
+function Class:addDefaultConstructor()
+	local allcons = self:getFunctions{"Constructor"}
+	if allcons:empty() then
+		-- add default public constructor:
+		local func = Function()
+		func:setName(self:getName())
+		func:setArgsString("()")
+		func:setSection("public")
+		func:setConstness(false)
+		func:setStatic(false)
+	
+		self:addFunction(func)
+	end
+end
+
 function Class:addWrapperConstructors()
 	self:check(self._wrappersLoaded==nil,"Wrappers were already loaded.");
 	

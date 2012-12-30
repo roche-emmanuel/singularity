@@ -1,6 +1,11 @@
 local Class = require("classBuilder"){name="Tools",bases="base.Object"};
 
+require "osg"
+require "osg.NotificationHandler"
 require "extensions.osg"
+
+-- osg.setNotifyLevel(osg.DEBUG_FP)
+osg.setNotifyLevel(osg.INFO)
 
 local default_quad_vs = [[
 varying vec2 coords;

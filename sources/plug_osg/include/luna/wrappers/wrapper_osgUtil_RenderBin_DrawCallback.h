@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgUtil_RenderBin_DrawCallback(lua_State* L, lua_Table* dum) : osgUtil::RenderBin::DrawCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

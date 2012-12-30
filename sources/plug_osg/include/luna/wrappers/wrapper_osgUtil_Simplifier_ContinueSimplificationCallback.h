@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgUtil_Simplifier_ContinueSimplificationCallback(lua_State* L, lua_Table* dum) : osgUtil::Simplifier::ContinueSimplificationCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

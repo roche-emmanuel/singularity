@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgUtil_IntersectionVisitor_ReadCallback(lua_State* L, lua_Table* dum) : osgUtil::IntersectionVisitor::ReadCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

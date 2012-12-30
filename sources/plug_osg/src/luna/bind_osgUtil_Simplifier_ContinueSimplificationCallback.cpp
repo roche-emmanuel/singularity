@@ -67,6 +67,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_continueSimplification(lua_State *L) {
@@ -94,6 +107,37 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback()
+	static osgUtil::Simplifier::ContinueSimplificationCallback* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback() function, expected prototype:\nosgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback()\nClass arguments details:\n");
+		}
+
+
+		return new osgUtil::Simplifier::ContinueSimplificationCallback();
+	}
+
+	// osgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback(lua_Table * data)
+	static osgUtil::Simplifier::ContinueSimplificationCallback* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback(lua_Table * data) function, expected prototype:\nosgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_Simplifier_ContinueSimplificationCallback(L,NULL);
+	}
+
+	// Overload binder for osgUtil::Simplifier::ContinueSimplificationCallback::ContinueSimplificationCallback
+	static osgUtil::Simplifier::ContinueSimplificationCallback* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ContinueSimplificationCallback, cannot match any of the overloads for function ContinueSimplificationCallback:\n  ContinueSimplificationCallback()\n  ContinueSimplificationCallback(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
@@ -156,7 +200,7 @@ public:
 };
 
 osgUtil::Simplifier::ContinueSimplificationCallback* LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

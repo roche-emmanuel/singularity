@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_asView(lua_State *L) {
@@ -121,6 +128,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data)
+	static osgGA::GUIActionAdapter* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data) function, expected prototype:\nosgGA::GUIActionAdapter::GUIActionAdapter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgGA_GUIActionAdapter(L,NULL);
+	}
+
 
 	// Function binds:
 	// osg::View * osgGA::GUIActionAdapter::asView()
@@ -230,7 +248,7 @@ public:
 };
 
 osgGA::GUIActionAdapter* LunaTraits< osgGA::GUIActionAdapter >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgGA_GUIActionAdapter::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgGA::GUIActionAdapter::requestRedraw()

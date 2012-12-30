@@ -67,6 +67,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_writeObject(lua_State *L) {
@@ -164,6 +177,37 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgDB::WriteFileCallback::WriteFileCallback()
+	static osgDB::WriteFileCallback* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::WriteFileCallback::WriteFileCallback() function, expected prototype:\nosgDB::WriteFileCallback::WriteFileCallback()\nClass arguments details:\n");
+		}
+
+
+		return new osgDB::WriteFileCallback();
+	}
+
+	// osgDB::WriteFileCallback::WriteFileCallback(lua_Table * data)
+	static osgDB::WriteFileCallback* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::WriteFileCallback::WriteFileCallback(lua_Table * data) function, expected prototype:\nosgDB::WriteFileCallback::WriteFileCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_WriteFileCallback(L,NULL);
+	}
+
+	// Overload binder for osgDB::WriteFileCallback::WriteFileCallback
+	static osgDB::WriteFileCallback* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function WriteFileCallback, cannot match any of the overloads for function WriteFileCallback:\n  WriteFileCallback()\n  WriteFileCallback(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options)
@@ -462,7 +506,7 @@ public:
 };
 
 osgDB::WriteFileCallback* LunaTraits< osgDB::WriteFileCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgDB_WriteFileCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

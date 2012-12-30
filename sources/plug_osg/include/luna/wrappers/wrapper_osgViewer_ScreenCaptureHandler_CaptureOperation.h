@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation(lua_State* L, lua_Table* dum) : osgViewer::ScreenCaptureHandler::CaptureOperation(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

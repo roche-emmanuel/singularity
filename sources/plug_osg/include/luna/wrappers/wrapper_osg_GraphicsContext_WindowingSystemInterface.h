@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_GraphicsContext_WindowingSystemInterface(lua_State* L, lua_Table* dum) : osg::GraphicsContext::WindowingSystemInterface(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_StandardNotifyHandler(lua_State* L, lua_Table* dum) : osg::StandardNotifyHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

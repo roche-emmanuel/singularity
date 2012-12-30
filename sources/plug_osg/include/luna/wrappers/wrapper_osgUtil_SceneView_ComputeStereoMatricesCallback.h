@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback(lua_State* L, lua_Table* dum) : osgUtil::SceneView::ComputeStereoMatricesCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

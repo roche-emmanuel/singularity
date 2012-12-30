@@ -80,6 +80,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_apply_overload_1(lua_State *L) {
@@ -387,6 +400,37 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::ValueObject::SetValueVisitor::SetValueVisitor()
+	static osg::ValueObject::SetValueVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ValueObject::SetValueVisitor::SetValueVisitor() function, expected prototype:\nosg::ValueObject::SetValueVisitor::SetValueVisitor()\nClass arguments details:\n");
+		}
+
+
+		return new osg::ValueObject::SetValueVisitor();
+	}
+
+	// osg::ValueObject::SetValueVisitor::SetValueVisitor(lua_Table * data)
+	static osg::ValueObject::SetValueVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ValueObject::SetValueVisitor::SetValueVisitor(lua_Table * data) function, expected prototype:\nosg::ValueObject::SetValueVisitor::SetValueVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ValueObject_SetValueVisitor(L,NULL);
+	}
+
+	// Overload binder for osg::ValueObject::SetValueVisitor::SetValueVisitor
+	static osg::ValueObject::SetValueVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function SetValueVisitor, cannot match any of the overloads for function SetValueVisitor:\n  SetValueVisitor()\n  SetValueVisitor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
@@ -1289,7 +1333,7 @@ public:
 };
 
 osg::ValueObject::SetValueVisitor* LunaTraits< osg::ValueObject::SetValueVisitor >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_ValueObject_SetValueVisitor::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

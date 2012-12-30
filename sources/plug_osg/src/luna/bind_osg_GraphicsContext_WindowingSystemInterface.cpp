@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_createGraphicsContext(lua_State *L) {
@@ -81,6 +88,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::GraphicsContext::WindowingSystemInterface::WindowingSystemInterface(lua_Table * data)
+	static osg::GraphicsContext::WindowingSystemInterface* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::WindowingSystemInterface::WindowingSystemInterface(lua_Table * data) function, expected prototype:\nosg::GraphicsContext::WindowingSystemInterface::WindowingSystemInterface(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_GraphicsContext_WindowingSystemInterface(L,NULL);
+	}
+
 
 	// Function binds:
 	// osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits * traits)
@@ -111,7 +129,7 @@ public:
 };
 
 osg::GraphicsContext::WindowingSystemInterface* LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_GraphicsContext_WindowingSystemInterface::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// unsigned int osg::GraphicsContext::WindowingSystemInterface::getNumScreens(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier = osg::GraphicsContext::ScreenIdentifier ())

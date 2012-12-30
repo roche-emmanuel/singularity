@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgDB_basic_type_wrapper(lua_State* L, lua_Table* dum) : osgDB::basic_type_wrapper(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

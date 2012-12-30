@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgUtil_EdgeCollector_Edge(lua_State* L, lua_Table* dum) : osgUtil::EdgeCollector::Edge(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

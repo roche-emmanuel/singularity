@@ -67,6 +67,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_libraryName(lua_State *L) {
@@ -154,6 +167,37 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor()
+	static osgUtil::DrawElementTypeSimplifierVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor() function, expected prototype:\nosgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor()\nClass arguments details:\n");
+		}
+
+
+		return new osgUtil::DrawElementTypeSimplifierVisitor();
+	}
+
+	// osgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor(lua_Table * data)
+	static osgUtil::DrawElementTypeSimplifierVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor(lua_Table * data) function, expected prototype:\nosgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_DrawElementTypeSimplifierVisitor(L,NULL);
+	}
+
+	// Overload binder for osgUtil::DrawElementTypeSimplifierVisitor::DrawElementTypeSimplifierVisitor
+	static osgUtil::DrawElementTypeSimplifierVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function DrawElementTypeSimplifierVisitor, cannot match any of the overloads for function DrawElementTypeSimplifierVisitor:\n  DrawElementTypeSimplifierVisitor()\n  DrawElementTypeSimplifierVisitor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgUtil::DrawElementTypeSimplifierVisitor::libraryName() const
@@ -421,7 +465,7 @@ public:
 };
 
 osgUtil::DrawElementTypeSimplifierVisitor* LunaTraits< osgUtil::DrawElementTypeSimplifierVisitor >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgUtil_DrawElementTypeSimplifierVisitor::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

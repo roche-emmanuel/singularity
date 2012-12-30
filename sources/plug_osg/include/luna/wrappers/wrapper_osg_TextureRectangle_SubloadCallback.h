@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_TextureRectangle_SubloadCallback(lua_State* L, lua_Table* dum) : osg::TextureRectangle::SubloadCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_GraphicsContext_ResizedCallback(lua_State* L, lua_Table* dum) : osg::GraphicsContext::ResizedCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

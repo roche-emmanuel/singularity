@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgDB_ReadFileCallback(lua_State* L, lua_Table* dum) : osgDB::ReadFileCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

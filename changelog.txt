@@ -9,3 +9,5 @@
 - Added simple animationPath test.
 - Added simple base checker support.
 - Fixed the spark module loading issue (just rebuilt the module with fresh files).
+- Added support for automatic default constructor generation for wrappers.
+- Redirecting OSG log messages to log manager with custom NotifyHandler.

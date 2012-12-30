@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_CullSettings_ClampProjectionMatrixCallback(lua_State* L, lua_Table* dum) : osg::CullSettings::ClampProjectionMatrixCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

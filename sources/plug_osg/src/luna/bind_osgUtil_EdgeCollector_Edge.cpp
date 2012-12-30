@@ -45,6 +45,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_clear(lua_State *L) {
@@ -120,6 +133,37 @@ public:
 
 
 	// Constructor binds:
+	// osgUtil::EdgeCollector::Edge::Edge()
+	static osgUtil::EdgeCollector::Edge* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edge::Edge() function, expected prototype:\nosgUtil::EdgeCollector::Edge::Edge()\nClass arguments details:\n");
+		}
+
+
+		return new osgUtil::EdgeCollector::Edge();
+	}
+
+	// osgUtil::EdgeCollector::Edge::Edge(lua_Table * data)
+	static osgUtil::EdgeCollector::Edge* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edge::Edge(lua_Table * data) function, expected prototype:\nosgUtil::EdgeCollector::Edge::Edge(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_EdgeCollector_Edge(L,NULL);
+	}
+
+	// Overload binder for osgUtil::EdgeCollector::Edge::Edge
+	static osgUtil::EdgeCollector::Edge* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Edge, cannot match any of the overloads for function Edge:\n  Edge()\n  Edge(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// void osgUtil::EdgeCollector::Edge::clear()
@@ -343,7 +387,7 @@ public:
 };
 
 osgUtil::EdgeCollector::Edge* LunaTraits< osgUtil::EdgeCollector::Edge >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgUtil_EdgeCollector_Edge::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

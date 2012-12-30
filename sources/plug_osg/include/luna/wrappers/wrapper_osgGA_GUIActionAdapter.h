@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osgGA_GUIActionAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIActionAdapter(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

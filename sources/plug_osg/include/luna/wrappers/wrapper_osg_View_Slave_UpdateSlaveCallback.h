@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_View_Slave_UpdateSlaveCallback(lua_State* L, lua_Table* dum) : osg::View::Slave::UpdateSlaveCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
