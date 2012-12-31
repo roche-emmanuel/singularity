@@ -153,12 +153,16 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
+	luna_pushModule(L,"sgt");
 	lua_pushcfunction(L, _bind_doLog); lua_setfield(L,-2,"doLog");
 	lua_pushcfunction(L, _bind_doLogV); lua_setfield(L,-2,"doLogV");
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
+	luna_popModule(L);
+	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_intrusive_ptr_add_ref); lua_setfield(L,-2,"intrusive_ptr_add_ref");
 	lua_pushcfunction(L, _bind_intrusive_ptr_release); lua_setfield(L,-2,"intrusive_ptr_release");
+	luna_popModule(L);
 }
 
 #ifdef __cplusplus

@@ -44,6 +44,10 @@ function TypeManager:getMappedModuleName(class)
 	end
 end
 
+function TypeManager:getMappedModule(mname)
+	return self._moduleNameMap:get(mname) or mname
+end
+
 function TypeManager:setMappedModuleName(mname, mapped)
 	self._moduleNameMap:set(mname,mapped)
 end

@@ -14,4 +14,5 @@
 - Added support for config table in reflection manager
 - Disabled wrapper_default_constructor config entry for wxWidgets module (because of missing protected and/or abstract methods in interface description).
 - Implemented simple log panel for WX.
+- Registering functions in the proper module (like osgDB.readNodeFile()).
 

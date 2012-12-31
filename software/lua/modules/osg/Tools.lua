@@ -45,7 +45,7 @@ void main()
 -- Function used to load a model from a file.
 function Class:loadModel(filename)
 	self:checkString(filename,"Invalid model filename")
-	local node = osg.readNodeFile(filename)
+	local node = osgDB.readNodeFile(filename)
 	if not node then
 		self:warn("Cannot load model from file: ",filename)
 		return;
@@ -58,7 +58,7 @@ end
 
 function Class:loadImage(filename)
 	self:checkString(filename,"Invalid image filename")
-	local image = osg.readImageFile(filename)
+	local image = osgDB.readImageFile(filename)
 	if not image then
 		self:warn("Cannot load image from file: ",filename)
 		return;

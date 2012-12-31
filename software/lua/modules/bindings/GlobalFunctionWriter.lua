@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="GlobalFunctionWriter",bases="bindings.FunctionWriter"};
 
 local rm = require "bindings.ReflectionManager"
+local tm = require "bindings.TypeManager"
 local injector = require "bindings.CodeInjector"
 local im = require "bindings.IgnoreManager"
 local snippets = require "bindings.SnippetManager"
@@ -56,19 +57,37 @@ function Class:writeFile()
 	buf:newLine()
 	buf:writeSubLine("void register_global_functions(lua_State* L) {")
 	buf:pushIndent()
-		-- Assume the parent container is already on the stack.
-		for _,v in namespaces:sequence() do
-			local funcs = v:getFunctions{"Method"}
-			local visited = Set();
-			
-			for _,func in funcs:sequence() do
-				local fname = func:getName()
-				if not visited:contains(fname) and func:isValidForWrapping() and not func:isExternal() then
-					buf:writeSubLine('lua_pushcfunction(L, _bind_${1}); lua_setfield(L,-2,"${1}");',fname)
-					visited:push_back(fname)
+	
+	local currentModule = nil;
+		
+	-- Assume the parent container is already on the stack.
+	for _,v in namespaces:sequence() do
+		local funcs = v:getFunctions{"Method"}
+		local visited = Set();
+		
+		for _,func in funcs:sequence() do
+			local fname = func:getName()
+			if not visited:contains(fname) and func:isValidForWrapping() and not func:isExternal() then
+				local rns = func:getRootNamespace()
+				local modName = rns and rns:getName() or rm:getDefaultModuleName()
+				modName = tm:getMappedModule(modName)
+				
+				if currentModule ~= modName then
+					if currentModule then
+						buf:writeSubLine("luna_popModule(L);")
+					end
+					
+					currentModule = modName;
+					buf:writeSubLine('luna_pushModule(L,"${1}");',modName)
 				end
-			end			 
-		end
+				
+				buf:writeSubLine('lua_pushcfunction(L, _bind_${1}); lua_setfield(L,-2,"${1}");',fname)
+				visited:push_back(fname)
+			end
+		end			 
+	end
+	
+	buf:writeSubLine("luna_popModule(L);")
 	buf:popIndent()
 	buf:writeLine("}")
 	buf:newLine()

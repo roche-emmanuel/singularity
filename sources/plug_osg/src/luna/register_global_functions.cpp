@@ -6165,6 +6165,7 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
+	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_glLoadMatrix); lua_setfield(L,-2,"glLoadMatrix");
 	lua_pushcfunction(L, _bind_glMultMatrix); lua_setfield(L,-2,"glMultMatrix");
 	lua_pushcfunction(L, _bind_osgGetVersion); lua_setfield(L,-2,"osgGetVersion");
@@ -6248,6 +6249,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_computeEyeToLocal); lua_setfield(L,-2,"computeEyeToLocal");
 	lua_pushcfunction(L, _bind_componentMultiply); lua_setfield(L,-2,"componentMultiply");
 	lua_pushcfunction(L, _bind_componentDivide); lua_setfield(L,-2,"componentDivide");
+	luna_popModule(L);
+	luna_pushModule(L,"osgDB");
 	lua_pushcfunction(L, _bind_openArchive); lua_setfield(L,-2,"openArchive");
 	lua_pushcfunction(L, _bind_convertStringFromCurrentCodePageToUTF8); lua_setfield(L,-2,"convertStringFromCurrentCodePageToUTF8");
 	lua_pushcfunction(L, _bind_convertStringFromUTF8toCurrentCodePage); lua_setfield(L,-2,"convertStringFromUTF8toCurrentCodePage");
@@ -6317,6 +6320,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_readXmlFile); lua_setfield(L,-2,"readXmlFile");
 	lua_pushcfunction(L, _bind_readXmlStream); lua_setfield(L,-2,"readXmlStream");
 	lua_pushcfunction(L, _bind_trimEnclosingSpaces); lua_setfield(L,-2,"trimEnclosingSpaces");
+	luna_popModule(L);
+	luna_pushModule(L,"osgText");
 	lua_pushcfunction(L, _bind_readFontFile); lua_setfield(L,-2,"readFontFile");
 	lua_pushcfunction(L, _bind_readFontStream); lua_setfield(L,-2,"readFontStream");
 	lua_pushcfunction(L, _bind_readRefFontFile); lua_setfield(L,-2,"readRefFontFile");
@@ -6327,6 +6332,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_readRefFont3DFile); lua_setfield(L,-2,"readRefFont3DFile");
 	lua_pushcfunction(L, _bind_readRefFont3DStream); lua_setfield(L,-2,"readRefFont3DStream");
 	lua_pushcfunction(L, _bind_findFont3DFile); lua_setfield(L,-2,"findFont3DFile");
+	luna_popModule(L);
 }
 
 #ifdef __cplusplus

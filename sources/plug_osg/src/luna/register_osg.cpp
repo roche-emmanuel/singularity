@@ -805,9 +805,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"osgDB");

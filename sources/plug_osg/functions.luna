@@ -82,6 +82,7 @@ osg::computeLocalToEye
 osg::computeEyeToLocal
 osg::componentMultiply
 osg::componentDivide
+module=osgDB
 osgDB::openArchive
 osgDB::convertStringFromCurrentCodePageToUTF8
 osgDB::convertStringFromUTF8toCurrentCodePage
@@ -151,6 +152,7 @@ osgDB::writeShaderFile
 osgDB::readXmlFile
 osgDB::readXmlStream
 osgDB::trimEnclosingSpaces
+module=osgText
 osgText::readFontFile
 osgText::readFontStream
 osgText::readRefFontFile

@@ -23,13 +23,13 @@ function test_file_serialization()
 	
 	local file = fs:getRootPath(true).."tests/Object.osgt"
 	log:info("Tests","Writing test object to "..file)
-	local res = osg.writeObjectFile(obj,file)
+	local res = osgDB.writeObjectFile(obj,file)
 	assert_equal(true,res,"Cannot write object file.")
 
 	log:info("Tests","Done writing object")
 	
 	log:info("Tests","Reading object from file=",file)
-	local res = osg.readObjectFile(file,nil)
+	local res = osgDB.readObjectFile(file,nil)
 	log:info("Tests","Object read.")
 	
 end
@@ -48,14 +48,14 @@ function test_timeprovider_serialization()
 	
 	local file = fs:getRootPath(true).."tests/TimeProvider.osgt"
 	log:info("Tests","Writing test object to "..file)
-	local res = osg.writeObjectFile(obj,file)
+	local res = osgDB.writeObjectFile(obj,file)
 	assert_equal(true,res,"Cannot write object file.")
 
 	log:info("Tests","Done writing object")
 	
 	-- Now read back the serialized object:
 	log:info("Tests","Reading object from file=",file)
-	local res = osg.readObjectFile(file,nil)
+	local res = osgDB.readObjectFile(file,nil)
 	log:info("Tests","Object read.")
 	
 	assert_not_equal(nil,res,"Cannot read object file.")
@@ -113,11 +113,11 @@ function test_anyvector_serialization()
 	
 	
 	log:info("Tests","Writing test object to "..file)
-	local res = osg.writeObjectFile(obj,file)
+	local res = osgDB.writeObjectFile(obj,file)
 	assert_equal(true,res,"Cannot write object file.")
 	
 	log:info("Tests","Reading object from file=",file)
-	local res = osg.readObjectFile(file,nil)
+	local res = osgDB.readObjectFile(file,nil)
 	log:info("Tests","Object read.")
 	
 	assert_not_equal(nil,res,"Cannot read object file.")
@@ -160,17 +160,17 @@ function test_basicnode_serialization()
 	end
 	
 	log:info("Tests","Writing test object to "..file)
-	local res = osg.writeObjectFile(grp,file)
+	local res = osgDB.writeObjectFile(grp,file)
 	assert_equal(true,res,"Cannot write object file.")
 	
 	grp:setName("Hello manu");
 	
 	log:info("Tests","Writing test object to "..file2)
-	local res = osg.writeObjectFile(grp,file2)
+	local res = osgDB.writeObjectFile(grp,file2)
 	assert_equal(true,res,"Cannot write object file.")
 	
 	log:info("Tests","Reading object from file=",file)
-	local res = osg.readObjectFile(file,nil)
+	local res = osgDB.readObjectFile(file,nil)
 	log:info("Tests","Object read.")
 	
 	assert_not_equal(nil,res,"Cannot read object file.")

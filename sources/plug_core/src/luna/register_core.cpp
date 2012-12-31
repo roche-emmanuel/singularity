@@ -55,9 +55,9 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"sgt");
 	luna_copyParents(L,"posix_time");

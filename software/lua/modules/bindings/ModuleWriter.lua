@@ -114,12 +114,11 @@ function Class:writeFile()
 	buf:writeLine("register_enums(L);")
 	buf:newLine()	
 
+	buf:writeSubLine("luna_popModule(L);")
+	buf:newLine()
 	
 	-- register the global function:
 	buf:writeLine("register_global_functions(L);")
-	buf:newLine()
-
-	buf:writeSubLine("luna_popModule(L);")
 	buf:newLine()
 	
 	-- register all the parent classes functions in that module:
