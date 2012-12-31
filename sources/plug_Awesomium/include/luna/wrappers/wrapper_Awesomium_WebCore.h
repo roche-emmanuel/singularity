@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_Awesomium_WebCore(lua_State* L, lua_Table* dum) : Awesomium::WebCore(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

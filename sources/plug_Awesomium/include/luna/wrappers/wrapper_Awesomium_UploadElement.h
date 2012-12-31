@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_Awesomium_UploadElement(lua_State* L, lua_Table* dum) : Awesomium::UploadElement(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
@@ -47,7 +48,7 @@ public:
 	// const unsigned char * Awesomium::UploadElement::bytes() const
 	const unsigned char * bytes() const {
 		THROW_IF(!_obj.pushFunction("bytes"),"No implementation for abstract function Awesomium::UploadElement::bytes");
-		return (_obj.callFunction<unsigned char*>());
+		return (unsigned char*)(_obj.callFunction<void*>());
 	};
 
 	// Awesomium::WebString Awesomium::UploadElement::file_path() const

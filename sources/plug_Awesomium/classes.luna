@@ -33,7 +33,6 @@ Awesomium::WebFileChooserInfo => Awesomium::WebFileChooserInfo
 Awesomium::WebPopupMenuInfo => Awesomium::WebPopupMenuInfo
 Awesomium::WebContextMenuInfo => Awesomium::WebContextMenuInfo
 Awesomium::WebLoginDialogInfo => Awesomium::WebLoginDialogInfo
-module=WebViewListener
 WebViewListener::View => WebViewListener::View
 WebViewListener::Load => WebViewListener::Load
 WebViewListener::Process => WebViewListener::Process

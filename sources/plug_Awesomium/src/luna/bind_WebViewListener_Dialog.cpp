@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnShowFileChooser(lua_State *L) {
@@ -103,6 +110,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::Dialog::Dialog(lua_Table * data)
+	static WebViewListener::Dialog* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::Dialog::Dialog(lua_Table * data) function, expected prototype:\nWebViewListener::Dialog::Dialog(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_Dialog(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
@@ -159,7 +177,7 @@ public:
 };
 
 WebViewListener::Dialog* LunaTraits< WebViewListener::Dialog >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_Dialog::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
@@ -172,7 +190,7 @@ void LunaTraits< WebViewListener::Dialog >::_bind_dtor(WebViewListener::Dialog* 
 
 const char LunaTraits< WebViewListener::Dialog >::className[] = "Dialog";
 const char LunaTraits< WebViewListener::Dialog >::fullName[] = "WebViewListener::Dialog";
-const char LunaTraits< WebViewListener::Dialog >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::Dialog >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::Dialog >::parents[] = {0};
 const int LunaTraits< WebViewListener::Dialog >::hash = 34397265;
 const int LunaTraits< WebViewListener::Dialog >::uniqueIDs[] = {34397265,0};

@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_IsFilePath(lua_State *L) {
@@ -117,6 +124,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// Awesomium::UploadElement::UploadElement(lua_Table * data)
+	static Awesomium::UploadElement* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::UploadElement::UploadElement(lua_Table * data) function, expected prototype:\nAwesomium::UploadElement::UploadElement(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_Awesomium_UploadElement(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool Awesomium::UploadElement::IsFilePath() const
@@ -223,7 +241,7 @@ public:
 };
 
 Awesomium::UploadElement* LunaTraits< Awesomium::UploadElement >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_Awesomium_UploadElement::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool Awesomium::UploadElement::IsFilePath() const

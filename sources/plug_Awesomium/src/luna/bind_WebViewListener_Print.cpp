@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnRequestPrint(lua_State *L) {
@@ -111,6 +118,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::Print::Print(lua_Table * data)
+	static WebViewListener::Print* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::Print::Print(lua_Table * data) function, expected prototype:\nWebViewListener::Print::Print(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_Print(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::Print::OnRequestPrint(Awesomium::WebView * caller)
@@ -183,7 +201,7 @@ public:
 };
 
 WebViewListener::Print* LunaTraits< WebViewListener::Print >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_Print::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Print::OnRequestPrint(Awesomium::WebView * caller)
@@ -197,7 +215,7 @@ void LunaTraits< WebViewListener::Print >::_bind_dtor(WebViewListener::Print* ob
 
 const char LunaTraits< WebViewListener::Print >::className[] = "Print";
 const char LunaTraits< WebViewListener::Print >::fullName[] = "WebViewListener::Print";
-const char LunaTraits< WebViewListener::Print >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::Print >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::Print >::parents[] = {0};
 const int LunaTraits< WebViewListener::Print >::hash = 47951591;
 const int LunaTraits< WebViewListener::Print >::uniqueIDs[] = {47951591,0};

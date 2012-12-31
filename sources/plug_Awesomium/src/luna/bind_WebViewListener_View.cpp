@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnChangeTitle(lua_State *L) {
@@ -147,6 +154,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::View::View(lua_Table * data)
+	static WebViewListener::View* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::View::View(lua_Table * data) function, expected prototype:\nWebViewListener::View::View(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_View(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::View::OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title)
@@ -321,7 +339,7 @@ public:
 };
 
 WebViewListener::View* LunaTraits< WebViewListener::View >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_View::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::View::OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title)
@@ -339,7 +357,7 @@ void LunaTraits< WebViewListener::View >::_bind_dtor(WebViewListener::View* obj)
 
 const char LunaTraits< WebViewListener::View >::className[] = "View";
 const char LunaTraits< WebViewListener::View >::fullName[] = "WebViewListener::View";
-const char LunaTraits< WebViewListener::View >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::View >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::View >::parents[] = {0};
 const int LunaTraits< WebViewListener::View >::hash = 66232947;
 const int LunaTraits< WebViewListener::View >::uniqueIDs[] = {66232947,0};

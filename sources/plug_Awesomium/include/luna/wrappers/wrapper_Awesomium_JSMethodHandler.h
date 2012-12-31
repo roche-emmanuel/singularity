@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_Awesomium_JSMethodHandler(lua_State* L, lua_Table* dum) : Awesomium::JSMethodHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

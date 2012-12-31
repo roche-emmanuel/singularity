@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnRequestDownload(lua_State *L) {
@@ -119,6 +126,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::Download::Download(lua_Table * data)
+	static WebViewListener::Download* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::Download::Download(lua_Table * data) function, expected prototype:\nWebViewListener::Download::Download(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_Download(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)
@@ -206,7 +224,7 @@ public:
 };
 
 WebViewListener::Download* LunaTraits< WebViewListener::Download >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_Download::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)
@@ -220,7 +238,7 @@ void LunaTraits< WebViewListener::Download >::_bind_dtor(WebViewListener::Downlo
 
 const char LunaTraits< WebViewListener::Download >::className[] = "Download";
 const char LunaTraits< WebViewListener::Download >::fullName[] = "WebViewListener::Download";
-const char LunaTraits< WebViewListener::Download >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::Download >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::Download >::parents[] = {0};
 const int LunaTraits< WebViewListener::Download >::hash = 12394159;
 const int LunaTraits< WebViewListener::Download >::uniqueIDs[] = {12394159,0};

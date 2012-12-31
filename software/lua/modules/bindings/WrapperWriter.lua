@@ -66,13 +66,14 @@ function Class:writeFunctionCall2(func)
 	local external = tm:getExternalBase(rt:getBaseName(true))
 	
 	local rtype = rt:getBaseName() .. ((rt:isPointer() or rt:isClass()) and "*" or "")
-	local conv = (rt:isEnum() or rtype=="char") and "("..rtype..")" or ""
+	local conv = (rt:isEnum() or rtype=="char" or rtype=="unsigned char*") and "("..rtype..")" or ""
 	
 	rtype = rt:isConst() and rtype=="char*" and "const "..rtype or rtype
 	
 	-- specific conversions:
 	rtype = rt:isEnum() and "int" or rtype
 	rtype = rtype=="char" and "int" or rtype
+	rtype = rtype=="unsigned char*" and "void*" or rtype
 	
 	self:writeSubLine("return ${3}${2}(_obj.callFunction<${1}>());",rtype,(rt:isClass() and not rt:isPointer()) and "*" or "",conv);
 end

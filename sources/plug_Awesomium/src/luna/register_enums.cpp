@@ -7,7 +7,6 @@
 #include <Awesomium/WebTouchEvent.h>
 #include <Awesomium/WebView.h>
 #include <Awesomium/WebViewListener.h>
-#include <Awesomium/WebKeyboardEvent.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -370,38 +369,6 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,Awesomium::kCan_Paste); lua_setfield(L,-2,"kCan_Paste");
 	lua_pushnumber(L,Awesomium::kCan_Delete); lua_setfield(L,-2,"kCan_Delete");
 	lua_pushnumber(L,Awesomium::kCan_SelectAll); lua_setfield(L,-2,"kCan_SelectAll");
-
-
-	lua_newtable(L); // enum Type
-
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kTypeKeyDown); lua_setfield(L,-2,"kTypeKeyDown");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kTypeKeyUp); lua_setfield(L,-2,"kTypeKeyUp");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kTypeChar); lua_setfield(L,-2,"kTypeChar");
-
-	lua_setfield(L,-2,"Type");
-
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kTypeKeyDown); lua_setfield(L,-2,"kTypeKeyDown");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kTypeKeyUp); lua_setfield(L,-2,"kTypeKeyUp");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kTypeChar); lua_setfield(L,-2,"kTypeChar");
-
-
-	lua_newtable(L); // enum Modifiers
-
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModShiftKey); lua_setfield(L,-2,"kModShiftKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModControlKey); lua_setfield(L,-2,"kModControlKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModAltKey); lua_setfield(L,-2,"kModAltKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModMetaKey); lua_setfield(L,-2,"kModMetaKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModIsKeypad); lua_setfield(L,-2,"kModIsKeypad");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModIsAutorepeat); lua_setfield(L,-2,"kModIsAutorepeat");
-
-	lua_setfield(L,-2,"Modifiers");
-
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModShiftKey); lua_setfield(L,-2,"kModShiftKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModControlKey); lua_setfield(L,-2,"kModControlKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModAltKey); lua_setfield(L,-2,"kModAltKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModMetaKey); lua_setfield(L,-2,"kModMetaKey");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModIsKeypad); lua_setfield(L,-2,"kModIsKeypad");
-	lua_pushnumber(L,Awesomium::WebKeyboardEvent::kModIsAutorepeat); lua_setfield(L,-2,"kModIsAutorepeat");
 
 
 }

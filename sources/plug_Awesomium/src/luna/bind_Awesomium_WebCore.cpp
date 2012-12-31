@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_Initialize(lua_State *L) {
@@ -163,6 +170,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// Awesomium::WebCore::WebCore(lua_Table * data)
+	static Awesomium::WebCore* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::WebCore::WebCore(lua_Table * data) function, expected prototype:\nAwesomium::WebCore::WebCore(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_Awesomium_WebCore(L,NULL);
+	}
+
 
 	// Function binds:
 	// static Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config)
@@ -393,7 +411,7 @@ public:
 };
 
 Awesomium::WebCore* LunaTraits< Awesomium::WebCore >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_Awesomium_WebCore::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)

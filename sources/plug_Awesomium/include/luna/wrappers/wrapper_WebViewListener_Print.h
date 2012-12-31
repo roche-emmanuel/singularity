@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_WebViewListener_Print(lua_State* L, lua_Table* dum) : WebViewListener::Print(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

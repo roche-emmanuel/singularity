@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_Awesomium_ResourceRequest(lua_State* L, lua_Table* dum) : Awesomium::ResourceRequest(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:

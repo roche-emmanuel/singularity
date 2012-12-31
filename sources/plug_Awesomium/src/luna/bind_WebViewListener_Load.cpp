@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnBeginLoadingFrame(lua_State *L) {
@@ -128,6 +135,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::Load::Load(lua_Table * data)
+	static WebViewListener::Load* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::Load::Load(lua_Table * data) function, expected prototype:\nWebViewListener::Load::Load(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_Load(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
@@ -242,7 +260,7 @@ public:
 };
 
 WebViewListener::Load* LunaTraits< WebViewListener::Load >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_Load::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
@@ -257,7 +275,7 @@ void LunaTraits< WebViewListener::Load >::_bind_dtor(WebViewListener::Load* obj)
 
 const char LunaTraits< WebViewListener::Load >::className[] = "Load";
 const char LunaTraits< WebViewListener::Load >::fullName[] = "WebViewListener::Load";
-const char LunaTraits< WebViewListener::Load >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::Load >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::Load >::parents[] = {0};
 const int LunaTraits< WebViewListener::Load >::hash = 65940660;
 const int LunaTraits< WebViewListener::Load >::uniqueIDs[] = {65940660,0};

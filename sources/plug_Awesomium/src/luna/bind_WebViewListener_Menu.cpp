@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnShowPopupMenu(lua_State *L) {
@@ -103,6 +110,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::Menu::Menu(lua_Table * data)
+	static WebViewListener::Menu* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::Menu::Menu(lua_Table * data) function, expected prototype:\nWebViewListener::Menu::Menu(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_Menu(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
@@ -159,7 +177,7 @@ public:
 };
 
 WebViewListener::Menu* LunaTraits< WebViewListener::Menu >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_Menu::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
@@ -172,7 +190,7 @@ void LunaTraits< WebViewListener::Menu >::_bind_dtor(WebViewListener::Menu* obj)
 
 const char LunaTraits< WebViewListener::Menu >::className[] = "Menu";
 const char LunaTraits< WebViewListener::Menu >::fullName[] = "WebViewListener::Menu";
-const char LunaTraits< WebViewListener::Menu >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::Menu >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::Menu >::parents[] = {0};
 const int LunaTraits< WebViewListener::Menu >::hash = 65961261;
 const int LunaTraits< WebViewListener::Menu >::uniqueIDs[] = {65961261,0};

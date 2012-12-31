@@ -32,6 +32,9 @@ ReflectionGenerator.generate{
 	modName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path,
+	mappedModules={
+		WebViewListener="Awesomium",
+	},
 	ignoreFunctions={
 		"WebView::chooseMultipleFiles",
 		"NativeWindow"
