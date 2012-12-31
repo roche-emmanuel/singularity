@@ -144,7 +144,15 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_removeSink(lua_State *L) {
+	inline static bool _lg_typecheck_removeSink_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_removeSink_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -428,9 +436,29 @@ public:
 		return 0;
 	}
 
+	// bool sgt::LogManager::removeSink(sgt::LogSink * sink)
+	static int _bind_removeSink_overload_1(lua_State *L) {
+		if (!_lg_typecheck_removeSink_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool sgt::LogManager::removeSink(sgt::LogSink * sink) function, expected prototype:\nbool sgt::LogManager::removeSink(sgt::LogSink * sink)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		sgt::LogSink* sink=(Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,2));
+
+		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeSink(sgt::LogSink *)");
+		}
+		bool lret = self->removeSink(sink);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// bool sgt::LogManager::removeSink(const std::string & name)
-	static int _bind_removeSink(lua_State *L) {
-		if (!_lg_typecheck_removeSink(L)) {
+	static int _bind_removeSink_overload_2(lua_State *L) {
+		if (!_lg_typecheck_removeSink_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool sgt::LogManager::removeSink(const std::string & name) function, expected prototype:\nbool sgt::LogManager::removeSink(const std::string & name)\nClass arguments details:\n");
 		}
@@ -446,6 +474,15 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// Overload binder for sgt::LogManager::removeSink
+	static int _bind_removeSink(lua_State *L) {
+		if (_lg_typecheck_removeSink_overload_1(L)) return _bind_removeSink_overload_1(L);
+		if (_lg_typecheck_removeSink_overload_2(L)) return _bind_removeSink_overload_2(L);
+
+		luaL_error(L, "error in function removeSink, cannot match any of the overloads for function removeSink:\n  removeSink(sgt::LogSink *)\n  removeSink(const std::string &)\n");
+		return 0;
 	}
 
 	// sgt::LogSink * sgt::LogManager::getSink(const std::string & name)

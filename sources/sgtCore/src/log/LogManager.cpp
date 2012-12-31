@@ -85,6 +85,19 @@ void LogManager::addSink(LogSink * sink)
   // Bouml preserved body end 0002F00B
 }
 
+bool LogManager::removeSink(LogSink * sink) {
+	if(!sink)
+		return false;
+
+	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
+		if((*it) == sink) {
+			_sinks.erase(it);
+			return true;
+		}
+	}
+	return false;
+}
+
 bool LogManager::removeSink(const std::string& name) {
 	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
 		if((*it)->getName() == name) {

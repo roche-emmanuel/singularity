@@ -15,9 +15,6 @@ local fs = require "base.FileSystem"
 --- Create an OSG Canvas:
 function Class:initialize(options)
 	self:debug4("Initializing OSG Canvas.")
-	self:check(options.intf,"Invalid interface in OSGCanvas constructor.")
-
-	local intf = options.intf
 	
 	self._root = options.root or osg.Group()
 	 

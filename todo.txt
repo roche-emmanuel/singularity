@@ -5,7 +5,6 @@
 
 - Todo:
 
-* Implemente log panel for WX.
 * generate spark examples
 * improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)
 * Register functions in the proper module (list osgDB.readNodeFile())

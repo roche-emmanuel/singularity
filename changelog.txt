@@ -13,4 +13,5 @@
 - Redirecting OSG log messages to log manager with custom NotifyHandler.
 - Added support for config table in reflection manager
 - Disabled wrapper_default_constructor config entry for wxWidgets module (because of missing protected and/or abstract methods in interface description).
+- Implemented simple log panel for WX.
 

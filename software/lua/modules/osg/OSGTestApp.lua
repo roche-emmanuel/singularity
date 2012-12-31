@@ -10,7 +10,8 @@ function Class:initialize()
 	local intf = Interface{root=self:getFrame()}
 
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
-	local ctrl, canvas = intf:addOSGCtrl{}
+	local ctrl, canvas = intf:addOSGCtrl{prop=2}
+	intf:addOutputPanel{}
 	intf:popParent(true)
 
 	self:getFrame():Layout()
