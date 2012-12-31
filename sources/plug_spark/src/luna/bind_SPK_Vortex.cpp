@@ -761,8 +761,8 @@ void LunaTraits< SPK::Vortex >::_bind_dtor(SPK::Vortex* obj) {
 
 const char LunaTraits< SPK::Vortex >::className[] = "Vortex";
 const char LunaTraits< SPK::Vortex >::fullName[] = "SPK::Vortex";
-const char LunaTraits< SPK::Vortex >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Vortex >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::Vortex >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Vortex >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::Vortex >::hash = 67194880;
 const int LunaTraits< SPK::Vortex >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

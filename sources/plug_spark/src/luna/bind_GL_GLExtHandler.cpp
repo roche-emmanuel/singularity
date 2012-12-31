@@ -222,7 +222,7 @@ void LunaTraits< GL::GLExtHandler >::_bind_dtor(GL::GLExtHandler* obj) {
 
 const char LunaTraits< GL::GLExtHandler >::className[] = "GLExtHandler";
 const char LunaTraits< GL::GLExtHandler >::fullName[] = "GL::GLExtHandler";
-const char LunaTraits< GL::GLExtHandler >::moduleName[] = "GL";
+const char LunaTraits< GL::GLExtHandler >::moduleName[] = "spark";
 const char* LunaTraits< GL::GLExtHandler >::parents[] = {0};
 const int LunaTraits< GL::GLExtHandler >::hash = 94328851;
 const int LunaTraits< GL::GLExtHandler >::uniqueIDs[] = {94328851,0};

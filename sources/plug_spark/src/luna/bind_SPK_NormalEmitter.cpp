@@ -372,8 +372,8 @@ void LunaTraits< SPK::NormalEmitter >::_bind_dtor(SPK::NormalEmitter* obj) {
 
 const char LunaTraits< SPK::NormalEmitter >::className[] = "NormalEmitter";
 const char LunaTraits< SPK::NormalEmitter >::fullName[] = "SPK::NormalEmitter";
-const char LunaTraits< SPK::NormalEmitter >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::NormalEmitter >::parents[] = {"SPK.Emitter", 0};
+const char LunaTraits< SPK::NormalEmitter >::moduleName[] = "spark";
+const char* LunaTraits< SPK::NormalEmitter >::parents[] = {"spark.Emitter", 0};
 const int LunaTraits< SPK::NormalEmitter >::hash = 8953363;
 const int LunaTraits< SPK::NormalEmitter >::uniqueIDs[] = {31337102, 41560017,0};
 

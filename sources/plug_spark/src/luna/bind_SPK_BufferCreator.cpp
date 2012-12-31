@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 
@@ -87,6 +94,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// SPK::BufferCreator::BufferCreator(lua_Table * data)
+	static SPK::BufferCreator* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::BufferCreator::BufferCreator(lua_Table * data) function, expected prototype:\nSPK::BufferCreator::BufferCreator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_SPK_BufferCreator(L,NULL);
+	}
+
 
 	// Function binds:
 
@@ -95,7 +113,7 @@ public:
 };
 
 SPK::BufferCreator* LunaTraits< SPK::BufferCreator >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_SPK_BufferCreator::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// SPK::Buffer * SPK::BufferCreator::createBuffer(size_t nbParticles, const SPK::Group & group) const
@@ -107,7 +125,7 @@ void LunaTraits< SPK::BufferCreator >::_bind_dtor(SPK::BufferCreator* obj) {
 
 const char LunaTraits< SPK::BufferCreator >::className[] = "BufferCreator";
 const char LunaTraits< SPK::BufferCreator >::fullName[] = "SPK::BufferCreator";
-const char LunaTraits< SPK::BufferCreator >::moduleName[] = "SPK";
+const char LunaTraits< SPK::BufferCreator >::moduleName[] = "spark";
 const char* LunaTraits< SPK::BufferCreator >::parents[] = {0};
 const int LunaTraits< SPK::BufferCreator >::hash = 22446991;
 const int LunaTraits< SPK::BufferCreator >::uniqueIDs[] = {22446991,0};

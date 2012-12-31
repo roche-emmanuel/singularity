@@ -487,7 +487,7 @@ void LunaTraits< SPK::SPKFactory >::_bind_dtor(SPK::SPKFactory* obj) {
 
 const char LunaTraits< SPK::SPKFactory >::className[] = "SPKFactory";
 const char LunaTraits< SPK::SPKFactory >::fullName[] = "SPK::SPKFactory";
-const char LunaTraits< SPK::SPKFactory >::moduleName[] = "SPK";
+const char LunaTraits< SPK::SPKFactory >::moduleName[] = "spark";
 const char* LunaTraits< SPK::SPKFactory >::parents[] = {0};
 const int LunaTraits< SPK::SPKFactory >::hash = 51091037;
 const int LunaTraits< SPK::SPKFactory >::uniqueIDs[] = {51091037,0};

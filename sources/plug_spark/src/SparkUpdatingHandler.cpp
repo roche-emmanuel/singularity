@@ -1,6 +1,8 @@
 #include "SparkUpdatingHandler.h"
 #include <osgViewer/View>
 
+using namespace spark;
+
 bool SparkUpdatingHandler::handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa )
 {
     osgViewer::View* view = dynamic_cast<osgViewer::View*>( &aa );

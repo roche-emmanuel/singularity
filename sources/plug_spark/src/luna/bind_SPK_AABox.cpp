@@ -682,8 +682,8 @@ void LunaTraits< SPK::AABox >::_bind_dtor(SPK::AABox* obj) {
 
 const char LunaTraits< SPK::AABox >::className[] = "AABox";
 const char LunaTraits< SPK::AABox >::fullName[] = "SPK::AABox";
-const char LunaTraits< SPK::AABox >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::AABox >::parents[] = {"SPK.Zone", 0};
+const char LunaTraits< SPK::AABox >::moduleName[] = "spark";
+const char* LunaTraits< SPK::AABox >::parents[] = {"spark.Zone", 0};
 const int LunaTraits< SPK::AABox >::hash = 29744084;
 const int LunaTraits< SPK::AABox >::uniqueIDs[] = {31337102, 41560017,0};
 

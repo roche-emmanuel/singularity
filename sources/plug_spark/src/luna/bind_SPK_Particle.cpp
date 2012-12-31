@@ -817,7 +817,7 @@ void LunaTraits< SPK::Particle >::_bind_dtor(SPK::Particle* obj) {
 
 const char LunaTraits< SPK::Particle >::className[] = "Particle";
 const char LunaTraits< SPK::Particle >::fullName[] = "SPK::Particle";
-const char LunaTraits< SPK::Particle >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Particle >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Particle >::parents[] = {0};
 const int LunaTraits< SPK::Particle >::hash = 73657533;
 const int LunaTraits< SPK::Particle >::uniqueIDs[] = {73657533,0};

@@ -311,8 +311,8 @@ void LunaTraits< SPK::Destroyer >::_bind_dtor(SPK::Destroyer* obj) {
 
 const char LunaTraits< SPK::Destroyer >::className[] = "Destroyer";
 const char LunaTraits< SPK::Destroyer >::fullName[] = "SPK::Destroyer";
-const char LunaTraits< SPK::Destroyer >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Destroyer >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::Destroyer >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Destroyer >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::Destroyer >::hash = 38701661;
 const int LunaTraits< SPK::Destroyer >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

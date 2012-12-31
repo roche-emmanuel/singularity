@@ -590,8 +590,8 @@ void LunaTraits< GL::GLLineRenderer >::_bind_dtor(GL::GLLineRenderer* obj) {
 
 const char LunaTraits< GL::GLLineRenderer >::className[] = "GLLineRenderer";
 const char LunaTraits< GL::GLLineRenderer >::fullName[] = "GL::GLLineRenderer";
-const char LunaTraits< GL::GLLineRenderer >::moduleName[] = "GL";
-const char* LunaTraits< GL::GLLineRenderer >::parents[] = {"GL.GLRenderer", "SPK.LineRendererInterface", 0};
+const char LunaTraits< GL::GLLineRenderer >::moduleName[] = "spark";
+const char* LunaTraits< GL::GLLineRenderer >::parents[] = {"spark.GLRenderer", "spark.LineRendererInterface", 0};
 const int LunaTraits< GL::GLLineRenderer >::hash = 76637471;
 const int LunaTraits< GL::GLLineRenderer >::uniqueIDs[] = {31337102, 81662222, 87424637,0};
 

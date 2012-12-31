@@ -592,8 +592,8 @@ void LunaTraits< GL::GLRenderer >::_bind_dtor(GL::GLRenderer* obj) {
 
 const char LunaTraits< GL::GLRenderer >::className[] = "GLRenderer";
 const char LunaTraits< GL::GLRenderer >::fullName[] = "GL::GLRenderer";
-const char LunaTraits< GL::GLRenderer >::moduleName[] = "GL";
-const char* LunaTraits< GL::GLRenderer >::parents[] = {"SPK.Renderer", 0};
+const char LunaTraits< GL::GLRenderer >::moduleName[] = "spark";
+const char* LunaTraits< GL::GLRenderer >::parents[] = {"spark.Renderer", 0};
 const int LunaTraits< GL::GLRenderer >::hash = 54012031;
 const int LunaTraits< GL::GLRenderer >::uniqueIDs[] = {31337102, 81662222,0};
 

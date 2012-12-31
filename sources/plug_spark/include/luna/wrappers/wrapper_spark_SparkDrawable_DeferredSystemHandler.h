@@ -1,5 +1,5 @@
-#ifndef _WRAPPERS_WRAPPER_SPARKDRAWABLE_DEFERREDSYSTEMHANDLER_H_
-#define _WRAPPERS_WRAPPER_SPARKDRAWABLE_DEFERREDSYSTEMHANDLER_H_
+#ifndef _WRAPPERS_WRAPPER_SPARK_SPARKDRAWABLE_DEFERREDSYSTEMHANDLER_H_
+#define _WRAPPERS_WRAPPER_SPARK_SPARKDRAWABLE_DEFERREDSYSTEMHANDLER_H_
 
 #include <plug_common.h>
 
@@ -8,17 +8,18 @@
 
 #include <SparkDrawable.h>
 
-class wrapper_SparkDrawable_DeferredSystemHandler : public SparkDrawable::DeferredSystemHandler, public luna_wrapper_base {
+class wrapper_spark_SparkDrawable_DeferredSystemHandler : public spark::SparkDrawable::DeferredSystemHandler, public luna_wrapper_base {
 
 public:
 		
 
-	~wrapper_SparkDrawable_DeferredSystemHandler() {
+	~wrapper_spark_SparkDrawable_DeferredSystemHandler() {
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}
 	};
 	
+	wrapper_spark_SparkDrawable_DeferredSystemHandler(lua_State* L, lua_Table* dum) : spark::SparkDrawable::DeferredSystemHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
@@ -26,7 +27,7 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
-	// void SparkDrawable::DeferredSystemHandler::update(osg::NodeVisitor * nv, osg::Drawable * drawable)
+	// void spark::SparkDrawable::DeferredSystemHandler::update(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	void update(osg::NodeVisitor * nv, osg::Drawable * drawable) {
 		if(_obj.pushFunction("update")) {
 			_obj.pushArg(nv);

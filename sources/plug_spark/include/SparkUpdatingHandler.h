@@ -5,6 +5,8 @@
 #include <osgGA/GUIEventHandler>
 #include "SparkDrawable.h"
 
+namespace spark {
+
 /** The spark updater which record all SparkDrawables and update them */
 class SparkUpdatingHandler : public osgGA::GUIEventHandler
 {
@@ -43,6 +45,8 @@ protected:
         bool _dirtyMatrix;  // Dirty the matrix if trackee is changed in the scene graph
     };
     std::vector<SparkObject> _sparks;
+};
+
 };
 
 #endif

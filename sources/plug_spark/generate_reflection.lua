@@ -35,6 +35,10 @@ ReflectionGenerator.generate{
 	modName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path,
+	mappedModules={
+		SPK="spark",
+		GL="spark",
+	},
 	ignoreFunctions={
 		"std::vector",
 		"std::set",

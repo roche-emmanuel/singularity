@@ -320,7 +320,7 @@ void LunaTraits< SPK::PointRendererInterface >::_bind_dtor(SPK::PointRendererInt
 
 const char LunaTraits< SPK::PointRendererInterface >::className[] = "PointRendererInterface";
 const char LunaTraits< SPK::PointRendererInterface >::fullName[] = "SPK::PointRendererInterface";
-const char LunaTraits< SPK::PointRendererInterface >::moduleName[] = "SPK";
+const char LunaTraits< SPK::PointRendererInterface >::moduleName[] = "spark";
 const char* LunaTraits< SPK::PointRendererInterface >::parents[] = {0};
 const int LunaTraits< SPK::PointRendererInterface >::hash = 24217931;
 const int LunaTraits< SPK::PointRendererInterface >::uniqueIDs[] = {24217931,0};

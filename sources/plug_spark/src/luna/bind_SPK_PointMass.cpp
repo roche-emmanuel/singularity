@@ -505,8 +505,8 @@ void LunaTraits< SPK::PointMass >::_bind_dtor(SPK::PointMass* obj) {
 
 const char LunaTraits< SPK::PointMass >::className[] = "PointMass";
 const char LunaTraits< SPK::PointMass >::fullName[] = "SPK::PointMass";
-const char LunaTraits< SPK::PointMass >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::PointMass >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::PointMass >::moduleName[] = "spark";
+const char* LunaTraits< SPK::PointMass >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::PointMass >::hash = 10120873;
 const int LunaTraits< SPK::PointMass >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

@@ -80,7 +80,7 @@ void LunaTraits< SPK::Pool< class SPK::Particle > >::_bind_dtor(SPK::Pool< class
 
 const char LunaTraits< SPK::Pool< class SPK::Particle > >::className[] = "Pool_class_SPK_Particle";
 const char LunaTraits< SPK::Pool< class SPK::Particle > >::fullName[] = "SPK::Pool< class SPK::Particle >";
-const char LunaTraits< SPK::Pool< class SPK::Particle > >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Pool< class SPK::Particle > >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Pool< class SPK::Particle > >::parents[] = {0};
 const int LunaTraits< SPK::Pool< class SPK::Particle > >::hash = 49606317;
 const int LunaTraits< SPK::Pool< class SPK::Particle > >::uniqueIDs[] = {49606317,0};

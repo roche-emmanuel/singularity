@@ -413,8 +413,8 @@ void LunaTraits< SPK::Collision >::_bind_dtor(SPK::Collision* obj) {
 
 const char LunaTraits< SPK::Collision >::className[] = "Collision";
 const char LunaTraits< SPK::Collision >::fullName[] = "SPK::Collision";
-const char LunaTraits< SPK::Collision >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Collision >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::Collision >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Collision >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::Collision >::hash = 24108923;
 const int LunaTraits< SPK::Collision >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

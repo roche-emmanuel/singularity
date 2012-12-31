@@ -819,8 +819,8 @@ void LunaTraits< SPK::Cylinder >::_bind_dtor(SPK::Cylinder* obj) {
 
 const char LunaTraits< SPK::Cylinder >::className[] = "Cylinder";
 const char LunaTraits< SPK::Cylinder >::fullName[] = "SPK::Cylinder";
-const char LunaTraits< SPK::Cylinder >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Cylinder >::parents[] = {"SPK.Zone", 0};
+const char LunaTraits< SPK::Cylinder >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Cylinder >::parents[] = {"spark.Zone", 0};
 const int LunaTraits< SPK::Cylinder >::hash = 28016023;
 const int LunaTraits< SPK::Cylinder >::uniqueIDs[] = {31337102, 41560017,0};
 

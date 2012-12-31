@@ -668,8 +668,8 @@ void LunaTraits< SPK::Sphere >::_bind_dtor(SPK::Sphere* obj) {
 
 const char LunaTraits< SPK::Sphere >::className[] = "Sphere";
 const char LunaTraits< SPK::Sphere >::fullName[] = "SPK::Sphere";
-const char LunaTraits< SPK::Sphere >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Sphere >::parents[] = {"SPK.Zone", 0};
+const char LunaTraits< SPK::Sphere >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Sphere >::parents[] = {"spark.Zone", 0};
 const int LunaTraits< SPK::Sphere >::hash = 81919018;
 const int LunaTraits< SPK::Sphere >::uniqueIDs[] = {31337102, 41560017,0};
 

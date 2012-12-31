@@ -920,8 +920,8 @@ void LunaTraits< SPK::Model >::_bind_dtor(SPK::Model* obj) {
 
 const char LunaTraits< SPK::Model >::className[] = "Model";
 const char LunaTraits< SPK::Model >::fullName[] = "SPK::Model";
-const char LunaTraits< SPK::Model >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Model >::parents[] = {"SPK.Registerable", 0};
+const char LunaTraits< SPK::Model >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Model >::parents[] = {"spark.Registerable", 0};
 const int LunaTraits< SPK::Model >::hash = 42229074;
 const int LunaTraits< SPK::Model >::uniqueIDs[] = {31337102,0};
 

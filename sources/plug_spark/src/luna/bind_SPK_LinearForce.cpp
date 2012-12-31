@@ -496,8 +496,8 @@ void LunaTraits< SPK::LinearForce >::_bind_dtor(SPK::LinearForce* obj) {
 
 const char LunaTraits< SPK::LinearForce >::className[] = "LinearForce";
 const char LunaTraits< SPK::LinearForce >::fullName[] = "SPK::LinearForce";
-const char LunaTraits< SPK::LinearForce >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::LinearForce >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::LinearForce >::moduleName[] = "spark";
+const char* LunaTraits< SPK::LinearForce >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::LinearForce >::hash = 42079332;
 const int LunaTraits< SPK::LinearForce >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

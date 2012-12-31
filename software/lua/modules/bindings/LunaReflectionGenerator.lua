@@ -1215,6 +1215,11 @@ function ReflectionGenerator.generate(options)
 	rm:setDataMap(datamap)
 	rm:setConfig(options.config or {})
 	
+	local tm = require "bindings.TypeManager"
+	for src,dest in pairs(options.mappedModules or {}) do
+		tm:setMappedModuleName(src,dest)
+    end
+	
     datamap:setModuleName(options.modName)
 	datamap:setLuaOpenName(options.luaOpenName)
 

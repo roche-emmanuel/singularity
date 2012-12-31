@@ -1,6 +1,8 @@
 #include "SparkDrawable.h"
 #include <algorithm>
 
+using namespace spark;
+
 /* SparkDrawable::DeferredSystemHandler */
 
 void SparkDrawable::DeferredSystemHandler::update( osg::NodeVisitor* nv, osg::Drawable* drawable )

@@ -1990,8 +1990,8 @@ void LunaTraits< SPK::Group >::_bind_dtor(SPK::Group* obj) {
 
 const char LunaTraits< SPK::Group >::className[] = "Group";
 const char LunaTraits< SPK::Group >::fullName[] = "SPK::Group";
-const char LunaTraits< SPK::Group >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Group >::parents[] = {"SPK.Registerable", "SPK.Transformable", 0};
+const char LunaTraits< SPK::Group >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Group >::parents[] = {"spark.Registerable", "spark.Transformable", 0};
 const int LunaTraits< SPK::Group >::hash = 36788392;
 const int LunaTraits< SPK::Group >::uniqueIDs[] = {31337102, 41560017,0};
 

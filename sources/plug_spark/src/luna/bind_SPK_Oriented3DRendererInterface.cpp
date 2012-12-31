@@ -237,7 +237,7 @@ void LunaTraits< SPK::Oriented3DRendererInterface >::_bind_dtor(SPK::Oriented3DR
 
 const char LunaTraits< SPK::Oriented3DRendererInterface >::className[] = "Oriented3DRendererInterface";
 const char LunaTraits< SPK::Oriented3DRendererInterface >::fullName[] = "SPK::Oriented3DRendererInterface";
-const char LunaTraits< SPK::Oriented3DRendererInterface >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Oriented3DRendererInterface >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Oriented3DRendererInterface >::parents[] = {0};
 const int LunaTraits< SPK::Oriented3DRendererInterface >::hash = 95637678;
 const int LunaTraits< SPK::Oriented3DRendererInterface >::uniqueIDs[] = {95637678,0};

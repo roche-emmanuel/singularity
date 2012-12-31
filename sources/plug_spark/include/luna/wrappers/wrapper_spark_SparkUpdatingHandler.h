@@ -1,5 +1,5 @@
-#ifndef _WRAPPERS_WRAPPER_SPARKUPDATINGHANDLER_H_
-#define _WRAPPERS_WRAPPER_SPARKUPDATINGHANDLER_H_
+#ifndef _WRAPPERS_WRAPPER_SPARK_SPARKUPDATINGHANDLER_H_
+#define _WRAPPERS_WRAPPER_SPARK_SPARKUPDATINGHANDLER_H_
 
 #include <plug_common.h>
 
@@ -8,18 +8,18 @@
 
 #include <SparkUpdatingHandler.h>
 
-class wrapper_SparkUpdatingHandler : public SparkUpdatingHandler, public luna_wrapper_base {
+class wrapper_spark_SparkUpdatingHandler : public spark::SparkUpdatingHandler, public luna_wrapper_base {
 
 public:
 		
 
-	~wrapper_SparkUpdatingHandler() {
+	~wrapper_spark_SparkUpdatingHandler() {
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SparkUpdatingHandler(lua_State* L, lua_Table* dum) : SparkUpdatingHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_spark_SparkUpdatingHandler(lua_State* L, lua_Table* dum) : spark::SparkUpdatingHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
@@ -27,7 +27,7 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
-	// bool SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
+	// bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	bool handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) {
 		if(_obj.pushFunction("handle")) {
 			_obj.pushArg(&ea);
@@ -40,9 +40,9 @@ public:
 
 
 	// Protected non-virtual methods:
-	// osg::Matrix SparkUpdatingHandler::computeTransformMatrix(SparkDrawable * spark, osg::Transform * trackee)
-	osg::Matrix public_computeTransformMatrix(SparkDrawable * spark, osg::Transform * trackee) {
-		return SparkUpdatingHandler::computeTransformMatrix(spark, trackee);
+	// osg::Matrix spark::SparkUpdatingHandler::computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee)
+	osg::Matrix public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee) {
+		return spark::SparkUpdatingHandler::computeTransformMatrix(spark, trackee);
 	};
 
 
@@ -57,20 +57,20 @@ public:
 
 
 	// Protected non-virtual function binds:
-	// osg::Matrix SparkUpdatingHandler::public_computeTransformMatrix(SparkDrawable * spark, osg::Transform * trackee)
+	// osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee)
 	static int _bind_public_computeTransformMatrix(lua_State *L) {
 		if (!_lg_typecheck_public_computeTransformMatrix(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrix SparkUpdatingHandler::public_computeTransformMatrix(SparkDrawable * spark, osg::Transform * trackee) function, expected prototype:\nosg::Matrix SparkUpdatingHandler::public_computeTransformMatrix(SparkDrawable * spark, osg::Transform * trackee)\nClass arguments details:\narg 1 ID = 20484188\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee) function, expected prototype:\nosg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee)\nClass arguments details:\narg 1 ID = 20484188\n");
 		}
 
-		SparkDrawable* spark=(Luna< osg::Referenced >::checkSubType< SparkDrawable >(L,2));
+		spark::SparkDrawable* spark=(Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,2));
 		osg::Transform* trackee=(Luna< osg::Referenced >::checkSubType< osg::Transform >(L,3));
 
-		wrapper_SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_SparkUpdatingHandler >(L,1);
+		wrapper_spark_SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrix SparkUpdatingHandler::public_computeTransformMatrix(SparkDrawable *, osg::Transform *)");
+			luaL_error(L, "Invalid object in function call osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable *, osg::Transform *)");
 		}
 		osg::Matrix lret = self->public_computeTransformMatrix(spark, trackee);
 		////////////////////////////////////////////////////////////////////

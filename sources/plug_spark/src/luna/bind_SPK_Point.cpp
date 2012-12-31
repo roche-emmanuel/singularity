@@ -613,8 +613,8 @@ void LunaTraits< SPK::Point >::_bind_dtor(SPK::Point* obj) {
 
 const char LunaTraits< SPK::Point >::className[] = "Point";
 const char LunaTraits< SPK::Point >::fullName[] = "SPK::Point";
-const char LunaTraits< SPK::Point >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Point >::parents[] = {"SPK.Zone", 0};
+const char LunaTraits< SPK::Point >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Point >::parents[] = {"spark.Zone", 0};
 const int LunaTraits< SPK::Point >::hash = 45004729;
 const int LunaTraits< SPK::Point >::uniqueIDs[] = {31337102, 41560017,0};
 

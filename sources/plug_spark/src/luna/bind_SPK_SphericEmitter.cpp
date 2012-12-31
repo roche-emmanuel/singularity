@@ -413,8 +413,8 @@ void LunaTraits< SPK::SphericEmitter >::_bind_dtor(SPK::SphericEmitter* obj) {
 
 const char LunaTraits< SPK::SphericEmitter >::className[] = "SphericEmitter";
 const char LunaTraits< SPK::SphericEmitter >::fullName[] = "SPK::SphericEmitter";
-const char LunaTraits< SPK::SphericEmitter >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::SphericEmitter >::parents[] = {"SPK.Emitter", 0};
+const char LunaTraits< SPK::SphericEmitter >::moduleName[] = "spark";
+const char* LunaTraits< SPK::SphericEmitter >::parents[] = {"spark.Emitter", 0};
 const int LunaTraits< SPK::SphericEmitter >::hash = 86908514;
 const int LunaTraits< SPK::SphericEmitter >::uniqueIDs[] = {31337102, 41560017,0};
 

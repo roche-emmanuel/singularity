@@ -297,8 +297,8 @@ void LunaTraits< SPK::Rotator >::_bind_dtor(SPK::Rotator* obj) {
 
 const char LunaTraits< SPK::Rotator >::className[] = "Rotator";
 const char LunaTraits< SPK::Rotator >::fullName[] = "SPK::Rotator";
-const char LunaTraits< SPK::Rotator >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Rotator >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::Rotator >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Rotator >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::Rotator >::hash = 34321968;
 const int LunaTraits< SPK::Rotator >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

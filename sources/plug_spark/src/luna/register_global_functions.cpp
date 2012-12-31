@@ -257,12 +257,14 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
+	luna_pushModule(L,"spark");
 	lua_pushcfunction(L, _bind_isFurtherToCamera); lua_setfield(L,-2,"isFurtherToCamera");
 	lua_pushcfunction(L, _bind_swapParticles); lua_setfield(L,-2,"swapParticles");
 	lua_pushcfunction(L, _bind_getSqrDist); lua_setfield(L,-2,"getSqrDist");
 	lua_pushcfunction(L, _bind_getDist); lua_setfield(L,-2,"getDist");
 	lua_pushcfunction(L, _bind_dotProduct); lua_setfield(L,-2,"dotProduct");
 	lua_pushcfunction(L, _bind_crossProduct); lua_setfield(L,-2,"crossProduct");
+	luna_popModule(L);
 }
 
 #ifdef __cplusplus

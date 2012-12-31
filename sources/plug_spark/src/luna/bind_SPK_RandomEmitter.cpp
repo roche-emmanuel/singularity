@@ -79,6 +79,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_getClassName(lua_State *L) {
@@ -111,6 +118,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// SPK::RandomEmitter::RandomEmitter(lua_Table * data)
+	static SPK::RandomEmitter* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::RandomEmitter::RandomEmitter(lua_Table * data) function, expected prototype:\nSPK::RandomEmitter::RandomEmitter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_SPK_RandomEmitter(L,NULL);
+	}
+
 
 	// Function binds:
 	// std::string SPK::RandomEmitter::getClassName() const
@@ -195,7 +213,7 @@ public:
 };
 
 SPK::RandomEmitter* LunaTraits< SPK::RandomEmitter >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_SPK_RandomEmitter::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// SPK::Registerable * SPK::Registerable::clone(bool createBase) const
@@ -207,8 +225,8 @@ void LunaTraits< SPK::RandomEmitter >::_bind_dtor(SPK::RandomEmitter* obj) {
 
 const char LunaTraits< SPK::RandomEmitter >::className[] = "RandomEmitter";
 const char LunaTraits< SPK::RandomEmitter >::fullName[] = "SPK::RandomEmitter";
-const char LunaTraits< SPK::RandomEmitter >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::RandomEmitter >::parents[] = {"SPK.Emitter", 0};
+const char LunaTraits< SPK::RandomEmitter >::moduleName[] = "spark";
+const char* LunaTraits< SPK::RandomEmitter >::parents[] = {"spark.Emitter", 0};
 const int LunaTraits< SPK::RandomEmitter >::hash = 79615935;
 const int LunaTraits< SPK::RandomEmitter >::uniqueIDs[] = {31337102, 41560017,0};
 

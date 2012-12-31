@@ -399,7 +399,7 @@ void LunaTraits< SPK::QuadRendererInterface >::_bind_dtor(SPK::QuadRendererInter
 
 const char LunaTraits< SPK::QuadRendererInterface >::className[] = "QuadRendererInterface";
 const char LunaTraits< SPK::QuadRendererInterface >::fullName[] = "SPK::QuadRendererInterface";
-const char LunaTraits< SPK::QuadRendererInterface >::moduleName[] = "SPK";
+const char LunaTraits< SPK::QuadRendererInterface >::moduleName[] = "spark";
 const char* LunaTraits< SPK::QuadRendererInterface >::parents[] = {0};
 const int LunaTraits< SPK::QuadRendererInterface >::hash = 74399712;
 const int LunaTraits< SPK::QuadRendererInterface >::uniqueIDs[] = {74399712,0};

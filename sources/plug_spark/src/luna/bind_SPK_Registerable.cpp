@@ -496,7 +496,7 @@ void LunaTraits< SPK::Registerable >::_bind_dtor(SPK::Registerable* obj) {
 
 const char LunaTraits< SPK::Registerable >::className[] = "Registerable";
 const char LunaTraits< SPK::Registerable >::fullName[] = "SPK::Registerable";
-const char LunaTraits< SPK::Registerable >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Registerable >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Registerable >::parents[] = {0};
 const int LunaTraits< SPK::Registerable >::hash = 31337102;
 const int LunaTraits< SPK::Registerable >::uniqueIDs[] = {31337102,0};

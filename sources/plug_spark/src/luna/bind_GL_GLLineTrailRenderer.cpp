@@ -779,8 +779,8 @@ void LunaTraits< GL::GLLineTrailRenderer >::_bind_dtor(GL::GLLineTrailRenderer* 
 
 const char LunaTraits< GL::GLLineTrailRenderer >::className[] = "GLLineTrailRenderer";
 const char LunaTraits< GL::GLLineTrailRenderer >::fullName[] = "GL::GLLineTrailRenderer";
-const char LunaTraits< GL::GLLineTrailRenderer >::moduleName[] = "GL";
-const char* LunaTraits< GL::GLLineTrailRenderer >::parents[] = {"GL.GLRenderer", 0};
+const char LunaTraits< GL::GLLineTrailRenderer >::moduleName[] = "spark";
+const char* LunaTraits< GL::GLLineTrailRenderer >::parents[] = {"spark.GLRenderer", 0};
 const int LunaTraits< GL::GLLineTrailRenderer >::hash = 67669745;
 const int LunaTraits< GL::GLLineTrailRenderer >::uniqueIDs[] = {31337102, 81662222,0};
 

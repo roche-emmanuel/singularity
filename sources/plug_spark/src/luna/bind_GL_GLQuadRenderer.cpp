@@ -693,8 +693,8 @@ void LunaTraits< GL::GLQuadRenderer >::_bind_dtor(GL::GLQuadRenderer* obj) {
 
 const char LunaTraits< GL::GLQuadRenderer >::className[] = "GLQuadRenderer";
 const char LunaTraits< GL::GLQuadRenderer >::fullName[] = "GL::GLQuadRenderer";
-const char LunaTraits< GL::GLQuadRenderer >::moduleName[] = "GL";
-const char* LunaTraits< GL::GLQuadRenderer >::parents[] = {"GL.GLRenderer", "SPK.QuadRendererInterface", "SPK.Oriented3DRendererInterface", "GL.GLExtHandler", 0};
+const char LunaTraits< GL::GLQuadRenderer >::moduleName[] = "spark";
+const char* LunaTraits< GL::GLQuadRenderer >::parents[] = {"spark.GLRenderer", "spark.QuadRendererInterface", "spark.Oriented3DRendererInterface", "spark.GLExtHandler", 0};
 const int LunaTraits< GL::GLQuadRenderer >::hash = 69989719;
 const int LunaTraits< GL::GLQuadRenderer >::uniqueIDs[] = {31337102, 81662222, 74399712, 95637678, 94328851,0};
 

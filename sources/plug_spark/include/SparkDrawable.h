@@ -8,6 +8,8 @@
 #include <SPK_GL.h>
 #include <iostream>
 
+namespace spark {
+
 /** The spark drawable contains one or more particle systems of the same base type */
 class SparkDrawable : public osg::Drawable
 {
@@ -135,6 +137,8 @@ protected:
     bool _useProtoSystem;
     bool _autoUpdateBound;
     mutable bool _dirty;
+};
+
 };
 
 #endif

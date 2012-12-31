@@ -687,8 +687,8 @@ void LunaTraits< SPK::ModifierGroup >::_bind_dtor(SPK::ModifierGroup* obj) {
 
 const char LunaTraits< SPK::ModifierGroup >::className[] = "ModifierGroup";
 const char LunaTraits< SPK::ModifierGroup >::fullName[] = "SPK::ModifierGroup";
-const char LunaTraits< SPK::ModifierGroup >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::ModifierGroup >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::ModifierGroup >::moduleName[] = "spark";
+const char* LunaTraits< SPK::ModifierGroup >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::ModifierGroup >::hash = 61813866;
 const int LunaTraits< SPK::ModifierGroup >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

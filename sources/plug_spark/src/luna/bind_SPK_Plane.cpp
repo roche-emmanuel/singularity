@@ -709,8 +709,8 @@ void LunaTraits< SPK::Plane >::_bind_dtor(SPK::Plane* obj) {
 
 const char LunaTraits< SPK::Plane >::className[] = "Plane";
 const char LunaTraits< SPK::Plane >::fullName[] = "SPK::Plane";
-const char LunaTraits< SPK::Plane >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Plane >::parents[] = {"SPK.Zone", 0};
+const char LunaTraits< SPK::Plane >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Plane >::parents[] = {"spark.Zone", 0};
 const int LunaTraits< SPK::Plane >::hash = 44907653;
 const int LunaTraits< SPK::Plane >::uniqueIDs[] = {31337102, 41560017,0};
 

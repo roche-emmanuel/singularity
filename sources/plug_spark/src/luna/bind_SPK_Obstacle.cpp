@@ -421,8 +421,8 @@ void LunaTraits< SPK::Obstacle >::_bind_dtor(SPK::Obstacle* obj) {
 
 const char LunaTraits< SPK::Obstacle >::className[] = "Obstacle";
 const char LunaTraits< SPK::Obstacle >::fullName[] = "SPK::Obstacle";
-const char LunaTraits< SPK::Obstacle >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Obstacle >::parents[] = {"SPK.Modifier", 0};
+const char LunaTraits< SPK::Obstacle >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Obstacle >::parents[] = {"spark.Modifier", 0};
 const int LunaTraits< SPK::Obstacle >::hash = 76941105;
 const int LunaTraits< SPK::Obstacle >::uniqueIDs[] = {31337102, 41560017, 81662222,0};
 

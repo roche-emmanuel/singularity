@@ -957,7 +957,7 @@ void LunaTraits< SPK::Transformable >::_bind_dtor(SPK::Transformable* obj) {
 
 const char LunaTraits< SPK::Transformable >::className[] = "Transformable";
 const char LunaTraits< SPK::Transformable >::fullName[] = "SPK::Transformable";
-const char LunaTraits< SPK::Transformable >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Transformable >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Transformable >::parents[] = {0};
 const int LunaTraits< SPK::Transformable >::hash = 41560017;
 const int LunaTraits< SPK::Transformable >::uniqueIDs[] = {41560017,0};

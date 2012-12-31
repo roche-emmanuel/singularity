@@ -292,7 +292,7 @@ void LunaTraits< SPK::LineRendererInterface >::_bind_dtor(SPK::LineRendererInter
 
 const char LunaTraits< SPK::LineRendererInterface >::className[] = "LineRendererInterface";
 const char LunaTraits< SPK::LineRendererInterface >::fullName[] = "SPK::LineRendererInterface";
-const char LunaTraits< SPK::LineRendererInterface >::moduleName[] = "SPK";
+const char LunaTraits< SPK::LineRendererInterface >::moduleName[] = "spark";
 const char* LunaTraits< SPK::LineRendererInterface >::parents[] = {0};
 const int LunaTraits< SPK::LineRendererInterface >::hash = 87424637;
 const int LunaTraits< SPK::LineRendererInterface >::uniqueIDs[] = {87424637,0};

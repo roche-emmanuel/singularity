@@ -779,8 +779,8 @@ void LunaTraits< SPK::Line >::_bind_dtor(SPK::Line* obj) {
 
 const char LunaTraits< SPK::Line >::className[] = "Line";
 const char LunaTraits< SPK::Line >::fullName[] = "SPK::Line";
-const char LunaTraits< SPK::Line >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Line >::parents[] = {"SPK.Zone", 0};
+const char LunaTraits< SPK::Line >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Line >::parents[] = {"spark.Zone", 0};
 const int LunaTraits< SPK::Line >::hash = 40036659;
 const int LunaTraits< SPK::Line >::uniqueIDs[] = {31337102, 41560017,0};
 

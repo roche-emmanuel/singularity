@@ -510,8 +510,8 @@ void LunaTraits< SPK::Renderer >::_bind_dtor(SPK::Renderer* obj) {
 
 const char LunaTraits< SPK::Renderer >::className[] = "Renderer";
 const char LunaTraits< SPK::Renderer >::fullName[] = "SPK::Renderer";
-const char LunaTraits< SPK::Renderer >::moduleName[] = "SPK";
-const char* LunaTraits< SPK::Renderer >::parents[] = {"SPK.Registerable", "SPK.BufferHandler", 0};
+const char LunaTraits< SPK::Renderer >::moduleName[] = "spark";
+const char* LunaTraits< SPK::Renderer >::parents[] = {"spark.Registerable", "spark.BufferHandler", 0};
 const int LunaTraits< SPK::Renderer >::hash = 19496531;
 const int LunaTraits< SPK::Renderer >::uniqueIDs[] = {31337102, 81662222,0};
 

@@ -585,7 +585,7 @@ void LunaTraits< SPK::Vector3D >::_bind_dtor(SPK::Vector3D* obj) {
 
 const char LunaTraits< SPK::Vector3D >::className[] = "Vector3D";
 const char LunaTraits< SPK::Vector3D >::fullName[] = "SPK::Vector3D";
-const char LunaTraits< SPK::Vector3D >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Vector3D >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Vector3D >::parents[] = {0};
 const int LunaTraits< SPK::Vector3D >::hash = 70092749;
 const int LunaTraits< SPK::Vector3D >::uniqueIDs[] = {70092749,0};

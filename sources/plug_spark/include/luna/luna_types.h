@@ -72,96 +72,6 @@ public:
 };
 
 template<>
-class LunaTraits< SparkDrawable > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SparkDrawable* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkDrawable* obj);
-	typedef osg::Drawable parent_t;
-	typedef SparkDrawable base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::vector< SPK::System * > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< SPK::System * >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< SPK::System * >* obj);
-	typedef SparkDrawable::ParticleSystemList parent_t;
-	typedef std::vector< SPK::System * > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::map< std::string, SparkDrawable::ImageAttribute > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::map< std::string, SparkDrawable::ImageAttribute >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< std::string, SparkDrawable::ImageAttribute >* obj);
-	typedef SparkDrawable::TextureObjMap parent_t;
-	typedef std::map< std::string, SparkDrawable::ImageAttribute > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::map< std::string, unsigned int > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef SparkDrawable::TextureIDMap parent_t;
-	typedef std::map< std::string, unsigned int > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< SparkDrawable::BaseSystemCreator > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SparkDrawable::BaseSystemCreator* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkDrawable::BaseSystemCreator* obj);
-	typedef SparkDrawable::BaseSystemCreator parent_t;
-	typedef SparkDrawable::BaseSystemCreator base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
 class LunaTraits< osg::Drawable::UpdateCallback > {
 public:
 	static const char className[];
@@ -176,78 +86,6 @@ public:
 	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
 	typedef osg::Drawable::UpdateCallback parent_t;
 	typedef osg::Drawable::UpdateCallback base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< SparkDrawable::DeferredSystemHandler > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SparkDrawable::DeferredSystemHandler* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkDrawable::DeferredSystemHandler* obj);
-	typedef osg::Drawable::UpdateCallback parent_t;
-	typedef SparkDrawable::DeferredSystemHandler base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< SparkDrawable::DeferredSystemHandler::PosAndRotate > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SparkDrawable::DeferredSystemHandler::PosAndRotate* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkDrawable::DeferredSystemHandler::PosAndRotate* obj);
-	typedef SparkDrawable::DeferredSystemHandler::PosAndRotate parent_t;
-	typedef SparkDrawable::DeferredSystemHandler::PosAndRotate base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< SparkDrawable::ImageAttribute > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SparkDrawable::ImageAttribute* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkDrawable::ImageAttribute* obj);
-	typedef SparkDrawable::ImageAttribute parent_t;
-	typedef SparkDrawable::ImageAttribute base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< SparkDrawable::SortParticlesOperator > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SparkDrawable::SortParticlesOperator* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkDrawable::SortParticlesOperator* obj);
-	typedef SparkDrawable::SortParticlesOperator parent_t;
-	typedef SparkDrawable::SortParticlesOperator base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -270,7 +108,7 @@ public:
 };
 
 template<>
-class LunaTraits< SparkUpdatingHandler > {
+class LunaTraits< spark::SparkDrawable > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -280,10 +118,172 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static SparkUpdatingHandler* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SparkUpdatingHandler* obj);
+	static spark::SparkDrawable* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable* obj);
+	typedef osg::Drawable parent_t;
+	typedef spark::SparkDrawable base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< SPK::System * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< SPK::System * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< SPK::System * >* obj);
+	typedef spark::SparkDrawable::ParticleSystemList parent_t;
+	typedef std::vector< SPK::System * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, spark::SparkDrawable::ImageAttribute >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, spark::SparkDrawable::ImageAttribute >* obj);
+	typedef spark::SparkDrawable::TextureObjMap parent_t;
+	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< std::string, unsigned int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
+	typedef spark::SparkDrawable::TextureIDMap parent_t;
+	typedef std::map< std::string, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::SparkDrawable::BaseSystemCreator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::BaseSystemCreator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::BaseSystemCreator* obj);
+	typedef spark::SparkDrawable::BaseSystemCreator parent_t;
+	typedef spark::SparkDrawable::BaseSystemCreator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::SparkDrawable::DeferredSystemHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::DeferredSystemHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::DeferredSystemHandler* obj);
+	typedef osg::Drawable::UpdateCallback parent_t;
+	typedef spark::SparkDrawable::DeferredSystemHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* obj);
+	typedef spark::SparkDrawable::DeferredSystemHandler::PosAndRotate parent_t;
+	typedef spark::SparkDrawable::DeferredSystemHandler::PosAndRotate base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::SparkDrawable::ImageAttribute > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::ImageAttribute* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::ImageAttribute* obj);
+	typedef spark::SparkDrawable::ImageAttribute parent_t;
+	typedef spark::SparkDrawable::ImageAttribute base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::SparkDrawable::SortParticlesOperator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::SortParticlesOperator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::SortParticlesOperator* obj);
+	typedef spark::SparkDrawable::SortParticlesOperator parent_t;
+	typedef spark::SparkDrawable::SortParticlesOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::SparkUpdatingHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkUpdatingHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkUpdatingHandler* obj);
 	typedef osgGA::GUIEventHandler parent_t;
-	typedef SparkUpdatingHandler base_t;
+	typedef spark::SparkUpdatingHandler base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1215,34 +1215,6 @@ public:
 };
 
 template<>
-class LunaType< 29584974 > {
-public:
-	typedef SparkDrawable::ParticleSystemList type;
-	
-};
-
-template<>
-class LunaType< 81928969 > {
-public:
-	typedef SparkDrawable::TextureObjMap type;
-	
-};
-
-template<>
-class LunaType< 92954997 > {
-public:
-	typedef SparkDrawable::TextureIDMap type;
-	
-};
-
-template<>
-class LunaType< 81795760 > {
-public:
-	typedef SparkDrawable::BaseSystemCreator type;
-	
-};
-
-template<>
 class LunaType< 5213827 > {
 public:
 	typedef osg::Drawable::UpdateCallback type;
@@ -1250,30 +1222,58 @@ public:
 };
 
 template<>
-class LunaType< 2783204 > {
-public:
-	typedef SparkDrawable::DeferredSystemHandler::PosAndRotate type;
-	
-};
-
-template<>
-class LunaType< 36168738 > {
-public:
-	typedef SparkDrawable::ImageAttribute type;
-	
-};
-
-template<>
-class LunaType< 7585549 > {
-public:
-	typedef SparkDrawable::SortParticlesOperator type;
-	
-};
-
-template<>
 class LunaType< 29676225 > {
 public:
 	typedef osgGA::GUIEventHandler type;
+	
+};
+
+template<>
+class LunaType< 91233403 > {
+public:
+	typedef spark::SparkDrawable::ParticleSystemList type;
+	
+};
+
+template<>
+class LunaType< 58228947 > {
+public:
+	typedef spark::SparkDrawable::TextureObjMap type;
+	
+};
+
+template<>
+class LunaType< 14771105 > {
+public:
+	typedef spark::SparkDrawable::TextureIDMap type;
+	
+};
+
+template<>
+class LunaType< 47219211 > {
+public:
+	typedef spark::SparkDrawable::BaseSystemCreator type;
+	
+};
+
+template<>
+class LunaType< 5357342 > {
+public:
+	typedef spark::SparkDrawable::DeferredSystemHandler::PosAndRotate type;
+	
+};
+
+template<>
+class LunaType< 84449872 > {
+public:
+	typedef spark::SparkDrawable::ImageAttribute type;
+	
+};
+
+template<>
+class LunaType< 68897850 > {
+public:
+	typedef spark::SparkDrawable::SortParticlesOperator type;
 	
 };
 
@@ -1418,9 +1418,9 @@ public:
 };
 
 template<>
-class LunaType< 15140483 > {
+class LunaType< 13891483 > {
 public:
-	typedef std::map< std::string, SparkDrawable::ImageAttribute > type;
+	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > type;
 	
 };
 

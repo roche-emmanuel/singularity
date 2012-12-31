@@ -171,7 +171,7 @@ void LunaTraits< SPK::InterpolatorEntry >::_bind_dtor(SPK::InterpolatorEntry* ob
 
 const char LunaTraits< SPK::InterpolatorEntry >::className[] = "InterpolatorEntry";
 const char LunaTraits< SPK::InterpolatorEntry >::fullName[] = "SPK::InterpolatorEntry";
-const char LunaTraits< SPK::InterpolatorEntry >::moduleName[] = "SPK";
+const char LunaTraits< SPK::InterpolatorEntry >::moduleName[] = "spark";
 const char* LunaTraits< SPK::InterpolatorEntry >::parents[] = {0};
 const int LunaTraits< SPK::InterpolatorEntry >::hash = 63689174;
 const int LunaTraits< SPK::InterpolatorEntry >::uniqueIDs[] = {63689174,0};

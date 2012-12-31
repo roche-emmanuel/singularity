@@ -695,8 +695,8 @@ void LunaTraits< GL::GLPointRenderer >::_bind_dtor(GL::GLPointRenderer* obj) {
 
 const char LunaTraits< GL::GLPointRenderer >::className[] = "GLPointRenderer";
 const char LunaTraits< GL::GLPointRenderer >::fullName[] = "GL::GLPointRenderer";
-const char LunaTraits< GL::GLPointRenderer >::moduleName[] = "GL";
-const char* LunaTraits< GL::GLPointRenderer >::parents[] = {"GL.GLRenderer", "SPK.PointRendererInterface", "GL.GLExtHandler", 0};
+const char LunaTraits< GL::GLPointRenderer >::moduleName[] = "spark";
+const char* LunaTraits< GL::GLPointRenderer >::parents[] = {"spark.GLRenderer", "spark.PointRendererInterface", "spark.GLExtHandler", 0};
 const int LunaTraits< GL::GLPointRenderer >::hash = 54138059;
 const int LunaTraits< GL::GLPointRenderer >::uniqueIDs[] = {31337102, 81662222, 24217931, 94328851,0};
 

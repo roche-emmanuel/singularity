@@ -15,4 +15,8 @@
 - Disabled wrapper_default_constructor config entry for wxWidgets module (because of missing protected and/or abstract methods in interface description).
 - Implemented simple log panel for WX.
 - Registering functions in the proper module (like osgDB.readNodeFile()).
+- Added support for mappedModules table in reflection config.
+- Mapped SPK and GL modules to spark
+- Moved SparkDrawable in spark namespace.
+
 

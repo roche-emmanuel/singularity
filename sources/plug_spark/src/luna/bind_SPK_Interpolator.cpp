@@ -518,7 +518,7 @@ void LunaTraits< SPK::Interpolator >::_bind_dtor(SPK::Interpolator* obj) {
 
 const char LunaTraits< SPK::Interpolator >::className[] = "Interpolator";
 const char LunaTraits< SPK::Interpolator >::fullName[] = "SPK::Interpolator";
-const char LunaTraits< SPK::Interpolator >::moduleName[] = "SPK";
+const char LunaTraits< SPK::Interpolator >::moduleName[] = "spark";
 const char* LunaTraits< SPK::Interpolator >::parents[] = {0};
 const int LunaTraits< SPK::Interpolator >::hash = 45960683;
 const int LunaTraits< SPK::Interpolator >::uniqueIDs[] = {45960683,0};

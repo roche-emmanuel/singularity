@@ -19,6 +19,7 @@ public:
 		}
 	};
 	
+	wrapper_SPK_BufferCreator(lua_State* L, lua_Table* dum) : SPK::BufferCreator(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 private:
 	// Private virtual methods:

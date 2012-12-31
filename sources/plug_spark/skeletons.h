@@ -1,43 +1,46 @@
 #ifndef _spark_SKELETONS_H_
 #define _spark_SKELETONS_H_
 
-class SparkDrawable: public osg::Drawable {
-public:
-	class ParticleSystemList {
-	};
-
-	class TextureObjMap {
-	};
-
-	class BaseSystemCreator {
-	};
-
-	class DeferredSystemHandler: public osg::Drawable::UpdateCallback {
-	public:
-		class PosAndRotate {
-		};
-
-	};
-
-	class ImageAttribute {
-	};
-
-	class SortParticlesOperator {
-	};
-
-};
-
-class SparkUpdatingHandler: public osgGA::GUIEventHandler {
-public:
-	class SparkObject {
-	};
-
-};
-
 namespace osg {
 };
 
 namespace osgGA {
+};
+
+namespace spark {
+	class SparkDrawable: public osg::Drawable {
+	public:
+		class ParticleSystemList {
+		};
+
+		class TextureObjMap {
+		};
+
+		class BaseSystemCreator {
+		};
+
+		class DeferredSystemHandler: public osg::Drawable::UpdateCallback {
+		public:
+			class PosAndRotate {
+			};
+
+		};
+
+		class ImageAttribute {
+		};
+
+		class SortParticlesOperator {
+		};
+
+	};
+
+	class SparkUpdatingHandler: public osgGA::GUIEventHandler {
+	public:
+		class SparkObject {
+		};
+
+	};
+
 };
 
 namespace SPK {

@@ -267,7 +267,7 @@ void LunaTraits< SPK::BufferHandler >::_bind_dtor(SPK::BufferHandler* obj) {
 
 const char LunaTraits< SPK::BufferHandler >::className[] = "BufferHandler";
 const char LunaTraits< SPK::BufferHandler >::fullName[] = "SPK::BufferHandler";
-const char LunaTraits< SPK::BufferHandler >::moduleName[] = "SPK";
+const char LunaTraits< SPK::BufferHandler >::moduleName[] = "spark";
 const char* LunaTraits< SPK::BufferHandler >::parents[] = {0};
 const int LunaTraits< SPK::BufferHandler >::hash = 81662222;
 const int LunaTraits< SPK::BufferHandler >::uniqueIDs[] = {81662222,0};

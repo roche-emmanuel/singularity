@@ -18,21 +18,15 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	luna_popModule(L);
 
 	luna_pushModule(L,"spark");
-	Luna< SparkDrawable >::Register(L);
-	luna_popModule(L);
-	luna_pushModule(L,"SparkDrawable");
+	Luna< spark::SparkDrawable >::Register(L);
 	Luna< std::vector< SPK::System * > >::Register(L);
-	Luna< std::map< std::string, SparkDrawable::ImageAttribute > >::Register(L);
-	Luna< SparkDrawable::BaseSystemCreator >::Register(L);
-	Luna< SparkDrawable::DeferredSystemHandler >::Register(L);
-	Luna< SparkDrawable::DeferredSystemHandler::PosAndRotate >::Register(L);
-	Luna< SparkDrawable::ImageAttribute >::Register(L);
-	Luna< SparkDrawable::SortParticlesOperator >::Register(L);
-	luna_popModule(L);
-	luna_pushModule(L,"spark");
-	Luna< SparkUpdatingHandler >::Register(L);
-	luna_popModule(L);
-	luna_pushModule(L,"SPK");
+	Luna< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::Register(L);
+	Luna< spark::SparkDrawable::BaseSystemCreator >::Register(L);
+	Luna< spark::SparkDrawable::DeferredSystemHandler >::Register(L);
+	Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::Register(L);
+	Luna< spark::SparkDrawable::ImageAttribute >::Register(L);
+	Luna< spark::SparkDrawable::SortParticlesOperator >::Register(L);
+	Luna< spark::SparkUpdatingHandler >::Register(L);
 	Luna< SPK::ArrayBuffer< float > >::Register(L);
 	Luna< SPK::ArrayBufferCreator< float > >::Register(L);
 	Luna< SPK::Buffer >::Register(L);
@@ -78,8 +72,6 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	Luna< SPK::Ring >::Register(L);
 	Luna< SPK::Sphere >::Register(L);
 	Luna< SPK::Pool< class SPK::Particle > >::Register(L);
-	luna_popModule(L);
-	luna_pushModule(L,"GL");
 	Luna< GL::GLExtHandler >::Register(L);
 	Luna< GL::GLRenderer >::Register(L);
 	Luna< GL::GLLineRenderer >::Register(L);
@@ -94,14 +86,11 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
 
+	register_global_functions(L);
+
 	luna_copyParents(L,"spark");
-	luna_copyParents(L,"SparkDrawable");
-	luna_copyParents(L,"SPK");
-	luna_copyParents(L,"GL");
 
 	luna_pushModule(L,"spark");
 	return 1;
