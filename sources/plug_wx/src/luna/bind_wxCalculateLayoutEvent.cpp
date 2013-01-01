@@ -148,7 +148,7 @@ public:
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalculateLayoutEvent::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxCalculateLayoutEvent::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -167,7 +167,7 @@ public:
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxCalculateLayoutEvent::GetRect() const");
+			luaL_error(L, "Invalid object in function call wxRect wxCalculateLayoutEvent::GetRect() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetRect();
 		wxRect* lret = new wxRect(stack_lret);
@@ -190,7 +190,7 @@ public:
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetFlags(int)");
+			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetFlags(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -213,7 +213,7 @@ public:
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetRect(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxCalculateLayoutEvent::SetRect(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRect(rect);
 
@@ -231,7 +231,7 @@ public:
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalculateLayoutEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCalculateLayoutEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -252,7 +252,7 @@ public:
 		wxCalculateLayoutEvent* self=Luna< wxObject >::checkSubType< wxCalculateLayoutEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCalculateLayoutEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxCalculateLayoutEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

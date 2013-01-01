@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >",name);
 	}
+
 };
 
 std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >* LunaTraits< std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< osgParticle::PrecipitationEffect::PrecipitationD
 luna_RegType LunaTraits< std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell_osgParticle_PrecipitationEffect_PrecipitationDrawable_DepthMatrixStartTime::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell_osgParticle_PrecipitationEffect_PrecipitationDrawable_DepthMatrixStartTime::_bind___eq},
+	
 	{0,0}
 };
 

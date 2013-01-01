@@ -111,7 +111,7 @@ public:
 		wrapper_wxHtmlWinTagHandler* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlWinTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_ParseInner(tag);
 

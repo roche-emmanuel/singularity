@@ -977,7 +977,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::Create(wxWindow *, int, const wxString &, const wxString &, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::Create(wxWindow *, int, const wxString &, const wxString &, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, path, message, wildcard, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -996,7 +996,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileName wxFilePickerCtrl::GetFileName() const");
+			luaL_error(L, "Invalid object in function call wxFileName wxFilePickerCtrl::GetFileName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxFileName stack_lret = self->GetFileName();
 		wxFileName* lret = new wxFileName(stack_lret);
@@ -1018,7 +1018,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::GetPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1042,7 +1042,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::SetFileName(const wxFileName &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::SetFileName(const wxFileName &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFileName(filename);
 
@@ -1061,7 +1061,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::SetPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::SetPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPath(filename);
 
@@ -1079,7 +1079,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFilePickerCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFilePickerCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFilePickerCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1100,7 +1100,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1119,7 +1119,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1138,7 +1138,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1157,7 +1157,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1177,7 +1177,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetCanFocus(canFocus);
 
@@ -1195,7 +1195,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetFocus();
 
@@ -1213,7 +1213,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetFocusFromKbd();
 
@@ -1232,7 +1232,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::AddChild(child);
 
@@ -1251,7 +1251,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::RemoveChild(child);
 
@@ -1270,7 +1270,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1293,7 +1293,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1312,7 +1312,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFilePickerCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1332,7 +1332,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFilePickerCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1352,7 +1352,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFilePickerCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1372,7 +1372,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1392,7 +1392,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1412,7 +1412,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1436,7 +1436,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::ScrollWindow(dx, dy, rect);
 
@@ -1459,7 +1459,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -1484,7 +1484,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1507,7 +1507,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1534,7 +1534,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1556,7 +1556,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::Fit();
 
@@ -1574,7 +1574,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::FitInside();
 
@@ -1592,7 +1592,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1614,7 +1614,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1636,7 +1636,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1658,7 +1658,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1680,7 +1680,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1702,7 +1702,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1724,7 +1724,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFilePickerCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFilePickerCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1749,7 +1749,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1771,7 +1771,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SendSizeEvent(flags);
 
@@ -1794,7 +1794,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetMaxClientSize(size);
 
@@ -1817,7 +1817,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetMaxSize(size);
 
@@ -1840,7 +1840,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetMinClientSize(size);
 
@@ -1863,7 +1863,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetMinSize(size);
 
@@ -1898,7 +1898,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1924,7 +1924,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1951,7 +1951,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxFilePickerCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxFilePickerCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxFilePickerCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1973,7 +1973,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::ClearBackground();
 
@@ -1991,7 +1991,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxFilePickerCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxFilePickerCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxFilePickerCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2010,7 +2010,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFilePickerCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2029,7 +2029,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxFilePickerCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFilePickerCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2048,7 +2048,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxFilePickerCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxFilePickerCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxFilePickerCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2074,7 +2074,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::Refresh(eraseBackground, rect);
 
@@ -2092,7 +2092,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::Update();
 
@@ -2111,7 +2111,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2135,7 +2135,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2154,7 +2154,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2174,7 +2174,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetThemeEnabled(enable);
 
@@ -2192,7 +2192,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2211,7 +2211,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2231,7 +2231,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2251,7 +2251,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetNextHandler(handler);
 
@@ -2270,7 +2270,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetPreviousHandler(handler);
 
@@ -2288,7 +2288,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFilePickerCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxFilePickerCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxFilePickerCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2308,7 +2308,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetExtraStyle(exStyle);
 
@@ -2327,7 +2327,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetWindowStyleFlag(style);
 
@@ -2345,7 +2345,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::Lower();
 
@@ -2363,7 +2363,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::Raise();
 
@@ -2385,7 +2385,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2404,7 +2404,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2423,7 +2423,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2445,7 +2445,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2467,7 +2467,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2490,7 +2490,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2515,7 +2515,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFilePickerCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2534,7 +2534,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxFilePickerCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxFilePickerCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxFilePickerCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2560,7 +2560,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetValidator(validator);
 
@@ -2578,7 +2578,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2597,7 +2597,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2616,7 +2616,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2635,7 +2635,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxFilePickerCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxFilePickerCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxFilePickerCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2654,7 +2654,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFilePickerCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2674,7 +2674,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetLayoutDirection(dir);
 
@@ -2693,7 +2693,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetName(name);
 
@@ -2716,7 +2716,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetAcceleratorTable(accel);
 
@@ -2734,7 +2734,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2753,7 +2753,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxFilePickerCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxFilePickerCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxFilePickerCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2775,7 +2775,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetDropTarget(target);
 
@@ -2794,7 +2794,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::DragAcceptFiles(accept);
 
@@ -2812,7 +2812,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2831,7 +2831,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2855,7 +2855,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2876,7 +2876,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::WarpPointer(x, y);
 
@@ -2899,7 +2899,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::DoUpdateWindowUI(event);
 
@@ -2917,7 +2917,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2936,7 +2936,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::InheritAttributes();
 
@@ -2954,7 +2954,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::InitDialog();
 
@@ -2972,7 +2972,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2991,7 +2991,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3013,7 +3013,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::MakeModal(modal);
 
@@ -3031,7 +3031,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::OnInternalIdle();
 
@@ -3052,7 +3052,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3072,7 +3072,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxFilePickerCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFilePickerCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3094,7 +3094,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::UpdateWindowUI(flags);
 
@@ -3117,7 +3117,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::Command(event);
 
@@ -3135,7 +3135,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxFilePickerCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFilePickerCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3155,7 +3155,7 @@ public:
 		wxFilePickerCtrl* self=Luna< wxObject >::checkSubType< wxFilePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFilePickerCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFilePickerCtrl::SetLabel(label);
 

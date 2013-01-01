@@ -130,7 +130,7 @@ public:
 		wxTextWrapper* self=(Luna< wxTextWrapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextWrapper::Wrap(wxWindow *, const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxTextWrapper::Wrap(wxWindow *, const wxString &, int). Got : '%s'",typeid(Luna< wxTextWrapper >::check(L,1)).name());
 		}
 		self->Wrap(win, text, widthMax);
 

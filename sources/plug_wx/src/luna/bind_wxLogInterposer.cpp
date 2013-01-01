@@ -137,7 +137,7 @@ public:
 		wxLogInterposer* self=Luna< wxLog >::checkSubType< wxLogInterposer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogInterposer::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogInterposer::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogInterposer::Flush();
 

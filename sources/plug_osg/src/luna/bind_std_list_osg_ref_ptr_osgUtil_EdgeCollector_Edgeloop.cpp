@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >",name);
 	}
+
 };
 
 std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop 
 luna_RegType LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osg_ref_ptr_osgUtil_EdgeCollector_Edgeloop::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osg_ref_ptr_osgUtil_EdgeCollector_Edgeloop::_bind___eq},
+	
 	{0,0}
 };
 

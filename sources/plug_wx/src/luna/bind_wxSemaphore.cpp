@@ -123,7 +123,7 @@ public:
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Post()");
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Post(). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
 		}
 		wxSemaError lret = self->Post();
 		lua_pushnumber(L,lret);
@@ -142,7 +142,7 @@ public:
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::TryWait()");
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::TryWait(). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
 		}
 		wxSemaError lret = self->TryWait();
 		lua_pushnumber(L,lret);
@@ -161,7 +161,7 @@ public:
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Wait()");
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::Wait(). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
 		}
 		wxSemaError lret = self->Wait();
 		lua_pushnumber(L,lret);
@@ -181,7 +181,7 @@ public:
 		wxSemaphore* self=(Luna< wxSemaphore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::WaitTimeout(unsigned long)");
+			luaL_error(L, "Invalid object in function call wxSemaError wxSemaphore::WaitTimeout(unsigned long). Got : '%s'",typeid(Luna< wxSemaphore >::check(L,1)).name());
 		}
 		wxSemaError lret = self->WaitTimeout(timeout_millis);
 		lua_pushnumber(L,lret);

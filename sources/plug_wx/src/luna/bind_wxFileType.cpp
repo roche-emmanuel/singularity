@@ -140,7 +140,7 @@ public:
 		wxFileType* self=(Luna< wxFileType >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileType::GetDescription(wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxFileType::GetDescription(wxString *) const. Got : '%s'",typeid(Luna< wxFileType >::check(L,1)).name());
 		}
 		bool lret = self->GetDescription(&desc);
 		lua_pushboolean(L,lret?1:0);
@@ -164,7 +164,7 @@ public:
 		wxFileType* self=(Luna< wxFileType >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileType::GetExtensions(wxArrayString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileType::GetExtensions(wxArrayString &). Got : '%s'",typeid(Luna< wxFileType >::check(L,1)).name());
 		}
 		bool lret = self->GetExtensions(extensions);
 		lua_pushboolean(L,lret?1:0);
@@ -184,7 +184,7 @@ public:
 		wxFileType* self=(Luna< wxFileType >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileType::GetIcon(wxIconLocation *) const");
+			luaL_error(L, "Invalid object in function call bool wxFileType::GetIcon(wxIconLocation *) const. Got : '%s'",typeid(Luna< wxFileType >::check(L,1)).name());
 		}
 		bool lret = self->GetIcon(iconLoc);
 		lua_pushboolean(L,lret?1:0);
@@ -204,7 +204,7 @@ public:
 		wxFileType* self=(Luna< wxFileType >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileType::GetMimeType(wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxFileType::GetMimeType(wxString *) const. Got : '%s'",typeid(Luna< wxFileType >::check(L,1)).name());
 		}
 		bool lret = self->GetMimeType(&mimeType);
 		lua_pushboolean(L,lret?1:0);
@@ -228,7 +228,7 @@ public:
 		wxFileType* self=(Luna< wxFileType >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileType::GetMimeTypes(wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileType::GetMimeTypes(wxArrayString &) const. Got : '%s'",typeid(Luna< wxFileType >::check(L,1)).name());
 		}
 		bool lret = self->GetMimeTypes(mimeTypes);
 		lua_pushboolean(L,lret?1:0);
@@ -248,7 +248,7 @@ public:
 		wxFileType* self=(Luna< wxFileType >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileType::GetOpenCommand(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileType::GetOpenCommand(const wxString &) const. Got : '%s'",typeid(Luna< wxFileType >::check(L,1)).name());
 		}
 		wxString lret = self->GetOpenCommand(filename);
 		lua_pushlstring(L,lret.data(),lret.size());

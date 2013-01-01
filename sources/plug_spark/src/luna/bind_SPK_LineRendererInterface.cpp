@@ -192,7 +192,7 @@ public:
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setLength(float)");
+			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setLength(float). Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
 		}
 		self->setLength(length);
 
@@ -211,7 +211,7 @@ public:
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setWidth(float)");
+			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setWidth(float). Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
 		}
 		self->setWidth(width);
 
@@ -229,7 +229,7 @@ public:
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getLength() const");
+			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getLength() const. Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->getLength();
 		lua_pushnumber(L,lret);
@@ -248,7 +248,7 @@ public:
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getWidth() const");
+			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getWidth() const. Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->getWidth();
 		lua_pushnumber(L,lret);
@@ -268,7 +268,7 @@ public:
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::base_setWidth(float)");
+			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::base_setWidth(float). Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
 		}
 		self->LineRendererInterface::setWidth(width);
 

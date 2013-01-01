@@ -169,7 +169,7 @@ public:
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMetafile::IsOk()");
+			luaL_error(L, "Invalid object in function call bool wxMetafile::IsOk(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -189,7 +189,7 @@ public:
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMetafile::Play(wxDC *)");
+			luaL_error(L, "Invalid object in function call bool wxMetafile::Play(wxDC *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Play(dc);
 		lua_pushboolean(L,lret?1:0);
@@ -212,7 +212,7 @@ public:
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMetafile::SetClipboard(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxMetafile::SetClipboard(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetClipboard(width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -231,7 +231,7 @@ public:
 		wxMetafile* self=Luna< wxObject >::checkSubType< wxMetafile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMetafile::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMetafile::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMetafile::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

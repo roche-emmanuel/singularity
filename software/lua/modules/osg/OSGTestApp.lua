@@ -11,7 +11,7 @@ function Class:initialize()
 
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	local ctrl, canvas = intf:addOSGCtrl{prop=2}
-	intf:addOutputPanel{}
+	--intf:addOutputPanel{}
 	intf:popParent(true)
 
 	self:getFrame():Layout()
@@ -70,6 +70,14 @@ end
 function Class:createBase(options)
 	local base = tools:createQuad()
 	self._canvas:getRoot():addChild(base)
+end
+
+function Class:getRoot()
+	return self._canvas:getRoot()
+end
+
+function Class:getViewer()
+	return self._canvas:getViewer()
 end
 
 return Class -- return class instance.

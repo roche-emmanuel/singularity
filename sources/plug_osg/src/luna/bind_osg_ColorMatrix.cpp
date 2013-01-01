@@ -410,7 +410,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,7 +436,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -458,7 +458,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -477,7 +477,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -496,7 +496,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -515,7 +515,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMatrix::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMatrix::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -539,7 +539,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ColorMatrix::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ColorMatrix::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -563,7 +563,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::setMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::setMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMatrix(matrix);
 
@@ -581,7 +581,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd & osg::ColorMatrix::getMatrix()");
+			luaL_error(L, "Invalid object in function call osg::Matrixd & osg::ColorMatrix::getMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -602,7 +602,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::ColorMatrix::getMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::ColorMatrix::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -637,7 +637,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(state);
 
@@ -656,7 +656,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMatrix::setName(name);
 
@@ -674,7 +674,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMatrix::computeDataVariance();
 
@@ -693,7 +693,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMatrix::setUserData(obj);
 
@@ -711,7 +711,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ColorMatrix::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ColorMatrix::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ColorMatrix::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -732,7 +732,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ColorMatrix::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ColorMatrix::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ColorMatrix::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -762,7 +762,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ColorMatrix::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ColorMatrix::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->ColorMatrix::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -783,7 +783,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ColorMatrix::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ColorMatrix::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->ColorMatrix::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -813,7 +813,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ColorMatrix::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ColorMatrix::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->ColorMatrix::getMember();
 		lua_pushnumber(L,lret);
@@ -832,7 +832,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMatrix::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -856,7 +856,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMatrix::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -880,7 +880,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMatrix::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -904,7 +904,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMatrix::compileGLObjects(_arg1);
 
@@ -925,7 +925,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMatrix::releaseGLObjects(_arg1);
 
@@ -943,7 +943,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ColorMatrix::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -969,7 +969,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMatrix::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ColorMatrix::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -991,7 +991,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMatrix::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMatrix::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1010,7 +1010,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ColorMatrix::libraryName();
 		lua_pushstring(L,lret);
@@ -1029,7 +1029,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMatrix::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ColorMatrix::className();
 		lua_pushstring(L,lret);
@@ -1048,7 +1048,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMatrix::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMatrix::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->ColorMatrix::getType();
 		lua_pushnumber(L,lret);
@@ -1072,7 +1072,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ColorMatrix::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ColorMatrix::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->ColorMatrix::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1096,7 +1096,7 @@ public:
 		osg::ColorMatrix* self=Luna< osg::Referenced >::checkSubType< osg::ColorMatrix >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMatrix::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMatrix::apply(state);
 

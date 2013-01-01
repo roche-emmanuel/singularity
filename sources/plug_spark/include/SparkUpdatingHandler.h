@@ -11,7 +11,7 @@ namespace spark {
 class SparkUpdatingHandler : public osgGA::GUIEventHandler
 {
 public:
-    SparkUpdatingHandler() {}
+    SparkUpdatingHandler() {};
     
     void addSpark( SparkDrawable* spark, osg::Transform* trackee=0 )
     { _sparks.push_back(SparkObject(spark, trackee)); }
@@ -31,6 +31,8 @@ public:
     
     virtual bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa );
     
+	virtual ~SparkUpdatingHandler() {};
+	
 protected:
     osg::Matrix computeTransformMatrix( SparkDrawable* spark, osg::Transform* trackee );
     

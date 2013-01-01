@@ -86,7 +86,7 @@ public:
 		osgGA::GUIEventHandlerVisitor* self=(Luna< osgGA::GUIEventHandlerVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler &)");
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler &). Got : '%s'",typeid(Luna< osgGA::GUIEventHandlerVisitor >::check(L,1)).name());
 		}
 		self->visit(_arg1);
 

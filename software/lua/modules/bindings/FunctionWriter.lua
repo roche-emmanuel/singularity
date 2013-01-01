@@ -230,7 +230,7 @@ function Class:writeFunctionCall(cname,func,args)
 		self:writeLine("if(!self) {")
 		self:pushIndent()
 		self:writeSubLine('luna_printStack(L);')
-		self:writeSubLine('luaL_error(L, "Invalid object in function call ${1}");',func:getPrototype(false,true,true))
+		self:writeSubLine('luaL_error(L, "Invalid object in function call ${1}. Got : \'%s\'",typeid(Luna< ${2} >::check(L,1)).name());',func:getPrototype(false,true,true),bname)
 		self:popIndent()
 		self:writeLine("}")
 	end

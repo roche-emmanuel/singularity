@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osgParticle::range< osg::Vec3f >",name);
 	}
+
 };
 
 osgParticle::range< osg::Vec3f >* LunaTraits< osgParticle::range< osg::Vec3f > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osgParticle::range< osg::Vec3f > >::uniqueIDs[] = {6779033
 luna_RegType LunaTraits< osgParticle::range< osg::Vec3f > >::methods[] = {
 	{"dynCast", &luna_wrapper_osgParticle_range_osg_Vec3f::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgParticle_range_osg_Vec3f::_bind___eq},
+	
 	{0,0}
 };
 

@@ -293,7 +293,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLQuadRenderer::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLQuadRenderer::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -313,7 +313,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLQuadRenderer::setTexturingMode(SPK::TexturingMode)");
+			luaL_error(L, "Invalid object in function call bool GL::GLQuadRenderer::setTexturingMode(SPK::TexturingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->setTexturingMode(mode);
 		lua_pushboolean(L,lret?1:0);
@@ -333,7 +333,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::setTexture(unsigned int)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::setTexture(unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setTexture(textureIndex);
 
@@ -351,7 +351,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int GL::GLQuadRenderer::getTexture() const");
+			luaL_error(L, "Invalid object in function call unsigned int GL::GLQuadRenderer::getTexture() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTexture();
 		lua_pushnumber(L,lret);
@@ -375,7 +375,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->createBuffers(group);
 
@@ -398,7 +398,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->destroyBuffers(group);
 
@@ -421,7 +421,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->render(group);
 
@@ -460,7 +460,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLQuadRenderer::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLQuadRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->GLQuadRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,7 +483,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_enableRenderingHint(SPK::RenderingHint, bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -502,7 +502,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_setAlphaTestThreshold(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -521,7 +521,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLQuadRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const");
+			luaL_error(L, "Invalid object in function call bool GL::GLQuadRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLQuadRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -541,7 +541,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::enableBlending(blendingEnabled);
 
@@ -560,7 +560,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_setBlending(SPK::BlendingMode)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::setBlending(blendMode);
 
@@ -578,7 +578,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLQuadRenderer::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLQuadRenderer::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->GLQuadRenderer::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -598,7 +598,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLQuadRenderer::base_setTexturingMode(SPK::TexturingMode)");
+			luaL_error(L, "Invalid object in function call bool GL::GLQuadRenderer::base_setTexturingMode(SPK::TexturingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLQuadRenderer::setTexturingMode(mode);
 		lua_pushboolean(L,lret?1:0);
@@ -622,7 +622,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::createBuffers(group);
 
@@ -645,7 +645,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::destroyBuffers(group);
 
@@ -668,7 +668,7 @@ public:
 		GL::GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLQuadRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLQuadRenderer::base_render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLQuadRenderer::render(group);
 
@@ -677,6 +677,84 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_QuadRendererInterface(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_QuadRendererInterface(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_QuadRendererInterface(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_QuadRendererInterface function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::QuadRendererInterface* res = dynamic_cast<SPK::QuadRendererInterface*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::QuadRendererInterface >::push(L,res,false);
+		return 1;
+
+	}
+
+	inline static bool _lg_typecheck_baseCast_SPK_Oriented3DRendererInterface(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_Oriented3DRendererInterface(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_Oriented3DRendererInterface(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_Oriented3DRendererInterface function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::Oriented3DRendererInterface* res = dynamic_cast<SPK::Oriented3DRendererInterface*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::Oriented3DRendererInterface >::push(L,res,false);
+		return 1;
+
+	}
+
+	inline static bool _lg_typecheck_baseCast_GL_GLExtHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_GL_GLExtHandler(lua_State *L) {
+		if (!_lg_typecheck_baseCast_GL_GLExtHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_GL_GLExtHandler function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		GL::GLExtHandler* res = dynamic_cast<GL::GLExtHandler*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< GL::GLExtHandler >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -720,6 +798,9 @@ luna_RegType LunaTraits< GL::GLQuadRenderer >::methods[] = {
 	{"base_render", &luna_wrapper_GL_GLQuadRenderer::_bind_base_render},
 	{"__eq", &luna_wrapper_GL_GLQuadRenderer::_bind___eq},
 	{"getTable", &luna_wrapper_GL_GLQuadRenderer::_bind_getTable},
+	{"asQuadRendererInterface", &luna_wrapper_GL_GLQuadRenderer::_bind_baseCast_SPK_QuadRendererInterface},
+	{"asOriented3DRendererInterface", &luna_wrapper_GL_GLQuadRenderer::_bind_baseCast_SPK_Oriented3DRendererInterface},
+	{"asGLExtHandler", &luna_wrapper_GL_GLQuadRenderer::_bind_baseCast_GL_GLExtHandler},
 	{0,0}
 };
 

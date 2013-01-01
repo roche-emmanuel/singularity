@@ -113,7 +113,7 @@ public:
 		osgUtil::RenderBin::SortCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::SortCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->sortImplementation(_arg1);
 

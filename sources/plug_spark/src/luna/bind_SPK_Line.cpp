@@ -283,7 +283,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Line::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Line::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -307,7 +307,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Line::setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setPosition(v);
 
@@ -335,7 +335,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::setBounds(const SPK::Vector3D &, const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Line::setBounds(const SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setBounds(p0, p1);
 
@@ -354,7 +354,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Line::getBound(size_t) const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Line::getBound(size_t) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getBound(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -376,7 +376,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Line::getTransformedBound(size_t) const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Line::getTransformedBound(size_t) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedBound(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -402,7 +402,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::pushBound(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Line::pushBound(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->pushBound(bound);
 
@@ -426,7 +426,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Line::generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->generatePosition(particle, full);
 
@@ -449,7 +449,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Line::contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Line::contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -480,7 +480,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Line::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Line::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -505,7 +505,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Line::moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->moveAtBorder(point, inside);
 
@@ -528,7 +528,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Line::computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Line::computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -579,7 +579,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Line::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Line::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Line::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -600,7 +600,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Line::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Line::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Line::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -624,7 +624,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::base_setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Line::base_setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Line::setPosition(v);
 
@@ -648,7 +648,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::base_generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Line::base_generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Line::generatePosition(particle, full);
 
@@ -671,7 +671,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Line::base_contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Line::base_contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->Line::contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -702,7 +702,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Line::base_intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Line::base_intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->Line::intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -727,7 +727,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Line::base_moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Line::base_moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Line::moveAtBorder(point, inside);
 
@@ -750,7 +750,7 @@ public:
 		SPK::Line* self=Luna< SPK::Registerable >::checkSubType< SPK::Line >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Line::base_computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Line::base_computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->Line::computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);

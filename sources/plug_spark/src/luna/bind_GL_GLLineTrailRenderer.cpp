@@ -283,7 +283,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLLineTrailRenderer::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLLineTrailRenderer::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -303,7 +303,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setNbSamples(size_t)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setNbSamples(size_t). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setNbSamples(nbSamples);
 
@@ -322,7 +322,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setWidth(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setWidth(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setWidth(width);
 
@@ -341,7 +341,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setDuration(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setDuration(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setDuration(duration);
 
@@ -363,7 +363,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setDegeneratedLines(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::setDegeneratedLines(float, float, float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setDegeneratedLines(r, g, b, a);
 
@@ -382,7 +382,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->enableBlending(blendingEnabled);
 
@@ -400,7 +400,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t GL::GLLineTrailRenderer::getNbSamples() const");
+			luaL_error(L, "Invalid object in function call size_t GL::GLLineTrailRenderer::getNbSamples() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbSamples();
 		lua_pushnumber(L,lret);
@@ -419,7 +419,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float GL::GLLineTrailRenderer::getWidth() const");
+			luaL_error(L, "Invalid object in function call float GL::GLLineTrailRenderer::getWidth() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getWidth();
 		lua_pushnumber(L,lret);
@@ -438,7 +438,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float GL::GLLineTrailRenderer::getDuration() const");
+			luaL_error(L, "Invalid object in function call float GL::GLLineTrailRenderer::getDuration() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getDuration();
 		lua_pushnumber(L,lret);
@@ -462,7 +462,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->createBuffers(group);
 
@@ -485,7 +485,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->destroyBuffers(group);
 
@@ -508,7 +508,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::init(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::init(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->init(group);
 
@@ -531,7 +531,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->render(group);
 
@@ -566,7 +566,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLLineTrailRenderer::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLLineTrailRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->GLLineTrailRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -589,7 +589,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint, bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -608,7 +608,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -627,7 +627,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const");
+			luaL_error(L, "Invalid object in function call bool GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLLineTrailRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -647,7 +647,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::setBlending(blendMode);
 
@@ -665,7 +665,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLLineTrailRenderer::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLLineTrailRenderer::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->GLLineTrailRenderer::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -685,7 +685,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::enableBlending(blendingEnabled);
 
@@ -708,7 +708,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::createBuffers(group);
 
@@ -731,7 +731,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::destroyBuffers(group);
 
@@ -754,7 +754,7 @@ public:
 		GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineTrailRenderer::base_render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineTrailRenderer::render(group);
 

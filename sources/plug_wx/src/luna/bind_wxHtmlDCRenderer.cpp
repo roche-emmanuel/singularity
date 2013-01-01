@@ -209,7 +209,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlDCRenderer::GetTotalWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlDCRenderer::GetTotalWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetTotalWidth();
 		lua_pushnumber(L,lret);
@@ -228,7 +228,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlDCRenderer::GetTotalHeight() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlDCRenderer::GetTotalHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetTotalHeight();
 		lua_pushnumber(L,lret);
@@ -259,7 +259,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlDCRenderer::Render(int, int, wxArrayInt &, int, int, int)");
+			luaL_error(L, "Invalid object in function call int wxHtmlDCRenderer::Render(int, int, wxArrayInt &, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Render(x, y, known_pagebreaks, from, dont_render, to);
 		lua_pushnumber(L,lret);
@@ -282,7 +282,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetDC(wxDC *, double)");
+			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetDC(wxDC *, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDC(dc, pixel_scale);
 
@@ -305,7 +305,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetFonts(const wxString &, const wxString &, const int *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFonts(normal_face, fixed_face, &sizes);
 
@@ -328,7 +328,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetStandardFonts(int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetStandardFonts(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStandardFonts(size, normal_face, fixed_face);
 
@@ -351,7 +351,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetHtmlText(const wxString &, const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetHtmlText(const wxString &, const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHtmlText(html, basepath, isdir);
 
@@ -371,7 +371,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetSize(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetSize(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSize(width, height);
 
@@ -389,7 +389,7 @@ public:
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlDCRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlDCRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlDCRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

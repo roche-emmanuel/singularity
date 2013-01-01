@@ -240,7 +240,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::Destroy()");
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Destroy();
 
@@ -258,7 +258,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsIconInstalled() const");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsIconInstalled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsIconInstalled();
 		lua_pushboolean(L,lret?1:0);
@@ -277,7 +277,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -297,7 +297,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::PopupMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::PopupMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PopupMenu(menu);
 		lua_pushboolean(L,lret?1:0);
@@ -316,7 +316,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::RemoveIcon()");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::RemoveIcon(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RemoveIcon();
 		lua_pushboolean(L,lret?1:0);
@@ -343,7 +343,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::SetIcon(const wxIcon &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::SetIcon(const wxIcon &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetIcon(icon, tooltip);
 		lua_pushboolean(L,lret?1:0);
@@ -376,7 +376,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTaskBarIcon::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -398,7 +398,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTaskBarIcon::QueueEvent(event);
 
@@ -421,7 +421,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTaskBarIcon::AddPendingEvent(event);
 
@@ -444,7 +444,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTaskBarIcon::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -464,7 +464,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTaskBarIcon::SetNextHandler(handler);
 
@@ -483,7 +483,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTaskBarIcon::SetPreviousHandler(handler);
 
@@ -502,7 +502,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_PopupMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_PopupMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTaskBarIcon::PopupMenu(menu);
 		lua_pushboolean(L,lret?1:0);
@@ -521,7 +521,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_RemoveIcon()");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_RemoveIcon(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTaskBarIcon::RemoveIcon();
 		lua_pushboolean(L,lret?1:0);
@@ -548,7 +548,7 @@ public:
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_SetIcon(const wxIcon &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_SetIcon(const wxIcon &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTaskBarIcon::SetIcon(icon, tooltip);
 		lua_pushboolean(L,lret?1:0);

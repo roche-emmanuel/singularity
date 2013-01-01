@@ -155,7 +155,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Operation::setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Operation::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setName(name);
 
@@ -173,7 +173,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::Operation::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::Operation::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -193,7 +193,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Operation::setKeep(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Operation::setKeep(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeep(keep);
 
@@ -211,7 +211,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Operation::getKeep() const");
+			luaL_error(L, "Invalid object in function call bool osg::Operation::getKeep() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getKeep();
 		lua_pushboolean(L,lret?1:0);
@@ -230,7 +230,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Operation::release()");
+			luaL_error(L, "Invalid object in function call void osg::Operation::release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->release();
 
@@ -248,7 +248,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Operation::base_release()");
+			luaL_error(L, "Invalid object in function call void osg::Operation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Operation::release();
 
@@ -269,7 +269,7 @@ public:
 		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Operation::operator()(osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osg::Operation::operator()(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(_arg1);
 

@@ -113,7 +113,7 @@ public:
 		osg::GraphicsContext::SwapCallback* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::SwapCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->swapBuffersImplementation(gc);
 

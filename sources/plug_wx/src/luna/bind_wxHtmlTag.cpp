@@ -159,7 +159,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetAllParams() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetAllParams() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		wxString lret = self->GetAllParams();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -178,7 +178,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetBeginPos() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetBeginPos() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		int lret = self->GetBeginPos();
 		lua_pushnumber(L,lret);
@@ -197,7 +197,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos1() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos1() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		int lret = self->GetEndPos1();
 		lua_pushnumber(L,lret);
@@ -216,7 +216,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos2() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos2() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		int lret = self->GetEndPos2();
 		lua_pushnumber(L,lret);
@@ -235,7 +235,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetName() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -258,7 +258,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetParam(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetParam(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		wxString lret = self->GetParam(par, with_quotes);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -279,7 +279,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsColour(const wxString &, wxColour *) const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsColour(const wxString &, wxColour *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		bool lret = self->GetParamAsColour(par, clr);
 		lua_pushboolean(L,lret?1:0);
@@ -300,7 +300,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsInt(const wxString &, int *) const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsInt(const wxString &, int *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		bool lret = self->GetParamAsInt(par, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -319,7 +319,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasEnding() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasEnding() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		bool lret = self->HasEnding();
 		lua_pushboolean(L,lret?1:0);
@@ -339,7 +339,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasParam(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasParam(const wxString &) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		bool lret = self->HasParam(par);
 		lua_pushboolean(L,lret?1:0);
@@ -361,7 +361,7 @@ public:
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::ScanParam(const wxString &, const char *, void *) const");
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::ScanParam(const wxString &, const char *, void *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
 		int lret = self->ScanParam(par, format, value);
 		lua_pushnumber(L,lret);

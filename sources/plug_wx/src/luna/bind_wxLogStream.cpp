@@ -93,7 +93,7 @@ public:
 		wxLogStream* self=Luna< wxLog >::checkSubType< wxLogStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogStream::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogStream::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogStream::Flush();
 

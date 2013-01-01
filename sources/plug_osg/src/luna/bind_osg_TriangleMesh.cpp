@@ -376,7 +376,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -402,7 +402,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -424,7 +424,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -443,7 +443,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -462,7 +462,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -486,7 +486,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -509,7 +509,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -537,7 +537,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setVertices(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setVertices(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertices(vertices);
 
@@ -555,7 +555,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osg::TriangleMesh::getVertices()");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osg::TriangleMesh::getVertices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -576,7 +576,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osg::TriangleMesh::getVertices() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osg::TriangleMesh::getVertices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3Array * lret = self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -607,7 +607,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setIndices(osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::setIndices(osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setIndices(indices);
 
@@ -625,7 +625,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::TriangleMesh::getIndices()");
+			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::TriangleMesh::getIndices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::IndexArray * lret = self->getIndices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -646,7 +646,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::TriangleMesh::getIndices() const");
+			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::TriangleMesh::getIndices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::IndexArray * lret = self->getIndices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,7 +677,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TriangleMesh::setName(name);
 
@@ -695,7 +695,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TriangleMesh::computeDataVariance();
 
@@ -714,7 +714,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TriangleMesh::setUserData(obj);
 
@@ -732,7 +732,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TriangleMesh::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TriangleMesh::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->TriangleMesh::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -753,7 +753,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TriangleMesh::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TriangleMesh::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->TriangleMesh::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -786,7 +786,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TriangleMesh::releaseGLObjects(_arg1);
 
@@ -804,7 +804,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TriangleMesh::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -830,7 +830,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TriangleMesh::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TriangleMesh::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -852,7 +852,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TriangleMesh::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TriangleMesh::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -871,7 +871,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TriangleMesh::libraryName();
 		lua_pushstring(L,lret);
@@ -890,7 +890,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TriangleMesh::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TriangleMesh::className();
 		lua_pushstring(L,lret);
@@ -914,7 +914,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TriangleMesh::accept(_arg1);
 
@@ -937,7 +937,7 @@ public:
 		osg::TriangleMesh* self=Luna< osg::Referenced >::checkSubType< osg::TriangleMesh >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::TriangleMesh::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TriangleMesh::accept(_arg1);
 

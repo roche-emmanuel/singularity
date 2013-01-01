@@ -190,7 +190,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTranslations::SetLoader(wxTranslationsLoader *)");
+			luaL_error(L, "Invalid object in function call void wxTranslations::SetLoader(wxTranslationsLoader *). Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		self->SetLoader(loader);
 
@@ -209,7 +209,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTranslations::SetLanguage(wxLanguage)");
+			luaL_error(L, "Invalid object in function call void wxTranslations::SetLanguage(wxLanguage). Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		self->SetLanguage(lang);
 
@@ -228,7 +228,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTranslations::SetLanguage(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTranslations::SetLanguage(const wxString &). Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		self->SetLanguage(lang);
 
@@ -256,7 +256,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString wxTranslations::GetAvailableTranslations(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxArrayString wxTranslations::GetAvailableTranslations(const wxString &) const. Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		wxArrayString stack_lret = self->GetAvailableTranslations(domain);
 		wxArrayString* lret = new wxArrayString(stack_lret);
@@ -278,7 +278,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTranslations::AddStdCatalog()");
+			luaL_error(L, "Invalid object in function call bool wxTranslations::AddStdCatalog(). Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		bool lret = self->AddStdCatalog();
 		lua_pushboolean(L,lret?1:0);
@@ -298,7 +298,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTranslations::AddCatalog(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTranslations::AddCatalog(const wxString &). Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		bool lret = self->AddCatalog(domain);
 		lua_pushboolean(L,lret?1:0);
@@ -319,7 +319,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTranslations::AddCatalog(const wxString &, wxLanguage)");
+			luaL_error(L, "Invalid object in function call bool wxTranslations::AddCatalog(const wxString &, wxLanguage). Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		bool lret = self->AddCatalog(domain, msgIdLanguage);
 		lua_pushboolean(L,lret?1:0);
@@ -348,7 +348,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTranslations::IsLoaded(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxTranslations::IsLoaded(const wxString &) const. Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		bool lret = self->IsLoaded(domain);
 		lua_pushboolean(L,lret?1:0);
@@ -371,7 +371,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTranslations::GetString(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTranslations::GetString(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetString(origString, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -396,7 +396,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTranslations::GetString(const wxString &, const wxString &, unsigned int, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTranslations::GetString(const wxString &, const wxString &, unsigned int, const wxString &) const. Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetString(origString, origString2, n, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -428,7 +428,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTranslations::GetHeaderValue(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxTranslations::GetHeaderValue(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxTranslations >::check(L,1)).name());
 		}
 		wxString lret = self->GetHeaderValue(header, domain);
 		lua_pushlstring(L,lret.data(),lret.size());

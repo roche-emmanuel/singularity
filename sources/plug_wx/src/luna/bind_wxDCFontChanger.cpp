@@ -150,7 +150,7 @@ public:
 		wxDCFontChanger* self=(Luna< wxDCFontChanger >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDCFontChanger::Set(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxDCFontChanger::Set(const wxFont &). Got : '%s'",typeid(Luna< wxDCFontChanger >::check(L,1)).name());
 		}
 		self->Set(font);
 

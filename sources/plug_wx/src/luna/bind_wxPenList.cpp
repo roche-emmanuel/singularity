@@ -110,7 +110,7 @@ public:
 		wxPenList* self=(Luna< wxPenList >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPen * wxPenList::FindOrCreatePen(const wxColour &, int, wxPenStyle)");
+			luaL_error(L, "Invalid object in function call wxPen * wxPenList::FindOrCreatePen(const wxColour &, int, wxPenStyle). Got : '%s'",typeid(Luna< wxPenList >::check(L,1)).name());
 		}
 		wxPen * lret = self->FindOrCreatePen(colour, width, style);
 		if(!lret) return 0; // Do not write NULL pointers.

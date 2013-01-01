@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >",name);
 	}
+
 };
 
 std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedMan
 luna_RegType LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_int_osgGA_KeySwitchMatrixManipulator_NamedManipulator::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_int_osgGA_KeySwitchMatrixManipulator_NamedManipulator::_bind___eq},
+	
 	{0,0}
 };
 

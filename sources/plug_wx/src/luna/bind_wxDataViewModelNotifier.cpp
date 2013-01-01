@@ -220,7 +220,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::Cleared()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::Cleared(). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->Cleared();
 		lua_pushboolean(L,lret?1:0);
@@ -239,7 +239,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewModelNotifier::GetOwner() const");
+			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewModelNotifier::GetOwner() const. Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		wxDataViewModel * lret = self->GetOwner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -270,7 +270,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem &, const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem &, const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ItemAdded(parent, item);
 		lua_pushboolean(L,lret?1:0);
@@ -294,7 +294,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ItemChanged(item);
 		lua_pushboolean(L,lret?1:0);
@@ -323,7 +323,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem &, const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem &, const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ItemDeleted(parent, item);
 		lua_pushboolean(L,lret?1:0);
@@ -352,7 +352,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ItemsAdded(parent, items);
 		lua_pushboolean(L,lret?1:0);
@@ -376,7 +376,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ItemsChanged(items);
 		lua_pushboolean(L,lret?1:0);
@@ -405,7 +405,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ItemsDeleted(parent, items);
 		lua_pushboolean(L,lret?1:0);
@@ -424,7 +424,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::Resort()");
+			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::Resort(). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		self->Resort();
 
@@ -443,7 +443,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::SetOwner(wxDataViewModel *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::SetOwner(wxDataViewModel *). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		self->SetOwner(owner);
 
@@ -467,7 +467,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->ValueChanged(item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -496,7 +496,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewModelNotifier::ItemsAdded(parent, items);
 		lua_pushboolean(L,lret?1:0);
@@ -520,7 +520,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewModelNotifier::ItemsChanged(items);
 		lua_pushboolean(L,lret?1:0);
@@ -549,7 +549,7 @@ public:
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewModelNotifier::ItemsDeleted(parent, items);
 		lua_pushboolean(L,lret?1:0);

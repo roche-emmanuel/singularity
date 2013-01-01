@@ -146,7 +146,7 @@ public:
 		SPK::BufferHandler* self=(Luna< SPK::BufferHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
 		}
 		self->createBuffers(group);
 
@@ -169,7 +169,7 @@ public:
 		SPK::BufferHandler* self=(Luna< SPK::BufferHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
 		}
 		self->destroyBuffers(group);
 
@@ -220,7 +220,7 @@ public:
 		SPK::BufferHandler* self=(Luna< SPK::BufferHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
 		}
 		self->BufferHandler::createBuffers(group);
 
@@ -243,7 +243,7 @@ public:
 		SPK::BufferHandler* self=(Luna< SPK::BufferHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::BufferHandler::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
 		}
 		self->BufferHandler::destroyBuffers(group);
 

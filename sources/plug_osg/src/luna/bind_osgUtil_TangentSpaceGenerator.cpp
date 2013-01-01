@@ -278,7 +278,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::generate(osg::Geometry *, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::generate(osg::Geometry *, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->generate(geo, normal_map_tex_unit);
 
@@ -296,7 +296,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray()");
+			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4Array * lret = self->getTangentArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -317,7 +317,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getTangentArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4Array * lret = self->getTangentArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -348,7 +348,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setTangentArray(osg::Vec4Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTangentArray(array);
 
@@ -366,7 +366,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray()");
+			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4Array * lret = self->getNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -387,7 +387,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getNormalArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4Array * lret = self->getNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -418,7 +418,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setNormalArray(osg::Vec4Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNormalArray(array);
 
@@ -436,7 +436,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray()");
+			luaL_error(L, "Invalid object in function call osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4Array * lret = self->getBinormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -457,7 +457,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4Array * osgUtil::TangentSpaceGenerator::getBinormalArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4Array * lret = self->getBinormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -488,7 +488,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::setBinormalArray(osg::Vec4Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBinormalArray(array);
 
@@ -506,7 +506,7 @@ public:
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices()");
+			luaL_error(L, "Invalid object in function call osg::IndexArray * osgUtil::TangentSpaceGenerator::getIndices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::IndexArray * lret = self->getIndices();
 		if(!lret) return 0; // Do not write NULL pointers.

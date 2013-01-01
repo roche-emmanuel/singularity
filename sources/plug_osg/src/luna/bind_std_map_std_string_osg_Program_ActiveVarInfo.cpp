@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< std::string, osg::Program::ActiveVarInfo >",name);
 	}
+
 };
 
 std::map< std::string, osg::Program::ActiveVarInfo >* LunaTraits< std::map< std::string, osg::Program::ActiveVarInfo > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< std::string, osg::Program::ActiveVarInfo > >::un
 luna_RegType LunaTraits< std::map< std::string, osg::Program::ActiveVarInfo > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_std_string_osg_Program_ActiveVarInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_std_string_osg_Program_ActiveVarInfo::_bind___eq},
+	
 	{0,0}
 };
 

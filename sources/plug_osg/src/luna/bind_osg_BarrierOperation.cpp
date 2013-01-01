@@ -106,7 +106,7 @@ public:
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::release()");
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->release();
 
@@ -124,7 +124,7 @@ public:
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_release()");
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BarrierOperation::release();
 
@@ -145,7 +145,7 @@ public:
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::operator()(osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::operator()(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(_arg1);
 

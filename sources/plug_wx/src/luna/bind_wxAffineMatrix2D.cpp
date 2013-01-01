@@ -190,7 +190,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Get(wxMatrix2D *, wxPoint2DDouble *) const");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Get(wxMatrix2D *, wxPoint2DDouble *) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Get(mat2D, tr);
 
@@ -218,7 +218,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Set(const wxMatrix2D &, const wxPoint2DDouble &)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Set(const wxMatrix2D &, const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Set(mat2D, tr);
 
@@ -241,7 +241,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Concat(const wxAffineMatrix2DBase &)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Concat(const wxAffineMatrix2DBase &). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Concat(t);
 
@@ -259,7 +259,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::Invert()");
+			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::Invert(). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		bool lret = self->Invert();
 		lua_pushboolean(L,lret?1:0);
@@ -278,7 +278,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::IsIdentity() const");
+			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::IsIdentity() const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		bool lret = self->IsIdentity();
 		lua_pushboolean(L,lret?1:0);
@@ -302,7 +302,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::IsEqual(const wxAffineMatrix2DBase &)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::IsEqual(const wxAffineMatrix2DBase &). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->IsEqual(t);
 
@@ -322,7 +322,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Translate(double, double)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Translate(double, double). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Translate(dx, dy);
 
@@ -342,7 +342,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Scale(double, double)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Scale(double, double). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Scale(xScale, yScale);
 
@@ -363,7 +363,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Mirror(int)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Mirror(int). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Mirror(direction);
 
@@ -382,7 +382,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Rotate(double)");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::Rotate(double). Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->Rotate(ccRadians);
 
@@ -405,7 +405,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxAffineMatrix2D::TransformPoint(const wxPoint2DDouble &) const");
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxAffineMatrix2D::TransformPoint(const wxPoint2DDouble &) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		wxPoint2DDouble stack_lret = self->TransformPoint(p);
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -429,7 +429,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::TransformPoint(double *, double *) const");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::TransformPoint(double *, double *) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->TransformPoint(&x, &y);
 
@@ -461,7 +461,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxAffineMatrix2D::TransformDistance(const wxPoint2DDouble &) const");
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble wxAffineMatrix2D::TransformDistance(const wxPoint2DDouble &) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		wxPoint2DDouble stack_lret = self->TransformDistance(p);
 		wxPoint2DDouble* lret = new wxPoint2DDouble(stack_lret);
@@ -485,7 +485,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::TransformDistance(double *, double *) const");
+			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::TransformDistance(double *, double *) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		self->TransformDistance(&dx, &dy);
 
@@ -519,7 +519,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::operator==(const wxAffineMatrix2DBase &) const");
+			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::operator==(const wxAffineMatrix2DBase &) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		bool lret = self->operator==(t);
 		lua_pushboolean(L,lret?1:0);
@@ -543,7 +543,7 @@ public:
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::operator!=(const wxAffineMatrix2DBase &) const");
+			luaL_error(L, "Invalid object in function call bool wxAffineMatrix2D::operator!=(const wxAffineMatrix2DBase &) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(t);
 		lua_pushboolean(L,lret?1:0);

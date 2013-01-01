@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > >",name);
 	}
+
 };
 
 std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > >* LunaTraits< std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > >::un
 luna_RegType LunaTraits< std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osg_ref_ptr_osgDB_ReaderWriterInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osg_ref_ptr_osgDB_ReaderWriterInfo::_bind___eq},
+	
 	{0,0}
 };
 

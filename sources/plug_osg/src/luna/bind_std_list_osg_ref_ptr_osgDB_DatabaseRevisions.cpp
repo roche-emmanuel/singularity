@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >",name);
 	}
+
 };
 
 std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::u
 luna_RegType LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osg_ref_ptr_osgDB_DatabaseRevisions::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osg_ref_ptr_osgDB_DatabaseRevisions::_bind___eq},
+	
 	{0,0}
 };
 

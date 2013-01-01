@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >",name);
 	}
+
 };
 
 std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >* LunaTraits< std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > 
 luna_RegType LunaTraits< std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_ref_ptr_osgUtil_Tessellator_Prim::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_ref_ptr_osgUtil_Tessellator_Prim::_bind___eq},
+	
 	{0,0}
 };
 

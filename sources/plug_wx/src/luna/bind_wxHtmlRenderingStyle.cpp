@@ -119,7 +119,7 @@ public:
 		wxHtmlRenderingStyle* self=(Luna< wxHtmlRenderingStyle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxHtmlRenderingStyle >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetSelectedTextColour(clr);
 		wxColour* lret = new wxColour(stack_lret);
@@ -146,7 +146,7 @@ public:
 		wxHtmlRenderingStyle* self=(Luna< wxHtmlRenderingStyle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour &). Got : '%s'",typeid(Luna< wxHtmlRenderingStyle >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetSelectedTextBgColour(clr);
 		wxColour* lret = new wxColour(stack_lret);

@@ -199,7 +199,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::Close()");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::Close(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->Close();
 		lua_pushboolean(L,lret?1:0);
@@ -218,7 +218,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CloseEntry()");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CloseEntry(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->CloseEntry();
 		lua_pushboolean(L,lret?1:0);
@@ -242,7 +242,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream &)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyArchiveMetaData(wxTarInputStream &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->CopyArchiveMetaData(s);
 		lua_pushboolean(L,lret?1:0);
@@ -267,7 +267,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyEntry(wxTarEntry *, wxTarInputStream &)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::CopyEntry(wxTarEntry *, wxTarInputStream &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->CopyEntry(entry, inputStream);
 		lua_pushboolean(L,lret?1:0);
@@ -286,7 +286,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTarOutputStream::GetBlockingFactor() const");
+			luaL_error(L, "Invalid object in function call int wxTarOutputStream::GetBlockingFactor() const. Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		int lret = self->GetBlockingFactor();
 		lua_pushnumber(L,lret);
@@ -306,7 +306,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarOutputStream::SetBlockingFactor(int)");
+			luaL_error(L, "Invalid object in function call void wxTarOutputStream::SetBlockingFactor(int). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		self->SetBlockingFactor(factor);
 
@@ -332,7 +332,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextDirEntry(const wxString &, const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextDirEntry(const wxString &, const wxDateTime &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->PutNextDirEntry(name, dt);
 		lua_pushboolean(L,lret?1:0);
@@ -352,7 +352,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(wxTarEntry *)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(wxTarEntry *). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->PutNextEntry(entry);
 		lua_pushboolean(L,lret?1:0);
@@ -380,7 +380,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(const wxString &, const wxDateTime &, long long)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(const wxString &, const wxDateTime &, long long). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->PutNextEntry(name, dt, size);
 		lua_pushboolean(L,lret?1:0);
@@ -408,7 +408,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_Close(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->wxTarOutputStream::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -427,7 +427,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_CloseEntry()");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_CloseEntry(). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->wxTarOutputStream::CloseEntry();
 		lua_pushboolean(L,lret?1:0);
@@ -454,7 +454,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextDirEntry(const wxString &, const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextDirEntry(const wxString &, const wxDateTime &). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->wxTarOutputStream::PutNextDirEntry(name, dt);
 		lua_pushboolean(L,lret?1:0);
@@ -482,7 +482,7 @@ public:
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextEntry(const wxString &, const wxDateTime &, long long)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::base_PutNextEntry(const wxString &, const wxDateTime &, long long). Got : '%s'",typeid(Luna< wxTarOutputStream >::check(L,1)).name());
 		}
 		bool lret = self->wxTarOutputStream::PutNextEntry(name, dt, size);
 		lua_pushboolean(L,lret?1:0);

@@ -131,7 +131,7 @@ public:
 		osg::Texture3D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture3D::SubloadCallback::load(const osg::Texture3D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture3D::SubloadCallback::load(const osg::Texture3D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->load(texture, state);
 
@@ -159,7 +159,7 @@ public:
 		osg::Texture3D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture3D::SubloadCallback::subload(const osg::Texture3D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture3D::SubloadCallback::subload(const osg::Texture3D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->subload(texture, state);
 

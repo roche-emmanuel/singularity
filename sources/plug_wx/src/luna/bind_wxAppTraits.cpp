@@ -227,7 +227,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::CreateConfig()");
+			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::CreateConfig(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxConfigBase * lret = self->CreateConfig();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -248,7 +248,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppTraits::CreateEventLoop()");
+			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppTraits::CreateEventLoop(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxEventLoopBase * lret = self->CreateEventLoop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -269,7 +269,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontMapper * wxAppTraits::CreateFontMapper()");
+			luaL_error(L, "Invalid object in function call wxFontMapper * wxAppTraits::CreateFontMapper(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxFontMapper * lret = self->CreateFontMapper();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -290,7 +290,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLog * wxAppTraits::CreateLogTarget()");
+			luaL_error(L, "Invalid object in function call wxLog * wxAppTraits::CreateLogTarget(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxLog * lret = self->CreateLogTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -311,7 +311,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMessageOutput * wxAppTraits::CreateMessageOutput()");
+			luaL_error(L, "Invalid object in function call wxMessageOutput * wxAppTraits::CreateMessageOutput(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxMessageOutput * lret = self->CreateMessageOutput();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -332,7 +332,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRendererNative * wxAppTraits::CreateRenderer()");
+			luaL_error(L, "Invalid object in function call wxRendererNative * wxAppTraits::CreateRenderer(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxRendererNative * lret = self->CreateRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -353,7 +353,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAppTraits::GetDesktopEnvironment() const");
+			luaL_error(L, "Invalid object in function call wxString wxAppTraits::GetDesktopEnvironment() const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxString lret = self->GetDesktopEnvironment();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -372,7 +372,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::GetStandardPaths()");
+			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::GetStandardPaths(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		const wxStandardPaths* lret = &self->GetStandardPaths();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -397,7 +397,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPortId wxAppTraits::GetToolkitVersion(int *, int *) const");
+			luaL_error(L, "Invalid object in function call wxPortId wxAppTraits::GetToolkitVersion(int *, int *) const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxPortId lret = self->GetToolkitVersion(&major, &minor);
 		lua_pushnumber(L,lret);
@@ -416,7 +416,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::HasStderr()");
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::HasStderr(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		bool lret = self->HasStderr();
 		lua_pushboolean(L,lret?1:0);
@@ -435,7 +435,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::IsUsingUniversalWidgets() const");
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::IsUsingUniversalWidgets() const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		bool lret = self->IsUsingUniversalWidgets();
 		lua_pushboolean(L,lret?1:0);
@@ -455,7 +455,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::ShowAssertDialog(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::ShowAssertDialog(const wxString &). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		bool lret = self->ShowAssertDialog(msg);
 		lua_pushboolean(L,lret?1:0);
@@ -475,7 +475,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *)");
+			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxTimerImpl * lret = self->CreateTimerImpl(_arg1);
 		////////////////////////////////////////////////////////////////////
@@ -496,7 +496,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxAppTraits::BeforeChildWaitLoop()");
+			luaL_error(L, "Invalid object in function call void * wxAppTraits::BeforeChildWaitLoop(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		void * lret = self->BeforeChildWaitLoop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -518,7 +518,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppTraits::AfterChildWaitLoop(void *)");
+			luaL_error(L, "Invalid object in function call void wxAppTraits::AfterChildWaitLoop(void *). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		self->AfterChildWaitLoop(_arg1);
 
@@ -536,7 +536,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::DoMessageFromThreadWait()");
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::DoMessageFromThreadWait(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		bool lret = self->DoMessageFromThreadWait();
 		lua_pushboolean(L,lret?1:0);
@@ -555,7 +555,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::CanUseStderr()");
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::CanUseStderr(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		bool lret = self->CanUseStderr();
 		lua_pushboolean(L,lret?1:0);
@@ -575,7 +575,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::WriteToStderr(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::WriteToStderr(const wxString &). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		bool lret = self->WriteToStderr(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -594,7 +594,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::base_CreateConfig()");
+			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::base_CreateConfig(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxConfigBase * lret = self->wxAppTraits::CreateConfig();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -615,7 +615,7 @@ public:
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::base_GetStandardPaths()");
+			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::base_GetStandardPaths(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		const wxStandardPaths* lret = &self->wxAppTraits::GetStandardPaths();
 		if(!lret) return 0; // Do not write NULL pointers.

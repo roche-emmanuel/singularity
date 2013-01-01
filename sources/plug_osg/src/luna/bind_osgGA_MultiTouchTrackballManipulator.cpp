@@ -587,7 +587,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -613,7 +613,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -635,7 +635,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -654,7 +654,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -673,7 +673,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -702,7 +702,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -722,7 +722,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setName(name);
 
@@ -740,7 +740,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::computeDataVariance();
 
@@ -759,7 +759,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setUserData(obj);
 
@@ -777,7 +777,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::MultiTouchTrackballManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::MultiTouchTrackballManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->MultiTouchTrackballManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -798,7 +798,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::MultiTouchTrackballManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::MultiTouchTrackballManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->MultiTouchTrackballManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -831,7 +831,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::releaseGLObjects(_arg1);
 
@@ -851,7 +851,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::event(nv, drawable);
 
@@ -870,7 +870,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setCoordinateFrameCallback(cb);
 
@@ -906,7 +906,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -939,7 +939,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::getHomePosition(eye, center, up);
 
@@ -958,7 +958,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setAutoComputeHomePosition(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setAutoComputeHomePosition(flag);
 
@@ -980,7 +980,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_computeHomePosition(const osg::Camera *, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::computeHomePosition(camera, useBoundingBox);
 
@@ -999,7 +999,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setNode(_arg1);
 
@@ -1017,7 +1017,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::MultiTouchTrackballManipulator::base_getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::MultiTouchTrackballManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->MultiTouchTrackballManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1038,7 +1038,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::MultiTouchTrackballManipulator::base_getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::MultiTouchTrackballManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->MultiTouchTrackballManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1069,7 +1069,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setVerticalAxisFixed(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setVerticalAxisFixed(value);
 
@@ -1088,7 +1088,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setAllowThrow(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setAllowThrow(allowThrow);
 
@@ -1107,7 +1107,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setAnimationTime(const double)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setAnimationTime(t);
 
@@ -1125,7 +1125,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_finishAnimation()");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::finishAnimation();
 
@@ -1153,7 +1153,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::home(_arg1, _arg2);
 
@@ -1172,7 +1172,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::home(_arg1);
 
@@ -1209,7 +1209,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::init(_arg1, _arg2);
 
@@ -1232,7 +1232,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::getUsage(_arg1);
 
@@ -1255,7 +1255,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setByMatrix(matrix);
 
@@ -1278,7 +1278,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setByInverseMatrix(matrix);
 
@@ -1296,7 +1296,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::MultiTouchTrackballManipulator::base_getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::MultiTouchTrackballManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->MultiTouchTrackballManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1318,7 +1318,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::MultiTouchTrackballManipulator::base_getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::MultiTouchTrackballManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->MultiTouchTrackballManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1350,7 +1350,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setTransformation(eye, rotation);
 
@@ -1383,7 +1383,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setTransformation(eye, center, up);
 
@@ -1420,7 +1420,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::getTransformation(eye, rotation);
 
@@ -1453,7 +1453,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::getTransformation(eye, center, up);
 
@@ -1485,7 +1485,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setCenter(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setCenter(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setCenter(center);
 
@@ -1508,7 +1508,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setRotation(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setRotation(rotation);
 
@@ -1527,7 +1527,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setDistance(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setDistance(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setDistance(distance);
 
@@ -1546,7 +1546,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setTrackballSize(const double &)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setTrackballSize(const double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setTrackballSize(size);
 
@@ -1565,7 +1565,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setWheelZoomFactor(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setWheelZoomFactor(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setWheelZoomFactor(wheelZoomFactor);
 
@@ -1587,7 +1587,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setMinimumDistance(minimumDistance, relativeToModelSize);
 
@@ -1605,7 +1605,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::MultiTouchTrackballManipulator::base_getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::MultiTouchTrackballManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->MultiTouchTrackballManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1624,7 +1624,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::MultiTouchTrackballManipulator::base_getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::MultiTouchTrackballManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->MultiTouchTrackballManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1643,7 +1643,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->MultiTouchTrackballManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1669,7 +1669,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::MultiTouchTrackballManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->MultiTouchTrackballManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1691,7 +1691,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->MultiTouchTrackballManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1710,7 +1710,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->MultiTouchTrackballManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1729,7 +1729,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::MultiTouchTrackballManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->MultiTouchTrackballManipulator::className();
 		lua_pushstring(L,lret);
@@ -1758,7 +1758,7 @@ public:
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::MultiTouchTrackballManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->MultiTouchTrackballManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);

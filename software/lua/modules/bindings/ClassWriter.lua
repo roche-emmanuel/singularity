@@ -48,6 +48,8 @@ function Class:writeFile()
 		end
 	end
 
+	local absoluteBases = Set()
+	
 	if not external then
 		-- self:info_v("Testing virtual class...")
 		local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
@@ -142,10 +144,27 @@ function Class:writeFile()
 		buf:writeForAll(class:getValidPublicOperators(),writeBind,writeOverloadBind)
 		buf:newLine()
 	
+		-- Write the multi base converters if applicable:
+		local fbname = class:getFirstAbsoluteBase():getFullName()	
+		
+		if class:getNumBases() > 1 then
+			for _,base in class:getBases():sequence() do
+				if fbname ~= base:getFirstAbsoluteBase():getFullName() and base:isValidForWrapping() then
+					absoluteBases:push_back{base:getFirstAbsoluteBase():getFullName(),base:getFirstAbsoluteBase():getName()}
+				end
+			end
+		end
+
+		for _,val in absoluteBases:sequence() do
+			buf:writeLine(snippets:getBaseCasterCode(fbname,val[1]))
+		end
+		
 		buf:popIndent()
 		buf:writeLine("};")
 		buf:newLine()
 	
+
+		
 		-- implement the lunatraits constructor:
 		buf:writeSubLine("${1}* LunaTraits< ${1} >::_bind_ctor(lua_State *L) {",cname)
 		buf:pushIndent()
@@ -247,6 +266,11 @@ function Class:writeFile()
 			
 			if isVirtual then
 				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"getTable")			
+			end
+			
+			for _,val in absoluteBases:sequence() do
+				local wname2 = corr:correct("filename",val[1])
+				buf:writeSubLine('{"as${3}", &luna_wrapper_${1}::_bind_baseCast_${2}},',wname,wname2,val[2])
 			end
 			
 		buf:writeSubLine("{0,0}")

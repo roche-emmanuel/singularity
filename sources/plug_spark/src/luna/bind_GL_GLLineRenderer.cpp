@@ -249,7 +249,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLLineRenderer::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLLineRenderer::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -273,7 +273,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->createBuffers(group);
 
@@ -296,7 +296,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->destroyBuffers(group);
 
@@ -319,7 +319,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->render(group);
 
@@ -358,7 +358,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLLineRenderer::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLLineRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->GLLineRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -381,7 +381,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_enableRenderingHint(SPK::RenderingHint, bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -400,7 +400,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_setAlphaTestThreshold(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -419,7 +419,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLLineRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const");
+			luaL_error(L, "Invalid object in function call bool GL::GLLineRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLLineRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -439,7 +439,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::enableBlending(blendingEnabled);
 
@@ -458,7 +458,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_setBlending(SPK::BlendingMode)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::setBlending(blendMode);
 
@@ -477,7 +477,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_setWidth(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_setWidth(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::setWidth(width);
 
@@ -495,7 +495,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLLineRenderer::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLLineRenderer::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->GLLineRenderer::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -519,7 +519,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::createBuffers(group);
 
@@ -542,7 +542,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::destroyBuffers(group);
 
@@ -565,7 +565,7 @@ public:
 		GL::GLLineRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLLineRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLLineRenderer::base_render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLLineRenderer::render(group);
 
@@ -574,6 +574,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_LineRendererInterface(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_LineRendererInterface(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_LineRendererInterface(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_LineRendererInterface function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::LineRendererInterface* res = dynamic_cast<SPK::LineRendererInterface*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::LineRendererInterface >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -614,6 +640,7 @@ luna_RegType LunaTraits< GL::GLLineRenderer >::methods[] = {
 	{"base_render", &luna_wrapper_GL_GLLineRenderer::_bind_base_render},
 	{"__eq", &luna_wrapper_GL_GLLineRenderer::_bind___eq},
 	{"getTable", &luna_wrapper_GL_GLLineRenderer::_bind_getTable},
+	{"asLineRendererInterface", &luna_wrapper_GL_GLLineRenderer::_bind_baseCast_SPK_LineRendererInterface},
 	{0,0}
 };
 

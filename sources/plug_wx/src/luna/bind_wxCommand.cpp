@@ -154,7 +154,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommand::CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxCommand::CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -173,7 +173,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommand::Do()");
+			luaL_error(L, "Invalid object in function call bool wxCommand::Do(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Do();
 		lua_pushboolean(L,lret?1:0);
@@ -192,7 +192,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommand::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommand::GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -211,7 +211,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommand::Undo()");
+			luaL_error(L, "Invalid object in function call bool wxCommand::Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Undo();
 		lua_pushboolean(L,lret?1:0);
@@ -230,7 +230,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommand::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommand::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCommand::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -251,7 +251,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommand::base_CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxCommand::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommand::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -270,7 +270,7 @@ public:
 		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommand::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommand::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCommand::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());

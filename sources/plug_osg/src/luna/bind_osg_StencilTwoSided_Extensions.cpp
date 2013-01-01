@@ -227,7 +227,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -246,7 +246,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStencilTwoSidedSupported(flag);
 
@@ -264,7 +264,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isStencilTwoSidedSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -284,7 +284,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setOpenGL20Supported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setOpenGL20Supported(flag);
 
@@ -302,7 +302,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isOpenGL20Supported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isOpenGL20Supported();
 		lua_pushboolean(L,lret?1:0);
@@ -322,7 +322,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::setSeparateStencilSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSeparateStencilSupported(flag);
 
@@ -340,7 +340,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::Extensions::isSeparateStencilSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSeparateStencilSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -360,7 +360,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glActiveStencilFace(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glActiveStencilFace(face);
 
@@ -382,7 +382,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilOpSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glStencilOpSeparate(face, sfail, dpfail, dppass);
 
@@ -402,7 +402,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilMaskSeparate(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glStencilMaskSeparate(face, mask);
 
@@ -424,7 +424,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int, unsigned int, int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparate(unsigned int, unsigned int, int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glStencilFuncSeparate(face, func, ref, mask);
 
@@ -446,7 +446,7 @@ public:
 		osg::StencilTwoSided::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int, unsigned int, int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI(unsigned int, unsigned int, int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glStencilFuncSeparateATI(frontfunc, backfunc, ref, mask);
 

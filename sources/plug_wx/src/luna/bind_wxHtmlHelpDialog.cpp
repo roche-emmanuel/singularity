@@ -251,7 +251,7 @@ public:
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar *, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddToolbarButtons(toolBar, style);
 
@@ -275,7 +275,7 @@ public:
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpDialog::Create(wxWindow *, int, const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpDialog::Create(wxWindow *, int, const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, title, style);
 		lua_pushboolean(L,lret?1:0);
@@ -294,7 +294,7 @@ public:
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpDialog::GetController() const");
+			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpDialog::GetController() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxHtmlHelpController * lret = self->GetController();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -316,7 +316,7 @@ public:
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetController(wxHtmlHelpController *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetController(wxHtmlHelpController *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetController(controller);
 
@@ -335,7 +335,7 @@ public:
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetTitleFormat(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetTitleFormat(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTitleFormat(format);
 

@@ -139,7 +139,7 @@ public:
 		wxDataViewBitmapRenderer* self=Luna< wxObject >::checkSubType< wxDataViewBitmapRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewBitmapRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewBitmapRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewBitmapRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -160,7 +160,7 @@ public:
 		wxDataViewBitmapRenderer* self=Luna< wxObject >::checkSubType< wxDataViewBitmapRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewBitmapRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewBitmapRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewBitmapRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -179,7 +179,7 @@ public:
 		wxDataViewBitmapRenderer* self=Luna< wxObject >::checkSubType< wxDataViewBitmapRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewBitmapRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewBitmapRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewBitmapRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -199,7 +199,7 @@ public:
 		wxDataViewBitmapRenderer* self=Luna< wxObject >::checkSubType< wxDataViewBitmapRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewBitmapRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewBitmapRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewBitmapRenderer::SetAlignment(align);
 

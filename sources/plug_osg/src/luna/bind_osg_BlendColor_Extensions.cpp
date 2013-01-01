@@ -166,7 +166,7 @@ public:
 		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -185,7 +185,7 @@ public:
 		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::setBlendColorSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::setBlendColorSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBlendColorSupported(flag);
 
@@ -203,7 +203,7 @@ public:
 		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendColor::Extensions::isBlendColorSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendColor::Extensions::isBlendColorSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isBlendColorSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -226,7 +226,7 @@ public:
 		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::glBlendColor(float, float, float, float) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::glBlendColor(float, float, float, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBlendColor(red, green, blue, alpha);
 

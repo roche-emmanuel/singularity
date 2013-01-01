@@ -585,7 +585,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -611,7 +611,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -633,7 +633,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Shader::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -652,7 +652,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -671,7 +671,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -695,7 +695,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Shader::compare(const osg::Shader &) const");
+			luaL_error(L, "Invalid object in function call int osg::Shader::compare(const osg::Shader &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -715,7 +715,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::setType(osg::Shader::Type)");
+			luaL_error(L, "Invalid object in function call bool osg::Shader::setType(osg::Shader::Type). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setType(t);
 		lua_pushboolean(L,lret?1:0);
@@ -734,7 +734,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader::Type osg::Shader::getType() const");
+			luaL_error(L, "Invalid object in function call osg::Shader::Type osg::Shader::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Shader::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -753,7 +753,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::getTypename() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::getTypename() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->getTypename();
 		lua_pushstring(L,lret);
@@ -773,7 +773,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::setFileName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Shader::setFileName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFileName(fileName);
 
@@ -791,7 +791,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getFileName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getFileName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getFileName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -811,7 +811,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderSource(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderSource(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setShaderSource(sourceText);
 
@@ -829,7 +829,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getShaderSource() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getShaderSource() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getShaderSource();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -849,7 +849,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderBinary(osg::ShaderBinary *)");
+			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderBinary(osg::ShaderBinary *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setShaderBinary(shaderBinary);
 
@@ -867,7 +867,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ShaderBinary * osg::Shader::getShaderBinary()");
+			luaL_error(L, "Invalid object in function call osg::ShaderBinary * osg::Shader::getShaderBinary(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ShaderBinary * lret = self->getShaderBinary();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -888,7 +888,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ShaderBinary * osg::Shader::getShaderBinary() const");
+			luaL_error(L, "Invalid object in function call const osg::ShaderBinary * osg::Shader::getShaderBinary() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ShaderBinary * lret = self->getShaderBinary();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -919,7 +919,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::loadShaderSourceFromFile(const std::string &)");
+			luaL_error(L, "Invalid object in function call bool osg::Shader::loadShaderSourceFromFile(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->loadShaderSourceFromFile(fileName);
 		lua_pushboolean(L,lret?1:0);
@@ -940,7 +940,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::addCodeInjection(float, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Shader::addCodeInjection(float, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addCodeInjection(position, code);
 
@@ -961,7 +961,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Shader::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(state);
 
@@ -979,7 +979,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::dirtyShader()");
+			luaL_error(L, "Invalid object in function call void osg::Shader::dirtyShader(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->dirtyShader();
 
@@ -1002,7 +1002,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::compileShader(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Shader::compileShader(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compileShader(state);
 
@@ -1022,7 +1022,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::attachShader(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Shader::attachShader(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->attachShader(contextID, program);
 
@@ -1042,7 +1042,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::detachShader(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Shader::detachShader(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->detachShader(contextID, program);
 
@@ -1062,7 +1062,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::getGlShaderInfoLog(unsigned int, std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Shader::getGlShaderInfoLog(unsigned int, std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getGlShaderInfoLog(contextID, log);
 		lua_pushboolean(L,lret?1:0);
@@ -1082,7 +1082,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int) const");
+			luaL_error(L, "Invalid object in function call osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Shader::PerContextShader * lret = self->getPCS(contextID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1182,7 +1182,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shader::setName(name);
 
@@ -1200,7 +1200,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shader::computeDataVariance();
 
@@ -1219,7 +1219,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shader::setUserData(obj);
 
@@ -1237,7 +1237,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Shader::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Shader::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Shader::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1258,7 +1258,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Shader::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Shader::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Shader::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1288,7 +1288,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Shader::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1314,7 +1314,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Shader::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1336,7 +1336,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Shader::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Shader::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Shader::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1355,7 +1355,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Shader::libraryName();
 		lua_pushstring(L,lret);
@@ -1374,7 +1374,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Shader::className();
 		lua_pushstring(L,lret);
@@ -1396,7 +1396,7 @@ public:
 		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Shader::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shader::releaseGLObjects(state);
 

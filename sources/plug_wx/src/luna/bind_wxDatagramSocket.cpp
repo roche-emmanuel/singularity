@@ -204,7 +204,7 @@ public:
 		wxDatagramSocket* self=Luna< wxObject >::checkSubType< wxDatagramSocket >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDatagramSocket & wxDatagramSocket::SendTo(const wxSockAddress &, const void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxDatagramSocket & wxDatagramSocket::SendTo(const wxSockAddress &, const void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxDatagramSocket* lret = &self->SendTo(address, buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -225,7 +225,7 @@ public:
 		wxDatagramSocket* self=Luna< wxObject >::checkSubType< wxDatagramSocket >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDatagramSocket::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDatagramSocket::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDatagramSocket::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -251,7 +251,7 @@ public:
 		wxDatagramSocket* self=Luna< wxObject >::checkSubType< wxDatagramSocket >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_GetLocal(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDatagramSocket::GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -275,7 +275,7 @@ public:
 		wxDatagramSocket* self=Luna< wxObject >::checkSubType< wxDatagramSocket >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_GetPeer(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDatagramSocket::GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -294,7 +294,7 @@ public:
 		wxDatagramSocket* self=Luna< wxObject >::checkSubType< wxDatagramSocket >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDatagramSocket::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -318,7 +318,7 @@ public:
 		wxDatagramSocket* self=Luna< wxObject >::checkSubType< wxDatagramSocket >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_SetLocal(const wxIPV4address &)");
+			luaL_error(L, "Invalid object in function call bool wxDatagramSocket::base_SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDatagramSocket::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);

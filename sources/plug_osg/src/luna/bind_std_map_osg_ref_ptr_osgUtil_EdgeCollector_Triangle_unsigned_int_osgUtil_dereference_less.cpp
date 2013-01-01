@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >",name);
 	}
+
 };
 
 std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >* LunaTraits< std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >
 luna_RegType LunaTraits< std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_osg_ref_ptr_osgUtil_EdgeCollector_Triangle_unsigned_int_osgUtil_dereference_less::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_osg_ref_ptr_osgUtil_EdgeCollector_Triangle_unsigned_int_osgUtil_dereference_less::_bind___eq},
+	
 	{0,0}
 };
 

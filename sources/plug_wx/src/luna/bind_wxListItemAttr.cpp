@@ -195,7 +195,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxListItemAttr::GetBackgroundColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxListItemAttr::GetBackgroundColour() const. Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetBackgroundColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -216,7 +216,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxListItemAttr::GetFont() const");
+			luaL_error(L, "Invalid object in function call const wxFont & wxListItemAttr::GetFont() const. Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -237,7 +237,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxListItemAttr::GetTextColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxListItemAttr::GetTextColour() const. Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetTextColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -258,7 +258,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListItemAttr::HasBackgroundColour() const");
+			luaL_error(L, "Invalid object in function call bool wxListItemAttr::HasBackgroundColour() const. Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBackgroundColour();
 		lua_pushboolean(L,lret?1:0);
@@ -277,7 +277,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListItemAttr::HasFont() const");
+			luaL_error(L, "Invalid object in function call bool wxListItemAttr::HasFont() const. Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFont();
 		lua_pushboolean(L,lret?1:0);
@@ -296,7 +296,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListItemAttr::HasTextColour() const");
+			luaL_error(L, "Invalid object in function call bool wxListItemAttr::HasTextColour() const. Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasTextColour();
 		lua_pushboolean(L,lret?1:0);
@@ -320,7 +320,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListItemAttr::SetBackgroundColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxListItemAttr::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		self->SetBackgroundColour(colour);
 
@@ -343,7 +343,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListItemAttr::SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxListItemAttr::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		self->SetFont(font);
 
@@ -366,7 +366,7 @@ public:
 		wxListItemAttr* self=(Luna< wxListItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListItemAttr::SetTextColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxListItemAttr::SetTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxListItemAttr >::check(L,1)).name());
 		}
 		self->SetTextColour(colour);
 

@@ -331,7 +331,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Set(wxRelationship, wxWindow *, wxEdge, int, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Set(wxRelationship, wxWindow *, wxEdge, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Set(rel, otherW, otherE, val, margin);
 
@@ -353,7 +353,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::LeftOf(wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::LeftOf(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->LeftOf(sibling, margin);
 
@@ -375,7 +375,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::RightOf(wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::RightOf(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RightOf(sibling, margin);
 
@@ -397,7 +397,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Above(wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Above(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Above(sibling, margin);
 
@@ -419,7 +419,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Below(wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Below(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Below(sibling, margin);
 
@@ -442,7 +442,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SameAs(wxWindow *, wxEdge, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SameAs(wxWindow *, wxEdge, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SameAs(otherW, edge, margin);
 
@@ -463,7 +463,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::PercentOf(wxWindow *, wxEdge, int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::PercentOf(wxWindow *, wxEdge, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->PercentOf(otherW, wh, per);
 
@@ -482,7 +482,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Absolute(int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Absolute(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Absolute(val);
 
@@ -500,7 +500,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Unconstrained()");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Unconstrained(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Unconstrained();
 
@@ -518,7 +518,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::AsIs()");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::AsIs(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AsIs();
 
@@ -536,7 +536,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEdge wxIndividualLayoutConstraint::GetMyEdge() const");
+			luaL_error(L, "Invalid object in function call wxEdge wxIndividualLayoutConstraint::GetMyEdge() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEdge lret = self->GetMyEdge();
 		lua_pushnumber(L,lret);
@@ -556,7 +556,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetEdge(wxEdge)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetEdge(wxEdge). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetEdge(which);
 
@@ -575,7 +575,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetValue(int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetValue(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(v);
 
@@ -593,7 +593,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetMargin()");
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetMargin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetMargin();
 		lua_pushnumber(L,lret);
@@ -613,7 +613,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetMargin(int)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetMargin(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMargin(m);
 
@@ -631,7 +631,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetValue() const");
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -650,7 +650,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetPercent() const");
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetPercent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPercent();
 		lua_pushnumber(L,lret);
@@ -669,7 +669,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetOtherEdge() const");
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetOtherEdge() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetOtherEdge();
 		lua_pushnumber(L,lret);
@@ -688,7 +688,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::GetDone() const");
+			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::GetDone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDone();
 		lua_pushboolean(L,lret?1:0);
@@ -708,7 +708,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetDone(bool)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetDone(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDone(d);
 
@@ -726,7 +726,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRelationship wxIndividualLayoutConstraint::GetRelationship()");
+			luaL_error(L, "Invalid object in function call wxRelationship wxIndividualLayoutConstraint::GetRelationship(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRelationship lret = self->GetRelationship();
 		lua_pushnumber(L,lret);
@@ -746,7 +746,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetRelationship(wxRelationship)");
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetRelationship(wxRelationship). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRelationship(r);
 
@@ -765,7 +765,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ResetIfWin(otherW);
 		lua_pushboolean(L,lret?1:0);
@@ -786,7 +786,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints *, wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints *, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SatisfyConstraint(constraints, win);
 		lua_pushboolean(L,lret?1:0);
@@ -808,7 +808,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetEdge(wxEdge, wxWindow *, wxWindow *) const");
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetEdge(wxEdge, wxWindow *, wxWindow *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetEdge(which, thisWin, other);
 		lua_pushnumber(L,lret);
@@ -827,7 +827,7 @@ public:
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxIndividualLayoutConstraint::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -191,7 +191,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourData::GetChooseFull() const");
+			luaL_error(L, "Invalid object in function call bool wxColourData::GetChooseFull() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetChooseFull();
 		lua_pushboolean(L,lret?1:0);
@@ -210,7 +210,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour & wxColourData::GetColour()");
+			luaL_error(L, "Invalid object in function call wxColour & wxColourData::GetColour(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -232,7 +232,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColourData::GetCustomColour(int) const");
+			luaL_error(L, "Invalid object in function call wxColour wxColourData::GetCustomColour(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetCustomColour(i);
 		wxColour* lret = new wxColour(stack_lret);
@@ -255,7 +255,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourData::SetChooseFull(bool)");
+			luaL_error(L, "Invalid object in function call void wxColourData::SetChooseFull(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetChooseFull(flag);
 
@@ -278,7 +278,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourData::SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxColourData::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(colour);
 
@@ -302,7 +302,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourData::SetCustomColour(int, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxColourData::SetCustomColour(int, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCustomColour(i, colour);
 
@@ -320,7 +320,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColourData::ToString() const");
+			luaL_error(L, "Invalid object in function call wxString wxColourData::ToString() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -340,7 +340,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourData::FromString(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxColourData::FromString(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->FromString(str);
 		lua_pushboolean(L,lret?1:0);
@@ -359,7 +359,7 @@ public:
 		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourData::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxColourData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

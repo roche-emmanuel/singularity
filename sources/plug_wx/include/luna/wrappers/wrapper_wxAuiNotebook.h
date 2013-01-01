@@ -1355,7 +1355,7 @@ public:
 		wrapper_wxAuiNotebook* self=Luna< wxWithImages >::checkSubType< wrapper_wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxWithImages::public_HasImageList() const");
+			luaL_error(L, "Invalid object in function call bool wxWithImages::public_HasImageList() const. Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
 		}
 		bool lret = self->public_HasImageList();
 		lua_pushboolean(L,lret?1:0);
@@ -1375,7 +1375,7 @@ public:
 		wrapper_wxAuiNotebook* self=Luna< wxWithImages >::checkSubType< wrapper_wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxWithImages::public_GetImage(int) const");
+			luaL_error(L, "Invalid object in function call wxIcon wxWithImages::public_GetImage(int) const. Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
 		}
 		wxIcon stack_lret = self->public_GetImage(iconIndex);
 		wxIcon* lret = new wxIcon(stack_lret);

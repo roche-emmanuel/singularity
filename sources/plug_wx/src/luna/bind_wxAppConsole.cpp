@@ -488,7 +488,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::MainLoop()");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::MainLoop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->MainLoop();
 		lua_pushnumber(L,lret);
@@ -507,7 +507,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::ExitMainLoop()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::ExitMainLoop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ExitMainLoop();
 
@@ -530,7 +530,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::FilterEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::FilterEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->FilterEvent(event);
 		lua_pushnumber(L,lret);
@@ -549,7 +549,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppConsole::GetMainLoop() const");
+			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppConsole::GetMainLoop() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventLoopBase * lret = self->GetMainLoop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -570,7 +570,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::UsesEventLoop() const");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::UsesEventLoop() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->UsesEventLoop();
 		lua_pushboolean(L,lret?1:0);
@@ -589,7 +589,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::DeletePendingEvents()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::DeletePendingEvents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DeletePendingEvents();
 
@@ -607,7 +607,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::HasPendingEvents() const");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::HasPendingEvents() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasPendingEvents();
 		lua_pushboolean(L,lret?1:0);
@@ -626,7 +626,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::SuspendProcessingOfPendingEvents()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::SuspendProcessingOfPendingEvents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SuspendProcessingOfPendingEvents();
 
@@ -644,7 +644,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::ResumeProcessingOfPendingEvents()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::ResumeProcessingOfPendingEvents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ResumeProcessingOfPendingEvents();
 
@@ -663,7 +663,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::ScheduleForDestruction(wxObject *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::ScheduleForDestruction(wxObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ScheduleForDestruction(object);
 
@@ -682,7 +682,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::IsScheduledForDestruction(wxObject *) const");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::IsScheduledForDestruction(wxObject *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsScheduledForDestruction(object);
 		lua_pushboolean(L,lret?1:0);
@@ -704,7 +704,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::Yield(bool)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::Yield(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Yield(onlyIfNeeded);
 		lua_pushboolean(L,lret?1:0);
@@ -728,7 +728,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineError(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineError(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnCmdLineError(parser);
 		lua_pushboolean(L,lret?1:0);
@@ -752,7 +752,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineHelp(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineHelp(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnCmdLineHelp(parser);
 		lua_pushboolean(L,lret?1:0);
@@ -776,7 +776,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineParsed(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineParsed(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnCmdLineParsed(parser);
 		lua_pushboolean(L,lret?1:0);
@@ -796,7 +796,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::OnEventLoopEnter(wxEventLoopBase *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::OnEventLoopEnter(wxEventLoopBase *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnEventLoopEnter(loop);
 
@@ -815,7 +815,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::OnEventLoopExit(wxEventLoopBase *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::OnEventLoopExit(wxEventLoopBase *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnEventLoopExit(loop);
 
@@ -833,7 +833,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnExceptionInMainLoop()");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnExceptionInMainLoop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnExceptionInMainLoop();
 		lua_pushboolean(L,lret?1:0);
@@ -852,7 +852,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::OnExit()");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::OnExit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->OnExit();
 		lua_pushnumber(L,lret);
@@ -871,7 +871,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::OnFatalException()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::OnFatalException(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnFatalException();
 
@@ -889,7 +889,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnInit()");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnInit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnInit();
 		lua_pushboolean(L,lret?1:0);
@@ -913,7 +913,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::OnInitCmdLine(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::OnInitCmdLine(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnInitCmdLine(parser);
 
@@ -931,7 +931,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::OnRun()");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::OnRun(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->OnRun();
 		lua_pushnumber(L,lret);
@@ -950,7 +950,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::OnUnhandledException()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::OnUnhandledException(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnUnhandledException();
 
@@ -968,7 +968,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetAppDisplayName() const");
+			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetAppDisplayName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetAppDisplayName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -987,7 +987,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetAppName() const");
+			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetAppName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetAppName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1006,7 +1006,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetClassName() const");
+			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetClassName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1025,7 +1025,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAppTraits * wxAppConsole::GetTraits()");
+			luaL_error(L, "Invalid object in function call wxAppTraits * wxAppConsole::GetTraits(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxAppTraits * lret = self->GetTraits();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1046,7 +1046,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxAppConsole::GetVendorDisplayName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxAppConsole::GetVendorDisplayName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetVendorDisplayName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1065,7 +1065,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxAppConsole::GetVendorName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxAppConsole::GetVendorName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetVendorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1085,7 +1085,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::SetAppDisplayName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::SetAppDisplayName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAppDisplayName(name);
 
@@ -1104,7 +1104,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::SetAppName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::SetAppName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAppName(name);
 
@@ -1123,7 +1123,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::SetClassName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::SetClassName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClassName(name);
 
@@ -1142,7 +1142,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::SetVendorDisplayName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::SetVendorDisplayName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetVendorDisplayName(name);
 
@@ -1161,7 +1161,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::SetVendorName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::SetVendorName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetVendorName(name);
 
@@ -1223,7 +1223,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAppConsole::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAppConsole::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxAppConsole::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1245,7 +1245,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::QueueEvent(event);
 
@@ -1268,7 +1268,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::AddPendingEvent(event);
 
@@ -1291,7 +1291,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -1311,7 +1311,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::SetNextHandler(handler);
 
@@ -1330,7 +1330,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::SetPreviousHandler(handler);
 
@@ -1348,7 +1348,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::base_MainLoop()");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_MainLoop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAppConsole::MainLoop();
 		lua_pushnumber(L,lret);
@@ -1367,7 +1367,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_ExitMainLoop()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_ExitMainLoop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::ExitMainLoop();
 
@@ -1390,7 +1390,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::base_FilterEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_FilterEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAppConsole::FilterEvent(event);
 		lua_pushnumber(L,lret);
@@ -1409,7 +1409,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_UsesEventLoop() const");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_UsesEventLoop() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::UsesEventLoop();
 		lua_pushboolean(L,lret?1:0);
@@ -1433,7 +1433,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineError(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineError(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::OnCmdLineError(parser);
 		lua_pushboolean(L,lret?1:0);
@@ -1457,7 +1457,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineHelp(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineHelp(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::OnCmdLineHelp(parser);
 		lua_pushboolean(L,lret?1:0);
@@ -1481,7 +1481,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineParsed(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineParsed(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::OnCmdLineParsed(parser);
 		lua_pushboolean(L,lret?1:0);
@@ -1501,7 +1501,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnEventLoopEnter(wxEventLoopBase *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnEventLoopEnter(wxEventLoopBase *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::OnEventLoopEnter(loop);
 
@@ -1520,7 +1520,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnEventLoopExit(wxEventLoopBase *)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnEventLoopExit(wxEventLoopBase *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::OnEventLoopExit(loop);
 
@@ -1538,7 +1538,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnExceptionInMainLoop()");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnExceptionInMainLoop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::OnExceptionInMainLoop();
 		lua_pushboolean(L,lret?1:0);
@@ -1557,7 +1557,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::base_OnExit()");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_OnExit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAppConsole::OnExit();
 		lua_pushnumber(L,lret);
@@ -1576,7 +1576,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnFatalException()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnFatalException(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::OnFatalException();
 
@@ -1594,7 +1594,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnInit()");
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnInit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAppConsole::OnInit();
 		lua_pushboolean(L,lret?1:0);
@@ -1618,7 +1618,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnInitCmdLine(wxCmdLineParser &)");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnInitCmdLine(wxCmdLineParser &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::OnInitCmdLine(parser);
 
@@ -1636,7 +1636,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAppConsole::base_OnRun()");
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_OnRun(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAppConsole::OnRun();
 		lua_pushnumber(L,lret);
@@ -1655,7 +1655,7 @@ public:
 		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnUnhandledException()");
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnUnhandledException(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAppConsole::OnUnhandledException();
 
@@ -1664,6 +1664,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_wxEventFilter(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_wxEventFilter(lua_State *L) {
+		if (!_lg_typecheck_baseCast_wxEventFilter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_wxEventFilter function, expected prototype:\nbaseCast()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		wxEventFilter* res = dynamic_cast<wxEventFilter*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< wxEventFilter >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -1747,6 +1773,7 @@ luna_RegType LunaTraits< wxAppConsole >::methods[] = {
 	{"base_OnUnhandledException", &luna_wrapper_wxAppConsole::_bind_base_OnUnhandledException},
 	{"__eq", &luna_wrapper_wxAppConsole::_bind___eq},
 	{"getTable", &luna_wrapper_wxAppConsole::_bind_getTable},
+	{"aswxEventFilter", &luna_wrapper_wxAppConsole::_bind_baseCast_wxEventFilter},
 	{0,0}
 };
 

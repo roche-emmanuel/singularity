@@ -112,7 +112,7 @@ public:
 		SPK::Buffer* self=(Luna< SPK::Buffer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::Buffer::getFlag() const");
+			luaL_error(L, "Invalid object in function call unsigned int SPK::Buffer::getFlag() const. Got : '%s'",typeid(Luna< SPK::Buffer >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFlag();
 		lua_pushnumber(L,lret);
@@ -131,7 +131,7 @@ public:
 		SPK::Buffer* self=(Luna< SPK::Buffer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Buffer::isSwapEnabled() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Buffer::isSwapEnabled() const. Got : '%s'",typeid(Luna< SPK::Buffer >::check(L,1)).name());
 		}
 		bool lret = self->isSwapEnabled();
 		lua_pushboolean(L,lret?1:0);

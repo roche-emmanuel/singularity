@@ -170,7 +170,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::Scene::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::Scene::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -190,7 +190,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setSceneData(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setSceneData(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSceneData(node);
 
@@ -208,7 +208,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgViewer::Scene::getSceneData()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgViewer::Scene::getSceneData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getSceneData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -229,7 +229,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgViewer::Scene::getSceneData() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgViewer::Scene::getSceneData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->getSceneData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -260,7 +260,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setDatabasePager(osgDB::DatabasePager *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setDatabasePager(osgDB::DatabasePager *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDatabasePager(dp);
 
@@ -278,7 +278,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgViewer::Scene::getDatabasePager()");
+			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgViewer::Scene::getDatabasePager(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::DatabasePager * lret = self->getDatabasePager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,7 +299,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::DatabasePager * osgViewer::Scene::getDatabasePager() const");
+			luaL_error(L, "Invalid object in function call const osgDB::DatabasePager * osgViewer::Scene::getDatabasePager() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::DatabasePager * lret = self->getDatabasePager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -330,7 +330,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setImagePager(osgDB::ImagePager *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setImagePager(osgDB::ImagePager *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImagePager(ip);
 
@@ -348,7 +348,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ImagePager * osgViewer::Scene::getImagePager()");
+			luaL_error(L, "Invalid object in function call osgDB::ImagePager * osgViewer::Scene::getImagePager(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ImagePager * lret = self->getImagePager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -369,7 +369,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ImagePager * osgViewer::Scene::getImagePager() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ImagePager * osgViewer::Scene::getImagePager() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ImagePager * lret = self->getImagePager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -404,7 +404,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Scene::updateSceneGraph(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Scene::updateSceneGraph(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->updateSceneGraph(updateVisitor);
 
@@ -439,7 +439,7 @@ public:
 		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::Scene::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::Scene::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Scene::className();
 		lua_pushstring(L,lret);

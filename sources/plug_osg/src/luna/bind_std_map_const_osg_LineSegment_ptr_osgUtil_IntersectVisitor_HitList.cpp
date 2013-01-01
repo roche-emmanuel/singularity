@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList >",name);
 	}
+
 };
 
 std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList >* LunaTraits< std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< const osg::LineSegment *, osgUtil::IntersectVisi
 luna_RegType LunaTraits< std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_const_osg_LineSegment_ptr_osgUtil_IntersectVisitor_HitList::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_const_osg_LineSegment_ptr_osgUtil_IntersectVisitor_HitList::_bind___eq},
+	
 	{0,0}
 };
 

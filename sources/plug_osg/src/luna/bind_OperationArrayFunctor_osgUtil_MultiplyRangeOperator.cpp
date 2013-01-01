@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"OperationArrayFunctor< osgUtil::MultiplyRangeOperator >",name);
 	}
+
 };
 
 OperationArrayFunctor< osgUtil::MultiplyRangeOperator >* LunaTraits< OperationArrayFunctor< osgUtil::MultiplyRangeOperator > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< OperationArrayFunctor< osgUtil::MultiplyRangeOperator > >:
 luna_RegType LunaTraits< OperationArrayFunctor< osgUtil::MultiplyRangeOperator > >::methods[] = {
 	{"dynCast", &luna_wrapper_OperationArrayFunctor_osgUtil_MultiplyRangeOperator::_bind_dynCast},
 	{"__eq", &luna_wrapper_OperationArrayFunctor_osgUtil_MultiplyRangeOperator::_bind___eq},
+	
 	{0,0}
 };
 

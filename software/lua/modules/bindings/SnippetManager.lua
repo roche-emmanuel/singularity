@@ -85,6 +85,37 @@ function Class:getDynamicCasterCode(class)
 	return utils.subLine(str,tm:getExternalBase(bname) or bname)
 end
 
+function Class:getBaseCasterCode(bname,dstBaseName)
+	local str = [[inline static bool _lg_typecheck_baseCast_${3}(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_${3}(lua_State *L) {
+		if (!_lg_typecheck_baseCast_${3}(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_${3} function, expected prototype:\nbaseCast()");
+		}
+
+		${1}* self=(Luna< ${1} >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		${2}* res = dynamic_cast<${2}*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< ${2} >::push(L,res,false);
+		return 1;
+
+	}
+]]
+	local wname = corr:correct("filename",dstBaseName)
+	return utils.subLine(str,bname,dstBaseName,wname)
+end
+
 function Class:getEqualityCode(bname,hash)
 	local str = [[inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -169,7 +200,7 @@ function Class:getWrapperEndCode(class)
 	return str
 end
 
-function Class:getTypeCode(tname)
+function Class:getTypeCodeP1(tname)
 	local str = [[
 #include <plug_common.h>
 
@@ -224,7 +255,16 @@ public:
 		
 		return luna_dynamicCast(L,converters,"${1}",name);
 	}
-};
+]]
+
+	local wname = corr:correct("filename",tname)
+	local hash = utils.getHash(tname);
+	
+	return utils.subLine(str,tname,wname,hash,rm:getDefaultModuleName(),declarations or "",binds or "")	
+end
+
+function Class:getTypeCodeP2(tname)
+	local str = [[};
 
 ${1}* LunaTraits< ${1} >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
@@ -244,6 +284,16 @@ const int LunaTraits< ${1} >::uniqueIDs[] = {${3},0};
 luna_RegType LunaTraits< ${1} >::methods[] = {
 	{"dynCast", &luna_wrapper_${2}::_bind_dynCast},
 	{"__eq", &luna_wrapper_${2}::_bind___eq},
+	]]
+	
+	local wname = corr:correct("filename",tname)
+	local hash = utils.getHash(tname);
+	
+	return utils.subLine(str,tname,wname,hash,rm:getDefaultModuleName(),declarations or "",binds or "")	
+end
+	
+function Class:getTypeCodeP3(tname)
+	local str = [[
 	{0,0}
 };
 
@@ -259,7 +309,7 @@ luna_RegEnumType LunaTraits< ${1} >::enumValues[] = {
 	local wname = corr:correct("filename",tname)
 	local hash = utils.getHash(tname);
 	
-	return utils.subLine(str,tname,wname,hash,rm:getDefaultModuleName())	
+	return utils.subLine(str,tname,wname,hash,rm:getDefaultModuleName(),declarations or "",binds or "")	
 end
 
 return Class()

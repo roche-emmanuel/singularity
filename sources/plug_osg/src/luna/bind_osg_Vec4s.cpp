@@ -326,7 +326,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short * osg::Vec4s::ptr()");
+			luaL_error(L, "Invalid object in function call short * osg::Vec4s::ptr(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -345,7 +345,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const short * osg::Vec4s::ptr() const");
+			luaL_error(L, "Invalid object in function call const short * osg::Vec4s::ptr() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		const short * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -377,7 +377,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec4s::set(short, short, short, short)");
+			luaL_error(L, "Invalid object in function call void osg::Vec4s::set(short, short, short, short). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		self->set(x, y, z, w);
 
@@ -395,7 +395,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::x()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::x(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->x();
 		lua_pushnumber(L,lret);
@@ -414,7 +414,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::x() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::x() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->x();
 		lua_pushnumber(L,lret);
@@ -442,7 +442,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::y()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::y(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->y();
 		lua_pushnumber(L,lret);
@@ -461,7 +461,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::y() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::y() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->y();
 		lua_pushnumber(L,lret);
@@ -489,7 +489,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::z()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::z(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->z();
 		lua_pushnumber(L,lret);
@@ -508,7 +508,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::z() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::z() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->z();
 		lua_pushnumber(L,lret);
@@ -536,7 +536,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::w()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::w(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->w();
 		lua_pushnumber(L,lret);
@@ -555,7 +555,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::w() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::w() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->w();
 		lua_pushnumber(L,lret);
@@ -583,7 +583,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::r()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::r(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->r();
 		lua_pushnumber(L,lret);
@@ -602,7 +602,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::r() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::r() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->r();
 		lua_pushnumber(L,lret);
@@ -630,7 +630,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::g()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::g(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->g();
 		lua_pushnumber(L,lret);
@@ -649,7 +649,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::g() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::g() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->g();
 		lua_pushnumber(L,lret);
@@ -677,7 +677,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::b()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::b(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->b();
 		lua_pushnumber(L,lret);
@@ -696,7 +696,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::b() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::b() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->b();
 		lua_pushnumber(L,lret);
@@ -724,7 +724,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::a()");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::a(). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->a();
 		lua_pushnumber(L,lret);
@@ -743,7 +743,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::a() const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::a() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->a();
 		lua_pushnumber(L,lret);
@@ -778,7 +778,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec4s::operator==(const osg::Vec4s &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Vec4s::operator==(const osg::Vec4s &) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		bool lret = self->operator==(v);
 		lua_pushboolean(L,lret?1:0);
@@ -802,7 +802,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec4s::operator!=(const osg::Vec4s &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Vec4s::operator!=(const osg::Vec4s &) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(v);
 		lua_pushboolean(L,lret?1:0);
@@ -826,7 +826,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec4s::operator<(const osg::Vec4s &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Vec4s::operator<(const osg::Vec4s &) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		bool lret = self->operator<(v);
 		lua_pushboolean(L,lret?1:0);
@@ -846,7 +846,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short & osg::Vec4s::operator[](unsigned int)");
+			luaL_error(L, "Invalid object in function call short & osg::Vec4s::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -866,7 +866,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short osg::Vec4s::operator[](unsigned int) const");
+			luaL_error(L, "Invalid object in function call short osg::Vec4s::operator[](unsigned int) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		short lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -895,7 +895,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator*(short) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator*(short) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		osg::Vec4s stack_lret = self->operator*(rhs);
 		osg::Vec4s* lret = new osg::Vec4s(stack_lret);
@@ -922,7 +922,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator*(const osg::Vec4s &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator*(const osg::Vec4s &) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		osg::Vec4s stack_lret = self->operator*(rhs);
 		osg::Vec4s* lret = new osg::Vec4s(stack_lret);
@@ -954,7 +954,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator*=(short)");
+			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator*=(short). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		const osg::Vec4s* lret = &self->operator*=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -976,7 +976,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator/(short) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator/(short) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		osg::Vec4s stack_lret = self->operator/(rhs);
 		osg::Vec4s* lret = new osg::Vec4s(stack_lret);
@@ -999,7 +999,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator/=(short)");
+			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator/=(short). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		const osg::Vec4s* lret = &self->operator/=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1025,7 +1025,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator+(const osg::Vec4s &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator+(const osg::Vec4s &) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		osg::Vec4s stack_lret = self->operator+(rhs);
 		osg::Vec4s* lret = new osg::Vec4s(stack_lret);
@@ -1052,7 +1052,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator+=(const osg::Vec4s &)");
+			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator+=(const osg::Vec4s &). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		const osg::Vec4s* lret = &self->operator+=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1078,7 +1078,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator-(const osg::Vec4s &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator-(const osg::Vec4s &) const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		osg::Vec4s stack_lret = self->operator-(rhs);
 		osg::Vec4s* lret = new osg::Vec4s(stack_lret);
@@ -1105,7 +1105,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator-=(const osg::Vec4s &)");
+			luaL_error(L, "Invalid object in function call osg::Vec4s & osg::Vec4s::operator-=(const osg::Vec4s &). Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		const osg::Vec4s* lret = &self->operator-=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1126,7 +1126,7 @@ public:
 		osg::Vec4s* self=(Luna< osg::Vec4s >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator-() const");
+			luaL_error(L, "Invalid object in function call osg::Vec4s osg::Vec4s::operator-() const. Got : '%s'",typeid(Luna< osg::Vec4s >::check(L,1)).name());
 		}
 		osg::Vec4s stack_lret = self->operator-();
 		osg::Vec4s* lret = new osg::Vec4s(stack_lret);

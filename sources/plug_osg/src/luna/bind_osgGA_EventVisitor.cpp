@@ -428,7 +428,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -447,7 +447,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -467,7 +467,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::setActionAdapter(osgGA::GUIActionAdapter *)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::setActionAdapter(osgGA::GUIActionAdapter *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setActionAdapter(actionAdapter);
 
@@ -485,7 +485,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::GUIActionAdapter * osgGA::EventVisitor::getActionAdapter()");
+			luaL_error(L, "Invalid object in function call osgGA::GUIActionAdapter * osgGA::EventVisitor::getActionAdapter(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgGA::GUIActionAdapter * lret = self->getActionAdapter();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -506,7 +506,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::GUIActionAdapter * osgGA::EventVisitor::getActionAdapter() const");
+			luaL_error(L, "Invalid object in function call const osgGA::GUIActionAdapter * osgGA::EventVisitor::getActionAdapter() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgGA::GUIActionAdapter * lret = self->getActionAdapter();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -537,7 +537,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::addEvent(osgGA::GUIEventAdapter *)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::addEvent(osgGA::GUIEventAdapter *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addEvent(event);
 
@@ -556,7 +556,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::removeEvent(osgGA::GUIEventAdapter *)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::removeEvent(osgGA::GUIEventAdapter *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeEvent(event);
 
@@ -575,7 +575,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::setEventHandled(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::setEventHandled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEventHandled(handled);
 
@@ -593,7 +593,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::EventVisitor::getEventHandled() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::EventVisitor::getEventHandled() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getEventHandled();
 		lua_pushboolean(L,lret?1:0);
@@ -617,7 +617,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::setEvents(const osgGA::EventQueue::Events &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::setEvents(const osgGA::EventQueue::Events &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEvents(events);
 
@@ -635,7 +635,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::EventQueue::Events & osgGA::EventVisitor::getEvents()");
+			luaL_error(L, "Invalid object in function call osgGA::EventQueue::Events & osgGA::EventVisitor::getEvents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgGA::EventQueue::Events* lret = &self->getEvents();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -656,7 +656,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::EventQueue::Events & osgGA::EventVisitor::getEvents() const");
+			luaL_error(L, "Invalid object in function call const osgGA::EventQueue::Events & osgGA::EventVisitor::getEvents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgGA::EventQueue::Events* lret = &self->getEvents();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -686,7 +686,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::reset()");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -709,7 +709,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -732,7 +732,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -755,7 +755,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Billboard &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Billboard &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -778,7 +778,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::LightSource &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::LightSource &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -801,7 +801,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Group &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Group &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -824,7 +824,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -847,7 +847,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -870,7 +870,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -893,7 +893,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -916,7 +916,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::OccluderNode &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::apply(osg::OccluderNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -951,7 +951,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgGA::EventVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgGA::EventVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->EventVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -973,7 +973,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgGA::EventVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgGA::EventVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->EventVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -1001,7 +1001,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::EventVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgGA::EventVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->EventVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -1026,7 +1026,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::EventVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgGA::EventVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->EventVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -1051,7 +1051,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::EventVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgGA::EventVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->EventVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -1070,7 +1070,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->EventVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -1089,7 +1089,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::EventVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->EventVisitor::className();
 		lua_pushstring(L,lret);
@@ -1108,7 +1108,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::reset();
 
@@ -1131,7 +1131,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1154,7 +1154,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1177,7 +1177,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Billboard &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Billboard &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1200,7 +1200,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::LightSource &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::LightSource &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1223,7 +1223,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Group &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Group &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1246,7 +1246,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1269,7 +1269,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1292,7 +1292,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1315,7 +1315,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 
@@ -1338,7 +1338,7 @@ public:
 		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::OccluderNode &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_apply(osg::OccluderNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EventVisitor::apply(node);
 

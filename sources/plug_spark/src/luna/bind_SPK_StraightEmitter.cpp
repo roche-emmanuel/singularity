@@ -172,7 +172,7 @@ public:
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -196,7 +196,7 @@ public:
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::StraightEmitter::setDirection(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::StraightEmitter::setDirection(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setDirection(direction);
 
@@ -214,7 +214,7 @@ public:
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getDirection() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -235,7 +235,7 @@ public:
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -280,7 +280,7 @@ public:
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->StraightEmitter::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -301,7 +301,7 @@ public:
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->StraightEmitter::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

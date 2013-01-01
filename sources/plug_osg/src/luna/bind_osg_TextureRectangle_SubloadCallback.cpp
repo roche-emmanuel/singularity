@@ -131,7 +131,7 @@ public:
 		osg::TextureRectangle::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->load(_arg1, _arg2);
 
@@ -159,7 +159,7 @@ public:
 		osg::TextureRectangle::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->subload(_arg1, _arg2);
 

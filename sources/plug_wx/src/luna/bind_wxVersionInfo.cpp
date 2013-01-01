@@ -160,7 +160,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetName() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -179,7 +179,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMajor() const");
+			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMajor() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		int lret = self->GetMajor();
 		lua_pushnumber(L,lret);
@@ -198,7 +198,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMinor() const");
+			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMinor() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		int lret = self->GetMinor();
 		lua_pushnumber(L,lret);
@@ -217,7 +217,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMicro() const");
+			luaL_error(L, "Invalid object in function call int wxVersionInfo::GetMicro() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		int lret = self->GetMicro();
 		lua_pushnumber(L,lret);
@@ -236,7 +236,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::ToString() const");
+			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::ToString() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -255,7 +255,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::GetVersionString() const");
+			luaL_error(L, "Invalid object in function call wxString wxVersionInfo::GetVersionString() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetVersionString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -274,7 +274,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetDescription()");
+			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetDescription(). Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -293,7 +293,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVersionInfo::HasCopyright() const");
+			luaL_error(L, "Invalid object in function call bool wxVersionInfo::HasCopyright() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasCopyright();
 		lua_pushboolean(L,lret?1:0);
@@ -312,7 +312,7 @@ public:
 		wxVersionInfo* self=(Luna< wxVersionInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetCopyright() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxVersionInfo::GetCopyright() const. Got : '%s'",typeid(Luna< wxVersionInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetCopyright();
 		lua_pushlstring(L,lret.data(),lret.size());

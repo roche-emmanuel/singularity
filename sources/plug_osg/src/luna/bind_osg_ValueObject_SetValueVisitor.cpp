@@ -445,7 +445,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(bool &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(bool &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -464,7 +464,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(char &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(char &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -483,7 +483,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(unsigned char &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(unsigned char &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -502,7 +502,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(short &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(short &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -521,7 +521,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(unsigned short &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(unsigned short &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -540,7 +540,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(int &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(int &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -559,7 +559,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(unsigned int &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(unsigned int &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -578,7 +578,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(float &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(float &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -597,7 +597,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(double &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(double &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -616,7 +616,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(std::string &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -639,7 +639,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec2f &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -662,7 +662,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec3f &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -685,7 +685,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec4f &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -708,7 +708,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec2d &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec2d &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -731,7 +731,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec3d &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -754,7 +754,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec4d &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Vec4d &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -777,7 +777,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Quat &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -800,7 +800,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Plane &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Plane &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -823,7 +823,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Matrixf &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -846,7 +846,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::apply(osg::Matrixd &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->apply(value);
 
@@ -892,7 +892,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(bool &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(bool &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -911,7 +911,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(char &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(char &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -930,7 +930,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(unsigned char &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(unsigned char &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -949,7 +949,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(short &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(short &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -968,7 +968,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(unsigned short &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(unsigned short &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -987,7 +987,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(int &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(int &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1006,7 +1006,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(unsigned int &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(unsigned int &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1025,7 +1025,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(float &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(float &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1044,7 +1044,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(double &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(double &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1063,7 +1063,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(std::string &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1086,7 +1086,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec2f &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1109,7 +1109,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec3f &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1132,7 +1132,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec4f &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1155,7 +1155,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec2d &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec2d &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1178,7 +1178,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec3d &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1201,7 +1201,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec4d &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec4d &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1224,7 +1224,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Quat &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1247,7 +1247,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Plane &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Plane &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1270,7 +1270,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Matrixf &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 
@@ -1293,7 +1293,7 @@ public:
 		osg::ValueObject::SetValueVisitor* self=(Luna< osg::ValueObject::SetValueVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::ValueObject::SetValueVisitor::base_apply(osg::Matrixd &). Got : '%s'",typeid(Luna< osg::ValueObject::SetValueVisitor >::check(L,1)).name());
 		}
 		self->SetValueVisitor::apply(value);
 

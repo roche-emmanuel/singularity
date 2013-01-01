@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::set< osg::ShadowVolumeOccluder >",name);
 	}
+
 };
 
 std::set< osg::ShadowVolumeOccluder >* LunaTraits< std::set< osg::ShadowVolumeOccluder > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::set< osg::ShadowVolumeOccluder > >::uniqueIDs[] = {28
 luna_RegType LunaTraits< std::set< osg::ShadowVolumeOccluder > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_set_osg_ShadowVolumeOccluder::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_set_osg_ShadowVolumeOccluder::_bind___eq},
+	
 	{0,0}
 };
 

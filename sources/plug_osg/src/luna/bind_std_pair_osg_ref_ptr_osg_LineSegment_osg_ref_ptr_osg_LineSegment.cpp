@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::pair< osg::ref_ptr< osg::LineSegment >, osg::ref_ptr< osg::LineSegment > >",name);
 	}
+
 };
 
 std::pair< osg::ref_ptr< osg::LineSegment >, osg::ref_ptr< osg::LineSegment > >* LunaTraits< std::pair< osg::ref_ptr< osg::LineSegment >, osg::ref_ptr< osg::LineSegment > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::pair< osg::ref_ptr< osg::LineSegment >, osg::ref_ptr<
 luna_RegType LunaTraits< std::pair< osg::ref_ptr< osg::LineSegment >, osg::ref_ptr< osg::LineSegment > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_pair_osg_ref_ptr_osg_LineSegment_osg_ref_ptr_osg_LineSegment::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_pair_osg_ref_ptr_osg_LineSegment_osg_ref_ptr_osg_LineSegment::_bind___eq},
+	
 	{0,0}
 };
 

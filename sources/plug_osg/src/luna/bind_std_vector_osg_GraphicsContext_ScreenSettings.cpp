@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::GraphicsContext::ScreenSettings >",name);
 	}
+
 };
 
 std::vector< osg::GraphicsContext::ScreenSettings >* LunaTraits< std::vector< osg::GraphicsContext::ScreenSettings > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::GraphicsContext::ScreenSettings > >::uni
 luna_RegType LunaTraits< std::vector< osg::GraphicsContext::ScreenSettings > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_GraphicsContext_ScreenSettings::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_GraphicsContext_ScreenSettings::_bind___eq},
+	
 	{0,0}
 };
 

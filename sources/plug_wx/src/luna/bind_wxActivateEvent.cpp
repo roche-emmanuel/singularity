@@ -132,7 +132,7 @@ public:
 		wxActivateEvent* self=Luna< wxObject >::checkSubType< wxActivateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxActivateEvent::GetActive() const");
+			luaL_error(L, "Invalid object in function call bool wxActivateEvent::GetActive() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetActive();
 		lua_pushboolean(L,lret?1:0);
@@ -151,7 +151,7 @@ public:
 		wxActivateEvent* self=Luna< wxObject >::checkSubType< wxActivateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxActivateEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxActivateEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxActivateEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,7 +172,7 @@ public:
 		wxActivateEvent* self=Luna< wxObject >::checkSubType< wxActivateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxActivateEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxActivateEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxActivateEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

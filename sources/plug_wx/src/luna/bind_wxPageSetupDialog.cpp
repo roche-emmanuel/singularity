@@ -161,7 +161,7 @@ public:
 		wxPageSetupDialog* self=Luna< wxObject >::checkSubType< wxPageSetupDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPageSetupDialogData & wxPageSetupDialog::GetPageSetupData()");
+			luaL_error(L, "Invalid object in function call wxPageSetupDialogData & wxPageSetupDialog::GetPageSetupData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxPageSetupDialogData* lret = &self->GetPageSetupData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -182,7 +182,7 @@ public:
 		wxPageSetupDialog* self=Luna< wxObject >::checkSubType< wxPageSetupDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPageSetupDialog::ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxPageSetupDialog::ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->ShowModal();
 		lua_pushnumber(L,lret);

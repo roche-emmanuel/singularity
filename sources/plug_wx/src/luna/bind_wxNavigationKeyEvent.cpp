@@ -210,7 +210,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxNavigationKeyEvent::GetCurrentFocus() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxNavigationKeyEvent::GetCurrentFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetCurrentFocus();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -231,7 +231,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxNavigationKeyEvent::GetDirection() const");
+			luaL_error(L, "Invalid object in function call bool wxNavigationKeyEvent::GetDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDirection();
 		lua_pushboolean(L,lret?1:0);
@@ -250,7 +250,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxNavigationKeyEvent::IsFromTab() const");
+			luaL_error(L, "Invalid object in function call bool wxNavigationKeyEvent::IsFromTab() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsFromTab();
 		lua_pushboolean(L,lret?1:0);
@@ -269,7 +269,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxNavigationKeyEvent::IsWindowChange() const");
+			luaL_error(L, "Invalid object in function call bool wxNavigationKeyEvent::IsWindowChange() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsWindowChange();
 		lua_pushboolean(L,lret?1:0);
@@ -289,7 +289,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetCurrentFocus(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetCurrentFocus(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCurrentFocus(currentFocus);
 
@@ -308,7 +308,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetDirection(bool)");
+			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetDirection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDirection(direction);
 
@@ -327,7 +327,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetFlags(long)");
+			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetFlags(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -346,7 +346,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetFromTab(bool)");
+			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetFromTab(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFromTab(fromTab);
 
@@ -365,7 +365,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetWindowChange(bool)");
+			luaL_error(L, "Invalid object in function call void wxNavigationKeyEvent::SetWindowChange(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetWindowChange(windowChange);
 
@@ -383,7 +383,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxNavigationKeyEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxNavigationKeyEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxNavigationKeyEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -404,7 +404,7 @@ public:
 		wxNavigationKeyEvent* self=Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxNavigationKeyEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxNavigationKeyEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxNavigationKeyEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

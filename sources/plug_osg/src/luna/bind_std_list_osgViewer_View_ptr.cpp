@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osgViewer::View * >",name);
 	}
+
 };
 
 std::list< osgViewer::View * >* LunaTraits< std::list< osgViewer::View * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osgViewer::View * > >::uniqueIDs[] = {70560566,
 luna_RegType LunaTraits< std::list< osgViewer::View * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osgViewer_View_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osgViewer_View_ptr::_bind___eq},
+	
 	{0,0}
 };
 

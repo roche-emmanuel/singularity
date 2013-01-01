@@ -180,7 +180,7 @@ public:
 		wrapper_osgUtil_ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::public_update(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::public_update(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_update(drawable);
 
@@ -200,7 +200,7 @@ public:
 		wrapper_osgUtil_ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -218,7 +218,7 @@ public:
 		wrapper_osgUtil_ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

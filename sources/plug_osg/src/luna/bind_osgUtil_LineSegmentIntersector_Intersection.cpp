@@ -122,7 +122,7 @@ public:
 		osgUtil::LineSegmentIntersector::Intersection* self=(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osgUtil::LineSegmentIntersector::Intersection::getLocalIntersectPoint() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osgUtil::LineSegmentIntersector::Intersection::getLocalIntersectPoint() const. Got : '%s'",typeid(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getLocalIntersectPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -143,7 +143,7 @@ public:
 		osgUtil::LineSegmentIntersector::Intersection* self=(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::LineSegmentIntersector::Intersection::getWorldIntersectPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::LineSegmentIntersector::Intersection::getWorldIntersectPoint() const. Got : '%s'",typeid(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1)).name());
 		}
 		osg::Vec3d stack_lret = self->getWorldIntersectPoint();
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -165,7 +165,7 @@ public:
 		osgUtil::LineSegmentIntersector::Intersection* self=(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::LineSegmentIntersector::Intersection::getLocalIntersectNormal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::LineSegmentIntersector::Intersection::getLocalIntersectNormal() const. Got : '%s'",typeid(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getLocalIntersectNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -186,7 +186,7 @@ public:
 		osgUtil::LineSegmentIntersector::Intersection* self=(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::LineSegmentIntersector::Intersection::getWorldIntersectNormal() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::LineSegmentIntersector::Intersection::getWorldIntersectNormal() const. Got : '%s'",typeid(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->getWorldIntersectNormal();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -215,7 +215,7 @@ public:
 		osgUtil::LineSegmentIntersector::Intersection* self=(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::LineSegmentIntersector::Intersection::operator<(const osgUtil::LineSegmentIntersector::Intersection &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::LineSegmentIntersector::Intersection::operator<(const osgUtil::LineSegmentIntersector::Intersection &) const. Got : '%s'",typeid(Luna< osgUtil::LineSegmentIntersector::Intersection >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

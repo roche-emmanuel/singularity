@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osgText::Glyph * >",name);
 	}
+
 };
 
 std::vector< osgText::Glyph * >* LunaTraits< std::vector< osgText::Glyph * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osgText::Glyph * > >::uniqueIDs[] = {57567263
 luna_RegType LunaTraits< std::vector< osgText::Glyph * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osgText_Glyph_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osgText_Glyph_ptr::_bind___eq},
+	
 	{0,0}
 };
 

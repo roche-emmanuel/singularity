@@ -379,7 +379,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -400,7 +400,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone() const");
+			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -426,7 +426,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -457,7 +457,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Object::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool sgt::Object::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -476,7 +476,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * sgt::Object::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * sgt::Object::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -495,7 +495,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * sgt::Object::className() const");
+			luaL_error(L, "Invalid object in function call const char * sgt::Object::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -515,7 +515,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Object::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::Object::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Object::setThreadSafeRefUnref(threadSafe);
 
@@ -534,7 +534,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Object::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void sgt::Object::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Object::setName(name);
 
@@ -552,7 +552,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Object::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void sgt::Object::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Object::computeDataVariance();
 
@@ -571,7 +571,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Object::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void sgt::Object::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Object::setUserData(obj);
 
@@ -589,7 +589,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * sgt::Object::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * sgt::Object::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Object::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -610,7 +610,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * sgt::Object::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * sgt::Object::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Object::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -641,7 +641,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Object::base_resizeGLObjectBuffers(unsigned int)");
+			luaL_error(L, "Invalid object in function call void sgt::Object::base_resizeGLObjectBuffers(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Object::resizeGLObjectBuffers(_arg1);
 
@@ -662,7 +662,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Object::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void sgt::Object::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Object::releaseGLObjects(_arg1);
 
@@ -680,7 +680,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Object::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -701,7 +701,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::base_clone() const");
+			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::base_clone() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Object::clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -727,7 +727,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Object::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -758,7 +758,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::Object::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool sgt::Object::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Object::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -777,7 +777,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * sgt::Object::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * sgt::Object::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Object::libraryName();
 		lua_pushstring(L,lret);
@@ -796,7 +796,7 @@ public:
 		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * sgt::Object::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * sgt::Object::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Object::className();
 		lua_pushstring(L,lret);

@@ -66,7 +66,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::Drawable* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::Drawable* obj);
-	typedef osg::Drawable parent_t;
+	typedef osg::Referenced parent_t;
 	typedef osg::Drawable base_t;
 	static luna_ConverterType converters[];
 };
@@ -84,8 +84,44 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
-	typedef osg::Drawable::UpdateCallback parent_t;
+	typedef osg::Referenced parent_t;
 	typedef osg::Drawable::UpdateCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Object > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Object* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Object* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Object base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -102,7 +138,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osgGA::GUIEventHandler* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osgGA::GUIEventHandler* obj);
-	typedef osgGA::GUIEventHandler parent_t;
+	typedef osg::Referenced parent_t;
 	typedef osgGA::GUIEventHandler base_t;
 	static luna_ConverterType converters[];
 };
@@ -120,7 +156,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static spark::SparkDrawable* _bind_ctor(lua_State *L);
 	static void _bind_dtor(spark::SparkDrawable* obj);
-	typedef osg::Drawable parent_t;
+	typedef osg::Referenced parent_t;
 	typedef spark::SparkDrawable base_t;
 	static luna_ConverterType converters[];
 };
@@ -174,7 +210,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef spark::SparkDrawable::TextureIDMap parent_t;
+	typedef osg::Program::AttribBindingList parent_t;
 	typedef std::map< std::string, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -192,7 +228,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static spark::SparkDrawable::BaseSystemCreator* _bind_ctor(lua_State *L);
 	static void _bind_dtor(spark::SparkDrawable::BaseSystemCreator* obj);
-	typedef spark::SparkDrawable::BaseSystemCreator parent_t;
+	typedef osg::Referenced parent_t;
 	typedef spark::SparkDrawable::BaseSystemCreator base_t;
 	static luna_ConverterType converters[];
 };
@@ -210,7 +246,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static spark::SparkDrawable::DeferredSystemHandler* _bind_ctor(lua_State *L);
 	static void _bind_dtor(spark::SparkDrawable::DeferredSystemHandler* obj);
-	typedef osg::Drawable::UpdateCallback parent_t;
+	typedef osg::Referenced parent_t;
 	typedef spark::SparkDrawable::DeferredSystemHandler base_t;
 	static luna_ConverterType converters[];
 };
@@ -282,7 +318,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static spark::SparkUpdatingHandler* _bind_ctor(lua_State *L);
 	static void _bind_dtor(spark::SparkUpdatingHandler* obj);
-	typedef osgGA::GUIEventHandler parent_t;
+	typedef osg::Referenced parent_t;
 	typedef spark::SparkUpdatingHandler base_t;
 	static luna_ConverterType converters[];
 };
@@ -1222,6 +1258,20 @@ public:
 };
 
 template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
+	
+};
+
+template<>
+class LunaType< 58481028 > {
+public:
+	typedef osg::Object type;
+	
+};
+
+template<>
 class LunaType< 29676225 > {
 public:
 	typedef osgGA::GUIEventHandler type;
@@ -1246,13 +1296,6 @@ template<>
 class LunaType< 14771105 > {
 public:
 	typedef spark::SparkDrawable::TextureIDMap type;
-	
-};
-
-template<>
-class LunaType< 47219211 > {
-public:
-	typedef spark::SparkDrawable::BaseSystemCreator type;
 	
 };
 

@@ -162,7 +162,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_Destroy()");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_Destroy(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::Destroy();
 
@@ -185,7 +185,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_HandleReturn(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_HandleReturn(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::HandleReturn(event);
 
@@ -209,7 +209,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::PaintBackground(rectCell, attr);
 
@@ -232,7 +232,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_SetSize(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_SetSize(const wxRect &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::SetSize(rect);
 
@@ -254,7 +254,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_Show(bool, wxGridCellAttr *)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_Show(bool, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::Show(show, attr);
 
@@ -272,7 +272,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_StartingClick()");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_StartingClick(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::StartingClick();
 
@@ -295,7 +295,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_StartingKey(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_StartingKey(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::StartingKey(event);
 
@@ -314,7 +314,7 @@ public:
 		wxGridCellAutoWrapStringEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellAutoWrapStringEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAutoWrapStringEditor::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellAutoWrapStringEditor::SetParameters(params);
 

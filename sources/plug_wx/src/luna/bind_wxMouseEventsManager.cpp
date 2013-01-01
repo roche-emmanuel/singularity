@@ -184,7 +184,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseEventsManager::Create(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxMouseEventsManager::Create(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(win);
 		lua_pushboolean(L,lret?1:0);
@@ -203,7 +203,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMouseEventsManager::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMouseEventsManager::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMouseEventsManager::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -225,7 +225,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMouseEventsManager::QueueEvent(event);
 
@@ -248,7 +248,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMouseEventsManager::AddPendingEvent(event);
 
@@ -271,7 +271,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseEventsManager::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxMouseEventsManager::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMouseEventsManager::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -291,7 +291,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMouseEventsManager::SetNextHandler(handler);
 
@@ -310,7 +310,7 @@ public:
 		wxMouseEventsManager* self=Luna< wxObject >::checkSubType< wxMouseEventsManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMouseEventsManager::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMouseEventsManager::SetPreviousHandler(handler);
 

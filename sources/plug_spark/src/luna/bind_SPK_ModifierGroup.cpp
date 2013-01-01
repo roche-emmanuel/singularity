@@ -272,7 +272,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::ModifierGroup::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::ModifierGroup::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -295,7 +295,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::useGlobalGroup(bool, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::useGlobalGroup(bool, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->useGlobalGroup(useIntersection, useNormal);
 
@@ -316,7 +316,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::usePartitionGroup(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::usePartitionGroup(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->usePartitionGroup(handleWrongSide);
 
@@ -334,7 +334,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::ModifierGroup::getNb() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::ModifierGroup::getNb() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNb();
 		lua_pushnumber(L,lret);
@@ -353,7 +353,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::isGlobalGroup() const");
+			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::isGlobalGroup() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isGlobalGroup();
 		lua_pushboolean(L,lret?1:0);
@@ -372,7 +372,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::isPartitionGroup() const");
+			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::isPartitionGroup() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isPartitionGroup();
 		lua_pushboolean(L,lret?1:0);
@@ -391,7 +391,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::handlesWrongSide() const");
+			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::handlesWrongSide() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->handlesWrongSide();
 		lua_pushboolean(L,lret?1:0);
@@ -410,7 +410,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::usesIntersection() const");
+			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::usesIntersection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->usesIntersection();
 		lua_pushboolean(L,lret?1:0);
@@ -429,7 +429,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::usesNormal() const");
+			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::usesNormal() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->usesNormal();
 		lua_pushboolean(L,lret?1:0);
@@ -449,7 +449,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::addModifier(SPK::Modifier *)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::addModifier(SPK::Modifier *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addModifier(modifier);
 
@@ -468,7 +468,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::removeModifier(const SPK::Modifier *)");
+			luaL_error(L, "Invalid object in function call bool SPK::ModifierGroup::removeModifier(const SPK::Modifier *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->removeModifier(modifier);
 		lua_pushboolean(L,lret?1:0);
@@ -487,7 +487,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::clear()");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::clear(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->clear();
 
@@ -510,7 +510,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->createBuffers(group);
 
@@ -533,7 +533,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->destroyBuffers(group);
 
@@ -552,7 +552,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::ModifierGroup::findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::ModifierGroup::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -593,7 +593,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::ModifierGroup::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::ModifierGroup::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->ModifierGroup::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -617,7 +617,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->ModifierGroup::createBuffers(group);
 
@@ -640,7 +640,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::ModifierGroup::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->ModifierGroup::destroyBuffers(group);
 
@@ -659,7 +659,7 @@ public:
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::ModifierGroup::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::ModifierGroup::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->ModifierGroup::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.

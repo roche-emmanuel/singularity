@@ -223,7 +223,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::AddTagHandler(wxHtmlTagHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::AddTagHandler(wxHtmlTagHandler *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->AddTagHandler(handler);
 
@@ -241,7 +241,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::DoParsing()");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::DoParsing(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->DoParsing();
 
@@ -259,7 +259,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::DoneParser()");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::DoneParser(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->DoneParser();
 
@@ -277,7 +277,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileSystem * wxHtmlParser::GetFS() const");
+			luaL_error(L, "Invalid object in function call wxFileSystem * wxHtmlParser::GetFS() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxFileSystem * lret = self->GetFS();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -298,7 +298,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxHtmlParser::GetProduct()");
+			luaL_error(L, "Invalid object in function call wxObject * wxHtmlParser::GetProduct(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxObject * lret = self->GetProduct();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,7 +319,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString * wxHtmlParser::GetSource()");
+			luaL_error(L, "Invalid object in function call const wxString * wxHtmlParser::GetSource(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		const wxString * lret = self->GetSource();
 		lua_pushlstring(L,lret->data(),lret->size());
@@ -339,7 +339,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::InitParser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::InitParser(const wxString &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->InitParser(source);
 
@@ -358,7 +358,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxHtmlParser::Parse(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxObject * wxHtmlParser::Parse(const wxString &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxObject * lret = self->Parse(source);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,7 +379,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::PopTagHandler()");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::PopTagHandler(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->PopTagHandler();
 
@@ -399,7 +399,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::PushTagHandler(wxHtmlTagHandler *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::PushTagHandler(wxHtmlTagHandler *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->PushTagHandler(handler, tags);
 
@@ -418,7 +418,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::SetFS(wxFileSystem *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::SetFS(wxFileSystem *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFS(fs);
 
@@ -436,7 +436,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::StopParsing()");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::StopParsing(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->StopParsing();
 
@@ -455,7 +455,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_AddTagHandler(wxHtmlTagHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_AddTagHandler(wxHtmlTagHandler *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlParser::AddTagHandler(handler);
 
@@ -473,7 +473,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_DoneParser()");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_DoneParser(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlParser::DoneParser();
 
@@ -492,7 +492,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_InitParser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_InitParser(const wxString &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlParser::InitParser(source);
 
@@ -510,7 +510,7 @@ public:
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_StopParsing()");
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_StopParsing(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlParser::StopParsing();
 

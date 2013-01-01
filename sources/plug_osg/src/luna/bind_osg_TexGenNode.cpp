@@ -515,7 +515,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -541,7 +541,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -563,7 +563,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -582,7 +582,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -601,7 +601,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -625,7 +625,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -644,7 +644,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setReferenceFrame(osg::TexGenNode::ReferenceFrame)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setReferenceFrame(osg::TexGenNode::ReferenceFrame). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setReferenceFrame(rf);
 
@@ -662,7 +662,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::TexGenNode::ReferenceFrame osg::TexGenNode::getReferenceFrame() const");
+			luaL_error(L, "Invalid object in function call osg::TexGenNode::ReferenceFrame osg::TexGenNode::getReferenceFrame() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::TexGenNode::ReferenceFrame lret = self->getReferenceFrame();
 		lua_pushnumber(L,lret);
@@ -682,7 +682,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setTextureUnit(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setTextureUnit(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureUnit(textureUnit);
 
@@ -700,7 +700,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::TexGenNode::getTextureUnit() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::TexGenNode::getTextureUnit() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTextureUnit();
 		lua_pushnumber(L,lret);
@@ -720,7 +720,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setTexGen(osg::TexGen *)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setTexGen(osg::TexGen *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTexGen(texgen);
 
@@ -738,7 +738,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::TexGen * osg::TexGenNode::getTexGen()");
+			luaL_error(L, "Invalid object in function call osg::TexGen * osg::TexGenNode::getTexGen(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::TexGen * lret = self->getTexGen();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -759,7 +759,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::TexGen * osg::TexGenNode::getTexGen() const");
+			luaL_error(L, "Invalid object in function call const osg::TexGen * osg::TexGenNode::getTexGen() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::TexGen * lret = self->getTexGen();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -790,7 +790,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::setName(name);
 
@@ -808,7 +808,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::computeDataVariance();
 
@@ -827,7 +827,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::setUserData(obj);
 
@@ -845,7 +845,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TexGenNode::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TexGenNode::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->TexGenNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -866,7 +866,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TexGenNode::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TexGenNode::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->TexGenNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -896,7 +896,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::TexGenNode::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::TexGenNode::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->TexGenNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -917,7 +917,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::TexGenNode::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::TexGenNode::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->TexGenNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -947,7 +947,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::TexGenNode::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::TexGenNode::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->TexGenNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -968,7 +968,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::TexGenNode::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::TexGenNode::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->TexGenNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -998,7 +998,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::TexGenNode::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::TexGenNode::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->TexGenNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1019,7 +1019,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::TexGenNode::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::TexGenNode::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->TexGenNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1054,7 +1054,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::ascend(nv);
 
@@ -1072,7 +1072,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::TexGenNode::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::TexGenNode::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->TexGenNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1093,7 +1093,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::TexGenNode::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::TexGenNode::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->TexGenNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1128,7 +1128,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::traverse(_arg1);
 
@@ -1147,7 +1147,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TexGenNode::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1168,7 +1168,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TexGenNode::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1189,7 +1189,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TexGenNode::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1210,7 +1210,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TexGenNode::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1231,7 +1231,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TexGenNode::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1253,7 +1253,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::releaseGLObjects(_arg1);
 
@@ -1271,7 +1271,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::TexGenNode::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::TexGenNode::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->TexGenNode::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1293,7 +1293,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TexGenNode::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1319,7 +1319,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TexGenNode::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TexGenNode::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1341,7 +1341,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TexGenNode::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TexGenNode::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1360,7 +1360,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TexGenNode::className();
 		lua_pushstring(L,lret);
@@ -1379,7 +1379,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TexGenNode::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TexGenNode::libraryName();
 		lua_pushstring(L,lret);
@@ -1403,7 +1403,7 @@ public:
 		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TexGenNode::accept(nv);
 

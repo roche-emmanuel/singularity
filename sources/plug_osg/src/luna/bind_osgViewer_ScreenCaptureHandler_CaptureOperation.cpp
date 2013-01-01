@@ -121,7 +121,7 @@ public:
 		osgViewer::ScreenCaptureHandler::CaptureOperation* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::CaptureOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image &, const unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image &, const unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(image, context_id);
 

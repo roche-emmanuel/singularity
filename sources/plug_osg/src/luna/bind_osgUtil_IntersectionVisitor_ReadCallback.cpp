@@ -113,7 +113,7 @@ public:
 		osgUtil::IntersectionVisitor::ReadCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor::ReadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string &)");
+			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->readNodeFile(filename);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -158,7 +158,7 @@ public:
 		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHelpEvent::Origin wxHelpEvent::GetOrigin() const");
+			luaL_error(L, "Invalid object in function call wxHelpEvent::Origin wxHelpEvent::GetOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxHelpEvent::Origin lret = self->GetOrigin();
 		lua_pushnumber(L,lret);
@@ -177,7 +177,7 @@ public:
 		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPoint & wxHelpEvent::GetPosition() const");
+			luaL_error(L, "Invalid object in function call const wxPoint & wxHelpEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxPoint* lret = &self->GetPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -199,7 +199,7 @@ public:
 		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpEvent::SetOrigin(wxHelpEvent::Origin)");
+			luaL_error(L, "Invalid object in function call void wxHelpEvent::SetOrigin(wxHelpEvent::Origin). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetOrigin(origin);
 
@@ -222,7 +222,7 @@ public:
 		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpEvent::SetPosition(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxHelpEvent::SetPosition(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPosition(pt);
 
@@ -240,7 +240,7 @@ public:
 		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHelpEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHelpEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHelpEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -261,7 +261,7 @@ public:
 		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxHelpEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHelpEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxHelpEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

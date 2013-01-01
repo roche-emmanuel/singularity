@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< std::string, bool >",name);
 	}
+
 };
 
 std::map< std::string, bool >* LunaTraits< std::map< std::string, bool > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< std::string, bool > >::uniqueIDs[] = {59271773,0
 luna_RegType LunaTraits< std::map< std::string, bool > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_std_string_bool::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_std_string_bool::_bind___eq},
+	
 	{0,0}
 };
 

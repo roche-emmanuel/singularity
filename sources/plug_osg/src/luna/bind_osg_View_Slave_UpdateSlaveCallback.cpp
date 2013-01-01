@@ -123,7 +123,7 @@ public:
 		osg::View::Slave::UpdateSlaveCallback* self=Luna< osg::Referenced >::checkSubType< osg::View::Slave::UpdateSlaveCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View &, osg::View::Slave &)");
+			luaL_error(L, "Invalid object in function call void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View &, osg::View::Slave &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->updateSlave(view, slave);
 

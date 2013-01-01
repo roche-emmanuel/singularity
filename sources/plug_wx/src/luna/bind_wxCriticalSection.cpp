@@ -114,7 +114,7 @@ public:
 		wxCriticalSection* self=(Luna< wxCriticalSection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCriticalSection::Enter()");
+			luaL_error(L, "Invalid object in function call void wxCriticalSection::Enter(). Got : '%s'",typeid(Luna< wxCriticalSection >::check(L,1)).name());
 		}
 		self->Enter();
 
@@ -132,7 +132,7 @@ public:
 		wxCriticalSection* self=(Luna< wxCriticalSection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCriticalSection::TryEnter()");
+			luaL_error(L, "Invalid object in function call bool wxCriticalSection::TryEnter(). Got : '%s'",typeid(Luna< wxCriticalSection >::check(L,1)).name());
 		}
 		bool lret = self->TryEnter();
 		lua_pushboolean(L,lret?1:0);
@@ -151,7 +151,7 @@ public:
 		wxCriticalSection* self=(Luna< wxCriticalSection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCriticalSection::Leave()");
+			luaL_error(L, "Invalid object in function call void wxCriticalSection::Leave(). Got : '%s'",typeid(Luna< wxCriticalSection >::check(L,1)).name());
 		}
 		self->Leave();
 

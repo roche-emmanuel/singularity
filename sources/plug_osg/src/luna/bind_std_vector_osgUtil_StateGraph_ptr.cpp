@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osgUtil::StateGraph * >",name);
 	}
+
 };
 
 std::vector< osgUtil::StateGraph * >* LunaTraits< std::vector< osgUtil::StateGraph * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osgUtil::StateGraph * > >::uniqueIDs[] = {531
 luna_RegType LunaTraits< std::vector< osgUtil::StateGraph * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osgUtil_StateGraph_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osgUtil_StateGraph_ptr::_bind___eq},
+	
 	{0,0}
 };
 

@@ -951,7 +951,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::GetHoverColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::GetHoverColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetHoverColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -973,7 +973,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::GetNormalColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::GetNormalColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetNormalColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -995,7 +995,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::GetURL() const");
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::GetURL() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1014,7 +1014,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::GetVisited() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::GetVisited() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetVisited();
 		lua_pushboolean(L,lret?1:0);
@@ -1033,7 +1033,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::GetVisitedColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::GetVisitedColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetVisitedColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -1060,7 +1060,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetHoverColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetHoverColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHoverColour(colour);
 
@@ -1083,7 +1083,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetNormalColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetNormalColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetNormalColour(colour);
 
@@ -1102,7 +1102,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetURL(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetURL(url);
 
@@ -1123,7 +1123,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetVisited(bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetVisited(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetVisited(visited);
 
@@ -1146,7 +1146,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetVisitedColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::SetVisitedColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetVisitedColour(colour);
 
@@ -1164,7 +1164,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHyperlinkCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHyperlinkCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHyperlinkCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1185,7 +1185,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1204,7 +1204,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1223,7 +1223,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1242,7 +1242,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1262,7 +1262,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetCanFocus(canFocus);
 
@@ -1280,7 +1280,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetFocus();
 
@@ -1298,7 +1298,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetFocusFromKbd();
 
@@ -1317,7 +1317,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::AddChild(child);
 
@@ -1336,7 +1336,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::RemoveChild(child);
 
@@ -1355,7 +1355,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1378,7 +1378,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1397,7 +1397,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHyperlinkCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1417,7 +1417,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHyperlinkCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1437,7 +1437,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHyperlinkCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1457,7 +1457,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1477,7 +1477,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1497,7 +1497,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1521,7 +1521,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::ScrollWindow(dx, dy, rect);
 
@@ -1544,7 +1544,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -1569,7 +1569,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1592,7 +1592,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1619,7 +1619,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1641,7 +1641,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::Fit();
 
@@ -1659,7 +1659,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::FitInside();
 
@@ -1677,7 +1677,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1699,7 +1699,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1721,7 +1721,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1743,7 +1743,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1765,7 +1765,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1787,7 +1787,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1809,7 +1809,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHyperlinkCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHyperlinkCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1834,7 +1834,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1856,7 +1856,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SendSizeEvent(flags);
 
@@ -1879,7 +1879,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetMaxClientSize(size);
 
@@ -1902,7 +1902,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetMaxSize(size);
 
@@ -1925,7 +1925,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetMinClientSize(size);
 
@@ -1948,7 +1948,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetMinSize(size);
 
@@ -1983,7 +1983,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2009,7 +2009,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2036,7 +2036,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxHyperlinkCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxHyperlinkCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxHyperlinkCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2058,7 +2058,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::ClearBackground();
 
@@ -2076,7 +2076,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHyperlinkCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHyperlinkCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxHyperlinkCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2095,7 +2095,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHyperlinkCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2114,7 +2114,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHyperlinkCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHyperlinkCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2133,7 +2133,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHyperlinkCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHyperlinkCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxHyperlinkCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2159,7 +2159,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::Refresh(eraseBackground, rect);
 
@@ -2177,7 +2177,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::Update();
 
@@ -2196,7 +2196,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2220,7 +2220,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2239,7 +2239,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2259,7 +2259,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetThemeEnabled(enable);
 
@@ -2277,7 +2277,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2296,7 +2296,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2316,7 +2316,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2336,7 +2336,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetNextHandler(handler);
 
@@ -2355,7 +2355,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetPreviousHandler(handler);
 
@@ -2373,7 +2373,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxHyperlinkCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxHyperlinkCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxHyperlinkCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2393,7 +2393,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetExtraStyle(exStyle);
 
@@ -2412,7 +2412,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetWindowStyleFlag(style);
 
@@ -2430,7 +2430,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::Lower();
 
@@ -2448,7 +2448,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::Raise();
 
@@ -2470,7 +2470,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2489,7 +2489,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2508,7 +2508,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2530,7 +2530,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2552,7 +2552,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2575,7 +2575,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2600,7 +2600,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHyperlinkCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2619,7 +2619,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxHyperlinkCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxHyperlinkCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxHyperlinkCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2645,7 +2645,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetValidator(validator);
 
@@ -2663,7 +2663,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2682,7 +2682,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2701,7 +2701,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2720,7 +2720,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHyperlinkCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHyperlinkCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxHyperlinkCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2739,7 +2739,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHyperlinkCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2759,7 +2759,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetLayoutDirection(dir);
 
@@ -2778,7 +2778,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetName(name);
 
@@ -2801,7 +2801,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetAcceleratorTable(accel);
 
@@ -2819,7 +2819,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2838,7 +2838,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxHyperlinkCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxHyperlinkCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxHyperlinkCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2860,7 +2860,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetDropTarget(target);
 
@@ -2879,7 +2879,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::DragAcceptFiles(accept);
 
@@ -2897,7 +2897,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2916,7 +2916,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2940,7 +2940,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2961,7 +2961,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::WarpPointer(x, y);
 
@@ -2984,7 +2984,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::DoUpdateWindowUI(event);
 
@@ -3002,7 +3002,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3021,7 +3021,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::InheritAttributes();
 
@@ -3039,7 +3039,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::InitDialog();
 
@@ -3057,7 +3057,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3076,7 +3076,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3098,7 +3098,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::MakeModal(modal);
 
@@ -3116,7 +3116,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::OnInternalIdle();
 
@@ -3137,7 +3137,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3157,7 +3157,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxHyperlinkCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHyperlinkCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3179,7 +3179,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::UpdateWindowUI(flags);
 
@@ -3202,7 +3202,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::Command(event);
 
@@ -3220,7 +3220,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHyperlinkCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3240,7 +3240,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetLabel(label);
 
@@ -3258,7 +3258,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::base_GetHoverColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::base_GetHoverColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->wxHyperlinkCtrl::GetHoverColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -3280,7 +3280,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::base_GetNormalColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::base_GetNormalColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->wxHyperlinkCtrl::GetNormalColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -3302,7 +3302,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetURL() const");
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkCtrl::base_GetURL() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHyperlinkCtrl::GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3321,7 +3321,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::base_GetVisitedColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxHyperlinkCtrl::base_GetVisitedColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->wxHyperlinkCtrl::GetVisitedColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -3348,7 +3348,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetHoverColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetHoverColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetHoverColour(colour);
 
@@ -3371,7 +3371,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetNormalColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetNormalColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetNormalColour(colour);
 
@@ -3390,7 +3390,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetURL(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetURL(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetURL(url);
 
@@ -3413,7 +3413,7 @@ public:
 		wxHyperlinkCtrl* self=Luna< wxObject >::checkSubType< wxHyperlinkCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetVisitedColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkCtrl::base_SetVisitedColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHyperlinkCtrl::SetVisitedColour(colour);
 

@@ -91,7 +91,7 @@ public:
 		wxTreeItemData* self=Luna< wxClientData >::checkSubType< wxTreeItemData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTreeItemId & wxTreeItemData::GetId() const");
+			luaL_error(L, "Invalid object in function call const wxTreeItemId & wxTreeItemData::GetId() const. Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
 		}
 		const wxTreeItemId* lret = &self->GetId();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -117,7 +117,7 @@ public:
 		wxTreeItemData* self=Luna< wxClientData >::checkSubType< wxTreeItemData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTreeItemData::SetId(const wxTreeItemId &)");
+			luaL_error(L, "Invalid object in function call void wxTreeItemData::SetId(const wxTreeItemId &). Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
 		}
 		self->SetId(id);
 

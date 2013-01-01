@@ -222,7 +222,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setBoundaryOnly(const bool)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setBoundaryOnly(const bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBoundaryOnly(tt);
 
@@ -240,7 +240,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Tessellator::getBoundaryOnly()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Tessellator::getBoundaryOnly(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getBoundaryOnly();
 		lua_pushboolean(L,lret?1:0);
@@ -260,7 +260,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setWindingType(const osgUtil::Tessellator::WindingType)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setWindingType(const osgUtil::Tessellator::WindingType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWindingType(wt);
 
@@ -278,7 +278,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Tessellator::WindingType osgUtil::Tessellator::getWindingType()");
+			luaL_error(L, "Invalid object in function call osgUtil::Tessellator::WindingType osgUtil::Tessellator::getWindingType(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Tessellator::WindingType lret = self->getWindingType();
 		lua_pushnumber(L,lret);
@@ -298,7 +298,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setTessellationType(const osgUtil::Tessellator::TessellationType)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setTessellationType(const osgUtil::Tessellator::TessellationType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTessellationType(tt);
 
@@ -316,7 +316,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Tessellator::TessellationType osgUtil::Tessellator::getTessellationType()");
+			luaL_error(L, "Invalid object in function call osgUtil::Tessellator::TessellationType osgUtil::Tessellator::getTessellationType(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Tessellator::TessellationType lret = self->getTessellationType();
 		lua_pushnumber(L,lret);
@@ -340,7 +340,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::retessellatePolygons(osg::Geometry &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::retessellatePolygons(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->retessellatePolygons(cxgeom);
 
@@ -363,7 +363,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setTessellationNormal(const osg::Vec3f)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setTessellationNormal(const osg::Vec3f). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTessellationNormal(norm);
 
@@ -381,7 +381,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::beginTessellation()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::beginTessellation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->beginTessellation();
 
@@ -399,7 +399,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::beginContour()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::beginContour(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->beginContour();
 
@@ -418,7 +418,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::addVertex(osg::Vec3f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::addVertex(osg::Vec3f *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addVertex(vertex);
 
@@ -436,7 +436,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::endContour()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::endContour(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->endContour();
 
@@ -454,7 +454,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::endTessellation()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::endTessellation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->endTessellation();
 
@@ -472,7 +472,7 @@ public:
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 

@@ -488,7 +488,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::setState(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::setState(osg::State *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->setState(state);
 
@@ -506,7 +506,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::State * osg::GLBeginEndAdapter::getState()");
+			luaL_error(L, "Invalid object in function call osg::State * osg::GLBeginEndAdapter::getState(). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		osg::State * lret = self->getState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -527,7 +527,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::State * osg::GLBeginEndAdapter::getState() const");
+			luaL_error(L, "Invalid object in function call const osg::State * osg::GLBeginEndAdapter::getState() const. Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		const osg::State * lret = self->getState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -558,7 +558,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::setMatrixMode(osg::GLBeginEndAdapter::MatrixMode)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::setMatrixMode(osg::GLBeginEndAdapter::MatrixMode). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->setMatrixMode(mode);
 
@@ -576,7 +576,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GLBeginEndAdapter::MatrixMode osg::GLBeginEndAdapter::setMatrixMode() const");
+			luaL_error(L, "Invalid object in function call osg::GLBeginEndAdapter::MatrixMode osg::GLBeginEndAdapter::setMatrixMode() const. Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		osg::GLBeginEndAdapter::MatrixMode lret = self->setMatrixMode();
 		lua_pushnumber(L,lret);
@@ -604,7 +604,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::PushMatrix()");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::PushMatrix(). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->PushMatrix();
 
@@ -622,7 +622,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::PopMatrix()");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::PopMatrix(). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->PopMatrix();
 
@@ -640,7 +640,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::LoadIdentity()");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::LoadIdentity(). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->LoadIdentity();
 
@@ -659,7 +659,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::LoadMatrixd(const double *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::LoadMatrixd(const double *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->LoadMatrixd(&m);
 
@@ -678,7 +678,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultMatrixd(const double *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultMatrixd(const double *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultMatrixd(&m);
 
@@ -699,7 +699,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Translatef(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Translatef(float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Translatef(x, y, z);
 
@@ -720,7 +720,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Scalef(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Scalef(float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Scalef(x, y, z);
 
@@ -742,7 +742,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Rotatef(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Rotatef(float, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Rotatef(angle, x, y, z);
 
@@ -763,7 +763,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Translated(double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Translated(double, double, double). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Translated(x, y, z);
 
@@ -784,7 +784,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Scaled(double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Scaled(double, double, double). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Scaled(x, y, z);
 
@@ -806,7 +806,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Rotated(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Rotated(double, double, double, double). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Rotated(angle, x, y, z);
 
@@ -827,7 +827,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3f(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3f(float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Vertex3f(x, y, z);
 
@@ -846,7 +846,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Vertex3fv(&v);
 
@@ -868,7 +868,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4f(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4f(float, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Color4f(red, green, blue, alpha);
 
@@ -887,7 +887,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Color4fv(&c);
 
@@ -906,7 +906,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4ubv(const unsigned char *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4ubv(const unsigned char *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Color4ubv(&c);
 
@@ -927,7 +927,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Normal3f(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Normal3f(float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Normal3f(x, y, z);
 
@@ -946,7 +946,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Normal3fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Normal3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Normal3fv(&n);
 
@@ -965,7 +965,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord1f(float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord1f(float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord1f(x);
 
@@ -984,7 +984,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord1fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord1fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord1fv(&tc);
 
@@ -1004,7 +1004,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord2f(float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord2f(float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord2f(x, y);
 
@@ -1023,7 +1023,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord2fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord2fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord2fv(&tc);
 
@@ -1044,7 +1044,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord3f(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord3f(float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord3f(x, y, z);
 
@@ -1063,7 +1063,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord3fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord3fv(&tc);
 
@@ -1085,7 +1085,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord4f(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord4f(float, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord4f(x, y, z, w);
 
@@ -1104,7 +1104,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord4fv(const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord4fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->TexCoord4fv(&tc);
 
@@ -1124,7 +1124,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord1f(unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord1f(unsigned int, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord1f(target, x);
 
@@ -1144,7 +1144,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord1fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord1fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord1fv(target, &tc);
 
@@ -1165,7 +1165,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord2f(unsigned int, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord2f(unsigned int, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord2f(target, x, y);
 
@@ -1185,7 +1185,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord2fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord2fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord2fv(target, &tc);
 
@@ -1207,7 +1207,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord3f(unsigned int, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord3f(unsigned int, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord3f(target, x, y, z);
 
@@ -1227,7 +1227,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord3fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord3fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord3fv(target, &tc);
 
@@ -1250,7 +1250,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord4f(unsigned int, float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord4f(unsigned int, float, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord4f(target, x, y, z, w);
 
@@ -1270,7 +1270,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord4fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord4fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->MultiTexCoord4fv(target, &tc);
 
@@ -1290,7 +1290,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib1f(unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib1f(unsigned int, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib1f(unit, x);
 
@@ -1310,7 +1310,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib1fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib1fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib1fv(unit, &tc);
 
@@ -1331,7 +1331,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib2f(unsigned int, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib2f(unsigned int, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib2f(unit, x, y);
 
@@ -1351,7 +1351,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib2fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib2fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib2fv(unit, &tc);
 
@@ -1373,7 +1373,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib3f(unsigned int, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib3f(unsigned int, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib3f(unit, x, y, z);
 
@@ -1393,7 +1393,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib3fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib3fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib3fv(unit, &tc);
 
@@ -1416,7 +1416,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib4f(unsigned int, float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib4f(unsigned int, float, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib4f(unit, x, y, z, w);
 
@@ -1436,7 +1436,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib4fv(unsigned int, const float *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib4fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->VertexAttrib4fv(unit, &tc);
 
@@ -1455,7 +1455,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Begin(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Begin(unsigned int). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Begin(mode);
 
@@ -1473,7 +1473,7 @@ public:
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::End()");
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::End(). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->End();
 

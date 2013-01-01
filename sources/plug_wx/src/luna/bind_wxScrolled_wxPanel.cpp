@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"wxScrolled< wxPanel >",name);
 	}
+
 };
 
 wxScrolled< wxPanel >* LunaTraits< wxScrolled< wxPanel > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< wxScrolled< wxPanel > >::uniqueIDs[] = {4685182,0};
 luna_RegType LunaTraits< wxScrolled< wxPanel > >::methods[] = {
 	{"dynCast", &luna_wrapper_wxScrolled_wxPanel::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxScrolled_wxPanel::_bind___eq},
+	
 	{0,0}
 };
 

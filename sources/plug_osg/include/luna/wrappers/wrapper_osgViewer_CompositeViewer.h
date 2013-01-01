@@ -442,7 +442,7 @@ public:
 		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::public_constructorInit()");
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::public_constructorInit(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_constructorInit();
 
@@ -460,7 +460,7 @@ public:
 		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_viewerBaseInit()");
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_viewerBaseInit(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_viewerBaseInit();
 
@@ -479,7 +479,7 @@ public:
 		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_makeCurrent(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_makeCurrent(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_makeCurrent(gc);
 
@@ -497,7 +497,7 @@ public:
 		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_releaseContext()");
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::public_releaseContext(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_releaseContext();
 
@@ -517,7 +517,7 @@ public:
 		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -535,7 +535,7 @@ public:
 		wrapper_osgViewer_CompositeViewer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_CompositeViewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

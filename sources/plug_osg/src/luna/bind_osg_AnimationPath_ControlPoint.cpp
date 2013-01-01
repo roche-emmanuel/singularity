@@ -293,7 +293,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setPosition(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->setPosition(position);
 
@@ -311,7 +311,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getPosition() const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -337,7 +337,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->setRotation(rotation);
 
@@ -355,7 +355,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const");
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::AnimationPath::ControlPoint::getRotation() const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -381,7 +381,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::setScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->setScale(scale);
 
@@ -399,7 +399,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::AnimationPath::ControlPoint::getScale() const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getScale();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -431,7 +431,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(float, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &)");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(float, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->interpolate(ratio, first, second);
 
@@ -460,7 +460,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(double, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &)");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::interpolate(double, const osg::AnimationPath::ControlPoint &, const osg::AnimationPath::ControlPoint &). Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->interpolate(ratio, first, second);
 
@@ -492,7 +492,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf &) const");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->getMatrix(matrix);
 
@@ -515,7 +515,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd &) const");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getMatrix(osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->getMatrix(matrix);
 
@@ -547,7 +547,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf &) const");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->getInverse(matrix);
 
@@ -570,7 +570,7 @@ public:
 		osg::AnimationPath::ControlPoint* self=(Luna< osg::AnimationPath::ControlPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd &) const");
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::ControlPoint::getInverse(osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::AnimationPath::ControlPoint >::check(L,1)).name());
 		}
 		self->getInverse(matrix);
 

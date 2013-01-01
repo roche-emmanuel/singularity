@@ -119,7 +119,7 @@ public:
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::IntLookup::size() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::IntLookup::size() const. Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -140,7 +140,7 @@ public:
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::IntLookup::add(const char *, int)");
+			luaL_error(L, "Invalid object in function call void osgDB::IntLookup::add(const char *, int). Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
 		}
 		self->add(str, value);
 
@@ -159,7 +159,7 @@ public:
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::IntLookup::getValue(const char *)");
+			luaL_error(L, "Invalid object in function call int osgDB::IntLookup::getValue(const char *). Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
 		}
 		int lret = self->getValue(str);
 		lua_pushnumber(L,lret);
@@ -179,7 +179,7 @@ public:
 		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::IntLookup::getString(int)");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::IntLookup::getString(int). Got : '%s'",typeid(Luna< osgDB::IntLookup >::check(L,1)).name());
 		}
 		const std::string & lret = self->getString(value);
 		lua_pushlstring(L,lret.data(),lret.size());

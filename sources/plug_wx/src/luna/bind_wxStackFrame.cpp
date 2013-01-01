@@ -180,7 +180,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxStackFrame::GetAddress() const");
+			luaL_error(L, "Invalid object in function call void * wxStackFrame::GetAddress() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		void * lret = self->GetAddress();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -201,7 +201,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetFileName() const");
+			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetFileName() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		wxString lret = self->GetFileName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -220,7 +220,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLevel() const");
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLevel() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		size_t lret = self->GetLevel();
 		lua_pushnumber(L,lret);
@@ -239,7 +239,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLine() const");
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLine() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		size_t lret = self->GetLine();
 		lua_pushnumber(L,lret);
@@ -258,7 +258,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetModule() const");
+			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetModule() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		wxString lret = self->GetModule();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -277,7 +277,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetName() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -296,7 +296,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetOffset() const");
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetOffset() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		size_t lret = self->GetOffset();
 		lua_pushnumber(L,lret);
@@ -319,7 +319,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStackFrame::GetParam(size_t, wxString *, wxString *, wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::GetParam(size_t, wxString *, wxString *, wxString *) const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		bool lret = self->GetParam(n, &type, &name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -338,7 +338,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetParamCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetParamCount() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		size_t lret = self->GetParamCount();
 		lua_pushnumber(L,lret);
@@ -357,7 +357,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStackFrame::HasSourceLocation() const");
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::HasSourceLocation() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		bool lret = self->HasSourceLocation();
 		lua_pushboolean(L,lret?1:0);
@@ -380,7 +380,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStackFrame::base_GetParam(size_t, wxString *, wxString *, wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::base_GetParam(size_t, wxString *, wxString *, wxString *) const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		bool lret = self->wxStackFrame::GetParam(n, &type, &name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -399,7 +399,7 @@ public:
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::base_GetParamCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::base_GetParamCount() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
 		}
 		size_t lret = self->wxStackFrame::GetParamCount();
 		lua_pushnumber(L,lret);

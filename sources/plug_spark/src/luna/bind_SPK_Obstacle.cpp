@@ -210,7 +210,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Obstacle::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Obstacle::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -230,7 +230,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Obstacle::setBouncingRatio(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Obstacle::setBouncingRatio(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setBouncingRatio(bouncingRatio);
 
@@ -249,7 +249,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Obstacle::setFriction(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Obstacle::setFriction(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setFriction(friction);
 
@@ -267,7 +267,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Obstacle::getBouncingRatio() const");
+			luaL_error(L, "Invalid object in function call float SPK::Obstacle::getBouncingRatio() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getBouncingRatio();
 		lua_pushnumber(L,lret);
@@ -286,7 +286,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Obstacle::getFriction() const");
+			luaL_error(L, "Invalid object in function call float SPK::Obstacle::getFriction() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getFriction();
 		lua_pushnumber(L,lret);
@@ -332,7 +332,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Obstacle::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Obstacle::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Obstacle::createBuffers(group);
 
@@ -355,7 +355,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Obstacle::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Obstacle::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Obstacle::destroyBuffers(group);
 
@@ -374,7 +374,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Obstacle::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Obstacle::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Obstacle::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -395,7 +395,7 @@ public:
 		SPK::Obstacle* self=Luna< SPK::Registerable >::checkSubType< SPK::Obstacle >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Obstacle::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Obstacle::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Obstacle::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

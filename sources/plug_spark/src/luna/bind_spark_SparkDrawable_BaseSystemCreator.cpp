@@ -17,7 +17,7 @@ public:
 			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
 		}
 
-		spark::SparkDrawable::BaseSystemCreator* self=(Luna< spark::SparkDrawable::BaseSystemCreator >::check(L,1));
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
@@ -33,18 +33,18 @@ public:
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,47219211) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		return true;
 	}
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::BaseSystemCreator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Referenced*)");
 		}
 
-		spark::SparkDrawable::BaseSystemCreator* rhs =(Luna< spark::SparkDrawable::BaseSystemCreator >::check(L,2));
-		spark::SparkDrawable::BaseSystemCreator* self=(Luna< spark::SparkDrawable::BaseSystemCreator >::check(L,1));
+		osg::Referenced* rhs =(Luna< osg::Referenced >::check(L,2));
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
@@ -52,31 +52,18 @@ public:
 		return self==rhs;
 	}
 
-	// Base class dynamic cast support:
-	inline static bool _lg_typecheck_dynCast(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-	
-	static int _bind_dynCast(lua_State *L) {
-		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
-		}
-
-		std::string name(lua_tostring(L,2),lua_objlen(L,2));
-
-		spark::SparkDrawable::BaseSystemCreator* self=(Luna< spark::SparkDrawable::BaseSystemCreator >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call dynCast(...)");
-		}
+	// Derived class converters:
+	static int _cast_from_Referenced(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//spark::SparkDrawable::BaseSystemCreator* ptr= dynamic_cast< spark::SparkDrawable::BaseSystemCreator* >(Luna< osg::Referenced >::check(L,1));
+		spark::SparkDrawable::BaseSystemCreator* ptr= luna_caster< osg::Referenced, spark::SparkDrawable::BaseSystemCreator >::cast(Luna< osg::Referenced >::check(L,1));
+		if(!ptr)
+			return 0;
 		
-		static LunaConverterMap& converters = luna_getConverterMap("spark::SparkDrawable::BaseSystemCreator");
-		
-		return luna_dynamicCast(L,converters,"spark::SparkDrawable::BaseSystemCreator",name);
-	}
+		// Otherwise push the pointer:
+		Luna< spark::SparkDrawable::BaseSystemCreator >::push(L,ptr,false);
+		return 1;
+	};
 
 
 	// Constructor checkers:
@@ -133,10 +120,10 @@ public:
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
-		spark::SparkDrawable::BaseSystemCreator* self=(Luna< spark::SparkDrawable::BaseSystemCreator >::check(L,1));
+		spark::SparkDrawable::BaseSystemCreator* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable::BaseSystemCreator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap &, int, int)");
+			luaL_error(L, "Invalid object in function call unsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap &, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned long lret = self->operator()(_arg1, width, height);
 		lua_pushnumber(L,lret);
@@ -155,25 +142,25 @@ spark::SparkDrawable::BaseSystemCreator* LunaTraits< spark::SparkDrawable::BaseS
 }
 
 void LunaTraits< spark::SparkDrawable::BaseSystemCreator >::_bind_dtor(spark::SparkDrawable::BaseSystemCreator* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< spark::SparkDrawable::BaseSystemCreator >::className[] = "SparkDrawable_BaseSystemCreator";
 const char LunaTraits< spark::SparkDrawable::BaseSystemCreator >::fullName[] = "spark::SparkDrawable::BaseSystemCreator";
 const char LunaTraits< spark::SparkDrawable::BaseSystemCreator >::moduleName[] = "spark";
-const char* LunaTraits< spark::SparkDrawable::BaseSystemCreator >::parents[] = {0};
+const char* LunaTraits< spark::SparkDrawable::BaseSystemCreator >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< spark::SparkDrawable::BaseSystemCreator >::hash = 47219211;
-const int LunaTraits< spark::SparkDrawable::BaseSystemCreator >::uniqueIDs[] = {47219211,0};
+const int LunaTraits< spark::SparkDrawable::BaseSystemCreator >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< spark::SparkDrawable::BaseSystemCreator >::methods[] = {
 	{"op_call", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_op_call},
-	{"dynCast", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_dynCast},
 	{"__eq", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind___eq},
 	{"getTable", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_getTable},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< spark::SparkDrawable::BaseSystemCreator >::converters[] = {
+	{"osg::Referenced", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_cast_from_Referenced},
 	{0,0}
 };
 

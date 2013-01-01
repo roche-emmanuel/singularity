@@ -158,7 +158,7 @@ public:
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_release()");
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FlushDeletedGLObjectsOperation::release();
 
@@ -179,7 +179,7 @@ public:
 		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(_arg1);
 

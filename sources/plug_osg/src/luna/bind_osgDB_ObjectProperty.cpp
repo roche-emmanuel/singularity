@@ -154,7 +154,7 @@ public:
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty & osgDB::ObjectProperty::proto(const char *)");
+			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty & osgDB::ObjectProperty::proto(const char *). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
 		}
 		const osgDB::ObjectProperty* lret = &self->proto(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -176,7 +176,7 @@ public:
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::set(int)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectProperty::set(int). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
 		}
 		self->set(v);
 
@@ -194,7 +194,7 @@ public:
 		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgDB::ObjectProperty::get() const");
+			luaL_error(L, "Invalid object in function call int osgDB::ObjectProperty::get() const. Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
 		}
 		int lret = self->get();
 		lua_pushnumber(L,lret);

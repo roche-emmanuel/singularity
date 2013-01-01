@@ -490,7 +490,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSizerItem::GetEndPos(int &, int &)");
+			luaL_error(L, "Invalid object in function call void wxGBSizerItem::GetEndPos(int &, int &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetEndPos(row, col);
 
@@ -508,7 +508,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGBPosition wxGBSizerItem::GetPos() const");
+			luaL_error(L, "Invalid object in function call wxGBPosition wxGBSizerItem::GetPos() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxGBPosition stack_lret = self->GetPos();
 		wxGBPosition* lret = new wxGBPosition(stack_lret);
@@ -532,7 +532,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSizerItem::GetPos(int &, int &) const");
+			luaL_error(L, "Invalid object in function call void wxGBSizerItem::GetPos(int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetPos(row, col);
 
@@ -559,7 +559,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGBSpan wxGBSizerItem::GetSpan() const");
+			luaL_error(L, "Invalid object in function call wxGBSpan wxGBSizerItem::GetSpan() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxGBSpan stack_lret = self->GetSpan();
 		wxGBSpan* lret = new wxGBSpan(stack_lret);
@@ -583,7 +583,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSizerItem::GetSpan(int &, int &) const");
+			luaL_error(L, "Invalid object in function call void wxGBSizerItem::GetSpan(int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetSpan(rowspan, colspan);
 
@@ -615,7 +615,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::Intersects(const wxGBSizerItem &)");
+			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::Intersects(const wxGBSizerItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Intersects(other);
 		lua_pushboolean(L,lret?1:0);
@@ -644,7 +644,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::Intersects(const wxGBPosition &, const wxGBSpan &)");
+			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::Intersects(const wxGBPosition &, const wxGBSpan &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Intersects(pos, span);
 		lua_pushboolean(L,lret?1:0);
@@ -677,7 +677,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::SetPos(const wxGBPosition &)");
+			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::SetPos(const wxGBPosition &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetPos(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -701,7 +701,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::SetSpan(const wxGBSpan &)");
+			luaL_error(L, "Invalid object in function call bool wxGBSizerItem::SetSpan(const wxGBSpan &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetSpan(span);
 		lua_pushboolean(L,lret?1:0);
@@ -720,7 +720,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridBagSizer * wxGBSizerItem::GetGBSizer() const");
+			luaL_error(L, "Invalid object in function call wxGridBagSizer * wxGBSizerItem::GetGBSizer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxGridBagSizer * lret = self->GetGBSizer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -742,7 +742,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSizerItem::SetGBSizer(wxGridBagSizer *)");
+			luaL_error(L, "Invalid object in function call void wxGBSizerItem::SetGBSizer(wxGridBagSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetGBSizer(sizer);
 
@@ -760,7 +760,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGBSizerItem::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGBSizerItem::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGBSizerItem::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -781,7 +781,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGBSizerItem::base_CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxGBSizerItem::base_CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGBSizerItem::CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -803,7 +803,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSizerItem::base_DeleteWindows()");
+			luaL_error(L, "Invalid object in function call void wxGBSizerItem::base_DeleteWindows(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGBSizerItem::DeleteWindows();
 
@@ -821,7 +821,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxGBSizerItem::base_GetRect()");
+			luaL_error(L, "Invalid object in function call wxRect wxGBSizerItem::base_GetRect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->wxGBSizerItem::GetRect();
 		wxRect* lret = new wxRect(stack_lret);
@@ -843,7 +843,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGBSizerItem::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGBSizerItem::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGBSizerItem::GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -875,7 +875,7 @@ public:
 		wxGBSizerItem* self=Luna< wxObject >::checkSubType< wxGBSizerItem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSizerItem::base_SetDimension(const wxPoint &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxGBSizerItem::base_SetDimension(const wxPoint &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGBSizerItem::SetDimension(pos, size);
 

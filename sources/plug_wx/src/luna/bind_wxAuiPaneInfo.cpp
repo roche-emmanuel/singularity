@@ -655,7 +655,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::BestSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::BestSize(const wxSize &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->BestSize(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -678,7 +678,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::BestSize(int, int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::BestSize(int, int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->BestSize(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -708,7 +708,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Bottom()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Bottom(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Bottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -732,7 +732,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::BottomDockable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::BottomDockable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->BottomDockable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -754,7 +754,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Caption(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Caption(const wxString &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Caption(c);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -778,7 +778,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CaptionVisible(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CaptionVisible(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->CaptionVisible(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -799,7 +799,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Centre()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Centre(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Centre();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -820,7 +820,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Center()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Center(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Center();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -841,7 +841,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CentrePane()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CentrePane(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->CentrePane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -862,7 +862,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CenterPane()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CenterPane(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->CenterPane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -886,7 +886,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CloseButton(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::CloseButton(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->CloseButton(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -907,7 +907,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::DefaultPane()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::DefaultPane(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->DefaultPane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -931,7 +931,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::DestroyOnClose(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::DestroyOnClose(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->DestroyOnClose(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -953,7 +953,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Direction(int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Direction(int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Direction(direction);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -974,7 +974,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Dock()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Dock(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Dock();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -998,7 +998,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::DockFixed(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::DockFixed(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->DockFixed(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1022,7 +1022,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Dockable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Dockable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Dockable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1043,7 +1043,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Fixed()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Fixed(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Fixed();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1064,7 +1064,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Float()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Float(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Float();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1088,7 +1088,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Floatable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Floatable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Floatable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1114,7 +1114,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingPosition(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingPosition(const wxPoint &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->FloatingPosition(pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1137,7 +1137,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingPosition(int, int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingPosition(int, int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->FloatingPosition(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1172,7 +1172,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingSize(const wxSize &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->FloatingSize(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1195,7 +1195,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingSize(int, int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::FloatingSize(int, int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->FloatingSize(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1228,7 +1228,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Gripper(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Gripper(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Gripper(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1252,7 +1252,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::GripperTop(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::GripperTop(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->GripperTop(attop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1273,7 +1273,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasBorder() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasBorder() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasBorder();
 		lua_pushboolean(L,lret?1:0);
@@ -1292,7 +1292,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasCaption() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasCaption() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasCaption();
 		lua_pushboolean(L,lret?1:0);
@@ -1311,7 +1311,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasCloseButton() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasCloseButton() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasCloseButton();
 		lua_pushboolean(L,lret?1:0);
@@ -1331,7 +1331,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasFlag(int) const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasFlag(int) const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasFlag(flag);
 		lua_pushboolean(L,lret?1:0);
@@ -1350,7 +1350,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasGripper() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasGripper() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasGripper();
 		lua_pushboolean(L,lret?1:0);
@@ -1369,7 +1369,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasGripperTop() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasGripperTop() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasGripperTop();
 		lua_pushboolean(L,lret?1:0);
@@ -1388,7 +1388,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasMaximizeButton() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasMaximizeButton() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasMaximizeButton();
 		lua_pushboolean(L,lret?1:0);
@@ -1407,7 +1407,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasMinimizeButton() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasMinimizeButton() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasMinimizeButton();
 		lua_pushboolean(L,lret?1:0);
@@ -1426,7 +1426,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasPinButton() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::HasPinButton() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasPinButton();
 		lua_pushboolean(L,lret?1:0);
@@ -1445,7 +1445,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Hide()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Hide(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Hide();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1471,7 +1471,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Icon(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Icon(const wxBitmap &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Icon(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1492,7 +1492,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsBottomDockable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsBottomDockable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsBottomDockable();
 		lua_pushboolean(L,lret?1:0);
@@ -1511,7 +1511,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsDockable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsDockable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsDockable();
 		lua_pushboolean(L,lret?1:0);
@@ -1530,7 +1530,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsDocked() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsDocked() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsDocked();
 		lua_pushboolean(L,lret?1:0);
@@ -1549,7 +1549,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsFixed() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsFixed() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsFixed();
 		lua_pushboolean(L,lret?1:0);
@@ -1568,7 +1568,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsFloatable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsFloatable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsFloatable();
 		lua_pushboolean(L,lret?1:0);
@@ -1587,7 +1587,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsFloating() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsFloating() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsFloating();
 		lua_pushboolean(L,lret?1:0);
@@ -1606,7 +1606,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsLeftDockable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsLeftDockable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsLeftDockable();
 		lua_pushboolean(L,lret?1:0);
@@ -1625,7 +1625,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsMovable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsMovable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsMovable();
 		lua_pushboolean(L,lret?1:0);
@@ -1644,7 +1644,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsOk() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -1663,7 +1663,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsResizable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsResizable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsResizable();
 		lua_pushboolean(L,lret?1:0);
@@ -1682,7 +1682,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsRightDockable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsRightDockable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsRightDockable();
 		lua_pushboolean(L,lret?1:0);
@@ -1701,7 +1701,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsShown() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -1720,7 +1720,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsToolbar() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsToolbar() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsToolbar();
 		lua_pushboolean(L,lret?1:0);
@@ -1739,7 +1739,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsTopDockable() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiPaneInfo::IsTopDockable() const. Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsTopDockable();
 		lua_pushboolean(L,lret?1:0);
@@ -1759,7 +1759,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Layer(int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Layer(int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Layer(layer);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1780,7 +1780,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Left()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Left(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Left();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1804,7 +1804,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::LeftDockable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::LeftDockable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->LeftDockable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1830,7 +1830,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->MaxSize(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1853,7 +1853,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MaxSize(int, int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MaxSize(int, int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->MaxSize(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1886,7 +1886,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MaximizeButton(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MaximizeButton(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->MaximizeButton(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1912,7 +1912,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MinSize(const wxSize &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->MinSize(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1935,7 +1935,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MinSize(int, int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MinSize(int, int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->MinSize(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1968,7 +1968,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MinimizeButton(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::MinimizeButton(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->MinimizeButton(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1992,7 +1992,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Movable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Movable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Movable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2014,7 +2014,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Name(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Name(const wxString &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Name(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2038,7 +2038,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::PaneBorder(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::PaneBorder(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->PaneBorder(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2062,7 +2062,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::PinButton(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::PinButton(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->PinButton(visible);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2084,7 +2084,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Position(int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Position(int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Position(pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2108,7 +2108,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Resizable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Resizable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Resizable(resizable);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2129,7 +2129,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Right()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Right(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Right();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2153,7 +2153,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::RightDockable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::RightDockable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->RightDockable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2175,7 +2175,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Row(int)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Row(int). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Row(row);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2201,7 +2201,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiPaneInfo::SafeSet(wxAuiPaneInfo)");
+			luaL_error(L, "Invalid object in function call void wxAuiPaneInfo::SafeSet(wxAuiPaneInfo). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		self->SafeSet(source);
 
@@ -2221,7 +2221,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::SetFlag(int, bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::SetFlag(int, bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->SetFlag(flag, option_state);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2245,7 +2245,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Show(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Show(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Show(show);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2266,7 +2266,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::ToolbarPane()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::ToolbarPane(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->ToolbarPane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2287,7 +2287,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Top()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Top(). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Top();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2311,7 +2311,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::TopDockable(bool)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::TopDockable(bool). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->TopDockable(b);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2333,7 +2333,7 @@ public:
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Window(wxWindow *)");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::Window(wxWindow *). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
 		}
 		const wxAuiPaneInfo* lret = &self->Window(w);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::set< std::string >",name);
 	}
+
 };
 
 std::set< std::string >* LunaTraits< std::set< std::string > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::set< std::string > >::uniqueIDs[] = {74170402,0};
 luna_RegType LunaTraits< std::set< std::string > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_set_std_string::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_set_std_string::_bind___eq},
+	
 	{0,0}
 };
 

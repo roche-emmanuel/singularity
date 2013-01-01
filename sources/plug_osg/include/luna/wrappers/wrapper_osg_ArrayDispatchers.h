@@ -103,7 +103,7 @@ public:
 		wrapper_osg_ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::public_init()");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::public_init(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_init();
 
@@ -122,7 +122,7 @@ public:
 		wrapper_osg_ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::public_assignTexCoordDispatchers(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::public_assignTexCoordDispatchers(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_assignTexCoordDispatchers(unit);
 
@@ -141,7 +141,7 @@ public:
 		wrapper_osg_ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::public_assignVertexAttribDispatchers(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::public_assignVertexAttribDispatchers(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_assignVertexAttribDispatchers(unit);
 
@@ -161,7 +161,7 @@ public:
 		wrapper_osg_ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -179,7 +179,7 @@ public:
 		wrapper_osg_ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

@@ -247,7 +247,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiTabArt::Clone()");
+			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiTabArt::Clone(). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		wxAuiTabArt * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -279,7 +279,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->DrawBackground(dc, wnd, rect);
 
@@ -312,7 +312,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawButton(wxDC &, wxWindow *, const wxRect &, int, int, int, wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawButton(wxDC &, wxWindow *, const wxRect &, int, int, int, wxRect *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->DrawButton(dc, wnd, in_rect, bitmap_id, button_state, orientation, out_rect);
 
@@ -350,7 +350,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawTab(wxDC &, wxWindow *, const wxAuiNotebookPage &, const wxRect &, int, wxRect *, wxRect *, int *)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawTab(wxDC &, wxWindow *, const wxAuiNotebookPage &, const wxRect &, int, wxRect *, wxRect *, int *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->DrawTab(dc, wnd, page, rect, close_button_state, out_tab_rect, out_button_rect, &x_extent);
 
@@ -379,7 +379,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetBestTabCtrlSize(wxWindow *, const wxAuiNotebookPageArray &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetBestTabCtrlSize(wxWindow *, const wxAuiNotebookPageArray &, const wxSize &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		int lret = self->GetBestTabCtrlSize(_arg1, _arg2, _arg3);
 		lua_pushnumber(L,lret);
@@ -398,7 +398,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetIndentSize()");
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetIndentSize(). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		int lret = self->GetIndentSize();
 		lua_pushnumber(L,lret);
@@ -432,7 +432,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiTabArt::GetTabSize(wxDC &, wxWindow *, const wxString &, const wxBitmap &, bool, int, int *)");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiTabArt::GetTabSize(wxDC &, wxWindow *, const wxString &, const wxBitmap &, bool, int, int *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetTabSize(dc, wnd, caption, bitmap, active, close_button_state, &x_extent);
 		wxSize* lret = new wxSize(stack_lret);
@@ -455,7 +455,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetFlags(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -478,7 +478,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetMeasuringFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetMeasuringFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetMeasuringFont(font);
 
@@ -501,7 +501,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetNormalFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetNormalFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetNormalFont(font);
 
@@ -524,7 +524,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSelectedFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSelectedFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetSelectedFont(font);
 
@@ -547,7 +547,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetColour(colour);
 
@@ -570,7 +570,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetActiveColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetActiveColour(const wxColour &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetActiveColour(colour);
 
@@ -594,7 +594,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSizingInfo(const wxSize &, size_t)");
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSizingInfo(const wxSize &, size_t). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		self->SetSizingInfo(tab_ctrl_size, tab_count);
 
@@ -619,7 +619,7 @@ public:
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiTabArt::ShowDropDown(wxWindow *, const wxAuiNotebookPageArray &, int)");
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::ShowDropDown(wxWindow *, const wxAuiNotebookPageArray &, int). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
 		int lret = self->ShowDropDown(_arg1, _arg2, _arg3);
 		lua_pushnumber(L,lret);

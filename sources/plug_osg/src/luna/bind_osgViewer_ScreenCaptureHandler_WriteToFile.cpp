@@ -171,7 +171,7 @@ public:
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::setSavePolicy(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::setSavePolicy(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSavePolicy(savePolicy);
 
@@ -189,7 +189,7 @@ public:
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy osgViewer::ScreenCaptureHandler::WriteToFile::getSavePolicy() const");
+			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy osgViewer::ScreenCaptureHandler::WriteToFile::getSavePolicy() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy lret = self->getSavePolicy();
 		lua_pushnumber(L,lret);
@@ -216,7 +216,7 @@ public:
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image &, const unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image &, const unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(image, context_id);
 

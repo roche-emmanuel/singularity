@@ -527,7 +527,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setDefaults(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setDefaults();
 
@@ -546,7 +546,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setInheritanceMask(int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setInheritanceMask(int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setInheritanceMask(mask);
 
@@ -564,7 +564,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::CullSettings::getInheritanceMask() const");
+			luaL_error(L, "Invalid object in function call int osg::CullSettings::getInheritanceMask() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		int lret = self->getInheritanceMask();
 		lua_pushnumber(L,lret);
@@ -588,7 +588,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullSettings(const osg::CullSettings &)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullSettings(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setCullSettings(settings);
 
@@ -611,7 +611,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::inheritCullSettings(const osg::CullSettings &)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::inheritCullSettings(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->inheritCullSettings(settings);
 
@@ -635,7 +635,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::inheritCullSettings(const osg::CullSettings &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->inheritCullSettings(settings, inheritanceMask);
 
@@ -662,7 +662,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::readEnvironmentalVariables()");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::readEnvironmentalVariables(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->readEnvironmentalVariables();
 
@@ -685,7 +685,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::readCommandLine(osg::ArgumentParser &)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::readCommandLine(osg::ArgumentParser &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->readCommandLine(arguments);
 
@@ -704,7 +704,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setInheritanceMaskActionOnAttributeSetting(osg::CullSettings::InheritanceMaskActionOnAttributeSetting)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setInheritanceMaskActionOnAttributeSetting(osg::CullSettings::InheritanceMaskActionOnAttributeSetting). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setInheritanceMaskActionOnAttributeSetting(action);
 
@@ -722,7 +722,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullSettings::InheritanceMaskActionOnAttributeSetting osg::CullSettings::getInheritanceMaskActionOnAttributeSetting() const");
+			luaL_error(L, "Invalid object in function call osg::CullSettings::InheritanceMaskActionOnAttributeSetting osg::CullSettings::getInheritanceMaskActionOnAttributeSetting() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::CullSettings::InheritanceMaskActionOnAttributeSetting lret = self->getInheritanceMaskActionOnAttributeSetting();
 		lua_pushnumber(L,lret);
@@ -742,7 +742,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::applyMaskAction(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::applyMaskAction(unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->applyMaskAction(maskBit);
 
@@ -761,7 +761,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setImpostorsActive(bool)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setImpostorsActive(bool). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setImpostorsActive(active);
 
@@ -779,7 +779,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullSettings::getImpostorsActive() const");
+			luaL_error(L, "Invalid object in function call bool osg::CullSettings::getImpostorsActive() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		bool lret = self->getImpostorsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -799,7 +799,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setImpostorPixelErrorThreshold(float)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setImpostorPixelErrorThreshold(float). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setImpostorPixelErrorThreshold(numPixels);
 
@@ -817,7 +817,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullSettings::getImpostorPixelErrorThreshold() const");
+			luaL_error(L, "Invalid object in function call float osg::CullSettings::getImpostorPixelErrorThreshold() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->getImpostorPixelErrorThreshold();
 		lua_pushnumber(L,lret);
@@ -837,7 +837,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setDepthSortImpostorSprites(bool)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setDepthSortImpostorSprites(bool). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setDepthSortImpostorSprites(doDepthSort);
 
@@ -855,7 +855,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullSettings::getDepthSortImpostorSprites() const");
+			luaL_error(L, "Invalid object in function call bool osg::CullSettings::getDepthSortImpostorSprites() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		bool lret = self->getDepthSortImpostorSprites();
 		lua_pushboolean(L,lret?1:0);
@@ -875,7 +875,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setNumberOfFrameToKeepImpostorSprites(int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setNumberOfFrameToKeepImpostorSprites(int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setNumberOfFrameToKeepImpostorSprites(numFrames);
 
@@ -893,7 +893,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::CullSettings::getNumberOfFrameToKeepImpostorSprites() const");
+			luaL_error(L, "Invalid object in function call int osg::CullSettings::getNumberOfFrameToKeepImpostorSprites() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		int lret = self->getNumberOfFrameToKeepImpostorSprites();
 		lua_pushnumber(L,lret);
@@ -913,7 +913,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setComputeNearFarMode(osg::CullSettings::ComputeNearFarMode)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setComputeNearFarMode(osg::CullSettings::ComputeNearFarMode). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setComputeNearFarMode(cnfm);
 
@@ -931,7 +931,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullSettings::ComputeNearFarMode osg::CullSettings::getComputeNearFarMode() const");
+			luaL_error(L, "Invalid object in function call osg::CullSettings::ComputeNearFarMode osg::CullSettings::getComputeNearFarMode() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::CullSettings::ComputeNearFarMode lret = self->getComputeNearFarMode();
 		lua_pushnumber(L,lret);
@@ -951,7 +951,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setNearFarRatio(double)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setNearFarRatio(double). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setNearFarRatio(ratio);
 
@@ -969,7 +969,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::CullSettings::getNearFarRatio() const");
+			luaL_error(L, "Invalid object in function call double osg::CullSettings::getNearFarRatio() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		double lret = self->getNearFarRatio();
 		lua_pushnumber(L,lret);
@@ -989,7 +989,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullingMode(int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullingMode(int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setCullingMode(mode);
 
@@ -1007,7 +1007,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::CullSettings::getCullingMode() const");
+			luaL_error(L, "Invalid object in function call int osg::CullSettings::getCullingMode() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		int lret = self->getCullingMode();
 		lua_pushnumber(L,lret);
@@ -1027,7 +1027,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullMask(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullMask(unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setCullMask(nm);
 
@@ -1045,7 +1045,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CullSettings::getCullMask() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CullSettings::getCullMask() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		unsigned int lret = self->getCullMask();
 		lua_pushnumber(L,lret);
@@ -1065,7 +1065,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullMaskLeft(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullMaskLeft(unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setCullMaskLeft(nm);
 
@@ -1083,7 +1083,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CullSettings::getCullMaskLeft() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CullSettings::getCullMaskLeft() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		unsigned int lret = self->getCullMaskLeft();
 		lua_pushnumber(L,lret);
@@ -1103,7 +1103,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullMaskRight(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setCullMaskRight(unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setCullMaskRight(nm);
 
@@ -1121,7 +1121,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CullSettings::getCullMaskRight() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CullSettings::getCullMaskRight() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		unsigned int lret = self->getCullMaskRight();
 		lua_pushnumber(L,lret);
@@ -1141,7 +1141,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setLODScale(float)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setLODScale(float). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setLODScale(scale);
 
@@ -1159,7 +1159,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullSettings::getLODScale() const");
+			luaL_error(L, "Invalid object in function call float osg::CullSettings::getLODScale() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->getLODScale();
 		lua_pushnumber(L,lret);
@@ -1179,7 +1179,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setSmallFeatureCullingPixelSize(float)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setSmallFeatureCullingPixelSize(float). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setSmallFeatureCullingPixelSize(value);
 
@@ -1197,7 +1197,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullSettings::getSmallFeatureCullingPixelSize() const");
+			luaL_error(L, "Invalid object in function call float osg::CullSettings::getSmallFeatureCullingPixelSize() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->getSmallFeatureCullingPixelSize();
 		lua_pushnumber(L,lret);
@@ -1217,7 +1217,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::setClampProjectionMatrixCallback(osg::CullSettings::ClampProjectionMatrixCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::setClampProjectionMatrixCallback(osg::CullSettings::ClampProjectionMatrixCallback *). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setClampProjectionMatrixCallback(cpmc);
 
@@ -1235,7 +1235,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullSettings::ClampProjectionMatrixCallback * osg::CullSettings::getClampProjectionMatrixCallback()");
+			luaL_error(L, "Invalid object in function call osg::CullSettings::ClampProjectionMatrixCallback * osg::CullSettings::getClampProjectionMatrixCallback(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::CullSettings::ClampProjectionMatrixCallback * lret = self->getClampProjectionMatrixCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1256,7 +1256,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::CullSettings::ClampProjectionMatrixCallback * osg::CullSettings::getClampProjectionMatrixCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::CullSettings::ClampProjectionMatrixCallback * osg::CullSettings::getClampProjectionMatrixCallback() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::CullSettings::ClampProjectionMatrixCallback * lret = self->getClampProjectionMatrixCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1291,7 +1291,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::write(std::ostream &)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::write(std::ostream &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->write(out);
 
@@ -1309,7 +1309,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_setDefaults(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->CullSettings::setDefaults();
 
@@ -1332,7 +1332,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings &)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->CullSettings::inheritCullSettings(settings);
 
@@ -1356,7 +1356,7 @@ public:
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->CullSettings::inheritCullSettings(settings, inheritanceMask);
 

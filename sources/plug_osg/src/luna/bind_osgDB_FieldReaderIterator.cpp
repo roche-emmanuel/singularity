@@ -453,7 +453,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::attach(std::istream *)");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::attach(std::istream *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->attach(input);
 
@@ -471,7 +471,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::detach()");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::detach(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->detach();
 
@@ -489,7 +489,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::eof() const");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::eof() const. Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->eof();
 		lua_pushboolean(L,lret?1:0);
@@ -508,7 +508,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FieldReader & osgDB::FieldReaderIterator::getFieldReader()");
+			luaL_error(L, "Invalid object in function call osgDB::FieldReader & osgDB::FieldReaderIterator::getFieldReader(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		const osgDB::FieldReader* lret = &self->getFieldReader();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -531,7 +531,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::insert(int, osgDB::Field *)");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::insert(int, osgDB::Field *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->insert(pos, field);
 
@@ -551,7 +551,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::insert(int, const char *)");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::insert(int, const char *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->insert(pos, str);
 
@@ -579,7 +579,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::Field & osgDB::FieldReaderIterator::field(int)");
+			luaL_error(L, "Invalid object in function call osgDB::Field & osgDB::FieldReaderIterator::field(int). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		const osgDB::Field* lret = &self->field(pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -600,7 +600,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::advanceOverCurrentFieldOrBlock()");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::advanceOverCurrentFieldOrBlock(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->advanceOverCurrentFieldOrBlock();
 
@@ -618,7 +618,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::advanceToEndOfCurrentBlock()");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::advanceToEndOfCurrentBlock(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->advanceToEndOfCurrentBlock();
 
@@ -637,7 +637,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::advanceToEndOfBlock(int)");
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::advanceToEndOfBlock(int). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		self->advanceToEndOfBlock(noNestBrackets);
 
@@ -656,7 +656,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::matchSequence(const char *)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::matchSequence(const char *). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->matchSequence(str);
 		lua_pushboolean(L,lret?1:0);
@@ -677,7 +677,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, std::string &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -698,7 +698,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, unsigned int &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, unsigned int &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -719,7 +719,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, int &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, int &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -740,7 +740,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, float &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, float &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -765,7 +765,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec2f &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -790,7 +790,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec3f &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -815,7 +815,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec4f &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -840,7 +840,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec2d &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec2d &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -865,7 +865,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec3d &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -890,7 +890,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec4d &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(const char *, osg::Vec4d &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
@@ -910,7 +910,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(std::string &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(std::string &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -930,7 +930,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(unsigned int &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(unsigned int &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -950,7 +950,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(int &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(int &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -970,7 +970,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(float &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(float &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -994,7 +994,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec2f &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -1018,7 +1018,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec3f &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -1042,7 +1042,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec4f &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -1066,7 +1066,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec2d &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec2d &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -1090,7 +1090,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec3d &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -1114,7 +1114,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec4d &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::readSequence(osg::Vec4d &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
@@ -1160,7 +1160,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::base_eof() const");
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::base_eof() const. Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		bool lret = self->FieldReaderIterator::eof();
 		lua_pushboolean(L,lret?1:0);
@@ -1182,7 +1182,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::Field & osgDB::FieldReaderIterator::operator[](int)");
+			luaL_error(L, "Invalid object in function call osgDB::Field & osgDB::FieldReaderIterator::operator[](int). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		const osgDB::Field* lret = &self->operator[](pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1204,7 +1204,7 @@ public:
 		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator+=(int)");
+			luaL_error(L, "Invalid object in function call osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator+=(int). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
 		}
 		const osgDB::FieldReaderIterator* lret = &self->operator+=(no);
 		if(!lret) return 0; // Do not write NULL pointers.

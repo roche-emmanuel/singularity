@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::pair< double, double >",name);
 	}
+
 };
 
 std::pair< double, double >* LunaTraits< std::pair< double, double > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::pair< double, double > >::uniqueIDs[] = {95974838,0};
 luna_RegType LunaTraits< std::pair< double, double > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_pair_double_double::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_pair_double_double::_bind___eq},
+	
 	{0,0}
 };
 

@@ -109,7 +109,7 @@ public:
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::width() const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::width() const. Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
 		}
 		int lret = self->width();
 		lua_pushnumber(L,lret);
@@ -128,7 +128,7 @@ public:
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::height() const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::height() const. Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
 		}
 		int lret = self->height();
 		lua_pushnumber(L,lret);
@@ -147,7 +147,7 @@ public:
 		osg::Camera::Attachment* self=(Luna< osg::Camera::Attachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::depth() const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::Attachment::depth() const. Got : '%s'",typeid(Luna< osg::Camera::Attachment >::check(L,1)).name());
 		}
 		int lret = self->depth();
 		lua_pushnumber(L,lret);

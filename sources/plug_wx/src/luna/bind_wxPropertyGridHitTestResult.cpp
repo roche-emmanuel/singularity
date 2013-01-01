@@ -80,7 +80,7 @@ public:
 		wxPropertyGridHitTestResult* self=(Luna< wxPropertyGridHitTestResult >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridHitTestResult::GetProperty() const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridHitTestResult::GetProperty() const. Got : '%s'",typeid(Luna< wxPropertyGridHitTestResult >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetProperty();
 		if(!lret) return 0; // Do not write NULL pointers.

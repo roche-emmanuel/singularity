@@ -132,7 +132,7 @@ public:
 		osg::CullSettings::ClampProjectionMatrixCallback* self=Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
@@ -158,7 +158,7 @@ public:
 		osg::CullSettings::ClampProjectionMatrixCallback* self=Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);

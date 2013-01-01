@@ -138,7 +138,7 @@ public:
 		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProcessEvent::GetExitCode()");
+			luaL_error(L, "Invalid object in function call int wxProcessEvent::GetExitCode(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetExitCode();
 		lua_pushnumber(L,lret);
@@ -157,7 +157,7 @@ public:
 		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProcessEvent::GetPid()");
+			luaL_error(L, "Invalid object in function call int wxProcessEvent::GetPid(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPid();
 		lua_pushnumber(L,lret);
@@ -176,7 +176,7 @@ public:
 		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxProcessEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProcessEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxProcessEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -197,7 +197,7 @@ public:
 		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxProcessEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxProcessEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxProcessEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

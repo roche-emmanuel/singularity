@@ -105,7 +105,7 @@ public:
 		wxPowerEvent* self=Luna< wxObject >::checkSubType< wxPowerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPowerEvent::Veto()");
+			luaL_error(L, "Invalid object in function call void wxPowerEvent::Veto(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Veto();
 
@@ -123,7 +123,7 @@ public:
 		wxPowerEvent* self=Luna< wxObject >::checkSubType< wxPowerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPowerEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPowerEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPowerEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -144,7 +144,7 @@ public:
 		wxPowerEvent* self=Luna< wxObject >::checkSubType< wxPowerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxPowerEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPowerEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxPowerEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

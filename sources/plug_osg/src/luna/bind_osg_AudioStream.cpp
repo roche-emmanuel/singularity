@@ -261,7 +261,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AudioStream::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::AudioStream::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -280,7 +280,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -299,7 +299,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -319,7 +319,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioStream::setAudioSink(osg::AudioSink *)");
+			luaL_error(L, "Invalid object in function call void osg::AudioStream::setAudioSink(osg::AudioSink *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAudioSink(audio_sink);
 
@@ -339,7 +339,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioStream::consumeAudioBuffer(void *const, const size_t)");
+			luaL_error(L, "Invalid object in function call void osg::AudioStream::consumeAudioBuffer(void *const, const size_t). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->consumeAudioBuffer(buffer, size);
 
@@ -357,7 +357,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::AudioStream::audioFrequency() const");
+			luaL_error(L, "Invalid object in function call int osg::AudioStream::audioFrequency() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->audioFrequency();
 		lua_pushnumber(L,lret);
@@ -376,7 +376,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::AudioStream::audioNbChannels() const");
+			luaL_error(L, "Invalid object in function call int osg::AudioStream::audioNbChannels() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->audioNbChannels();
 		lua_pushnumber(L,lret);
@@ -395,7 +395,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AudioStream::SampleFormat osg::AudioStream::audioSampleFormat() const");
+			luaL_error(L, "Invalid object in function call osg::AudioStream::SampleFormat osg::AudioStream::audioSampleFormat() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AudioStream::SampleFormat lret = self->audioSampleFormat();
 		lua_pushnumber(L,lret);
@@ -415,7 +415,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioStream::setName(name);
 
@@ -433,7 +433,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioStream::computeDataVariance();
 
@@ -452,7 +452,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioStream::setUserData(obj);
 
@@ -470,7 +470,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AudioStream::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AudioStream::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->AudioStream::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -491,7 +491,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AudioStream::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AudioStream::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->AudioStream::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -524,7 +524,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::AudioStream::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioStream::releaseGLObjects(_arg1);
 
@@ -543,7 +543,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AudioStream::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::AudioStream::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->AudioStream::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -562,7 +562,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->AudioStream::libraryName();
 		lua_pushstring(L,lret);
@@ -581,7 +581,7 @@ public:
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioStream::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->AudioStream::className();
 		lua_pushstring(L,lret);

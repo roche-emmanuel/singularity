@@ -316,7 +316,7 @@ public:
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TexEnvCombine::public_needsTexEnvCombiner(int) const");
+			luaL_error(L, "Invalid object in function call bool osg::TexEnvCombine::public_needsTexEnvCombiner(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_needsTexEnvCombiner(value);
 		lua_pushboolean(L,lret?1:0);
@@ -335,7 +335,7 @@ public:
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners()");
+			luaL_error(L, "Invalid object in function call void osg::TexEnvCombine::public_computeNeedForTexEnvCombiners(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeNeedForTexEnvCombiners();
 
@@ -354,7 +354,7 @@ public:
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(object);
 
@@ -373,7 +373,7 @@ public:
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(object);
 
@@ -393,7 +393,7 @@ public:
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -411,7 +411,7 @@ public:
 		wrapper_osg_TexEnvCombine* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_TexEnvCombine >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

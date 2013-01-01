@@ -979,7 +979,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::Create(wxWindow *, int, const wxFont &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::Create(wxWindow *, int, const wxFont &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, font, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -998,7 +998,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxFontPickerCtrl::GetMaxPointSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxFontPickerCtrl::GetMaxPointSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetMaxPointSize();
 		lua_pushnumber(L,lret);
@@ -1017,7 +1017,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxFontPickerCtrl::GetSelectedFont() const");
+			luaL_error(L, "Invalid object in function call wxFont wxFontPickerCtrl::GetSelectedFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxFont stack_lret = self->GetSelectedFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -1040,7 +1040,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::SetMaxPointSize(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::SetMaxPointSize(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMaxPointSize(max);
 
@@ -1063,7 +1063,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::SetSelectedFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::SetSelectedFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelectedFont(font);
 
@@ -1081,7 +1081,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFontPickerCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFontPickerCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFontPickerCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1102,7 +1102,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1121,7 +1121,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1140,7 +1140,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1159,7 +1159,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1179,7 +1179,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetCanFocus(canFocus);
 
@@ -1197,7 +1197,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetFocus();
 
@@ -1215,7 +1215,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetFocusFromKbd();
 
@@ -1234,7 +1234,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::AddChild(child);
 
@@ -1253,7 +1253,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::RemoveChild(child);
 
@@ -1272,7 +1272,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1295,7 +1295,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1314,7 +1314,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFontPickerCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1334,7 +1334,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFontPickerCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1354,7 +1354,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFontPickerCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1374,7 +1374,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1394,7 +1394,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1414,7 +1414,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1438,7 +1438,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::ScrollWindow(dx, dy, rect);
 
@@ -1461,7 +1461,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -1486,7 +1486,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1509,7 +1509,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1536,7 +1536,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1558,7 +1558,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::Fit();
 
@@ -1576,7 +1576,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::FitInside();
 
@@ -1594,7 +1594,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1616,7 +1616,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1638,7 +1638,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1660,7 +1660,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1682,7 +1682,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1704,7 +1704,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1726,7 +1726,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFontPickerCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFontPickerCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1751,7 +1751,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1773,7 +1773,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SendSizeEvent(flags);
 
@@ -1796,7 +1796,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetMaxClientSize(size);
 
@@ -1819,7 +1819,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetMaxSize(size);
 
@@ -1842,7 +1842,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetMinClientSize(size);
 
@@ -1865,7 +1865,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetMinSize(size);
 
@@ -1900,7 +1900,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1926,7 +1926,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1953,7 +1953,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxFontPickerCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxFontPickerCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxFontPickerCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1975,7 +1975,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::ClearBackground();
 
@@ -1993,7 +1993,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxFontPickerCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxFontPickerCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxFontPickerCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2012,7 +2012,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFontPickerCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2031,7 +2031,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxFontPickerCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFontPickerCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2050,7 +2050,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxFontPickerCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxFontPickerCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxFontPickerCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2076,7 +2076,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::Refresh(eraseBackground, rect);
 
@@ -2094,7 +2094,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::Update();
 
@@ -2113,7 +2113,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2137,7 +2137,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2156,7 +2156,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2176,7 +2176,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetThemeEnabled(enable);
 
@@ -2194,7 +2194,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2213,7 +2213,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2233,7 +2233,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2253,7 +2253,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetNextHandler(handler);
 
@@ -2272,7 +2272,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetPreviousHandler(handler);
 
@@ -2290,7 +2290,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFontPickerCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxFontPickerCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxFontPickerCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2310,7 +2310,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetExtraStyle(exStyle);
 
@@ -2329,7 +2329,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetWindowStyleFlag(style);
 
@@ -2347,7 +2347,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::Lower();
 
@@ -2365,7 +2365,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::Raise();
 
@@ -2387,7 +2387,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2406,7 +2406,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2425,7 +2425,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2447,7 +2447,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2469,7 +2469,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2492,7 +2492,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2517,7 +2517,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFontPickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxFontPickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFontPickerCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2536,7 +2536,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxFontPickerCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxFontPickerCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxFontPickerCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2562,7 +2562,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetValidator(validator);
 
@@ -2580,7 +2580,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2599,7 +2599,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2618,7 +2618,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2637,7 +2637,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxFontPickerCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxFontPickerCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxFontPickerCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2656,7 +2656,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFontPickerCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFontPickerCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFontPickerCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2676,7 +2676,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetLayoutDirection(dir);
 
@@ -2695,7 +2695,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetName(name);
 
@@ -2718,7 +2718,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetAcceleratorTable(accel);
 
@@ -2736,7 +2736,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2755,7 +2755,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxFontPickerCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxFontPickerCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxFontPickerCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2777,7 +2777,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetDropTarget(target);
 
@@ -2796,7 +2796,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::DragAcceptFiles(accept);
 
@@ -2814,7 +2814,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2833,7 +2833,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2857,7 +2857,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2878,7 +2878,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::WarpPointer(x, y);
 
@@ -2901,7 +2901,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::DoUpdateWindowUI(event);
 
@@ -2919,7 +2919,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2938,7 +2938,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::InheritAttributes();
 
@@ -2956,7 +2956,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::InitDialog();
 
@@ -2974,7 +2974,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2993,7 +2993,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3015,7 +3015,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::MakeModal(modal);
 
@@ -3033,7 +3033,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::OnInternalIdle();
 
@@ -3054,7 +3054,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3074,7 +3074,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxFontPickerCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFontPickerCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3096,7 +3096,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::UpdateWindowUI(flags);
 
@@ -3119,7 +3119,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::Command(event);
 
@@ -3137,7 +3137,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFontPickerCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxFontPickerCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFontPickerCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3157,7 +3157,7 @@ public:
 		wxFontPickerCtrl* self=Luna< wxObject >::checkSubType< wxFontPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFontPickerCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFontPickerCtrl::SetLabel(label);
 

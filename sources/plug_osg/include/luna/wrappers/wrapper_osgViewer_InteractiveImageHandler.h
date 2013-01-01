@@ -288,7 +288,7 @@ public:
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View *, osg::NodeVisitor *, const osgGA::GUIEventAdapter &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_mousePosition(osgViewer::View *, osg::NodeVisitor *, const osgGA::GUIEventAdapter &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_mousePosition(view, nv, ea, x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -323,7 +323,7 @@ public:
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View *, float, float, const osg::NodePath &, osgUtil::LineSegmentIntersector::Intersections &, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View *, float, float, const osg::NodePath &, osgUtil::LineSegmentIntersector::Intersections &, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_computeIntersections(view, x, y, nodePath, intersections, traversalMask);
 		lua_pushboolean(L,lret?1:0);
@@ -344,7 +344,7 @@ public:
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::public_resize(int, int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::public_resize(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_resize(width, height);
 
@@ -364,7 +364,7 @@ public:
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -382,7 +382,7 @@ public:
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

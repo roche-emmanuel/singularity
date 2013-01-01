@@ -151,7 +151,7 @@ public:
 		wxPGChoiceEntry* self=Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoiceEntry::SetValue(int)");
+			luaL_error(L, "Invalid object in function call void wxPGChoiceEntry::SetValue(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(value);
 
@@ -169,7 +169,7 @@ public:
 		wxPGChoiceEntry* self=Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPGChoiceEntry::GetValue() const");
+			luaL_error(L, "Invalid object in function call int wxPGChoiceEntry::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -188,7 +188,7 @@ public:
 		wxPGChoiceEntry* self=Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGChoiceEntry::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGChoiceEntry::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPGChoiceEntry::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

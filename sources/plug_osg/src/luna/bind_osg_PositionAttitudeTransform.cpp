@@ -547,7 +547,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -573,7 +573,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -595,7 +595,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -614,7 +614,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -633,7 +633,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -657,7 +657,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -675,7 +675,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::asPositionAttitudeTransform()");
+			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::asPositionAttitudeTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PositionAttitudeTransform * lret = self->asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -696,7 +696,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::asPositionAttitudeTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::asPositionAttitudeTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::PositionAttitudeTransform * lret = self->asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -731,7 +731,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setPosition(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setPosition(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPosition(pos);
 
@@ -749,7 +749,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::PositionAttitudeTransform::getPosition() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::PositionAttitudeTransform::getPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -775,7 +775,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setAttitude(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setAttitude(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAttitude(quat);
 
@@ -793,7 +793,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::PositionAttitudeTransform::getAttitude() const");
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::PositionAttitudeTransform::getAttitude() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->getAttitude();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -819,7 +819,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setScale(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setScale(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setScale(scale);
 
@@ -837,7 +837,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::PositionAttitudeTransform::getScale() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::PositionAttitudeTransform::getScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getScale();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -863,7 +863,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setPivotPoint(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::setPivotPoint(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPivotPoint(pivot);
 
@@ -881,7 +881,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::PositionAttitudeTransform::getPivotPoint() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::PositionAttitudeTransform::getPivotPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getPivotPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -908,7 +908,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->computeLocalToWorldMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -933,7 +933,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->computeWorldToLocalMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -953,7 +953,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::setName(name);
 
@@ -971,7 +971,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::computeDataVariance();
 
@@ -990,7 +990,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::setUserData(obj);
 
@@ -1008,7 +1008,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PositionAttitudeTransform::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PositionAttitudeTransform::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PositionAttitudeTransform::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1029,7 +1029,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PositionAttitudeTransform::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PositionAttitudeTransform::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PositionAttitudeTransform::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1059,7 +1059,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::PositionAttitudeTransform::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::PositionAttitudeTransform::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->PositionAttitudeTransform::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1080,7 +1080,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::PositionAttitudeTransform::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::PositionAttitudeTransform::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->PositionAttitudeTransform::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1110,7 +1110,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::PositionAttitudeTransform::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::PositionAttitudeTransform::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->PositionAttitudeTransform::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1131,7 +1131,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::PositionAttitudeTransform::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::PositionAttitudeTransform::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->PositionAttitudeTransform::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1166,7 +1166,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::ascend(nv);
 
@@ -1184,7 +1184,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::PositionAttitudeTransform::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::PositionAttitudeTransform::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->PositionAttitudeTransform::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1205,7 +1205,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::PositionAttitudeTransform::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::PositionAttitudeTransform::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->PositionAttitudeTransform::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1240,7 +1240,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::traverse(_arg1);
 
@@ -1259,7 +1259,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1280,7 +1280,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1301,7 +1301,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1322,7 +1322,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1343,7 +1343,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1365,7 +1365,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::releaseGLObjects(_arg1);
 
@@ -1383,7 +1383,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::PositionAttitudeTransform::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::PositionAttitudeTransform::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->PositionAttitudeTransform::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1404,7 +1404,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::PositionAttitudeTransform::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::PositionAttitudeTransform::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->PositionAttitudeTransform::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1434,7 +1434,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::MatrixTransform * osg::PositionAttitudeTransform::base_asMatrixTransform()");
+			luaL_error(L, "Invalid object in function call osg::MatrixTransform * osg::PositionAttitudeTransform::base_asMatrixTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::MatrixTransform * lret = self->PositionAttitudeTransform::asMatrixTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1455,7 +1455,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::MatrixTransform * osg::PositionAttitudeTransform::base_asMatrixTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::MatrixTransform * osg::PositionAttitudeTransform::base_asMatrixTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::MatrixTransform * lret = self->PositionAttitudeTransform::asMatrixTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1485,7 +1485,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::PositionAttitudeTransform::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::PositionAttitudeTransform::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->PositionAttitudeTransform::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1507,7 +1507,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PositionAttitudeTransform::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1533,7 +1533,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PositionAttitudeTransform::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PositionAttitudeTransform::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1555,7 +1555,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1574,7 +1574,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PositionAttitudeTransform::className();
 		lua_pushstring(L,lret);
@@ -1593,7 +1593,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PositionAttitudeTransform::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PositionAttitudeTransform::libraryName();
 		lua_pushstring(L,lret);
@@ -1617,7 +1617,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PositionAttitudeTransform::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PositionAttitudeTransform::accept(nv);
 
@@ -1635,7 +1635,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::base_asPositionAttitudeTransform()");
+			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::base_asPositionAttitudeTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PositionAttitudeTransform * lret = self->PositionAttitudeTransform::asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1656,7 +1656,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::base_asPositionAttitudeTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::PositionAttitudeTransform::base_asPositionAttitudeTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::PositionAttitudeTransform * lret = self->PositionAttitudeTransform::asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1692,7 +1692,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::computeLocalToWorldMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);
@@ -1717,7 +1717,7 @@ public:
 		osg::PositionAttitudeTransform* self=Luna< osg::Referenced >::checkSubType< osg::PositionAttitudeTransform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PositionAttitudeTransform::base_computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PositionAttitudeTransform::computeWorldToLocalMatrix(matrix, nv);
 		lua_pushboolean(L,lret?1:0);

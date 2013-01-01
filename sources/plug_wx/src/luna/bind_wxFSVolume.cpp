@@ -185,7 +185,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFSVolume::Create(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFSVolume::Create(const wxString &). Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		bool lret = self->Create(name);
 		lua_pushboolean(L,lret?1:0);
@@ -204,7 +204,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsOk() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -223,7 +223,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFSVolumeKind wxFSVolume::GetKind() const");
+			luaL_error(L, "Invalid object in function call wxFSVolumeKind wxFSVolume::GetKind() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		wxFSVolumeKind lret = self->GetKind();
 		lua_pushnumber(L,lret);
@@ -242,7 +242,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFSVolume::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxFSVolume::GetFlags() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -261,7 +261,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsWritable() const");
+			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsWritable() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		bool lret = self->IsWritable();
 		lua_pushboolean(L,lret?1:0);
@@ -280,7 +280,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetName() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -299,7 +299,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetDisplayName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetDisplayName() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		wxString lret = self->GetDisplayName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -319,7 +319,7 @@ public:
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxFSVolume::GetIcon(wxFSIconType) const");
+			luaL_error(L, "Invalid object in function call wxIcon wxFSVolume::GetIcon(wxFSIconType) const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
 		}
 		wxIcon stack_lret = self->GetIcon(type);
 		wxIcon* lret = new wxIcon(stack_lret);

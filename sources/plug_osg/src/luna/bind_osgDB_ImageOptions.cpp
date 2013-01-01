@@ -353,7 +353,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,7 +379,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -401,7 +401,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ImageOptions::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ImageOptions::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -420,7 +420,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -439,7 +439,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -458,7 +458,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::init()");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::init(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init();
 
@@ -477,7 +477,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ImageOptions::setName(name);
 
@@ -495,7 +495,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ImageOptions::computeDataVariance();
 
@@ -514,7 +514,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ImageOptions::setUserData(obj);
 
@@ -532,7 +532,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::ImageOptions::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::ImageOptions::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ImageOptions::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -553,7 +553,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::ImageOptions::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::ImageOptions::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ImageOptions::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -586,7 +586,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ImageOptions::releaseGLObjects(_arg1);
 
@@ -604,7 +604,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ImageOptions::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -630,7 +630,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ImageOptions::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ImageOptions::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -652,7 +652,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ImageOptions::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ImageOptions::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ImageOptions::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -671,7 +671,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ImageOptions::libraryName();
 		lua_pushstring(L,lret);
@@ -690,7 +690,7 @@ public:
 		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ImageOptions::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ImageOptions::className();
 		lua_pushstring(L,lret);

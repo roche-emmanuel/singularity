@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >",name);
 	}
+
 };
 
 std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >* LunaTraits< std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< osg::Camera::BufferComponent, osg::Camera::Attac
 luna_RegType LunaTraits< std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_osg_Camera_BufferComponent_osg_Camera_Attachment::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_osg_Camera_BufferComponent_osg_Camera_Attachment::_bind___eq},
+	
 	{0,0}
 };
 

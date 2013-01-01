@@ -193,7 +193,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -212,7 +212,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setPointParametersSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setPointParametersSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPointParametersSupported(flag);
 
@@ -230,7 +230,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Point::Extensions::isPointParametersSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Point::Extensions::isPointParametersSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isPointParametersSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -250,7 +250,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setPointSpriteCoordOriginSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setPointSpriteCoordOriginSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPointSpriteCoordOriginSupported(flag);
 
@@ -268,7 +268,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Point::Extensions::isPointSpriteCoordOriginSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Point::Extensions::isPointSpriteCoordOriginSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isPointSpriteCoordOriginSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -289,7 +289,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameteri(unsigned int, int) const");
+			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameteri(unsigned int, int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glPointParameteri(pname, param);
 
@@ -309,7 +309,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterf(unsigned int, float) const");
+			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterf(unsigned int, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glPointParameterf(pname, param);
 
@@ -329,7 +329,7 @@ public:
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterfv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterfv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glPointParameterfv(pname, &params);
 

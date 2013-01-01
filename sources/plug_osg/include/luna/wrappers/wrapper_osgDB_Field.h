@@ -79,7 +79,7 @@ public:
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__init()");
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__init(). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
 		}
 		self->public__init();
 
@@ -97,7 +97,7 @@ public:
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__free()");
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__free(). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
 		}
 		self->public__free();
 
@@ -120,7 +120,7 @@ public:
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__copy(const osgDB::Field &)");
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__copy(const osgDB::Field &). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
 		}
 		self->public__copy(ic);
 

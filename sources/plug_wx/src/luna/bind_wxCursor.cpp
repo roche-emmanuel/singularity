@@ -351,7 +351,7 @@ public:
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCursor::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxCursor::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -370,7 +370,7 @@ public:
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCursor::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCursor::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCursor::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -391,7 +391,7 @@ public:
 		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCursor::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxCursor::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCursor::IsOk();
 		lua_pushboolean(L,lret?1:0);

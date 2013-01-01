@@ -563,7 +563,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDragImage::BeginDrag(const wxPoint &, wxWindow *, bool, wxRect *)");
+			luaL_error(L, "Invalid object in function call bool wxDragImage::BeginDrag(const wxPoint &, wxWindow *, bool, wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->BeginDrag(hotspot, window, fullScreen, rect);
 		lua_pushboolean(L,lret?1:0);
@@ -589,7 +589,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDragImage::BeginDrag(const wxPoint &, wxWindow *, wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxDragImage::BeginDrag(const wxPoint &, wxWindow *, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->BeginDrag(hotspot, window, boundingWindow);
 		lua_pushboolean(L,lret?1:0);
@@ -617,7 +617,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDragImage::EndDrag()");
+			luaL_error(L, "Invalid object in function call bool wxDragImage::EndDrag(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->EndDrag();
 		lua_pushboolean(L,lret?1:0);
@@ -636,7 +636,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDragImage::Hide()");
+			luaL_error(L, "Invalid object in function call bool wxDragImage::Hide(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Hide();
 		lua_pushboolean(L,lret?1:0);
@@ -660,7 +660,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDragImage::Move(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxDragImage::Move(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Move(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -679,7 +679,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDragImage::Show()");
+			luaL_error(L, "Invalid object in function call bool wxDragImage::Show(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Show();
 		lua_pushboolean(L,lret?1:0);
@@ -698,7 +698,7 @@ public:
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDragImage::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDragImage::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDragImage::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

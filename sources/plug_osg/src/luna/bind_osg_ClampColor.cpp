@@ -495,7 +495,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -521,7 +521,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -543,7 +543,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClampColor::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ClampColor::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -562,7 +562,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -581,7 +581,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -600,7 +600,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClampColor::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClampColor::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -624,7 +624,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ClampColor::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ClampColor::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -644,7 +644,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::setClampVertexColor(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::setClampVertexColor(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClampVertexColor(mode);
 
@@ -662,7 +662,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::getClampVertexColor() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::getClampVertexColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getClampVertexColor();
 		lua_pushnumber(L,lret);
@@ -682,7 +682,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::setClampFragmentColor(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::setClampFragmentColor(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClampFragmentColor(mode);
 
@@ -700,7 +700,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::getClampFragmentColor() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::getClampFragmentColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getClampFragmentColor();
 		lua_pushnumber(L,lret);
@@ -720,7 +720,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::setClampReadColor(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::setClampReadColor(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClampReadColor(mode);
 
@@ -738,7 +738,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::getClampReadColor() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::getClampReadColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getClampReadColor();
 		lua_pushnumber(L,lret);
@@ -762,7 +762,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -814,7 +814,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClampColor::setName(name);
 
@@ -832,7 +832,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClampColor::computeDataVariance();
 
@@ -851,7 +851,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClampColor::setUserData(obj);
 
@@ -869,7 +869,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClampColor::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClampColor::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ClampColor::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -890,7 +890,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClampColor::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClampColor::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ClampColor::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -920,7 +920,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ClampColor::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ClampColor::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->ClampColor::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -941,7 +941,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ClampColor::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ClampColor::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->ClampColor::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -971,7 +971,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClampColor::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->ClampColor::getMember();
 		lua_pushnumber(L,lret);
@@ -990,7 +990,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClampColor::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1014,7 +1014,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClampColor::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1038,7 +1038,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClampColor::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1062,7 +1062,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClampColor::compileGLObjects(_arg1);
 
@@ -1083,7 +1083,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClampColor::releaseGLObjects(_arg1);
 
@@ -1101,7 +1101,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ClampColor::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1127,7 +1127,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClampColor::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ClampColor::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1149,7 +1149,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ClampColor::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClampColor::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1168,7 +1168,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ClampColor::libraryName();
 		lua_pushstring(L,lret);
@@ -1187,7 +1187,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClampColor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ClampColor::className();
 		lua_pushstring(L,lret);
@@ -1206,7 +1206,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClampColor::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ClampColor::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->ClampColor::getType();
 		lua_pushnumber(L,lret);
@@ -1230,7 +1230,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ClampColor::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ClampColor::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->ClampColor::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1254,7 +1254,7 @@ public:
 		osg::ClampColor* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClampColor::apply(_arg1);
 

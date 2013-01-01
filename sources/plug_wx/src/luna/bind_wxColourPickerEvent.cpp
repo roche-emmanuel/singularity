@@ -140,7 +140,7 @@ public:
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColourPickerEvent::GetColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxColourPickerEvent::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -167,7 +167,7 @@ public:
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerEvent::SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerEvent::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(pos);
 
@@ -185,7 +185,7 @@ public:
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxColourPickerEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -206,7 +206,7 @@ public:
 		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxColourPickerEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxColourPickerEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxColourPickerEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

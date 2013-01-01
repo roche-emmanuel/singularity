@@ -336,7 +336,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setKeyEventTakeScreenShot(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setKeyEventTakeScreenShot(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventTakeScreenShot(key);
 
@@ -354,7 +354,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::ScreenCaptureHandler::getKeyEventTakeScreenShot() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::ScreenCaptureHandler::getKeyEventTakeScreenShot() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventTakeScreenShot();
 		lua_pushnumber(L,lret);
@@ -374,7 +374,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setKeyEventToggleContinuousCapture(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setKeyEventToggleContinuousCapture(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventToggleContinuousCapture(key);
 
@@ -392,7 +392,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::ScreenCaptureHandler::getKeyEventToggleContinuousCapture() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::ScreenCaptureHandler::getKeyEventToggleContinuousCapture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventToggleContinuousCapture();
 		lua_pushnumber(L,lret);
@@ -412,7 +412,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setCaptureOperation(osgViewer::ScreenCaptureHandler::CaptureOperation *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setCaptureOperation(osgViewer::ScreenCaptureHandler::CaptureOperation *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCaptureOperation(operation);
 
@@ -430,7 +430,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::CaptureOperation * osgViewer::ScreenCaptureHandler::getCaptureOperation() const");
+			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::CaptureOperation * osgViewer::ScreenCaptureHandler::getCaptureOperation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgViewer::ScreenCaptureHandler::CaptureOperation * lret = self->getCaptureOperation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -461,7 +461,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -485,7 +485,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::captureNextFrame(osgViewer::ViewerBase &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::captureNextFrame(osgViewer::ViewerBase &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->captureNextFrame(viewer);
 
@@ -504,7 +504,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setFramesToCapture(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::setFramesToCapture(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFramesToCapture(numFrames);
 
@@ -522,7 +522,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::ScreenCaptureHandler::getFramesToCapture() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::ScreenCaptureHandler::getFramesToCapture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getFramesToCapture();
 		lua_pushnumber(L,lret);
@@ -541,7 +541,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::startCapture()");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::startCapture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->startCapture();
 
@@ -559,7 +559,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::stopCapture()");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::stopCapture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->stopCapture();
 
@@ -582,7 +582,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -601,7 +601,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::setName(name);
 
@@ -619,7 +619,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::computeDataVariance();
 
@@ -638,7 +638,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::setUserData(obj);
 
@@ -656,7 +656,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::ScreenCaptureHandler::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::ScreenCaptureHandler::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ScreenCaptureHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,7 +677,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::ScreenCaptureHandler::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::ScreenCaptureHandler::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ScreenCaptureHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -710,7 +710,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::releaseGLObjects(_arg1);
 
@@ -728,7 +728,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ScreenCaptureHandler::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ScreenCaptureHandler::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ScreenCaptureHandler::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -754,7 +754,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ScreenCaptureHandler::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ScreenCaptureHandler::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ScreenCaptureHandler::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -776,7 +776,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::ScreenCaptureHandler::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::ScreenCaptureHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ScreenCaptureHandler::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -795,7 +795,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::ScreenCaptureHandler::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::ScreenCaptureHandler::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ScreenCaptureHandler::libraryName();
 		lua_pushstring(L,lret);
@@ -814,7 +814,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::ScreenCaptureHandler::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::ScreenCaptureHandler::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ScreenCaptureHandler::className();
 		lua_pushstring(L,lret);
@@ -835,7 +835,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::event(nv, drawable);
 
@@ -863,7 +863,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::ScreenCaptureHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::ScreenCaptureHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ScreenCaptureHandler::handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -887,7 +887,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_captureNextFrame(osgViewer::ViewerBase &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_captureNextFrame(osgViewer::ViewerBase &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::captureNextFrame(viewer);
 
@@ -910,7 +910,7 @@ public:
 		osgViewer::ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ScreenCaptureHandler::getUsage(usage);
 

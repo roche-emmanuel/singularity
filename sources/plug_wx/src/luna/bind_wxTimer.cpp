@@ -306,7 +306,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimer::GetId() const");
+			luaL_error(L, "Invalid object in function call int wxTimer::GetId() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetId();
 		lua_pushnumber(L,lret);
@@ -325,7 +325,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimer::GetInterval() const");
+			luaL_error(L, "Invalid object in function call int wxTimer::GetInterval() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetInterval();
 		lua_pushnumber(L,lret);
@@ -344,7 +344,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvtHandler * wxTimer::GetOwner() const");
+			luaL_error(L, "Invalid object in function call wxEvtHandler * wxTimer::GetOwner() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEvtHandler * lret = self->GetOwner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -365,7 +365,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimer::IsOneShot() const");
+			luaL_error(L, "Invalid object in function call bool wxTimer::IsOneShot() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOneShot();
 		lua_pushboolean(L,lret?1:0);
@@ -384,7 +384,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimer::IsRunning() const");
+			luaL_error(L, "Invalid object in function call bool wxTimer::IsRunning() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsRunning();
 		lua_pushboolean(L,lret?1:0);
@@ -403,7 +403,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::Notify()");
+			luaL_error(L, "Invalid object in function call void wxTimer::Notify(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Notify();
 
@@ -425,7 +425,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::SetOwner(wxEvtHandler *, int)");
+			luaL_error(L, "Invalid object in function call void wxTimer::SetOwner(wxEvtHandler *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetOwner(owner, id);
 
@@ -447,7 +447,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimer::Start(int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxTimer::Start(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Start(milliseconds, oneShot);
 		lua_pushboolean(L,lret?1:0);
@@ -466,7 +466,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::Stop()");
+			luaL_error(L, "Invalid object in function call void wxTimer::Stop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Stop();
 
@@ -484,7 +484,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTimer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTimer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTimer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -506,7 +506,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxTimer::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimer::QueueEvent(event);
 
@@ -529,7 +529,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxTimer::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimer::AddPendingEvent(event);
 
@@ -552,7 +552,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimer::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxTimer::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimer::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -572,7 +572,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTimer::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimer::SetNextHandler(handler);
 
@@ -591,7 +591,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTimer::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimer::SetPreviousHandler(handler);
 
@@ -609,7 +609,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::base_Notify()");
+			luaL_error(L, "Invalid object in function call void wxTimer::base_Notify(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimer::Notify();
 
@@ -631,7 +631,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimer::base_Start(int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxTimer::base_Start(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimer::Start(milliseconds, oneShot);
 		lua_pushboolean(L,lret?1:0);
@@ -650,7 +650,7 @@ public:
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimer::base_Stop()");
+			luaL_error(L, "Invalid object in function call void wxTimer::base_Stop(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimer::Stop();
 

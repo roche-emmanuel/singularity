@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::pair< osg::ref_ptr< osg::Uniform >, unsigned int >",name);
 	}
+
 };
 
 std::pair< osg::ref_ptr< osg::Uniform >, unsigned int >* LunaTraits< std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > >:
 luna_RegType LunaTraits< std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_pair_osg_ref_ptr_osg_Uniform_unsigned_int::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_pair_osg_ref_ptr_osg_Uniform_unsigned_int::_bind___eq},
+	
 	{0,0}
 };
 

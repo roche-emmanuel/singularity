@@ -189,7 +189,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataObject::GetAllFormats(wxDataFormat *, wxDataObject::Direction) const");
+			luaL_error(L, "Invalid object in function call void wxDataObject::GetAllFormats(wxDataFormat *, wxDataObject::Direction) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->GetAllFormats(formats, dir);
 
@@ -213,7 +213,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObject::GetDataHere(const wxDataFormat &, void *) const");
+			luaL_error(L, "Invalid object in function call bool wxDataObject::GetDataHere(const wxDataFormat &, void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDataHere(format, buf);
 		lua_pushboolean(L,lret?1:0);
@@ -237,7 +237,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDataObject::GetDataSize(const wxDataFormat &) const");
+			luaL_error(L, "Invalid object in function call size_t wxDataObject::GetDataSize(const wxDataFormat &) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetDataSize(format);
 		lua_pushnumber(L,lret);
@@ -259,7 +259,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDataObject::GetFormatCount(wxDataObject::Direction) const");
+			luaL_error(L, "Invalid object in function call size_t wxDataObject::GetFormatCount(wxDataObject::Direction) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetFormatCount(dir);
 		lua_pushnumber(L,lret);
@@ -281,7 +281,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataFormat wxDataObject::GetPreferredFormat(wxDataObject::Direction) const");
+			luaL_error(L, "Invalid object in function call wxDataFormat wxDataObject::GetPreferredFormat(wxDataObject::Direction) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		wxDataFormat stack_lret = self->GetPreferredFormat(dir);
 		wxDataFormat* lret = new wxDataFormat(stack_lret);
@@ -310,7 +310,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObject::SetData(const wxDataFormat &, size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxDataObject::SetData(const wxDataFormat &, size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->SetData(format, len, buf);
 		lua_pushboolean(L,lret?1:0);
@@ -337,7 +337,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObject::IsSupported(const wxDataFormat &, wxDataObject::Direction) const");
+			luaL_error(L, "Invalid object in function call bool wxDataObject::IsSupported(const wxDataFormat &, wxDataObject::Direction) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSupported(format, dir);
 		lua_pushboolean(L,lret?1:0);
@@ -363,7 +363,7 @@ public:
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObject::base_SetData(const wxDataFormat &, size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxDataObject::base_SetData(const wxDataFormat &, size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataObject::SetData(format, len, buf);
 		lua_pushboolean(L,lret?1:0);

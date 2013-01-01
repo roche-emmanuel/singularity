@@ -217,7 +217,7 @@ public:
 		wxRearrangeCtrl* self=(Luna< wxRearrangeCtrl >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRearrangeCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxRearrangeCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxRearrangeCtrl >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, pos, size, order, items, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -236,7 +236,7 @@ public:
 		wxRearrangeCtrl* self=(Luna< wxRearrangeCtrl >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRearrangeList * wxRearrangeCtrl::GetList() const");
+			luaL_error(L, "Invalid object in function call wxRearrangeList * wxRearrangeCtrl::GetList() const. Got : '%s'",typeid(Luna< wxRearrangeCtrl >::check(L,1)).name());
 		}
 		wxRearrangeList * lret = self->GetList();
 		if(!lret) return 0; // Do not write NULL pointers.

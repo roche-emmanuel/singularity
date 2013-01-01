@@ -239,7 +239,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataViewColumn::GetModelColumn() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxDataViewColumn::GetModelColumn() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetModelColumn();
 		lua_pushnumber(L,lret);
@@ -258,7 +258,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCtrl * wxDataViewColumn::GetOwner() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCtrl * wxDataViewColumn::GetOwner() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxDataViewCtrl * lret = self->GetOwner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -279,7 +279,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewRenderer * wxDataViewColumn::GetRenderer() const");
+			luaL_error(L, "Invalid object in function call wxDataViewRenderer * wxDataViewColumn::GetRenderer() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxDataViewRenderer * lret = self->GetRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -300,7 +300,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsResizeable() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsResizeable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewColumn::IsResizeable();
 		lua_pushboolean(L,lret?1:0);
@@ -319,7 +319,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsSortable() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsSortable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewColumn::IsSortable();
 		lua_pushboolean(L,lret?1:0);
@@ -338,7 +338,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsReorderable() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsReorderable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewColumn::IsReorderable();
 		lua_pushboolean(L,lret?1:0);
@@ -357,7 +357,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsHidden() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewColumn::base_IsHidden() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewColumn::IsHidden();
 		lua_pushboolean(L,lret?1:0);
@@ -377,7 +377,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetResizeable(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetResizeable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxDataViewColumn::SetResizeable(resizable);
 
@@ -396,7 +396,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetSortable(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetSortable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxDataViewColumn::SetSortable(sortable);
 
@@ -415,7 +415,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetReorderable(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetReorderable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxDataViewColumn::SetReorderable(reorderable);
 
@@ -434,7 +434,7 @@ public:
 		wxDataViewColumn* self=Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetHidden(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewColumn::base_SetHidden(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxDataViewColumn::SetHidden(hidden);
 

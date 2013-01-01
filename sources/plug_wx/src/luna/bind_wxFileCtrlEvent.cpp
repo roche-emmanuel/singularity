@@ -168,7 +168,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileCtrlEvent::GetDirectory() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileCtrlEvent::GetDirectory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDirectory();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -187,7 +187,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileCtrlEvent::GetFile() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileCtrlEvent::GetFile() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetFile();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -206,7 +206,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString wxFileCtrlEvent::GetFiles() const");
+			luaL_error(L, "Invalid object in function call wxArrayString wxFileCtrlEvent::GetFiles() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxArrayString stack_lret = self->GetFiles();
 		wxArrayString* lret = new wxArrayString(stack_lret);
@@ -228,7 +228,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileCtrlEvent::GetFilterIndex() const");
+			luaL_error(L, "Invalid object in function call int wxFileCtrlEvent::GetFilterIndex() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFilterIndex();
 		lua_pushnumber(L,lret);
@@ -252,7 +252,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetFiles(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetFiles(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFiles(files);
 
@@ -271,7 +271,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetDirectory(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetDirectory(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDirectory(directory);
 
@@ -290,7 +290,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetFilterIndex(int)");
+			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetFilterIndex(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFilterIndex(index);
 
@@ -308,7 +308,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileCtrlEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileCtrlEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFileCtrlEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -329,7 +329,7 @@ public:
 		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxFileCtrlEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFileCtrlEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxFileCtrlEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

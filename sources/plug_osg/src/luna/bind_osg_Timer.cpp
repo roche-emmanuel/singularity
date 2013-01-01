@@ -185,7 +185,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call __int64 osg::Timer::tick() const");
+			luaL_error(L, "Invalid object in function call __int64 osg::Timer::tick() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		__int64 stack_lret = self->tick();
 		__int64* lret = new __int64(stack_lret);
@@ -207,7 +207,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick()");
+			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(). Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		self->setStartTick();
 
@@ -230,7 +230,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(__int64)");
+			luaL_error(L, "Invalid object in function call void osg::Timer::setStartTick(__int64). Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		self->setStartTick(t);
 
@@ -257,7 +257,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call __int64 osg::Timer::getStartTick() const");
+			luaL_error(L, "Invalid object in function call __int64 osg::Timer::getStartTick() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		__int64 stack_lret = self->getStartTick();
 		__int64* lret = new __int64(stack_lret);
@@ -279,7 +279,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_s() const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_s() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->time_s();
 		lua_pushnumber(L,lret);
@@ -298,7 +298,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_m() const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_m() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->time_m();
 		lua_pushnumber(L,lret);
@@ -317,7 +317,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_u() const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_u() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->time_u();
 		lua_pushnumber(L,lret);
@@ -336,7 +336,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::time_n() const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::time_n() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->time_n();
 		lua_pushnumber(L,lret);
@@ -365,7 +365,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_s(__int64, __int64) const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_s(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->delta_s(t1, t2);
 		lua_pushnumber(L,lret);
@@ -394,7 +394,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_m(__int64, __int64) const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_m(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->delta_m(t1, t2);
 		lua_pushnumber(L,lret);
@@ -423,7 +423,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_u(__int64, __int64) const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_u(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->delta_u(t1, t2);
 		lua_pushnumber(L,lret);
@@ -452,7 +452,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::delta_n(__int64, __int64) const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::delta_n(__int64, __int64) const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->delta_n(t1, t2);
 		lua_pushnumber(L,lret);
@@ -471,7 +471,7 @@ public:
 		osg::Timer* self=(Luna< osg::Timer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Timer::getSecondsPerTick() const");
+			luaL_error(L, "Invalid object in function call double osg::Timer::getSecondsPerTick() const. Got : '%s'",typeid(Luna< osg::Timer >::check(L,1)).name());
 		}
 		double lret = self->getSecondsPerTick();
 		lua_pushnumber(L,lret);

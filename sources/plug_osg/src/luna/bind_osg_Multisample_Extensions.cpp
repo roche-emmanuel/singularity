@@ -177,7 +177,7 @@ public:
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -196,7 +196,7 @@ public:
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMultisampleSupported(flag);
 
@@ -215,7 +215,7 @@ public:
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::setMultisampleFilterHintSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMultisampleFilterHintSupported(flag);
 
@@ -233,7 +233,7 @@ public:
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isMultisampleSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -252,7 +252,7 @@ public:
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Multisample::Extensions::isMultisampleFilterHintSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isMultisampleFilterHintSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -273,7 +273,7 @@ public:
 		osg::Multisample::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Multisample::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::glSampleCoverage(float, unsigned char) const");
+			luaL_error(L, "Invalid object in function call void osg::Multisample::Extensions::glSampleCoverage(float, unsigned char) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glSampleCoverage(value, invert);
 

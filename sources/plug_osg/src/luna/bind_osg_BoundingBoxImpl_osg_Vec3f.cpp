@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::BoundingBoxImpl< osg::Vec3f >",name);
 	}
+
 };
 
 osg::BoundingBoxImpl< osg::Vec3f >* LunaTraits< osg::BoundingBoxImpl< osg::Vec3f > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::BoundingBoxImpl< osg::Vec3f > >::uniqueIDs[] = {41229
 luna_RegType LunaTraits< osg::BoundingBoxImpl< osg::Vec3f > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_BoundingBoxImpl_osg_Vec3f::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_BoundingBoxImpl_osg_Vec3f::_bind___eq},
+	
 	{0,0}
 };
 

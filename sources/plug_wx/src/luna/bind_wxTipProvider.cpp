@@ -132,7 +132,7 @@ public:
 		wxTipProvider* self=(Luna< wxTipProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTipProvider::GetCurrentTip() const");
+			luaL_error(L, "Invalid object in function call size_t wxTipProvider::GetCurrentTip() const. Got : '%s'",typeid(Luna< wxTipProvider >::check(L,1)).name());
 		}
 		size_t lret = self->GetCurrentTip();
 		lua_pushnumber(L,lret);
@@ -151,7 +151,7 @@ public:
 		wxTipProvider* self=(Luna< wxTipProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTipProvider::GetTip()");
+			luaL_error(L, "Invalid object in function call wxString wxTipProvider::GetTip(). Got : '%s'",typeid(Luna< wxTipProvider >::check(L,1)).name());
 		}
 		wxString lret = self->GetTip();
 		lua_pushlstring(L,lret.data(),lret.size());

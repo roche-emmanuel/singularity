@@ -132,7 +132,7 @@ public:
 		wxGridHeaderLabelsRenderer* self=Luna< wxGridCornerHeaderRenderer >::checkSubType< wxGridHeaderLabelsRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid &, wxDC &, const wxString &, const wxRect &, int, int, int) const");
+			luaL_error(L, "Invalid object in function call void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid &, wxDC &, const wxString &, const wxRect &, int, int, int) const. Got : '%s'",typeid(Luna< wxGridCornerHeaderRenderer >::check(L,1)).name());
 		}
 		self->DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
 
@@ -169,7 +169,7 @@ public:
 		wxGridHeaderLabelsRenderer* self=Luna< wxGridCornerHeaderRenderer >::checkSubType< wxGridHeaderLabelsRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridHeaderLabelsRenderer::base_DrawLabel(const wxGrid &, wxDC &, const wxString &, const wxRect &, int, int, int) const");
+			luaL_error(L, "Invalid object in function call void wxGridHeaderLabelsRenderer::base_DrawLabel(const wxGrid &, wxDC &, const wxString &, const wxRect &, int, int, int) const. Got : '%s'",typeid(Luna< wxGridCornerHeaderRenderer >::check(L,1)).name());
 		}
 		self->wxGridHeaderLabelsRenderer::DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
 

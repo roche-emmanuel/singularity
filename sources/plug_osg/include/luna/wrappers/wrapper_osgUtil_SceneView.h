@@ -384,7 +384,7 @@ public:
 		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_computeLeftEyeViewport(const osg::Viewport *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_computeLeftEyeViewport(const osg::Viewport *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeLeftEyeViewport(viewport);
 
@@ -403,7 +403,7 @@ public:
 		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_computeRightEyeViewport(const osg::Viewport *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_computeRightEyeViewport(const osg::Viewport *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeRightEyeViewport(viewport);
 
@@ -421,7 +421,7 @@ public:
 		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Matrixd osgUtil::SceneView::public_computeMVPW() const");
+			luaL_error(L, "Invalid object in function call const osg::Matrixd osgUtil::SceneView::public_computeMVPW() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd stack_lret = self->public_computeMVPW();
 		const osg::Matrixd* lret = new const osg::Matrixd(stack_lret);
@@ -452,7 +452,7 @@ public:
 		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_clearArea(int, int, int, int, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::public_clearArea(int, int, int, int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_clearArea(x, y, width, height, color);
 
@@ -472,7 +472,7 @@ public:
 		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -490,7 +490,7 @@ public:
 		wrapper_osgUtil_SceneView* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_SceneView >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

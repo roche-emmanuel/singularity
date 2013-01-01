@@ -675,7 +675,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -701,7 +701,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -723,7 +723,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::NodeTrackerManipulator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::NodeTrackerManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -742,7 +742,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -761,7 +761,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -785,7 +785,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackNodePath(const osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackNodePath(const osg::NodePath &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackNodePath(nodePath);
 
@@ -808,7 +808,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackNodePath(const osg::ObserverNodePath &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackNodePath(const osg::ObserverNodePath &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackNodePath(nodePath);
 
@@ -835,7 +835,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ObserverNodePath & osgGA::NodeTrackerManipulator::getTrackNodePath()");
+			luaL_error(L, "Invalid object in function call osg::ObserverNodePath & osgGA::NodeTrackerManipulator::getTrackNodePath(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ObserverNodePath* lret = &self->getTrackNodePath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -857,7 +857,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackNode(node);
 
@@ -875,7 +875,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::NodeTrackerManipulator::getTrackNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::NodeTrackerManipulator::getTrackNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getTrackNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -896,7 +896,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::NodeTrackerManipulator::getTrackNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::NodeTrackerManipulator::getTrackNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->getTrackNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -927,7 +927,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackerMode(osgGA::NodeTrackerManipulator::TrackerMode)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setTrackerMode(osgGA::NodeTrackerManipulator::TrackerMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackerMode(mode);
 
@@ -945,7 +945,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::NodeTrackerManipulator::TrackerMode osgGA::NodeTrackerManipulator::getTrackerMode() const");
+			luaL_error(L, "Invalid object in function call osgGA::NodeTrackerManipulator::TrackerMode osgGA::NodeTrackerManipulator::getTrackerMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgGA::NodeTrackerManipulator::TrackerMode lret = self->getTrackerMode();
 		lua_pushnumber(L,lret);
@@ -965,7 +965,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setRotationMode(osgGA::NodeTrackerManipulator::RotationMode)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setRotationMode(osgGA::NodeTrackerManipulator::RotationMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRotationMode(mode);
 
@@ -983,7 +983,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::NodeTrackerManipulator::RotationMode osgGA::NodeTrackerManipulator::getRotationMode() const");
+			luaL_error(L, "Invalid object in function call osgGA::NodeTrackerManipulator::RotationMode osgGA::NodeTrackerManipulator::getRotationMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgGA::NodeTrackerManipulator::RotationMode lret = self->getRotationMode();
 		lua_pushnumber(L,lret);
@@ -1007,7 +1007,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByMatrix(matrix);
 
@@ -1025,7 +1025,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1047,7 +1047,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1070,7 +1070,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNode(_arg1);
 
@@ -1088,7 +1088,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::computeHomePosition()");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::computeHomePosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->computeHomePosition();
 
@@ -1107,7 +1107,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setName(name);
 
@@ -1125,7 +1125,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::computeDataVariance();
 
@@ -1144,7 +1144,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setUserData(obj);
 
@@ -1162,7 +1162,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::NodeTrackerManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::NodeTrackerManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->NodeTrackerManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1183,7 +1183,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::NodeTrackerManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::NodeTrackerManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->NodeTrackerManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1216,7 +1216,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::releaseGLObjects(_arg1);
 
@@ -1236,7 +1236,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::event(nv, drawable);
 
@@ -1255,7 +1255,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setCoordinateFrameCallback(cb);
 
@@ -1291,7 +1291,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1324,7 +1324,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::getHomePosition(eye, center, up);
 
@@ -1343,7 +1343,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setAutoComputeHomePosition(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setAutoComputeHomePosition(flag);
 
@@ -1361,7 +1361,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::NodeTrackerManipulator::base_getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::NodeTrackerManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->NodeTrackerManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1382,7 +1382,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::NodeTrackerManipulator::base_getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::NodeTrackerManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->NodeTrackerManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1413,7 +1413,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setVerticalAxisFixed(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setVerticalAxisFixed(value);
 
@@ -1432,7 +1432,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setAllowThrow(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setAllowThrow(allowThrow);
 
@@ -1451,7 +1451,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setAnimationTime(const double)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setAnimationTime(t);
 
@@ -1469,7 +1469,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_finishAnimation()");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::finishAnimation();
 
@@ -1497,7 +1497,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::home(_arg1, _arg2);
 
@@ -1516,7 +1516,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::home(_arg1);
 
@@ -1553,7 +1553,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::init(_arg1, _arg2);
 
@@ -1581,7 +1581,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::NodeTrackerManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::NodeTrackerManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->NodeTrackerManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1605,7 +1605,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::getUsage(_arg1);
 
@@ -1628,7 +1628,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setByInverseMatrix(matrix);
 
@@ -1656,7 +1656,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setTransformation(eye, rotation);
 
@@ -1689,7 +1689,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setTransformation(eye, center, up);
 
@@ -1726,7 +1726,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::getTransformation(eye, rotation);
 
@@ -1759,7 +1759,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::getTransformation(eye, center, up);
 
@@ -1791,7 +1791,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setCenter(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setCenter(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setCenter(center);
 
@@ -1814,7 +1814,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setRotation(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setRotation(rotation);
 
@@ -1833,7 +1833,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setDistance(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setDistance(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setDistance(distance);
 
@@ -1852,7 +1852,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setTrackballSize(const double &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setTrackballSize(const double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setTrackballSize(size);
 
@@ -1871,7 +1871,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setWheelZoomFactor(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setWheelZoomFactor(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setWheelZoomFactor(wheelZoomFactor);
 
@@ -1893,7 +1893,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setMinimumDistance(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setMinimumDistance(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setMinimumDistance(minimumDistance, relativeToModelSize);
 
@@ -1911,7 +1911,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::NodeTrackerManipulator::base_getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::NodeTrackerManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->NodeTrackerManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1930,7 +1930,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::NodeTrackerManipulator::base_getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::NodeTrackerManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->NodeTrackerManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1949,7 +1949,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->NodeTrackerManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1975,7 +1975,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::NodeTrackerManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->NodeTrackerManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1997,7 +1997,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::NodeTrackerManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::NodeTrackerManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->NodeTrackerManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2016,7 +2016,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->NodeTrackerManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -2035,7 +2035,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::NodeTrackerManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->NodeTrackerManipulator::className();
 		lua_pushstring(L,lret);
@@ -2059,7 +2059,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setByMatrix(matrix);
 
@@ -2077,7 +2077,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::base_getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->NodeTrackerManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -2099,7 +2099,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::base_getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::NodeTrackerManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->NodeTrackerManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -2122,7 +2122,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::setNode(_arg1);
 
@@ -2140,7 +2140,7 @@ public:
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_computeHomePosition()");
+			luaL_error(L, "Invalid object in function call void osgGA::NodeTrackerManipulator::base_computeHomePosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerManipulator::computeHomePosition();
 

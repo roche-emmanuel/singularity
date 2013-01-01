@@ -157,7 +157,7 @@ public:
 		wxDataViewChoiceRenderer* self=Luna< wxObject >::checkSubType< wxDataViewChoiceRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewChoiceRenderer::GetChoice(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewChoiceRenderer::GetChoice(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetChoice(index);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -176,7 +176,7 @@ public:
 		wxDataViewChoiceRenderer* self=Luna< wxObject >::checkSubType< wxDataViewChoiceRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxArrayString & wxDataViewChoiceRenderer::GetChoices() const");
+			luaL_error(L, "Invalid object in function call const wxArrayString & wxDataViewChoiceRenderer::GetChoices() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxArrayString* lret = &self->GetChoices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -197,7 +197,7 @@ public:
 		wxDataViewChoiceRenderer* self=Luna< wxObject >::checkSubType< wxDataViewChoiceRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewChoiceRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewChoiceRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewChoiceRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -218,7 +218,7 @@ public:
 		wxDataViewChoiceRenderer* self=Luna< wxObject >::checkSubType< wxDataViewChoiceRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewChoiceRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewChoiceRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewChoiceRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -237,7 +237,7 @@ public:
 		wxDataViewChoiceRenderer* self=Luna< wxObject >::checkSubType< wxDataViewChoiceRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewChoiceRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewChoiceRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewChoiceRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -257,7 +257,7 @@ public:
 		wxDataViewChoiceRenderer* self=Luna< wxObject >::checkSubType< wxDataViewChoiceRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewChoiceRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewChoiceRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewChoiceRenderer::SetAlignment(align);
 

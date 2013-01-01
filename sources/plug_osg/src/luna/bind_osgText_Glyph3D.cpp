@@ -276,7 +276,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Glyph3D::getFont()");
+			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Glyph3D::getFont(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgText::Font * lret = self->getFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,7 +297,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Font * osgText::Glyph3D::getFont() const");
+			luaL_error(L, "Invalid object in function call const osgText::Font * osgText::Glyph3D::getFont() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgText::Font * lret = self->getFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -327,7 +327,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::Glyph3D::getGlyphCode() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgText::Glyph3D::getGlyphCode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getGlyphCode();
 		lua_pushnumber(L,lret);
@@ -347,7 +347,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setWidth(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setWidth(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWidth(width);
 
@@ -365,7 +365,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getWidth() const");
+			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getWidth();
 		lua_pushnumber(L,lret);
@@ -385,7 +385,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHeight(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHeight(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setHeight(height);
 
@@ -403,7 +403,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getHeight() const");
+			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getHeight();
 		lua_pushnumber(L,lret);
@@ -427,7 +427,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHorizontalBearing(const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHorizontalBearing(const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setHorizontalBearing(bearing);
 
@@ -445,7 +445,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec2f & osgText::Glyph3D::getHorizontalBearing() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec2f & osgText::Glyph3D::getHorizontalBearing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec2f* lret = &self->getHorizontalBearing();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -467,7 +467,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHorizontalAdvance(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHorizontalAdvance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setHorizontalAdvance(advance);
 
@@ -485,7 +485,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getHorizontalAdvance() const");
+			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getHorizontalAdvance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getHorizontalAdvance();
 		lua_pushnumber(L,lret);
@@ -509,7 +509,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setVerticalBearing(const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setVerticalBearing(const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVerticalBearing(bearing);
 
@@ -527,7 +527,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec2f & osgText::Glyph3D::getVerticalBearing() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec2f & osgText::Glyph3D::getVerticalBearing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec2f* lret = &self->getVerticalBearing();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -549,7 +549,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setVerticalAdvance(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setVerticalAdvance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVerticalAdvance(advance);
 
@@ -567,7 +567,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getVerticalAdvance() const");
+			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getVerticalAdvance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getVerticalAdvance();
 		lua_pushnumber(L,lret);
@@ -591,7 +591,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd &)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBoundingBox(bb);
 
@@ -609,7 +609,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const");
+			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::BoundingBoxd* lret = &self->getBoundingBox();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -631,7 +631,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setRawVertexArray(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setRawVertexArray(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRawVertexArray(vertices);
 
@@ -649,7 +649,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::Glyph3D::getRawVertexArray()");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::Glyph3D::getRawVertexArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getRawVertexArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -670,7 +670,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgText::Glyph3D::getRawVertexArray() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgText::Glyph3D::getRawVertexArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3Array * lret = self->getRawVertexArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -701,7 +701,7 @@ public:
 		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::GlyphGeometry * osgText::Glyph3D::getGlyphGeometry(const osgText::Style *)");
+			luaL_error(L, "Invalid object in function call osgText::GlyphGeometry * osgText::Glyph3D::getGlyphGeometry(const osgText::Style *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgText::GlyphGeometry * lret = self->getGlyphGeometry(style);
 		if(!lret) return 0; // Do not write NULL pointers.

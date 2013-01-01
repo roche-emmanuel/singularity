@@ -105,7 +105,7 @@ public:
 		SPK::Oriented2DRendererInterface* self=(Luna< SPK::Oriented2DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented2DRendererInterface::setOrientation(SPK::Orientation2D)");
+			luaL_error(L, "Invalid object in function call void SPK::Oriented2DRendererInterface::setOrientation(SPK::Orientation2D). Got : '%s'",typeid(Luna< SPK::Oriented2DRendererInterface >::check(L,1)).name());
 		}
 		self->setOrientation(orientation);
 
@@ -123,7 +123,7 @@ public:
 		SPK::Oriented2DRendererInterface* self=(Luna< SPK::Oriented2DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Orientation2D SPK::Oriented2DRendererInterface::getOrientation() const");
+			luaL_error(L, "Invalid object in function call SPK::Orientation2D SPK::Oriented2DRendererInterface::getOrientation() const. Got : '%s'",typeid(Luna< SPK::Oriented2DRendererInterface >::check(L,1)).name());
 		}
 		SPK::Orientation2D lret = self->getOrientation();
 		lua_pushnumber(L,lret);

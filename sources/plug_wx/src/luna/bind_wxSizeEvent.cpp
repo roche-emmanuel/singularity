@@ -154,7 +154,7 @@ public:
 		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSizeEvent::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSizeEvent::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -181,7 +181,7 @@ public:
 		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSizeEvent::SetSize(wxSize)");
+			luaL_error(L, "Invalid object in function call void wxSizeEvent::SetSize(wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSize(size);
 
@@ -199,7 +199,7 @@ public:
 		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxSizeEvent::GetRect() const");
+			luaL_error(L, "Invalid object in function call wxRect wxSizeEvent::GetRect() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetRect();
 		wxRect* lret = new wxRect(stack_lret);
@@ -226,7 +226,7 @@ public:
 		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSizeEvent::SetRect(wxRect)");
+			luaL_error(L, "Invalid object in function call void wxSizeEvent::SetRect(wxRect). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRect(rect);
 
@@ -244,7 +244,7 @@ public:
 		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizeEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizeEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSizeEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -265,7 +265,7 @@ public:
 		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxSizeEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSizeEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxSizeEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

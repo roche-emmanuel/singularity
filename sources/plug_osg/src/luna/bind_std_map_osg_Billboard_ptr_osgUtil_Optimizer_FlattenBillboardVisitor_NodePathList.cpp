@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< osg::Billboard *, osgUtil::Optimizer::FlattenBillboardVisitor::NodePathList >",name);
 	}
+
 };
 
 std::map< osg::Billboard *, osgUtil::Optimizer::FlattenBillboardVisitor::NodePathList >* LunaTraits< std::map< osg::Billboard *, osgUtil::Optimizer::FlattenBillboardVisitor::NodePathList > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< osg::Billboard *, osgUtil::Optimizer::FlattenBil
 luna_RegType LunaTraits< std::map< osg::Billboard *, osgUtil::Optimizer::FlattenBillboardVisitor::NodePathList > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_osg_Billboard_ptr_osgUtil_Optimizer_FlattenBillboardVisitor_NodePathList::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_osg_Billboard_ptr_osgUtil_Optimizer_FlattenBillboardVisitor_NodePathList::_bind___eq},
+	
 	{0,0}
 };
 

@@ -349,7 +349,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -397,7 +397,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::NodeCallback::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::NodeCallback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -416,7 +416,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -435,7 +435,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -456,7 +456,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::traverse(osg::Node *, osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::traverse(osg::Node *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->traverse(node, nv);
 
@@ -475,7 +475,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::setNestedCallback(osg::NodeCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::setNestedCallback(osg::NodeCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNestedCallback(nc);
 
@@ -493,7 +493,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::NodeCallback * osg::NodeCallback::getNestedCallback()");
+			luaL_error(L, "Invalid object in function call osg::NodeCallback * osg::NodeCallback::getNestedCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::NodeCallback * lret = self->getNestedCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -514,7 +514,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::NodeCallback * osg::NodeCallback::getNestedCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::NodeCallback * osg::NodeCallback::getNestedCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::NodeCallback * lret = self->getNestedCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -545,7 +545,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::addNestedCallback(osg::NodeCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::addNestedCallback(osg::NodeCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addNestedCallback(nc);
 
@@ -564,7 +564,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::removeNestedCallback(osg::NodeCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::removeNestedCallback(osg::NodeCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeNestedCallback(nc);
 
@@ -583,7 +583,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeCallback::setName(name);
 
@@ -601,7 +601,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeCallback::computeDataVariance();
 
@@ -620,7 +620,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeCallback::setUserData(obj);
 
@@ -638,7 +638,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::NodeCallback::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::NodeCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->NodeCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -659,7 +659,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::NodeCallback::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::NodeCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->NodeCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -692,7 +692,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeCallback::releaseGLObjects(_arg1);
 
@@ -710,7 +710,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->NodeCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -736,7 +736,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->NodeCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -758,7 +758,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::NodeCallback::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::NodeCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->NodeCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -777,7 +777,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->NodeCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -796,7 +796,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::NodeCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->NodeCallback::className();
 		lua_pushstring(L,lret);
@@ -819,7 +819,7 @@ public:
 		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::operator()(osg::Node *, osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeCallback::operator()(osg::Node *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(node, nv);
 

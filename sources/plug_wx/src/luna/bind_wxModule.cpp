@@ -123,7 +123,7 @@ public:
 		wxModule* self=Luna< wxObject >::checkSubType< wxModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxModule::OnExit()");
+			luaL_error(L, "Invalid object in function call void wxModule::OnExit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnExit();
 
@@ -141,7 +141,7 @@ public:
 		wxModule* self=Luna< wxObject >::checkSubType< wxModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxModule::OnInit()");
+			luaL_error(L, "Invalid object in function call bool wxModule::OnInit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnInit();
 		lua_pushboolean(L,lret?1:0);
@@ -160,7 +160,7 @@ public:
 		wxModule* self=Luna< wxObject >::checkSubType< wxModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxModule::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxModule::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxModule::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

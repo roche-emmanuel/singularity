@@ -128,7 +128,7 @@ public:
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation, SPK::UpOrientation, SPK::LockedAxis)");
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation, SPK::UpOrientation, SPK::LockedAxis). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
 		}
 		self->setOrientation(lookOrientation, upOrientation, lockedAxis);
 
@@ -147,7 +147,7 @@ public:
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset)");
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
 		}
 		self->setOrientation(orientation);
 
@@ -174,7 +174,7 @@ public:
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const");
+			luaL_error(L, "Invalid object in function call SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
 		}
 		SPK::LookOrientation lret = self->getLookOrientation();
 		lua_pushnumber(L,lret);
@@ -193,7 +193,7 @@ public:
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const");
+			luaL_error(L, "Invalid object in function call SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
 		}
 		SPK::UpOrientation lret = self->getUpOrientation();
 		lua_pushnumber(L,lret);
@@ -212,7 +212,7 @@ public:
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const");
+			luaL_error(L, "Invalid object in function call SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
 		}
 		SPK::LockedAxis lret = self->getLockedAxis();
 		lua_pushnumber(L,lret);

@@ -531,7 +531,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeInternalFormatWithImage(const osg::Image &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeInternalFormatWithImage(const osg::Image &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeInternalFormatWithImage(image);
 
@@ -562,7 +562,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeRequiredTextureDimensions(osg::State &, const osg::Image &, int &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeRequiredTextureDimensions(osg::State &, const osg::Image &, int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 
@@ -580,7 +580,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeInternalFormatType() const");
+			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeInternalFormatType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeInternalFormatType();
 
@@ -604,7 +604,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_applyTexParameters(unsigned int, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture::public_applyTexParameters(unsigned int, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_applyTexParameters(target, state);
 
@@ -627,7 +627,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture::public_isHardwareMipmapGenerationEnabled(const osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture::public_isHardwareMipmapGenerationEnabled(const osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_isHardwareMipmapGenerationEnabled(state);
 		lua_pushboolean(L,lret?1:0);
@@ -651,7 +651,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture::public_isSafeToUnrefImageData(const osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture::public_isSafeToUnrefImageData(const osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_isSafeToUnrefImageData(state);
 		lua_pushboolean(L,lret?1:0);
@@ -676,7 +676,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture::GenerateMipmapMode osg::Texture::public_mipmapBeforeTexImage(const osg::State &, bool) const");
+			luaL_error(L, "Invalid object in function call osg::Texture::GenerateMipmapMode osg::Texture::public_mipmapBeforeTexImage(const osg::State &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture::GenerateMipmapMode lret = self->public_mipmapBeforeTexImage(state, hardwareMipmapOn);
 		lua_pushnumber(L,lret);
@@ -701,7 +701,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_mipmapAfterTexImage(osg::State &, osg::Texture::GenerateMipmapMode) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture::public_mipmapAfterTexImage(osg::State &, osg::Texture::GenerateMipmapMode) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_mipmapAfterTexImage(state, beforeResult);
 
@@ -724,7 +724,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_generateMipmap(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture::public_generateMipmap(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_generateMipmap(state);
 
@@ -747,7 +747,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture::public_compareTexture(const osg::Texture &) const");
+			luaL_error(L, "Invalid object in function call int osg::Texture::public_compareTexture(const osg::Texture &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->public_compareTexture(rhs);
 		lua_pushnumber(L,lret);
@@ -771,7 +771,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture::public_compareTextureObjects(const osg::Texture &) const");
+			luaL_error(L, "Invalid object in function call int osg::Texture::public_compareTextureObjects(const osg::Texture &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->public_compareTextureObjects(rhs);
 		lua_pushnumber(L,lret);
@@ -791,7 +791,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(object);
 
@@ -810,7 +810,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(object);
 
@@ -830,7 +830,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -848,7 +848,7 @@ public:
 		wrapper_osg_Texture2DMultisample* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture2DMultisample >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

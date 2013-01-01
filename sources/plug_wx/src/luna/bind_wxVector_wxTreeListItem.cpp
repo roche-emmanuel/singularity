@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"wxVector< wxTreeListItem >",name);
 	}
+
 };
 
 wxVector< wxTreeListItem >* LunaTraits< wxVector< wxTreeListItem > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< wxVector< wxTreeListItem > >::uniqueIDs[] = {5676023,0};
 luna_RegType LunaTraits< wxVector< wxTreeListItem > >::methods[] = {
 	{"dynCast", &luna_wrapper_wxVector_wxTreeListItem::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxVector_wxTreeListItem::_bind___eq},
+	
 	{0,0}
 };
 

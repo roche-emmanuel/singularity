@@ -242,7 +242,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::GetFirst(wxString *, const wxString &, int) const");
+			luaL_error(L, "Invalid object in function call bool wxDir::GetFirst(wxString *, const wxString &, int) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		bool lret = self->GetFirst(&filename, filespec, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -261,7 +261,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDir::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDir::GetName() const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -281,7 +281,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::GetNext(wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxDir::GetNext(wxString *) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		bool lret = self->GetNext(&filename);
 		lua_pushboolean(L,lret?1:0);
@@ -303,7 +303,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::HasFiles(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxDir::HasFiles(const wxString &) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		bool lret = self->HasFiles(filespec);
 		lua_pushboolean(L,lret?1:0);
@@ -325,7 +325,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::HasSubDirs(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxDir::HasSubDirs(const wxString &) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		bool lret = self->HasSubDirs(dirspec);
 		lua_pushboolean(L,lret?1:0);
@@ -344,7 +344,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::IsOpened() const");
+			luaL_error(L, "Invalid object in function call bool wxDir::IsOpened() const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		bool lret = self->IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -364,7 +364,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDir::Open(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDir::Open(const wxString &). Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		bool lret = self->Open(dir);
 		lua_pushboolean(L,lret?1:0);
@@ -392,7 +392,7 @@ public:
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDir::Traverse(wxDirTraverser &, const wxString &, int) const");
+			luaL_error(L, "Invalid object in function call size_t wxDir::Traverse(wxDirTraverser &, const wxString &, int) const. Got : '%s'",typeid(Luna< wxDir >::check(L,1)).name());
 		}
 		size_t lret = self->Traverse(sink, filespec, flags);
 		lua_pushnumber(L,lret);

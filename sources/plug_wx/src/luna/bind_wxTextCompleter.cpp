@@ -114,7 +114,7 @@ public:
 		wxTextCompleter* self=(Luna< wxTextCompleter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextCompleter::Start(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTextCompleter::Start(const wxString &). Got : '%s'",typeid(Luna< wxTextCompleter >::check(L,1)).name());
 		}
 		bool lret = self->Start(prefix);
 		lua_pushboolean(L,lret?1:0);
@@ -133,7 +133,7 @@ public:
 		wxTextCompleter* self=(Luna< wxTextCompleter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextCompleter::GetNext()");
+			luaL_error(L, "Invalid object in function call wxString wxTextCompleter::GetNext(). Got : '%s'",typeid(Luna< wxTextCompleter >::check(L,1)).name());
 		}
 		wxString lret = self->GetNext();
 		lua_pushlstring(L,lret.data(),lret.size());

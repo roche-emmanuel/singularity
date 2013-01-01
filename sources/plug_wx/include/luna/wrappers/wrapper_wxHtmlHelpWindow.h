@@ -1164,7 +1164,7 @@ public:
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_CreateSearch();
 
@@ -1182,7 +1182,7 @@ public:
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_CreateContents();
 
@@ -1200,7 +1200,7 @@ public:
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_CreateIndex();
 

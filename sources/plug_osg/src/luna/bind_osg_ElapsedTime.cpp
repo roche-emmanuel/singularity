@@ -167,7 +167,7 @@ public:
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::reset()");
+			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::reset(). Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -185,7 +185,7 @@ public:
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime() const");
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
 		}
 		double lret = self->elapsedTime();
 		lua_pushnumber(L,lret);
@@ -204,7 +204,7 @@ public:
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_m() const");
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_m() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
 		}
 		double lret = self->elapsedTime_m();
 		lua_pushnumber(L,lret);
@@ -223,7 +223,7 @@ public:
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_u() const");
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_u() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
 		}
 		double lret = self->elapsedTime_u();
 		lua_pushnumber(L,lret);
@@ -242,7 +242,7 @@ public:
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_n() const");
+			luaL_error(L, "Invalid object in function call double osg::ElapsedTime::elapsedTime_n() const. Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
 		}
 		double lret = self->elapsedTime_n();
 		lua_pushnumber(L,lret);
@@ -261,7 +261,7 @@ public:
 		osg::ElapsedTime* self=(Luna< osg::ElapsedTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::finish()");
+			luaL_error(L, "Invalid object in function call void osg::ElapsedTime::finish(). Got : '%s'",typeid(Luna< osg::ElapsedTime >::check(L,1)).name());
 		}
 		self->finish();
 

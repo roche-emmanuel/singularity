@@ -91,7 +91,7 @@ public:
 		wrapper_SPK_BufferHandler* self=Luna< SPK::BufferHandler >::checkSubType< wrapper_SPK_BufferHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
 		}
 		bool lret = self->public_prepareBuffers(group);
 		lua_pushboolean(L,lret?1:0);

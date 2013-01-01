@@ -372,7 +372,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransform(const float *)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransform(const float *). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransform(&transform);
 
@@ -391,7 +391,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformNC(const float *)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformNC(const float *). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformNC(&transform);
 
@@ -414,7 +414,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformPosition(pos);
 
@@ -442,7 +442,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationRH(SPK::Vector3D, SPK::Vector3D)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationRH(SPK::Vector3D, SPK::Vector3D). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformOrientationRH(look, up);
 
@@ -470,7 +470,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationLH(SPK::Vector3D, SPK::Vector3D)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationLH(SPK::Vector3D, SPK::Vector3D). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformOrientationLH(look, up);
 
@@ -494,7 +494,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientation(SPK::Vector3D, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientation(SPK::Vector3D, float). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformOrientation(axis, angle);
 
@@ -513,7 +513,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationX(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationX(float). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformOrientationX(angle);
 
@@ -532,7 +532,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationY(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationY(float). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformOrientationY(angle);
 
@@ -551,7 +551,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationZ(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformOrientationZ(float). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->setTransformOrientationZ(angle);
 
@@ -569,7 +569,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float * SPK::Transformable::getLocalTransform() const");
+			luaL_error(L, "Invalid object in function call const float * SPK::Transformable::getLocalTransform() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		const float * lret = self->getLocalTransform();
 		lua_pushnumber(L,*lret);
@@ -588,7 +588,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float * SPK::Transformable::getWorldTransform() const");
+			luaL_error(L, "Invalid object in function call const float * SPK::Transformable::getWorldTransform() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		const float * lret = self->getWorldTransform();
 		lua_pushnumber(L,*lret);
@@ -607,7 +607,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Transformable::isLocalIdentity() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Transformable::isLocalIdentity() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		bool lret = self->isLocalIdentity();
 		lua_pushboolean(L,lret?1:0);
@@ -626,7 +626,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformPos() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformPos() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getLocalTransformPos();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -648,7 +648,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformSide() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformSide() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getLocalTransformSide();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -670,7 +670,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformUp() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformUp() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getLocalTransformUp();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -692,7 +692,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformLookRH() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformLookRH() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getLocalTransformLookRH();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -714,7 +714,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformLookLH() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getLocalTransformLookLH() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getLocalTransformLookLH();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -736,7 +736,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformPos() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformPos() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getWorldTransformPos();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -758,7 +758,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformSide() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformSide() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getWorldTransformSide();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -780,7 +780,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformUp() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformUp() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getWorldTransformUp();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -802,7 +802,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformLookRH() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformLookRH() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getWorldTransformLookRH();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -824,7 +824,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformLookLH() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Transformable::getWorldTransformLookLH() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->getWorldTransformLookLH();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -861,7 +861,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::lookAtRH(const SPK::Vector3D &, SPK::Vector3D, const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::lookAtRH(const SPK::Vector3D &, SPK::Vector3D, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->lookAtRH(target, up, pos);
 
@@ -894,7 +894,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::lookAtLH(const SPK::Vector3D &, SPK::Vector3D, const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::lookAtLH(const SPK::Vector3D &, SPK::Vector3D, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->lookAtLH(target, up, pos);
 
@@ -915,7 +915,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::updateTransform(const SPK::Transformable *)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::updateTransform(const SPK::Transformable *). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->updateTransform(parent);
 
@@ -933,7 +933,7 @@ public:
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::resetTransform()");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::resetTransform(). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->resetTransform();
 

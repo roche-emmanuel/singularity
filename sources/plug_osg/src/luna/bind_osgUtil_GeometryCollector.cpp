@@ -221,7 +221,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -244,7 +244,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -262,7 +262,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList()");
+			luaL_error(L, "Invalid object in function call osgUtil::GeometryCollector::GeometryList & osgUtil::GeometryCollector::getGeometryList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgUtil::GeometryCollector::GeometryList* lret = &self->getGeometryList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -283,7 +283,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->GeometryCollector::libraryName();
 		lua_pushstring(L,lret);
@@ -302,7 +302,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GeometryCollector::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->GeometryCollector::className();
 		lua_pushstring(L,lret);
@@ -321,7 +321,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->GeometryCollector::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -343,7 +343,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GeometryCollector::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->GeometryCollector::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -371,7 +371,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->GeometryCollector::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -396,7 +396,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->GeometryCollector::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -421,7 +421,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::GeometryCollector::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->GeometryCollector::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GeometryCollector::reset();
 
@@ -463,7 +463,7 @@ public:
 		osgUtil::GeometryCollector* self=Luna< osg::Referenced >::checkSubType< osgUtil::GeometryCollector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GeometryCollector::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GeometryCollector::apply(geode);
 

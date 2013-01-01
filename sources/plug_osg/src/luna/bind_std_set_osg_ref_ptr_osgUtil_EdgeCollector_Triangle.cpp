@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >",name);
 	}
+
 };
 
 std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >
 luna_RegType LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_set_osg_ref_ptr_osgUtil_EdgeCollector_Triangle::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_set_osg_ref_ptr_osgUtil_EdgeCollector_Triangle::_bind___eq},
+	
 	{0,0}
 };
 

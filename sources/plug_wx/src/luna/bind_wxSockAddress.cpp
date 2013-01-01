@@ -141,7 +141,7 @@ public:
 		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSockAddress::Clear()");
+			luaL_error(L, "Invalid object in function call void wxSockAddress::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -159,7 +159,7 @@ public:
 		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const sockaddr * wxSockAddress::GetAddressData() const");
+			luaL_error(L, "Invalid object in function call const sockaddr * wxSockAddress::GetAddressData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const sockaddr * lret = self->GetAddressData();
 		////////////////////////////////////////////////////////////////////
@@ -180,7 +180,7 @@ public:
 		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSockAddress::GetAddressDataLen() const");
+			luaL_error(L, "Invalid object in function call int wxSockAddress::GetAddressDataLen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetAddressDataLen();
 		lua_pushnumber(L,lret);
@@ -199,7 +199,7 @@ public:
 		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSockAddress::Family wxSockAddress::Type()");
+			luaL_error(L, "Invalid object in function call wxSockAddress::Family wxSockAddress::Type(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSockAddress::Family lret = self->Type();
 		lua_pushnumber(L,lret);
@@ -218,7 +218,7 @@ public:
 		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSockAddress * wxSockAddress::Clone() const");
+			luaL_error(L, "Invalid object in function call wxSockAddress * wxSockAddress::Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSockAddress * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -239,7 +239,7 @@ public:
 		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSockAddress::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSockAddress::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSockAddress::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

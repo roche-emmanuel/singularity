@@ -154,7 +154,7 @@ public:
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonGallery * wxRibbonGalleryEvent::GetGallery()");
+			luaL_error(L, "Invalid object in function call wxRibbonGallery * wxRibbonGalleryEvent::GetGallery(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonGallery * lret = self->GetGallery();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -175,7 +175,7 @@ public:
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem()");
+			luaL_error(L, "Invalid object in function call wxRibbonGalleryItem * wxRibbonGalleryEvent::GetGalleryItem(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonGalleryItem * lret = self->GetGalleryItem();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -197,7 +197,7 @@ public:
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGallery(wxRibbonGallery *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetGallery(gallery);
 
@@ -216,7 +216,7 @@ public:
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonGalleryEvent::SetGalleryItem(wxRibbonGalleryItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetGalleryItem(item);
 
@@ -234,7 +234,7 @@ public:
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonGalleryEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxRibbonGalleryEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,7 +255,7 @@ public:
 		wxRibbonGalleryEvent* self=Luna< wxObject >::checkSubType< wxRibbonGalleryEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonGalleryEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxRibbonGalleryEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -231,7 +231,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::LinearForce::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::LinearForce::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -255,7 +255,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LinearForce::setForce(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::LinearForce::setForce(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setForce(force);
 
@@ -277,7 +277,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LinearForce::setFactor(SPK::ForceFactor, SPK::ModelParam)");
+			luaL_error(L, "Invalid object in function call void SPK::LinearForce::setFactor(SPK::ForceFactor, SPK::ModelParam). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setFactor(type, param);
 
@@ -295,7 +295,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::LinearForce::getForce() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::LinearForce::getForce() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getForce();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -316,7 +316,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::LinearForce::getTransformedForce() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::LinearForce::getTransformedForce() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedForce();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -337,7 +337,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::ForceFactor SPK::LinearForce::getFactorType() const");
+			luaL_error(L, "Invalid object in function call SPK::ForceFactor SPK::LinearForce::getFactorType() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::ForceFactor lret = self->getFactorType();
 		lua_pushnumber(L,lret);
@@ -356,7 +356,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::ModelParam SPK::LinearForce::getFactorParam() const");
+			luaL_error(L, "Invalid object in function call SPK::ModelParam SPK::LinearForce::getFactorParam() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::ModelParam lret = self->getFactorParam();
 		lua_pushnumber(L,lret);
@@ -407,7 +407,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LinearForce::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::LinearForce::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->LinearForce::createBuffers(group);
 
@@ -430,7 +430,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LinearForce::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::LinearForce::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->LinearForce::destroyBuffers(group);
 
@@ -449,7 +449,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::LinearForce::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::LinearForce::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->LinearForce::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -470,7 +470,7 @@ public:
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::LinearForce::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::LinearForce::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->LinearForce::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

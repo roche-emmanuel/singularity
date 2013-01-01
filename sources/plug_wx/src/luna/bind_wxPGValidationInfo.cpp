@@ -100,7 +100,7 @@ public:
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxPGValidationInfo::GetFailureBehavior()");
+			luaL_error(L, "Invalid object in function call unsigned char wxPGValidationInfo::GetFailureBehavior(). Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
 		}
 		unsigned char lret = self->GetFailureBehavior();
 		lua_pushnumber(L,(int)lret);
@@ -119,7 +119,7 @@ public:
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxPGValidationInfo::GetFailureMessage() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxPGValidationInfo::GetFailureMessage() const. Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetFailureMessage();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -139,7 +139,7 @@ public:
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureBehavior(unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureBehavior(unsigned char). Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
 		}
 		self->SetFailureBehavior(failureBehavior);
 
@@ -158,7 +158,7 @@ public:
 		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureMessage(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPGValidationInfo::SetFailureMessage(const wxString &). Got : '%s'",typeid(Luna< wxPGValidationInfo >::check(L,1)).name());
 		}
 		self->SetFailureMessage(message);
 

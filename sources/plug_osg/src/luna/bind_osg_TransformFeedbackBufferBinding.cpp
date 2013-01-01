@@ -449,7 +449,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -475,7 +475,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -497,7 +497,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -516,7 +516,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -535,7 +535,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -554,7 +554,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TransformFeedbackBufferBinding::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TransformFeedbackBufferBinding::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -578,7 +578,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::TransformFeedbackBufferBinding::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::TransformFeedbackBufferBinding::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -598,7 +598,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TransformFeedbackBufferBinding::setName(name);
 
@@ -616,7 +616,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TransformFeedbackBufferBinding::computeDataVariance();
 
@@ -635,7 +635,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TransformFeedbackBufferBinding::setUserData(obj);
 
@@ -653,7 +653,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TransformFeedbackBufferBinding::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TransformFeedbackBufferBinding::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->TransformFeedbackBufferBinding::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -674,7 +674,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TransformFeedbackBufferBinding::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TransformFeedbackBufferBinding::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->TransformFeedbackBufferBinding::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -704,7 +704,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::TransformFeedbackBufferBinding::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::TransformFeedbackBufferBinding::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->TransformFeedbackBufferBinding::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -725,7 +725,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::TransformFeedbackBufferBinding::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::TransformFeedbackBufferBinding::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->TransformFeedbackBufferBinding::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -755,7 +755,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TransformFeedbackBufferBinding::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -779,7 +779,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TransformFeedbackBufferBinding::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -803,7 +803,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TransformFeedbackBufferBinding::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -827,7 +827,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TransformFeedbackBufferBinding::compileGLObjects(_arg1);
 
@@ -848,7 +848,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TransformFeedbackBufferBinding::releaseGLObjects(_arg1);
 
@@ -866,7 +866,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::TransformFeedbackBufferBinding::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::TransformFeedbackBufferBinding::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->TransformFeedbackBufferBinding::getMember();
 		lua_pushnumber(L,lret);
@@ -890,7 +890,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TransformFeedbackBufferBinding::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TransformFeedbackBufferBinding::apply(_arg1);
 
@@ -908,7 +908,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TransformFeedbackBufferBinding::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -934,7 +934,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TransformFeedbackBufferBinding::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TransformFeedbackBufferBinding::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -956,7 +956,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TransformFeedbackBufferBinding::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TransformFeedbackBufferBinding::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -975,7 +975,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TransformFeedbackBufferBinding::libraryName();
 		lua_pushstring(L,lret);
@@ -994,7 +994,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TransformFeedbackBufferBinding::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TransformFeedbackBufferBinding::className();
 		lua_pushstring(L,lret);
@@ -1013,7 +1013,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TransformFeedbackBufferBinding::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TransformFeedbackBufferBinding::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->TransformFeedbackBufferBinding::getType();
 		lua_pushnumber(L,lret);
@@ -1037,7 +1037,7 @@ public:
 		osg::TransformFeedbackBufferBinding* self=Luna< osg::Referenced >::checkSubType< osg::TransformFeedbackBufferBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::TransformFeedbackBufferBinding::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::TransformFeedbackBufferBinding::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->TransformFeedbackBufferBinding::compare(sa);
 		lua_pushnumber(L,lret);

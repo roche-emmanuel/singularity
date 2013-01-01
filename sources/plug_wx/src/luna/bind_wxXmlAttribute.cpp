@@ -166,7 +166,7 @@ public:
 		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlAttribute::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxXmlAttribute::GetName() const. Got : '%s'",typeid(Luna< wxXmlAttribute >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -185,7 +185,7 @@ public:
 		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlAttribute * wxXmlAttribute::GetNext() const");
+			luaL_error(L, "Invalid object in function call wxXmlAttribute * wxXmlAttribute::GetNext() const. Got : '%s'",typeid(Luna< wxXmlAttribute >::check(L,1)).name());
 		}
 		wxXmlAttribute * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -206,7 +206,7 @@ public:
 		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlAttribute::GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxXmlAttribute::GetValue() const. Got : '%s'",typeid(Luna< wxXmlAttribute >::check(L,1)).name());
 		}
 		wxString lret = self->GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -226,7 +226,7 @@ public:
 		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlAttribute::SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxXmlAttribute::SetName(const wxString &). Got : '%s'",typeid(Luna< wxXmlAttribute >::check(L,1)).name());
 		}
 		self->SetName(name);
 
@@ -245,7 +245,7 @@ public:
 		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlAttribute::SetNext(wxXmlAttribute *)");
+			luaL_error(L, "Invalid object in function call void wxXmlAttribute::SetNext(wxXmlAttribute *). Got : '%s'",typeid(Luna< wxXmlAttribute >::check(L,1)).name());
 		}
 		self->SetNext(next);
 
@@ -264,7 +264,7 @@ public:
 		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlAttribute::SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxXmlAttribute::SetValue(const wxString &). Got : '%s'",typeid(Luna< wxXmlAttribute >::check(L,1)).name());
 		}
 		self->SetValue(value);
 

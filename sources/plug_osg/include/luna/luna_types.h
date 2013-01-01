@@ -8516,7 +8516,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< std::string >* obj);
-	typedef osgDB::FileList::FileNames parent_t;
+	typedef sgt::LogSink::StringSet parent_t;
 	typedef std::set< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9596,7 +9596,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, int >* obj);
-	typedef osgDB::IntLookup::StringToValue parent_t;
+	typedef sgt::LogManager::TraceFlagMap parent_t;
 	typedef std::map< std::string, int > base_t;
 	static luna_ConverterType converters[];
 };

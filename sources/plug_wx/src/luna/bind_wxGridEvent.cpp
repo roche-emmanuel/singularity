@@ -231,7 +231,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::AltDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::AltDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AltDown();
 		lua_pushboolean(L,lret?1:0);
@@ -250,7 +250,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::ControlDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::ControlDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ControlDown();
 		lua_pushboolean(L,lret?1:0);
@@ -269,7 +269,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::GetCol()");
+			luaL_error(L, "Invalid object in function call int wxGridEvent::GetCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -288,7 +288,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxGridEvent::GetPosition()");
+			luaL_error(L, "Invalid object in function call wxPoint wxGridEvent::GetPosition(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -310,7 +310,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::GetRow()");
+			luaL_error(L, "Invalid object in function call int wxGridEvent::GetRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -329,7 +329,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::MetaDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::MetaDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->MetaDown();
 		lua_pushboolean(L,lret?1:0);
@@ -348,7 +348,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::Selecting()");
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::Selecting(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Selecting();
 		lua_pushboolean(L,lret?1:0);
@@ -367,7 +367,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::ShiftDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::ShiftDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ShiftDown();
 		lua_pushboolean(L,lret?1:0);
@@ -386,7 +386,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGridEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -407,7 +407,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxGridEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -426,7 +426,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetCol()");
+			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGridEvent::GetCol();
 		lua_pushnumber(L,lret);
@@ -445,7 +445,7 @@ public:
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetRow()");
+			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGridEvent::GetRow();
 		lua_pushnumber(L,lret);

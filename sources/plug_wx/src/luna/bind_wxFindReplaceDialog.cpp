@@ -1058,7 +1058,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::Create(wxWindow *, wxFindReplaceData *, const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::Create(wxWindow *, wxFindReplaceData *, const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, data, title, style);
 		lua_pushboolean(L,lret?1:0);
@@ -1077,7 +1077,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFindReplaceData * wxFindReplaceDialog::GetData() const");
+			luaL_error(L, "Invalid object in function call const wxFindReplaceData * wxFindReplaceDialog::GetData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxFindReplaceData * lret = self->GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1098,7 +1098,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceDialog::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceDialog::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFindReplaceDialog::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1119,7 +1119,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1138,7 +1138,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1157,7 +1157,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1176,7 +1176,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1196,7 +1196,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetCanFocus(canFocus);
 
@@ -1214,7 +1214,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetFocus();
 
@@ -1232,7 +1232,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetFocusFromKbd();
 
@@ -1251,7 +1251,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::AddChild(child);
 
@@ -1270,7 +1270,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::RemoveChild(child);
 
@@ -1289,7 +1289,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1312,7 +1312,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1331,7 +1331,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFindReplaceDialog::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1351,7 +1351,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFindReplaceDialog::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1371,7 +1371,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFindReplaceDialog::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1391,7 +1391,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1411,7 +1411,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1431,7 +1431,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1455,7 +1455,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::ScrollWindow(dx, dy, rect);
 
@@ -1478,7 +1478,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetScrollPos(orientation, pos, refresh);
 
@@ -1503,7 +1503,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1526,7 +1526,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1553,7 +1553,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1575,7 +1575,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Fit();
 
@@ -1593,7 +1593,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::FitInside();
 
@@ -1611,7 +1611,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1633,7 +1633,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1655,7 +1655,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1677,7 +1677,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1699,7 +1699,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1721,7 +1721,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1743,7 +1743,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxFindReplaceDialog::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFindReplaceDialog::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1768,7 +1768,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1790,7 +1790,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SendSizeEvent(flags);
 
@@ -1813,7 +1813,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetMaxClientSize(size);
 
@@ -1836,7 +1836,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetMinClientSize(size);
 
@@ -1854,7 +1854,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxFindReplaceDialog::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxFindReplaceDialog::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxFindReplaceDialog::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1876,7 +1876,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::ClearBackground();
 
@@ -1894,7 +1894,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxFindReplaceDialog::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxFindReplaceDialog::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxFindReplaceDialog::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1913,7 +1913,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFindReplaceDialog::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1932,7 +1932,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFindReplaceDialog::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1951,7 +1951,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxFindReplaceDialog::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxFindReplaceDialog::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxFindReplaceDialog::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1977,7 +1977,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Refresh(eraseBackground, rect);
 
@@ -1995,7 +1995,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Update();
 
@@ -2014,7 +2014,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2038,7 +2038,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2057,7 +2057,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2077,7 +2077,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetThemeEnabled(enable);
 
@@ -2095,7 +2095,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2115,7 +2115,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetNextHandler(handler);
 
@@ -2134,7 +2134,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetPreviousHandler(handler);
 
@@ -2152,7 +2152,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFindReplaceDialog::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxFindReplaceDialog::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxFindReplaceDialog::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2172,7 +2172,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetExtraStyle(exStyle);
 
@@ -2191,7 +2191,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetWindowStyleFlag(style);
 
@@ -2209,7 +2209,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Lower();
 
@@ -2227,7 +2227,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Raise();
 
@@ -2249,7 +2249,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2268,7 +2268,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2287,7 +2287,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2309,7 +2309,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2332,7 +2332,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2357,7 +2357,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFindReplaceDialog::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2376,7 +2376,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxFindReplaceDialog::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxFindReplaceDialog::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxFindReplaceDialog::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2402,7 +2402,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetValidator(validator);
 
@@ -2420,7 +2420,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2439,7 +2439,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2458,7 +2458,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2477,7 +2477,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFindReplaceDialog::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2496,7 +2496,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxFindReplaceDialog::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxFindReplaceDialog::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxFindReplaceDialog::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2515,7 +2515,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFindReplaceDialog::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2535,7 +2535,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetLabel(label);
 
@@ -2554,7 +2554,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetLayoutDirection(dir);
 
@@ -2573,7 +2573,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetName(name);
 
@@ -2596,7 +2596,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetAcceleratorTable(accel);
 
@@ -2614,7 +2614,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2633,7 +2633,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxFindReplaceDialog::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxFindReplaceDialog::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxFindReplaceDialog::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2655,7 +2655,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetDropTarget(target);
 
@@ -2674,7 +2674,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::DragAcceptFiles(accept);
 
@@ -2692,7 +2692,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2716,7 +2716,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2737,7 +2737,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::WarpPointer(x, y);
 
@@ -2760,7 +2760,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::DoUpdateWindowUI(event);
 
@@ -2778,7 +2778,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2797,7 +2797,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::InheritAttributes();
 
@@ -2815,7 +2815,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::InitDialog();
 
@@ -2833,7 +2833,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2852,7 +2852,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2874,7 +2874,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::MakeModal(modal);
 
@@ -2892,7 +2892,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::OnInternalIdle();
 
@@ -2913,7 +2913,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2933,7 +2933,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2955,7 +2955,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::UpdateWindowUI(flags);
 
@@ -2973,7 +2973,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2995,7 +2995,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_EnableCloseButton(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3014,7 +3014,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxFindReplaceDialog::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFindReplaceDialog::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3033,7 +3033,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsActive()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -3052,7 +3052,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsAlwaysMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3071,7 +3071,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsFullScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3090,7 +3090,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3109,7 +3109,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3131,7 +3131,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Maximize(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Maximize(maximize);
 
@@ -3152,7 +3152,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_RequestUserAttention(int)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::RequestUserAttention(flags);
 
@@ -3175,7 +3175,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetMaxSize(size);
 
@@ -3198,7 +3198,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetMinSize(size);
 
@@ -3224,7 +3224,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3259,7 +3259,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3287,7 +3287,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetTitle(title);
 
@@ -3306,7 +3306,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3325,7 +3325,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShouldPreventAppExit() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3345,7 +3345,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_OSXSetModified(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::OSXSetModified(modified);
 
@@ -3363,7 +3363,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_OSXIsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3386,7 +3386,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShowFullScreen(bool, long)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3405,7 +3405,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_CanDoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_CanDoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::CanDoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3424,7 +3424,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_DoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_DoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::DoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3444,7 +3444,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_EndModal(int)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_EndModal(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::EndModal(retCode);
 
@@ -3462,7 +3462,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxFindReplaceDialog::base_GetContentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxFindReplaceDialog::base_GetContentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxFindReplaceDialog::GetContentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3486,7 +3486,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Iconize(bool)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::Iconize(iconize);
 
@@ -3504,7 +3504,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3523,7 +3523,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsModal() const");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_IsModal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::IsModal();
 		lua_pushboolean(L,lret?1:0);
@@ -3547,7 +3547,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetIcons(const wxIconBundle &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceDialog::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFindReplaceDialog::SetIcons(icons);
 
@@ -3568,7 +3568,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFindReplaceDialog::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFindReplaceDialog::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3587,7 +3587,7 @@ public:
 		wxFindReplaceDialog* self=Luna< wxObject >::checkSubType< wxFindReplaceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFindReplaceDialog::ShowModal();
 		lua_pushnumber(L,lret);

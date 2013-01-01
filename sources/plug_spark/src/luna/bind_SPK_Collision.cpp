@@ -204,7 +204,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Collision::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Collision::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -224,7 +224,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Collision::setScale(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Collision::setScale(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setScale(scale);
 
@@ -243,7 +243,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Collision::setElasticity(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Collision::setElasticity(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setElasticity(elasticity);
 
@@ -261,7 +261,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Collision::getElasticity() const");
+			luaL_error(L, "Invalid object in function call float SPK::Collision::getElasticity() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getElasticity();
 		lua_pushnumber(L,lret);
@@ -280,7 +280,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Collision::getScale() const");
+			luaL_error(L, "Invalid object in function call float SPK::Collision::getScale() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getScale();
 		lua_pushnumber(L,lret);
@@ -324,7 +324,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Collision::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Collision::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Collision::createBuffers(group);
 
@@ -347,7 +347,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Collision::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Collision::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Collision::destroyBuffers(group);
 
@@ -366,7 +366,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Collision::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Collision::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Collision::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -387,7 +387,7 @@ public:
 		SPK::Collision* self=Luna< SPK::Registerable >::checkSubType< SPK::Collision >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Collision::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Collision::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Collision::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

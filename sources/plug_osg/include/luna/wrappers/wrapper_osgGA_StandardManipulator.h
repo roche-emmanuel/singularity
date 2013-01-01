@@ -843,7 +843,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_addMouseEvent(const osgGA::GUIEventAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addMouseEvent(ea);
 
@@ -861,7 +861,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_flushMouseEventStack()");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_flushMouseEventStack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_flushMouseEventStack();
 
@@ -880,7 +880,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::public_getThrowScale(const double) const");
+			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::public_getThrowScale(const double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->public_getThrowScale(eventTimeDelta);
 		lua_pushnumber(L,lret);
@@ -910,7 +910,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_fixVerticalAxis(eye, rotation, disallowFlipOver);
 
@@ -939,7 +939,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_fixVerticalAxis(rotation, localUp, disallowFlipOver);
 
@@ -978,7 +978,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
 
@@ -1007,7 +1007,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::public_getRelativeFlag(int) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::public_getRelativeFlag(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_getRelativeFlag(index);
 		lua_pushboolean(L,lret?1:0);
@@ -1028,7 +1028,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_setRelativeFlag(int, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::public_setRelativeFlag(int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setRelativeFlag(index, value);
 
@@ -1060,7 +1060,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat &, const double, const double, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_rotateYawPitch(osg::Quat &, const double, const double, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_rotateYawPitch(rotation, yaw, pitch, localUp);
 
@@ -1078,7 +1078,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static int osgGA::StandardManipulator::public_allocateRelativeFlag()");
+			luaL_error(L, "Invalid object in function call static int osgGA::StandardManipulator::public_allocateRelativeFlag(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->public_allocateRelativeFlag();
 		lua_pushnumber(L,lret);
@@ -1097,7 +1097,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const");
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->public_getManipulatorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1118,7 +1118,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -1136,7 +1136,7 @@ public:
 		wrapper_osgGA_StandardManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

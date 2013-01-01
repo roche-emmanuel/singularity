@@ -463,7 +463,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text3D::public_renderPerGlyph(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text3D::public_renderPerGlyph(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_renderPerGlyph(state);
 
@@ -486,7 +486,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text3D::public_renderPerFace(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text3D::public_renderPerFace(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_renderPerFace(state);
 
@@ -515,7 +515,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_positionCursor(const osg::Vec2f &, osg::Vec2f &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_positionCursor(const osg::Vec2f &, osg::Vec2f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_positionCursor(endOfLine_coords, cursor, linelength);
 
@@ -533,7 +533,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_computePositions()");
+			luaL_error(L, "Invalid object in function call void osgText::TextBase::public_computePositions(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computePositions();
 
@@ -556,7 +556,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setBound(bb);
 
@@ -575,7 +575,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(node);
 
@@ -594,7 +594,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(node);
 
@@ -613,7 +613,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -631,7 +631,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringUpdateTraversal();
 		lua_pushnumber(L,lret);
@@ -651,7 +651,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -669,7 +669,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringEventTraversal();
 		lua_pushnumber(L,lret);
@@ -690,7 +690,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -708,7 +708,7 @@ public:
 		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

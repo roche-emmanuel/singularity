@@ -298,7 +298,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPalette::Create(int, const unsigned char *, const unsigned char *, const unsigned char *)");
+			luaL_error(L, "Invalid object in function call bool wxPalette::Create(int, const unsigned char *, const unsigned char *, const unsigned char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(n, &red, &green, &blue);
 		lua_pushboolean(L,lret?1:0);
@@ -317,7 +317,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPalette::GetColoursCount() const");
+			luaL_error(L, "Invalid object in function call int wxPalette::GetColoursCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetColoursCount();
 		lua_pushnumber(L,lret);
@@ -339,7 +339,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPalette::GetPixel(unsigned char, unsigned char, unsigned char) const");
+			luaL_error(L, "Invalid object in function call int wxPalette::GetPixel(unsigned char, unsigned char, unsigned char) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPixel(red, green, blue);
 		lua_pushnumber(L,lret);
@@ -362,7 +362,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPalette::GetRGB(int, unsigned char *, unsigned char *, unsigned char *) const");
+			luaL_error(L, "Invalid object in function call bool wxPalette::GetRGB(int, unsigned char *, unsigned char *, unsigned char *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetRGB(pixel, &red, &green, &blue);
 		lua_pushboolean(L,lret?1:0);
@@ -381,7 +381,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPalette::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxPalette::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -400,7 +400,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPalette::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPalette::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPalette::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,7 +421,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPalette::base_GetColoursCount() const");
+			luaL_error(L, "Invalid object in function call int wxPalette::base_GetColoursCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPalette::GetColoursCount();
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPalette::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxPalette::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPalette::IsOk();
 		lua_pushboolean(L,lret?1:0);

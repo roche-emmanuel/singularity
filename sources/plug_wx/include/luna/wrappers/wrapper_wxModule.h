@@ -110,7 +110,7 @@ public:
 		wrapper_wxModule* self=Luna< wxObject >::checkSubType< wrapper_wxModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(wxClassInfo *)");
+			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(wxClassInfo *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_AddDependency(dep);
 
@@ -129,7 +129,7 @@ public:
 		wrapper_wxModule* self=Luna< wxObject >::checkSubType< wrapper_wxModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(const char *)");
+			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_AddDependency(classname);
 

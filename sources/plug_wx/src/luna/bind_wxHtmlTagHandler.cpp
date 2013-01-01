@@ -138,7 +138,7 @@ public:
 		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTagHandler::GetSupportedTags()");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTagHandler::GetSupportedTags(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetSupportedTags();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -162,7 +162,7 @@ public:
 		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTagHandler::HandleTag(const wxHtmlTag &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlTagHandler::HandleTag(const wxHtmlTag &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HandleTag(tag);
 		lua_pushboolean(L,lret?1:0);
@@ -182,7 +182,7 @@ public:
 		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::SetParser(wxHtmlParser *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::SetParser(wxHtmlParser *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetParser(parser);
 
@@ -200,7 +200,7 @@ public:
 		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlTagHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlTagHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlTagHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -222,7 +222,7 @@ public:
 		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::base_SetParser(wxHtmlParser *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::base_SetParser(wxHtmlParser *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlTagHandler::SetParser(parser);
 

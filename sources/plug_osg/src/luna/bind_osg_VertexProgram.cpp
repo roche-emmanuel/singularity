@@ -540,7 +540,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -566,7 +566,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -588,7 +588,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -607,7 +607,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -626,7 +626,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -645,7 +645,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::VertexProgram::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::VertexProgram::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -669,7 +669,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::VertexProgram::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::VertexProgram::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -693,7 +693,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -713,7 +713,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int & osg::VertexProgram::getVertexProgramID(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int & osg::VertexProgram::getVertexProgramID(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int & lret = self->getVertexProgramID(contextID);
 		lua_pushnumber(L,lret);
@@ -733,7 +733,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setVertexProgram(const char *)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setVertexProgram(const char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertexProgram(program);
 
@@ -752,7 +752,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setVertexProgram(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setVertexProgram(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertexProgram(program);
 
@@ -779,7 +779,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::VertexProgram::getVertexProgram() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::VertexProgram::getVertexProgram() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getVertexProgram();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -804,7 +804,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setProgramLocalParameter(const unsigned int, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setProgramLocalParameter(const unsigned int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProgramLocalParameter(index, p);
 
@@ -827,7 +827,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setLocalParameters(const osg::VertexProgram::LocalParamList &)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setLocalParameters(const osg::VertexProgram::LocalParamList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setLocalParameters(lpl);
 
@@ -845,7 +845,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::VertexProgram::LocalParamList & osg::VertexProgram::getLocalParameters()");
+			luaL_error(L, "Invalid object in function call osg::VertexProgram::LocalParamList & osg::VertexProgram::getLocalParameters(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::VertexProgram::LocalParamList* lret = &self->getLocalParameters();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -866,7 +866,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::VertexProgram::LocalParamList & osg::VertexProgram::getLocalParameters() const");
+			luaL_error(L, "Invalid object in function call const osg::VertexProgram::LocalParamList & osg::VertexProgram::getLocalParameters() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::VertexProgram::LocalParamList* lret = &self->getLocalParameters();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -902,7 +902,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setMatrix(const unsigned int, const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setMatrix(const unsigned int, const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMatrix(mode, matrix);
 
@@ -925,7 +925,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setMatrices(const osg::VertexProgram::MatrixList &)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::setMatrices(const osg::VertexProgram::MatrixList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMatrices(matrices);
 
@@ -943,7 +943,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::VertexProgram::MatrixList & osg::VertexProgram::getMatrices()");
+			luaL_error(L, "Invalid object in function call osg::VertexProgram::MatrixList & osg::VertexProgram::getMatrices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::VertexProgram::MatrixList* lret = &self->getMatrices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -964,7 +964,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::VertexProgram::MatrixList & osg::VertexProgram::getMatrices() const");
+			luaL_error(L, "Invalid object in function call const osg::VertexProgram::MatrixList & osg::VertexProgram::getMatrices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::VertexProgram::MatrixList* lret = &self->getMatrices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -994,7 +994,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::dirtyVertexProgramObject()");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::dirtyVertexProgramObject(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->dirtyVertexProgramObject();
 
@@ -1017,7 +1017,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -1040,7 +1040,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compileGLObjects(_arg1);
 
@@ -1061,7 +1061,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(state);
 
@@ -1158,7 +1158,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->VertexProgram::setName(name);
 
@@ -1176,7 +1176,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->VertexProgram::computeDataVariance();
 
@@ -1195,7 +1195,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->VertexProgram::setUserData(obj);
 
@@ -1213,7 +1213,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::VertexProgram::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::VertexProgram::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->VertexProgram::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1234,7 +1234,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::VertexProgram::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::VertexProgram::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->VertexProgram::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1264,7 +1264,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::VertexProgram::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::VertexProgram::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->VertexProgram::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1285,7 +1285,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::VertexProgram::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::VertexProgram::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->VertexProgram::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1315,7 +1315,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::VertexProgram::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::VertexProgram::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->VertexProgram::getMember();
 		lua_pushnumber(L,lret);
@@ -1334,7 +1334,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->VertexProgram::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1358,7 +1358,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->VertexProgram::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1377,7 +1377,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->VertexProgram::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1403,7 +1403,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::VertexProgram::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->VertexProgram::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1425,7 +1425,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->VertexProgram::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1444,7 +1444,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->VertexProgram::libraryName();
 		lua_pushstring(L,lret);
@@ -1463,7 +1463,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::VertexProgram::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->VertexProgram::className();
 		lua_pushstring(L,lret);
@@ -1482,7 +1482,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::VertexProgram::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::VertexProgram::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->VertexProgram::getType();
 		lua_pushnumber(L,lret);
@@ -1506,7 +1506,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::VertexProgram::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::VertexProgram::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->VertexProgram::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1530,7 +1530,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->VertexProgram::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1554,7 +1554,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->VertexProgram::apply(_arg1);
 
@@ -1577,7 +1577,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->VertexProgram::compileGLObjects(_arg1);
 
@@ -1598,7 +1598,7 @@ public:
 		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->VertexProgram::releaseGLObjects(state);
 

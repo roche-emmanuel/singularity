@@ -469,7 +469,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -495,7 +495,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -517,7 +517,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DrawPixels::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::DrawPixels::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -536,7 +536,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -555,7 +555,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -579,7 +579,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setPosition(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setPosition(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPosition(position);
 
@@ -597,7 +597,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f & osg::DrawPixels::getPosition()");
+			luaL_error(L, "Invalid object in function call osg::Vec3f & osg::DrawPixels::getPosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -618,7 +618,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::DrawPixels::getPosition() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::DrawPixels::getPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -649,7 +649,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setImage(osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setImage(osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImage(image);
 
@@ -667,7 +667,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::DrawPixels::getImage()");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::DrawPixels::getImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Image * lret = self->getImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -688,7 +688,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::DrawPixels::getImage() const");
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::DrawPixels::getImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Image * lret = self->getImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -719,7 +719,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setUseSubImage(bool)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setUseSubImage(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUseSubImage(useSubImage);
 
@@ -737,7 +737,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DrawPixels::getUseSubImage() const");
+			luaL_error(L, "Invalid object in function call bool osg::DrawPixels::getUseSubImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getUseSubImage();
 		lua_pushboolean(L,lret?1:0);
@@ -760,7 +760,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setSubImageDimensions(unsigned int, unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::setSubImageDimensions(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSubImageDimensions(offsetX, offsetY, width, height);
 
@@ -782,7 +782,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::getSubImageDimensions(unsigned int &, unsigned int &, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::getSubImageDimensions(unsigned int &, unsigned int &, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getSubImageDimensions(offsetX, offsetY, width, height);
 
@@ -805,7 +805,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->drawImplementation(renderInfo);
 
@@ -823,7 +823,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::DrawPixels::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::DrawPixels::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingBoxd stack_lret = self->computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
@@ -846,7 +846,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setName(name);
 
@@ -865,7 +865,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setUserData(obj);
 
@@ -883,7 +883,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::DrawPixels::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::DrawPixels::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->DrawPixels::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -904,7 +904,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::DrawPixels::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::DrawPixels::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->DrawPixels::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -934,7 +934,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osg::DrawPixels::base_asGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osg::DrawPixels::base_asGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->DrawPixels::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -955,7 +955,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::DrawPixels::base_asGeometry() const");
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::DrawPixels::base_asGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geometry * lret = self->DrawPixels::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -985,7 +985,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::computeDataVariance();
 
@@ -1004,7 +1004,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setUseVertexBufferObjects(bool)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setUseVertexBufferObjects(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setUseVertexBufferObjects(flag);
 
@@ -1022,7 +1022,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_dirtyDisplayList()");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_dirtyDisplayList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::dirtyDisplayList();
 
@@ -1040,7 +1040,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawPixels::base_getGLObjectSizeHint() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawPixels::base_getGLObjectSizeHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->DrawPixels::getGLObjectSizeHint();
 		lua_pushnumber(L,lret);
@@ -1064,7 +1064,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_compileGLObjects(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::compileGLObjects(renderInfo);
 
@@ -1085,7 +1085,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::releaseGLObjects(state);
 
@@ -1104,7 +1104,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setUpdateCallback(osg::Drawable::UpdateCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setUpdateCallback(ac);
 
@@ -1123,7 +1123,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setEventCallback(osg::Drawable::EventCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setEventCallback(ac);
 
@@ -1142,7 +1142,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setCullCallback(osg::Drawable::CullCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setCullCallback(cc);
 
@@ -1161,7 +1161,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setDrawCallback(osg::Drawable::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::setDrawCallback(dc);
 
@@ -1179,7 +1179,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DrawPixels::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1205,7 +1205,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawPixels::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DrawPixels::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1227,7 +1227,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DrawPixels::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::DrawPixels::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DrawPixels::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1246,7 +1246,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DrawPixels::libraryName();
 		lua_pushstring(L,lret);
@@ -1265,7 +1265,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawPixels::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DrawPixels::className();
 		lua_pushstring(L,lret);
@@ -1289,7 +1289,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawPixels::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawPixels::drawImplementation(renderInfo);
 
@@ -1307,7 +1307,7 @@ public:
 		osg::DrawPixels* self=Luna< osg::Referenced >::checkSubType< osg::DrawPixels >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::DrawPixels::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::DrawPixels::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingBoxd stack_lret = self->DrawPixels::computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);

@@ -101,7 +101,7 @@ public:
 		wxFontList* self=Luna< wxList >::checkSubType< wxFontList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont * wxFontList::FindOrCreateFont(int, wxFontFamily, wxFontStyle, wxFontWeight, bool, const wxString &, wxFontEncoding)");
+			luaL_error(L, "Invalid object in function call wxFont * wxFontList::FindOrCreateFont(int, wxFontFamily, wxFontStyle, wxFontWeight, bool, const wxString &, wxFontEncoding). Got : '%s'",typeid(Luna< wxList >::check(L,1)).name());
 		}
 		wxFont * lret = self->FindOrCreateFont(point_size, family, style, weight, underline, facename, encoding);
 		if(!lret) return 0; // Do not write NULL pointers.

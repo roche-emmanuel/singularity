@@ -188,7 +188,7 @@ public:
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &). Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
 		}
 		self->set(str);
 
@@ -208,7 +208,7 @@ public:
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &, osgText::String::Encoding)");
+			luaL_error(L, "Invalid object in function call void osgText::String::set(const std::string &, osgText::String::Encoding). Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
 		}
 		self->set(text, encoding);
 
@@ -235,7 +235,7 @@ public:
 		osgText::String* self=(Luna< osgText::String >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgText::String::createUTF8EncodedString() const");
+			luaL_error(L, "Invalid object in function call std::string osgText::String::createUTF8EncodedString() const. Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
 		}
 		std::string lret = self->createUTF8EncodedString();
 		lua_pushlstring(L,lret.data(),lret.size());

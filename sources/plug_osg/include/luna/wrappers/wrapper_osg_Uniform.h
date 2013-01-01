@@ -273,7 +273,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isCompatibleType(osg::Uniform::Type) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_isCompatibleType(t);
 		lua_pushboolean(L,lret?1:0);
@@ -292,7 +292,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isScalar() const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::public_isScalar() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_isScalar();
 		lua_pushboolean(L,lret?1:0);
@@ -311,7 +311,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::public_allocateDataArray()");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_allocateDataArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_allocateDataArray();
 
@@ -330,7 +330,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::public_addParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_addParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(object);
 
@@ -349,7 +349,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::public_removeParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::public_removeParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(object);
 
@@ -369,7 +369,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -387,7 +387,7 @@ public:
 		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

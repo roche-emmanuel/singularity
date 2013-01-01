@@ -250,7 +250,7 @@ public:
 		wxMemoryDC* self=Luna< wxObject >::checkSubType< wxMemoryDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMemoryDC::SelectObject(wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxMemoryDC::SelectObject(wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SelectObject(bitmap);
 
@@ -273,7 +273,7 @@ public:
 		wxMemoryDC* self=Luna< wxObject >::checkSubType< wxMemoryDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMemoryDC::SelectObjectAsSource(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxMemoryDC::SelectObjectAsSource(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SelectObjectAsSource(bitmap);
 
@@ -291,7 +291,7 @@ public:
 		wxMemoryDC* self=Luna< wxObject >::checkSubType< wxMemoryDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryDC::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryDC::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMemoryDC::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

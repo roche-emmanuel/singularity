@@ -135,6 +135,32 @@ public:
 
 	// Operator binds:
 
+	inline static bool _lg_typecheck_baseCast_osg_GraphicsContext_ScreenIdentifier(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_osg_GraphicsContext_ScreenIdentifier(lua_State *L) {
+		if (!_lg_typecheck_baseCast_osg_GraphicsContext_ScreenIdentifier(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_osg_GraphicsContext_ScreenIdentifier function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		osg::GraphicsContext::ScreenIdentifier* res = dynamic_cast<osg::GraphicsContext::ScreenIdentifier*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< osg::GraphicsContext::ScreenIdentifier >::push(L,res,false);
+		return 1;
+
+	}
+
 };
 
 osg::GraphicsContext::Traits* LunaTraits< osg::GraphicsContext::Traits >::_bind_ctor(lua_State *L) {
@@ -157,6 +183,7 @@ const int LunaTraits< osg::GraphicsContext::Traits >::uniqueIDs[] = {50169651, 8
 luna_RegType LunaTraits< osg::GraphicsContext::Traits >::methods[] = {
 	{"__eq", &luna_wrapper_osg_GraphicsContext_Traits::_bind___eq},
 	{"getTable", &luna_wrapper_osg_GraphicsContext_Traits::_bind_getTable},
+	{"asScreenIdentifier", &luna_wrapper_osg_GraphicsContext_Traits::_bind_baseCast_osg_GraphicsContext_ScreenIdentifier},
 	{0,0}
 };
 

@@ -146,7 +146,7 @@ public:
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::getTrimmedContents() const");
+			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::getTrimmedContents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->getTrimmedContents();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -173,7 +173,7 @@ public:
 		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::XmlNode::write(std::ostream &, const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::XmlNode::write(std::ostream &, const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->write(fout, indent);
 		lua_pushboolean(L,lret?1:0);

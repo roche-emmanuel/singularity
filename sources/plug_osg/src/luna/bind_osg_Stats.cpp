@@ -289,7 +289,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stats::setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Stats::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setName(name);
 
@@ -307,7 +307,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::Stats::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::Stats::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -327,7 +327,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stats::allocate(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Stats::allocate(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->allocate(numberOfFrames);
 
@@ -345,7 +345,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Stats::getEarliestFrameNumber() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Stats::getEarliestFrameNumber() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getEarliestFrameNumber();
 		lua_pushnumber(L,lret);
@@ -364,7 +364,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Stats::getLatestFrameNumber() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Stats::getLatestFrameNumber() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getLatestFrameNumber();
 		lua_pushnumber(L,lret);
@@ -386,7 +386,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Stats::setAttribute(unsigned int, const std::string &, double)");
+			luaL_error(L, "Invalid object in function call bool osg::Stats::setAttribute(unsigned int, const std::string &, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setAttribute(frameNumber, attributeName, value);
 		lua_pushboolean(L,lret?1:0);
@@ -408,7 +408,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Stats::getAttribute(unsigned int, const std::string &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Stats::getAttribute(unsigned int, const std::string &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAttribute(frameNumber, attributeName, value);
 		lua_pushboolean(L,lret?1:0);
@@ -432,7 +432,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Stats::getAveragedAttribute(const std::string &, double &, bool) const");
+			luaL_error(L, "Invalid object in function call bool osg::Stats::getAveragedAttribute(const std::string &, double &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAveragedAttribute(attributeName, value, averageInInverseSpace);
 		lua_pushboolean(L,lret?1:0);
@@ -458,7 +458,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Stats::getAveragedAttribute(unsigned int, unsigned int, const std::string &, double &, bool) const");
+			luaL_error(L, "Invalid object in function call bool osg::Stats::getAveragedAttribute(unsigned int, unsigned int, const std::string &, double &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAveragedAttribute(startFrameNumber, endFrameNumber, attributeName, value, averageInInverseSpace);
 		lua_pushboolean(L,lret?1:0);
@@ -488,7 +488,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stats::collectStats(const std::string &, bool)");
+			luaL_error(L, "Invalid object in function call void osg::Stats::collectStats(const std::string &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->collectStats(str, flag);
 
@@ -507,7 +507,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Stats::collectStats(const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Stats::collectStats(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->collectStats(str);
 		lua_pushboolean(L,lret?1:0);
@@ -543,7 +543,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stats::report(std::ostream &, const char *) const");
+			luaL_error(L, "Invalid object in function call void osg::Stats::report(std::ostream &, const char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->report(out, indent);
 
@@ -570,7 +570,7 @@ public:
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stats::report(std::ostream &, unsigned int, const char *) const");
+			luaL_error(L, "Invalid object in function call void osg::Stats::report(std::ostream &, unsigned int, const char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->report(out, frameNumber, indent);
 

@@ -198,7 +198,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::SphericEmitter::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::SphericEmitter::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -222,7 +222,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SphericEmitter::setDirection(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::SphericEmitter::setDirection(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setDirection(direction);
 
@@ -242,7 +242,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SphericEmitter::setAngles(float, float)");
+			luaL_error(L, "Invalid object in function call void SPK::SphericEmitter::setAngles(float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setAngles(angleA, angleB);
 
@@ -260,7 +260,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::SphericEmitter::getDirection() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::SphericEmitter::getDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -281,7 +281,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::SphericEmitter::getTransformedDirection() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::SphericEmitter::getTransformedDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,7 +302,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::SphericEmitter::getAngleMin() const");
+			luaL_error(L, "Invalid object in function call float SPK::SphericEmitter::getAngleMin() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getAngleMin();
 		lua_pushnumber(L,lret);
@@ -321,7 +321,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::SphericEmitter::getAngleMax() const");
+			luaL_error(L, "Invalid object in function call float SPK::SphericEmitter::getAngleMax() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getAngleMax();
 		lua_pushnumber(L,lret);
@@ -366,7 +366,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SphericEmitter::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SphericEmitter::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->SphericEmitter::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -387,7 +387,7 @@ public:
 		SPK::SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::SphericEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::SphericEmitter::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::SphericEmitter::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->SphericEmitter::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

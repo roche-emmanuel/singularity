@@ -230,7 +230,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::RenderInfo::getContextID() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::RenderInfo::getContextID() const. Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		unsigned int lret = self->getContextID();
 		lua_pushnumber(L,lret);
@@ -250,7 +250,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RenderInfo::setState(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::RenderInfo::setState(osg::State *). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		self->setState(state);
 
@@ -268,7 +268,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::State * osg::RenderInfo::getState()");
+			luaL_error(L, "Invalid object in function call osg::State * osg::RenderInfo::getState(). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		osg::State * lret = self->getState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -289,7 +289,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::State * osg::RenderInfo::getState() const");
+			luaL_error(L, "Invalid object in function call const osg::State * osg::RenderInfo::getState() const. Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		const osg::State * lret = self->getState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -320,7 +320,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RenderInfo::setView(osg::View *)");
+			luaL_error(L, "Invalid object in function call void osg::RenderInfo::setView(osg::View *). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		self->setView(view);
 
@@ -338,7 +338,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osg::RenderInfo::getView()");
+			luaL_error(L, "Invalid object in function call osg::View * osg::RenderInfo::getView(). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		osg::View * lret = self->getView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -359,7 +359,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::View * osg::RenderInfo::getView() const");
+			luaL_error(L, "Invalid object in function call const osg::View * osg::RenderInfo::getView() const. Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		const osg::View * lret = self->getView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -390,7 +390,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RenderInfo::pushCamera(osg::Camera *)");
+			luaL_error(L, "Invalid object in function call void osg::RenderInfo::pushCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		self->pushCamera(camera);
 
@@ -408,7 +408,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RenderInfo::popCamera()");
+			luaL_error(L, "Invalid object in function call void osg::RenderInfo::popCamera(). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		self->popCamera();
 
@@ -426,7 +426,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osg::RenderInfo::getCurrentCamera()");
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::RenderInfo::getCurrentCamera(). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		osg::Camera * lret = self->getCurrentCamera();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -448,7 +448,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RenderInfo::setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::RenderInfo::setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		self->setUserData(userData);
 
@@ -466,7 +466,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::RenderInfo::getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::RenderInfo::getUserData(). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -487,7 +487,7 @@ public:
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::RenderInfo::getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::RenderInfo::getUserData() const. Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.

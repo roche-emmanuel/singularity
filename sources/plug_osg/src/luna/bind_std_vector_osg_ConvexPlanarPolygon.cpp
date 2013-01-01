@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::ConvexPlanarPolygon >",name);
 	}
+
 };
 
 std::vector< osg::ConvexPlanarPolygon >* LunaTraits< std::vector< osg::ConvexPlanarPolygon > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::ConvexPlanarPolygon > >::uniqueIDs[] = {
 luna_RegType LunaTraits< std::vector< osg::ConvexPlanarPolygon > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_ConvexPlanarPolygon::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_ConvexPlanarPolygon::_bind___eq},
+	
 	{0,0}
 };
 

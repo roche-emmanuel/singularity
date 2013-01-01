@@ -284,7 +284,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLPointRenderer::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLPointRenderer::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -304,7 +304,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::setType(SPK::PointType)");
+			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::setType(SPK::PointType). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->setType(type);
 		lua_pushboolean(L,lret?1:0);
@@ -324,7 +324,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::setTexture(unsigned int)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::setTexture(unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setTexture(textureIndex);
 
@@ -343,7 +343,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::enableWorldSize(bool)");
+			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::enableWorldSize(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->enableWorldSize(worldSizeEnabled);
 		lua_pushboolean(L,lret?1:0);
@@ -362,7 +362,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int GL::GLPointRenderer::getTexture() const");
+			luaL_error(L, "Invalid object in function call unsigned int GL::GLPointRenderer::getTexture() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTexture();
 		lua_pushnumber(L,lret);
@@ -381,7 +381,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::isWorldSizeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::isWorldSizeEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isWorldSizeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -405,7 +405,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->render(group);
 
@@ -443,7 +443,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLPointRenderer::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLPointRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->GLPointRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -469,7 +469,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::createBuffers(group);
 
@@ -492,7 +492,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::destroyBuffers(group);
 
@@ -512,7 +512,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint, bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -531,7 +531,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_setAlphaTestThreshold(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -550,7 +550,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const");
+			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLPointRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -570,7 +570,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::enableBlending(blendingEnabled);
 
@@ -589,7 +589,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_setBlending(SPK::BlendingMode)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::setBlending(blendMode);
 
@@ -608,7 +608,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_setSize(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_setSize(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::setSize(size);
 
@@ -626,7 +626,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string GL::GLPointRenderer::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string GL::GLPointRenderer::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->GLPointRenderer::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -646,7 +646,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::base_setType(SPK::PointType)");
+			luaL_error(L, "Invalid object in function call bool GL::GLPointRenderer::base_setType(SPK::PointType). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLPointRenderer::setType(type);
 		lua_pushboolean(L,lret?1:0);
@@ -670,7 +670,7 @@ public:
 		GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLPointRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_render(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLPointRenderer::base_render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLPointRenderer::render(group);
 
@@ -679,6 +679,58 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_PointRendererInterface(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_PointRendererInterface(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_PointRendererInterface(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_PointRendererInterface function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::PointRendererInterface* res = dynamic_cast<SPK::PointRendererInterface*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::PointRendererInterface >::push(L,res,false);
+		return 1;
+
+	}
+
+	inline static bool _lg_typecheck_baseCast_GL_GLExtHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_GL_GLExtHandler(lua_State *L) {
+		if (!_lg_typecheck_baseCast_GL_GLExtHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_GL_GLExtHandler function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		GL::GLExtHandler* res = dynamic_cast<GL::GLExtHandler*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< GL::GLExtHandler >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -723,6 +775,8 @@ luna_RegType LunaTraits< GL::GLPointRenderer >::methods[] = {
 	{"base_render", &luna_wrapper_GL_GLPointRenderer::_bind_base_render},
 	{"__eq", &luna_wrapper_GL_GLPointRenderer::_bind___eq},
 	{"getTable", &luna_wrapper_GL_GLPointRenderer::_bind_getTable},
+	{"asPointRendererInterface", &luna_wrapper_GL_GLPointRenderer::_bind_baseCast_SPK_PointRendererInterface},
+	{"asGLExtHandler", &luna_wrapper_GL_GLPointRenderer::_bind_baseCast_GL_GLExtHandler},
 	{0,0}
 };
 

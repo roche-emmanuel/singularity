@@ -126,7 +126,7 @@ public:
 		osgDB::basic_type_wrapper* self=(Luna< osgDB::basic_type_wrapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::basic_type_wrapper::matches(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::basic_type_wrapper::matches(const osg::Object *) const. Got : '%s'",typeid(Luna< osgDB::basic_type_wrapper >::check(L,1)).name());
 		}
 		bool lret = self->matches(proto);
 		lua_pushboolean(L,lret?1:0);

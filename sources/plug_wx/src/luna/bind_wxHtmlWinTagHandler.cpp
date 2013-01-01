@@ -100,7 +100,7 @@ public:
 		wxHtmlWinTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlWinTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlWinTagHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -122,7 +122,7 @@ public:
 		wxHtmlWinTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlWinTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlWinTagHandler::SetParser(parser);
 

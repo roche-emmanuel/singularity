@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="Type",bases="reflection.Entity"};
+local Class = require("classBuilder"){name="Type",bases="reflection.Holder"};
 
 local Scope = require "reflection.Scope"
 
@@ -11,7 +11,8 @@ local utils = require "utils"
 
 function Class:initialize(options)
 	self:setItemLinks(options and options.links)
-	
+	self._scopeType = Scope.TYPE
+
 	tm:registerType(self)
 end
 
@@ -240,6 +241,10 @@ function Class:getAbsoluteBaseFullName()
 end
 
 function Class:isClass()
+	if self:getName():find("<") then
+		return true;
+	end
+	
 	if type(self._base)=="string" and (self._base:find("<")) then
 		-- this is a template!
 		return true;

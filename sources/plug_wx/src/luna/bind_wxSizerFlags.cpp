@@ -215,7 +215,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Align(int)");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Align(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Align(alignment);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -238,7 +238,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int, int)");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int, int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Border(direction, borderinpixels);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -262,7 +262,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int)");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Border(direction);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -292,7 +292,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Bottom()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Bottom(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Bottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -313,7 +313,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Center()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Center(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Center();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -334,7 +334,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Centre()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Centre(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Centre();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -358,7 +358,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleBorder(int)");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleBorder(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->DoubleBorder(direction);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,7 +379,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleHorzBorder()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleHorzBorder(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->DoubleHorzBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -400,7 +400,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Expand()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Expand(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Expand();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,7 +421,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::FixedMinSize()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::FixedMinSize(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->FixedMinSize();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -442,7 +442,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->ReserveSpaceEvenIfHidden();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -463,7 +463,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Left()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Left(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Left();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -485,7 +485,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Proportion(int)");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Proportion(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Proportion(proportion);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -506,7 +506,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Right()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Right(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Right();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -527,7 +527,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Shaped()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Shaped(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Shaped();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -548,7 +548,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Top()");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Top(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->Top();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -572,7 +572,7 @@ public:
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::TripleBorder(int)");
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::TripleBorder(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
 		}
 		const wxSizerFlags* lret = &self->TripleBorder(direction);
 		if(!lret) return 0; // Do not write NULL pointers.

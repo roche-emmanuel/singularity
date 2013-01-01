@@ -234,7 +234,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::Abort()");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::Abort(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Abort();
 		lua_pushboolean(L,lret?1:0);
@@ -253,7 +253,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxProtocol::GetContentType() const");
+			luaL_error(L, "Invalid object in function call wxString wxProtocol::GetContentType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetContentType();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -272,7 +272,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolError wxProtocol::GetError() const");
+			luaL_error(L, "Invalid object in function call wxProtocolError wxProtocol::GetError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxProtocolError lret = self->GetError();
 		lua_pushnumber(L,lret);
@@ -292,7 +292,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxProtocol::GetInputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxProtocol::GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -313,7 +313,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::Reconnect()");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::Reconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Reconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -333,7 +333,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::SetPassword(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::SetPassword(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPassword(user);
 
@@ -352,7 +352,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::SetUser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::SetUser(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetUser(user);
 
@@ -371,7 +371,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::SetDefaultTimeout(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::SetDefaultTimeout(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDefaultTimeout(Value);
 
@@ -390,7 +390,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::SetLog(wxProtocolLog *)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::SetLog(wxProtocolLog *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLog(log);
 
@@ -408,7 +408,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolLog * wxProtocol::GetLog() const");
+			luaL_error(L, "Invalid object in function call wxProtocolLog * wxProtocol::GetLog() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxProtocolLog * lret = self->GetLog();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -429,7 +429,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolLog * wxProtocol::DetachLog()");
+			luaL_error(L, "Invalid object in function call wxProtocolLog * wxProtocol::DetachLog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxProtocolLog * lret = self->DetachLog();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -451,7 +451,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::LogRequest(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::LogRequest(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->LogRequest(str);
 
@@ -470,7 +470,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::LogResponse(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::LogResponse(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->LogResponse(str);
 
@@ -488,7 +488,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxProtocol::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProtocol::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxProtocol::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -514,7 +514,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::base_GetLocal(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProtocol::GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -538,7 +538,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::base_GetPeer(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProtocol::GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -557,7 +557,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProtocol::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -581,7 +581,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::base_SetLocal(const wxIPV4address &)");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProtocol::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);
@@ -608,7 +608,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProtocol::base_Connect(const wxSockAddress &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_Connect(const wxSockAddress &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProtocol::Connect(address, wait);
 		lua_pushboolean(L,lret?1:0);
@@ -627,7 +627,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolError wxProtocol::base_GetError() const");
+			luaL_error(L, "Invalid object in function call wxProtocolError wxProtocol::base_GetError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxProtocolError lret = self->wxProtocol::GetError();
 		lua_pushnumber(L,lret);
@@ -647,7 +647,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::base_SetPassword(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::base_SetPassword(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProtocol::SetPassword(user);
 
@@ -666,7 +666,7 @@ public:
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocol::base_SetUser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocol::base_SetUser(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProtocol::SetUser(user);
 

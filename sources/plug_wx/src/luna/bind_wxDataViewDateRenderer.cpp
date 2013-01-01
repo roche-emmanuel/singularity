@@ -139,7 +139,7 @@ public:
 		wxDataViewDateRenderer* self=Luna< wxObject >::checkSubType< wxDataViewDateRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewDateRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewDateRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewDateRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -160,7 +160,7 @@ public:
 		wxDataViewDateRenderer* self=Luna< wxObject >::checkSubType< wxDataViewDateRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewDateRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewDateRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewDateRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -179,7 +179,7 @@ public:
 		wxDataViewDateRenderer* self=Luna< wxObject >::checkSubType< wxDataViewDateRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewDateRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewDateRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewDateRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -199,7 +199,7 @@ public:
 		wxDataViewDateRenderer* self=Luna< wxObject >::checkSubType< wxDataViewDateRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewDateRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewDateRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewDateRenderer::SetAlignment(align);
 

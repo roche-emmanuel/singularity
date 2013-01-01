@@ -134,7 +134,7 @@ public:
 		wxGridSizesInfo* self=(Luna< wxGridSizesInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::GetSize(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::GetSize(unsigned int) const. Got : '%s'",typeid(Luna< wxGridSizesInfo >::check(L,1)).name());
 		}
 		int lret = self->GetSize(pos);
 		lua_pushnumber(L,lret);

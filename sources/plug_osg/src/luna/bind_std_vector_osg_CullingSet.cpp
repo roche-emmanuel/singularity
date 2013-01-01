@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::CullingSet >",name);
 	}
+
 };
 
 std::vector< osg::CullingSet >* LunaTraits< std::vector< osg::CullingSet > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::CullingSet > >::uniqueIDs[] = {3779006,0
 luna_RegType LunaTraits< std::vector< osg::CullingSet > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_CullingSet::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_CullingSet::_bind___eq},
+	
 	{0,0}
 };
 

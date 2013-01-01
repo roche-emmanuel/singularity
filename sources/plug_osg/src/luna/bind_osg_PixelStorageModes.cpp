@@ -103,7 +103,7 @@ public:
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes()");
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
 		}
 		self->retrieveStoreModes();
 
@@ -121,7 +121,7 @@ public:
 		osg::PixelStorageModes* self=(Luna< osg::PixelStorageModes >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes3D()");
+			luaL_error(L, "Invalid object in function call void osg::PixelStorageModes::retrieveStoreModes3D(). Got : '%s'",typeid(Luna< osg::PixelStorageModes >::check(L,1)).name());
 		}
 		self->retrieveStoreModes3D();
 

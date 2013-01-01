@@ -130,7 +130,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::Matches(const wxVideoMode &) const");
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::Matches(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		bool lret = self->Matches(other);
 		lua_pushboolean(L,lret?1:0);
@@ -149,7 +149,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxVideoMode::GetWidth() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -168,7 +168,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::GetHeight() const");
+			luaL_error(L, "Invalid object in function call int wxVideoMode::GetHeight() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -187,7 +187,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVideoMode::GetDepth() const");
+			luaL_error(L, "Invalid object in function call int wxVideoMode::GetDepth() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		int lret = self->GetDepth();
 		lua_pushnumber(L,lret);
@@ -206,7 +206,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::IsOk() const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -232,7 +232,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator==(const wxVideoMode &) const");
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator==(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		bool lret = self->operator==(m);
 		lua_pushboolean(L,lret?1:0);
@@ -256,7 +256,7 @@ public:
 		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator!=(const wxVideoMode &) const");
+			luaL_error(L, "Invalid object in function call bool wxVideoMode::operator!=(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(mode);
 		lua_pushboolean(L,lret?1:0);

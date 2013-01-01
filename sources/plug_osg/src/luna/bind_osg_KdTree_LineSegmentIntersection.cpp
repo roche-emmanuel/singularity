@@ -105,7 +105,7 @@ public:
 		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::KdTree::LineSegmentIntersection::operator<(const osg::KdTree::LineSegmentIntersection &) const");
+			luaL_error(L, "Invalid object in function call bool osg::KdTree::LineSegmentIntersection::operator<(const osg::KdTree::LineSegmentIntersection &) const. Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

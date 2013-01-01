@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osg::ref_ptr< osgGA::GUIEventHandler > >",name);
 	}
+
 };
 
 std::list< osg::ref_ptr< osgGA::GUIEventHandler > >* LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventHandler > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventHandler > > >::uni
 luna_RegType LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventHandler > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osg_ref_ptr_osgGA_GUIEventHandler::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osg_ref_ptr_osgGA_GUIEventHandler::_bind___eq},
+	
 	{0,0}
 };
 

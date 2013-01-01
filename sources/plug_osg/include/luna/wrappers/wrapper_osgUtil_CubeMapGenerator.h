@@ -111,7 +111,7 @@ public:
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::public_set_pixel(int, int, int, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::public_set_pixel(int, int, int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_set_pixel(index, c, r, color);
 
@@ -134,7 +134,7 @@ public:
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4f stack_lret = self->public_vector_to_color(vec);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -158,7 +158,7 @@ public:
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -176,7 +176,7 @@ public:
 		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

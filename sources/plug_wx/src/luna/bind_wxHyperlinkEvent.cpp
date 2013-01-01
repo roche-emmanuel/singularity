@@ -136,7 +136,7 @@ public:
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkEvent::GetURL() const");
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkEvent::GetURL() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -156,7 +156,7 @@ public:
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkEvent::SetURL(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHyperlinkEvent::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetURL(url);
 
@@ -174,7 +174,7 @@ public:
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHyperlinkEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -195,7 +195,7 @@ public:
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxHyperlinkEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

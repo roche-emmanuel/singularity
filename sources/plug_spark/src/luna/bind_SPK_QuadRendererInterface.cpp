@@ -219,7 +219,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::QuadRendererInterface::setTexturingMode(SPK::TexturingMode)");
+			luaL_error(L, "Invalid object in function call bool SPK::QuadRendererInterface::setTexturingMode(SPK::TexturingMode). Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		bool lret = self->setTexturingMode(mode);
 		lua_pushboolean(L,lret?1:0);
@@ -240,7 +240,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::setAtlasDimensions(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::setAtlasDimensions(size_t, size_t). Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		self->setAtlasDimensions(nbX, nbY);
 
@@ -260,7 +260,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::setScale(float, float)");
+			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::setScale(float, float). Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		self->setScale(scaleX, scaleY);
 
@@ -278,7 +278,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::TexturingMode SPK::QuadRendererInterface::getTexturingMode() const");
+			luaL_error(L, "Invalid object in function call SPK::TexturingMode SPK::QuadRendererInterface::getTexturingMode() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		SPK::TexturingMode lret = self->getTexturingMode();
 		lua_pushnumber(L,lret);
@@ -297,7 +297,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::QuadRendererInterface::getAtlasDimensionX() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::QuadRendererInterface::getAtlasDimensionX() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		size_t lret = self->getAtlasDimensionX();
 		lua_pushnumber(L,lret);
@@ -316,7 +316,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::QuadRendererInterface::getAtlasDimensionY() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::QuadRendererInterface::getAtlasDimensionY() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		size_t lret = self->getAtlasDimensionY();
 		lua_pushnumber(L,lret);
@@ -335,7 +335,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::getScaleX() const");
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::getScaleX() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->getScaleX();
 		lua_pushnumber(L,lret);
@@ -354,7 +354,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::getScaleY() const");
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::getScaleY() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->getScaleY();
 		lua_pushnumber(L,lret);
@@ -374,7 +374,7 @@ public:
 		SPK::QuadRendererInterface* self=(Luna< SPK::QuadRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::QuadRendererInterface::base_setTexturingMode(SPK::TexturingMode)");
+			luaL_error(L, "Invalid object in function call bool SPK::QuadRendererInterface::base_setTexturingMode(SPK::TexturingMode). Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		bool lret = self->QuadRendererInterface::setTexturingMode(mode);
 		lua_pushboolean(L,lret?1:0);

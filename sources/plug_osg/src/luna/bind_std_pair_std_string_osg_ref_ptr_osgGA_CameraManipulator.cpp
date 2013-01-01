@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >",name);
 	}
+
 };
 
 std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipul
 luna_RegType LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_pair_std_string_osg_ref_ptr_osgGA_CameraManipulator::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_pair_std_string_osg_ref_ptr_osgGA_CameraManipulator::_bind___eq},
+	
 	{0,0}
 };
 

@@ -457,7 +457,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,7 +483,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -505,7 +505,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -524,7 +524,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -543,7 +543,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -562,7 +562,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonMode::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonMode::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -586,7 +586,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PolygonMode::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::PolygonMode::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -607,7 +607,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::setMode(osg::PolygonMode::Face, osg::PolygonMode::Mode)");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::setMode(osg::PolygonMode::Face, osg::PolygonMode::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(face, mode);
 
@@ -626,7 +626,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PolygonMode::Mode osg::PolygonMode::getMode(osg::PolygonMode::Face) const");
+			luaL_error(L, "Invalid object in function call osg::PolygonMode::Mode osg::PolygonMode::getMode(osg::PolygonMode::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PolygonMode::Mode lret = self->getMode(face);
 		lua_pushnumber(L,lret);
@@ -645,7 +645,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::getFrontAndBack() const");
+			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::getFrontAndBack() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getFrontAndBack();
 		lua_pushboolean(L,lret?1:0);
@@ -669,7 +669,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -688,7 +688,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolygonMode::setName(name);
 
@@ -706,7 +706,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolygonMode::computeDataVariance();
 
@@ -725,7 +725,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolygonMode::setUserData(obj);
 
@@ -743,7 +743,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PolygonMode::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PolygonMode::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PolygonMode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -764,7 +764,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PolygonMode::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PolygonMode::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PolygonMode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -794,7 +794,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::PolygonMode::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::PolygonMode::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->PolygonMode::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -815,7 +815,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::PolygonMode::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::PolygonMode::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->PolygonMode::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -845,7 +845,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PolygonMode::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PolygonMode::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->PolygonMode::getMember();
 		lua_pushnumber(L,lret);
@@ -864,7 +864,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PolygonMode::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -888,7 +888,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PolygonMode::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -912,7 +912,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PolygonMode::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -936,7 +936,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolygonMode::compileGLObjects(_arg1);
 
@@ -957,7 +957,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolygonMode::releaseGLObjects(_arg1);
 
@@ -975,7 +975,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PolygonMode::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1001,7 +1001,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PolygonMode::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PolygonMode::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1023,7 +1023,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PolygonMode::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PolygonMode::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1042,7 +1042,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PolygonMode::libraryName();
 		lua_pushstring(L,lret);
@@ -1061,7 +1061,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PolygonMode::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PolygonMode::className();
 		lua_pushstring(L,lret);
@@ -1080,7 +1080,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonMode::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PolygonMode::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->PolygonMode::getType();
 		lua_pushnumber(L,lret);
@@ -1104,7 +1104,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PolygonMode::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::PolygonMode::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->PolygonMode::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1128,7 +1128,7 @@ public:
 		osg::PolygonMode* self=Luna< osg::Referenced >::checkSubType< osg::PolygonMode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PolygonMode::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolygonMode::apply(_arg1);
 

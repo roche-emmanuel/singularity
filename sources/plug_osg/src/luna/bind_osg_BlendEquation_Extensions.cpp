@@ -182,7 +182,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -200,7 +200,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isBlendEquationSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isBlendEquationSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isBlendEquationSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -219,7 +219,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isBlendEquationSeparateSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isBlendEquationSeparateSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isBlendEquationSeparateSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -238,7 +238,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isSGIXMinMaxSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isSGIXMinMaxSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSGIXMinMaxSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -257,7 +257,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isLogicOpSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isLogicOpSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isLogicOpSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -277,7 +277,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::glBlendEquation(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::glBlendEquation(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBlendEquation(mode);
 
@@ -297,7 +297,7 @@ public:
 		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::glBlendEquationSeparate(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::glBlendEquationSeparate(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBlendEquationSeparate(modeRGB, modeAlpha);
 

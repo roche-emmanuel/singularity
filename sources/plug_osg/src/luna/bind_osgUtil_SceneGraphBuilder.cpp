@@ -452,7 +452,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PushMatrix()");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PushMatrix(). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PushMatrix();
 
@@ -470,7 +470,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PopMatrix()");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PopMatrix(). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PopMatrix();
 
@@ -488,7 +488,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LoadIdentity()");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LoadIdentity(). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->LoadIdentity();
 
@@ -507,7 +507,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LoadMatrixd(const double *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LoadMatrixd(const double *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->LoadMatrixd(&m);
 
@@ -526,7 +526,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::MultMatrixd(const double *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::MultMatrixd(const double *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->MultMatrixd(&m);
 
@@ -547,7 +547,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Translated(double, double, double)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Translated(double, double, double). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Translated(x, y, z);
 
@@ -568,7 +568,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Scaled(double, double, double)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Scaled(double, double, double). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Scaled(x, y, z);
 
@@ -590,7 +590,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Rotated(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Rotated(double, double, double, double). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Rotated(angle, x, y, z);
 
@@ -610,7 +610,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::BlendFunc(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::BlendFunc(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->BlendFunc(srcFactor, dstFactor);
 
@@ -629,7 +629,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::CullFace(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::CullFace(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->CullFace(mode);
 
@@ -648,7 +648,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::DepthFunc(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::DepthFunc(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->DepthFunc(mode);
 
@@ -667,7 +667,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::FrontFace(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::FrontFace(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->FrontFace(mode);
 
@@ -687,7 +687,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LineStipple(int, unsigned short)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LineStipple(int, unsigned short). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->LineStipple(factor, pattern);
 
@@ -706,7 +706,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LineWidth(float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LineWidth(float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->LineWidth(lineWidth);
 
@@ -725,7 +725,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PointSize(float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PointSize(float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PointSize(pointSize);
 
@@ -745,7 +745,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PolygonMode(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PolygonMode(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PolygonMode(face, mode);
 
@@ -765,7 +765,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PolygonOffset(float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PolygonOffset(float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PolygonOffset(factor, units);
 
@@ -784,7 +784,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PolygonStipple(const unsigned char *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PolygonStipple(const unsigned char *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PolygonStipple(&mask);
 
@@ -803,7 +803,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::ShadeModel(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::ShadeModel(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->ShadeModel(mode);
 
@@ -822,7 +822,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Enable(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Enable(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Enable(mode);
 
@@ -841,7 +841,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Disable(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Disable(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Disable(mode);
 
@@ -863,7 +863,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Color4f(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Color4f(float, float, float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Color4f(red, green, blue, alpha);
 
@@ -882,7 +882,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Color4fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Color4fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Color4fv(&c);
 
@@ -903,7 +903,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Vertex3f(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Vertex3f(float, float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Vertex3f(x, y, z);
 
@@ -922,7 +922,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Vertex3fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Vertex3fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Vertex3fv(&v);
 
@@ -943,7 +943,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Normal3f(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Normal3f(float, float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Normal3f(x, y, z);
 
@@ -962,7 +962,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Normal3fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Normal3fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Normal3fv(&n);
 
@@ -981,7 +981,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord1f(float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord1f(float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord1f(x);
 
@@ -1000,7 +1000,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord1fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord1fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord1fv(&tc);
 
@@ -1020,7 +1020,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord2f(float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord2f(float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord2f(x, y);
 
@@ -1039,7 +1039,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord2fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord2fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord2fv(&tc);
 
@@ -1060,7 +1060,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord3f(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord3f(float, float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord3f(x, y, z);
 
@@ -1079,7 +1079,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord3fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord3fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord3fv(&tc);
 
@@ -1101,7 +1101,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord4f(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord4f(float, float, float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord4f(x, y, z, w);
 
@@ -1120,7 +1120,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord4fv(float *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord4fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->TexCoord4fv(&tc);
 
@@ -1139,7 +1139,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Begin(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Begin(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Begin(mode);
 
@@ -1157,7 +1157,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::End()");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::End(). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->End();
 
@@ -1176,7 +1176,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricDrawStyle(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricDrawStyle(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->QuadricDrawStyle(aDrawStyle);
 
@@ -1195,7 +1195,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricNormals(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricNormals(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->QuadricNormals(aNormals);
 
@@ -1214,7 +1214,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricOrientation(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricOrientation(unsigned int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->QuadricOrientation(aOrientation);
 
@@ -1233,7 +1233,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricTexture(unsigned char)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::QuadricTexture(unsigned char). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->QuadricTexture(aTexture);
 
@@ -1256,7 +1256,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Cylinder(float, float, float, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Cylinder(float, float, float, int, int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Cylinder(base, top, height, slices, stacks);
 
@@ -1278,7 +1278,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Disk(float, float, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Disk(float, float, int, int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Disk(inner, outer, slices, loops);
 
@@ -1302,7 +1302,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PartialDisk(float, float, int, int, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::PartialDisk(float, float, int, int, float, float). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->PartialDisk(inner, outer, slices, loops, start, sweep);
 
@@ -1323,7 +1323,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Sphere(float, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Sphere(float, int, int). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		self->Sphere(radius, slices, stacks);
 
@@ -1341,7 +1341,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::SceneGraphBuilder::getScene()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::SceneGraphBuilder::getScene(). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getScene();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1362,7 +1362,7 @@ public:
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::SceneGraphBuilder::takeScene()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::SceneGraphBuilder::takeScene(). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
 		osg::Node * lret = self->takeScene();
 		if(!lret) return 0; // Do not write NULL pointers.

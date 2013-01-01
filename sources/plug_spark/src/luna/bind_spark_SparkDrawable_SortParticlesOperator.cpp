@@ -170,7 +170,7 @@ public:
 		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System *, SPK::System *)");
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System *, SPK::System *). Got : '%s'",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name());
 		}
 		bool lret = self->operator()(lhs, rhs);
 		lua_pushboolean(L,lret?1:0);

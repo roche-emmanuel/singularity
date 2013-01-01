@@ -918,7 +918,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::InsertColumn(const wxHeaderColumnSimple &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::InsertColumn(const wxHeaderColumnSimple &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->InsertColumn(col, idx);
 
@@ -941,7 +941,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::AppendColumn(const wxHeaderColumnSimple &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::AppendColumn(const wxHeaderColumnSimple &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AppendColumn(col);
 
@@ -960,7 +960,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::DeleteColumn(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::DeleteColumn(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DeleteColumn(idx);
 
@@ -982,7 +982,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::ShowColumn(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::ShowColumn(unsigned int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShowColumn(idx, show);
 
@@ -1001,7 +1001,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::HideColumn(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::HideColumn(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->HideColumn(idx);
 
@@ -1023,7 +1023,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::ShowSortIndicator(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::ShowSortIndicator(unsigned int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShowSortIndicator(idx, sortOrder);
 
@@ -1041,7 +1041,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::RemoveSortIndicator()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::RemoveSortIndicator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RemoveSortIndicator();
 
@@ -1059,7 +1059,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlSimple::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlSimple::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHeaderCtrlSimple::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1080,7 +1080,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1099,7 +1099,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1118,7 +1118,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1137,7 +1137,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1157,7 +1157,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetCanFocus(canFocus);
 
@@ -1175,7 +1175,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetFocus();
 
@@ -1193,7 +1193,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetFocusFromKbd();
 
@@ -1212,7 +1212,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::AddChild(child);
 
@@ -1231,7 +1231,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::RemoveChild(child);
 
@@ -1250,7 +1250,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1273,7 +1273,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1292,7 +1292,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderCtrlSimple::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1312,7 +1312,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderCtrlSimple::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1332,7 +1332,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderCtrlSimple::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1352,7 +1352,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1372,7 +1372,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1392,7 +1392,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1416,7 +1416,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::ScrollWindow(dx, dy, rect);
 
@@ -1439,7 +1439,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetScrollPos(orientation, pos, refresh);
 
@@ -1464,7 +1464,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1487,7 +1487,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1514,7 +1514,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1536,7 +1536,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::Fit();
 
@@ -1554,7 +1554,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::FitInside();
 
@@ -1572,7 +1572,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1594,7 +1594,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1616,7 +1616,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1638,7 +1638,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1660,7 +1660,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1682,7 +1682,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1704,7 +1704,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHeaderCtrlSimple::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHeaderCtrlSimple::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1729,7 +1729,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1751,7 +1751,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SendSizeEvent(flags);
 
@@ -1774,7 +1774,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetMaxClientSize(size);
 
@@ -1797,7 +1797,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetMaxSize(size);
 
@@ -1820,7 +1820,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetMinClientSize(size);
 
@@ -1843,7 +1843,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetMinSize(size);
 
@@ -1878,7 +1878,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1904,7 +1904,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1931,7 +1931,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxHeaderCtrlSimple::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxHeaderCtrlSimple::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxHeaderCtrlSimple::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1953,7 +1953,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::ClearBackground();
 
@@ -1971,7 +1971,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHeaderCtrlSimple::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHeaderCtrlSimple::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxHeaderCtrlSimple::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1990,7 +1990,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderCtrlSimple::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2009,7 +2009,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlSimple::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderCtrlSimple::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2028,7 +2028,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHeaderCtrlSimple::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHeaderCtrlSimple::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxHeaderCtrlSimple::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2054,7 +2054,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::Refresh(eraseBackground, rect);
 
@@ -2072,7 +2072,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::Update();
 
@@ -2091,7 +2091,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2115,7 +2115,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2134,7 +2134,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2154,7 +2154,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetThemeEnabled(enable);
 
@@ -2172,7 +2172,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2191,7 +2191,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2211,7 +2211,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2231,7 +2231,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetNextHandler(handler);
 
@@ -2250,7 +2250,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetPreviousHandler(handler);
 
@@ -2268,7 +2268,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxHeaderCtrlSimple::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxHeaderCtrlSimple::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxHeaderCtrlSimple::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2288,7 +2288,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetExtraStyle(exStyle);
 
@@ -2307,7 +2307,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetWindowStyleFlag(style);
 
@@ -2325,7 +2325,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::Lower();
 
@@ -2343,7 +2343,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::Raise();
 
@@ -2365,7 +2365,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2384,7 +2384,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2403,7 +2403,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2425,7 +2425,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2447,7 +2447,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2470,7 +2470,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2495,7 +2495,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderCtrlSimple::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxHeaderCtrlSimple::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHeaderCtrlSimple::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2514,7 +2514,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxHeaderCtrlSimple::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxHeaderCtrlSimple::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxHeaderCtrlSimple::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2540,7 +2540,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetValidator(validator);
 
@@ -2558,7 +2558,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2577,7 +2577,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2596,7 +2596,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2615,7 +2615,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHeaderCtrlSimple::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHeaderCtrlSimple::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxHeaderCtrlSimple::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2634,7 +2634,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderCtrlSimple::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxHeaderCtrlSimple::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHeaderCtrlSimple::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2654,7 +2654,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetLayoutDirection(dir);
 
@@ -2673,7 +2673,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetName(name);
 
@@ -2696,7 +2696,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetAcceleratorTable(accel);
 
@@ -2714,7 +2714,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2733,7 +2733,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxHeaderCtrlSimple::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxHeaderCtrlSimple::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxHeaderCtrlSimple::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2755,7 +2755,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetDropTarget(target);
 
@@ -2774,7 +2774,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::DragAcceptFiles(accept);
 
@@ -2792,7 +2792,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2811,7 +2811,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2835,7 +2835,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2856,7 +2856,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::WarpPointer(x, y);
 
@@ -2879,7 +2879,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::DoUpdateWindowUI(event);
 
@@ -2897,7 +2897,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2916,7 +2916,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::InheritAttributes();
 
@@ -2934,7 +2934,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::InitDialog();
 
@@ -2952,7 +2952,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2971,7 +2971,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2993,7 +2993,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::MakeModal(modal);
 
@@ -3011,7 +3011,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::OnInternalIdle();
 
@@ -3032,7 +3032,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3052,7 +3052,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxHeaderCtrlSimple::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderCtrlSimple::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3074,7 +3074,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::UpdateWindowUI(flags);
 
@@ -3097,7 +3097,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::Command(event);
 
@@ -3115,7 +3115,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderCtrlSimple::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxHeaderCtrlSimple::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHeaderCtrlSimple::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3135,7 +3135,7 @@ public:
 		wxHeaderCtrlSimple* self=Luna< wxObject >::checkSubType< wxHeaderCtrlSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderCtrlSimple::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHeaderCtrlSimple::SetLabel(label);
 

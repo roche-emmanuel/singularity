@@ -338,7 +338,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setUpHUDCamera(viewer);
 
@@ -368,7 +368,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f &, const float, const float, osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createBackgroundRectangle(const osg::Vec3f &, const float, const float, osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->public_createBackgroundRectangle(pos, width, height, color);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -401,7 +401,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createGeometry(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->public_createGeometry(pos, height, colour, numBlocks);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -434,7 +434,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createFrameMarkers(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->public_createFrameMarkers(pos, height, colour, numBlocks);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -467,7 +467,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgViewer::StatsHandler::public_createTick(const osg::Vec3f &, float, const osg::Vec4f &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->public_createTick(pos, height, colour, numTicks);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -512,7 +512,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string &, osg::Vec3f, const osg::Vec4f &, const osg::Vec4f &, osg::Stats *, osg::Stats *, const std::string &, float, bool, bool, const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createTimeStatsLine(const std::string &, osg::Vec3f, const osg::Vec4f &, const osg::Vec4f &, osg::Stats *, osg::Stats *, const std::string &, float, bool, bool, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_createTimeStatsLine(lineLabel, pos, textColor, barColor, viewerStats, stats, timeTakenName, multiplier, average, averageInInverseSpace, beginTimeName, endTimeName);
 
@@ -538,7 +538,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f &, bool, osg::Stats *, osg::Camera *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_createCameraTimeStats(osg::Vec3f &, bool, osg::Stats *, osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_createCameraTimeStats(pos, acquireGPUStats, viewerStats, camera);
 
@@ -557,7 +557,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpScene(osgViewer::ViewerBase *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setUpScene(viewer);
 
@@ -577,7 +577,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -595,7 +595,7 @@ public:
 		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

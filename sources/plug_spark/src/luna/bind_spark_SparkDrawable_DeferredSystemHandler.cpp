@@ -149,7 +149,7 @@ public:
 		spark::SparkDrawable::DeferredSystemHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable::DeferredSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::update(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::update(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->update(nv, drawable);
 
@@ -169,7 +169,7 @@ public:
 		spark::SparkDrawable::DeferredSystemHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable::DeferredSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::base_update(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::base_update(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DeferredSystemHandler::update(nv, drawable);
 
@@ -196,7 +196,7 @@ const char LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::fullName[]
 const char LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::moduleName[] = "spark";
 const char* LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::parents[] = {"osg.Drawable_UpdateCallback", 0};
 const int LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::hash = 23688382;
-const int LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::uniqueIDs[] = {5213827,0};
+const int LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::methods[] = {
 	{"update", &luna_wrapper_spark_SparkDrawable_DeferredSystemHandler::_bind_update},

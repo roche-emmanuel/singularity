@@ -137,7 +137,7 @@ public:
 		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBOM wxConvAuto::GetBOM() const");
+			luaL_error(L, "Invalid object in function call wxBOM wxConvAuto::GetBOM() const. Got : '%s'",typeid(Luna< wxConvAuto >::check(L,1)).name());
 		}
 		wxBOM lret = self->GetBOM();
 		lua_pushnumber(L,lret);
@@ -158,7 +158,7 @@ public:
 		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxConvAuto::GetBOMChars(wxBOM, size_t *)");
+			luaL_error(L, "Invalid object in function call const char * wxConvAuto::GetBOMChars(wxBOM, size_t *). Got : '%s'",typeid(Luna< wxConvAuto >::check(L,1)).name());
 		}
 		const char * lret = self->GetBOMChars(bom, &count);
 		lua_pushstring(L,lret);

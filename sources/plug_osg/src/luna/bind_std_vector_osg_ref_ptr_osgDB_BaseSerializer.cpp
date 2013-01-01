@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::ref_ptr< osgDB::BaseSerializer > >",name);
 	}
+
 };
 
 std::vector< osg::ref_ptr< osgDB::BaseSerializer > >* LunaTraits< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::un
 luna_RegType LunaTraits< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_ref_ptr_osgDB_BaseSerializer::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_ref_ptr_osgDB_BaseSerializer::_bind___eq},
+	
 	{0,0}
 };
 

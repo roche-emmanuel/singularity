@@ -325,7 +325,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignHor() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignHor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetAlignHor();
 		lua_pushnumber(L,lret);
@@ -344,7 +344,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignVer() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignVer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetAlignVer();
 		lua_pushnumber(L,lret);
@@ -363,7 +363,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHtmlContainerCell::GetBackgroundColour()");
+			luaL_error(L, "Invalid object in function call wxColour wxHtmlContainerCell::GetBackgroundColour(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetBackgroundColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -386,7 +386,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndent(int) const");
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndent(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetIndent(ind);
 		lua_pushnumber(L,lret);
@@ -406,7 +406,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndentUnits(int) const");
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndentUnits(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetIndentUnits(ind);
 		lua_pushnumber(L,lret);
@@ -426,7 +426,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::InsertCell(wxHtmlCell *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::InsertCell(wxHtmlCell *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->InsertCell(cell);
 
@@ -449,7 +449,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlign(const wxHtmlTag &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlign(const wxHtmlTag &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAlign(tag);
 
@@ -468,7 +468,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignHor(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignHor(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAlignHor(al);
 
@@ -487,7 +487,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignVer(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignVer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAlignVer(al);
 
@@ -510,7 +510,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBackgroundColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBackgroundColour(clr);
 
@@ -541,7 +541,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBorder(const wxColour &, const wxColour &, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBorder(const wxColour &, const wxColour &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBorder(clr1, clr2, border);
 
@@ -564,7 +564,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetIndent(int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetIndent(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetIndent(i, what, units);
 
@@ -586,7 +586,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetMinHeight(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetMinHeight(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMinHeight(h, align);
 
@@ -606,7 +606,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetWidthFloat(w, units);
 
@@ -632,7 +632,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag &, double)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag &, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetWidthFloat(tag, pixel_scale);
 
@@ -659,7 +659,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlContainerCell::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -686,7 +686,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlContainerCell::base_AdjustPagebreak(int *, wxArrayInt &) const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlContainerCell::base_AdjustPagebreak(int *, wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlContainerCell::AdjustPagebreak(&pagebreak, known_pagebreaks);
 		lua_pushboolean(L,lret?1:0);
@@ -719,7 +719,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlContainerCell::Draw(dc, x, y, view_y1, view_y2, info);
 
@@ -749,7 +749,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlContainerCell::DrawInvisible(dc, x, y, info);
 
@@ -769,7 +769,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlContainerCell::base_Find(int, const void *) const");
+			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlContainerCell::base_Find(int, const void *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxHtmlCell * lret = self->wxHtmlContainerCell::Find(condition, param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -790,7 +790,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const");
+			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxHtmlCell * lret = self->wxHtmlContainerCell::GetFirstChild();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -815,7 +815,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int, int) const");
+			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxHtmlLinkInfo * lret = self->wxHtmlContainerCell::GetLink(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -837,7 +837,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Layout(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Layout(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlContainerCell::Layout(w);
 
@@ -857,7 +857,7 @@ public:
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_SetPos(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_SetPos(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlContainerCell::SetPos(x, y);
 

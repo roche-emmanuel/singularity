@@ -480,7 +480,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -506,7 +506,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -528,7 +528,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -547,7 +547,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Depth::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Depth::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -566,7 +566,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Depth::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Depth::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -585,7 +585,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Depth::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Depth::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -609,7 +609,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Depth::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::Depth::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -633,7 +633,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -653,7 +653,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::setFunction(osg::Depth::Function)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::setFunction(osg::Depth::Function). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunction(func);
 
@@ -671,7 +671,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Depth::Function osg::Depth::getFunction() const");
+			luaL_error(L, "Invalid object in function call osg::Depth::Function osg::Depth::getFunction() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Depth::Function lret = self->getFunction();
 		lua_pushnumber(L,lret);
@@ -692,7 +692,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::setRange(double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::setRange(double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRange(zNear, zFar);
 
@@ -711,7 +711,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::setZNear(double)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::setZNear(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setZNear(zNear);
 
@@ -729,7 +729,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Depth::getZNear() const");
+			luaL_error(L, "Invalid object in function call double osg::Depth::getZNear() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getZNear();
 		lua_pushnumber(L,lret);
@@ -749,7 +749,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::setZFar(double)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::setZFar(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setZFar(zFar);
 
@@ -767,7 +767,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Depth::getZFar() const");
+			luaL_error(L, "Invalid object in function call double osg::Depth::getZFar() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getZFar();
 		lua_pushnumber(L,lret);
@@ -787,7 +787,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::setWriteMask(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::setWriteMask(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWriteMask(mask);
 
@@ -805,7 +805,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::getWriteMask() const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::getWriteMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getWriteMask();
 		lua_pushboolean(L,lret?1:0);
@@ -829,7 +829,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Depth::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -848,7 +848,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Depth::setName(name);
 
@@ -866,7 +866,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Depth::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Depth::computeDataVariance();
 
@@ -885,7 +885,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Depth::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Depth::setUserData(obj);
 
@@ -903,7 +903,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Depth::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Depth::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Depth::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -924,7 +924,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Depth::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Depth::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Depth::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -954,7 +954,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::Depth::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::Depth::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->Depth::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -975,7 +975,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Depth::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Depth::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->Depth::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1005,7 +1005,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Depth::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Depth::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Depth::getMember();
 		lua_pushnumber(L,lret);
@@ -1024,7 +1024,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Depth::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1048,7 +1048,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Depth::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1072,7 +1072,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Depth::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Depth::compileGLObjects(_arg1);
 
@@ -1093,7 +1093,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Depth::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Depth::releaseGLObjects(_arg1);
 
@@ -1111,7 +1111,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Depth::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1137,7 +1137,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Depth::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Depth::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1159,7 +1159,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Depth::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1178,7 +1178,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Depth::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Depth::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Depth::libraryName();
 		lua_pushstring(L,lret);
@@ -1197,7 +1197,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Depth::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Depth::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Depth::className();
 		lua_pushstring(L,lret);
@@ -1216,7 +1216,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Depth::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Depth::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->Depth::getType();
 		lua_pushnumber(L,lret);
@@ -1240,7 +1240,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Depth::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::Depth::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Depth::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1264,7 +1264,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Depth::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Depth::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Depth::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1288,7 +1288,7 @@ public:
 		osg::Depth* self=Luna< osg::Referenced >::checkSubType< osg::Depth >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Depth::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Depth::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Depth::apply(_arg1);
 

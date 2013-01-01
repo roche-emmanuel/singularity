@@ -136,7 +136,7 @@ public:
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCollapsiblePaneEvent::GetCollapsed() const");
+			luaL_error(L, "Invalid object in function call bool wxCollapsiblePaneEvent::GetCollapsed() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetCollapsed();
 		lua_pushboolean(L,lret?1:0);
@@ -156,7 +156,7 @@ public:
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCollapsiblePaneEvent::SetCollapsed(bool)");
+			luaL_error(L, "Invalid object in function call void wxCollapsiblePaneEvent::SetCollapsed(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCollapsed(collapsed);
 
@@ -174,7 +174,7 @@ public:
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCollapsiblePaneEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -195,7 +195,7 @@ public:
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxCollapsiblePaneEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -98,7 +98,7 @@ public:
 		wrapper_wxXmlResource* self=Luna< wxObject >::checkSubType< wrapper_wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResource::public_ReportError(const wxXmlNode *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxXmlResource::public_ReportError(const wxXmlNode *, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_ReportError(context, message);
 

@@ -131,7 +131,7 @@ public:
 		osg::TextureCubeMap::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->load(texture, state);
 
@@ -159,7 +159,7 @@ public:
 		osg::TextureCubeMap::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::SubloadCallback::subload(const osg::TextureCubeMap &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::SubloadCallback::subload(const osg::TextureCubeMap &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->subload(texture, state);
 

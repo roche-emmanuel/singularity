@@ -261,7 +261,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxHtmlEasyPrinting::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxHtmlEasyPrinting::GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -280,7 +280,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData()");
+			luaL_error(L, "Invalid object in function call wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPageSetupDialogData * lret = self->GetPageSetupData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -301,7 +301,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxHtmlEasyPrinting::GetParentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxHtmlEasyPrinting::GetParentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetParentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -322,7 +322,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::PageSetup()");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::PageSetup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->PageSetup();
 
@@ -341,7 +341,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewFile(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PreviewFile(htmlfile);
 		lua_pushboolean(L,lret?1:0);
@@ -364,7 +364,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewText(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewText(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PreviewText(htmltext, basepath);
 		lua_pushboolean(L,lret?1:0);
@@ -384,7 +384,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintFile(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PrintFile(htmlfile);
 		lua_pushboolean(L,lret?1:0);
@@ -407,7 +407,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintText(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintText(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PrintText(htmltext, basepath);
 		lua_pushboolean(L,lret?1:0);
@@ -431,7 +431,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFonts(const wxString &, const wxString &, const int *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFonts(normal_face, fixed_face, &sizes);
 
@@ -450,7 +450,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetName(name);
 
@@ -473,7 +473,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetStandardFonts(int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetStandardFonts(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStandardFonts(size, normal_face, fixed_face);
 
@@ -495,7 +495,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFooter(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFooter(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFooter(footer, pg);
 
@@ -517,7 +517,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetHeader(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetHeader(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHeader(header, pg);
 
@@ -536,7 +536,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetParentWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetParentWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetParentWindow(window);
 
@@ -554,7 +554,7 @@ public:
 		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlEasyPrinting::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

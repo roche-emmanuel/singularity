@@ -121,7 +121,7 @@ public:
 		osgUtil::RenderBin::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::DrawCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin *, osg::RenderInfo &, osgUtil::RenderLeaf *&)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin *, osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->drawImplementation(bin, renderInfo, previous);
 

@@ -152,7 +152,7 @@ public:
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::setProfile(unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BufferObjectProfile::setProfile(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
 		}
 		self->setProfile(target, usage, size);
 
@@ -177,7 +177,7 @@ public:
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator<(const osg::BufferObjectProfile &) const. Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -201,7 +201,7 @@ public:
 		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BufferObjectProfile::operator==(const osg::BufferObjectProfile &) const. Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);

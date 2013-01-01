@@ -45,7 +45,7 @@ function Class:writeFile()
 		
 		if classname and not im:ignore(classname,"class_declaration") then
 			self:debug0_v("Writing class declaration for ", v:getFullName(), " (typename=",classname,")")
-			local abname = v:getFirstAbsoluteBase():getFullName();
+			local abname = tm:getAbsoluteBaseName(v:getFirstAbsoluteBase()) --:getFullName();
 			buf:writeLine(snippets:getLunaTraitsCode(classname,abname,add))
 		else
 			self:notice("Ignoring class declaration for ", v:getFullName(), " (typename=",classname,")")

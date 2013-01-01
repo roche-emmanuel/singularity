@@ -237,7 +237,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::setActive(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::setActive(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setActive(active);
 
@@ -259,7 +259,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::setZone(SPK::Zone *, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::setZone(SPK::Zone *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setZone(zone, full);
 
@@ -278,7 +278,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::setTrigger(SPK::ModifierTrigger)");
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::setTrigger(SPK::ModifierTrigger). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->setTrigger(trigger);
 		lua_pushboolean(L,lret?1:0);
@@ -298,7 +298,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::setLocalToSystem(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::setLocalToSystem(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setLocalToSystem(local);
 
@@ -316,7 +316,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isActive() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isActive() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isActive();
 		lua_pushboolean(L,lret?1:0);
@@ -335,7 +335,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::Modifier::getZone() const");
+			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::Modifier::getZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Zone * lret = self->getZone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -356,7 +356,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::ModifierTrigger SPK::Modifier::getTrigger() const");
+			luaL_error(L, "Invalid object in function call SPK::ModifierTrigger SPK::Modifier::getTrigger() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::ModifierTrigger lret = self->getTrigger();
 		lua_pushnumber(L,lret);
@@ -375,7 +375,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Modifier::getAvailableTriggers() const");
+			luaL_error(L, "Invalid object in function call int SPK::Modifier::getAvailableTriggers() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		int lret = self->getAvailableTriggers();
 		lua_pushnumber(L,lret);
@@ -394,7 +394,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isFullZone() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isFullZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isFullZone();
 		lua_pushboolean(L,lret?1:0);
@@ -413,7 +413,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isLocalToSystem() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isLocalToSystem() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isLocalToSystem();
 		lua_pushboolean(L,lret?1:0);
@@ -433,7 +433,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -459,7 +459,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Modifier::createBuffers(group);
 
@@ -482,7 +482,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Modifier::destroyBuffers(group);
 
@@ -501,7 +501,7 @@ public:
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Modifier::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -513,6 +513,58 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_Transformable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_Transformable(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_Transformable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_Transformable function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::Transformable* res = dynamic_cast<SPK::Transformable*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::Transformable >::push(L,res,false);
+		return 1;
+
+	}
+
+	inline static bool _lg_typecheck_baseCast_SPK_BufferHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_BufferHandler(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_BufferHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_BufferHandler function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::BufferHandler* res = dynamic_cast<SPK::BufferHandler*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::BufferHandler >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -553,6 +605,8 @@ luna_RegType LunaTraits< SPK::Modifier >::methods[] = {
 	{"base_findByName", &luna_wrapper_SPK_Modifier::_bind_base_findByName},
 	{"__eq", &luna_wrapper_SPK_Modifier::_bind___eq},
 	{"getTable", &luna_wrapper_SPK_Modifier::_bind_getTable},
+	{"asTransformable", &luna_wrapper_SPK_Modifier::_bind_baseCast_SPK_Transformable},
+	{"asBufferHandler", &luna_wrapper_SPK_Modifier::_bind_baseCast_SPK_BufferHandler},
 	{0,0}
 };
 

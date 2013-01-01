@@ -19,5 +19,7 @@
 - Mapped SPK and GL modules to spark
 - Moved SparkDrawable in spark namespace.
 - Replacing callFunction return with type void* for type unsigned char*
-
+- Added support for multi base converters.
+- Implemented SimpleSystem for spark test.
+- Added support for extension functions for simple registered types.
 

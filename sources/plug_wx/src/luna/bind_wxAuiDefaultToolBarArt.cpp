@@ -457,7 +457,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiToolBarArt * wxAuiDefaultToolBarArt::Clone()");
+			luaL_error(L, "Invalid object in function call wxAuiToolBarArt * wxAuiDefaultToolBarArt::Clone(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxAuiToolBarArt * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -479,7 +479,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetFlags(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -497,7 +497,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAuiDefaultToolBarArt::GetFlags()");
+			luaL_error(L, "Invalid object in function call unsigned int wxAuiDefaultToolBarArt::GetFlags(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -521,7 +521,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->SetFont(font);
 
@@ -539,7 +539,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxAuiDefaultToolBarArt::GetFont()");
+			luaL_error(L, "Invalid object in function call wxFont wxAuiDefaultToolBarArt::GetFont(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxFont stack_lret = self->GetFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -562,7 +562,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetTextOrientation(int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetTextOrientation(int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->SetTextOrientation(orientation);
 
@@ -580,7 +580,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::GetTextOrientation()");
+			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::GetTextOrientation(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		int lret = self->GetTextOrientation();
 		lua_pushnumber(L,lret);
@@ -610,7 +610,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawBackground(dc, wnd, rect);
 
@@ -644,7 +644,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawLabel(dc, wnd, item, rect);
 
@@ -678,7 +678,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawButton(dc, wnd, item, rect);
 
@@ -712,7 +712,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawDropDownButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawDropDownButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawDropDownButton(dc, wnd, item, rect);
 
@@ -746,7 +746,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawControlLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawControlLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawControlLabel(dc, wnd, item, rect);
 
@@ -775,7 +775,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawSeparator(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawSeparator(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawSeparator(dc, wnd, rect);
 
@@ -804,7 +804,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawGripper(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawGripper(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawGripper(dc, wnd, rect);
 
@@ -834,7 +834,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawOverflowButton(wxDC &, wxWindow *, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::DrawOverflowButton(wxDC &, wxWindow *, const wxRect &, int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->DrawOverflowButton(dc, wnd, rect, state);
 
@@ -863,7 +863,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::GetLabelSize(wxDC &, wxWindow *, const wxAuiToolBarItem &)");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::GetLabelSize(wxDC &, wxWindow *, const wxAuiToolBarItem &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetLabelSize(dc, wnd, item);
 		wxSize* lret = new wxSize(stack_lret);
@@ -896,7 +896,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::GetToolSize(wxDC &, wxWindow *, const wxAuiToolBarItem &)");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::GetToolSize(wxDC &, wxWindow *, const wxAuiToolBarItem &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetToolSize(dc, wnd, item);
 		wxSize* lret = new wxSize(stack_lret);
@@ -919,7 +919,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::GetElementSize(int)");
+			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::GetElementSize(int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		int lret = self->GetElementSize(element);
 		lua_pushnumber(L,lret);
@@ -940,7 +940,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetElementSize(int, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::SetElementSize(int, int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->SetElementSize(element_id, size);
 
@@ -964,7 +964,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::ShowDropDown(wxWindow *, const wxAuiToolBarItemArray &)");
+			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::ShowDropDown(wxWindow *, const wxAuiToolBarItemArray &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		int lret = self->ShowDropDown(wnd, items);
 		lua_pushnumber(L,lret);
@@ -983,7 +983,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiToolBarArt * wxAuiDefaultToolBarArt::base_Clone()");
+			luaL_error(L, "Invalid object in function call wxAuiToolBarArt * wxAuiDefaultToolBarArt::base_Clone(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxAuiToolBarArt * lret = self->wxAuiDefaultToolBarArt::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1005,7 +1005,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetFlags(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::SetFlags(flags);
 
@@ -1023,7 +1023,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAuiDefaultToolBarArt::base_GetFlags()");
+			luaL_error(L, "Invalid object in function call unsigned int wxAuiDefaultToolBarArt::base_GetFlags(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxAuiDefaultToolBarArt::GetFlags();
 		lua_pushnumber(L,lret);
@@ -1047,7 +1047,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::SetFont(font);
 
@@ -1065,7 +1065,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxAuiDefaultToolBarArt::base_GetFont()");
+			luaL_error(L, "Invalid object in function call wxFont wxAuiDefaultToolBarArt::base_GetFont(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxFont stack_lret = self->wxAuiDefaultToolBarArt::GetFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -1088,7 +1088,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetTextOrientation(int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetTextOrientation(int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::SetTextOrientation(orientation);
 
@@ -1106,7 +1106,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::base_GetTextOrientation()");
+			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::base_GetTextOrientation(). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		int lret = self->wxAuiDefaultToolBarArt::GetTextOrientation();
 		lua_pushnumber(L,lret);
@@ -1136,7 +1136,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawBackground(dc, wnd, rect);
 
@@ -1170,7 +1170,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawLabel(dc, wnd, item, rect);
 
@@ -1204,7 +1204,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawButton(dc, wnd, item, rect);
 
@@ -1238,7 +1238,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawDropDownButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawDropDownButton(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawDropDownButton(dc, wnd, item, rect);
 
@@ -1272,7 +1272,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawControlLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawControlLabel(wxDC &, wxWindow *, const wxAuiToolBarItem &, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawControlLabel(dc, wnd, item, rect);
 
@@ -1301,7 +1301,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawSeparator(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawSeparator(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawSeparator(dc, wnd, rect);
 
@@ -1330,7 +1330,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawGripper(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawGripper(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawGripper(dc, wnd, rect);
 
@@ -1360,7 +1360,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawOverflowButton(wxDC &, wxWindow *, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_DrawOverflowButton(wxDC &, wxWindow *, const wxRect &, int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::DrawOverflowButton(dc, wnd, rect, state);
 
@@ -1389,7 +1389,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::base_GetLabelSize(wxDC &, wxWindow *, const wxAuiToolBarItem &)");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::base_GetLabelSize(wxDC &, wxWindow *, const wxAuiToolBarItem &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiDefaultToolBarArt::GetLabelSize(dc, wnd, item);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1422,7 +1422,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::base_GetToolSize(wxDC &, wxWindow *, const wxAuiToolBarItem &)");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiDefaultToolBarArt::base_GetToolSize(wxDC &, wxWindow *, const wxAuiToolBarItem &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiDefaultToolBarArt::GetToolSize(dc, wnd, item);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1445,7 +1445,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::base_GetElementSize(int)");
+			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::base_GetElementSize(int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		int lret = self->wxAuiDefaultToolBarArt::GetElementSize(element);
 		lua_pushnumber(L,lret);
@@ -1466,7 +1466,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetElementSize(int, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDefaultToolBarArt::base_SetElementSize(int, int). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		self->wxAuiDefaultToolBarArt::SetElementSize(element_id, size);
 
@@ -1490,7 +1490,7 @@ public:
 		wxAuiDefaultToolBarArt* self=Luna< wxAuiToolBarArt >::checkSubType< wxAuiDefaultToolBarArt >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::base_ShowDropDown(wxWindow *, const wxAuiToolBarItemArray &)");
+			luaL_error(L, "Invalid object in function call int wxAuiDefaultToolBarArt::base_ShowDropDown(wxWindow *, const wxAuiToolBarItemArray &). Got : '%s'",typeid(Luna< wxAuiToolBarArt >::check(L,1)).name());
 		}
 		int lret = self->wxAuiDefaultToolBarArt::ShowDropDown(wnd, items);
 		lua_pushnumber(L,lret);

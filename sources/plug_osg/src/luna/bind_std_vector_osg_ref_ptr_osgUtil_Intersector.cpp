@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::ref_ptr< osgUtil::Intersector > >",name);
 	}
+
 };
 
 std::vector< osg::ref_ptr< osgUtil::Intersector > >* LunaTraits< std::vector< osg::ref_ptr< osgUtil::Intersector > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::ref_ptr< osgUtil::Intersector > > >::uni
 luna_RegType LunaTraits< std::vector< osg::ref_ptr< osgUtil::Intersector > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_ref_ptr_osgUtil_Intersector::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_ref_ptr_osgUtil_Intersector::_bind___eq},
+	
 	{0,0}
 };
 

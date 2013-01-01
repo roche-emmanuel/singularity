@@ -369,7 +369,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -388,7 +388,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -407,7 +407,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -426,7 +426,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::addLineSegment(osg::LineSegment *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::addLineSegment(osg::LineSegment *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addLineSegment(seg);
 
@@ -445,7 +445,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::IntersectVisitor::getNumHits(const osg::LineSegment *)");
+			luaL_error(L, "Invalid object in function call int osgUtil::IntersectVisitor::getNumHits(const osg::LineSegment *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getNumHits(seg);
 		lua_pushnumber(L,lret);
@@ -464,7 +464,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectVisitor::hits()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectVisitor::hits(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->hits();
 		lua_pushboolean(L,lret?1:0);
@@ -484,7 +484,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::setLODSelectionMode(osgUtil::IntersectVisitor::LODSelectionMode)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::setLODSelectionMode(osgUtil::IntersectVisitor::LODSelectionMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setLODSelectionMode(mode);
 
@@ -502,7 +502,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::IntersectVisitor::LODSelectionMode osgUtil::IntersectVisitor::getLODSelectionMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::IntersectVisitor::LODSelectionMode osgUtil::IntersectVisitor::getLODSelectionMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::IntersectVisitor::LODSelectionMode lret = self->getLODSelectionMode();
 		lua_pushnumber(L,lret);
@@ -526,7 +526,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::setEyePoint(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::setEyePoint(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEyePoint(eye);
 
@@ -544,7 +544,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectVisitor::getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectVisitor::getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -572,7 +572,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getDistanceToEyePoint(pos, withLODScale);
 		lua_pushnumber(L,lret);
@@ -596,7 +596,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -619,7 +619,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -642,7 +642,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Billboard &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Billboard &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -665,7 +665,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Group &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Group &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -688,7 +688,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -711,7 +711,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -734,7 +734,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -766,7 +766,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->IntersectVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -794,7 +794,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->IntersectVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -819,7 +819,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->IntersectVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -838,7 +838,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->IntersectVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -857,7 +857,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->IntersectVisitor::className();
 		lua_pushstring(L,lret);
@@ -876,7 +876,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::reset();
 
@@ -894,7 +894,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->IntersectVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -922,7 +922,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->IntersectVisitor::getDistanceToEyePoint(pos, withLODScale);
 		lua_pushnumber(L,lret);
@@ -946,7 +946,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(_arg1);
 
@@ -969,7 +969,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(node);
 
@@ -992,7 +992,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Billboard &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Billboard &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(node);
 
@@ -1015,7 +1015,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Group &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Group &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(node);
 
@@ -1038,7 +1038,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(node);
 
@@ -1061,7 +1061,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(node);
 
@@ -1084,7 +1084,7 @@ public:
 		osgUtil::IntersectVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::base_apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectVisitor::apply(node);
 

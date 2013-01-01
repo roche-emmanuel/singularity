@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osg::DeleteHandler::FrameNumberObjectPair >",name);
 	}
+
 };
 
 std::list< osg::DeleteHandler::FrameNumberObjectPair >* LunaTraits< std::list< osg::DeleteHandler::FrameNumberObjectPair > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osg::DeleteHandler::FrameNumberObjectPair > >::
 luna_RegType LunaTraits< std::list< osg::DeleteHandler::FrameNumberObjectPair > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osg_DeleteHandler_FrameNumberObjectPair::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osg_DeleteHandler_FrameNumberObjectPair::_bind___eq},
+	
 	{0,0}
 };
 

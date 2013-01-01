@@ -157,7 +157,7 @@ public:
 		osgDB::ExternalFileWriter* self=(Luna< osgDB::ExternalFileWriter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ExternalFileWriter::write(const osg::Object &, const osgDB::Options *, std::string *, std::string *)");
+			luaL_error(L, "Invalid object in function call bool osgDB::ExternalFileWriter::write(const osg::Object &, const osgDB::Options *, std::string *, std::string *). Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter >::check(L,1)).name());
 		}
 		bool lret = self->write(obj, options, &out_absolutePath, &out_relativePath);
 		lua_pushboolean(L,lret?1:0);
@@ -176,7 +176,7 @@ public:
 		osgDB::ExternalFileWriter* self=(Luna< osgDB::ExternalFileWriter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ExternalFileWriter::ObjectsSet & osgDB::ExternalFileWriter::getObjects() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ExternalFileWriter::ObjectsSet & osgDB::ExternalFileWriter::getObjects() const. Got : '%s'",typeid(Luna< osgDB::ExternalFileWriter >::check(L,1)).name());
 		}
 		const osgDB::ExternalFileWriter::ObjectsSet* lret = &self->getObjects();
 		if(!lret) return 0; // Do not write NULL pointers.

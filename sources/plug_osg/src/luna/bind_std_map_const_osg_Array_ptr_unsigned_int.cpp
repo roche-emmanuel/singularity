@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< const osg::Array *, unsigned int >",name);
 	}
+
 };
 
 std::map< const osg::Array *, unsigned int >* LunaTraits< std::map< const osg::Array *, unsigned int > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< const osg::Array *, unsigned int > >::uniqueIDs[
 luna_RegType LunaTraits< std::map< const osg::Array *, unsigned int > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_const_osg_Array_ptr_unsigned_int::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_const_osg_Array_ptr_unsigned_int::_bind___eq},
+	
 	{0,0}
 };
 

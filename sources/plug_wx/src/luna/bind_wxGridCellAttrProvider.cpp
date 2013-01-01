@@ -242,7 +242,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttrProvider::GetAttr(int, int, wxGridCellAttr::wxAttrKind) const");
+			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttrProvider::GetAttr(int, int, wxGridCellAttr::wxAttrKind) const. Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		wxGridCellAttr * lret = self->GetAttr(row, col, kind);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,7 +266,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetAttr(wxGridCellAttr *, int, int)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetAttr(wxGridCellAttr *, int, int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->SetAttr(attr, row, col);
 
@@ -286,7 +286,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetRowAttr(wxGridCellAttr *, int)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetRowAttr(wxGridCellAttr *, int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->SetRowAttr(attr, row);
 
@@ -306,7 +306,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetColAttr(wxGridCellAttr *, int)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetColAttr(wxGridCellAttr *, int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->SetColAttr(attr, col);
 
@@ -325,7 +325,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::GetColumnHeaderRenderer(int)");
+			luaL_error(L, "Invalid object in function call const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::GetColumnHeaderRenderer(int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		const wxGridColumnHeaderRenderer* lret = &self->GetColumnHeaderRenderer(col);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -347,7 +347,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxGridRowHeaderRenderer & wxGridCellAttrProvider::GetRowHeaderRenderer(int)");
+			luaL_error(L, "Invalid object in function call const wxGridRowHeaderRenderer & wxGridCellAttrProvider::GetRowHeaderRenderer(int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		const wxGridRowHeaderRenderer* lret = &self->GetRowHeaderRenderer(row);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -368,7 +368,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::GetCornerRenderer()");
+			luaL_error(L, "Invalid object in function call const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::GetCornerRenderer(). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		const wxGridCornerHeaderRenderer* lret = &self->GetCornerRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -392,7 +392,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttrProvider::base_GetAttr(int, int, wxGridCellAttr::wxAttrKind) const");
+			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttrProvider::base_GetAttr(int, int, wxGridCellAttr::wxAttrKind) const. Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		wxGridCellAttr * lret = self->wxGridCellAttrProvider::GetAttr(row, col, kind);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -416,7 +416,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetAttr(wxGridCellAttr *, int, int)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetAttr(wxGridCellAttr *, int, int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->wxGridCellAttrProvider::SetAttr(attr, row, col);
 
@@ -436,7 +436,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetRowAttr(wxGridCellAttr *, int)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetRowAttr(wxGridCellAttr *, int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->wxGridCellAttrProvider::SetRowAttr(attr, row);
 
@@ -456,7 +456,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetColAttr(wxGridCellAttr *, int)");
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetColAttr(wxGridCellAttr *, int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->wxGridCellAttrProvider::SetColAttr(attr, col);
 
@@ -475,7 +475,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::base_GetColumnHeaderRenderer(int)");
+			luaL_error(L, "Invalid object in function call const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::base_GetColumnHeaderRenderer(int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		const wxGridColumnHeaderRenderer* lret = &self->wxGridCellAttrProvider::GetColumnHeaderRenderer(col);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -497,7 +497,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxGridRowHeaderRenderer & wxGridCellAttrProvider::base_GetRowHeaderRenderer(int)");
+			luaL_error(L, "Invalid object in function call const wxGridRowHeaderRenderer & wxGridCellAttrProvider::base_GetRowHeaderRenderer(int). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		const wxGridRowHeaderRenderer* lret = &self->wxGridCellAttrProvider::GetRowHeaderRenderer(row);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -518,7 +518,7 @@ public:
 		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::base_GetCornerRenderer()");
+			luaL_error(L, "Invalid object in function call const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::base_GetCornerRenderer(). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		const wxGridCornerHeaderRenderer* lret = &self->wxGridCellAttrProvider::GetCornerRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.

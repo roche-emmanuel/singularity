@@ -16,7 +16,7 @@ namespace spark {
 		class TextureObjMap {
 		};
 
-		class BaseSystemCreator {
+		class BaseSystemCreator: public osg::Referenced {
 		};
 
 		class DeferredSystemHandler: public osg::Drawable::UpdateCallback {

@@ -574,7 +574,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::AppendText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AppendText(text);
 
@@ -597,7 +597,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AutoComplete(choices);
 		lua_pushboolean(L,lret?1:0);
@@ -617,7 +617,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(wxTextCompleter *)");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoComplete(wxTextCompleter *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AutoComplete(completer);
 		lua_pushboolean(L,lret?1:0);
@@ -645,7 +645,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteFileNames()");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteFileNames(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AutoCompleteFileNames();
 		lua_pushboolean(L,lret?1:0);
@@ -664,7 +664,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteDirectories()");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::AutoCompleteDirectories(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AutoCompleteDirectories();
 		lua_pushboolean(L,lret?1:0);
@@ -683,7 +683,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCopy() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -702,7 +702,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCut() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -721,7 +721,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanPaste() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -740,7 +740,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanRedo() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -759,7 +759,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -779,7 +779,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::ChangeValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ChangeValue(value);
 
@@ -797,7 +797,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Clear()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -815,7 +815,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Copy()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Copy();
 
@@ -833,7 +833,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::GetInsertionPoint() const");
+			luaL_error(L, "Invalid object in function call long wxTextEntry::GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -852,7 +852,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::GetLastPosition() const");
+			luaL_error(L, "Invalid object in function call long wxTextEntry::GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -873,7 +873,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetRange(long, long) const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -894,7 +894,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::GetSelection(long *, long *) const");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetSelection(&from, &to);
 
@@ -912,7 +912,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -931,7 +931,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -950,7 +950,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEditable() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -969,7 +969,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -988,7 +988,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Paste()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Paste();
 
@@ -1006,7 +1006,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Redo()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Redo();
 
@@ -1026,7 +1026,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Remove(long, long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Remove(from, to);
 
@@ -1047,7 +1047,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Replace(long, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Replace(from, to, value);
 
@@ -1066,7 +1066,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetEditable(bool)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetEditable(editable);
 
@@ -1085,7 +1085,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPoint(long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInsertionPoint(pos);
 
@@ -1103,7 +1103,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPointEnd()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInsertionPointEnd();
 
@@ -1122,7 +1122,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetMaxLength(unsigned long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMaxLength(len);
 
@@ -1142,7 +1142,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetSelection(long, long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelection(from, to);
 
@@ -1160,7 +1160,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SelectAll();
 
@@ -1179,7 +1179,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -1198,7 +1198,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetHint() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1222,7 +1222,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetMargins(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -1245,7 +1245,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::SetMargins(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetMargins(left, top);
 		lua_pushboolean(L,lret?1:0);
@@ -1273,7 +1273,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxTextEntry::GetMargins() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxTextEntry::GetMargins() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetMargins();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1296,7 +1296,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(value);
 
@@ -1314,7 +1314,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::Undo()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Undo();
 
@@ -1333,7 +1333,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::WriteText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->WriteText(text);
 
@@ -1352,7 +1352,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_AppendText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::AppendText(text);
 
@@ -1370,7 +1370,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCopy() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -1389,7 +1389,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCut() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -1408,7 +1408,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanPaste() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -1427,7 +1427,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanRedo() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -1446,7 +1446,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -1466,7 +1466,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_ChangeValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::ChangeValue(value);
 
@@ -1484,7 +1484,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Clear()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Clear();
 
@@ -1502,7 +1502,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Copy()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Copy();
 
@@ -1520,7 +1520,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetInsertionPoint() const");
+			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxTextEntry::GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -1539,7 +1539,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetLastPosition() const");
+			luaL_error(L, "Invalid object in function call long wxTextEntry::base_GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxTextEntry::GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -1560,7 +1560,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetRange(long, long) const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTextEntry::GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1581,7 +1581,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_GetSelection(long *, long *) const");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::GetSelection(&from, &to);
 
@@ -1599,7 +1599,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTextEntry::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1618,7 +1618,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTextEntry::GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1637,7 +1637,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEditable() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -1656,7 +1656,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1675,7 +1675,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Paste()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Paste();
 
@@ -1693,7 +1693,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Redo()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Redo();
 
@@ -1713,7 +1713,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Remove(long, long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Remove(from, to);
 
@@ -1734,7 +1734,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Replace(long, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Replace(from, to, value);
 
@@ -1753,7 +1753,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetEditable(bool)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SetEditable(editable);
 
@@ -1772,7 +1772,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPoint(long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SetInsertionPoint(pos);
 
@@ -1790,7 +1790,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPointEnd()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SetInsertionPointEnd();
 
@@ -1809,7 +1809,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetMaxLength(unsigned long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SetMaxLength(len);
 
@@ -1829,7 +1829,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetSelection(long, long)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SetSelection(from, to);
 
@@ -1847,7 +1847,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SelectAll();
 
@@ -1866,7 +1866,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTextEntry::base_SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextEntry::SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -1885,7 +1885,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetHint() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextEntry::base_GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTextEntry::GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1905,7 +1905,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::SetValue(value);
 
@@ -1923,7 +1923,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Undo()");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::Undo();
 
@@ -1942,7 +1942,7 @@ public:
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextEntry::base_WriteText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextEntry::base_WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextEntry::WriteText(text);
 

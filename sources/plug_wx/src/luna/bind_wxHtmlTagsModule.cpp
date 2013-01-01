@@ -108,7 +108,7 @@ public:
 		wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wxHtmlTagsModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlTagsModule::FillHandlersTable(wxHtmlWinParser *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlTagsModule::FillHandlersTable(wxHtmlWinParser *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->FillHandlersTable(parser);
 
@@ -126,7 +126,7 @@ public:
 		wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wxHtmlTagsModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlTagsModule::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlTagsModule::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlTagsModule::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -148,7 +148,7 @@ public:
 		wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wxHtmlTagsModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlTagsModule::base_FillHandlersTable(wxHtmlWinParser *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlTagsModule::base_FillHandlersTable(wxHtmlWinParser *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlTagsModule::FillHandlersTable(parser);
 

@@ -155,7 +155,7 @@ public:
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::setStateSet(int, osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::setStateSet(int, osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStateSet(stateMask, program);
 
@@ -174,7 +174,7 @@ public:
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int) const");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getStateSet(stateMask);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -196,7 +196,7 @@ public:
 		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int)");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getOrCreateStateSet(stateMask);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -86,7 +86,7 @@ public:
 		osgUtil::DrawElementTypeSimplifier* self=(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry &) const");
+			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry &) const. Got : '%s'",typeid(Luna< osgUtil::DrawElementTypeSimplifier >::check(L,1)).name());
 		}
 		self->simplify(geometry);
 

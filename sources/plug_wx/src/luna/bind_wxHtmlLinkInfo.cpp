@@ -212,7 +212,7 @@ public:
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const");
+			luaL_error(L, "Invalid object in function call const wxMouseEvent * wxHtmlLinkInfo::GetEvent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxMouseEvent * lret = self->GetEvent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -233,7 +233,7 @@ public:
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetHref() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetHref() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetHref();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -252,7 +252,7 @@ public:
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const");
+			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlLinkInfo::GetHtmlCell() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxHtmlCell * lret = self->GetHtmlCell();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -273,7 +273,7 @@ public:
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetTarget() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlLinkInfo::GetTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetTarget();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -292,7 +292,7 @@ public:
 		wxHtmlLinkInfo* self=Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlLinkInfo::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlLinkInfo::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::KdTree::LineSegmentIntersection >",name);
 	}
+
 };
 
 std::vector< osg::KdTree::LineSegmentIntersection >* LunaTraits< std::vector< osg::KdTree::LineSegmentIntersection > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::KdTree::LineSegmentIntersection > >::uni
 luna_RegType LunaTraits< std::vector< osg::KdTree::LineSegmentIntersection > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_KdTree_LineSegmentIntersection::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_KdTree_LineSegmentIntersection::_bind___eq},
+	
 	{0,0}
 };
 

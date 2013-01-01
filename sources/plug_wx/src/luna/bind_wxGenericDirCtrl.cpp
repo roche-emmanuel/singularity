@@ -1246,7 +1246,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::CollapsePath(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::CollapsePath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CollapsePath(path);
 		lua_pushboolean(L,lret?1:0);
@@ -1265,7 +1265,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::CollapseTree()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::CollapseTree(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CollapseTree();
 
@@ -1302,7 +1302,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::Create(wxWindow *, const int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &, int, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::Create(wxWindow *, const int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, dir, pos, size, style, filter, defaultFilter, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1322,7 +1322,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::ExpandPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::ExpandPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ExpandPath(path);
 		lua_pushboolean(L,lret?1:0);
@@ -1341,7 +1341,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetDefaultPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetDefaultPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDefaultPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1360,7 +1360,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetFilePath() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetFilePath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetFilePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1384,7 +1384,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::GetFilePaths(wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::GetFilePaths(wxArrayString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetFilePaths(paths);
 
@@ -1402,7 +1402,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetFilter() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetFilter() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetFilter();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1421,7 +1421,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::GetFilterIndex() const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::GetFilterIndex() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFilterIndex();
 		lua_pushnumber(L,lret);
@@ -1440,7 +1440,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirFilterListCtrl * wxGenericDirCtrl::GetFilterListCtrl() const");
+			luaL_error(L, "Invalid object in function call wxDirFilterListCtrl * wxGenericDirCtrl::GetFilterListCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDirFilterListCtrl * lret = self->GetFilterListCtrl();
 		////////////////////////////////////////////////////////////////////
@@ -1461,7 +1461,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1485,7 +1485,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::GetPaths(wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::GetPaths(wxArrayString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetPaths(paths);
 
@@ -1503,7 +1503,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTreeItemId wxGenericDirCtrl::GetRootId()");
+			luaL_error(L, "Invalid object in function call wxTreeItemId wxGenericDirCtrl::GetRootId(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTreeItemId stack_lret = self->GetRootId();
 		wxTreeItemId* lret = new wxTreeItemId(stack_lret);
@@ -1525,7 +1525,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTreeCtrl * wxGenericDirCtrl::GetTreeCtrl() const");
+			luaL_error(L, "Invalid object in function call wxTreeCtrl * wxGenericDirCtrl::GetTreeCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTreeCtrl * lret = self->GetTreeCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1546,7 +1546,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::Init()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::Init(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Init();
 
@@ -1564,7 +1564,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::ReCreateTree()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::ReCreateTree(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ReCreateTree();
 
@@ -1583,7 +1583,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetDefaultPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetDefaultPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDefaultPath(path);
 
@@ -1602,7 +1602,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetFilter(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetFilter(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFilter(filter);
 
@@ -1621,7 +1621,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetFilterIndex(int)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetFilterIndex(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFilterIndex(n);
 
@@ -1640,7 +1640,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SetPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPath(path);
 
@@ -1659,7 +1659,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::ShowHidden(bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::ShowHidden(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShowHidden(show);
 
@@ -1681,7 +1681,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SelectPath(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SelectPath(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SelectPath(path, select);
 
@@ -1704,7 +1704,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SelectPaths(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::SelectPaths(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SelectPaths(paths);
 
@@ -1722,7 +1722,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::UnselectAll()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::UnselectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UnselectAll();
 
@@ -1740,7 +1740,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericDirCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericDirCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGenericDirCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1761,7 +1761,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1780,7 +1780,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1799,7 +1799,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1818,7 +1818,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1838,7 +1838,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetCanFocus(canFocus);
 
@@ -1856,7 +1856,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetFocus();
 
@@ -1874,7 +1874,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetFocusFromKbd();
 
@@ -1893,7 +1893,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::AddChild(child);
 
@@ -1912,7 +1912,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::RemoveChild(child);
 
@@ -1931,7 +1931,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1954,7 +1954,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1973,7 +1973,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGenericDirCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1993,7 +1993,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGenericDirCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -2013,7 +2013,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGenericDirCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -2033,7 +2033,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -2053,7 +2053,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -2073,7 +2073,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -2097,7 +2097,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::ScrollWindow(dx, dy, rect);
 
@@ -2120,7 +2120,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -2145,7 +2145,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -2168,7 +2168,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2195,7 +2195,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2217,7 +2217,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Fit();
 
@@ -2235,7 +2235,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::FitInside();
 
@@ -2253,7 +2253,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2275,7 +2275,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2297,7 +2297,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2319,7 +2319,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2341,7 +2341,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2363,7 +2363,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2385,7 +2385,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxGenericDirCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxGenericDirCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2410,7 +2410,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2432,7 +2432,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SendSizeEvent(flags);
 
@@ -2455,7 +2455,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetMaxClientSize(size);
 
@@ -2478,7 +2478,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetMaxSize(size);
 
@@ -2501,7 +2501,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetMinClientSize(size);
 
@@ -2524,7 +2524,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetMinSize(size);
 
@@ -2559,7 +2559,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2585,7 +2585,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2612,7 +2612,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxGenericDirCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxGenericDirCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxGenericDirCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2634,7 +2634,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::ClearBackground();
 
@@ -2652,7 +2652,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxGenericDirCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxGenericDirCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxGenericDirCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2671,7 +2671,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGenericDirCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2690,7 +2690,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGenericDirCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2709,7 +2709,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxGenericDirCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxGenericDirCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxGenericDirCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2735,7 +2735,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Refresh(eraseBackground, rect);
 
@@ -2753,7 +2753,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Update();
 
@@ -2772,7 +2772,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2796,7 +2796,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2815,7 +2815,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2835,7 +2835,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetThemeEnabled(enable);
 
@@ -2853,7 +2853,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2872,7 +2872,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2892,7 +2892,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2912,7 +2912,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetNextHandler(handler);
 
@@ -2931,7 +2931,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetPreviousHandler(handler);
 
@@ -2949,7 +2949,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxGenericDirCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxGenericDirCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxGenericDirCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2969,7 +2969,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetExtraStyle(exStyle);
 
@@ -2988,7 +2988,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetWindowStyleFlag(style);
 
@@ -3006,7 +3006,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Lower();
 
@@ -3024,7 +3024,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Raise();
 
@@ -3046,7 +3046,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3065,7 +3065,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -3084,7 +3084,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3106,7 +3106,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3128,7 +3128,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3151,7 +3151,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3176,7 +3176,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3195,7 +3195,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxGenericDirCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxGenericDirCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxGenericDirCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3221,7 +3221,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetValidator(validator);
 
@@ -3239,7 +3239,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3258,7 +3258,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3277,7 +3277,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3296,7 +3296,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxGenericDirCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxGenericDirCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxGenericDirCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3315,7 +3315,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3335,7 +3335,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetLayoutDirection(dir);
 
@@ -3354,7 +3354,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetName(name);
 
@@ -3377,7 +3377,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetAcceleratorTable(accel);
 
@@ -3395,7 +3395,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3414,7 +3414,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxGenericDirCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxGenericDirCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxGenericDirCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3436,7 +3436,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetDropTarget(target);
 
@@ -3455,7 +3455,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::DragAcceptFiles(accept);
 
@@ -3473,7 +3473,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3492,7 +3492,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3516,7 +3516,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3537,7 +3537,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::WarpPointer(x, y);
 
@@ -3560,7 +3560,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::DoUpdateWindowUI(event);
 
@@ -3578,7 +3578,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3597,7 +3597,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::InheritAttributes();
 
@@ -3615,7 +3615,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::InitDialog();
 
@@ -3633,7 +3633,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3652,7 +3652,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3674,7 +3674,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::MakeModal(modal);
 
@@ -3692,7 +3692,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::OnInternalIdle();
 
@@ -3713,7 +3713,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3733,7 +3733,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3755,7 +3755,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::UpdateWindowUI(flags);
 
@@ -3778,7 +3778,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Command(event);
 
@@ -3796,7 +3796,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3816,7 +3816,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetLabel(label);
 
@@ -3835,7 +3835,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_CollapsePath(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_CollapsePath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::CollapsePath(path);
 		lua_pushboolean(L,lret?1:0);
@@ -3854,7 +3854,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_CollapseTree()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_CollapseTree(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::CollapseTree();
 
@@ -3873,7 +3873,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ExpandPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericDirCtrl::base_ExpandPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericDirCtrl::ExpandPath(path);
 		lua_pushboolean(L,lret?1:0);
@@ -3892,7 +3892,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetDefaultPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetDefaultPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetDefaultPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3911,7 +3911,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetFilePath() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetFilePath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetFilePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3935,7 +3935,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_GetFilePaths(wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_GetFilePaths(wxArrayString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::GetFilePaths(paths);
 
@@ -3953,7 +3953,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetFilter() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetFilter() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetFilter();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3972,7 +3972,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetFilterIndex() const");
+			luaL_error(L, "Invalid object in function call int wxGenericDirCtrl::base_GetFilterIndex() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxGenericDirCtrl::GetFilterIndex();
 		lua_pushnumber(L,lret);
@@ -3991,7 +3991,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxGenericDirCtrl::base_GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxGenericDirCtrl::GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4015,7 +4015,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_GetPaths(wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_GetPaths(wxArrayString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::GetPaths(paths);
 
@@ -4033,7 +4033,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTreeItemId wxGenericDirCtrl::base_GetRootId()");
+			luaL_error(L, "Invalid object in function call wxTreeItemId wxGenericDirCtrl::base_GetRootId(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTreeItemId stack_lret = self->wxGenericDirCtrl::GetRootId();
 		wxTreeItemId* lret = new wxTreeItemId(stack_lret);
@@ -4055,7 +4055,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTreeCtrl * wxGenericDirCtrl::base_GetTreeCtrl() const");
+			luaL_error(L, "Invalid object in function call wxTreeCtrl * wxGenericDirCtrl::base_GetTreeCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTreeCtrl * lret = self->wxGenericDirCtrl::GetTreeCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4076,7 +4076,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Init()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_Init(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::Init();
 
@@ -4094,7 +4094,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ReCreateTree()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ReCreateTree(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::ReCreateTree();
 
@@ -4113,7 +4113,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetDefaultPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetDefaultPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetDefaultPath(path);
 
@@ -4132,7 +4132,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFilter(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFilter(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetFilter(filter);
 
@@ -4151,7 +4151,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFilterIndex(int)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetFilterIndex(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetFilterIndex(n);
 
@@ -4170,7 +4170,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SetPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SetPath(path);
 
@@ -4189,7 +4189,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ShowHidden(bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_ShowHidden(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::ShowHidden(show);
 
@@ -4211,7 +4211,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SelectPath(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SelectPath(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SelectPath(path, select);
 
@@ -4234,7 +4234,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SelectPaths(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_SelectPaths(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::SelectPaths(paths);
 
@@ -4252,7 +4252,7 @@ public:
 		wxGenericDirCtrl* self=Luna< wxObject >::checkSubType< wxGenericDirCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_UnselectAll()");
+			luaL_error(L, "Invalid object in function call void wxGenericDirCtrl::base_UnselectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericDirCtrl::UnselectAll();
 

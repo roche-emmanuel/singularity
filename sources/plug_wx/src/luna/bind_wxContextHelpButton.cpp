@@ -886,7 +886,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxContextHelpButton::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxContextHelpButton::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxContextHelpButton::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -907,7 +907,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -926,7 +926,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -945,7 +945,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -964,7 +964,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -984,7 +984,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetCanFocus(canFocus);
 
@@ -1002,7 +1002,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetFocus();
 
@@ -1020,7 +1020,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetFocusFromKbd();
 
@@ -1039,7 +1039,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::AddChild(child);
 
@@ -1058,7 +1058,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::RemoveChild(child);
 
@@ -1077,7 +1077,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1100,7 +1100,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1119,7 +1119,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxContextHelpButton::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1139,7 +1139,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxContextHelpButton::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1159,7 +1159,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxContextHelpButton::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1179,7 +1179,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1199,7 +1199,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1219,7 +1219,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1243,7 +1243,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::ScrollWindow(dx, dy, rect);
 
@@ -1266,7 +1266,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetScrollPos(orientation, pos, refresh);
 
@@ -1291,7 +1291,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1314,7 +1314,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1341,7 +1341,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1363,7 +1363,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::Fit();
 
@@ -1381,7 +1381,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::FitInside();
 
@@ -1399,7 +1399,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1421,7 +1421,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1443,7 +1443,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1465,7 +1465,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1487,7 +1487,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1509,7 +1509,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1531,7 +1531,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxContextHelpButton::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxContextHelpButton::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1556,7 +1556,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1578,7 +1578,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SendSizeEvent(flags);
 
@@ -1601,7 +1601,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetMaxClientSize(size);
 
@@ -1624,7 +1624,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetMaxSize(size);
 
@@ -1647,7 +1647,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetMinClientSize(size);
 
@@ -1670,7 +1670,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetMinSize(size);
 
@@ -1705,7 +1705,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1731,7 +1731,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1758,7 +1758,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxContextHelpButton::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxContextHelpButton::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxContextHelpButton::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1780,7 +1780,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::ClearBackground();
 
@@ -1798,7 +1798,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxContextHelpButton::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxContextHelpButton::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxContextHelpButton::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1817,7 +1817,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxContextHelpButton::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1836,7 +1836,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxContextHelpButton::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxContextHelpButton::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1855,7 +1855,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxContextHelpButton::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxContextHelpButton::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxContextHelpButton::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1881,7 +1881,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::Refresh(eraseBackground, rect);
 
@@ -1899,7 +1899,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::Update();
 
@@ -1918,7 +1918,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1942,7 +1942,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1961,7 +1961,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -1981,7 +1981,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetThemeEnabled(enable);
 
@@ -1999,7 +1999,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2018,7 +2018,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2038,7 +2038,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2058,7 +2058,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetNextHandler(handler);
 
@@ -2077,7 +2077,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetPreviousHandler(handler);
 
@@ -2095,7 +2095,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxContextHelpButton::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxContextHelpButton::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxContextHelpButton::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2115,7 +2115,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetExtraStyle(exStyle);
 
@@ -2134,7 +2134,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetWindowStyleFlag(style);
 
@@ -2152,7 +2152,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::Lower();
 
@@ -2170,7 +2170,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::Raise();
 
@@ -2192,7 +2192,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2211,7 +2211,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2230,7 +2230,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2252,7 +2252,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2274,7 +2274,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2297,7 +2297,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2322,7 +2322,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxContextHelpButton::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxContextHelpButton::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxContextHelpButton::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2341,7 +2341,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxContextHelpButton::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxContextHelpButton::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxContextHelpButton::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2367,7 +2367,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetValidator(validator);
 
@@ -2385,7 +2385,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2404,7 +2404,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2423,7 +2423,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2442,7 +2442,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxContextHelpButton::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxContextHelpButton::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxContextHelpButton::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2461,7 +2461,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxContextHelpButton::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxContextHelpButton::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxContextHelpButton::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2481,7 +2481,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetLayoutDirection(dir);
 
@@ -2500,7 +2500,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetName(name);
 
@@ -2523,7 +2523,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetAcceleratorTable(accel);
 
@@ -2541,7 +2541,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2560,7 +2560,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxContextHelpButton::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxContextHelpButton::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxContextHelpButton::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2582,7 +2582,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetDropTarget(target);
 
@@ -2601,7 +2601,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::DragAcceptFiles(accept);
 
@@ -2619,7 +2619,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2638,7 +2638,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2662,7 +2662,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2683,7 +2683,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::WarpPointer(x, y);
 
@@ -2706,7 +2706,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::DoUpdateWindowUI(event);
 
@@ -2724,7 +2724,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2743,7 +2743,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::InheritAttributes();
 
@@ -2761,7 +2761,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::InitDialog();
 
@@ -2779,7 +2779,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2798,7 +2798,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2820,7 +2820,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::MakeModal(modal);
 
@@ -2838,7 +2838,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::OnInternalIdle();
 
@@ -2859,7 +2859,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2879,7 +2879,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelpButton::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxContextHelpButton::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2901,7 +2901,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::UpdateWindowUI(flags);
 
@@ -2924,7 +2924,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::Command(event);
 
@@ -2942,7 +2942,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxContextHelpButton::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxContextHelpButton::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxContextHelpButton::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2961,7 +2961,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxContextHelpButton::base_SetDefault()");
+			luaL_error(L, "Invalid object in function call wxWindow * wxContextHelpButton::base_SetDefault(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxContextHelpButton::SetDefault();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2983,7 +2983,7 @@ public:
 		wxContextHelpButton* self=Luna< wxObject >::checkSubType< wxContextHelpButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxContextHelpButton::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxContextHelpButton::SetLabel(label);
 

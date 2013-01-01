@@ -203,7 +203,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonDown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonDown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ButtonDown(button);
 		lua_pushboolean(L,lret?1:0);
@@ -225,7 +225,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonIsDown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonIsDown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ButtonIsDown(button);
 		lua_pushboolean(L,lret?1:0);
@@ -247,7 +247,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonUp(int) const");
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::ButtonUp(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ButtonUp(button);
 		lua_pushboolean(L,lret?1:0);
@@ -266,7 +266,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonChange() const");
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonChange() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetButtonChange();
 		lua_pushnumber(L,lret);
@@ -285,7 +285,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonState() const");
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetButtonState() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetButtonState();
 		lua_pushnumber(L,lret);
@@ -304,7 +304,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetJoystick() const");
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetJoystick() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetJoystick();
 		lua_pushnumber(L,lret);
@@ -323,7 +323,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxJoystickEvent::GetPosition() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxJoystickEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -345,7 +345,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetZPosition() const");
+			luaL_error(L, "Invalid object in function call int wxJoystickEvent::GetZPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetZPosition();
 		lua_pushnumber(L,lret);
@@ -364,7 +364,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsButton() const");
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsButton() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsButton();
 		lua_pushboolean(L,lret?1:0);
@@ -383,7 +383,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsMove() const");
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsMove() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsMove();
 		lua_pushboolean(L,lret?1:0);
@@ -402,7 +402,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsZMove() const");
+			luaL_error(L, "Invalid object in function call bool wxJoystickEvent::IsZMove() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsZMove();
 		lua_pushboolean(L,lret?1:0);
@@ -421,7 +421,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxJoystickEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxJoystickEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxJoystickEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -442,7 +442,7 @@ public:
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxJoystickEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxJoystickEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxJoystickEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

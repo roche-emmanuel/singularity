@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT >",name);
 	}
+
 };
 
 osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT >* LunaTraits< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, 
 luna_RegType LunaTraits< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_TemplateArray_float_osg_Array_FloatArrayType_1_GL_FLOAT::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_TemplateArray_float_osg_Array_FloatArrayType_1_GL_FLOAT::_bind___eq},
+	
 	{0,0}
 };
 

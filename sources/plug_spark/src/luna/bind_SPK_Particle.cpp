@@ -249,7 +249,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Particle::setParamCurrentValue(SPK::ModelParam, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Particle::setParamCurrentValue(SPK::ModelParam, float). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		bool lret = self->setParamCurrentValue(type, value);
 		lua_pushboolean(L,lret?1:0);
@@ -270,7 +270,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Particle::setParamFinalValue(SPK::ModelParam, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Particle::setParamFinalValue(SPK::ModelParam, float). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		bool lret = self->setParamFinalValue(type, value);
 		lua_pushboolean(L,lret?1:0);
@@ -291,7 +291,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Particle::changeParamCurrentValue(SPK::ModelParam, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Particle::changeParamCurrentValue(SPK::ModelParam, float). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		bool lret = self->changeParamCurrentValue(type, delta);
 		lua_pushboolean(L,lret?1:0);
@@ -312,7 +312,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Particle::changeParamFinalValue(SPK::ModelParam, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Particle::changeParamFinalValue(SPK::ModelParam, float). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		bool lret = self->changeParamFinalValue(type, delta);
 		lua_pushboolean(L,lret?1:0);
@@ -332,7 +332,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Particle::setLifeLeft(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Particle::setLifeLeft(float). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		self->setLifeLeft(life);
 
@@ -350,7 +350,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Particle::position()");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Particle::position(). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->position();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -371,7 +371,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Particle::position() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Particle::position() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->position();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -401,7 +401,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Particle::velocity()");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Particle::velocity(). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->velocity();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -422,7 +422,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Particle::velocity() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Particle::velocity() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->velocity();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -452,7 +452,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Particle::oldPosition()");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Particle::oldPosition(). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->oldPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -473,7 +473,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Particle::oldPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Particle::oldPosition() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->oldPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -504,7 +504,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getParamCurrentValue(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getParamCurrentValue(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getParamCurrentValue(type);
 		lua_pushnumber(L,lret);
@@ -524,7 +524,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getParamFinalValue(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getParamFinalValue(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getParamFinalValue(type);
 		lua_pushnumber(L,lret);
@@ -543,7 +543,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Model * SPK::Particle::getModel() const");
+			luaL_error(L, "Invalid object in function call SPK::Model * SPK::Particle::getModel() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		SPK::Model * lret = self->getModel();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -564,7 +564,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Group * SPK::Particle::getGroup() const");
+			luaL_error(L, "Invalid object in function call SPK::Group * SPK::Particle::getGroup() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		SPK::Group * lret = self->getGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -585,7 +585,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Particle::getIndex() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Particle::getIndex() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		size_t lret = self->getIndex();
 		lua_pushnumber(L,lret);
@@ -604,7 +604,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getLifeLeft() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getLifeLeft() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getLifeLeft();
 		lua_pushnumber(L,lret);
@@ -623,7 +623,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getAge() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getAge() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getAge();
 		lua_pushnumber(L,lret);
@@ -642,7 +642,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getDistanceFromCamera() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getDistanceFromCamera() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getDistanceFromCamera();
 		lua_pushnumber(L,lret);
@@ -661,7 +661,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getSqrDistanceFromCamera() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getSqrDistanceFromCamera() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getSqrDistanceFromCamera();
 		lua_pushnumber(L,lret);
@@ -680,7 +680,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Particle::isNewBorn() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Particle::isNewBorn() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		bool lret = self->isNewBorn();
 		lua_pushboolean(L,lret?1:0);
@@ -699,7 +699,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Particle::isAlive() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Particle::isAlive() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		bool lret = self->isAlive();
 		lua_pushboolean(L,lret?1:0);
@@ -718,7 +718,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Particle::init()");
+			luaL_error(L, "Invalid object in function call void SPK::Particle::init(). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		self->init();
 
@@ -736,7 +736,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Particle::kill()");
+			luaL_error(L, "Invalid object in function call void SPK::Particle::kill(). Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		self->kill();
 
@@ -754,7 +754,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getR() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getR() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getR();
 		lua_pushnumber(L,lret);
@@ -773,7 +773,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getG() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getG() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getG();
 		lua_pushnumber(L,lret);
@@ -792,7 +792,7 @@ public:
 		SPK::Particle* self=(Luna< SPK::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Particle::getB() const");
+			luaL_error(L, "Invalid object in function call float SPK::Particle::getB() const. Got : '%s'",typeid(Luna< SPK::Particle >::check(L,1)).name());
 		}
 		float lret = self->getB();
 		lua_pushnumber(L,lret);

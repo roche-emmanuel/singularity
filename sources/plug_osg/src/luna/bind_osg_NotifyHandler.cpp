@@ -115,7 +115,7 @@ public:
 		osg::NotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::notify(osg::NotifySeverity, const char *)");
+			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::notify(osg::NotifySeverity, const char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->notify(severity, message);
 

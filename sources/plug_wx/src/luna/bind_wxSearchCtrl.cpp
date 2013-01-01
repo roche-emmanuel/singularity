@@ -1395,7 +1395,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, value, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1414,7 +1414,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenu * wxSearchCtrl::GetMenu()");
+			luaL_error(L, "Invalid object in function call wxMenu * wxSearchCtrl::GetMenu(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenu * lret = self->GetMenu();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1435,7 +1435,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::IsSearchButtonVisible() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::IsSearchButtonVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSearchButtonVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -1454,7 +1454,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::IsCancelButtonVisible() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::IsCancelButtonVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsCancelButtonVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -1474,7 +1474,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::SetMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::SetMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMenu(menu);
 
@@ -1493,7 +1493,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::ShowCancelButton(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::ShowCancelButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShowCancelButton(show);
 
@@ -1512,7 +1512,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::ShowSearchButton(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::ShowSearchButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShowSearchButton(show);
 
@@ -1531,7 +1531,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::SetDescriptiveText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::SetDescriptiveText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDescriptiveText(text);
 
@@ -1549,7 +1549,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::GetDescriptiveText() const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::GetDescriptiveText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDescriptiveText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1568,7 +1568,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSearchCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSearchCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSearchCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1589,7 +1589,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1608,7 +1608,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1627,7 +1627,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1646,7 +1646,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1666,7 +1666,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetCanFocus(canFocus);
 
@@ -1684,7 +1684,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetFocus();
 
@@ -1702,7 +1702,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetFocusFromKbd();
 
@@ -1721,7 +1721,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::AddChild(child);
 
@@ -1740,7 +1740,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::RemoveChild(child);
 
@@ -1759,7 +1759,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1782,7 +1782,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1801,7 +1801,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1821,7 +1821,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1841,7 +1841,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1861,7 +1861,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1881,7 +1881,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1901,7 +1901,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1925,7 +1925,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::ScrollWindow(dx, dy, rect);
 
@@ -1948,7 +1948,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -1973,7 +1973,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1996,7 +1996,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2023,7 +2023,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2045,7 +2045,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Fit();
 
@@ -2063,7 +2063,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::FitInside();
 
@@ -2081,7 +2081,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2103,7 +2103,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2125,7 +2125,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2147,7 +2147,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2169,7 +2169,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2191,7 +2191,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2213,7 +2213,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSearchCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSearchCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2238,7 +2238,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2260,7 +2260,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SendSizeEvent(flags);
 
@@ -2283,7 +2283,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetMaxClientSize(size);
 
@@ -2306,7 +2306,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetMaxSize(size);
 
@@ -2329,7 +2329,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetMinClientSize(size);
 
@@ -2352,7 +2352,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetMinSize(size);
 
@@ -2387,7 +2387,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2413,7 +2413,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2440,7 +2440,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxSearchCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxSearchCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxSearchCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2462,7 +2462,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::ClearBackground();
 
@@ -2480,7 +2480,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSearchCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSearchCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxSearchCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2499,7 +2499,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2518,7 +2518,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2537,7 +2537,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSearchCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSearchCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxSearchCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2563,7 +2563,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Refresh(eraseBackground, rect);
 
@@ -2581,7 +2581,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Update();
 
@@ -2600,7 +2600,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2624,7 +2624,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2643,7 +2643,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2663,7 +2663,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetThemeEnabled(enable);
 
@@ -2681,7 +2681,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2700,7 +2700,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2720,7 +2720,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2740,7 +2740,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetNextHandler(handler);
 
@@ -2759,7 +2759,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetPreviousHandler(handler);
 
@@ -2777,7 +2777,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSearchCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2797,7 +2797,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetExtraStyle(exStyle);
 
@@ -2816,7 +2816,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetWindowStyleFlag(style);
 
@@ -2834,7 +2834,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Lower();
 
@@ -2852,7 +2852,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Raise();
 
@@ -2874,7 +2874,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2893,7 +2893,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2912,7 +2912,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2934,7 +2934,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2956,7 +2956,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2979,7 +2979,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3004,7 +3004,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3023,7 +3023,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxSearchCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxSearchCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxSearchCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3049,7 +3049,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetValidator(validator);
 
@@ -3067,7 +3067,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3086,7 +3086,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3105,7 +3105,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3124,7 +3124,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSearchCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSearchCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxSearchCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3143,7 +3143,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3163,7 +3163,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetLayoutDirection(dir);
 
@@ -3182,7 +3182,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetName(name);
 
@@ -3205,7 +3205,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetAcceleratorTable(accel);
 
@@ -3223,7 +3223,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3242,7 +3242,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxSearchCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxSearchCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxSearchCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3264,7 +3264,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetDropTarget(target);
 
@@ -3283,7 +3283,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::DragAcceptFiles(accept);
 
@@ -3301,7 +3301,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3320,7 +3320,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3344,7 +3344,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3365,7 +3365,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::WarpPointer(x, y);
 
@@ -3388,7 +3388,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::DoUpdateWindowUI(event);
 
@@ -3406,7 +3406,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3425,7 +3425,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::InheritAttributes();
 
@@ -3443,7 +3443,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::InitDialog();
 
@@ -3461,7 +3461,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3480,7 +3480,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3502,7 +3502,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::MakeModal(modal);
 
@@ -3520,7 +3520,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::OnInternalIdle();
 
@@ -3541,7 +3541,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3561,7 +3561,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3583,7 +3583,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::UpdateWindowUI(flags);
 
@@ -3606,7 +3606,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Command(event);
 
@@ -3624,7 +3624,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3644,7 +3644,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetLabel(label);
 
@@ -3663,7 +3663,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_AppendText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::AppendText(text);
 
@@ -3681,7 +3681,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanCopy() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -3700,7 +3700,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanCut() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -3719,7 +3719,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanPaste() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -3738,7 +3738,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanRedo() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -3757,7 +3757,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -3777,7 +3777,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ChangeValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::ChangeValue(value);
 
@@ -3795,7 +3795,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Clear()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Clear();
 
@@ -3813,7 +3813,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Copy()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Copy();
 
@@ -3831,7 +3831,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_GetInsertionPoint() const");
+			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSearchCtrl::GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -3850,7 +3850,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_GetLastPosition() const");
+			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSearchCtrl::GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -3871,7 +3871,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetRange(long, long) const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3892,7 +3892,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_GetSelection(long *, long *) const");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::GetSelection(&from, &to);
 
@@ -3910,7 +3910,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3929,7 +3929,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3948,7 +3948,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsEditable() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -3967,7 +3967,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -3986,7 +3986,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Paste()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Paste();
 
@@ -4004,7 +4004,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Redo()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Redo();
 
@@ -4024,7 +4024,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Remove(long, long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Remove(from, to);
 
@@ -4045,7 +4045,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Replace(long, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Replace(from, to, value);
 
@@ -4064,7 +4064,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetEditable(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetEditable(editable);
 
@@ -4083,7 +4083,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetInsertionPoint(long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetInsertionPoint(pos);
 
@@ -4101,7 +4101,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetInsertionPointEnd()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetInsertionPointEnd();
 
@@ -4120,7 +4120,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMaxLength(unsigned long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetMaxLength(len);
 
@@ -4140,7 +4140,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetSelection(long, long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetSelection(from, to);
 
@@ -4158,7 +4158,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SelectAll();
 
@@ -4177,7 +4177,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -4196,7 +4196,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetHint() const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4216,7 +4216,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetValue(value);
 
@@ -4234,7 +4234,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Undo()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Undo();
 
@@ -4253,7 +4253,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_WriteText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::WriteText(text);
 
@@ -4271,7 +4271,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Cut()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_Cut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::Cut();
 
@@ -4289,7 +4289,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_DiscardEdits()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_DiscardEdits(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::DiscardEdits();
 
@@ -4312,7 +4312,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_EmulateKeyPress(const wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_EmulateKeyPress(const wxKeyEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::EmulateKeyPress(event);
 		lua_pushboolean(L,lret?1:0);
@@ -4331,7 +4331,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttr & wxSearchCtrl::base_GetDefaultStyle() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttr & wxSearchCtrl::base_GetDefaultStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxTextAttr* lret = &self->wxSearchCtrl::GetDefaultStyle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4353,7 +4353,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetLineLength(long) const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetLineLength(long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetLineLength(lineNo);
 		lua_pushnumber(L,lret);
@@ -4373,7 +4373,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetLineText(long) const");
+			luaL_error(L, "Invalid object in function call wxString wxSearchCtrl::base_GetLineText(long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSearchCtrl::GetLineText(lineNo);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4392,7 +4392,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetNumberOfLines() const");
+			luaL_error(L, "Invalid object in function call int wxSearchCtrl::base_GetNumberOfLines() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSearchCtrl::GetNumberOfLines();
 		lua_pushnumber(L,lret);
@@ -4417,7 +4417,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_GetStyle(long, wxTextAttr &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_GetStyle(long, wxTextAttr &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::GetStyle(position, style);
 		lua_pushboolean(L,lret?1:0);
@@ -4436,7 +4436,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -4455,7 +4455,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_MarkDirty()");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_MarkDirty(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::MarkDirty();
 
@@ -4476,7 +4476,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_PositionToXY(long, long *, long *) const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_PositionToXY(long, long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::PositionToXY(pos, &x, &y);
 		lua_pushboolean(L,lret?1:0);
@@ -4500,7 +4500,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetDefaultStyle(const wxTextAttr &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetDefaultStyle(const wxTextAttr &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetDefaultStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -4526,7 +4526,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetStyle(long, long, const wxTextAttr &)");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_SetStyle(long, long, const wxTextAttr &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::SetStyle(start, end, style);
 		lua_pushboolean(L,lret?1:0);
@@ -4546,7 +4546,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ShowPosition(long)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ShowPosition(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::ShowPosition(pos);
 
@@ -4566,7 +4566,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_XYToPosition(long, long) const");
+			luaL_error(L, "Invalid object in function call long wxSearchCtrl::base_XYToPosition(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSearchCtrl::XYToPosition(x, y);
 		lua_pushnumber(L,lret);
@@ -4585,7 +4585,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenu * wxSearchCtrl::base_GetMenu()");
+			luaL_error(L, "Invalid object in function call wxMenu * wxSearchCtrl::base_GetMenu(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenu * lret = self->wxSearchCtrl::GetMenu();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4606,7 +4606,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsSearchButtonVisible() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsSearchButtonVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsSearchButtonVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -4625,7 +4625,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsCancelButtonVisible() const");
+			luaL_error(L, "Invalid object in function call bool wxSearchCtrl::base_IsCancelButtonVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSearchCtrl::IsCancelButtonVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -4645,7 +4645,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_SetMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::SetMenu(menu);
 
@@ -4664,7 +4664,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ShowCancelButton(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ShowCancelButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::ShowCancelButton(show);
 
@@ -4683,7 +4683,7 @@ public:
 		wxSearchCtrl* self=Luna< wxObject >::checkSubType< wxSearchCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ShowSearchButton(bool)");
+			luaL_error(L, "Invalid object in function call void wxSearchCtrl::base_ShowSearchButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSearchCtrl::ShowSearchButton(show);
 

@@ -539,7 +539,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -565,7 +565,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -587,7 +587,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -606,7 +606,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -625,7 +625,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -644,7 +644,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::StencilTwoSided::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::StencilTwoSided::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -668,7 +668,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StencilTwoSided::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::StencilTwoSided::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -692,7 +692,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -715,7 +715,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunction(osg::StencilTwoSided::Face, osg::StencilTwoSided::Function, int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunction(osg::StencilTwoSided::Face, osg::StencilTwoSided::Function, int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunction(face, func, ref, mask);
 
@@ -735,7 +735,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunction(osg::StencilTwoSided::Face, osg::StencilTwoSided::Function)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunction(osg::StencilTwoSided::Face, osg::StencilTwoSided::Function). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunction(face, func);
 
@@ -763,7 +763,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Function osg::StencilTwoSided::getFunction(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Function osg::StencilTwoSided::getFunction(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StencilTwoSided::Function lret = self->getFunction(face);
 		lua_pushnumber(L,lret);
@@ -784,7 +784,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunctionRef(osg::StencilTwoSided::Face, int)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunctionRef(osg::StencilTwoSided::Face, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunctionRef(face, ref);
 
@@ -803,7 +803,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StencilTwoSided::getFunctionRef(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call int osg::StencilTwoSided::getFunctionRef(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getFunctionRef(face);
 		lua_pushnumber(L,lret);
@@ -824,7 +824,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunctionMask(osg::StencilTwoSided::Face, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setFunctionMask(osg::StencilTwoSided::Face, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunctionMask(face, mask);
 
@@ -843,7 +843,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StencilTwoSided::getFunctionMask(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StencilTwoSided::getFunctionMask(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFunctionMask(face);
 		lua_pushnumber(L,lret);
@@ -866,7 +866,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation, osg::StencilTwoSided::Operation, osg::StencilTwoSided::Operation)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation, osg::StencilTwoSided::Operation, osg::StencilTwoSided::Operation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setOperation(face, sfail, zfail, zpass);
 
@@ -886,7 +886,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setStencilFailOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setStencilFailOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStencilFailOperation(face, sfail);
 
@@ -905,7 +905,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Operation osg::StencilTwoSided::getStencilFailOperation(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Operation osg::StencilTwoSided::getStencilFailOperation(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StencilTwoSided::Operation lret = self->getStencilFailOperation(face);
 		lua_pushnumber(L,lret);
@@ -926,7 +926,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setStencilPassAndDepthFailOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setStencilPassAndDepthFailOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStencilPassAndDepthFailOperation(face, zfail);
 
@@ -945,7 +945,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Operation osg::StencilTwoSided::getStencilPassAndDepthFailOperation(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Operation osg::StencilTwoSided::getStencilPassAndDepthFailOperation(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StencilTwoSided::Operation lret = self->getStencilPassAndDepthFailOperation(face);
 		lua_pushnumber(L,lret);
@@ -966,7 +966,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setStencilPassAndDepthPassOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setStencilPassAndDepthPassOperation(osg::StencilTwoSided::Face, osg::StencilTwoSided::Operation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStencilPassAndDepthPassOperation(face, zpass);
 
@@ -985,7 +985,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Operation osg::StencilTwoSided::getStencilPassAndDepthPassOperation(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call osg::StencilTwoSided::Operation osg::StencilTwoSided::getStencilPassAndDepthPassOperation(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StencilTwoSided::Operation lret = self->getStencilPassAndDepthPassOperation(face);
 		lua_pushnumber(L,lret);
@@ -1006,7 +1006,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setWriteMask(osg::StencilTwoSided::Face, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::setWriteMask(osg::StencilTwoSided::Face, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWriteMask(face, mask);
 
@@ -1025,7 +1025,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StencilTwoSided::getWriteMask(osg::StencilTwoSided::Face) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StencilTwoSided::getWriteMask(osg::StencilTwoSided::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getWriteMask(face);
 		lua_pushnumber(L,lret);
@@ -1049,7 +1049,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -1101,7 +1101,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StencilTwoSided::setName(name);
 
@@ -1119,7 +1119,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StencilTwoSided::computeDataVariance();
 
@@ -1138,7 +1138,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StencilTwoSided::setUserData(obj);
 
@@ -1156,7 +1156,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::StencilTwoSided::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::StencilTwoSided::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->StencilTwoSided::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1177,7 +1177,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::StencilTwoSided::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::StencilTwoSided::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->StencilTwoSided::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1207,7 +1207,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::StencilTwoSided::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::StencilTwoSided::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->StencilTwoSided::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1228,7 +1228,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::StencilTwoSided::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::StencilTwoSided::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->StencilTwoSided::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1258,7 +1258,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StencilTwoSided::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StencilTwoSided::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->StencilTwoSided::getMember();
 		lua_pushnumber(L,lret);
@@ -1277,7 +1277,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StencilTwoSided::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1301,7 +1301,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StencilTwoSided::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1325,7 +1325,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StencilTwoSided::compileGLObjects(_arg1);
 
@@ -1346,7 +1346,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StencilTwoSided::releaseGLObjects(_arg1);
 
@@ -1364,7 +1364,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->StencilTwoSided::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1390,7 +1390,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StencilTwoSided::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->StencilTwoSided::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1412,7 +1412,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StencilTwoSided::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1431,7 +1431,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StencilTwoSided::libraryName();
 		lua_pushstring(L,lret);
@@ -1450,7 +1450,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StencilTwoSided::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StencilTwoSided::className();
 		lua_pushstring(L,lret);
@@ -1469,7 +1469,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::StencilTwoSided::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::StencilTwoSided::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->StencilTwoSided::getType();
 		lua_pushnumber(L,lret);
@@ -1493,7 +1493,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StencilTwoSided::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::StencilTwoSided::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->StencilTwoSided::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1517,7 +1517,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StencilTwoSided::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StencilTwoSided::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1541,7 +1541,7 @@ public:
 		osg::StencilTwoSided* self=Luna< osg::Referenced >::checkSubType< osg::StencilTwoSided >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::StencilTwoSided::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StencilTwoSided::apply(_arg1);
 

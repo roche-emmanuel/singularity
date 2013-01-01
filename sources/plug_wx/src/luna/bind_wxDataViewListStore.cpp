@@ -227,7 +227,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListStore::PrependColumn(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewListStore::PrependColumn(const wxString &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->PrependColumn(varianttype);
 
@@ -247,7 +247,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListStore::InsertColumn(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewListStore::InsertColumn(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->InsertColumn(pos, varianttype);
 
@@ -266,7 +266,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListStore::AppendColumn(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewListStore::AppendColumn(const wxString &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->AppendColumn(varianttype);
 
@@ -285,7 +285,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListStore::DeleteItem(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewListStore::DeleteItem(unsigned int). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->DeleteItem(pos);
 
@@ -303,7 +303,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListStore::DeleteAllItems()");
+			luaL_error(L, "Invalid object in function call void wxDataViewListStore::DeleteAllItems(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->DeleteAllItems();
 
@@ -321,7 +321,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataViewListStore::GetColumnCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxDataViewListStore::GetColumnCount() const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetColumnCount();
 		lua_pushnumber(L,lret);
@@ -341,7 +341,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewListStore::GetColumnType(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewListStore::GetColumnType(unsigned int) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		wxString lret = self->GetColumnType(col);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -360,7 +360,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_Cleared()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_Cleared(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewListStore::Cleared();
 		lua_pushboolean(L,lret?1:0);
@@ -391,7 +391,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewListStore::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewListStore::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewListStore::Compare(item1, item2, column, ascending);
 		lua_pushnumber(L,lret);
@@ -421,7 +421,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewListStore::GetAttr(item, col, attr);
 		lua_pushboolean(L,lret?1:0);
@@ -446,7 +446,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_IsEnabled(const wxDataViewItem &, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_IsEnabled(const wxDataViewItem &, unsigned int) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewListStore::IsEnabled(item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -470,7 +470,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_HasContainerColumns(const wxDataViewItem &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_HasContainerColumns(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewListStore::HasContainerColumns(item);
 		lua_pushboolean(L,lret?1:0);
@@ -489,7 +489,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_HasDefaultCompare() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_HasDefaultCompare() const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewListStore::HasDefaultCompare();
 		lua_pushboolean(L,lret?1:0);
@@ -508,7 +508,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListStore::base_Resort()");
+			luaL_error(L, "Invalid object in function call void wxDataViewListStore::base_Resort(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->wxDataViewListStore::Resort();
 
@@ -532,7 +532,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_ValueChanged(const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListStore::base_ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewListStore::ValueChanged(item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -551,7 +551,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataViewListStore::base_GetColumnCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxDataViewListStore::base_GetColumnCount() const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxDataViewListStore::GetColumnCount();
 		lua_pushnumber(L,lret);
@@ -571,7 +571,7 @@ public:
 		wxDataViewListStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewListStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewListStore::base_GetColumnType(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewListStore::base_GetColumnType(unsigned int) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		wxString lret = self->wxDataViewListStore::GetColumnType(col);
 		lua_pushlstring(L,lret.data(),lret.size());

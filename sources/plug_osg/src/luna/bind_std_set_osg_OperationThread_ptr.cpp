@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::set< osg::OperationThread * >",name);
 	}
+
 };
 
 std::set< osg::OperationThread * >* LunaTraits< std::set< osg::OperationThread * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::set< osg::OperationThread * > >::uniqueIDs[] = {97507
 luna_RegType LunaTraits< std::set< osg::OperationThread * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_set_osg_OperationThread_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_set_osg_OperationThread_ptr::_bind___eq},
+	
 	{0,0}
 };
 

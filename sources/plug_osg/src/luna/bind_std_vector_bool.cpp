@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< bool >",name);
 	}
+
 };
 
 std::vector< bool >* LunaTraits< std::vector< bool > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< bool > >::uniqueIDs[] = {61721661,0};
 luna_RegType LunaTraits< std::vector< bool > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_bool::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_bool::_bind___eq},
+	
 	{0,0}
 };
 

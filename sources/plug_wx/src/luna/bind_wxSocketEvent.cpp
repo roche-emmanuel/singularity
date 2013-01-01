@@ -140,7 +140,7 @@ public:
 		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxSocketEvent::GetClientData() const");
+			luaL_error(L, "Invalid object in function call void * wxSocketEvent::GetClientData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		void * lret = self->GetClientData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -161,7 +161,7 @@ public:
 		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase * wxSocketEvent::GetSocket() const");
+			luaL_error(L, "Invalid object in function call wxSocketBase * wxSocketEvent::GetSocket() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSocketBase * lret = self->GetSocket();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -182,7 +182,7 @@ public:
 		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketNotify wxSocketEvent::GetSocketEvent() const");
+			luaL_error(L, "Invalid object in function call wxSocketNotify wxSocketEvent::GetSocketEvent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSocketNotify lret = self->GetSocketEvent();
 		lua_pushnumber(L,lret);
@@ -201,7 +201,7 @@ public:
 		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSocketEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -222,7 +222,7 @@ public:
 		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxSocketEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSocketEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxSocketEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

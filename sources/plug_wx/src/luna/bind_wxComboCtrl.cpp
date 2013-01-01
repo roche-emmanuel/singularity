@@ -1567,7 +1567,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Copy()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Copy();
 
@@ -1607,7 +1607,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, value, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1626,7 +1626,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Cut()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Cut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Cut();
 
@@ -1644,7 +1644,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Dismiss()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Dismiss(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Dismiss();
 
@@ -1665,7 +1665,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::EnablePopupAnimation(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::EnablePopupAnimation(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EnablePopupAnimation(enable);
 
@@ -1683,7 +1683,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapDisabled() const");
+			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapDisabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBitmap* lret = &self->GetBitmapDisabled();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1704,7 +1704,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapHover() const");
+			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapHover() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBitmap* lret = &self->GetBitmapHover();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1725,7 +1725,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapNormal() const");
+			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapNormal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBitmap* lret = &self->GetBitmapNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1746,7 +1746,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapPressed() const");
+			luaL_error(L, "Invalid object in function call const wxBitmap & wxComboCtrl::GetBitmapPressed() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBitmap* lret = &self->GetBitmapPressed();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1767,7 +1767,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::GetButtonSize()");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::GetButtonSize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetButtonSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1789,7 +1789,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::GetCustomPaintWidth() const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::GetCustomPaintWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetCustomPaintWidth();
 		lua_pushnumber(L,lret);
@@ -1808,7 +1808,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::GetHint() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1827,7 +1827,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboCtrl::GetInsertionPoint() const");
+			luaL_error(L, "Invalid object in function call long wxComboCtrl::GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -1846,7 +1846,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboCtrl::GetLastPosition() const");
+			luaL_error(L, "Invalid object in function call long wxComboCtrl::GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -1865,7 +1865,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxComboCtrl::GetMargins() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxComboCtrl::GetMargins() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetMargins();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1887,7 +1887,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxComboPopup * wxComboCtrl::GetPopupControl()");
+			luaL_error(L, "Invalid object in function call wxComboPopup * wxComboCtrl::GetPopupControl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxComboPopup * lret = self->GetPopupControl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1908,7 +1908,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxComboCtrl::GetPopupWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxComboCtrl::GetPopupWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetPopupWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1929,7 +1929,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextCtrl * wxComboCtrl::GetTextCtrl() const");
+			luaL_error(L, "Invalid object in function call wxTextCtrl * wxComboCtrl::GetTextCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTextCtrl * lret = self->GetTextCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1950,7 +1950,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::GetTextIndent() const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::GetTextIndent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetTextIndent();
 		lua_pushnumber(L,lret);
@@ -1969,7 +1969,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxRect & wxComboCtrl::GetTextRect() const");
+			luaL_error(L, "Invalid object in function call const wxRect & wxComboCtrl::GetTextRect() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->GetTextRect();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1990,7 +1990,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2012,7 +2012,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::HidePopup(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::HidePopup(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->HidePopup(generateEvent);
 
@@ -2030,7 +2030,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::IsPopupShown() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::IsPopupShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsPopupShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2050,7 +2050,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::IsPopupWindowState(int) const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::IsPopupWindowState(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsPopupWindowState(state);
 		lua_pushboolean(L,lret?1:0);
@@ -2069,7 +2069,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::OnButtonClick()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::OnButtonClick(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnButtonClick();
 
@@ -2087,7 +2087,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Paste()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Paste();
 
@@ -2105,7 +2105,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Popup()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Popup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Popup();
 
@@ -2125,7 +2125,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Remove(long, long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Remove(from, to);
 
@@ -2146,7 +2146,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Replace(long, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Replace(from, to, text);
 
@@ -2187,7 +2187,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetButtonBitmaps(const wxBitmap &, bool, const wxBitmap &, const wxBitmap &, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetButtonBitmaps(const wxBitmap &, bool, const wxBitmap &, const wxBitmap &, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetButtonBitmaps(bmpNormal, pushButtonBg, bmpPressed, bmpHover, bmpDisabled);
 
@@ -2211,7 +2211,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetButtonPosition(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetButtonPosition(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetButtonPosition(width, height, side, spacingX);
 
@@ -2230,7 +2230,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetCustomPaintWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetCustomPaintWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCustomPaintWidth(width);
 
@@ -2249,7 +2249,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -2269,7 +2269,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetInsertionPoint(long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInsertionPoint(pos);
 
@@ -2287,7 +2287,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetInsertionPointEnd()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInsertionPointEnd();
 
@@ -2310,7 +2310,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetMargins(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetMargins(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetMargins(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -2333,7 +2333,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetMargins(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetMargins(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetMargins(left, top);
 		lua_pushboolean(L,lret?1:0);
@@ -2362,7 +2362,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupAnchor(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupAnchor(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPopupAnchor(anchorSide);
 
@@ -2381,7 +2381,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupControl(wxComboPopup *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupControl(wxComboPopup *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPopupControl(popup);
 
@@ -2401,7 +2401,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupExtents(int, int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupExtents(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPopupExtents(extLeft, extRight);
 
@@ -2420,7 +2420,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupMaxHeight(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupMaxHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPopupMaxHeight(height);
 
@@ -2439,7 +2439,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupMinWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetPopupMinWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPopupMinWidth(width);
 
@@ -2459,7 +2459,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetSelection(long, long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelection(from, to);
 
@@ -2478,7 +2478,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetText(value);
 
@@ -2497,7 +2497,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetTextCtrlStyle(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetTextCtrlStyle(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTextCtrlStyle(style);
 
@@ -2516,7 +2516,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetTextIndent(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetTextIndent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTextIndent(indent);
 
@@ -2535,7 +2535,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(value);
 
@@ -2557,7 +2557,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetValueWithEvent(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetValueWithEvent(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValueWithEvent(value, withEvent);
 
@@ -2575,7 +2575,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::ShowPopup()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::ShowPopup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShowPopup();
 
@@ -2593,7 +2593,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::Undo()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Undo();
 
@@ -2614,7 +2614,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::UseAltPopupWindow(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::UseAltPopupWindow(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UseAltPopupWindow(enable);
 
@@ -2646,7 +2646,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxComboCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxComboCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxComboCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2667,7 +2667,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2686,7 +2686,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -2705,7 +2705,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -2724,7 +2724,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2744,7 +2744,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetCanFocus(canFocus);
 
@@ -2762,7 +2762,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetFocus();
 
@@ -2780,7 +2780,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetFocusFromKbd();
 
@@ -2799,7 +2799,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::AddChild(child);
 
@@ -2818,7 +2818,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::RemoveChild(child);
 
@@ -2837,7 +2837,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -2860,7 +2860,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -2879,7 +2879,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxComboCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -2899,7 +2899,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxComboCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -2919,7 +2919,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxComboCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -2939,7 +2939,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -2959,7 +2959,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -2979,7 +2979,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -3003,7 +3003,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::ScrollWindow(dx, dy, rect);
 
@@ -3026,7 +3026,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -3051,7 +3051,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -3074,7 +3074,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -3101,7 +3101,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -3123,7 +3123,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Fit();
 
@@ -3141,7 +3141,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::FitInside();
 
@@ -3159,7 +3159,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3181,7 +3181,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3203,7 +3203,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3225,7 +3225,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3247,7 +3247,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3269,7 +3269,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3291,7 +3291,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxComboCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3316,7 +3316,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -3338,7 +3338,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SendSizeEvent(flags);
 
@@ -3361,7 +3361,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetMaxClientSize(size);
 
@@ -3384,7 +3384,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetMaxSize(size);
 
@@ -3407,7 +3407,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetMinClientSize(size);
 
@@ -3430,7 +3430,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetMinSize(size);
 
@@ -3465,7 +3465,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3491,7 +3491,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3518,7 +3518,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxComboCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxComboCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxComboCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -3540,7 +3540,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::ClearBackground();
 
@@ -3558,7 +3558,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxComboCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxComboCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxComboCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -3577,7 +3577,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxComboCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -3596,7 +3596,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxComboCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxComboCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -3615,7 +3615,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxComboCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxComboCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxComboCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -3641,7 +3641,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Refresh(eraseBackground, rect);
 
@@ -3659,7 +3659,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Update();
 
@@ -3678,7 +3678,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -3702,7 +3702,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -3721,7 +3721,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -3741,7 +3741,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetThemeEnabled(enable);
 
@@ -3759,7 +3759,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -3778,7 +3778,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -3798,7 +3798,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3818,7 +3818,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetNextHandler(handler);
 
@@ -3837,7 +3837,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetPreviousHandler(handler);
 
@@ -3855,7 +3855,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxComboCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxComboCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -3875,7 +3875,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetExtraStyle(exStyle);
 
@@ -3894,7 +3894,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetWindowStyleFlag(style);
 
@@ -3912,7 +3912,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Lower();
 
@@ -3930,7 +3930,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Raise();
 
@@ -3952,7 +3952,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3971,7 +3971,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -3990,7 +3990,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -4012,7 +4012,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -4034,7 +4034,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -4057,7 +4057,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -4082,7 +4082,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4101,7 +4101,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxComboCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxComboCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxComboCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4127,7 +4127,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetValidator(validator);
 
@@ -4145,7 +4145,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -4164,7 +4164,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -4183,7 +4183,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -4202,7 +4202,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxComboCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxComboCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxComboCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -4221,7 +4221,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4241,7 +4241,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetLayoutDirection(dir);
 
@@ -4260,7 +4260,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetName(name);
 
@@ -4283,7 +4283,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetAcceleratorTable(accel);
 
@@ -4301,7 +4301,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -4320,7 +4320,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxComboCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxComboCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxComboCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4342,7 +4342,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetDropTarget(target);
 
@@ -4361,7 +4361,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::DragAcceptFiles(accept);
 
@@ -4379,7 +4379,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -4398,7 +4398,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -4422,7 +4422,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -4443,7 +4443,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::WarpPointer(x, y);
 
@@ -4466,7 +4466,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::DoUpdateWindowUI(event);
 
@@ -4484,7 +4484,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -4503,7 +4503,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::InheritAttributes();
 
@@ -4521,7 +4521,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::InitDialog();
 
@@ -4539,7 +4539,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -4558,7 +4558,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -4580,7 +4580,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::MakeModal(modal);
 
@@ -4598,7 +4598,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::OnInternalIdle();
 
@@ -4619,7 +4619,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -4639,7 +4639,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -4661,7 +4661,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::UpdateWindowUI(flags);
 
@@ -4684,7 +4684,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Command(event);
 
@@ -4702,7 +4702,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4722,7 +4722,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetLabel(label);
 
@@ -4741,7 +4741,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_AppendText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::AppendText(text);
 
@@ -4759,7 +4759,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanCopy() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -4778,7 +4778,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanCut() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -4797,7 +4797,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanPaste() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -4816,7 +4816,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanRedo() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -4835,7 +4835,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -4855,7 +4855,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ChangeValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::ChangeValue(value);
 
@@ -4873,7 +4873,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Clear()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Clear();
 
@@ -4893,7 +4893,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetRange(long, long) const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4914,7 +4914,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_GetSelection(long *, long *) const");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::GetSelection(&from, &to);
 
@@ -4932,7 +4932,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4951,7 +4951,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsEditable() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -4970,7 +4970,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -4989,7 +4989,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Redo()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Redo();
 
@@ -5008,7 +5008,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetEditable(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetEditable(editable);
 
@@ -5027,7 +5027,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMaxLength(unsigned long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetMaxLength(len);
 
@@ -5045,7 +5045,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SelectAll();
 
@@ -5064,7 +5064,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_WriteText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::WriteText(text);
 
@@ -5082,7 +5082,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Copy()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Copy();
 
@@ -5100,7 +5100,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Cut()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Cut(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Cut();
 
@@ -5118,7 +5118,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Dismiss()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Dismiss(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Dismiss();
 
@@ -5136,7 +5136,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetHint() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -5155,7 +5155,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboCtrl::base_GetInsertionPoint() const");
+			luaL_error(L, "Invalid object in function call long wxComboCtrl::base_GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxComboCtrl::GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -5174,7 +5174,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxComboCtrl::base_GetLastPosition() const");
+			luaL_error(L, "Invalid object in function call long wxComboCtrl::base_GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxComboCtrl::GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -5193,7 +5193,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboCtrl::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxComboCtrl::GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -5215,7 +5215,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_HidePopup(bool)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_HidePopup(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::HidePopup(generateEvent);
 
@@ -5233,7 +5233,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_OnButtonClick()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_OnButtonClick(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::OnButtonClick();
 
@@ -5251,7 +5251,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Paste()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Paste();
 
@@ -5269,7 +5269,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Popup()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Popup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Popup();
 
@@ -5289,7 +5289,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Remove(long, long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Remove(from, to);
 
@@ -5310,7 +5310,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Replace(long, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Replace(from, to, text);
 
@@ -5329,7 +5329,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::base_SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxComboCtrl::SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -5349,7 +5349,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetInsertionPoint(long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetInsertionPoint(pos);
 
@@ -5367,7 +5367,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetInsertionPointEnd()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetInsertionPointEnd();
 
@@ -5387,7 +5387,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetSelection(long, long)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetSelection(from, to);
 
@@ -5406,7 +5406,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::SetValue(value);
 
@@ -5424,7 +5424,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ShowPopup()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_ShowPopup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::ShowPopup();
 
@@ -5442,7 +5442,7 @@ public:
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Undo()");
+			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxComboCtrl::Undo();
 
@@ -5451,6 +5451,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_wxTextEntry(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_wxTextEntry(lua_State *L) {
+		if (!_lg_typecheck_baseCast_wxTextEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_wxTextEntry function, expected prototype:\nbaseCast()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		wxTextEntry* res = dynamic_cast<wxTextEntry*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< wxTextEntry >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -5663,6 +5689,7 @@ luna_RegType LunaTraits< wxComboCtrl >::methods[] = {
 	{"base_Undo", &luna_wrapper_wxComboCtrl::_bind_base_Undo},
 	{"__eq", &luna_wrapper_wxComboCtrl::_bind___eq},
 	{"getTable", &luna_wrapper_wxComboCtrl::_bind_getTable},
+	{"aswxTextEntry", &luna_wrapper_wxComboCtrl::_bind_baseCast_wxTextEntry},
 	{0,0}
 };
 

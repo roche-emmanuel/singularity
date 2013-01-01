@@ -203,7 +203,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::SPKFactory::getNbObjects() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::SPKFactory::getNbObjects() const. Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		size_t lret = self->getNbObjects();
 		lua_pushnumber(L,lret);
@@ -227,7 +227,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long SPK::SPKFactory::create(const SPK::Registerable &)");
+			luaL_error(L, "Invalid object in function call unsigned long SPK::SPKFactory::create(const SPK::Registerable &). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		unsigned long lret = self->create(base);
 		lua_pushnumber(L,lret);
@@ -247,7 +247,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(unsigned long)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(unsigned long). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->copy(ID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -269,7 +269,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable *)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->copy(registerable);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -300,7 +300,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::get(unsigned long)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::get(unsigned long). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->get(ID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -325,7 +325,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(unsigned long, bool)");
+			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(unsigned long, bool). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		bool lret = self->destroy(ID, checkNbReferences);
 		lua_pushboolean(L,lret?1:0);
@@ -348,7 +348,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(SPK::Registerable *, bool)");
+			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		bool lret = self->destroy(registerable, checkNbReferences);
 		lua_pushboolean(L,lret?1:0);
@@ -376,7 +376,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::destroyAll()");
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::destroyAll(). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		self->destroyAll();
 
@@ -395,7 +395,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(unsigned long)");
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(unsigned long). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		self->trace(ID);
 
@@ -414,7 +414,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(const SPK::Registerable *)");
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(const SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		self->trace(registerable);
 
@@ -441,7 +441,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::traceAll()");
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::traceAll(). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		self->traceAll();
 
@@ -460,7 +460,7 @@ public:
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.

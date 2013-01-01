@@ -99,7 +99,7 @@ public:
 		wxMetafileDC* self=Luna< wxObject >::checkSubType< wxMetafileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMetafile * wxMetafileDC::Close()");
+			luaL_error(L, "Invalid object in function call wxMetafile * wxMetafileDC::Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMetafile * lret = self->Close();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -120,7 +120,7 @@ public:
 		wxMetafileDC* self=Luna< wxObject >::checkSubType< wxMetafileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMetafileDC::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMetafileDC::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMetafileDC::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

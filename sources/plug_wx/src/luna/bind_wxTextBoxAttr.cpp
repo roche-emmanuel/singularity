@@ -612,7 +612,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::Init()");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::Init(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->Init();
 
@@ -630,7 +630,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::Reset()");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::Reset(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->Reset();
 
@@ -653,7 +653,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::EqPartial(const wxTextBoxAttr &) const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::EqPartial(const wxTextBoxAttr &) const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->EqPartial(attr);
 		lua_pushboolean(L,lret?1:0);
@@ -680,7 +680,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::Apply(const wxTextBoxAttr &, const wxTextBoxAttr *)");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::Apply(const wxTextBoxAttr &, const wxTextBoxAttr *). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->Apply(style, compareWith);
 		lua_pushboolean(L,lret?1:0);
@@ -714,7 +714,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::CollectCommonAttributes(const wxTextBoxAttr &, wxTextBoxAttr &, wxTextBoxAttr &)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::CollectCommonAttributes(const wxTextBoxAttr &, wxTextBoxAttr &, wxTextBoxAttr &). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->CollectCommonAttributes(attr, clashingAttr, absentAttr);
 
@@ -737,7 +737,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::RemoveStyle(const wxTextBoxAttr &)");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::RemoveStyle(const wxTextBoxAttr &). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->RemoveStyle(attr);
 		lua_pushboolean(L,lret?1:0);
@@ -757,7 +757,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetFlags(int)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetFlags(int). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -775,7 +775,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextBoxAttr::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxTextBoxAttr::GetFlags() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -795,7 +795,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasFlag(wxTextBoxAttrFlags) const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasFlag(wxTextBoxAttrFlags) const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFlag(flag);
 		lua_pushboolean(L,lret?1:0);
@@ -815,7 +815,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::RemoveFlag(wxTextBoxAttrFlags)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::RemoveFlag(wxTextBoxAttrFlags). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->RemoveFlag(flag);
 
@@ -834,7 +834,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::AddFlag(wxTextBoxAttrFlags)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::AddFlag(wxTextBoxAttrFlags). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->AddFlag(flag);
 
@@ -852,7 +852,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextBoxAttrFloatStyle wxTextBoxAttr::GetFloatMode() const");
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrFloatStyle wxTextBoxAttr::GetFloatMode() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		wxTextBoxAttrFloatStyle lret = self->GetFloatMode();
 		lua_pushnumber(L,lret);
@@ -872,7 +872,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetFloatMode(wxTextBoxAttrFloatStyle)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetFloatMode(wxTextBoxAttrFloatStyle). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->SetFloatMode(mode);
 
@@ -890,7 +890,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasFloatMode() const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasFloatMode() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFloatMode();
 		lua_pushboolean(L,lret?1:0);
@@ -909,7 +909,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::IsFloating() const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::IsFloating() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->IsFloating();
 		lua_pushboolean(L,lret?1:0);
@@ -928,7 +928,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextBoxAttrClearStyle wxTextBoxAttr::GetClearMode() const");
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrClearStyle wxTextBoxAttr::GetClearMode() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		wxTextBoxAttrClearStyle lret = self->GetClearMode();
 		lua_pushnumber(L,lret);
@@ -948,7 +948,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetClearMode(wxTextBoxAttrClearStyle)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetClearMode(wxTextBoxAttrClearStyle). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->SetClearMode(mode);
 
@@ -966,7 +966,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasClearMode() const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasClearMode() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasClearMode();
 		lua_pushboolean(L,lret?1:0);
@@ -985,7 +985,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextBoxAttrCollapseMode wxTextBoxAttr::GetCollapseBorders() const");
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrCollapseMode wxTextBoxAttr::GetCollapseBorders() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		wxTextBoxAttrCollapseMode lret = self->GetCollapseBorders();
 		lua_pushnumber(L,lret);
@@ -1005,7 +1005,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetCollapseBorders(wxTextBoxAttrCollapseMode)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetCollapseBorders(wxTextBoxAttrCollapseMode). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->SetCollapseBorders(collapse);
 
@@ -1023,7 +1023,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasCollapseBorders() const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasCollapseBorders() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasCollapseBorders();
 		lua_pushboolean(L,lret?1:0);
@@ -1042,7 +1042,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextBoxAttrVerticalAlignment wxTextBoxAttr::GetVerticalAlignment() const");
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrVerticalAlignment wxTextBoxAttr::GetVerticalAlignment() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		wxTextBoxAttrVerticalAlignment lret = self->GetVerticalAlignment();
 		lua_pushnumber(L,lret);
@@ -1062,7 +1062,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetVerticalAlignment(wxTextBoxAttrVerticalAlignment)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetVerticalAlignment(wxTextBoxAttrVerticalAlignment). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->SetVerticalAlignment(verticalAlignment);
 
@@ -1080,7 +1080,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasVerticalAlignment() const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::HasVerticalAlignment() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasVerticalAlignment();
 		lua_pushboolean(L,lret?1:0);
@@ -1099,7 +1099,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimensions & wxTextBoxAttr::GetMargins()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimensions & wxTextBoxAttr::GetMargins(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimensions* lret = &self->GetMargins();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1120,7 +1120,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimensions & wxTextBoxAttr::GetMargins() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimensions & wxTextBoxAttr::GetMargins() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimensions* lret = &self->GetMargins();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1150,7 +1150,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetLeftMargin()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetLeftMargin(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeftMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1171,7 +1171,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetLeftMargin() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetLeftMargin() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeftMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1201,7 +1201,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetRightMargin()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetRightMargin(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRightMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1222,7 +1222,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetRightMargin() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetRightMargin() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRightMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1252,7 +1252,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetTopMargin()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetTopMargin(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTopMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1273,7 +1273,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetTopMargin() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetTopMargin() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTopMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1303,7 +1303,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetBottomMargin()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetBottomMargin(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottomMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1324,7 +1324,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetBottomMargin() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetBottomMargin() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottomMargin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1354,7 +1354,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimensions & wxTextBoxAttr::GetPosition()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimensions & wxTextBoxAttr::GetPosition(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimensions* lret = &self->GetPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1375,7 +1375,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimensions & wxTextBoxAttr::GetPosition() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimensions & wxTextBoxAttr::GetPosition() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimensions* lret = &self->GetPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1405,7 +1405,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetLeft()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetLeft(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeft();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1426,7 +1426,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetLeft() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetLeft() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeft();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1456,7 +1456,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetRight()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetRight(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1477,7 +1477,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetRight() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetRight() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1507,7 +1507,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetTop()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetTop(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1528,7 +1528,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetTop() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetTop() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1558,7 +1558,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetBottom()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetBottom(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1579,7 +1579,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetBottom() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetBottom() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1609,7 +1609,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimensions & wxTextBoxAttr::GetPadding()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimensions & wxTextBoxAttr::GetPadding(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimensions* lret = &self->GetPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1630,7 +1630,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimensions & wxTextBoxAttr::GetPadding() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimensions & wxTextBoxAttr::GetPadding() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimensions* lret = &self->GetPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1660,7 +1660,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetLeftPadding()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetLeftPadding(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeftPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1681,7 +1681,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetLeftPadding() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetLeftPadding() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeftPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1711,7 +1711,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetRightPadding()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetRightPadding(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRightPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1732,7 +1732,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetRightPadding() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetRightPadding() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRightPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1762,7 +1762,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetTopPadding()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetTopPadding(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTopPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1783,7 +1783,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetTopPadding() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetTopPadding() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTopPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1813,7 +1813,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetBottomPadding()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetBottomPadding(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottomPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1834,7 +1834,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetBottomPadding() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetBottomPadding() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottomPadding();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1864,7 +1864,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorders & wxTextBoxAttr::GetBorder()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorders & wxTextBoxAttr::GetBorder(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorders* lret = &self->GetBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1885,7 +1885,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorders & wxTextBoxAttr::GetBorder() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorders & wxTextBoxAttr::GetBorder() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorders* lret = &self->GetBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1915,7 +1915,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetLeftBorder()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetLeftBorder(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetLeftBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1936,7 +1936,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetLeftBorder() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetLeftBorder() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetLeftBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1966,7 +1966,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetTopBorder()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetTopBorder(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetTopBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1987,7 +1987,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetTopBorder() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetTopBorder() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetTopBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2017,7 +2017,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetRightBorder()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetRightBorder(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetRightBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2038,7 +2038,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetRightBorder() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetRightBorder() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetRightBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2068,7 +2068,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetBottomBorder()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetBottomBorder(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetBottomBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2089,7 +2089,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetBottomBorder() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetBottomBorder() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetBottomBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2119,7 +2119,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorders & wxTextBoxAttr::GetOutline()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorders & wxTextBoxAttr::GetOutline(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorders* lret = &self->GetOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2140,7 +2140,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorders & wxTextBoxAttr::GetOutline() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorders & wxTextBoxAttr::GetOutline() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorders* lret = &self->GetOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2170,7 +2170,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetLeftOutline()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetLeftOutline(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetLeftOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2191,7 +2191,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetLeftOutline() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetLeftOutline() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetLeftOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2221,7 +2221,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetTopOutline()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetTopOutline(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetTopOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2242,7 +2242,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetTopOutline() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetTopOutline() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetTopOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2272,7 +2272,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetRightOutline()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetRightOutline(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetRightOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2293,7 +2293,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetRightOutline() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetRightOutline() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetRightOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2323,7 +2323,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetBottomOutline()");
+			luaL_error(L, "Invalid object in function call wxTextAttrBorder & wxTextBoxAttr::GetBottomOutline(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetBottomOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2344,7 +2344,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetBottomOutline() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrBorder & wxTextBoxAttr::GetBottomOutline() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrBorder* lret = &self->GetBottomOutline();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2374,7 +2374,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrSize & wxTextBoxAttr::GetSize()");
+			luaL_error(L, "Invalid object in function call wxTextAttrSize & wxTextBoxAttr::GetSize(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrSize* lret = &self->GetSize();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2395,7 +2395,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrSize & wxTextBoxAttr::GetSize() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrSize & wxTextBoxAttr::GetSize() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrSize* lret = &self->GetSize();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2430,7 +2430,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetSize(const wxTextAttrSize &)");
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::SetSize(const wxTextAttrSize &). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		self->SetSize(sz);
 
@@ -2448,7 +2448,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetWidth()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetWidth(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetWidth();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2469,7 +2469,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetWidth() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetWidth() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetWidth();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2499,7 +2499,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetHeight()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextBoxAttr::GetHeight(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetHeight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2520,7 +2520,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetHeight() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextBoxAttr::GetHeight() const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetHeight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2557,7 +2557,7 @@ public:
 		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::operator==(const wxTextBoxAttr &) const");
+			luaL_error(L, "Invalid object in function call bool wxTextBoxAttr::operator==(const wxTextBoxAttr &) const. Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
 		}
 		bool lret = self->operator==(attr);
 		lua_pushboolean(L,lret?1:0);

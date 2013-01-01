@@ -505,7 +505,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -531,7 +531,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -553,7 +553,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -572,7 +572,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Projection::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Projection::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -591,7 +591,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Projection::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Projection::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -615,7 +615,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -638,7 +638,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::setMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::setMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMatrix(mat);
 
@@ -656,7 +656,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::Projection::getMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::Projection::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -682,7 +682,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::preMult(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::preMult(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->preMult(mat);
 
@@ -705,7 +705,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::postMult(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::postMult(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->postMult(mat);
 
@@ -724,7 +724,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::setName(name);
 
@@ -742,7 +742,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::computeDataVariance();
 
@@ -761,7 +761,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::setUserData(obj);
 
@@ -779,7 +779,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Projection::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Projection::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Projection::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -800,7 +800,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Projection::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Projection::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Projection::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -830,7 +830,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::Projection::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Projection::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->Projection::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -851,7 +851,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Projection::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Projection::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->Projection::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -881,7 +881,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Projection::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Projection::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->Projection::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -902,7 +902,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Projection::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Projection::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->Projection::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -932,7 +932,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Projection::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Projection::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->Projection::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -953,7 +953,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Projection::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Projection::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->Projection::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -988,7 +988,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::ascend(nv);
 
@@ -1006,7 +1006,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::Projection::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Projection::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->Projection::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1027,7 +1027,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::Projection::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Projection::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->Projection::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1062,7 +1062,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::traverse(_arg1);
 
@@ -1081,7 +1081,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Projection::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1102,7 +1102,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Projection::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1123,7 +1123,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Projection::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1144,7 +1144,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Projection::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1165,7 +1165,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Projection::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1187,7 +1187,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::releaseGLObjects(_arg1);
 
@@ -1205,7 +1205,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Projection::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Projection::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->Projection::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1227,7 +1227,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Projection::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1253,7 +1253,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Projection::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Projection::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1275,7 +1275,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Projection::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Projection::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Projection::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1294,7 +1294,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Projection::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Projection::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Projection::className();
 		lua_pushstring(L,lret);
@@ -1313,7 +1313,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Projection::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Projection::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Projection::libraryName();
 		lua_pushstring(L,lret);
@@ -1337,7 +1337,7 @@ public:
 		osg::Projection* self=Luna< osg::Referenced >::checkSubType< osg::Projection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Projection::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Projection::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Projection::accept(nv);
 

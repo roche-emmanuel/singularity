@@ -410,7 +410,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,7 +436,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -458,7 +458,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::RadialShooter::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::RadialShooter::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -477,7 +477,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -496,7 +496,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -515,7 +515,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::RadialShooter::getThetaRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::RadialShooter::getThetaRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getThetaRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -541,7 +541,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setThetaRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setThetaRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setThetaRange(r);
 
@@ -561,7 +561,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setThetaRange(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setThetaRange(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setThetaRange(r1, r2);
 
@@ -588,7 +588,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::RadialShooter::getPhiRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::RadialShooter::getPhiRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getPhiRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -614,7 +614,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setPhiRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setPhiRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPhiRange(r);
 
@@ -634,7 +634,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setPhiRange(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setPhiRange(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPhiRange(r1, r2);
 
@@ -661,7 +661,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::RadialShooter::getInitialSpeedRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::RadialShooter::getInitialSpeedRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getInitialSpeedRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -687,7 +687,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialSpeedRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialSpeedRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setInitialSpeedRange(r);
 
@@ -707,7 +707,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialSpeedRange(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialSpeedRange(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setInitialSpeedRange(r1, r2);
 
@@ -734,7 +734,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangev3 & osgParticle::RadialShooter::getInitialRotationalSpeedRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangev3 & osgParticle::RadialShooter::getInitialRotationalSpeedRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangev3* lret = &self->getInitialRotationalSpeedRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -760,7 +760,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialRotationalSpeedRange(const osgParticle::rangev3 &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialRotationalSpeedRange(const osgParticle::rangev3 &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setInitialRotationalSpeedRange(r);
 
@@ -788,7 +788,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialRotationalSpeedRange(const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::setInitialRotationalSpeedRange(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setInitialRotationalSpeedRange(r1, r2);
 
@@ -816,7 +816,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::shoot(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::shoot(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->shoot(P);
 
@@ -835,7 +835,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RadialShooter::setName(name);
 
@@ -853,7 +853,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RadialShooter::computeDataVariance();
 
@@ -872,7 +872,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RadialShooter::setUserData(obj);
 
@@ -890,7 +890,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::RadialShooter::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::RadialShooter::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->RadialShooter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -911,7 +911,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::RadialShooter::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::RadialShooter::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->RadialShooter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -944,7 +944,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RadialShooter::releaseGLObjects(_arg1);
 
@@ -962,7 +962,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->RadialShooter::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -988,7 +988,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::RadialShooter::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->RadialShooter::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1010,7 +1010,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::RadialShooter::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::RadialShooter::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->RadialShooter::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1029,7 +1029,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->RadialShooter::libraryName();
 		lua_pushstring(L,lret);
@@ -1048,7 +1048,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::RadialShooter::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->RadialShooter::className();
 		lua_pushstring(L,lret);
@@ -1068,7 +1068,7 @@ public:
 		osgParticle::RadialShooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::RadialShooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_shoot(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::RadialShooter::base_shoot(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RadialShooter::shoot(P);
 

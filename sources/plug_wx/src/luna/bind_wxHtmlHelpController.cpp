@@ -303,7 +303,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxFileName &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxFileName &, bool). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->AddBook(bookFile, showWaitMsg);
 		lua_pushboolean(L,lret?1:0);
@@ -326,7 +326,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::AddBook(const wxString &, bool). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->AddBook(bookUrl, showWaitMsg);
 		lua_pushboolean(L,lret?1:0);
@@ -355,7 +355,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->Display(x);
 		lua_pushboolean(L,lret?1:0);
@@ -375,7 +375,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::Display(int). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->Display(id);
 		lua_pushboolean(L,lret?1:0);
@@ -403,7 +403,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayContents()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayContents(). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -422,7 +422,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayIndex()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::DisplayIndex(). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplayIndex();
 		lua_pushboolean(L,lret?1:0);
@@ -445,7 +445,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::KeywordSearch(const wxString &, wxHelpSearchMode)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->KeywordSearch(keyword, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -468,7 +468,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::ReadCustomization(wxConfigBase *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::ReadCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->ReadCustomization(cfg, path);
 
@@ -487,7 +487,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetShouldPreventAppExit(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetShouldPreventAppExit(bool). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->SetShouldPreventAppExit(enable);
 
@@ -506,7 +506,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTempDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTempDir(const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->SetTempDir(path);
 
@@ -525,7 +525,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTitleFormat(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::SetTitleFormat(const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->SetTitleFormat(format);
 
@@ -547,7 +547,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::UseConfig(wxConfigBase *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::UseConfig(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->UseConfig(config, rootpath);
 
@@ -569,7 +569,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::WriteCustomization(wxConfigBase *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::WriteCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->WriteCustomization(cfg, path);
 
@@ -587,7 +587,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_DisplayContents()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_DisplayContents(). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpController::DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -610,7 +610,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpController::KeywordSearch(keyword, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -633,7 +633,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_ReadCustomization(wxConfigBase *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_ReadCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->wxHtmlHelpController::ReadCustomization(cfg, path);
 
@@ -655,7 +655,7 @@ public:
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_WriteCustomization(wxConfigBase *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_WriteCustomization(wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxHtmlHelpController >::check(L,1)).name());
 		}
 		self->wxHtmlHelpController::WriteCustomization(cfg, path);
 

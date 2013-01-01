@@ -137,7 +137,7 @@ public:
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::read(osgDB::InputStream &, osg::Object &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::read(osgDB::InputStream &, osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->read(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -166,7 +166,7 @@ public:
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::write(osgDB::OutputStream &, const osg::Object &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseSerializer::write(osgDB::OutputStream &, const osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->write(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -185,7 +185,7 @@ public:
 		osgDB::BaseSerializer* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseSerializer::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseSerializer::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());

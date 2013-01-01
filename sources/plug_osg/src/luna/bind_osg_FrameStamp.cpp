@@ -222,7 +222,7 @@ public:
 		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setFrameNumber(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setFrameNumber(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFrameNumber(fnum);
 
@@ -240,7 +240,7 @@ public:
 		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameStamp::getFrameNumber() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameStamp::getFrameNumber() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFrameNumber();
 		lua_pushnumber(L,lret);
@@ -260,7 +260,7 @@ public:
 		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setReferenceTime(double)");
+			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setReferenceTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setReferenceTime(refTime);
 
@@ -278,7 +278,7 @@ public:
 		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::FrameStamp::getReferenceTime() const");
+			luaL_error(L, "Invalid object in function call double osg::FrameStamp::getReferenceTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getReferenceTime();
 		lua_pushnumber(L,lret);
@@ -298,7 +298,7 @@ public:
 		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setSimulationTime(double)");
+			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setSimulationTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSimulationTime(refTime);
 
@@ -316,7 +316,7 @@ public:
 		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::FrameStamp::getSimulationTime() const");
+			luaL_error(L, "Invalid object in function call double osg::FrameStamp::getSimulationTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getSimulationTime();
 		lua_pushnumber(L,lret);

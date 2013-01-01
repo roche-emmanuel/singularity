@@ -778,9 +778,9 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"wx");
 	luna_copyParents(L,"wxDateTime");

@@ -70,7 +70,7 @@ public:
 		wrapper_spark_SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable *, osg::Transform *)");
+			luaL_error(L, "Invalid object in function call osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable *, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrix lret = self->public_computeTransformMatrix(spark, trackee);
 		////////////////////////////////////////////////////////////////////

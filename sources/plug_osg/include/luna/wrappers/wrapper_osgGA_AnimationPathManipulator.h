@@ -412,7 +412,7 @@ public:
 		wrapper_osgGA_AnimationPathManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_AnimationPathManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::AnimationPathManipulator::public_handleFrame(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::AnimationPathManipulator::public_handleFrame(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_handleFrame(time);
 
@@ -430,7 +430,7 @@ public:
 		wrapper_osgGA_AnimationPathManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_AnimationPathManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const");
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->public_getManipulatorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -451,7 +451,7 @@ public:
 		wrapper_osgGA_AnimationPathManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_AnimationPathManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -469,7 +469,7 @@ public:
 		wrapper_osgGA_AnimationPathManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_AnimationPathManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

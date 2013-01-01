@@ -228,7 +228,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeObject(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -257,7 +257,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeImage(const osg::Image &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeImage(const osg::Image &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeImage(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -286,7 +286,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeHeightField(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -315,7 +315,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeNode(const osg::Node &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeNode(const osg::Node &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeNode(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -344,7 +344,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeShader(const osg::Shader &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeShader(const osg::Shader &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeShader(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -373,7 +373,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeObject(const osg::Object &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeObject(const osg::Object &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->WriteFileCallback::writeObject(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -402,7 +402,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeImage(const osg::Image &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeImage(const osg::Image &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->WriteFileCallback::writeImage(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -431,7 +431,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->WriteFileCallback::writeHeightField(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -460,7 +460,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeNode(const osg::Node &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeNode(const osg::Node &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->WriteFileCallback::writeNode(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -489,7 +489,7 @@ public:
 		osgDB::WriteFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::WriteFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeShader(const osg::Shader &, const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::base_writeShader(const osg::Shader &, const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->WriteFileCallback::writeShader(obj, fileName, options);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);

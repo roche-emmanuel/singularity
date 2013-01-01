@@ -476,7 +476,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonArtProvider * wxRibbonArtProvider::Clone() const");
+			luaL_error(L, "Invalid object in function call wxRibbonArtProvider * wxRibbonArtProvider::Clone() const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxRibbonArtProvider * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -498,7 +498,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetFlags(long)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetFlags(long). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -516,7 +516,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxRibbonArtProvider::GetFlags() const");
+			luaL_error(L, "Invalid object in function call long wxRibbonArtProvider::GetFlags() const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		long lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -536,7 +536,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonArtProvider::GetMetric(int) const");
+			luaL_error(L, "Invalid object in function call int wxRibbonArtProvider::GetMetric(int) const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		int lret = self->GetMetric(id);
 		lua_pushnumber(L,lret);
@@ -557,7 +557,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetMetric(int, int)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetMetric(int, int). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->SetMetric(id, new_val);
 
@@ -581,7 +581,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetFont(int, const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetFont(int, const wxFont &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->SetFont(id, font);
 
@@ -600,7 +600,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxRibbonArtProvider::GetFont(int) const");
+			luaL_error(L, "Invalid object in function call wxFont wxRibbonArtProvider::GetFont(int) const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxFont stack_lret = self->GetFont(id);
 		wxFont* lret = new wxFont(stack_lret);
@@ -623,7 +623,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxRibbonArtProvider::GetColour(int) const");
+			luaL_error(L, "Invalid object in function call wxColour wxRibbonArtProvider::GetColour(int) const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColour(id);
 		wxColour* lret = new wxColour(stack_lret);
@@ -651,7 +651,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetColour(int, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetColour(int, const wxColour &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->SetColour(id, colour);
 
@@ -670,7 +670,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxRibbonArtProvider::GetColor(int) const");
+			luaL_error(L, "Invalid object in function call wxColour wxRibbonArtProvider::GetColor(int) const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColor(id);
 		wxColour* lret = new wxColour(stack_lret);
@@ -698,7 +698,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetColor(int, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetColor(int, const wxColour &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->SetColor(id, color);
 
@@ -719,7 +719,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::GetColourScheme(wxColour *, wxColour *, wxColour *) const");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::GetColourScheme(wxColour *, wxColour *, wxColour *) const. Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->GetColourScheme(primary, secondary, tertiary);
 
@@ -752,7 +752,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetColourScheme(const wxColour &, const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::SetColourScheme(const wxColour &, const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->SetColourScheme(primary, secondary, tertiary);
 
@@ -781,7 +781,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTabCtrlBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTabCtrlBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawTabCtrlBackground(dc, wnd, rect);
 
@@ -810,7 +810,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTab(wxDC &, wxWindow *, const wxRibbonPageTabInfo &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTab(wxDC &, wxWindow *, const wxRibbonPageTabInfo &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawTab(dc, wnd, tab);
 
@@ -840,7 +840,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTabSeparator(wxDC &, wxWindow *, const wxRect &, double)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTabSeparator(wxDC &, wxWindow *, const wxRect &, double). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawTabSeparator(dc, wnd, rect, visibility);
 
@@ -869,7 +869,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawPageBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawPageBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawPageBackground(dc, wnd, rect);
 
@@ -899,7 +899,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawScrollButton(wxDC &, wxWindow *, const wxRect &, long)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawScrollButton(wxDC &, wxWindow *, const wxRect &, long). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawScrollButton(dc, wnd, rect, style);
 
@@ -928,7 +928,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawPanelBackground(wxDC &, wxRibbonPanel *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawPanelBackground(wxDC &, wxRibbonPanel *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawPanelBackground(dc, wnd, rect);
 
@@ -957,7 +957,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawGalleryBackground(wxDC &, wxRibbonGallery *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawGalleryBackground(wxDC &, wxRibbonGallery *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawGalleryBackground(dc, wnd, rect);
 
@@ -987,7 +987,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawGalleryItemBackground(wxDC &, wxRibbonGallery *, const wxRect &, wxRibbonGalleryItem *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawGalleryItemBackground(wxDC &, wxRibbonGallery *, const wxRect &, wxRibbonGalleryItem *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawGalleryItemBackground(dc, wnd, rect, item);
 
@@ -1021,7 +1021,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawMinimisedPanel(wxDC &, wxRibbonPanel *, const wxRect &, wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawMinimisedPanel(wxDC &, wxRibbonPanel *, const wxRect &, wxBitmap &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawMinimisedPanel(dc, wnd, rect, bitmap);
 
@@ -1050,7 +1050,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawButtonBarBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawButtonBarBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawButtonBarBackground(dc, wnd, rect);
 
@@ -1092,7 +1092,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawButtonBarButton(wxDC &, wxWindow *, const wxRect &, wxRibbonButtonKind, long, const wxString &, const wxBitmap &, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawButtonBarButton(wxDC &, wxWindow *, const wxRect &, wxRibbonButtonKind, long, const wxString &, const wxBitmap &, const wxBitmap &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawButtonBarButton(dc, wnd, rect, kind, state, label, bitmap_large, bitmap_small);
 
@@ -1121,7 +1121,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawToolBarBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawToolBarBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawToolBarBackground(dc, wnd, rect);
 
@@ -1150,7 +1150,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawToolGroupBackground(wxDC &, wxWindow *, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawToolGroupBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawToolGroupBackground(dc, wnd, rect);
 
@@ -1186,7 +1186,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTool(wxDC &, wxWindow *, const wxRect &, const wxBitmap &, wxRibbonButtonKind, long)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::DrawTool(wxDC &, wxWindow *, const wxRect &, const wxBitmap &, wxRibbonButtonKind, long). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->DrawTool(dc, wnd, rect, bitmap, kind, state);
 
@@ -1220,7 +1220,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::GetBarTabWidth(wxDC &, wxWindow *, const wxString &, const wxBitmap &, int *, int *, int *, int *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::GetBarTabWidth(wxDC &, wxWindow *, const wxString &, const wxBitmap &, int *, int *, int *, int *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		self->GetBarTabWidth(dc, wnd, label, bitmap, &ideal, &small_begin_need_separator, &small_must_have_separator, &minimum);
 
@@ -1249,7 +1249,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonArtProvider::GetTabCtrlHeight(wxDC &, wxWindow *, const wxRibbonPageTabInfoArray &)");
+			luaL_error(L, "Invalid object in function call int wxRibbonArtProvider::GetTabCtrlHeight(wxDC &, wxWindow *, const wxRibbonPageTabInfoArray &). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		int lret = self->GetTabCtrlHeight(dc, wnd, pages);
 		lua_pushnumber(L,lret);
@@ -1275,7 +1275,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetScrollButtonMinimumSize(wxDC &, wxWindow *, long)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetScrollButtonMinimumSize(wxDC &, wxWindow *, long). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetScrollButtonMinimumSize(dc, wnd, style);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1309,7 +1309,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetPanelSize(wxDC &, const wxRibbonPanel *, wxSize, wxPoint *)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetPanelSize(wxDC &, const wxRibbonPanel *, wxSize, wxPoint *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetPanelSize(dc, wnd, client_size, client_offset);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1343,7 +1343,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetPanelClientSize(wxDC &, const wxRibbonPanel *, wxSize, wxPoint *)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetPanelClientSize(wxDC &, const wxRibbonPanel *, wxSize, wxPoint *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetPanelClientSize(dc, wnd, size, client_offset);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1376,7 +1376,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetGallerySize(wxDC &, const wxRibbonGallery *, wxSize)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetGallerySize(wxDC &, const wxRibbonGallery *, wxSize). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetGallerySize(dc, wnd, client_size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1413,7 +1413,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetGalleryClientSize(wxDC &, const wxRibbonGallery *, wxSize, wxPoint *, wxRect *, wxRect *, wxRect *)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetGalleryClientSize(wxDC &, const wxRibbonGallery *, wxSize, wxPoint *, wxRect *, wxRect *, wxRect *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetGalleryClientSize(dc, wnd, size, client_offset, scroll_up_button, scroll_down_button, extension_button);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1451,7 +1451,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRibbonArtProvider::GetPageBackgroundRedrawArea(wxDC &, const wxRibbonPage *, wxSize, wxSize)");
+			luaL_error(L, "Invalid object in function call wxRect wxRibbonArtProvider::GetPageBackgroundRedrawArea(wxDC &, const wxRibbonPage *, wxSize, wxSize). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetPageBackgroundRedrawArea(dc, wnd, page_old_size, page_new_size);
 		wxRect* lret = new wxRect(stack_lret);
@@ -1495,7 +1495,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonArtProvider::GetButtonBarButtonSize(wxDC &, wxWindow *, wxRibbonButtonKind, wxRibbonButtonBarButtonState, const wxString &, wxSize, wxSize, wxSize *, wxRect *, wxRect *)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonArtProvider::GetButtonBarButtonSize(wxDC &, wxWindow *, wxRibbonButtonKind, wxRibbonButtonBarButtonState, const wxString &, wxSize, wxSize, wxSize *, wxRect *, wxRect *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		bool lret = self->GetButtonBarButtonSize(dc, wnd, kind, size, label, bitmap_size_large, bitmap_size_small, button_size, normal_region, dropdown_region);
 		lua_pushboolean(L,lret?1:0);
@@ -1522,7 +1522,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetMinimisedPanelMinimumSize(wxDC &, const wxRibbonPanel *, wxSize *, wxDirection *)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetMinimisedPanelMinimumSize(wxDC &, const wxRibbonPanel *, wxSize *, wxDirection *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetMinimisedPanelMinimumSize(dc, wnd, desired_bitmap_size, &expanded_panel_direction);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1559,7 +1559,7 @@ public:
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetToolSize(wxDC &, wxWindow *, wxSize, wxRibbonButtonKind, bool, bool, wxRect *)");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetToolSize(wxDC &, wxWindow *, wxSize, wxRibbonButtonKind, bool, bool, wxRect *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetToolSize(dc, wnd, bitmap_size, kind, is_first, is_last, dropdown_region);
 		wxSize* lret = new wxSize(stack_lret);

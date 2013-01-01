@@ -1128,7 +1128,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, point, size, style, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1147,7 +1147,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::GetMinimumPaneSize() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::GetMinimumPaneSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetMinimumPaneSize();
 		lua_pushnumber(L,lret);
@@ -1166,7 +1166,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxSplitterWindow::GetSashGravity() const");
+			luaL_error(L, "Invalid object in function call double wxSplitterWindow::GetSashGravity() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->GetSashGravity();
 		lua_pushnumber(L,lret);
@@ -1185,7 +1185,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::GetSashPosition() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::GetSashPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSashPosition();
 		lua_pushnumber(L,lret);
@@ -1204,7 +1204,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::GetSashSize() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::GetSashSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSashSize();
 		lua_pushnumber(L,lret);
@@ -1223,7 +1223,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxSplitterWindow::GetWindow1() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxSplitterWindow::GetWindow1() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetWindow1();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1244,7 +1244,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxSplitterWindow::GetWindow2() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxSplitterWindow::GetWindow2() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetWindow2();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1266,7 +1266,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::Initialize(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::Initialize(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Initialize(window);
 
@@ -1284,7 +1284,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::IsSplit() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::IsSplit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSplit();
 		lua_pushboolean(L,lret?1:0);
@@ -1305,7 +1305,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::OnDoubleClickSash(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::OnDoubleClickSash(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnDoubleClickSash(x, y);
 
@@ -1324,7 +1324,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::OnSashPositionChange(int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::OnSashPositionChange(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnSashPositionChange(newSashPosition);
 		lua_pushboolean(L,lret?1:0);
@@ -1344,7 +1344,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::OnUnsplit(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::OnUnsplit(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnUnsplit(removed);
 
@@ -1364,7 +1364,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::ReplaceWindow(wxWindow *, wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::ReplaceWindow(wxWindow *, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ReplaceWindow(winOld, winNew);
 		lua_pushboolean(L,lret?1:0);
@@ -1384,7 +1384,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetMinimumPaneSize(int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetMinimumPaneSize(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMinimumPaneSize(paneSize);
 
@@ -1403,7 +1403,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetSashGravity(double)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetSashGravity(double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSashGravity(gravity);
 
@@ -1425,7 +1425,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetSashPosition(int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetSashPosition(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSashPosition(position, redraw);
 
@@ -1444,7 +1444,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetSplitMode(int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::SetSplitMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSplitMode(mode);
 
@@ -1467,7 +1467,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::SplitHorizontally(wxWindow *, wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::SplitHorizontally(wxWindow *, wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SplitHorizontally(window1, window2, sashPosition);
 		lua_pushboolean(L,lret?1:0);
@@ -1491,7 +1491,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::SplitVertically(wxWindow *, wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::SplitVertically(wxWindow *, wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SplitVertically(window1, window2, sashPosition);
 		lua_pushboolean(L,lret?1:0);
@@ -1513,7 +1513,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::Unsplit(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::Unsplit(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Unsplit(toRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1532,7 +1532,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::UpdateSize()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::UpdateSize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UpdateSize();
 
@@ -1550,7 +1550,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSplitterWindow::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSplitterWindow::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSplitterWindow::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1571,7 +1571,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1590,7 +1590,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1609,7 +1609,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1628,7 +1628,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1648,7 +1648,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetCanFocus(canFocus);
 
@@ -1666,7 +1666,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetFocus();
 
@@ -1684,7 +1684,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetFocusFromKbd();
 
@@ -1703,7 +1703,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::AddChild(child);
 
@@ -1722,7 +1722,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::RemoveChild(child);
 
@@ -1741,7 +1741,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1764,7 +1764,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1783,7 +1783,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSplitterWindow::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1803,7 +1803,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSplitterWindow::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1823,7 +1823,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSplitterWindow::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1843,7 +1843,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1863,7 +1863,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1883,7 +1883,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1907,7 +1907,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::ScrollWindow(dx, dy, rect);
 
@@ -1930,7 +1930,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetScrollPos(orientation, pos, refresh);
 
@@ -1955,7 +1955,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1978,7 +1978,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2005,7 +2005,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2027,7 +2027,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::Fit();
 
@@ -2045,7 +2045,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::FitInside();
 
@@ -2063,7 +2063,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2085,7 +2085,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2107,7 +2107,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2129,7 +2129,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2151,7 +2151,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2173,7 +2173,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2195,7 +2195,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSplitterWindow::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSplitterWindow::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2220,7 +2220,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2242,7 +2242,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SendSizeEvent(flags);
 
@@ -2265,7 +2265,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetMaxClientSize(size);
 
@@ -2288,7 +2288,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetMaxSize(size);
 
@@ -2311,7 +2311,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetMinClientSize(size);
 
@@ -2334,7 +2334,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetMinSize(size);
 
@@ -2369,7 +2369,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2395,7 +2395,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2422,7 +2422,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxSplitterWindow::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxSplitterWindow::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxSplitterWindow::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2444,7 +2444,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::ClearBackground();
 
@@ -2462,7 +2462,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSplitterWindow::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSplitterWindow::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxSplitterWindow::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2481,7 +2481,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSplitterWindow::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2500,7 +2500,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterWindow::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSplitterWindow::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2519,7 +2519,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSplitterWindow::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSplitterWindow::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxSplitterWindow::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2545,7 +2545,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::Refresh(eraseBackground, rect);
 
@@ -2563,7 +2563,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::Update();
 
@@ -2582,7 +2582,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2606,7 +2606,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2625,7 +2625,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2645,7 +2645,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetThemeEnabled(enable);
 
@@ -2663,7 +2663,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2682,7 +2682,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2702,7 +2702,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2722,7 +2722,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetNextHandler(handler);
 
@@ -2741,7 +2741,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetPreviousHandler(handler);
 
@@ -2759,7 +2759,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSplitterWindow::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxSplitterWindow::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSplitterWindow::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2779,7 +2779,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetExtraStyle(exStyle);
 
@@ -2798,7 +2798,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetWindowStyleFlag(style);
 
@@ -2816,7 +2816,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::Lower();
 
@@ -2834,7 +2834,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::Raise();
 
@@ -2856,7 +2856,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2875,7 +2875,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2894,7 +2894,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2916,7 +2916,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2938,7 +2938,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2961,7 +2961,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2986,7 +2986,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSplitterWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxSplitterWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSplitterWindow::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3005,7 +3005,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxSplitterWindow::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxSplitterWindow::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxSplitterWindow::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3031,7 +3031,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetValidator(validator);
 
@@ -3049,7 +3049,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3068,7 +3068,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3087,7 +3087,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3106,7 +3106,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSplitterWindow::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxSplitterWindow::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSplitterWindow::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3125,7 +3125,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSplitterWindow::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSplitterWindow::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxSplitterWindow::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3144,7 +3144,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSplitterWindow::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxSplitterWindow::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSplitterWindow::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3164,7 +3164,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetLabel(label);
 
@@ -3183,7 +3183,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetLayoutDirection(dir);
 
@@ -3202,7 +3202,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetName(name);
 
@@ -3225,7 +3225,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetAcceleratorTable(accel);
 
@@ -3243,7 +3243,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3262,7 +3262,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxSplitterWindow::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxSplitterWindow::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxSplitterWindow::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3284,7 +3284,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::SetDropTarget(target);
 
@@ -3303,7 +3303,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::DragAcceptFiles(accept);
 
@@ -3321,7 +3321,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3340,7 +3340,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3364,7 +3364,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3385,7 +3385,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::WarpPointer(x, y);
 
@@ -3408,7 +3408,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::DoUpdateWindowUI(event);
 
@@ -3426,7 +3426,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3445,7 +3445,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::InheritAttributes();
 
@@ -3463,7 +3463,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::InitDialog();
 
@@ -3481,7 +3481,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3500,7 +3500,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3522,7 +3522,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::MakeModal(modal);
 
@@ -3540,7 +3540,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::OnInternalIdle();
 
@@ -3561,7 +3561,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3581,7 +3581,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3603,7 +3603,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::UpdateWindowUI(flags);
 
@@ -3623,7 +3623,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_OnDoubleClickSash(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_OnDoubleClickSash(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::OnDoubleClickSash(x, y);
 
@@ -3642,7 +3642,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_OnSashPositionChange(int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_OnSashPositionChange(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::OnSashPositionChange(newSashPosition);
 		lua_pushboolean(L,lret?1:0);
@@ -3662,7 +3662,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_OnUnsplit(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSplitterWindow::base_OnUnsplit(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSplitterWindow::OnUnsplit(removed);
 
@@ -3685,7 +3685,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SplitHorizontally(wxWindow *, wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SplitHorizontally(wxWindow *, wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::SplitHorizontally(window1, window2, sashPosition);
 		lua_pushboolean(L,lret?1:0);
@@ -3709,7 +3709,7 @@ public:
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SplitVertically(wxWindow *, wxWindow *, int)");
+			luaL_error(L, "Invalid object in function call bool wxSplitterWindow::base_SplitVertically(wxWindow *, wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSplitterWindow::SplitVertically(window1, window2, sashPosition);
 		lua_pushboolean(L,lret?1:0);

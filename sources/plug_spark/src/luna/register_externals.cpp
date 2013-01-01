@@ -12,18 +12,6 @@ const char LunaTraits< osg::Drawable::UpdateCallback >::moduleName[] = "osg";
 const int LunaTraits< osg::Drawable::UpdateCallback >::hash = 5213827;
 const int LunaTraits< osg::Drawable::UpdateCallback >::uniqueIDs[] = {50169651,0};
 
-const char LunaTraits< osgGA::GUIEventHandler >::className[] = "GUIEventHandler";
-const char LunaTraits< osgGA::GUIEventHandler >::fullName[] = "osgGA::GUIEventHandler";
-const char LunaTraits< osgGA::GUIEventHandler >::moduleName[] = "osgGA";
-const int LunaTraits< osgGA::GUIEventHandler >::hash = 29676225;
-const int LunaTraits< osgGA::GUIEventHandler >::uniqueIDs[] = {50169651,0};
-
-const char LunaTraits< spark::SparkDrawable::TextureIDMap >::className[] = "std_map_std_string_unsigned_int";
-const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "std::map< std::string, unsigned int >";
-const char LunaTraits< spark::SparkDrawable::TextureIDMap >::moduleName[] = "osg";
-const int LunaTraits< spark::SparkDrawable::TextureIDMap >::hash = 14771105;
-const int LunaTraits< spark::SparkDrawable::TextureIDMap >::uniqueIDs[] = {65712176,0};
-
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
 const char LunaTraits< osg::Referenced >::moduleName[] = "osg";
@@ -35,6 +23,18 @@ const char LunaTraits< osg::Object >::fullName[] = "osg::Object";
 const char LunaTraits< osg::Object >::moduleName[] = "osg";
 const int LunaTraits< osg::Object >::hash = 58481028;
 const int LunaTraits< osg::Object >::uniqueIDs[] = {50169651,0};
+
+const char LunaTraits< osgGA::GUIEventHandler >::className[] = "GUIEventHandler";
+const char LunaTraits< osgGA::GUIEventHandler >::fullName[] = "osgGA::GUIEventHandler";
+const char LunaTraits< osgGA::GUIEventHandler >::moduleName[] = "osgGA";
+const int LunaTraits< osgGA::GUIEventHandler >::hash = 29676225;
+const int LunaTraits< osgGA::GUIEventHandler >::uniqueIDs[] = {50169651,0};
+
+const char LunaTraits< spark::SparkDrawable::TextureIDMap >::className[] = "std_map_std_string_unsigned_int";
+const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "std::map< std::string, unsigned int >";
+const char LunaTraits< spark::SparkDrawable::TextureIDMap >::moduleName[] = "osg";
+const int LunaTraits< spark::SparkDrawable::TextureIDMap >::hash = 14771105;
+const int LunaTraits< spark::SparkDrawable::TextureIDMap >::uniqueIDs[] = {65712176,0};
 
 const char LunaTraits< osg::CopyOp >::className[] = "CopyOp";
 const char LunaTraits< osg::CopyOp >::fullName[] = "osg::CopyOp";

@@ -1014,7 +1014,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPasswordEntryDialog::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1035,7 +1035,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1054,7 +1054,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1073,7 +1073,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1092,7 +1092,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1112,7 +1112,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetCanFocus(canFocus);
 
@@ -1130,7 +1130,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetFocus();
 
@@ -1148,7 +1148,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetFocusFromKbd();
 
@@ -1167,7 +1167,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::AddChild(child);
 
@@ -1186,7 +1186,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::RemoveChild(child);
 
@@ -1205,7 +1205,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1228,7 +1228,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1247,7 +1247,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPasswordEntryDialog::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1267,7 +1267,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPasswordEntryDialog::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1287,7 +1287,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPasswordEntryDialog::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1307,7 +1307,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1327,7 +1327,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1347,7 +1347,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1371,7 +1371,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::ScrollWindow(dx, dy, rect);
 
@@ -1394,7 +1394,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetScrollPos(orientation, pos, refresh);
 
@@ -1419,7 +1419,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1442,7 +1442,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1469,7 +1469,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1491,7 +1491,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Fit();
 
@@ -1509,7 +1509,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::FitInside();
 
@@ -1527,7 +1527,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1549,7 +1549,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1571,7 +1571,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1593,7 +1593,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1615,7 +1615,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1637,7 +1637,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1659,7 +1659,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1684,7 +1684,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1706,7 +1706,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SendSizeEvent(flags);
 
@@ -1729,7 +1729,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetMaxClientSize(size);
 
@@ -1752,7 +1752,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetMinClientSize(size);
 
@@ -1770,7 +1770,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxPasswordEntryDialog::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1792,7 +1792,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::ClearBackground();
 
@@ -1810,7 +1810,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxPasswordEntryDialog::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1829,7 +1829,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPasswordEntryDialog::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1848,7 +1848,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPasswordEntryDialog::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1867,7 +1867,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxPasswordEntryDialog::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1893,7 +1893,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Refresh(eraseBackground, rect);
 
@@ -1911,7 +1911,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Update();
 
@@ -1930,7 +1930,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1954,7 +1954,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1973,7 +1973,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -1993,7 +1993,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetThemeEnabled(enable);
 
@@ -2011,7 +2011,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2031,7 +2031,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetNextHandler(handler);
 
@@ -2050,7 +2050,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetPreviousHandler(handler);
 
@@ -2068,7 +2068,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxPasswordEntryDialog::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxPasswordEntryDialog::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxPasswordEntryDialog::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2088,7 +2088,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetExtraStyle(exStyle);
 
@@ -2107,7 +2107,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetWindowStyleFlag(style);
 
@@ -2125,7 +2125,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Lower();
 
@@ -2143,7 +2143,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Raise();
 
@@ -2165,7 +2165,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2184,7 +2184,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2203,7 +2203,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2225,7 +2225,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2248,7 +2248,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2273,7 +2273,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2292,7 +2292,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxPasswordEntryDialog::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxPasswordEntryDialog::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxPasswordEntryDialog::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2318,7 +2318,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetValidator(validator);
 
@@ -2336,7 +2336,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2355,7 +2355,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2374,7 +2374,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2393,7 +2393,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2412,7 +2412,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxPasswordEntryDialog::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2431,7 +2431,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2451,7 +2451,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetLabel(label);
 
@@ -2470,7 +2470,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetLayoutDirection(dir);
 
@@ -2489,7 +2489,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetName(name);
 
@@ -2512,7 +2512,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetAcceleratorTable(accel);
 
@@ -2530,7 +2530,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2549,7 +2549,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxPasswordEntryDialog::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2571,7 +2571,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetDropTarget(target);
 
@@ -2590,7 +2590,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::DragAcceptFiles(accept);
 
@@ -2608,7 +2608,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2632,7 +2632,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2653,7 +2653,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::WarpPointer(x, y);
 
@@ -2676,7 +2676,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::DoUpdateWindowUI(event);
 
@@ -2694,7 +2694,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2713,7 +2713,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::InheritAttributes();
 
@@ -2731,7 +2731,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::InitDialog();
 
@@ -2749,7 +2749,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2768,7 +2768,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2790,7 +2790,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::MakeModal(modal);
 
@@ -2808,7 +2808,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::OnInternalIdle();
 
@@ -2829,7 +2829,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2849,7 +2849,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2871,7 +2871,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::UpdateWindowUI(flags);
 
@@ -2889,7 +2889,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2911,7 +2911,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_EnableCloseButton(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2930,7 +2930,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2949,7 +2949,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsActive()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -2968,7 +2968,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -2987,7 +2987,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsFullScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3006,7 +3006,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3025,7 +3025,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3047,7 +3047,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Maximize(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Maximize(maximize);
 
@@ -3068,7 +3068,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RequestUserAttention(int)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::RequestUserAttention(flags);
 
@@ -3091,7 +3091,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetMaxSize(size);
 
@@ -3114,7 +3114,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetMinSize(size);
 
@@ -3140,7 +3140,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3175,7 +3175,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3203,7 +3203,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetTitle(title);
 
@@ -3222,7 +3222,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3241,7 +3241,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3261,7 +3261,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OSXSetModified(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::OSXSetModified(modified);
 
@@ -3279,7 +3279,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_OSXIsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3302,7 +3302,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowFullScreen(bool, long)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3321,7 +3321,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::CanDoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3340,7 +3340,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_DoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_DoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::DoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3360,7 +3360,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_EndModal(int)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_EndModal(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::EndModal(retCode);
 
@@ -3378,7 +3378,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxPasswordEntryDialog::GetContentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3402,7 +3402,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Iconize(bool)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::Iconize(iconize);
 
@@ -3420,7 +3420,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3439,7 +3439,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsModal() const");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsModal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsModal();
 		lua_pushboolean(L,lret?1:0);
@@ -3463,7 +3463,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle &)");
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPasswordEntryDialog::SetIcons(icons);
 
@@ -3484,7 +3484,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPasswordEntryDialog::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3503,7 +3503,7 @@ public:
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPasswordEntryDialog::ShowModal();
 		lua_pushnumber(L,lret);

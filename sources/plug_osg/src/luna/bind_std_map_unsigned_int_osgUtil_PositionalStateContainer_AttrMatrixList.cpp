@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >",name);
 	}
+
 };
 
 std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer:
 luna_RegType LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_unsigned_int_osgUtil_PositionalStateContainer_AttrMatrixList::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_unsigned_int_osgUtil_PositionalStateContainer_AttrMatrixList::_bind___eq},
+	
 	{0,0}
 };
 

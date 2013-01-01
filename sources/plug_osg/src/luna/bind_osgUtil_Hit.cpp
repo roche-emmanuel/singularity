@@ -233,7 +233,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::Hit::getLocalIntersectPoint() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::Hit::getLocalIntersectPoint() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getLocalIntersectPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -254,7 +254,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::Hit::getLocalIntersectNormal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::Hit::getLocalIntersectNormal() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getLocalIntersectNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -275,7 +275,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f osgUtil::Hit::getWorldIntersectPoint() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f osgUtil::Hit::getWorldIntersectPoint() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::Vec3f stack_lret = self->getWorldIntersectPoint();
 		const osg::Vec3f* lret = new const osg::Vec3f(stack_lret);
@@ -297,7 +297,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f osgUtil::Hit::getWorldIntersectNormal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f osgUtil::Hit::getWorldIntersectNormal() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::Vec3f stack_lret = self->getWorldIntersectNormal();
 		const osg::Vec3f* lret = new const osg::Vec3f(stack_lret);
@@ -319,7 +319,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Hit::getRatio() const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Hit::getRatio() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		float lret = self->getRatio();
 		lua_pushnumber(L,lret);
@@ -338,7 +338,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::LineSegment * osgUtil::Hit::getOriginalLineSegment() const");
+			luaL_error(L, "Invalid object in function call const osg::LineSegment * osgUtil::Hit::getOriginalLineSegment() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::LineSegment * lret = self->getOriginalLineSegment();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -359,7 +359,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::LineSegment * osgUtil::Hit::getLocalLineSegment() const");
+			luaL_error(L, "Invalid object in function call const osg::LineSegment * osgUtil::Hit::getLocalLineSegment() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::LineSegment * lret = self->getLocalLineSegment();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -380,7 +380,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::NodePath & osgUtil::Hit::getNodePath()");
+			luaL_error(L, "Invalid object in function call osg::NodePath & osgUtil::Hit::getNodePath(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::NodePath* lret = &self->getNodePath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -401,7 +401,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::NodePath & osgUtil::Hit::getNodePath() const");
+			luaL_error(L, "Invalid object in function call const osg::NodePath & osgUtil::Hit::getNodePath() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::NodePath* lret = &self->getNodePath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -431,7 +431,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osgUtil::Hit::getGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osgUtil::Hit::getGeode(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->getGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -452,7 +452,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osgUtil::Hit::getGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osgUtil::Hit::getGeode() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->getGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -482,7 +482,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osgUtil::Hit::getDrawable()");
+			luaL_error(L, "Invalid object in function call osg::Drawable * osgUtil::Hit::getDrawable(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		osg::Drawable * lret = self->getDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -503,7 +503,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Drawable * osgUtil::Hit::getDrawable() const");
+			luaL_error(L, "Invalid object in function call const osg::Drawable * osgUtil::Hit::getDrawable() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::Drawable * lret = self->getDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -533,7 +533,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::Hit::getMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::Hit::getMatrix() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::RefMatrixd * lret = self->getMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -554,7 +554,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::Hit::getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::Hit::getInverseMatrix() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osg::RefMatrixd * lret = self->getInverseMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -575,7 +575,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Hit::VecIndexList & osgUtil::Hit::getVecIndexList() const");
+			luaL_error(L, "Invalid object in function call const osgUtil::Hit::VecIndexList & osgUtil::Hit::getVecIndexList() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		const osgUtil::Hit::VecIndexList* lret = &self->getVecIndexList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -596,7 +596,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Hit::getPrimitiveIndex() const");
+			luaL_error(L, "Invalid object in function call int osgUtil::Hit::getPrimitiveIndex() const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		int lret = self->getPrimitiveIndex();
 		lua_pushnumber(L,lret);
@@ -622,7 +622,7 @@ public:
 		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Hit::operator<(const osgUtil::Hit &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Hit::operator<(const osgUtil::Hit &) const. Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
 		}
 		bool lret = self->operator<(hit);
 		lua_pushboolean(L,lret?1:0);

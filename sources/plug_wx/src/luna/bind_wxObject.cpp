@@ -253,7 +253,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxObject::GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxObject::GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -274,7 +274,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObjectRefData * wxObject::GetRefData() const");
+			luaL_error(L, "Invalid object in function call wxObjectRefData * wxObject::GetRefData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObjectRefData * lret = self->GetRefData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -296,7 +296,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxObject::IsKindOf(const wxClassInfo *) const");
+			luaL_error(L, "Invalid object in function call bool wxObject::IsKindOf(const wxClassInfo *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsKindOf(info);
 		lua_pushboolean(L,lret?1:0);
@@ -320,7 +320,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxObject::IsSameAs(const wxObject &) const");
+			luaL_error(L, "Invalid object in function call bool wxObject::IsSameAs(const wxObject &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSameAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -344,7 +344,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxObject::Ref(const wxObject &)");
+			luaL_error(L, "Invalid object in function call void wxObject::Ref(const wxObject &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Ref(clone);
 
@@ -363,7 +363,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxObject::SetRefData(wxObjectRefData *)");
+			luaL_error(L, "Invalid object in function call void wxObject::SetRefData(wxObjectRefData *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRefData(data);
 
@@ -381,7 +381,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxObject::UnRef()");
+			luaL_error(L, "Invalid object in function call void wxObject::UnRef(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UnRef();
 
@@ -399,7 +399,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxObject::UnShare()");
+			luaL_error(L, "Invalid object in function call void wxObject::UnShare(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UnShare();
 
@@ -417,7 +417,7 @@ public:
 		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxObject::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxObject::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxObject::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

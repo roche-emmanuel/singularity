@@ -262,7 +262,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::reset(). Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -281,7 +281,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::optimize(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::optimize(osg::Node *). Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		self->optimize(node);
 
@@ -301,7 +301,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::optimize(osg::Node *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::optimize(osg::Node *, unsigned int). Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		self->optimize(node, options);
 
@@ -330,7 +330,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::setPermissibleOptimizationsForObject(const osg::Object *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::setPermissibleOptimizationsForObject(const osg::Object *, unsigned int). Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		self->setPermissibleOptimizationsForObject(object, options);
 
@@ -349,7 +349,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::Optimizer::getPermissibleOptimizationsForObject(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::Optimizer::getPermissibleOptimizationsForObject(const osg::Object *) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		unsigned int lret = self->getPermissibleOptimizationsForObject(object);
 		lua_pushnumber(L,lret);
@@ -370,7 +370,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateSet *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateSet *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object, option);
 		lua_pushboolean(L,lret?1:0);
@@ -391,7 +391,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateAttribute *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateAttribute *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object, option);
 		lua_pushboolean(L,lret?1:0);
@@ -412,7 +412,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Drawable *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Drawable *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object, option);
 		lua_pushboolean(L,lret?1:0);
@@ -433,7 +433,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Node *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Node *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object, option);
 		lua_pushboolean(L,lret?1:0);
@@ -465,7 +465,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateSet *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateSet *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObjectImplementation(stateset, option);
 		lua_pushboolean(L,lret?1:0);
@@ -486,7 +486,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateAttribute *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateAttribute *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObjectImplementation(attribute, option);
 		lua_pushboolean(L,lret?1:0);
@@ -507,7 +507,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Drawable *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Drawable *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObjectImplementation(drawable, option);
 		lua_pushboolean(L,lret?1:0);
@@ -528,7 +528,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Node *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Node *, unsigned int) const. Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObjectImplementation(node, option);
 		lua_pushboolean(L,lret?1:0);
@@ -560,7 +560,7 @@ public:
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::base_optimize(osg::Node *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::base_optimize(osg::Node *, unsigned int). Got : '%s'",typeid(Luna< osgUtil::Optimizer >::check(L,1)).name());
 		}
 		self->Optimizer::optimize(node, options);
 

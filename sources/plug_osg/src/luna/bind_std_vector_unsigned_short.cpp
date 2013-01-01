@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< unsigned short >",name);
 	}
+
 };
 
 std::vector< unsigned short >* LunaTraits< std::vector< unsigned short > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< unsigned short > >::uniqueIDs[] = {50442176,0
 luna_RegType LunaTraits< std::vector< unsigned short > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_unsigned_short::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_unsigned_short::_bind___eq},
+	
 	{0,0}
 };
 

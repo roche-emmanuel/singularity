@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::TemplateValueObject< osg::Vec3d >",name);
 	}
+
 };
 
 osg::TemplateValueObject< osg::Vec3d >* LunaTraits< osg::TemplateValueObject< osg::Vec3d > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::TemplateValueObject< osg::Vec3d > >::uniqueIDs[] = {8
 luna_RegType LunaTraits< osg::TemplateValueObject< osg::Vec3d > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_TemplateValueObject_osg_Vec3d::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_TemplateValueObject_osg_Vec3d::_bind___eq},
+	
 	{0,0}
 };
 

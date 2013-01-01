@@ -558,7 +558,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public_setImageToChild(const osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public_setImageToChild(const osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setImageToChild(image);
 
@@ -576,7 +576,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public_computeTimePerImage()");
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public_computeTimePerImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeTimePerImage();
 
@@ -595,7 +595,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ImageSequence::public_imageIndex(double)");
+			luaL_error(L, "Invalid object in function call int osg::ImageSequence::public_imageIndex(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->public_imageIndex(time);
 		lua_pushnumber(L,lret);
@@ -614,7 +614,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Image::public_deallocateData()");
+			luaL_error(L, "Invalid object in function call void osg::Image::public_deallocateData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deallocateData();
 
@@ -634,7 +634,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Image::public_setData(unsigned char *, osg::Image::AllocationMode)");
+			luaL_error(L, "Invalid object in function call void osg::Image::public_setData(unsigned char *, osg::Image::AllocationMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setData(&data, allocationMode);
 
@@ -654,7 +654,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -672,7 +672,7 @@ public:
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

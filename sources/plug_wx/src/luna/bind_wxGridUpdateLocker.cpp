@@ -104,7 +104,7 @@ public:
 		wxGridUpdateLocker* self=(Luna< wxGridUpdateLocker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridUpdateLocker::Create(wxGrid *)");
+			luaL_error(L, "Invalid object in function call void wxGridUpdateLocker::Create(wxGrid *). Got : '%s'",typeid(Luna< wxGridUpdateLocker >::check(L,1)).name());
 		}
 		self->Create(grid);
 

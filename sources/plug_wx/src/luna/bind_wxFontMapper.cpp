@@ -263,7 +263,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		wxFontEncoding lret = self->CharsetToEncoding(charset, interactive);
 		lua_pushnumber(L,lret);
@@ -288,7 +288,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontMapper::GetAltForEncoding(wxFontEncoding, wxFontEncoding *, const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFontMapper::GetAltForEncoding(wxFontEncoding, wxFontEncoding *, const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		bool lret = self->GetAltForEncoding(encoding, &alt_encoding, facename, interactive);
 		lua_pushboolean(L,lret?1:0);
@@ -311,7 +311,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontMapper::IsEncodingAvailable(wxFontEncoding, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontMapper::IsEncodingAvailable(wxFontEncoding, const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		bool lret = self->IsEncodingAvailable(encoding, facename);
 		lua_pushboolean(L,lret?1:0);
@@ -331,7 +331,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontMapper::SetConfigPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFontMapper::SetConfigPath(const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		self->SetConfigPath(prefix);
 
@@ -350,7 +350,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogParent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogParent(wxWindow *). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		self->SetDialogParent(parent);
 
@@ -369,7 +369,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFontMapper::SetDialogTitle(const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		self->SetDialogTitle(title);
 
@@ -498,7 +498,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call wxFontEncoding wxFontMapper::base_CharsetToEncoding(const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		wxFontEncoding lret = self->wxFontMapper::CharsetToEncoding(charset, interactive);
 		lua_pushnumber(L,lret);
@@ -521,7 +521,7 @@ public:
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontMapper::base_IsEncodingAvailable(wxFontEncoding, const wxString &). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
 		bool lret = self->wxFontMapper::IsEncodingAvailable(encoding, facename);
 		lua_pushboolean(L,lret?1:0);

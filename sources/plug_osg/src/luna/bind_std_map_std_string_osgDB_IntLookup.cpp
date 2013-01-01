@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< std::string, osgDB::IntLookup >",name);
 	}
+
 };
 
 std::map< std::string, osgDB::IntLookup >* LunaTraits< std::map< std::string, osgDB::IntLookup > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< std::string, osgDB::IntLookup > >::uniqueIDs[] =
 luna_RegType LunaTraits< std::map< std::string, osgDB::IntLookup > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_std_string_osgDB_IntLookup::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_std_string_osgDB_IntLookup::_bind___eq},
+	
 	{0,0}
 };
 

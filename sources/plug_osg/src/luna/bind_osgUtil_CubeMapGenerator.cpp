@@ -169,7 +169,7 @@ public:
 		osgUtil::CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osgUtil::CubeMapGenerator::getImage(osg::TextureCubeMap::Face)");
+			luaL_error(L, "Invalid object in function call osg::Image * osgUtil::CubeMapGenerator::getImage(osg::TextureCubeMap::Face). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Image * lret = self->getImage(face);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -191,7 +191,7 @@ public:
 		osgUtil::CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osgUtil::CubeMapGenerator::getImage(osg::TextureCubeMap::Face) const");
+			luaL_error(L, "Invalid object in function call const osg::Image * osgUtil::CubeMapGenerator::getImage(osg::TextureCubeMap::Face) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Image * lret = self->getImage(face);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -1053,7 +1053,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, double, double, double, double, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, double, double, double, double, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, value, pos, size, style, min, max, initial, inc, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1072,7 +1072,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxSpinCtrlDouble::GetDigits() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxSpinCtrlDouble::GetDigits() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetDigits();
 		lua_pushnumber(L,lret);
@@ -1091,7 +1091,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetIncrement() const");
+			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetIncrement() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->GetIncrement();
 		lua_pushnumber(L,lret);
@@ -1110,7 +1110,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetMax() const");
+			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetMax() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->GetMax();
 		lua_pushnumber(L,lret);
@@ -1129,7 +1129,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetMin() const");
+			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetMin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->GetMin();
 		lua_pushnumber(L,lret);
@@ -1148,7 +1148,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetValue() const");
+			luaL_error(L, "Invalid object in function call double wxSpinCtrlDouble::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -1168,7 +1168,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetDigits(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetDigits(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDigits(digits);
 
@@ -1187,7 +1187,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetIncrement(double)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetIncrement(double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetIncrement(inc);
 
@@ -1207,7 +1207,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetRange(double, double)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetRange(double, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRange(minVal, maxVal);
 
@@ -1226,7 +1226,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(text);
 
@@ -1245,7 +1245,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetValue(double)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::SetValue(double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(value);
 
@@ -1272,7 +1272,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSpinCtrlDouble::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSpinCtrlDouble::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSpinCtrlDouble::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1293,7 +1293,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1312,7 +1312,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1331,7 +1331,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1350,7 +1350,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1370,7 +1370,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetCanFocus(canFocus);
 
@@ -1388,7 +1388,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetFocus();
 
@@ -1406,7 +1406,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetFocusFromKbd();
 
@@ -1425,7 +1425,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::AddChild(child);
 
@@ -1444,7 +1444,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::RemoveChild(child);
 
@@ -1463,7 +1463,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1486,7 +1486,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1505,7 +1505,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSpinCtrlDouble::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1525,7 +1525,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSpinCtrlDouble::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1545,7 +1545,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSpinCtrlDouble::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1565,7 +1565,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1585,7 +1585,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1605,7 +1605,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1629,7 +1629,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::ScrollWindow(dx, dy, rect);
 
@@ -1652,7 +1652,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetScrollPos(orientation, pos, refresh);
 
@@ -1677,7 +1677,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1700,7 +1700,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1727,7 +1727,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1749,7 +1749,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::Fit();
 
@@ -1767,7 +1767,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::FitInside();
 
@@ -1785,7 +1785,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1807,7 +1807,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1829,7 +1829,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1851,7 +1851,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1873,7 +1873,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1895,7 +1895,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1917,7 +1917,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSpinCtrlDouble::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSpinCtrlDouble::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1942,7 +1942,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1964,7 +1964,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SendSizeEvent(flags);
 
@@ -1987,7 +1987,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetMaxClientSize(size);
 
@@ -2010,7 +2010,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetMaxSize(size);
 
@@ -2033,7 +2033,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetMinClientSize(size);
 
@@ -2056,7 +2056,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetMinSize(size);
 
@@ -2091,7 +2091,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2117,7 +2117,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2144,7 +2144,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxSpinCtrlDouble::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxSpinCtrlDouble::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxSpinCtrlDouble::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2166,7 +2166,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::ClearBackground();
 
@@ -2184,7 +2184,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSpinCtrlDouble::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSpinCtrlDouble::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxSpinCtrlDouble::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2203,7 +2203,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSpinCtrlDouble::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2222,7 +2222,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxSpinCtrlDouble::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSpinCtrlDouble::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2241,7 +2241,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSpinCtrlDouble::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSpinCtrlDouble::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxSpinCtrlDouble::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2267,7 +2267,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::Refresh(eraseBackground, rect);
 
@@ -2285,7 +2285,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::Update();
 
@@ -2304,7 +2304,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2328,7 +2328,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2347,7 +2347,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2367,7 +2367,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetThemeEnabled(enable);
 
@@ -2385,7 +2385,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2404,7 +2404,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2424,7 +2424,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2444,7 +2444,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetNextHandler(handler);
 
@@ -2463,7 +2463,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetPreviousHandler(handler);
 
@@ -2481,7 +2481,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSpinCtrlDouble::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxSpinCtrlDouble::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSpinCtrlDouble::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2501,7 +2501,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetExtraStyle(exStyle);
 
@@ -2520,7 +2520,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetWindowStyleFlag(style);
 
@@ -2538,7 +2538,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::Lower();
 
@@ -2556,7 +2556,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::Raise();
 
@@ -2578,7 +2578,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2597,7 +2597,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2616,7 +2616,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2638,7 +2638,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2660,7 +2660,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2683,7 +2683,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2708,7 +2708,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSpinCtrlDouble::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxSpinCtrlDouble::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSpinCtrlDouble::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2727,7 +2727,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxSpinCtrlDouble::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxSpinCtrlDouble::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxSpinCtrlDouble::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2753,7 +2753,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetValidator(validator);
 
@@ -2771,7 +2771,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2790,7 +2790,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2809,7 +2809,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2828,7 +2828,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSpinCtrlDouble::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSpinCtrlDouble::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxSpinCtrlDouble::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2847,7 +2847,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSpinCtrlDouble::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxSpinCtrlDouble::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSpinCtrlDouble::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2867,7 +2867,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetLayoutDirection(dir);
 
@@ -2886,7 +2886,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetName(name);
 
@@ -2909,7 +2909,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetAcceleratorTable(accel);
 
@@ -2927,7 +2927,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2946,7 +2946,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxSpinCtrlDouble::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxSpinCtrlDouble::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxSpinCtrlDouble::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2968,7 +2968,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetDropTarget(target);
 
@@ -2987,7 +2987,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::DragAcceptFiles(accept);
 
@@ -3005,7 +3005,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3024,7 +3024,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3048,7 +3048,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3069,7 +3069,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::WarpPointer(x, y);
 
@@ -3092,7 +3092,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::DoUpdateWindowUI(event);
 
@@ -3110,7 +3110,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3129,7 +3129,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::InheritAttributes();
 
@@ -3147,7 +3147,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::InitDialog();
 
@@ -3165,7 +3165,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3184,7 +3184,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3206,7 +3206,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::MakeModal(modal);
 
@@ -3224,7 +3224,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::OnInternalIdle();
 
@@ -3245,7 +3245,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3265,7 +3265,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxSpinCtrlDouble::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSpinCtrlDouble::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3287,7 +3287,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::UpdateWindowUI(flags);
 
@@ -3310,7 +3310,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::Command(event);
 
@@ -3328,7 +3328,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSpinCtrlDouble::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxSpinCtrlDouble::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSpinCtrlDouble::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3348,7 +3348,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetLabel(label);
 
@@ -3367,7 +3367,7 @@ public:
 		wxSpinCtrlDouble* self=Luna< wxObject >::checkSubType< wxSpinCtrlDouble >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSpinCtrlDouble::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSpinCtrlDouble::SetValue(text);
 

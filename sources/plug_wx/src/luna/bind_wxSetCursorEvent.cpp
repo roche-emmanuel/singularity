@@ -155,7 +155,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxCursor & wxSetCursorEvent::GetCursor() const");
+			luaL_error(L, "Invalid object in function call const wxCursor & wxSetCursorEvent::GetCursor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxCursor* lret = &self->GetCursor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -176,7 +176,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSetCursorEvent::GetX() const");
+			luaL_error(L, "Invalid object in function call int wxSetCursorEvent::GetX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetX();
 		lua_pushnumber(L,lret);
@@ -195,7 +195,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSetCursorEvent::GetY() const");
+			luaL_error(L, "Invalid object in function call int wxSetCursorEvent::GetY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetY();
 		lua_pushnumber(L,lret);
@@ -214,7 +214,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSetCursorEvent::HasCursor() const");
+			luaL_error(L, "Invalid object in function call bool wxSetCursorEvent::HasCursor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasCursor();
 		lua_pushboolean(L,lret?1:0);
@@ -238,7 +238,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSetCursorEvent::SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call void wxSetCursorEvent::SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCursor(cursor);
 
@@ -256,7 +256,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSetCursorEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSetCursorEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSetCursorEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -277,7 +277,7 @@ public:
 		wxSetCursorEvent* self=Luna< wxObject >::checkSubType< wxSetCursorEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxSetCursorEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSetCursorEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxSetCursorEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

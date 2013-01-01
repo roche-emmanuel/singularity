@@ -122,4 +122,8 @@ function Class:getRoot()
 	return self._root
 end
 
+function Class:getViewer()
+	return self._viewer
+end
+
 return Class

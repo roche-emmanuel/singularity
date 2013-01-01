@@ -199,7 +199,7 @@ public:
 		SPK::PointRendererInterface* self=(Luna< SPK::PointRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::PointRendererInterface::setType(SPK::PointType)");
+			luaL_error(L, "Invalid object in function call bool SPK::PointRendererInterface::setType(SPK::PointType). Got : '%s'",typeid(Luna< SPK::PointRendererInterface >::check(L,1)).name());
 		}
 		bool lret = self->setType(type);
 		lua_pushboolean(L,lret?1:0);
@@ -219,7 +219,7 @@ public:
 		SPK::PointRendererInterface* self=(Luna< SPK::PointRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointRendererInterface::setSize(float)");
+			luaL_error(L, "Invalid object in function call void SPK::PointRendererInterface::setSize(float). Got : '%s'",typeid(Luna< SPK::PointRendererInterface >::check(L,1)).name());
 		}
 		self->setSize(size);
 
@@ -237,7 +237,7 @@ public:
 		SPK::PointRendererInterface* self=(Luna< SPK::PointRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::PointType SPK::PointRendererInterface::getType() const");
+			luaL_error(L, "Invalid object in function call SPK::PointType SPK::PointRendererInterface::getType() const. Got : '%s'",typeid(Luna< SPK::PointRendererInterface >::check(L,1)).name());
 		}
 		SPK::PointType lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -256,7 +256,7 @@ public:
 		SPK::PointRendererInterface* self=(Luna< SPK::PointRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::PointRendererInterface::getSize() const");
+			luaL_error(L, "Invalid object in function call float SPK::PointRendererInterface::getSize() const. Got : '%s'",typeid(Luna< SPK::PointRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->getSize();
 		lua_pushnumber(L,lret);
@@ -276,7 +276,7 @@ public:
 		SPK::PointRendererInterface* self=(Luna< SPK::PointRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::PointRendererInterface::base_setType(SPK::PointType)");
+			luaL_error(L, "Invalid object in function call bool SPK::PointRendererInterface::base_setType(SPK::PointType). Got : '%s'",typeid(Luna< SPK::PointRendererInterface >::check(L,1)).name());
 		}
 		bool lret = self->PointRendererInterface::setType(type);
 		lua_pushboolean(L,lret?1:0);
@@ -296,7 +296,7 @@ public:
 		SPK::PointRendererInterface* self=(Luna< SPK::PointRendererInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointRendererInterface::base_setSize(float)");
+			luaL_error(L, "Invalid object in function call void SPK::PointRendererInterface::base_setSize(float). Got : '%s'",typeid(Luna< SPK::PointRendererInterface >::check(L,1)).name());
 		}
 		self->PointRendererInterface::setSize(size);
 

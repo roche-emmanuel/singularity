@@ -200,7 +200,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextDataObject::GetText() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextDataObject::GetText() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -219,7 +219,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::GetTextLength() const");
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::GetTextLength() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetTextLength();
 		lua_pushnumber(L,lret);
@@ -241,7 +241,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::GetFormatCount(wxDataObject::Direction)");
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::GetFormatCount(wxDataObject::Direction). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetFormatCount(dir);
 		lua_pushnumber(L,lret);
@@ -260,7 +260,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDataFormat & wxTextDataObject::GetFormat() const");
+			luaL_error(L, "Invalid object in function call const wxDataFormat & wxTextDataObject::GetFormat() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		const wxDataFormat* lret = &self->GetFormat();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -285,7 +285,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextDataObject::GetAllFormats(wxDataFormat *, wxDataObject::Direction) const");
+			luaL_error(L, "Invalid object in function call void wxTextDataObject::GetAllFormats(wxDataFormat *, wxDataObject::Direction) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->GetAllFormats(formats, dir);
 
@@ -304,7 +304,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextDataObject::SetText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextDataObject::SetText(const wxString &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->SetText(strText);
 
@@ -323,7 +323,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextDataObject::base_GetDataHere(void *) const");
+			luaL_error(L, "Invalid object in function call bool wxTextDataObject::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextDataObject::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -342,7 +342,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetDataSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxTextDataObject::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -363,7 +363,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextDataObject::base_SetData(size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxTextDataObject::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextDataObject::SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);
@@ -382,7 +382,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTextDataObject::base_GetText() const");
+			luaL_error(L, "Invalid object in function call wxString wxTextDataObject::base_GetText() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTextDataObject::GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -401,7 +401,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetTextLength() const");
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetTextLength() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxTextDataObject::GetTextLength();
 		lua_pushnumber(L,lret);
@@ -423,7 +423,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetFormatCount(wxDataObject::Direction)");
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetFormatCount(wxDataObject::Direction). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxTextDataObject::GetFormatCount(dir);
 		lua_pushnumber(L,lret);
@@ -443,7 +443,7 @@ public:
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextDataObject::base_SetText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextDataObject::base_SetText(const wxString &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->wxTextDataObject::SetText(strText);
 

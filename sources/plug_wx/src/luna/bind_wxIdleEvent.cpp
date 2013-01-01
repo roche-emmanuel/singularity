@@ -144,7 +144,7 @@ public:
 		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIdleEvent::MoreRequested() const");
+			luaL_error(L, "Invalid object in function call bool wxIdleEvent::MoreRequested() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->MoreRequested();
 		lua_pushboolean(L,lret?1:0);
@@ -166,7 +166,7 @@ public:
 		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIdleEvent::RequestMore(bool)");
+			luaL_error(L, "Invalid object in function call void wxIdleEvent::RequestMore(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RequestMore(needMore);
 
@@ -212,7 +212,7 @@ public:
 		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIdleEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIdleEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxIdleEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -233,7 +233,7 @@ public:
 		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxIdleEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxIdleEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxIdleEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

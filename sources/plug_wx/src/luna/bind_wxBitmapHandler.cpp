@@ -254,7 +254,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::Create(wxBitmap *, const void *, wxBitmapType, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::Create(wxBitmap *, const void *, wxBitmapType, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(bitmap, data, type, width, height, depth);
 		lua_pushboolean(L,lret?1:0);
@@ -273,7 +273,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetExtension() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetExtension() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetExtension();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -292,7 +292,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -311,7 +311,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmapType wxBitmapHandler::GetType() const");
+			luaL_error(L, "Invalid object in function call wxBitmapType wxBitmapHandler::GetType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmapType lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -335,7 +335,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LoadFile(bitmap, name, type, desiredWidth, desiredHeight);
 		lua_pushboolean(L,lret?1:0);
@@ -360,7 +360,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SaveFile(bitmap, name, type, palette);
 		lua_pushboolean(L,lret?1:0);
@@ -380,7 +380,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetExtension(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetExtension(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetExtension(extension);
 
@@ -399,7 +399,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetName(name);
 
@@ -418,7 +418,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetType(wxBitmapType)");
+			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetType(wxBitmapType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetType(type);
 
@@ -436,7 +436,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxBitmapHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -465,7 +465,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_Create(wxBitmap *, const void *, wxBitmapType, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_Create(wxBitmap *, const void *, wxBitmapType, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapHandler::Create(bitmap, data, type, width, height, depth);
 		lua_pushboolean(L,lret?1:0);
@@ -489,7 +489,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapHandler::LoadFile(bitmap, name, type, desiredWidth, desiredHeight);
 		lua_pushboolean(L,lret?1:0);
@@ -514,7 +514,7 @@ public:
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapHandler::SaveFile(bitmap, name, type, palette);
 		lua_pushboolean(L,lret?1:0);

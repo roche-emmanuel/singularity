@@ -139,7 +139,7 @@ public:
 		wxDataViewToggleRenderer* self=Luna< wxObject >::checkSubType< wxDataViewToggleRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewToggleRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewToggleRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewToggleRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -160,7 +160,7 @@ public:
 		wxDataViewToggleRenderer* self=Luna< wxObject >::checkSubType< wxDataViewToggleRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewToggleRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewToggleRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewToggleRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -179,7 +179,7 @@ public:
 		wxDataViewToggleRenderer* self=Luna< wxObject >::checkSubType< wxDataViewToggleRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewToggleRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewToggleRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewToggleRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -199,7 +199,7 @@ public:
 		wxDataViewToggleRenderer* self=Luna< wxObject >::checkSubType< wxDataViewToggleRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewToggleRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewToggleRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewToggleRenderer::SetAlignment(align);
 

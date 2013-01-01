@@ -176,7 +176,7 @@ public:
 		wrapper_spark_SparkDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D &, const SPK::Vector3D &, float)");
+			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D &, const SPK::Vector3D &, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		SPK::System * lret = self->public_createParticleSystem(pos, rot, angle);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -200,7 +200,7 @@ public:
 		wrapper_spark_SparkDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image *, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image *, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->public_compileInternalTexture(image, type, clamp);
 		lua_pushnumber(L,lret);
@@ -223,7 +223,7 @@ public:
 		wrapper_spark_SparkDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::public_convertData(osg::Image *, unsigned int, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::public_convertData(osg::Image *, unsigned int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_convertData(image, type, numCurrent, numRequired);
 

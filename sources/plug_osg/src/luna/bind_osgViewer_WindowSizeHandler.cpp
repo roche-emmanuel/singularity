@@ -311,7 +311,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -330,7 +330,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setKeyEventToggleFullscreen(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setKeyEventToggleFullscreen(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventToggleFullscreen(key);
 
@@ -348,7 +348,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::WindowSizeHandler::getKeyEventToggleFullscreen() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::WindowSizeHandler::getKeyEventToggleFullscreen() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventToggleFullscreen();
 		lua_pushnumber(L,lret);
@@ -368,7 +368,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setToggleFullscreen(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setToggleFullscreen(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setToggleFullscreen(flag);
 
@@ -386,7 +386,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::getToggleFullscreen() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::getToggleFullscreen() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getToggleFullscreen();
 		lua_pushboolean(L,lret?1:0);
@@ -406,7 +406,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionUp(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionUp(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventWindowedResolutionUp(key);
 
@@ -424,7 +424,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionUp() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionUp() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventWindowedResolutionUp();
 		lua_pushnumber(L,lret);
@@ -444,7 +444,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionDown(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionDown(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventWindowedResolutionDown(key);
 
@@ -462,7 +462,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionDown() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionDown() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventWindowedResolutionDown();
 		lua_pushnumber(L,lret);
@@ -482,7 +482,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setChangeWindowedResolution(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::setChangeWindowedResolution(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setChangeWindowedResolution(flag);
 
@@ -500,7 +500,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::getChangeWindowedResolution() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::getChangeWindowedResolution() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getChangeWindowedResolution();
 		lua_pushboolean(L,lret?1:0);
@@ -529,7 +529,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -549,7 +549,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->WindowSizeHandler::setName(name);
 
@@ -567,7 +567,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->WindowSizeHandler::computeDataVariance();
 
@@ -586,7 +586,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->WindowSizeHandler::setUserData(obj);
 
@@ -604,7 +604,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::WindowSizeHandler::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::WindowSizeHandler::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->WindowSizeHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -625,7 +625,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::WindowSizeHandler::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::WindowSizeHandler::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->WindowSizeHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -658,7 +658,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->WindowSizeHandler::releaseGLObjects(_arg1);
 
@@ -676,7 +676,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::WindowSizeHandler::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::WindowSizeHandler::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->WindowSizeHandler::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -702,7 +702,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::WindowSizeHandler::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::WindowSizeHandler::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->WindowSizeHandler::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -724,7 +724,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->WindowSizeHandler::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -743,7 +743,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::WindowSizeHandler::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::WindowSizeHandler::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->WindowSizeHandler::libraryName();
 		lua_pushstring(L,lret);
@@ -762,7 +762,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::WindowSizeHandler::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::WindowSizeHandler::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->WindowSizeHandler::className();
 		lua_pushstring(L,lret);
@@ -783,7 +783,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->WindowSizeHandler::event(nv, drawable);
 
@@ -806,7 +806,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::WindowSizeHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->WindowSizeHandler::getUsage(usage);
 
@@ -834,7 +834,7 @@ public:
 		osgViewer::WindowSizeHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::WindowSizeHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::WindowSizeHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->WindowSizeHandler::handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);

@@ -217,7 +217,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFrame * wxLogWindow::GetFrame() const");
+			luaL_error(L, "Invalid object in function call wxFrame * wxLogWindow::GetFrame() const. Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		wxFrame * lret = self->GetFrame();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -239,7 +239,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLogWindow::OnFrameClose(wxFrame *)");
+			luaL_error(L, "Invalid object in function call bool wxLogWindow::OnFrameClose(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		bool lret = self->OnFrameClose(frame);
 		lua_pushboolean(L,lret?1:0);
@@ -259,7 +259,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameCreate(wxFrame *)");
+			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameCreate(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->OnFrameCreate(frame);
 
@@ -278,7 +278,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameDelete(wxFrame *)");
+			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameDelete(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->OnFrameDelete(frame);
 
@@ -299,7 +299,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::Show(bool)");
+			luaL_error(L, "Invalid object in function call void wxLogWindow::Show(bool). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->Show(show);
 
@@ -317,7 +317,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogWindow::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogWindow::Flush();
 
@@ -336,7 +336,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLogWindow::base_OnFrameClose(wxFrame *)");
+			luaL_error(L, "Invalid object in function call bool wxLogWindow::base_OnFrameClose(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		bool lret = self->wxLogWindow::OnFrameClose(frame);
 		lua_pushboolean(L,lret?1:0);
@@ -356,7 +356,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameCreate(wxFrame *)");
+			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameCreate(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogWindow::OnFrameCreate(frame);
 
@@ -375,7 +375,7 @@ public:
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameDelete(wxFrame *)");
+			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameDelete(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogWindow::OnFrameDelete(frame);
 

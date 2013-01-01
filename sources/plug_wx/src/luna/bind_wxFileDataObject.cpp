@@ -140,7 +140,7 @@ public:
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileDataObject::AddFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileDataObject::AddFile(const wxString &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->AddFile(file);
 
@@ -158,7 +158,7 @@ public:
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxArrayString & wxFileDataObject::GetFilenames() const");
+			luaL_error(L, "Invalid object in function call const wxArrayString & wxFileDataObject::GetFilenames() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		const wxArrayString* lret = &self->GetFilenames();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -180,7 +180,7 @@ public:
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_GetDataHere(void *) const");
+			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileDataObject::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -199,7 +199,7 @@ public:
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileDataObject::base_GetDataSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxFileDataObject::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxFileDataObject::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -220,7 +220,7 @@ public:
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_SetData(size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileDataObject::SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);

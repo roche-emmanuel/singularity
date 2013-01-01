@@ -156,7 +156,7 @@ public:
 		wrapper_wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wrapper_wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetAnchor(const wxString &)");
+			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetAnchor(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->public_GetAnchor(location);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -176,7 +176,7 @@ public:
 		wrapper_wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wrapper_wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetLeftLocation(const wxString &)");
+			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetLeftLocation(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->public_GetLeftLocation(location);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -196,7 +196,7 @@ public:
 		wrapper_wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wrapper_wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetProtocol(const wxString &)");
+			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetProtocol(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->public_GetProtocol(location);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -216,7 +216,7 @@ public:
 		wrapper_wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wrapper_wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetRightLocation(const wxString &)");
+			luaL_error(L, "Invalid object in function call static wxString wxFileSystemHandler::public_GetRightLocation(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->public_GetRightLocation(location);
 		lua_pushlstring(L,lret.data(),lret.size());

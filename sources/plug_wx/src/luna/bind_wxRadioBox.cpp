@@ -1192,7 +1192,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, int, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, int, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, label, pos, size, choices, majorDimension, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1215,7 +1215,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::Enable(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::Enable(unsigned int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Enable(n, enable);
 		lua_pushboolean(L,lret?1:0);
@@ -1238,7 +1238,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->FindString(string, bCase);
 		lua_pushnumber(L,lret);
@@ -1257,7 +1257,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::GetColumnCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::GetColumnCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetColumnCount();
 		lua_pushnumber(L,lret);
@@ -1281,7 +1281,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::GetItemFromPoint(const wxPoint &) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::GetItemFromPoint(const wxPoint &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetItemFromPoint(pt);
 		lua_pushnumber(L,lret);
@@ -1301,7 +1301,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRadioBox::GetItemHelpText(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxRadioBox::GetItemHelpText(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetItemHelpText(item);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1321,7 +1321,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxToolTip * wxRadioBox::GetItemToolTip(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxToolTip * wxRadioBox::GetItemToolTip(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxToolTip * lret = self->GetItemToolTip(item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1342,7 +1342,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::GetRowCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::GetRowCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetRowCount();
 		lua_pushnumber(L,lret);
@@ -1362,7 +1362,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::IsItemEnabled(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::IsItemEnabled(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsItemEnabled(n);
 		lua_pushboolean(L,lret?1:0);
@@ -1382,7 +1382,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::IsItemShown(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::IsItemShown(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsItemShown(n);
 		lua_pushboolean(L,lret?1:0);
@@ -1403,7 +1403,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::SetItemHelpText(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::SetItemHelpText(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetItemHelpText(item, helptext);
 
@@ -1423,7 +1423,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::SetItemToolTip(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::SetItemToolTip(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetItemToolTip(item, text);
 
@@ -1445,7 +1445,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::Show(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::Show(unsigned int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Show(item, show);
 		lua_pushboolean(L,lret?1:0);
@@ -1464,7 +1464,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -1484,7 +1484,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRadioBox::GetString(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxRadioBox::GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1505,7 +1505,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::SetString(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::SetString(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetString(n, string);
 
@@ -1524,7 +1524,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::SetSelection(int)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelection(n);
 
@@ -1542,7 +1542,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -1561,7 +1561,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRadioBox::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRadioBox::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxRadioBox::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1582,7 +1582,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1601,7 +1601,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1620,7 +1620,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1639,7 +1639,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1659,7 +1659,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetCanFocus(canFocus);
 
@@ -1677,7 +1677,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetFocus();
 
@@ -1695,7 +1695,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetFocusFromKbd();
 
@@ -1714,7 +1714,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::AddChild(child);
 
@@ -1733,7 +1733,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::RemoveChild(child);
 
@@ -1752,7 +1752,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1775,7 +1775,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1794,7 +1794,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1814,7 +1814,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1834,7 +1834,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1854,7 +1854,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1874,7 +1874,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1894,7 +1894,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1918,7 +1918,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::ScrollWindow(dx, dy, rect);
 
@@ -1941,7 +1941,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetScrollPos(orientation, pos, refresh);
 
@@ -1966,7 +1966,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1989,7 +1989,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2016,7 +2016,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2038,7 +2038,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::Fit();
 
@@ -2056,7 +2056,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::FitInside();
 
@@ -2074,7 +2074,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2096,7 +2096,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2118,7 +2118,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2140,7 +2140,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2162,7 +2162,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2184,7 +2184,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2206,7 +2206,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRadioBox::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRadioBox::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2231,7 +2231,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2253,7 +2253,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SendSizeEvent(flags);
 
@@ -2276,7 +2276,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetMaxClientSize(size);
 
@@ -2299,7 +2299,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetMaxSize(size);
 
@@ -2322,7 +2322,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetMinClientSize(size);
 
@@ -2345,7 +2345,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetMinSize(size);
 
@@ -2380,7 +2380,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2406,7 +2406,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2433,7 +2433,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRadioBox::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRadioBox::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxRadioBox::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2455,7 +2455,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::ClearBackground();
 
@@ -2473,7 +2473,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxRadioBox::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxRadioBox::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxRadioBox::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2492,7 +2492,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2511,7 +2511,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2530,7 +2530,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxRadioBox::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxRadioBox::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxRadioBox::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2556,7 +2556,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::Refresh(eraseBackground, rect);
 
@@ -2574,7 +2574,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::Update();
 
@@ -2593,7 +2593,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2617,7 +2617,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2636,7 +2636,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2656,7 +2656,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetThemeEnabled(enable);
 
@@ -2674,7 +2674,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2693,7 +2693,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2713,7 +2713,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2733,7 +2733,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetNextHandler(handler);
 
@@ -2752,7 +2752,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetPreviousHandler(handler);
 
@@ -2770,7 +2770,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxRadioBox::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxRadioBox::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxRadioBox::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2790,7 +2790,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetExtraStyle(exStyle);
 
@@ -2809,7 +2809,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetWindowStyleFlag(style);
 
@@ -2827,7 +2827,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::Lower();
 
@@ -2845,7 +2845,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::Raise();
 
@@ -2867,7 +2867,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2886,7 +2886,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2905,7 +2905,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2928,7 +2928,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2953,7 +2953,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRadioBox::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2972,7 +2972,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxRadioBox::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxRadioBox::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxRadioBox::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2998,7 +2998,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetValidator(validator);
 
@@ -3016,7 +3016,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3035,7 +3035,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3054,7 +3054,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3073,7 +3073,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxRadioBox::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxRadioBox::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxRadioBox::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3092,7 +3092,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRadioBox::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3112,7 +3112,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetLayoutDirection(dir);
 
@@ -3131,7 +3131,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetName(name);
 
@@ -3154,7 +3154,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetAcceleratorTable(accel);
 
@@ -3172,7 +3172,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3191,7 +3191,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxRadioBox::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxRadioBox::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxRadioBox::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3213,7 +3213,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetDropTarget(target);
 
@@ -3232,7 +3232,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::DragAcceptFiles(accept);
 
@@ -3250,7 +3250,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3269,7 +3269,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3293,7 +3293,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3314,7 +3314,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::WarpPointer(x, y);
 
@@ -3337,7 +3337,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::DoUpdateWindowUI(event);
 
@@ -3355,7 +3355,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3374,7 +3374,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::InheritAttributes();
 
@@ -3392,7 +3392,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::InitDialog();
 
@@ -3410,7 +3410,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3429,7 +3429,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3451,7 +3451,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::MakeModal(modal);
 
@@ -3469,7 +3469,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::OnInternalIdle();
 
@@ -3490,7 +3490,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3510,7 +3510,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3532,7 +3532,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::UpdateWindowUI(flags);
 
@@ -3555,7 +3555,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::Command(event);
 
@@ -3573,7 +3573,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRadioBox::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3593,7 +3593,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetLabel(label);
 
@@ -3615,7 +3615,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Enable(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Enable(unsigned int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::Enable(n, enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3638,7 +3638,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::FindString(string, bCase);
 		lua_pushnumber(L,lret);
@@ -3662,7 +3662,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetItemFromPoint(const wxPoint &) const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetItemFromPoint(const wxPoint &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetItemFromPoint(pt);
 		lua_pushnumber(L,lret);
@@ -3682,7 +3682,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsItemEnabled(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsItemEnabled(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsItemEnabled(n);
 		lua_pushboolean(L,lret?1:0);
@@ -3702,7 +3702,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsItemShown(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_IsItemShown(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::IsItemShown(n);
 		lua_pushboolean(L,lret?1:0);
@@ -3725,7 +3725,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Show(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxRadioBox::base_Show(unsigned int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRadioBox::Show(item, show);
 		lua_pushboolean(L,lret?1:0);
@@ -3744,7 +3744,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::base_GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxRadioBox::base_GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxRadioBox::GetCount();
 		lua_pushnumber(L,lret);
@@ -3764,7 +3764,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetString(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxRadioBox::base_GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRadioBox::GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3785,7 +3785,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetString(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetString(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetString(n, string);
 
@@ -3804,7 +3804,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetSelection(int)");
+			luaL_error(L, "Invalid object in function call void wxRadioBox::base_SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRadioBox::SetSelection(n);
 
@@ -3822,7 +3822,7 @@ public:
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxRadioBox::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRadioBox::GetSelection();
 		lua_pushnumber(L,lret);

@@ -201,7 +201,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManagerEvent::CanVeto()");
+			luaL_error(L, "Invalid object in function call bool wxAuiManagerEvent::CanVeto(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanVeto();
 		lua_pushboolean(L,lret?1:0);
@@ -220,7 +220,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiManagerEvent::GetButton()");
+			luaL_error(L, "Invalid object in function call int wxAuiManagerEvent::GetButton(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetButton();
 		lua_pushnumber(L,lret);
@@ -239,7 +239,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDC * wxAuiManagerEvent::GetDC()");
+			luaL_error(L, "Invalid object in function call wxDC * wxAuiManagerEvent::GetDC(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDC * lret = self->GetDC();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -260,7 +260,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManagerEvent::GetVeto()");
+			luaL_error(L, "Invalid object in function call bool wxAuiManagerEvent::GetVeto(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetVeto();
 		lua_pushboolean(L,lret?1:0);
@@ -279,7 +279,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiManager * wxAuiManagerEvent::GetManager()");
+			luaL_error(L, "Invalid object in function call wxAuiManager * wxAuiManagerEvent::GetManager(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxAuiManager * lret = self->GetManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -300,7 +300,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo * wxAuiManagerEvent::GetPane()");
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo * wxAuiManagerEvent::GetPane(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxAuiPaneInfo * lret = self->GetPane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -322,7 +322,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetButton(int)");
+			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetButton(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetButton(button);
 
@@ -341,7 +341,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetCanVeto(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetCanVeto(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCanVeto(can_veto);
 
@@ -360,7 +360,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetDC(wxDC *)");
+			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetDC(wxDC *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDC(pdc);
 
@@ -379,7 +379,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetManager(wxAuiManager *)");
+			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetManager(wxAuiManager *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetManager(manager);
 
@@ -398,7 +398,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetPane(wxAuiPaneInfo *)");
+			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetPane(wxAuiPaneInfo *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPane(pane);
 
@@ -419,7 +419,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::Veto(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::Veto(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Veto(veto);
 
@@ -437,7 +437,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiManagerEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiManagerEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxAuiManagerEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -458,7 +458,7 @@ public:
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxAuiManagerEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxAuiManagerEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxAuiManagerEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

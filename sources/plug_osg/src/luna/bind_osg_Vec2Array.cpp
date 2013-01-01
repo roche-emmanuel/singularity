@@ -360,7 +360,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::push_back(const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::push_back(const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->push_back(vec);
 
@@ -378,7 +378,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::size()");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::size(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -402,7 +402,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(osg::ArrayVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(osg::ArrayVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(arg1);
 
@@ -425,7 +425,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(osg::ConstArrayVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(osg::ConstArrayVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(arg1);
 
@@ -449,7 +449,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(unsigned int, osg::ValueVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(unsigned int, osg::ValueVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(index, arg2);
 
@@ -473,7 +473,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(unsigned int, osg::ConstValueVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::accept(unsigned int, osg::ConstValueVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(index, arg2);
 
@@ -504,7 +504,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Vec2Array::compare(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call int osg::Vec2Array::compare(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(lhs, rhs);
 		lua_pushnumber(L,lret);
@@ -523,7 +523,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osg::Vec2Array::getDataPointer() const");
+			luaL_error(L, "Invalid object in function call const void * osg::Vec2Array::getDataPointer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const void * lret = self->getDataPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -544,7 +544,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::getTotalDataSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::getTotalDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTotalDataSize();
 		lua_pushnumber(L,lret);
@@ -563,7 +563,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::getNumElements() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::getNumElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumElements();
 		lua_pushnumber(L,lret);
@@ -582,7 +582,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -608,7 +608,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -630,7 +630,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::setName(name);
 
@@ -648,7 +648,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::computeDataVariance();
 
@@ -667,7 +667,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::setUserData(obj);
 
@@ -685,7 +685,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Vec2Array::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Vec2Array::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Vec2Array::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -706,7 +706,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Vec2Array::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Vec2Array::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Vec2Array::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -739,7 +739,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::releaseGLObjects(state);
 
@@ -758,7 +758,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Vec2Array::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Vec2Array::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Vec2Array::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -777,7 +777,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Vec2Array::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Vec2Array::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Vec2Array::libraryName();
 		lua_pushstring(L,lret);
@@ -796,7 +796,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Vec2Array::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Vec2Array::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Vec2Array::className();
 		lua_pushstring(L,lret);
@@ -815,7 +815,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_trim()");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_trim(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::trim();
 
@@ -838,7 +838,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(osg::ArrayVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(osg::ArrayVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::accept(arg1);
 
@@ -861,7 +861,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(osg::ConstArrayVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(osg::ConstArrayVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::accept(arg1);
 
@@ -885,7 +885,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(unsigned int, osg::ValueVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(unsigned int, osg::ValueVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::accept(index, arg2);
 
@@ -909,7 +909,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(unsigned int, osg::ConstValueVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::Vec2Array::base_accept(unsigned int, osg::ConstValueVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Vec2Array::accept(index, arg2);
 
@@ -940,7 +940,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Vec2Array::base_compare(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call int osg::Vec2Array::base_compare(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Vec2Array::compare(lhs, rhs);
 		lua_pushnumber(L,lret);
@@ -959,7 +959,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osg::Vec2Array::base_getDataPointer() const");
+			luaL_error(L, "Invalid object in function call const void * osg::Vec2Array::base_getDataPointer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const void * lret = self->Vec2Array::getDataPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -980,7 +980,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::base_getTotalDataSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::base_getTotalDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Vec2Array::getTotalDataSize();
 		lua_pushnumber(L,lret);
@@ -999,7 +999,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::base_getNumElements() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Vec2Array::base_getNumElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Vec2Array::getNumElements();
 		lua_pushnumber(L,lret);
@@ -1018,7 +1018,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Vec2Array::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1044,7 +1044,7 @@ public:
 		osg::Vec2Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec2Array >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Vec2Array::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Vec2Array::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.

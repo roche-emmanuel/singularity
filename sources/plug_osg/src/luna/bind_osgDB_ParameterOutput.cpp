@@ -151,7 +151,7 @@ public:
 		osgDB::ParameterOutput* self=(Luna< osgDB::ParameterOutput >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::begin()");
+			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::begin(). Got : '%s'",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name());
 		}
 		self->begin();
 
@@ -169,7 +169,7 @@ public:
 		osgDB::ParameterOutput* self=(Luna< osgDB::ParameterOutput >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::newLine()");
+			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::newLine(). Got : '%s'",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name());
 		}
 		self->newLine();
 
@@ -187,7 +187,7 @@ public:
 		osgDB::ParameterOutput* self=(Luna< osgDB::ParameterOutput >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::end()");
+			luaL_error(L, "Invalid object in function call void osgDB::ParameterOutput::end(). Got : '%s'",typeid(Luna< osgDB::ParameterOutput >::check(L,1)).name());
 		}
 		self->end();
 

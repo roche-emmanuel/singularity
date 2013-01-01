@@ -342,7 +342,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::OutputStream::isBinary() const");
+			luaL_error(L, "Invalid object in function call bool osgDB::OutputStream::isBinary() const. Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		bool lret = self->isBinary();
 		lua_pushboolean(L,lret?1:0);
@@ -361,7 +361,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::OutputStream::getSchemaName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::OutputStream::getSchemaName() const. Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		const std::string & lret = self->getSchemaName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -380,7 +380,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::Options * osgDB::OutputStream::getOptions() const");
+			luaL_error(L, "Invalid object in function call const osgDB::Options * osgDB::OutputStream::getOptions() const. Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		const osgDB::Options * lret = self->getOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -402,7 +402,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::setWriteImageHint(osgDB::OutputStream::WriteImageHint)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::setWriteImageHint(osgDB::OutputStream::WriteImageHint). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->setWriteImageHint(hint);
 
@@ -420,7 +420,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::OutputStream::WriteImageHint osgDB::OutputStream::getWriteImageHint() const");
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream::WriteImageHint osgDB::OutputStream::getWriteImageHint() const. Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		osgDB::OutputStream::WriteImageHint lret = self->getWriteImageHint();
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeWrappedString(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeWrappedString(const std::string &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeWrappedString(str);
 
@@ -460,7 +460,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeCharArray(const char *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeCharArray(const char *, unsigned int). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeCharArray(s, size);
 
@@ -479,7 +479,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeArray(const osg::Array *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeArray(const osg::Array *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeArray(a);
 
@@ -498,7 +498,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writePrimitiveSet(const osg::PrimitiveSet *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writePrimitiveSet(const osg::PrimitiveSet *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writePrimitiveSet(p);
 
@@ -517,7 +517,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeImage(const osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeImage(const osg::Image *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeImage(img);
 
@@ -536,7 +536,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeObject(const osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeObject(const osg::Object *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeObject(obj);
 
@@ -555,7 +555,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeObjectFields(const osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeObjectFields(const osg::Object *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeObjectFields(obj);
 
@@ -574,7 +574,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::setOutputIterator(osgDB::OutputIterator *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::setOutputIterator(osgDB::OutputIterator *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->setOutputIterator(oi);
 
@@ -594,7 +594,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::start(osgDB::OutputIterator *, osgDB::OutputStream::WriteType)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::start(osgDB::OutputIterator *, osgDB::OutputStream::WriteType). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->start(outIterator, type);
 
@@ -613,7 +613,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::compress(std::ostream *)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::compress(std::ostream *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->compress(ostream);
 
@@ -636,7 +636,7 @@ public:
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeSchema(std::ostream &)");
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writeSchema(std::ostream &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
 		}
 		self->writeSchema(fout);
 

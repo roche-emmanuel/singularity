@@ -1030,7 +1030,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::ResetTime()");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::ResetTime(). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->ResetTime();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1052,7 +1052,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(double)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(double). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->Set(jdn);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1079,7 +1079,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, unsigned short, unsigned short, unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, unsigned short, unsigned short, unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->Set(hour, minute, second, millisec);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1109,7 +1109,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, wxDateTime::Month, int, unsigned short, unsigned short, unsigned short, unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, wxDateTime::Month, int, unsigned short, unsigned short, unsigned short, unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->Set(day, month, year, hour, minute, second, millisec);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1141,7 +1141,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetDay(unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetDay(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetDay(day);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1163,7 +1163,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetFromDOS(unsigned long)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetFromDOS(unsigned long). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetFromDOS(ddt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1185,7 +1185,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetHour(unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetHour(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetHour(hour);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1207,7 +1207,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMillisecond(unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMillisecond(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetMillisecond(millisecond);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1229,7 +1229,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMinute(unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMinute(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetMinute(minute);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1251,7 +1251,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMonth(wxDateTime::Month)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMonth(wxDateTime::Month). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetMonth(month);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1273,7 +1273,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetSecond(unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetSecond(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetSecond(second);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1294,7 +1294,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToCurrent()");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToCurrent(). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetToCurrent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1316,7 +1316,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetYear(int)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetYear(int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetYear(year);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1337,7 +1337,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long unsigned int wxDateTime::GetAsDOS() const");
+			luaL_error(L, "Invalid object in function call long unsigned int wxDateTime::GetAsDOS() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		long unsigned int lret = self->GetAsDOS();
 		lua_pushnumber(L,lret);
@@ -1359,7 +1359,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::GetCentury(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call int wxDateTime::GetCentury(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		int lret = self->GetCentury(tz);
 		lua_pushnumber(L,lret);
@@ -1402,7 +1402,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetDateOnly() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetDateOnly() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetDateOnly();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1427,7 +1427,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		short unsigned int lret = self->GetDay(tz);
 		lua_pushnumber(L,lret);
@@ -1449,7 +1449,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		short unsigned int lret = self->GetDayOfYear(tz);
 		lua_pushnumber(L,lret);
@@ -1471,7 +1471,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		short unsigned int lret = self->GetHour(tz);
 		lua_pushnumber(L,lret);
@@ -1493,7 +1493,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		short unsigned int lret = self->GetMillisecond(tz);
 		lua_pushnumber(L,lret);
@@ -1515,7 +1515,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		short unsigned int lret = self->GetMinute(tz);
 		lua_pushnumber(L,lret);
@@ -1537,7 +1537,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime::Month lret = self->GetMonth(tz);
 		lua_pushnumber(L,lret);
@@ -1559,7 +1559,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		short unsigned int lret = self->GetSecond(tz);
 		lua_pushnumber(L,lret);
@@ -1581,7 +1581,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime::Tm stack_lret = self->GetTm(tz);
 		wxDateTime::Tm* lret = new wxDateTime::Tm(stack_lret);
@@ -1606,7 +1606,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime::WeekDay lret = self->GetWeekDay(tz);
 		lua_pushnumber(L,lret);
@@ -1631,7 +1631,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetWeekDay(weekday, n, month, year);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1666,7 +1666,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		unsigned short lret = self->GetWeekOfMonth(flags, tz);
 		lua_pushnumber(L,lret);
@@ -1689,7 +1689,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		unsigned short lret = self->GetWeekOfYear(flags, tz);
 		lua_pushnumber(L,lret);
@@ -1711,7 +1711,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::GetYear(const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call int wxDateTime::GetYear(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		int lret = self->GetYear(tz);
 		lua_pushnumber(L,lret);
@@ -1730,7 +1730,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsValid() const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsValid() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -1752,7 +1752,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsWorkDay(wxDateTime::Country) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsWorkDay(wxDateTime::Country) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsWorkDay(country);
 		lua_pushboolean(L,lret?1:0);
@@ -1776,7 +1776,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEarlierThan(const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEarlierThan(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsEarlierThan(datetime);
 		lua_pushboolean(L,lret?1:0);
@@ -1800,7 +1800,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualTo(const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualTo(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsEqualTo(datetime);
 		lua_pushboolean(L,lret?1:0);
@@ -1829,7 +1829,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualUpTo(const wxDateTime &, const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualUpTo(const wxDateTime &, const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsEqualUpTo(dt, ts);
 		lua_pushboolean(L,lret?1:0);
@@ -1853,7 +1853,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsLaterThan(const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsLaterThan(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsLaterThan(datetime);
 		lua_pushboolean(L,lret?1:0);
@@ -1877,7 +1877,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameDate(const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameDate(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsSameDate(dt);
 		lua_pushboolean(L,lret?1:0);
@@ -1901,7 +1901,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameTime(const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameTime(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsSameTime(dt);
 		lua_pushboolean(L,lret?1:0);
@@ -1930,7 +1930,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsStrictlyBetween(const wxDateTime &, const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsStrictlyBetween(const wxDateTime &, const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsStrictlyBetween(t1, t2);
 		lua_pushboolean(L,lret?1:0);
@@ -1959,7 +1959,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsBetween(const wxDateTime &, const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsBetween(const wxDateTime &, const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->IsBetween(t1, t2);
 		lua_pushboolean(L,lret?1:0);
@@ -1983,7 +1983,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->Add(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2010,7 +2010,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->Add(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2037,7 +2037,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->Add(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2064,7 +2064,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Add(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Add(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->Add(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2101,7 +2101,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->Subtract(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2128,7 +2128,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->Subtract(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2154,7 +2154,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxDateSpan &) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->Subtract(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2181,7 +2181,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->Subtract(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2207,7 +2207,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxDateTime::Subtract(const wxDateTime &) const");
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxDateTime::Subtract(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxTimeSpan stack_lret = self->Subtract(dt);
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -2245,7 +2245,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::Format(const wxString &, const wxDateTime::TimeZone &) const");
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::Format(const wxString &, const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxString lret = self->Format(format, tz);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2264,7 +2264,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatDate() const");
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatDate() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxString lret = self->FormatDate();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2286,7 +2286,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOCombined(char) const");
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOCombined(char) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxString lret = self->FormatISOCombined(sep);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2305,7 +2305,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISODate() const");
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISODate() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxString lret = self->FormatISODate();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2324,7 +2324,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOTime() const");
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOTime() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxString lret = self->FormatISOTime();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2343,7 +2343,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatTime() const");
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatTime() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxString lret = self->FormatTime();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2366,7 +2366,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOCombined(const wxString &, char)");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOCombined(const wxString &, char). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->ParseISOCombined(date, sep);
 		lua_pushboolean(L,lret?1:0);
@@ -2386,7 +2386,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISODate(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISODate(const wxString &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->ParseISODate(date);
 		lua_pushboolean(L,lret?1:0);
@@ -2406,7 +2406,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOTime(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOTime(const wxString &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->ParseISOTime(date);
 		lua_pushboolean(L,lret?1:0);
@@ -2429,7 +2429,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month, int) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month, int) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetLastMonthDay(month, year);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2456,7 +2456,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int)");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetLastWeekDay(weekday, month, year);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2479,7 +2479,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetNextWeekDay(weekday);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2502,7 +2502,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetPrevWeekDay(weekday);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2528,7 +2528,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetWeekDayInSameWeek(weekday, flags);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2551,7 +2551,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetYearDay(unsigned short) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetYearDay(unsigned short) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetYearDay(yday);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2577,7 +2577,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month, int)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetToLastMonthDay(month, year);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2603,7 +2603,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int)");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->SetToLastWeekDay(weekday, month, year);
 		lua_pushboolean(L,lret?1:0);
@@ -2623,7 +2623,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetToNextWeekDay(weekday);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2645,7 +2645,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetToPrevWeekDay(weekday);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2672,7 +2672,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int)");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		bool lret = self->SetToWeekDay(weekday, n, month, year);
 		lua_pushboolean(L,lret?1:0);
@@ -2695,7 +2695,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetToWeekDayInSameWeek(weekday, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2717,7 +2717,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToYearDay(unsigned short)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToYearDay(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->SetToYearDay(yday);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2738,7 +2738,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetJDN() const");
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetJDN() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		double lret = self->GetJDN();
 		lua_pushnumber(L,lret);
@@ -2757,7 +2757,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetJulianDayNumber() const");
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetJulianDayNumber() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		double lret = self->GetJulianDayNumber();
 		lua_pushnumber(L,lret);
@@ -2776,7 +2776,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetMJD() const");
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetMJD() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		double lret = self->GetMJD();
 		lua_pushnumber(L,lret);
@@ -2795,7 +2795,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetModifiedJulianDayNumber() const");
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetModifiedJulianDayNumber() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		double lret = self->GetModifiedJulianDayNumber();
 		lua_pushnumber(L,lret);
@@ -2814,7 +2814,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetRataDie() const");
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetRataDie() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		double lret = self->GetRataDie();
 		lua_pushnumber(L,lret);
@@ -2837,7 +2837,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone &, bool) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone &, bool) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->FromTimezone(tz, noDST);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2862,7 +2862,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::IsDST(wxDateTime::Country) const");
+			luaL_error(L, "Invalid object in function call int wxDateTime::IsDST(wxDateTime::Country) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		int lret = self->IsDST(country);
 		lua_pushnumber(L,lret);
@@ -2885,7 +2885,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone &, bool)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone &, bool). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->MakeFromTimezone(tz, noDST);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2910,7 +2910,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone &, bool)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone &, bool). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->MakeTimezone(tz, noDST);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2934,7 +2934,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeUTC(bool)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeUTC(bool). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->MakeUTC(noDST);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2959,7 +2959,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone &, bool) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone &, bool) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->ToTimezone(tz, noDST);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2984,7 +2984,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToUTC(bool) const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToUTC(bool) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->ToUTC(noDST);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3391,7 +3391,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::operator+=(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::operator+=(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->operator+=(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3418,7 +3418,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator+=(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator+=(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->operator+=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3453,7 +3453,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->operator-=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3479,7 +3479,7 @@ public:
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->operator-=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.

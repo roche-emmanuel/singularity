@@ -517,7 +517,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -540,7 +540,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::ByteArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::ByteArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -563,7 +563,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::ShortArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::ShortArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -586,7 +586,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::IntArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::IntArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -609,7 +609,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::UByteArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::UByteArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -632,7 +632,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::UShortArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::UShortArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -655,7 +655,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::UIntArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::UIntArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -678,7 +678,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::FloatArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::FloatArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -701,7 +701,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::DoubleArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::DoubleArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -724,7 +724,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -747,7 +747,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -770,7 +770,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -793,7 +793,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -816,7 +816,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2bArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2bArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -839,7 +839,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3bArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3bArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -862,7 +862,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4bArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4bArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -885,7 +885,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2sArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2sArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -908,7 +908,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3sArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3sArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -931,7 +931,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4sArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4sArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -954,7 +954,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2dArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec2dArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -977,7 +977,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3dArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec3dArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -1000,7 +1000,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4dArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::Vec4dArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -1023,7 +1023,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::MatrixfArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::apply(const osg::MatrixfArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -1076,7 +1076,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1099,7 +1099,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::ByteArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::ByteArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1122,7 +1122,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::ShortArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::ShortArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1145,7 +1145,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::IntArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::IntArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1168,7 +1168,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::UByteArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::UByteArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1191,7 +1191,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::UShortArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::UShortArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1214,7 +1214,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::UIntArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::UIntArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1237,7 +1237,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::FloatArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::FloatArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1260,7 +1260,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::DoubleArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::DoubleArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1283,7 +1283,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1306,7 +1306,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1329,7 +1329,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4Array &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4Array &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1352,7 +1352,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4ubArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4ubArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1375,7 +1375,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2bArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2bArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1398,7 +1398,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3bArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3bArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1421,7 +1421,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4bArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4bArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1444,7 +1444,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2sArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2sArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1467,7 +1467,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3sArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3sArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1490,7 +1490,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4sArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4sArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1513,7 +1513,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2dArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec2dArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1536,7 +1536,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3dArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec3dArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1559,7 +1559,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4dArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::Vec4dArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 
@@ -1582,7 +1582,7 @@ public:
 		osg::ConstArrayVisitor* self=(Luna< osg::ConstArrayVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::MatrixfArray &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstArrayVisitor::base_apply(const osg::MatrixfArray &). Got : '%s'",typeid(Luna< osg::ConstArrayVisitor >::check(L,1)).name());
 		}
 		self->ConstArrayVisitor::apply(_arg1);
 

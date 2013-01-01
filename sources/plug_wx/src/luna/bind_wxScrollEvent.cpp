@@ -154,7 +154,7 @@ public:
 		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollEvent::GetOrientation() const");
+			luaL_error(L, "Invalid object in function call int wxScrollEvent::GetOrientation() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetOrientation();
 		lua_pushnumber(L,lret);
@@ -173,7 +173,7 @@ public:
 		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollEvent::GetPosition() const");
+			luaL_error(L, "Invalid object in function call int wxScrollEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPosition();
 		lua_pushnumber(L,lret);
@@ -193,7 +193,7 @@ public:
 		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollEvent::SetOrientation(int)");
+			luaL_error(L, "Invalid object in function call void wxScrollEvent::SetOrientation(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetOrientation(orient);
 
@@ -212,7 +212,7 @@ public:
 		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollEvent::SetPosition(int)");
+			luaL_error(L, "Invalid object in function call void wxScrollEvent::SetPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPosition(pos);
 
@@ -230,7 +230,7 @@ public:
 		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxScrollEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -251,7 +251,7 @@ public:
 		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxScrollEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxScrollEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxScrollEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

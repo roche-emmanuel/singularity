@@ -295,7 +295,7 @@ public:
 		wrapper_osgGA_EventVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_handle_callbacks(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_handle_callbacks(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_handle_callbacks(stateset);
 
@@ -318,7 +318,7 @@ public:
 		wrapper_osgGA_EventVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_handle_callbacks_and_traverse(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_handle_callbacks_and_traverse(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_handle_callbacks_and_traverse(node);
 
@@ -341,7 +341,7 @@ public:
 		wrapper_osgGA_EventVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_handle_geode_callbacks(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_handle_geode_callbacks(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_handle_geode_callbacks(node);
 
@@ -364,7 +364,7 @@ public:
 		wrapper_osgGA_EventVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_traverseGeode(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::public_traverseGeode(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_traverseGeode(geode);
 
@@ -384,7 +384,7 @@ public:
 		wrapper_osgGA_EventVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -402,7 +402,7 @@ public:
 		wrapper_osgGA_EventVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_EventVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

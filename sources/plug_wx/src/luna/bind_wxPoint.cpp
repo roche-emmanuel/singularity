@@ -205,7 +205,7 @@ public:
 		wxPoint* self=(Luna< wxPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPoint::IsFullySpecified() const");
+			luaL_error(L, "Invalid object in function call bool wxPoint::IsFullySpecified() const. Got : '%s'",typeid(Luna< wxPoint >::check(L,1)).name());
 		}
 		bool lret = self->IsFullySpecified();
 		lua_pushboolean(L,lret?1:0);
@@ -229,7 +229,7 @@ public:
 		wxPoint* self=(Luna< wxPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPoint::SetDefaults(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxPoint::SetDefaults(const wxPoint &). Got : '%s'",typeid(Luna< wxPoint >::check(L,1)).name());
 		}
 		self->SetDefaults(pt);
 
@@ -284,7 +284,7 @@ public:
 		wxPoint* self=(Luna< wxPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator+=(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator+=(const wxPoint &). Got : '%s'",typeid(Luna< wxPoint >::check(L,1)).name());
 		}
 		const wxPoint* lret = &self->operator+=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -310,7 +310,7 @@ public:
 		wxPoint* self=(Luna< wxPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator+=(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator+=(const wxSize &). Got : '%s'",typeid(Luna< wxPoint >::check(L,1)).name());
 		}
 		const wxPoint* lret = &self->operator+=(sz);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -345,7 +345,7 @@ public:
 		wxPoint* self=(Luna< wxPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator-=(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator-=(const wxPoint &). Got : '%s'",typeid(Luna< wxPoint >::check(L,1)).name());
 		}
 		const wxPoint* lret = &self->operator-=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -371,7 +371,7 @@ public:
 		wxPoint* self=(Luna< wxPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator-=(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxPoint & wxPoint::operator-=(const wxSize &). Got : '%s'",typeid(Luna< wxPoint >::check(L,1)).name());
 		}
 		const wxPoint* lret = &self->operator-=(sz);
 		if(!lret) return 0; // Do not write NULL pointers.

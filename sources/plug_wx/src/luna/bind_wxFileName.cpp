@@ -985,7 +985,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AppendDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::AppendDir(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->AppendDir(dir);
 
@@ -1008,7 +1008,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxFileName &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxFileName &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Assign(filepath);
 
@@ -1030,7 +1030,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Assign(fullpath, format);
 
@@ -1056,7 +1056,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, const wxString &, const wxString &, bool, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, const wxString &, const wxString &, bool, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Assign(volume, path, name, ext, hasExt, format);
 
@@ -1081,7 +1081,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, const wxString &, const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, const wxString &, const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Assign(volume, path, name, ext, format);
 
@@ -1104,7 +1104,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Assign(path, name, format);
 
@@ -1128,7 +1128,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::Assign(const wxString &, const wxString &, const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Assign(path, name, ext, format);
 
@@ -1162,7 +1162,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AssignCwd(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::AssignCwd(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->AssignCwd(volume);
 
@@ -1184,7 +1184,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AssignDir(const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::AssignDir(const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->AssignDir(dir, format);
 
@@ -1202,7 +1202,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AssignHomeDir()");
+			luaL_error(L, "Invalid object in function call void wxFileName::AssignHomeDir(). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->AssignHomeDir();
 
@@ -1221,7 +1221,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AssignTempFileName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::AssignTempFileName(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->AssignTempFileName(prefix);
 
@@ -1241,7 +1241,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AssignTempFileName(const wxString &, wxFile *)");
+			luaL_error(L, "Invalid object in function call void wxFileName::AssignTempFileName(const wxString &, wxFile *). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->AssignTempFileName(prefix, fileTemp);
 
@@ -1268,7 +1268,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::Clear()");
+			luaL_error(L, "Invalid object in function call void wxFileName::Clear(). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -1286,7 +1286,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::ClearExt()");
+			luaL_error(L, "Invalid object in function call void wxFileName::ClearExt(). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->ClearExt();
 
@@ -1304,7 +1304,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::DirExists() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::DirExists() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->DirExists();
 		lua_pushboolean(L,lret?1:0);
@@ -1347,7 +1347,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::FileExists() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::FileExists() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->FileExists();
 		lua_pushboolean(L,lret?1:0);
@@ -1390,7 +1390,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileName::GetDirCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxFileName::GetDirCount() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		size_t lret = self->GetDirCount();
 		lua_pushnumber(L,lret);
@@ -1409,7 +1409,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxArrayString & wxFileName::GetDirs() const");
+			luaL_error(L, "Invalid object in function call const wxArrayString & wxFileName::GetDirs() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		const wxArrayString* lret = &self->GetDirs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1430,7 +1430,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetExt() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetExt() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetExt();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1449,7 +1449,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetFullName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetFullName() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetFullName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1471,7 +1471,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetFullPath(wxPathFormat) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetFullPath(wxPathFormat) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetFullPath(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1495,7 +1495,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetHumanReadableSize(const wxString &, int, wxSizeConvention) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetHumanReadableSize(const wxString &, int, wxSizeConvention) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetHumanReadableSize(failmsg, precision, conv);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1547,7 +1547,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetLongPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetLongPath() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetLongPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1566,7 +1566,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxFileName::GetModificationTime() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxFileName::GetModificationTime() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetModificationTime();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1588,7 +1588,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetName() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1611,7 +1611,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetPath(int, wxPathFormat) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetPath(int, wxPathFormat) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetPath(flags, format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1633,7 +1633,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetPathWithSep(wxPathFormat) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetPathWithSep(wxPathFormat) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetPathWithSep(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1652,7 +1652,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetShortPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetShortPath() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetShortPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1671,7 +1671,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxULongLong wxFileName::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxULongLong wxFileName::GetSize() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxULongLong stack_lret = self->GetSize();
 		wxULongLong* lret = new wxULongLong(stack_lret);
@@ -1723,7 +1723,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::GetTimes(wxDateTime *, wxDateTime *, wxDateTime *) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::GetTimes(wxDateTime *, wxDateTime *, wxDateTime *) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->GetTimes(dtAccess, dtMod, dtCreate);
 		lua_pushboolean(L,lret?1:0);
@@ -1742,7 +1742,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileName::GetVolume() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileName::GetVolume() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		wxString lret = self->GetVolume();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1761,7 +1761,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::HasExt() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::HasExt() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->HasExt();
 		lua_pushboolean(L,lret?1:0);
@@ -1780,7 +1780,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::HasName() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::HasName() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->HasName();
 		lua_pushboolean(L,lret?1:0);
@@ -1799,7 +1799,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::HasVolume() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::HasVolume() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->HasVolume();
 		lua_pushboolean(L,lret?1:0);
@@ -1820,7 +1820,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::InsertDir(size_t, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::InsertDir(size_t, const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->InsertDir(before, dir);
 
@@ -1841,7 +1841,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsAbsolute(wxPathFormat) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsAbsolute(wxPathFormat) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsAbsolute(format);
 		lua_pushboolean(L,lret?1:0);
@@ -1860,7 +1860,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsDir() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsDir() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsDir();
 		lua_pushboolean(L,lret?1:0);
@@ -1879,7 +1879,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsDirReadable() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsDirReadable() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsDirReadable();
 		lua_pushboolean(L,lret?1:0);
@@ -1922,7 +1922,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsDirWritable() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsDirWritable() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsDirWritable();
 		lua_pushboolean(L,lret?1:0);
@@ -1965,7 +1965,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsFileExecutable() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsFileExecutable() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsFileExecutable();
 		lua_pushboolean(L,lret?1:0);
@@ -2008,7 +2008,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsFileReadable() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsFileReadable() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsFileReadable();
 		lua_pushboolean(L,lret?1:0);
@@ -2051,7 +2051,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsFileWritable() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsFileWritable() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsFileWritable();
 		lua_pushboolean(L,lret?1:0);
@@ -2094,7 +2094,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsOk() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -2116,7 +2116,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::IsRelative(wxPathFormat) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::IsRelative(wxPathFormat) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->IsRelative(format);
 		lua_pushboolean(L,lret?1:0);
@@ -2139,7 +2139,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::MakeAbsolute(const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call bool wxFileName::MakeAbsolute(const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->MakeAbsolute(cwd, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2162,7 +2162,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::MakeRelativeTo(const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call bool wxFileName::MakeRelativeTo(const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->MakeRelativeTo(pathBase, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2185,7 +2185,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::Mkdir(int, int) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::Mkdir(int, int) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->Mkdir(perm, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -2237,7 +2237,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::Normalize(int, const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call bool wxFileName::Normalize(int, const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->Normalize(flags, cwd, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2257,7 +2257,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::PrependDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::PrependDir(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->PrependDir(dir);
 
@@ -2276,7 +2276,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::RemoveDir(size_t)");
+			luaL_error(L, "Invalid object in function call void wxFileName::RemoveDir(size_t). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->RemoveDir(pos);
 
@@ -2294,7 +2294,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::RemoveLastDir()");
+			luaL_error(L, "Invalid object in function call void wxFileName::RemoveLastDir(). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->RemoveLastDir();
 
@@ -2317,7 +2317,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::ReplaceEnvVariable(const wxString &, const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call bool wxFileName::ReplaceEnvVariable(const wxString &, const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->ReplaceEnvVariable(envname, replacementFmtString, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2339,7 +2339,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::ReplaceHomeDir(wxPathFormat)");
+			luaL_error(L, "Invalid object in function call bool wxFileName::ReplaceHomeDir(wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->ReplaceHomeDir(format);
 		lua_pushboolean(L,lret?1:0);
@@ -2361,7 +2361,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::Rmdir(int) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::Rmdir(int) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->Rmdir(flags);
 		lua_pushboolean(L,lret?1:0);
@@ -2415,7 +2415,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::SameAs(const wxFileName &, wxPathFormat) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::SameAs(const wxFileName &, wxPathFormat) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->SameAs(filepath, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2434,7 +2434,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::SetCwd() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::SetCwd() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->SetCwd();
 		lua_pushboolean(L,lret?1:0);
@@ -2477,7 +2477,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::SetEmptyExt()");
+			luaL_error(L, "Invalid object in function call void wxFileName::SetEmptyExt(). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->SetEmptyExt();
 
@@ -2496,7 +2496,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::SetExt(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::SetExt(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->SetExt(ext);
 
@@ -2515,7 +2515,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::SetFullName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::SetFullName(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->SetFullName(fullname);
 
@@ -2534,7 +2534,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::SetName(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->SetName(name);
 
@@ -2556,7 +2556,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::SetPath(const wxString &, wxPathFormat)");
+			luaL_error(L, "Invalid object in function call void wxFileName::SetPath(const wxString &, wxPathFormat). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->SetPath(path, format);
 
@@ -2577,7 +2577,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::SetTimes(const wxDateTime *, const wxDateTime *, const wxDateTime *) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::SetTimes(const wxDateTime *, const wxDateTime *, const wxDateTime *) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->SetTimes(dtAccess, dtMod, dtCreate);
 		lua_pushboolean(L,lret?1:0);
@@ -2597,7 +2597,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::SetVolume(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileName::SetVolume(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		self->SetVolume(volume);
 
@@ -2615,7 +2615,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::Touch() const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::Touch() const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->Touch();
 		lua_pushboolean(L,lret?1:0);
@@ -2989,7 +2989,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::operator!=(const wxFileName &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::operator!=(const wxFileName &) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -3009,7 +3009,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::operator!=(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::operator!=(const wxString &) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -3042,7 +3042,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::operator==(const wxFileName &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::operator==(const wxFileName &) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->operator==(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -3062,7 +3062,7 @@ public:
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileName::operator==(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileName::operator==(const wxString &) const. Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
 		}
 		bool lret = self->operator==(filename);
 		lua_pushboolean(L,lret?1:0);

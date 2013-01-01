@@ -351,7 +351,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxURI::BuildURI() const");
+			luaL_error(L, "Invalid object in function call wxString wxURI::BuildURI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->BuildURI();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -370,7 +370,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxURI::BuildUnescapedURI() const");
+			luaL_error(L, "Invalid object in function call wxString wxURI::BuildUnescapedURI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->BuildUnescapedURI();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -390,7 +390,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::Create(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxURI::Create(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(uri);
 		lua_pushboolean(L,lret?1:0);
@@ -409,7 +409,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetFragment() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetFragment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetFragment();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -428,7 +428,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxURIHostType wxURI::GetHostType() const");
+			luaL_error(L, "Invalid object in function call wxURIHostType wxURI::GetHostType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxURIHostType lret = self->GetHostType();
 		lua_pushnumber(L,lret);
@@ -447,7 +447,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxURI::GetPassword() const");
+			luaL_error(L, "Invalid object in function call wxString wxURI::GetPassword() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetPassword();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -466,7 +466,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetPath() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -485,7 +485,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetPort() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetPort() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetPort();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -504,7 +504,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetQuery() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetQuery() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetQuery();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -523,7 +523,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetScheme() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetScheme() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetScheme();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -542,7 +542,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetServer() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetServer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetServer();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -561,7 +561,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxURI::GetUser() const");
+			luaL_error(L, "Invalid object in function call wxString wxURI::GetUser() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetUser();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -580,7 +580,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetUserInfo() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetUserInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetUserInfo();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -599,7 +599,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::HasFragment() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::HasFragment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasFragment();
 		lua_pushboolean(L,lret?1:0);
@@ -618,7 +618,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::HasPath() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::HasPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasPath();
 		lua_pushboolean(L,lret?1:0);
@@ -637,7 +637,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::HasPort() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::HasPort() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasPort();
 		lua_pushboolean(L,lret?1:0);
@@ -656,7 +656,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::HasQuery() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::HasQuery() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasQuery();
 		lua_pushboolean(L,lret?1:0);
@@ -675,7 +675,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::HasScheme() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::HasScheme() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasScheme();
 		lua_pushboolean(L,lret?1:0);
@@ -694,7 +694,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::HasServer() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::HasServer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasServer();
 		lua_pushboolean(L,lret?1:0);
@@ -713,7 +713,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::IsReference() const");
+			luaL_error(L, "Invalid object in function call bool wxURI::IsReference() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsReference();
 		lua_pushboolean(L,lret?1:0);
@@ -740,7 +740,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxURI::Resolve(const wxURI &, int)");
+			luaL_error(L, "Invalid object in function call void wxURI::Resolve(const wxURI &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Resolve(base, flags);
 
@@ -773,7 +773,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxURI::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxURI::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxURI::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -801,7 +801,7 @@ public:
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURI::operator==(const wxURI &) const");
+			luaL_error(L, "Invalid object in function call bool wxURI::operator==(const wxURI &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator==(uricomp);
 		lua_pushboolean(L,lret?1:0);

@@ -281,7 +281,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -300,7 +300,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -320,7 +320,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::setShareMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::setShareMode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setShareMode(mode);
 
@@ -338,7 +338,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::SharedStateManager::getShareMode()");
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::SharedStateManager::getShareMode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getShareMode();
 		lua_pushnumber(L,lret);
@@ -357,7 +357,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::prune()");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::prune(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->prune();
 
@@ -380,7 +380,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -403,7 +403,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -431,7 +431,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::isShared(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::isShared(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isShared(stateSet);
 		lua_pushboolean(L,lret?1:0);
@@ -451,7 +451,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::isShared(osg::Texture *)");
+			luaL_error(L, "Invalid object in function call bool osgDB::SharedStateManager::isShared(osg::Texture *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isShared(texture);
 		lua_pushboolean(L,lret?1:0);
@@ -480,7 +480,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(state);
 
@@ -498,7 +498,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SharedStateManager::reset();
 
@@ -516,7 +516,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgDB::SharedStateManager::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgDB::SharedStateManager::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->SharedStateManager::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -538,7 +538,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgDB::SharedStateManager::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgDB::SharedStateManager::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->SharedStateManager::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -566,7 +566,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgDB::SharedStateManager::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgDB::SharedStateManager::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SharedStateManager::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -591,7 +591,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgDB::SharedStateManager::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgDB::SharedStateManager::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SharedStateManager::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -616,7 +616,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgDB::SharedStateManager::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgDB::SharedStateManager::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SharedStateManager::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -635,7 +635,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->SharedStateManager::libraryName();
 		lua_pushstring(L,lret);
@@ -654,7 +654,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::SharedStateManager::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->SharedStateManager::className();
 		lua_pushstring(L,lret);
@@ -678,7 +678,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SharedStateManager::apply(node);
 
@@ -701,7 +701,7 @@ public:
 		osgDB::SharedStateManager* self=Luna< osg::Referenced >::checkSubType< osgDB::SharedStateManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgDB::SharedStateManager::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SharedStateManager::apply(geode);
 

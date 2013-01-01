@@ -21,6 +21,7 @@
 #include <RenderingAPIs/OpenGL/SPK_GLExtHandler.h>
 
 #include <osg/Node>
+#include <SparkUpdatingHandler.h>
 
 using namespace SPK;
 
@@ -39,6 +40,13 @@ struct luna_caster<SPK::GL::GLExtHandler,dstType> {
 		return static_cast<dstType*>(ptr);
 	};
 };
+
+/*template <>
+struct luna_caster<osg::Referenced,spark::SparkUpdatingHandler> {
+	static inline spark::SparkUpdatingHandler* cast(osg::Referenced* ptr) {
+		return (spark::SparkUpdatingHandler*)(ptr);
+	};
+};*/
 
 namespace sgt {
 

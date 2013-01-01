@@ -86,7 +86,7 @@ public:
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::Tm::IsValid() const");
+			luaL_error(L, "Invalid object in function call bool wxDateTime::Tm::IsValid() const. Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -105,7 +105,7 @@ public:
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay()");
+			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
 		}
 		wxDateTime::WeekDay lret = self->GetWeekDay();
 		lua_pushnumber(L,lret);

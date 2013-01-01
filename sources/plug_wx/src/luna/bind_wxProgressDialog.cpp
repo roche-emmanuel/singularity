@@ -1075,7 +1075,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::GetValue() const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -1094,7 +1094,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::GetRange() const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::GetRange() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetRange();
 		lua_pushnumber(L,lret);
@@ -1113,7 +1113,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::GetMessage() const");
+			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::GetMessage() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetMessage();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1136,7 +1136,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::Pulse(const wxString &, bool *)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::Pulse(const wxString &, bool *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Pulse(newmsg, &skip);
 		lua_pushboolean(L,lret?1:0);
@@ -1155,7 +1155,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::Resume()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::Resume(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Resume();
 
@@ -1174,7 +1174,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::SetRange(int)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::SetRange(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRange(maximum);
 
@@ -1192,7 +1192,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::WasCancelled() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::WasCancelled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->WasCancelled();
 		lua_pushboolean(L,lret?1:0);
@@ -1211,7 +1211,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::WasSkipped() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::WasSkipped() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->WasSkipped();
 		lua_pushboolean(L,lret?1:0);
@@ -1235,7 +1235,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::Update(int, const wxString &, bool *)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::Update(int, const wxString &, bool *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Update(value, newmsg, &skip);
 		lua_pushboolean(L,lret?1:0);
@@ -1254,7 +1254,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxProgressDialog::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProgressDialog::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxProgressDialog::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1275,7 +1275,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1294,7 +1294,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1313,7 +1313,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1332,7 +1332,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1352,7 +1352,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetCanFocus(canFocus);
 
@@ -1370,7 +1370,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetFocus();
 
@@ -1388,7 +1388,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetFocusFromKbd();
 
@@ -1407,7 +1407,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::AddChild(child);
 
@@ -1426,7 +1426,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::RemoveChild(child);
 
@@ -1445,7 +1445,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1468,7 +1468,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1487,7 +1487,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxProgressDialog::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1507,7 +1507,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxProgressDialog::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1527,7 +1527,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxProgressDialog::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1547,7 +1547,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1567,7 +1567,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1587,7 +1587,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1611,7 +1611,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::ScrollWindow(dx, dy, rect);
 
@@ -1634,7 +1634,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetScrollPos(orientation, pos, refresh);
 
@@ -1659,7 +1659,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1682,7 +1682,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1709,7 +1709,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1731,7 +1731,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::Fit();
 
@@ -1749,7 +1749,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::FitInside();
 
@@ -1767,7 +1767,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1789,7 +1789,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1811,7 +1811,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1833,7 +1833,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1855,7 +1855,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1877,7 +1877,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1899,7 +1899,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxProgressDialog::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxProgressDialog::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1924,7 +1924,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1946,7 +1946,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SendSizeEvent(flags);
 
@@ -1969,7 +1969,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetMaxClientSize(size);
 
@@ -1992,7 +1992,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetMinClientSize(size);
 
@@ -2010,7 +2010,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxProgressDialog::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxProgressDialog::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxProgressDialog::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2032,7 +2032,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::ClearBackground();
 
@@ -2050,7 +2050,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxProgressDialog::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxProgressDialog::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxProgressDialog::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2069,7 +2069,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxProgressDialog::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2088,7 +2088,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxProgressDialog::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2107,7 +2107,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxProgressDialog::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxProgressDialog::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxProgressDialog::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2133,7 +2133,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::Refresh(eraseBackground, rect);
 
@@ -2152,7 +2152,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2176,7 +2176,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2195,7 +2195,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2215,7 +2215,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetThemeEnabled(enable);
 
@@ -2233,7 +2233,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2253,7 +2253,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetNextHandler(handler);
 
@@ -2272,7 +2272,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetPreviousHandler(handler);
 
@@ -2290,7 +2290,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxProgressDialog::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxProgressDialog::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxProgressDialog::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2310,7 +2310,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetExtraStyle(exStyle);
 
@@ -2329,7 +2329,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetWindowStyleFlag(style);
 
@@ -2347,7 +2347,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::Lower();
 
@@ -2365,7 +2365,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::Raise();
 
@@ -2387,7 +2387,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2406,7 +2406,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2425,7 +2425,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2447,7 +2447,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2470,7 +2470,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2495,7 +2495,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxProgressDialog::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2514,7 +2514,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxProgressDialog::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxProgressDialog::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxProgressDialog::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2540,7 +2540,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetValidator(validator);
 
@@ -2558,7 +2558,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2577,7 +2577,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2596,7 +2596,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2615,7 +2615,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxProgressDialog::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2634,7 +2634,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxProgressDialog::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxProgressDialog::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxProgressDialog::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2653,7 +2653,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxProgressDialog::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2673,7 +2673,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetLabel(label);
 
@@ -2692,7 +2692,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetLayoutDirection(dir);
 
@@ -2711,7 +2711,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetName(name);
 
@@ -2734,7 +2734,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetAcceleratorTable(accel);
 
@@ -2752,7 +2752,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2771,7 +2771,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxProgressDialog::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxProgressDialog::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxProgressDialog::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2793,7 +2793,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetDropTarget(target);
 
@@ -2812,7 +2812,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::DragAcceptFiles(accept);
 
@@ -2830,7 +2830,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2854,7 +2854,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2875,7 +2875,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::WarpPointer(x, y);
 
@@ -2898,7 +2898,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::DoUpdateWindowUI(event);
 
@@ -2916,7 +2916,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2935,7 +2935,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::InheritAttributes();
 
@@ -2953,7 +2953,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::InitDialog();
 
@@ -2971,7 +2971,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2990,7 +2990,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3012,7 +3012,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::MakeModal(modal);
 
@@ -3030,7 +3030,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::OnInternalIdle();
 
@@ -3051,7 +3051,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3071,7 +3071,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3093,7 +3093,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::UpdateWindowUI(flags);
 
@@ -3111,7 +3111,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -3133,7 +3133,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_EnableCloseButton(bool)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3152,7 +3152,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxProgressDialog::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxProgressDialog::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3171,7 +3171,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsActive()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -3190,7 +3190,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsAlwaysMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3209,7 +3209,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsFullScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3228,7 +3228,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3247,7 +3247,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3269,7 +3269,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Maximize(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::Maximize(maximize);
 
@@ -3290,7 +3290,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_RequestUserAttention(int)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::RequestUserAttention(flags);
 
@@ -3313,7 +3313,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetMaxSize(size);
 
@@ -3336,7 +3336,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetMinSize(size);
 
@@ -3362,7 +3362,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3397,7 +3397,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3425,7 +3425,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetTitle(title);
 
@@ -3444,7 +3444,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3463,7 +3463,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShouldPreventAppExit() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3483,7 +3483,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_OSXSetModified(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::OSXSetModified(modified);
 
@@ -3501,7 +3501,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_OSXIsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3524,7 +3524,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShowFullScreen(bool, long)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3543,7 +3543,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_CanDoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_CanDoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::CanDoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3562,7 +3562,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_DoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_DoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::DoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3582,7 +3582,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_EndModal(int)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_EndModal(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::EndModal(retCode);
 
@@ -3600,7 +3600,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxProgressDialog::base_GetContentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxProgressDialog::base_GetContentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxProgressDialog::GetContentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3624,7 +3624,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Iconize(bool)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::Iconize(iconize);
 
@@ -3642,7 +3642,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3661,7 +3661,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsModal() const");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_IsModal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::IsModal();
 		lua_pushboolean(L,lret?1:0);
@@ -3685,7 +3685,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetIcons(const wxIconBundle &)");
+			luaL_error(L, "Invalid object in function call void wxProgressDialog::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProgressDialog::SetIcons(icons);
 
@@ -3706,7 +3706,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3725,7 +3725,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxProgressDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxProgressDialog::ShowModal();
 		lua_pushnumber(L,lret);
@@ -3748,7 +3748,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Pulse(const wxString &, bool *)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Pulse(const wxString &, bool *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Pulse(newmsg, &skip);
 		lua_pushboolean(L,lret?1:0);
@@ -3772,7 +3772,7 @@ public:
 		wxProgressDialog* self=Luna< wxObject >::checkSubType< wxProgressDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Update(int, const wxString &, bool *)");
+			luaL_error(L, "Invalid object in function call bool wxProgressDialog::base_Update(int, const wxString &, bool *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProgressDialog::Update(value, newmsg, &skip);
 		lua_pushboolean(L,lret?1:0);

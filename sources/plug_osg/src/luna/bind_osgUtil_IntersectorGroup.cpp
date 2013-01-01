@@ -231,7 +231,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::addIntersector(osgUtil::Intersector *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::addIntersector(osgUtil::Intersector *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addIntersector(intersector);
 
@@ -249,7 +249,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::IntersectorGroup::Intersectors & osgUtil::IntersectorGroup::getIntersectors()");
+			luaL_error(L, "Invalid object in function call osgUtil::IntersectorGroup::Intersectors & osgUtil::IntersectorGroup::getIntersectors(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgUtil::IntersectorGroup::Intersectors* lret = &self->getIntersectors();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -270,7 +270,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::clear()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->clear();
 
@@ -293,7 +293,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::IntersectorGroup::clone(osgUtil::IntersectionVisitor &)");
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::IntersectorGroup::clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Intersector * lret = self->clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,7 +319,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::enter(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -338,7 +338,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->leave();
 
@@ -362,7 +362,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->intersect(iv, drawable);
 
@@ -380,7 +380,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -398,7 +398,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::containsIntersections()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->containsIntersections();
 		lua_pushboolean(L,lret?1:0);
@@ -422,7 +422,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::IntersectorGroup::base_clone(osgUtil::IntersectionVisitor &)");
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::IntersectorGroup::base_clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Intersector * lret = self->IntersectorGroup::clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -448,7 +448,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::base_enter(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::base_enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->IntersectorGroup::enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -467,7 +467,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::base_leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::base_leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectorGroup::leave();
 
@@ -491,7 +491,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectorGroup::intersect(iv, drawable);
 
@@ -509,7 +509,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectorGroup::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IntersectorGroup::reset();
 
@@ -527,7 +527,7 @@ public:
 		osgUtil::IntersectorGroup* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectorGroup >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::base_containsIntersections()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectorGroup::base_containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->IntersectorGroup::containsIntersections();
 		lua_pushboolean(L,lret?1:0);

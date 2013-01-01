@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::fast_back_stack< unsigned int >",name);
 	}
+
 };
 
 osg::fast_back_stack< unsigned int >* LunaTraits< osg::fast_back_stack< unsigned int > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::fast_back_stack< unsigned int > >::uniqueIDs[] = {425
 luna_RegType LunaTraits< osg::fast_back_stack< unsigned int > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_fast_back_stack_unsigned_int::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_fast_back_stack_unsigned_int::_bind___eq},
+	
 	{0,0}
 };
 

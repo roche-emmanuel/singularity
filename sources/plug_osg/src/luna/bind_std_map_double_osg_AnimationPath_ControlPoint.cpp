@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< double, osg::AnimationPath::ControlPoint >",name);
 	}
+
 };
 
 std::map< double, osg::AnimationPath::ControlPoint >* LunaTraits< std::map< double, osg::AnimationPath::ControlPoint > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< double, osg::AnimationPath::ControlPoint > >::un
 luna_RegType LunaTraits< std::map< double, osg::AnimationPath::ControlPoint > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_double_osg_AnimationPath_ControlPoint::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_double_osg_AnimationPath_ControlPoint::_bind___eq},
+	
 	{0,0}
 };
 

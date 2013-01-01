@@ -105,7 +105,7 @@ public:
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::set(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::set(double, double, double, double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
 		}
 		self->set(x, y, w, h);
 

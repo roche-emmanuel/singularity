@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 >",name);
 	}
+
 };
 
 osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 >* LunaTraits< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1,
 luna_RegType LunaTraits< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_TemplateIndexArray_int_osg_Array_IntArrayType_1_0x1404::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_TemplateIndexArray_int_osg_Array_IntArrayType_1_0x1404::_bind___eq},
+	
 	{0,0}
 };
 

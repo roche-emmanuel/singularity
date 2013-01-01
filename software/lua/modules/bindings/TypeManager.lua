@@ -22,6 +22,7 @@ function TypeManager:__init()
     object._deleters = Map()
 	object._referencedExternals = Set();
 	object._registeredMappedTypes = Set()
+	object._registeredMappedTypeFunctions = Map()
 	
     -- this is a mapping of the actual root namespace of a class to the lua module that will be used for it.
     -- if no such mapping is available then
@@ -61,6 +62,20 @@ end
 function TypeManager:getRegisteredMappedTypes()
 	return self._registeredMappedTypes
 end
+
+function TypeManager:registerMappedTypeFunction(mtype,func)
+	if not self._externals:get(mtype) then -- We should ignore external types at this point.
+		self:info("Registering function ",func:getName()," for mapped type ",mtype)
+		self._registeredMappedTypes:push_back(mtype)
+		local list = self._registeredMappedTypeFunctions:getOrCreate(mtype,Set) 
+		list:push_back(func)		
+	end
+end
+
+function TypeManager:getRegisteredMappedTypeFunctions(mtype)
+	return self._registeredMappedTypeFunctions:get(mtype)
+end
+
 
 function TypeManager:registerType(type)
 	self:check(type and self:isInstanceOf(require"reflection.Type",type),"Invalid type object.")	

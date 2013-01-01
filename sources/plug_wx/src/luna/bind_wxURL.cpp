@@ -192,7 +192,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxURLError wxURL::GetError() const");
+			luaL_error(L, "Invalid object in function call wxURLError wxURL::GetError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxURLError lret = self->GetError();
 		lua_pushnumber(L,lret);
@@ -211,7 +211,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxURL::GetInputStream()");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxURL::GetInputStream(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetInputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -232,7 +232,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocol & wxURL::GetProtocol()");
+			luaL_error(L, "Invalid object in function call wxProtocol & wxURL::GetProtocol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxProtocol* lret = &self->GetProtocol();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -253,7 +253,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxURL::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxURL::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -273,7 +273,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxURL::SetProxy(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxURL::SetProxy(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetProxy(url_proxy);
 
@@ -292,7 +292,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxURLError wxURL::SetURL(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxURLError wxURL::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxURLError lret = self->SetURL(url);
 		lua_pushnumber(L,lret);
@@ -325,7 +325,7 @@ public:
 		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxURL::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxURL::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxURL::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

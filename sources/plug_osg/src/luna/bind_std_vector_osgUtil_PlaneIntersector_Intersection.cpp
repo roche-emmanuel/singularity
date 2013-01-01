@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osgUtil::PlaneIntersector::Intersection >",name);
 	}
+
 };
 
 std::vector< osgUtil::PlaneIntersector::Intersection >* LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > >::
 luna_RegType LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osgUtil_PlaneIntersector_Intersection::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osgUtil_PlaneIntersector_Intersection::_bind___eq},
+	
 	{0,0}
 };
 

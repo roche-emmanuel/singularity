@@ -256,7 +256,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -275,7 +275,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -295,7 +295,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::CenteredPlacer::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::CenteredPlacer::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -314,7 +314,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::CenteredPlacer::getCenter() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::CenteredPlacer::getCenter() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getCenter();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -340,7 +340,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::setCenter(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::setCenter(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCenter(v);
 
@@ -361,7 +361,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::setCenter(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::setCenter(float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCenter(x, y, z);
 
@@ -389,7 +389,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CenteredPlacer::setName(name);
 
@@ -407,7 +407,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CenteredPlacer::computeDataVariance();
 
@@ -426,7 +426,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CenteredPlacer::setUserData(obj);
 
@@ -444,7 +444,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::CenteredPlacer::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::CenteredPlacer::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->CenteredPlacer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -465,7 +465,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::CenteredPlacer::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::CenteredPlacer::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->CenteredPlacer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -498,7 +498,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::CenteredPlacer::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CenteredPlacer::releaseGLObjects(_arg1);
 
@@ -516,7 +516,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::CenteredPlacer::base_volume() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::CenteredPlacer::base_volume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->CenteredPlacer::volume();
 		lua_pushnumber(L,lret);
@@ -535,7 +535,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CenteredPlacer::libraryName();
 		lua_pushstring(L,lret);
@@ -554,7 +554,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CenteredPlacer::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CenteredPlacer::className();
 		lua_pushstring(L,lret);
@@ -574,7 +574,7 @@ public:
 		osgParticle::CenteredPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CenteredPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::CenteredPlacer::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::CenteredPlacer::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->CenteredPlacer::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);

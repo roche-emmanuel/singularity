@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >",name);
 	}
+
 };
 
 std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint
 luna_RegType LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind___eq},
+	
 	{0,0}
 };
 

@@ -115,7 +115,7 @@ public:
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle &) const");
+			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle &) const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		self->public_computeAtlasCoordinates(particle);
 
@@ -133,7 +133,7 @@ public:
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU0() const");
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU0() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->public_textureAtlasU0();
 		lua_pushnumber(L,lret);
@@ -152,7 +152,7 @@ public:
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU1() const");
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU1() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->public_textureAtlasU1();
 		lua_pushnumber(L,lret);
@@ -171,7 +171,7 @@ public:
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV0() const");
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV0() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->public_textureAtlasV0();
 		lua_pushnumber(L,lret);
@@ -190,7 +190,7 @@ public:
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV1() const");
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV1() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
 		}
 		float lret = self->public_textureAtlasV1();
 		lua_pushnumber(L,lret);

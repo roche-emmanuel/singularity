@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osgUtil::RenderLeaf * >",name);
 	}
+
 };
 
 std::vector< osgUtil::RenderLeaf * >* LunaTraits< std::vector< osgUtil::RenderLeaf * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osgUtil::RenderLeaf * > >::uniqueIDs[] = {190
 luna_RegType LunaTraits< std::vector< osgUtil::RenderLeaf * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osgUtil_RenderLeaf_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osgUtil_RenderLeaf_ptr::_bind___eq},
+	
 	{0,0}
 };
 

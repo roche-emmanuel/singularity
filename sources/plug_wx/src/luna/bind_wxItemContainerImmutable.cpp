@@ -208,7 +208,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxItemContainerImmutable::GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxItemContainerImmutable::GetCount() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -227,7 +227,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxItemContainerImmutable::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxItemContainerImmutable::IsEmpty() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -247,7 +247,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::GetString(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		wxString lret = self->GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -266,7 +266,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString wxItemContainerImmutable::GetStrings() const");
+			luaL_error(L, "Invalid object in function call wxArrayString wxItemContainerImmutable::GetStrings() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		wxArrayString stack_lret = self->GetStrings();
 		wxArrayString* lret = new wxArrayString(stack_lret);
@@ -290,7 +290,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxItemContainerImmutable::SetString(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxItemContainerImmutable::SetString(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		self->SetString(n, string);
 
@@ -312,7 +312,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		int lret = self->FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -332,7 +332,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxItemContainerImmutable::SetSelection(int)");
+			luaL_error(L, "Invalid object in function call void wxItemContainerImmutable::SetSelection(int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		self->SetSelection(n);
 
@@ -350,7 +350,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::GetSelection() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -370,7 +370,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxItemContainerImmutable::SetStringSelection(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxItemContainerImmutable::SetStringSelection(const wxString &). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		bool lret = self->SetStringSelection(string);
 		lua_pushboolean(L,lret?1:0);
@@ -389,7 +389,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::GetStringSelection() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		wxString lret = self->GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -409,7 +409,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxItemContainerImmutable::Select(int)");
+			luaL_error(L, "Invalid object in function call void wxItemContainerImmutable::Select(int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		self->Select(n);
 
@@ -431,7 +431,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::base_FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::base_FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		int lret = self->wxItemContainerImmutable::FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -450,7 +450,7 @@ public:
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::base_GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
 		}
 		wxString lret = self->wxItemContainerImmutable::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());

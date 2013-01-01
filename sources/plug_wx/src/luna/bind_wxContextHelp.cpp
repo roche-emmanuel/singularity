@@ -167,7 +167,7 @@ public:
 		wxContextHelp* self=Luna< wxObject >::checkSubType< wxContextHelp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelp::BeginContextHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxContextHelp::BeginContextHelp(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->BeginContextHelp(window);
 		lua_pushboolean(L,lret?1:0);
@@ -186,7 +186,7 @@ public:
 		wxContextHelp* self=Luna< wxObject >::checkSubType< wxContextHelp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxContextHelp::EndContextHelp()");
+			luaL_error(L, "Invalid object in function call bool wxContextHelp::EndContextHelp(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->EndContextHelp();
 		lua_pushboolean(L,lret?1:0);
@@ -205,7 +205,7 @@ public:
 		wxContextHelp* self=Luna< wxObject >::checkSubType< wxContextHelp >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxContextHelp::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxContextHelp::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxContextHelp::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

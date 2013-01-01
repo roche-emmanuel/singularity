@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::LOD::MinMaxPair >",name);
 	}
+
 };
 
 std::vector< osg::LOD::MinMaxPair >* LunaTraits< std::vector< osg::LOD::MinMaxPair > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::LOD::MinMaxPair > >::uniqueIDs[] = {1505
 luna_RegType LunaTraits< std::vector< osg::LOD::MinMaxPair > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_LOD_MinMaxPair::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_LOD_MinMaxPair::_bind___eq},
+	
 	{0,0}
 };
 

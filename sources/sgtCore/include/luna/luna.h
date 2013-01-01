@@ -432,6 +432,11 @@ template <typename T> class Luna {
 	{
 		lua_pushstring(L,module);
 		lua_gettable(L, LUA_GLOBALSINDEX);
+
+		if(lua_type(L,-1)!=LUA_TTABLE) {
+			luaL_error(L,"Cannot retrieve module '%s' while pushing object of class %s",module,metatable);	
+		}
+
 		int __luna= lua_gettop(L);
 		
 		typedef typename T_interface::parent_t ParentType;
@@ -451,17 +456,37 @@ template <typename T> class Luna {
 		//ud->pT = (ParentType*)(const_cast<T*>(obj));  // store pointer to object in userdata
 		luna_container<ParentType>::set(ud->pT,(ParentType*)(const_cast<T*>(obj)));
 
+		// ensure that we can retrieve the object properly:
+		/*ParentType* p2 = luna_container<ParentType>::get(ud->pT);
+		T* obj2 = perform_luna_cast<ParentType, T, luna_same_types<ParentType,T>::result >::cast(p2);
+		if(!obj2) {
+			luaL_error(L,"Cannot convert back parent pointer '%s' to child pointer '%s'",Luna<ParentType>::T_interface::className,T_interface::className);
+		}*/
+
 		ud->gc=gc;   // collect garbage by default
 		ud->has_env=false; // does this userdata has a table attached to it?
 		ud->uniqueIDs=(int*)T_interface::uniqueIDs;
 		ud->hash=T_interface::hash;
 		lua_pushstring(L, metatable);
 		lua_gettable(L, __luna);
+
+		if(lua_type(L,-1)!=LUA_TTABLE) {
+			luaL_error(L,"Cannot retrieve metatable '%s' while pushing object.",metatable);	
+		}
+
 		lua_setmetatable(L, -2);
 		//luna_printStack(L);
 		lua_insert(L, -2);  // swap __luna and userdata 
 		lua_pop(L,1);
+
+		// Check the pushed object:
+		/*T* obj3 = Luna< ParentType >::checkSubType< T >(L,-1);
+		if(!obj3) {
+			luaL_error(L,"Cannot convert back parent pointer '%s' to child pointer '%s' (bis).",Luna<ParentType>::T_interface::className,T_interface::className);
+		}
+		logINFO("Successfully pushed object of type " << T_interface::className);*/
 	}
+
 	static int new_modified_T(lua_State *L);
 
 	private:
@@ -476,6 +501,7 @@ template <typename T> class Luna {
 			return 0; // Do not push empty userdata.
 			
 		push(L,obj,true);
+
 		return 1;  // userdata containing pointer to T object
 	}
 

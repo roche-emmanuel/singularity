@@ -347,7 +347,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Model::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Model::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -368,7 +368,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Model::setLifeTime(float, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Model::setLifeTime(float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setLifeTime(lifeTimeMin, lifeTimeMax);
 
@@ -387,7 +387,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Model::setImmortal(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Model::setImmortal(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setImmortal(immortal);
 
@@ -410,7 +410,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Model::setParam(SPK::ModelParam, float, float, float, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Model::setParam(SPK::ModelParam, float, float, float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->setParam(type, startMin, startMax, endMin, endMax);
 		lua_pushboolean(L,lret?1:0);
@@ -432,7 +432,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Model::setParam(SPK::ModelParam, float, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Model::setParam(SPK::ModelParam, float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->setParam(type, value0, value1);
 		lua_pushboolean(L,lret?1:0);
@@ -453,7 +453,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Model::setParam(SPK::ModelParam, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Model::setParam(SPK::ModelParam, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->setParam(type, value);
 		lua_pushboolean(L,lret?1:0);
@@ -482,7 +482,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Model::getLifeTimeMin() const");
+			luaL_error(L, "Invalid object in function call float SPK::Model::getLifeTimeMin() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getLifeTimeMin();
 		lua_pushnumber(L,lret);
@@ -501,7 +501,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Model::getLifeTimeMax() const");
+			luaL_error(L, "Invalid object in function call float SPK::Model::getLifeTimeMax() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getLifeTimeMax();
 		lua_pushnumber(L,lret);
@@ -520,7 +520,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Model::isImmortal() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Model::isImmortal() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isImmortal();
 		lua_pushboolean(L,lret?1:0);
@@ -540,7 +540,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Model::isEnabled(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call int SPK::Model::isEnabled(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		int lret = self->isEnabled(type);
 		lua_pushnumber(L,lret);
@@ -560,7 +560,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Model::isMutable(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call int SPK::Model::isMutable(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		int lret = self->isMutable(type);
 		lua_pushnumber(L,lret);
@@ -580,7 +580,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Model::isRandom(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call int SPK::Model::isRandom(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		int lret = self->isRandom(type);
 		lua_pushnumber(L,lret);
@@ -600,7 +600,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Model::isInterpolated(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call int SPK::Model::isInterpolated(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		int lret = self->isInterpolated(type);
 		lua_pushnumber(L,lret);
@@ -621,7 +621,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Model::getParamValue(SPK::ModelParam, size_t) const");
+			luaL_error(L, "Invalid object in function call float SPK::Model::getParamValue(SPK::ModelParam, size_t) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getParamValue(type, index);
 		lua_pushnumber(L,lret);
@@ -641,7 +641,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::Model::getNbValues(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call unsigned int SPK::Model::getNbValues(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNbValues(type);
 		lua_pushnumber(L,lret);
@@ -660,7 +660,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNbEnabled() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNbEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbEnabled();
 		lua_pushnumber(L,lret);
@@ -679,7 +679,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNbMutable() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNbMutable() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbMutable();
 		lua_pushnumber(L,lret);
@@ -698,7 +698,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNRandom() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNRandom() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNRandom();
 		lua_pushnumber(L,lret);
@@ -718,7 +718,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Interpolator * SPK::Model::getInterpolator(SPK::ModelParam)");
+			luaL_error(L, "Invalid object in function call SPK::Interpolator * SPK::Model::getInterpolator(SPK::ModelParam). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Interpolator * lret = self->getInterpolator(param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -739,7 +739,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNbInterpolated() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getNbInterpolated() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbInterpolated();
 		lua_pushnumber(L,lret);
@@ -758,7 +758,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getSizeOfParticleCurrentArray() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getSizeOfParticleCurrentArray() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getSizeOfParticleCurrentArray();
 		lua_pushnumber(L,lret);
@@ -777,7 +777,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getSizeOfParticleExtendedArray() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getSizeOfParticleExtendedArray() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getSizeOfParticleExtendedArray();
 		lua_pushnumber(L,lret);
@@ -796,7 +796,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getSizeOfModelArray() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getSizeOfModelArray() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getSizeOfModelArray();
 		lua_pushnumber(L,lret);
@@ -816,7 +816,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Model::getParameterOffset(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Model::getParameterOffset(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getParameterOffset(param);
 		lua_pushnumber(L,lret);
@@ -873,7 +873,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Model::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Model::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Model::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -894,7 +894,7 @@ public:
 		SPK::Model* self=Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Model::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Model::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Model::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

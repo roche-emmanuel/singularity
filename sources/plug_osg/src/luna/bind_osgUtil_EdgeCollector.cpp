@@ -173,7 +173,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::setGeometry(osg::Geometry *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::setGeometry(osg::Geometry *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		self->setGeometry(geometry);
 
@@ -191,7 +191,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::EdgeCollector::getGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::EdgeCollector::getGeometry(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->getGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -212,7 +212,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::EdgeCollector::getNumOfTriangles()");
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::EdgeCollector::getNumOfTriangles(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumOfTriangles();
 		lua_pushnumber(L,lret);
@@ -234,7 +234,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		osgUtil::EdgeCollector::Triangle * lret = self->addTriangle(p1, p2, p3);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -258,7 +258,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *)");
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		osgUtil::EdgeCollector::Triangle * lret = self->addTriangle(p1, p2, p3);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -291,7 +291,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *)");
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		osgUtil::EdgeCollector::Edge * lret = self->addEdge(triangle, p1, p2);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -314,7 +314,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, unsigned int)");
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, unsigned int). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		osgUtil::EdgeCollector::Point * lret = self->addPoint(triangle, p1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -337,7 +337,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *)");
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle *, osgUtil::EdgeCollector::Point *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		osgUtil::EdgeCollector::Point * lret = self->addPoint(triangle, point);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -372,7 +372,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getBoundaryEdgeList(osgUtil::EdgeCollector::EdgeList &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		self->getBoundaryEdgeList(el);
 
@@ -400,7 +400,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::Edgeloop &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloop(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::Edgeloop &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		bool lret = self->extractBoundaryEdgeloop(el, edgeloop);
 		lua_pushboolean(L,lret?1:0);
@@ -429,7 +429,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::EdgeloopList &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::extractBoundaryEdgeloopList(osgUtil::EdgeCollector::EdgeList &, osgUtil::EdgeCollector::EdgeloopList &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		bool lret = self->extractBoundaryEdgeloopList(el, edgeloopList);
 		lua_pushboolean(L,lret?1:0);
@@ -453,7 +453,7 @@ public:
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::getEdgeloopIndexList(osgUtil::EdgeCollector::IndexArrayList &). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
 		}
 		self->getEdgeloopIndexList(ial);
 

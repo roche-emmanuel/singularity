@@ -653,7 +653,7 @@ public:
 		wxLog* self=(Luna< wxLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLog::Flush()");
+			luaL_error(L, "Invalid object in function call void wxLog::Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->Flush();
 
@@ -678,7 +678,7 @@ public:
 		wxLog* self=(Luna< wxLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLog::LogRecord(unsigned long, const wxString &, const wxLogRecordInfo &)");
+			luaL_error(L, "Invalid object in function call void wxLog::LogRecord(unsigned long, const wxString &, const wxLogRecordInfo &). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->LogRecord(level, msg, info);
 
@@ -696,7 +696,7 @@ public:
 		wxLog* self=(Luna< wxLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLog::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLog::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLog::Flush();
 

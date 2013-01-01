@@ -240,7 +240,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->enableBlending(blendingEnabled);
 
@@ -260,7 +260,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::setBlendingFunctions(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::setBlendingFunctions(unsigned int, unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setBlendingFunctions(src, dest);
 
@@ -279,7 +279,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::setBlending(SPK::BlendingMode)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setBlending(blendMode);
 
@@ -298,7 +298,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::setTextureBlending(unsigned int)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::setTextureBlending(unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setTextureBlending(textureBlending);
 
@@ -316,7 +316,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLRenderer::isBlendingEnabled() const");
+			luaL_error(L, "Invalid object in function call bool GL::GLRenderer::isBlendingEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isBlendingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -335,7 +335,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int GL::GLRenderer::getSrcBlendingFunction() const");
+			luaL_error(L, "Invalid object in function call unsigned int GL::GLRenderer::getSrcBlendingFunction() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getSrcBlendingFunction();
 		lua_pushnumber(L,lret);
@@ -354,7 +354,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int GL::GLRenderer::getDestBlendingFunction() const");
+			luaL_error(L, "Invalid object in function call unsigned int GL::GLRenderer::getDestBlendingFunction() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDestBlendingFunction();
 		lua_pushnumber(L,lret);
@@ -373,7 +373,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int GL::GLRenderer::getTextureBlending() const");
+			luaL_error(L, "Invalid object in function call unsigned int GL::GLRenderer::getTextureBlending() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTextureBlending();
 		lua_pushnumber(L,lret);
@@ -419,7 +419,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLRenderer::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * GL::GLRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->GLRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -445,7 +445,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLRenderer::createBuffers(group);
 
@@ -468,7 +468,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLRenderer::destroyBuffers(group);
 
@@ -488,7 +488,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint, bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -507,7 +507,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_setAlphaTestThreshold(float)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -526,7 +526,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const");
+			luaL_error(L, "Invalid object in function call bool GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->GLRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -546,7 +546,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_enableBlending(bool)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLRenderer::enableBlending(blendingEnabled);
 
@@ -565,7 +565,7 @@ public:
 		GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< GL::GLRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_setBlending(SPK::BlendingMode)");
+			luaL_error(L, "Invalid object in function call void GL::GLRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->GLRenderer::setBlending(blendMode);
 

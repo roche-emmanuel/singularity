@@ -156,7 +156,7 @@ public:
 		wxDataViewItem* self=(Luna< wxDataViewItem >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxDataViewItem::GetID() const");
+			luaL_error(L, "Invalid object in function call void * wxDataViewItem::GetID() const. Got : '%s'",typeid(Luna< wxDataViewItem >::check(L,1)).name());
 		}
 		void * lret = self->GetID();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -177,7 +177,7 @@ public:
 		wxDataViewItem* self=(Luna< wxDataViewItem >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewItem::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewItem::IsOk() const. Got : '%s'",typeid(Luna< wxDataViewItem >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);

@@ -873,7 +873,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::GetInternalMargin() const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::GetInternalMargin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetInternalMargin();
 		lua_pushnumber(L,lret);
@@ -892,7 +892,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::GetPickerCtrlProportion() const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::GetPickerCtrlProportion() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPickerCtrlProportion();
 		lua_pushnumber(L,lret);
@@ -911,7 +911,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextCtrl * wxPickerBase::GetTextCtrl()");
+			luaL_error(L, "Invalid object in function call wxTextCtrl * wxPickerBase::GetTextCtrl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTextCtrl * lret = self->GetTextCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -932,7 +932,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxControl * wxPickerBase::GetPickerCtrl()");
+			luaL_error(L, "Invalid object in function call wxControl * wxPickerBase::GetPickerCtrl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxControl * lret = self->GetPickerCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -953,7 +953,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::GetTextCtrlProportion() const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::GetTextCtrlProportion() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetTextCtrlProportion();
 		lua_pushnumber(L,lret);
@@ -972,7 +972,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::HasTextCtrl() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::HasTextCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasTextCtrl();
 		lua_pushboolean(L,lret?1:0);
@@ -991,7 +991,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::IsPickerCtrlGrowable() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::IsPickerCtrlGrowable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsPickerCtrlGrowable();
 		lua_pushboolean(L,lret?1:0);
@@ -1010,7 +1010,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::IsTextCtrlGrowable() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::IsTextCtrlGrowable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsTextCtrlGrowable();
 		lua_pushboolean(L,lret?1:0);
@@ -1030,7 +1030,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::SetInternalMargin(int)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::SetInternalMargin(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInternalMargin(margin);
 
@@ -1051,7 +1051,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::SetPickerCtrlGrowable(bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::SetPickerCtrlGrowable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPickerCtrlGrowable(grow);
 
@@ -1070,7 +1070,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::SetPickerCtrlProportion(int)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::SetPickerCtrlProportion(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPickerCtrlProportion(prop);
 
@@ -1091,7 +1091,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::SetTextCtrlGrowable(bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::SetTextCtrlGrowable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTextCtrlGrowable(grow);
 
@@ -1110,7 +1110,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::SetTextCtrlProportion(int)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::SetTextCtrlProportion(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTextCtrlProportion(prop);
 
@@ -1128,7 +1128,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPickerBase::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPickerBase::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPickerBase::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1149,7 +1149,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1168,7 +1168,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1187,7 +1187,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1206,7 +1206,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1226,7 +1226,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetCanFocus(canFocus);
 
@@ -1244,7 +1244,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetFocus();
 
@@ -1262,7 +1262,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetFocusFromKbd();
 
@@ -1281,7 +1281,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::AddChild(child);
 
@@ -1300,7 +1300,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::RemoveChild(child);
 
@@ -1319,7 +1319,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1342,7 +1342,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1361,7 +1361,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPickerBase::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1381,7 +1381,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPickerBase::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1401,7 +1401,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPickerBase::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1421,7 +1421,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1441,7 +1441,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1461,7 +1461,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1485,7 +1485,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::ScrollWindow(dx, dy, rect);
 
@@ -1508,7 +1508,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetScrollPos(orientation, pos, refresh);
 
@@ -1533,7 +1533,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1556,7 +1556,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1583,7 +1583,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1605,7 +1605,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::Fit();
 
@@ -1623,7 +1623,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::FitInside();
 
@@ -1641,7 +1641,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1663,7 +1663,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1685,7 +1685,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1707,7 +1707,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1729,7 +1729,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1751,7 +1751,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1773,7 +1773,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPickerBase::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPickerBase::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1798,7 +1798,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1820,7 +1820,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SendSizeEvent(flags);
 
@@ -1843,7 +1843,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetMaxClientSize(size);
 
@@ -1866,7 +1866,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetMaxSize(size);
 
@@ -1889,7 +1889,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetMinClientSize(size);
 
@@ -1912,7 +1912,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetMinSize(size);
 
@@ -1947,7 +1947,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1973,7 +1973,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2000,7 +2000,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPickerBase::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxPickerBase::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxPickerBase::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2022,7 +2022,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::ClearBackground();
 
@@ -2040,7 +2040,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPickerBase::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPickerBase::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxPickerBase::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2059,7 +2059,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPickerBase::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2078,7 +2078,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxPickerBase::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPickerBase::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2097,7 +2097,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPickerBase::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPickerBase::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxPickerBase::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2123,7 +2123,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::Refresh(eraseBackground, rect);
 
@@ -2141,7 +2141,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::Update();
 
@@ -2160,7 +2160,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2184,7 +2184,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2203,7 +2203,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2223,7 +2223,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetThemeEnabled(enable);
 
@@ -2241,7 +2241,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2260,7 +2260,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2280,7 +2280,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2300,7 +2300,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetNextHandler(handler);
 
@@ -2319,7 +2319,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetPreviousHandler(handler);
 
@@ -2337,7 +2337,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxPickerBase::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxPickerBase::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxPickerBase::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2357,7 +2357,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetExtraStyle(exStyle);
 
@@ -2376,7 +2376,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetWindowStyleFlag(style);
 
@@ -2394,7 +2394,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::Lower();
 
@@ -2412,7 +2412,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::Raise();
 
@@ -2434,7 +2434,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2453,7 +2453,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2472,7 +2472,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2494,7 +2494,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2516,7 +2516,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2539,7 +2539,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2564,7 +2564,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPickerBase::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxPickerBase::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPickerBase::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2583,7 +2583,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxPickerBase::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxPickerBase::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxPickerBase::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2609,7 +2609,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetValidator(validator);
 
@@ -2627,7 +2627,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2646,7 +2646,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2665,7 +2665,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2684,7 +2684,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPickerBase::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPickerBase::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxPickerBase::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2703,7 +2703,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPickerBase::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPickerBase::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPickerBase::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2723,7 +2723,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetLayoutDirection(dir);
 
@@ -2742,7 +2742,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetName(name);
 
@@ -2765,7 +2765,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetAcceleratorTable(accel);
 
@@ -2783,7 +2783,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2802,7 +2802,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxPickerBase::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxPickerBase::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxPickerBase::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2824,7 +2824,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetDropTarget(target);
 
@@ -2843,7 +2843,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::DragAcceptFiles(accept);
 
@@ -2861,7 +2861,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2880,7 +2880,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2904,7 +2904,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2925,7 +2925,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::WarpPointer(x, y);
 
@@ -2948,7 +2948,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::DoUpdateWindowUI(event);
 
@@ -2966,7 +2966,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2985,7 +2985,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::InheritAttributes();
 
@@ -3003,7 +3003,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::InitDialog();
 
@@ -3021,7 +3021,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3040,7 +3040,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3062,7 +3062,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::MakeModal(modal);
 
@@ -3080,7 +3080,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::OnInternalIdle();
 
@@ -3101,7 +3101,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3121,7 +3121,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxPickerBase::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPickerBase::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3143,7 +3143,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::UpdateWindowUI(flags);
 
@@ -3166,7 +3166,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::Command(event);
 
@@ -3184,7 +3184,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPickerBase::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxPickerBase::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPickerBase::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3204,7 +3204,7 @@ public:
 		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPickerBase::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPickerBase::SetLabel(label);
 

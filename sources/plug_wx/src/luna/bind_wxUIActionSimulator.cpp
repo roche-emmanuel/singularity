@@ -187,7 +187,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseMove(long, long)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseMove(long, long). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseMove(x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -211,7 +211,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseMove(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseMove(const wxPoint &). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseMove(point);
 		lua_pushboolean(L,lret?1:0);
@@ -242,7 +242,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseDown(int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseDown(int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseDown(button);
 		lua_pushboolean(L,lret?1:0);
@@ -264,7 +264,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseUp(int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseUp(int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseUp(button);
 		lua_pushboolean(L,lret?1:0);
@@ -286,7 +286,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseClick(int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseClick(int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseClick(button);
 		lua_pushboolean(L,lret?1:0);
@@ -308,7 +308,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseDblClick(int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseDblClick(int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseDblClick(button);
 		lua_pushboolean(L,lret?1:0);
@@ -334,7 +334,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseDragDrop(long, long, long, long, int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::MouseDragDrop(long, long, long, long, int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->MouseDragDrop(x1, y1, x2, y2, button);
 		lua_pushboolean(L,lret?1:0);
@@ -357,7 +357,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::KeyDown(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::KeyDown(int, int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->KeyDown(keycode, modifiers);
 		lua_pushboolean(L,lret?1:0);
@@ -380,7 +380,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::KeyUp(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::KeyUp(int, int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->KeyUp(keycode, modifiers);
 		lua_pushboolean(L,lret?1:0);
@@ -403,7 +403,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::Char(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::Char(int, int). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->Char(keycode, modifiers);
 		lua_pushboolean(L,lret?1:0);
@@ -423,7 +423,7 @@ public:
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::Text(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxUIActionSimulator::Text(const wxString &). Got : '%s'",typeid(Luna< wxUIActionSimulator >::check(L,1)).name());
 		}
 		bool lret = self->Text(text);
 		lua_pushboolean(L,lret?1:0);

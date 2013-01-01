@@ -331,7 +331,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::setProfile(const osg::BufferObjectProfile &)");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::setProfile(const osg::BufferObjectProfile &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProfile(profile);
 
@@ -349,7 +349,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BufferObjectProfile & osg::GLBufferObject::getProfile() const");
+			luaL_error(L, "Invalid object in function call const osg::BufferObjectProfile & osg::GLBufferObject::getProfile() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::BufferObjectProfile* lret = &self->getProfile();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -371,7 +371,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::setBufferObject(osg::BufferObject *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::setBufferObject(osg::BufferObject *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBufferObject(bufferObject);
 
@@ -389,7 +389,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BufferObject * osg::GLBufferObject::getBufferObject()");
+			luaL_error(L, "Invalid object in function call osg::BufferObject * osg::GLBufferObject::getBufferObject(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BufferObject * lret = self->getBufferObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -410,7 +410,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::getContextID() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::getContextID() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getContextID();
 		lua_pushnumber(L,lret);
@@ -429,7 +429,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int & osg::GLBufferObject::getGLObjectID()");
+			luaL_error(L, "Invalid object in function call unsigned int & osg::GLBufferObject::getGLObjectID(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int & lret = self->getGLObjectID();
 		lua_pushnumber(L,lret);
@@ -448,7 +448,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::getGLObjectID() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::GLBufferObject::getGLObjectID() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getGLObjectID();
 		lua_pushnumber(L,lret);
@@ -477,7 +477,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::GLBufferObject::getOffset(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int osg::GLBufferObject::getOffset(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getOffset(i);
 		lua_pushnumber(L,lret);
@@ -496,7 +496,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::bindBuffer()");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::bindBuffer(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->bindBuffer();
 
@@ -514,7 +514,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::unbindBuffer()");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::unbindBuffer(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->unbindBuffer();
 
@@ -532,7 +532,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::GLBufferObject::isDirty() const");
+			luaL_error(L, "Invalid object in function call bool osg::GLBufferObject::isDirty() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isDirty();
 		lua_pushboolean(L,lret?1:0);
@@ -551,7 +551,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::dirty()");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::dirty(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->dirty();
 
@@ -569,7 +569,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::clear()");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->clear();
 
@@ -587,7 +587,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::compileBuffer()");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::compileBuffer(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compileBuffer();
 
@@ -605,7 +605,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::deleteGLObject()");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::deleteGLObject(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->deleteGLObject();
 
@@ -624,7 +624,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::assign(osg::BufferObject *)");
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::assign(osg::BufferObject *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->assign(bufferObject);
 
@@ -642,7 +642,7 @@ public:
 		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::GLBufferObject::isPBOSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::GLBufferObject::isPBOSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isPBOSupported();
 		lua_pushboolean(L,lret?1:0);

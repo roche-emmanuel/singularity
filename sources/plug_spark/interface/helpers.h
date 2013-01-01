@@ -31,6 +31,12 @@ public:
 	class UpdateCallback {};
 };
 
+class Referenced {
+};
+
+class Object {
+};
+
 };
 
 namespace osgGA {

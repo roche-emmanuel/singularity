@@ -226,7 +226,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -245,7 +245,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::setCreaseAngle(double)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::setCreaseAngle(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreaseAngle(angle);
 
@@ -263,7 +263,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgUtil::SmoothingVisitor::getCreaseAngle() const");
+			luaL_error(L, "Invalid object in function call double osgUtil::SmoothingVisitor::getCreaseAngle() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getCreaseAngle();
 		lua_pushnumber(L,lret);
@@ -303,7 +303,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->SmoothingVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -322,7 +322,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::SmoothingVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->SmoothingVisitor::className();
 		lua_pushstring(L,lret);
@@ -341,7 +341,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SmoothingVisitor::reset();
 
@@ -359,7 +359,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->SmoothingVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -381,7 +381,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::SmoothingVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->SmoothingVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -409,7 +409,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SmoothingVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -434,7 +434,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SmoothingVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -459,7 +459,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::SmoothingVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SmoothingVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -483,7 +483,7 @@ public:
 		osgUtil::SmoothingVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::SmoothingVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::SmoothingVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SmoothingVisitor::apply(geode);
 

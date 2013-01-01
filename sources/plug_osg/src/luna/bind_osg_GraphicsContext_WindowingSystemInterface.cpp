@@ -113,7 +113,7 @@ public:
 		osg::GraphicsContext::WindowingSystemInterface* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::WindowingSystemInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits *)");
+			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::GraphicsContext * lret = self->createGraphicsContext(traits);
 		if(!lret) return 0; // Do not write NULL pointers.

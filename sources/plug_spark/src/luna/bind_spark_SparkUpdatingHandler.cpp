@@ -209,7 +209,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable *, osg::Transform *)");
+			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable *, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addSpark(spark, trackee);
 
@@ -228,7 +228,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::removeSpark(unsigned int)");
+			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::removeSpark(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeSpark(i);
 
@@ -248,7 +248,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::setTrackee(unsigned int, osg::Transform *)");
+			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::setTrackee(unsigned int, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackee(i, t);
 
@@ -267,7 +267,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->getTrackee(i);
 		////////////////////////////////////////////////////////////////////
@@ -289,7 +289,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->getTrackee(i);
 		////////////////////////////////////////////////////////////////////
@@ -320,7 +320,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int)");
+			luaL_error(L, "Invalid object in function call spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		spark::SparkDrawable * lret = self->getSpark(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -342,7 +342,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const spark::SparkDrawable * lret = self->getSpark(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -372,7 +372,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkUpdatingHandler::getNumSparks() const");
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkUpdatingHandler::getNumSparks() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumSparks();
 		lua_pushnumber(L,lret);
@@ -401,7 +401,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);
@@ -430,7 +430,7 @@ public:
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->SparkUpdatingHandler::handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);
@@ -458,7 +458,7 @@ const char LunaTraits< spark::SparkUpdatingHandler >::fullName[] = "spark::Spark
 const char LunaTraits< spark::SparkUpdatingHandler >::moduleName[] = "spark";
 const char* LunaTraits< spark::SparkUpdatingHandler >::parents[] = {"osgGA.GUIEventHandler", 0};
 const int LunaTraits< spark::SparkUpdatingHandler >::hash = 40097686;
-const int LunaTraits< spark::SparkUpdatingHandler >::uniqueIDs[] = {29676225,0};
+const int LunaTraits< spark::SparkUpdatingHandler >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< spark::SparkUpdatingHandler >::methods[] = {
 	{"addSpark", &luna_wrapper_spark_SparkUpdatingHandler::_bind_addSpark},

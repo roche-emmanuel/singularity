@@ -131,7 +131,7 @@ public:
 		osg::GraphicsOperation* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsOperation::base_release()");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsOperation::release();
 
@@ -152,7 +152,7 @@ public:
 		osg::GraphicsOperation* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsOperation::operator()(osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsOperation::operator()(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(object);
 
@@ -171,7 +171,7 @@ public:
 		osg::GraphicsOperation* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsOperation::operator()(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsOperation::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(context);
 

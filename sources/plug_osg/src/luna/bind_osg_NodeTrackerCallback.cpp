@@ -264,7 +264,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::setTrackNodePath(const osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::setTrackNodePath(const osg::NodePath &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackNodePath(nodePath);
 
@@ -287,7 +287,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::setTrackNodePath(const osg::ObserverNodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::setTrackNodePath(const osg::ObserverNodePath &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackNodePath(nodePath);
 
@@ -314,7 +314,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ObserverNodePath & osg::NodeTrackerCallback::getTrackNodePath()");
+			luaL_error(L, "Invalid object in function call osg::ObserverNodePath & osg::NodeTrackerCallback::getTrackNodePath(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ObserverNodePath* lret = &self->getTrackNodePath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -336,7 +336,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::setTrackNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::setTrackNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTrackNode(node);
 
@@ -354,7 +354,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::NodeTrackerCallback::getTrackNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osg::NodeTrackerCallback::getTrackNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getTrackNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osg::NodeTrackerCallback::getTrackNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osg::NodeTrackerCallback::getTrackNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->getTrackNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -410,7 +410,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::update(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::update(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->update(node);
 
@@ -429,7 +429,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerCallback::setName(name);
 
@@ -447,7 +447,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerCallback::computeDataVariance();
 
@@ -466,7 +466,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerCallback::setUserData(obj);
 
@@ -484,7 +484,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::NodeTrackerCallback::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::NodeTrackerCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->NodeTrackerCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -505,7 +505,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::NodeTrackerCallback::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::NodeTrackerCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->NodeTrackerCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -538,7 +538,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->NodeTrackerCallback::releaseGLObjects(_arg1);
 
@@ -556,7 +556,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeTrackerCallback::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeTrackerCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->NodeTrackerCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -582,7 +582,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeTrackerCallback::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::NodeTrackerCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->NodeTrackerCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -604,7 +604,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::NodeTrackerCallback::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::NodeTrackerCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->NodeTrackerCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -623,7 +623,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::NodeTrackerCallback::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::NodeTrackerCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->NodeTrackerCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -642,7 +642,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::NodeTrackerCallback::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::NodeTrackerCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->NodeTrackerCallback::className();
 		lua_pushstring(L,lret);
@@ -665,7 +665,7 @@ public:
 		osg::NodeTrackerCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeTrackerCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::operator()(osg::Node *, osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeTrackerCallback::operator()(osg::Node *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(node, nv);
 

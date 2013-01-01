@@ -216,7 +216,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vector3D::set(float, float, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Vector3D::set(float, float, float). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		self->set(x, y, z);
 
@@ -234,7 +234,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Vector3D::getSqrNorm() const");
+			luaL_error(L, "Invalid object in function call float SPK::Vector3D::getSqrNorm() const. Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		float lret = self->getSqrNorm();
 		lua_pushnumber(L,lret);
@@ -253,7 +253,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Vector3D::getNorm() const");
+			luaL_error(L, "Invalid object in function call float SPK::Vector3D::getNorm() const. Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		float lret = self->getNorm();
 		lua_pushnumber(L,lret);
@@ -272,7 +272,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Vector3D::normalize()");
+			luaL_error(L, "Invalid object in function call bool SPK::Vector3D::normalize(). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		bool lret = self->normalize();
 		lua_pushboolean(L,lret?1:0);
@@ -291,7 +291,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vector3D::revert()");
+			luaL_error(L, "Invalid object in function call void SPK::Vector3D::revert(). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		self->revert();
 
@@ -309,7 +309,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vector3D::abs()");
+			luaL_error(L, "Invalid object in function call void SPK::Vector3D::abs(). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		self->abs();
 
@@ -332,7 +332,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vector3D::crossProduct(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Vector3D::crossProduct(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		self->crossProduct(v);
 
@@ -357,7 +357,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator+=(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator+=(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->operator+=(v);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,7 +379,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator+=(float)");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator+=(float). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->operator+=(f);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -414,7 +414,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator-=(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator-=(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->operator-=(v);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,7 +436,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator-=(float)");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator-=(float). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->operator-=(f);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -467,7 +467,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator*=(float)");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator*=(float). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->operator*=(f);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -489,7 +489,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator/=(float)");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D & SPK::Vector3D::operator/=(float). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->operator/=(f);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -510,7 +510,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Vector3D::operator-() const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Vector3D::operator-() const. Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->operator-();
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -533,7 +533,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & SPK::Vector3D::operator[](size_t)");
+			luaL_error(L, "Invalid object in function call float & SPK::Vector3D::operator[](size_t). Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		float & lret = self->operator[](index);
 		lua_pushnumber(L,lret);
@@ -553,7 +553,7 @@ public:
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & SPK::Vector3D::operator[](size_t) const");
+			luaL_error(L, "Invalid object in function call const float & SPK::Vector3D::operator[](size_t) const. Got : '%s'",typeid(Luna< SPK::Vector3D >::check(L,1)).name());
 		}
 		const float & lret = self->operator[](index);
 		lua_pushnumber(L,lret);

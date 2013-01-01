@@ -381,7 +381,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -400,7 +400,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -419,7 +419,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -438,7 +438,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PrimitiveSet::Type osg::PrimitiveSet::getType() const");
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet::Type osg::PrimitiveSet::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PrimitiveSet::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -457,7 +457,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osg::PrimitiveSet::getDataPointer() const");
+			luaL_error(L, "Invalid object in function call const void * osg::PrimitiveSet::getDataPointer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const void * lret = self->getDataPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -478,7 +478,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getTotalDataSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getTotalDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTotalDataSize();
 		lua_pushnumber(L,lret);
@@ -497,7 +497,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::supportsBufferObject() const");
+			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::supportsBufferObject() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->supportsBufferObject();
 		lua_pushboolean(L,lret?1:0);
@@ -516,7 +516,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DrawElements * osg::PrimitiveSet::getDrawElements()");
+			luaL_error(L, "Invalid object in function call osg::DrawElements * osg::PrimitiveSet::getDrawElements(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DrawElements * lret = self->getDrawElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -537,7 +537,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DrawElements * osg::PrimitiveSet::getDrawElements() const");
+			luaL_error(L, "Invalid object in function call const osg::DrawElements * osg::PrimitiveSet::getDrawElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DrawElements * lret = self->getDrawElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,7 +568,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::setNumInstances(int)");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::setNumInstances(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNumInstances(n);
 
@@ -586,7 +586,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PrimitiveSet::getNumInstances() const");
+			luaL_error(L, "Invalid object in function call int osg::PrimitiveSet::getNumInstances() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getNumInstances();
 		lua_pushnumber(L,lret);
@@ -606,7 +606,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::setMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::setMode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(mode);
 
@@ -624,7 +624,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getMode() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -649,7 +649,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::draw(osg::State &, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::draw(osg::State &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->draw(state, useVertexBufferObjects);
 
@@ -668,7 +668,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::index(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::index(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->index(pos);
 		lua_pushnumber(L,lret);
@@ -687,7 +687,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getNumIndices() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getNumIndices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumIndices();
 		lua_pushnumber(L,lret);
@@ -707,7 +707,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::offsetIndices(int)");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::offsetIndices(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->offsetIndices(offset);
 
@@ -725,7 +725,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getNumPrimitives() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::getNumPrimitives() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumPrimitives();
 		lua_pushnumber(L,lret);
@@ -744,7 +744,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::computeRange() const");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::computeRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->computeRange();
 
@@ -763,7 +763,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrimitiveSet::setName(name);
 
@@ -781,7 +781,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrimitiveSet::computeDataVariance();
 
@@ -800,7 +800,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrimitiveSet::setUserData(obj);
 
@@ -818,7 +818,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PrimitiveSet::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PrimitiveSet::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PrimitiveSet::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -839,7 +839,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PrimitiveSet::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PrimitiveSet::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PrimitiveSet::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -872,7 +872,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrimitiveSet::releaseGLObjects(state);
 
@@ -891,7 +891,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PrimitiveSet::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -910,7 +910,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PrimitiveSet::libraryName();
 		lua_pushstring(L,lret);
@@ -929,7 +929,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PrimitiveSet::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PrimitiveSet::className();
 		lua_pushstring(L,lret);
@@ -948,7 +948,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osg::PrimitiveSet::base_getDataPointer() const");
+			luaL_error(L, "Invalid object in function call const void * osg::PrimitiveSet::base_getDataPointer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const void * lret = self->PrimitiveSet::getDataPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -969,7 +969,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::base_getTotalDataSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::base_getTotalDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->PrimitiveSet::getTotalDataSize();
 		lua_pushnumber(L,lret);
@@ -988,7 +988,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::base_supportsBufferObject() const");
+			luaL_error(L, "Invalid object in function call bool osg::PrimitiveSet::base_supportsBufferObject() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PrimitiveSet::supportsBufferObject();
 		lua_pushboolean(L,lret?1:0);
@@ -1007,7 +1007,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DrawElements * osg::PrimitiveSet::base_getDrawElements()");
+			luaL_error(L, "Invalid object in function call osg::DrawElements * osg::PrimitiveSet::base_getDrawElements(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DrawElements * lret = self->PrimitiveSet::getDrawElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1028,7 +1028,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DrawElements * osg::PrimitiveSet::base_getDrawElements() const");
+			luaL_error(L, "Invalid object in function call const osg::DrawElements * osg::PrimitiveSet::base_getDrawElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DrawElements * lret = self->PrimitiveSet::getDrawElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1058,7 +1058,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::base_getNumPrimitives() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PrimitiveSet::base_getNumPrimitives() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->PrimitiveSet::getNumPrimitives();
 		lua_pushnumber(L,lret);
@@ -1077,7 +1077,7 @@ public:
 		osg::PrimitiveSet* self=Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_computeRange() const");
+			luaL_error(L, "Invalid object in function call void osg::PrimitiveSet::base_computeRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrimitiveSet::computeRange();
 

@@ -121,7 +121,7 @@ public:
 		wxMimeTypesManager* self=(Luna< wxMimeTypesManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo *)");
+			luaL_error(L, "Invalid object in function call void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo *). Got : '%s'",typeid(Luna< wxMimeTypesManager >::check(L,1)).name());
 		}
 		self->AddFallbacks(fallbacks);
 
@@ -140,7 +140,7 @@ public:
 		wxMimeTypesManager* self=(Luna< wxMimeTypesManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString &). Got : '%s'",typeid(Luna< wxMimeTypesManager >::check(L,1)).name());
 		}
 		wxFileType * lret = self->GetFileTypeFromExtension(extension);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -162,7 +162,7 @@ public:
 		wxMimeTypesManager* self=(Luna< wxMimeTypesManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString &). Got : '%s'",typeid(Luna< wxMimeTypesManager >::check(L,1)).name());
 		}
 		wxFileType * lret = self->GetFileTypeFromMimeType(mimeType);
 		if(!lret) return 0; // Do not write NULL pointers.

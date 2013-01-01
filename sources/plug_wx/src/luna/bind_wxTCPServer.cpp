@@ -166,7 +166,7 @@ public:
 		wxTCPServer* self=Luna< wxObject >::checkSubType< wxTCPServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPServer::Create(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTCPServer::Create(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(service);
 		lua_pushboolean(L,lret?1:0);
@@ -186,7 +186,7 @@ public:
 		wxTCPServer* self=Luna< wxObject >::checkSubType< wxTCPServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPServer::OnAcceptConnection(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPServer::OnAcceptConnection(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConnectionBase * lret = self->OnAcceptConnection(topic);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -207,7 +207,7 @@ public:
 		wxTCPServer* self=Luna< wxObject >::checkSubType< wxTCPServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTCPServer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTCPServer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTCPServer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -229,7 +229,7 @@ public:
 		wxTCPServer* self=Luna< wxObject >::checkSubType< wxTCPServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTCPServer::base_Create(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTCPServer::base_Create(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTCPServer::Create(service);
 		lua_pushboolean(L,lret?1:0);
@@ -249,7 +249,7 @@ public:
 		wxTCPServer* self=Luna< wxObject >::checkSubType< wxTCPServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPServer::base_OnAcceptConnection(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxTCPServer::base_OnAcceptConnection(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConnectionBase * lret = self->wxTCPServer::OnAcceptConnection(topic);
 		if(!lret) return 0; // Do not write NULL pointers.

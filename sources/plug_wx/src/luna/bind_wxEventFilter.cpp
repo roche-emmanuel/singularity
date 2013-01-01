@@ -130,7 +130,7 @@ public:
 		wxEventFilter* self=(Luna< wxEventFilter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxEventFilter::FilterEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call int wxEventFilter::FilterEvent(wxEvent &). Got : '%s'",typeid(Luna< wxEventFilter >::check(L,1)).name());
 		}
 		int lret = self->FilterEvent(event);
 		lua_pushnumber(L,lret);

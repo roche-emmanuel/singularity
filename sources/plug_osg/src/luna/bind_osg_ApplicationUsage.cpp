@@ -319,7 +319,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setApplicationName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setApplicationName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setApplicationName(name);
 
@@ -337,7 +337,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getApplicationName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getApplicationName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getApplicationName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -357,7 +357,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setDescription(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setDescription(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDescription(desc);
 
@@ -375,7 +375,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getDescription() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getDescription() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -397,7 +397,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type, const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addUsageExplanation(type, option, explanation);
 
@@ -416,7 +416,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineUsage(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineUsage(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCommandLineUsage(explanation);
 
@@ -434,7 +434,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getCommandLineUsage() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getCommandLineUsage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getCommandLineUsage();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -458,7 +458,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addCommandLineOption(const std::string &, const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addCommandLineOption(const std::string &, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addCommandLineOption(option, explanation, defaultValue);
 
@@ -476,7 +476,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const");
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getCommandLineOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -497,7 +497,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const");
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getCommandLineOptionsDefaults();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -523,7 +523,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addEnvironmentalVariable(const std::string &, const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addEnvironmentalVariable(const std::string &, const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addEnvironmentalVariable(option, explanation, defaultValue);
 
@@ -541,7 +541,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const");
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getEnvironmentalVariables();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -562,7 +562,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const");
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getEnvironmentalVariablesDefaults();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -585,7 +585,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addKeyboardMouseBinding(option, explanation);
 
@@ -603,7 +603,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const");
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ApplicationUsage::UsageMap* lret = &self->getKeyboardMouseBindings();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -634,7 +634,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, unsigned int, unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, unsigned int, unsigned int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->write(output, type, widthOfOutput, showDefaults);
 
@@ -657,7 +657,7 @@ public:
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream &)");
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->writeEnvironmentSettings(output);
 

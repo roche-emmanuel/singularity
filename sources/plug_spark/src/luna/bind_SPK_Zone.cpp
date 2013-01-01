@@ -204,7 +204,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Zone::setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Zone::setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setPosition(v);
 
@@ -222,7 +222,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Zone::getPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Zone::getPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -243,7 +243,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Zone::getTransformedPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Zone::getTransformedPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -270,7 +270,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Zone::generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Zone::generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->generatePosition(particle, full);
 
@@ -293,7 +293,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Zone::contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Zone::contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -324,7 +324,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Zone::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Zone::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -349,7 +349,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Zone::moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Zone::moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->moveAtBorder(point, inside);
 
@@ -372,7 +372,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Zone::computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Zone::computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -395,7 +395,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Zone::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Zone::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Zone::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,7 +421,7 @@ public:
 		SPK::Zone* self=Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Zone::base_setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Zone::base_setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Zone::setPosition(v);
 
@@ -430,6 +430,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_Transformable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_Transformable(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_Transformable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_Transformable function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::Transformable* res = dynamic_cast<SPK::Transformable*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::Transformable >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -470,6 +496,7 @@ luna_RegType LunaTraits< SPK::Zone >::methods[] = {
 	{"base_setPosition", &luna_wrapper_SPK_Zone::_bind_base_setPosition},
 	{"__eq", &luna_wrapper_SPK_Zone::_bind___eq},
 	{"getTable", &luna_wrapper_SPK_Zone::_bind_getTable},
+	{"asTransformable", &luna_wrapper_SPK_Zone::_bind_baseCast_SPK_Transformable},
 	{0,0}
 };
 

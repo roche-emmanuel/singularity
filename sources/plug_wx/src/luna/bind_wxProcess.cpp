@@ -321,7 +321,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::CloseOutput()");
+			luaL_error(L, "Invalid object in function call void wxProcess::CloseOutput(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CloseOutput();
 
@@ -339,7 +339,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::Detach()");
+			luaL_error(L, "Invalid object in function call void wxProcess::Detach(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Detach();
 
@@ -357,7 +357,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxProcess::GetErrorStream() const");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxProcess::GetErrorStream() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetErrorStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -378,7 +378,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxProcess::GetInputStream() const");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxProcess::GetInputStream() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetInputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -399,7 +399,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOutputStream * wxProcess::GetOutputStream() const");
+			luaL_error(L, "Invalid object in function call wxOutputStream * wxProcess::GetOutputStream() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxOutputStream * lret = self->GetOutputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -420,7 +420,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxProcess::GetPid() const");
+			luaL_error(L, "Invalid object in function call long wxProcess::GetPid() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetPid();
 		lua_pushnumber(L,lret);
@@ -439,7 +439,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProcess::IsErrorAvailable() const");
+			luaL_error(L, "Invalid object in function call bool wxProcess::IsErrorAvailable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsErrorAvailable();
 		lua_pushboolean(L,lret?1:0);
@@ -458,7 +458,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProcess::IsInputAvailable() const");
+			luaL_error(L, "Invalid object in function call bool wxProcess::IsInputAvailable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsInputAvailable();
 		lua_pushboolean(L,lret?1:0);
@@ -477,7 +477,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProcess::IsInputOpened() const");
+			luaL_error(L, "Invalid object in function call bool wxProcess::IsInputOpened() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsInputOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -498,7 +498,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::OnTerminate(int, int)");
+			luaL_error(L, "Invalid object in function call void wxProcess::OnTerminate(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnTerminate(pid, status);
 
@@ -516,7 +516,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::Redirect()");
+			luaL_error(L, "Invalid object in function call void wxProcess::Redirect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Redirect();
 
@@ -569,7 +569,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxProcess::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProcess::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxProcess::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -591,7 +591,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxProcess::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProcess::QueueEvent(event);
 
@@ -614,7 +614,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxProcess::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProcess::AddPendingEvent(event);
 
@@ -637,7 +637,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxProcess::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxProcess::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxProcess::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -657,7 +657,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxProcess::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProcess::SetNextHandler(handler);
 
@@ -676,7 +676,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxProcess::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProcess::SetPreviousHandler(handler);
 
@@ -696,7 +696,7 @@ public:
 		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProcess::base_OnTerminate(int, int)");
+			luaL_error(L, "Invalid object in function call void wxProcess::base_OnTerminate(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxProcess::OnTerminate(pid, status);
 

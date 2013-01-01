@@ -293,7 +293,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::setStateCache(osgUtil::ShaderGenCache *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::setStateCache(osgUtil::ShaderGenCache *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStateCache(stateCache);
 
@@ -311,7 +311,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::ShaderGenCache * osgUtil::ShaderGenVisitor::getStateCache() const");
+			luaL_error(L, "Invalid object in function call osgUtil::ShaderGenCache * osgUtil::ShaderGenVisitor::getStateCache() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::ShaderGenCache * lret = self->getStateCache();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -333,7 +333,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::setRootStateSet(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::setRootStateSet(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRootStateSet(stateSet);
 
@@ -351,7 +351,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenVisitor::getRootStateSet() const");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenVisitor::getRootStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getRootStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -377,7 +377,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -400,7 +400,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -427,7 +427,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -445,7 +445,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::ShaderGenVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::ShaderGenVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ShaderGenVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -464,7 +464,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::ShaderGenVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::ShaderGenVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ShaderGenVisitor::className();
 		lua_pushstring(L,lret);
@@ -483,7 +483,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::ShaderGenVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::ShaderGenVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->ShaderGenVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -505,7 +505,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::ShaderGenVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::ShaderGenVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->ShaderGenVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -533,7 +533,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::ShaderGenVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::ShaderGenVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->ShaderGenVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -558,7 +558,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::ShaderGenVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::ShaderGenVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->ShaderGenVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -583,7 +583,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::ShaderGenVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::ShaderGenVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->ShaderGenVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -607,7 +607,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShaderGenVisitor::apply(node);
 
@@ -630,7 +630,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShaderGenVisitor::apply(geode);
 
@@ -657,7 +657,7 @@ public:
 		osgUtil::ShaderGenVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShaderGenVisitor::reset();
 

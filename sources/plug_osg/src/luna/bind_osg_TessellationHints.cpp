@@ -436,7 +436,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -462,7 +462,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -484,7 +484,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -503,7 +503,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -522,7 +522,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -542,7 +542,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setTessellationMode(osg::TessellationHints::TessellationMode)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setTessellationMode(osg::TessellationHints::TessellationMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTessellationMode(mode);
 
@@ -560,7 +560,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::TessellationHints::TessellationMode osg::TessellationHints::getTessellationMode() const");
+			luaL_error(L, "Invalid object in function call osg::TessellationHints::TessellationMode osg::TessellationHints::getTessellationMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::TessellationHints::TessellationMode lret = self->getTessellationMode();
 		lua_pushnumber(L,lret);
@@ -580,7 +580,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setDetailRatio(float)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setDetailRatio(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDetailRatio(ratio);
 
@@ -598,7 +598,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::TessellationHints::getDetailRatio() const");
+			luaL_error(L, "Invalid object in function call float osg::TessellationHints::getDetailRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getDetailRatio();
 		lua_pushnumber(L,lret);
@@ -618,7 +618,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setTargetNumFaces(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setTargetNumFaces(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTargetNumFaces(target);
 
@@ -636,7 +636,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::TessellationHints::getTargetNumFaces() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::TessellationHints::getTargetNumFaces() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTargetNumFaces();
 		lua_pushnumber(L,lret);
@@ -656,7 +656,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateFrontFace(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateFrontFace(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateFrontFace(on);
 
@@ -674,7 +674,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateFrontFace() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateFrontFace() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateFrontFace();
 		lua_pushboolean(L,lret?1:0);
@@ -694,7 +694,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateBackFace(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateBackFace(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateBackFace(on);
 
@@ -712,7 +712,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateBackFace() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateBackFace() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateBackFace();
 		lua_pushboolean(L,lret?1:0);
@@ -732,7 +732,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateNormals(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateNormals(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateNormals(on);
 
@@ -750,7 +750,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateNormals() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateNormals() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateNormals();
 		lua_pushboolean(L,lret?1:0);
@@ -770,7 +770,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateTextureCoords(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateTextureCoords(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateTextureCoords(on);
 
@@ -788,7 +788,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateTextureCoords() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateTextureCoords() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateTextureCoords();
 		lua_pushboolean(L,lret?1:0);
@@ -808,7 +808,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateTop(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateTop(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateTop(on);
 
@@ -826,7 +826,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateTop() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateTop() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateTop();
 		lua_pushboolean(L,lret?1:0);
@@ -846,7 +846,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateBody(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateBody(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateBody(on);
 
@@ -864,7 +864,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateBody() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateBody() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateBody();
 		lua_pushboolean(L,lret?1:0);
@@ -884,7 +884,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateBottom(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::setCreateBottom(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateBottom(on);
 
@@ -902,7 +902,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateBottom() const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::getCreateBottom() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateBottom();
 		lua_pushboolean(L,lret?1:0);
@@ -922,7 +922,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TessellationHints::setName(name);
 
@@ -940,7 +940,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TessellationHints::computeDataVariance();
 
@@ -959,7 +959,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TessellationHints::setUserData(obj);
 
@@ -977,7 +977,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TessellationHints::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TessellationHints::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->TessellationHints::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -998,7 +998,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TessellationHints::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TessellationHints::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->TessellationHints::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1031,7 +1031,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::TessellationHints::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TessellationHints::releaseGLObjects(_arg1);
 
@@ -1049,7 +1049,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TessellationHints::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1075,7 +1075,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TessellationHints::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->TessellationHints::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1097,7 +1097,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::TessellationHints::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->TessellationHints::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1116,7 +1116,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TessellationHints::libraryName();
 		lua_pushstring(L,lret);
@@ -1135,7 +1135,7 @@ public:
 		osg::TessellationHints* self=Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::TessellationHints::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->TessellationHints::className();
 		lua_pushstring(L,lret);

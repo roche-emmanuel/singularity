@@ -103,7 +103,7 @@ public:
 		wxRecursionGuard* self=(Luna< wxRecursionGuard >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRecursionGuard::IsInside() const");
+			luaL_error(L, "Invalid object in function call bool wxRecursionGuard::IsInside() const. Got : '%s'",typeid(Luna< wxRecursionGuard >::check(L,1)).name());
 		}
 		bool lret = self->IsInside();
 		lua_pushboolean(L,lret?1:0);

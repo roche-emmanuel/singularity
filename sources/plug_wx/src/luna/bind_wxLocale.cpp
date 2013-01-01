@@ -467,7 +467,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::AddCatalog(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxLocale::AddCatalog(const wxString &). Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->AddCatalog(domain);
 		lua_pushboolean(L,lret?1:0);
@@ -488,7 +488,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::AddCatalog(const wxString &, wxLanguage)");
+			luaL_error(L, "Invalid object in function call bool wxLocale::AddCatalog(const wxString &, wxLanguage). Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->AddCatalog(domain, msgIdLanguage);
 		lua_pushboolean(L,lret?1:0);
@@ -510,7 +510,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::AddCatalog(const wxString &, wxLanguage, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxLocale::AddCatalog(const wxString &, wxLanguage, const wxString &). Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->AddCatalog(domain, msgIdLanguage, msgIdCharset);
 		lua_pushboolean(L,lret?1:0);
@@ -539,7 +539,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLocale::GetCanonicalName() const");
+			luaL_error(L, "Invalid object in function call wxString wxLocale::GetCanonicalName() const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		wxString lret = self->GetCanonicalName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -562,7 +562,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLocale::GetHeaderValue(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxLocale::GetHeaderValue(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		wxString lret = self->GetHeaderValue(header, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -581,7 +581,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxLocale::GetLanguage() const");
+			luaL_error(L, "Invalid object in function call int wxLocale::GetLanguage() const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		int lret = self->GetLanguage();
 		lua_pushnumber(L,lret);
@@ -600,7 +600,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetLocale() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetLocale() const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetLocale();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -619,7 +619,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetName() const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -642,7 +642,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetString(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetString(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetString(origString, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -667,7 +667,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetString(const wxString &, const wxString &, unsigned int, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetString(const wxString &, const wxString &, unsigned int, const wxString &) const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetString(origString, origString2, n, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -695,7 +695,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLocale::GetSysName() const");
+			luaL_error(L, "Invalid object in function call wxString wxLocale::GetSysName() const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		wxString lret = self->GetSysName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -718,7 +718,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::Init(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxLocale::Init(int, int). Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->Init(language, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -743,7 +743,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::Init(const wxString &, const wxString &, const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxLocale::Init(const wxString &, const wxString &, const wxString &, bool). Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->Init(name, shortName, locale, bLoadDefault);
 		lua_pushboolean(L,lret?1:0);
@@ -772,7 +772,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::IsLoaded(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxLocale::IsLoaded(const wxString &) const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->IsLoaded(domain);
 		lua_pushboolean(L,lret?1:0);
@@ -791,7 +791,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLocale::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxLocale::IsOk() const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -985,7 +985,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::base_GetString(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::base_GetString(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		const wxString & lret = self->wxLocale::GetString(origString, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1010,7 +1010,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::base_GetString(const wxString &, const wxString &, unsigned int, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::base_GetString(const wxString &, const wxString &, unsigned int, const wxString &) const. Got : '%s'",typeid(Luna< wxLocale >::check(L,1)).name());
 		}
 		const wxString & lret = self->wxLocale::GetString(origString, origString2, n, domain);
 		lua_pushlstring(L,lret.data(),lret.size());

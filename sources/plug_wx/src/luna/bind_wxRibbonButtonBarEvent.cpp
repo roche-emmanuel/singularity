@@ -146,7 +146,7 @@ public:
 		wxRibbonButtonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonButtonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonButtonBar * wxRibbonButtonBarEvent::GetBar()");
+			luaL_error(L, "Invalid object in function call wxRibbonButtonBar * wxRibbonButtonBarEvent::GetBar(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonButtonBar * lret = self->GetBar();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -168,7 +168,7 @@ public:
 		wxRibbonButtonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonButtonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonButtonBarEvent::SetBar(wxRibbonButtonBar *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonButtonBarEvent::SetBar(wxRibbonButtonBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBar(bar);
 
@@ -187,7 +187,7 @@ public:
 		wxRibbonButtonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonButtonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonButtonBarEvent::PopupMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonButtonBarEvent::PopupMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PopupMenu(menu);
 		lua_pushboolean(L,lret?1:0);
@@ -206,7 +206,7 @@ public:
 		wxRibbonButtonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonButtonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonButtonBarEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonButtonBarEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxRibbonButtonBarEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -227,7 +227,7 @@ public:
 		wxRibbonButtonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonButtonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonButtonBarEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonButtonBarEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxRibbonButtonBarEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > >",name);
 	}
+
 };
 
 std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > >* LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper 
 luna_RegType LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_std_string_osg_ref_ptr_osgDB_ObjectWrapper::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_std_string_osg_ref_ptr_osgDB_ObjectWrapper::_bind___eq},
+	
 	{0,0}
 };
 

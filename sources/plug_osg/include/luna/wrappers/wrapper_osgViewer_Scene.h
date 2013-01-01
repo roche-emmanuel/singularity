@@ -90,7 +90,7 @@ public:
 		wrapper_osgViewer_Scene* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static osgViewer::Scene * osgViewer::Scene::public_getOrCreateScene(osg::Node *)");
+			luaL_error(L, "Invalid object in function call static osgViewer::Scene * osgViewer::Scene::public_getOrCreateScene(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgViewer::Scene * lret = self->public_getOrCreateScene(node);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -113,7 +113,7 @@ public:
 		wrapper_osgViewer_Scene* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -131,7 +131,7 @@ public:
 		wrapper_osgViewer_Scene* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

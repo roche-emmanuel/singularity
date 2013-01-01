@@ -3,6 +3,7 @@ local Class = require("classBuilder"){name="Tools",bases="base.Object"};
 require "osg"
 require "osg.NotificationHandler"
 require "extensions.osg"
+local fs = require "base.FileSystem"
 
 -- osg.setNotifyLevel(osg.DEBUG_FP)
 osg.setNotifyLevel(osg.INFO)
@@ -64,7 +65,12 @@ function Class:loadImage(filename)
 		return;
 	end
 	
+	self:debug2_v("Successfully loaded image from file ", filename)
 	return image;
+end
+
+function Class:getImage(file)
+	return self:loadImage(fs:getRootPath(true) .. file)
 end
 
 -- Create a texture from an input image.

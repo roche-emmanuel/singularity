@@ -246,7 +246,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::setActive(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::setActive(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setActive(active);
 
@@ -265,7 +265,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::setTank(int)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::setTank(int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setTank(tank);
 
@@ -284,7 +284,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::changeTank(int)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::changeTank(int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->changeTank(deltaTank);
 
@@ -303,7 +303,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::setFlow(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::setFlow(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setFlow(flow);
 
@@ -322,7 +322,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::changeFlow(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::changeFlow(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->changeFlow(deltaFlow);
 
@@ -342,7 +342,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::setForce(float, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::setForce(float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setForce(min, max);
 
@@ -364,7 +364,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::setZone(SPK::Zone *, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::setZone(SPK::Zone *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setZone(zone, full);
 
@@ -382,7 +382,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Emitter::isActive() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Emitter::isActive() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isActive();
 		lua_pushboolean(L,lret?1:0);
@@ -401,7 +401,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Emitter::getTank() const");
+			luaL_error(L, "Invalid object in function call int SPK::Emitter::getTank() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		int lret = self->getTank();
 		lua_pushnumber(L,lret);
@@ -420,7 +420,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Emitter::getFlow() const");
+			luaL_error(L, "Invalid object in function call float SPK::Emitter::getFlow() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getFlow();
 		lua_pushnumber(L,lret);
@@ -439,7 +439,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Emitter::getForceMin() const");
+			luaL_error(L, "Invalid object in function call float SPK::Emitter::getForceMin() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getForceMin();
 		lua_pushnumber(L,lret);
@@ -458,7 +458,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Emitter::getForceMax() const");
+			luaL_error(L, "Invalid object in function call float SPK::Emitter::getForceMax() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getForceMax();
 		lua_pushnumber(L,lret);
@@ -477,7 +477,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::Emitter::getZone() const");
+			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::Emitter::getZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Zone * lret = self->getZone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -498,7 +498,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Emitter::isFullZone() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Emitter::isFullZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isFullZone();
 		lua_pushboolean(L,lret?1:0);
@@ -517,7 +517,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Emitter::isSleeping() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Emitter::isSleeping() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isSleeping();
 		lua_pushboolean(L,lret?1:0);
@@ -541,7 +541,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::emit(SPK::Particle &) const");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::emit(SPK::Particle &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->emit(particle);
 
@@ -564,7 +564,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Emitter::generateVelocity(SPK::Particle &) const");
+			luaL_error(L, "Invalid object in function call void SPK::Emitter::generateVelocity(SPK::Particle &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->generateVelocity(particle);
 
@@ -583,7 +583,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Emitter::findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Emitter::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -605,7 +605,7 @@ public:
 		SPK::Emitter* self=Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Emitter::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Emitter::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Emitter::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -617,6 +617,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_Transformable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_Transformable(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_Transformable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_Transformable function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::Transformable* res = dynamic_cast<SPK::Transformable*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::Transformable >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -662,6 +688,7 @@ luna_RegType LunaTraits< SPK::Emitter >::methods[] = {
 	{"base_findByName", &luna_wrapper_SPK_Emitter::_bind_base_findByName},
 	{"__eq", &luna_wrapper_SPK_Emitter::_bind___eq},
 	{"getTable", &luna_wrapper_SPK_Emitter::_bind_getTable},
+	{"asTransformable", &luna_wrapper_SPK_Emitter::_bind_baseCast_SPK_Transformable},
 	{0,0}
 };
 

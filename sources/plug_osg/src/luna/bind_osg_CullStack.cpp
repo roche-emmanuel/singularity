@@ -483,7 +483,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::reset()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::reset(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -501,7 +501,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCullingSet()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCullingSet(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->pushCullingSet();
 
@@ -519,7 +519,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popCullingSet()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popCullingSet(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popCullingSet();
 
@@ -542,7 +542,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList &)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::setOccluderList(const osg::ShadowVolumeOccluderList &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->setOccluderList(svol);
 
@@ -560,7 +560,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList()");
+			luaL_error(L, "Invalid object in function call osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::ShadowVolumeOccluderList* lret = &self->getOccluderList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -581,7 +581,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const");
+			luaL_error(L, "Invalid object in function call const osg::ShadowVolumeOccluderList & osg::CullStack::getOccluderList() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::ShadowVolumeOccluderList* lret = &self->getOccluderList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -612,7 +612,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushViewport(osg::Viewport *)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushViewport(osg::Viewport *). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->pushViewport(viewport);
 
@@ -630,7 +630,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popViewport()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popViewport(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popViewport();
 
@@ -649,7 +649,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd *)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushProjectionMatrix(osg::RefMatrixd *). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->pushProjectionMatrix(matrix);
 
@@ -667,7 +667,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popProjectionMatrix()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popProjectionMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popProjectionMatrix();
 
@@ -687,7 +687,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd *, osg::Transform::ReferenceFrame)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushModelViewMatrix(osg::RefMatrixd *, osg::Transform::ReferenceFrame). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->pushModelViewMatrix(matrix, referenceFrame);
 
@@ -705,7 +705,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popModelViewMatrix()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popModelViewMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popModelViewMatrix();
 
@@ -723,7 +723,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::getFrustumVolume()");
+			luaL_error(L, "Invalid object in function call float osg::CullStack::getFrustumVolume(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->getFrustumVolume();
 		lua_pushnumber(L,lret);
@@ -748,7 +748,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::Vec3f &, float) const");
+			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->pixelSize(v, radius);
 		lua_pushnumber(L,lret);
@@ -772,7 +772,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::BoundingSphered &) const");
+			luaL_error(L, "Invalid object in function call float osg::CullStack::pixelSize(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->pixelSize(bs);
 		lua_pushnumber(L,lret);
@@ -806,7 +806,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::Vec3f &, float) const");
+			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->clampedPixelSize(v, radius);
 		lua_pushnumber(L,lret);
@@ -830,7 +830,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::BoundingSphered &) const");
+			luaL_error(L, "Invalid object in function call float osg::CullStack::clampedPixelSize(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		float lret = self->clampedPixelSize(bs);
 		lua_pushnumber(L,lret);
@@ -863,7 +863,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::disableAndPushOccludersCurrentMask(osg::NodePath &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->disableAndPushOccludersCurrentMask(nodePath);
 
@@ -886,7 +886,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popOccludersCurrentMask(osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popOccludersCurrentMask(osg::NodePath &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popOccludersCurrentMask(nodePath);
 
@@ -909,7 +909,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const std::vector< osg::Vec3f > &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(vertices);
 		lua_pushboolean(L,lret?1:0);
@@ -933,7 +933,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingBoxd &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -957,7 +957,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingSphered &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -981,7 +981,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullStack::isCulled(const osg::Node &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(node);
 		lua_pushboolean(L,lret?1:0);
@@ -1011,7 +1011,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCurrentMask()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushCurrentMask(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->pushCurrentMask();
 
@@ -1029,7 +1029,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popCurrentMask()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popCurrentMask(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popCurrentMask();
 
@@ -1047,7 +1047,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack()");
+			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getClipSpaceCullingStack(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::CullStack::CullingStack* lret = &self->getClipSpaceCullingStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1068,7 +1068,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack()");
+			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getProjectionCullingStack(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::CullStack::CullingStack* lret = &self->getProjectionCullingStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1089,7 +1089,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack()");
+			luaL_error(L, "Invalid object in function call osg::CullStack::CullingStack & osg::CullStack::getModelViewCullingStack(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::CullStack::CullingStack* lret = &self->getModelViewCullingStack();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1110,7 +1110,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullingSet & osg::CullStack::getCurrentCullingSet()");
+			luaL_error(L, "Invalid object in function call osg::CullingSet & osg::CullStack::getCurrentCullingSet(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::CullingSet* lret = &self->getCurrentCullingSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1131,7 +1131,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const");
+			luaL_error(L, "Invalid object in function call const osg::CullingSet & osg::CullStack::getCurrentCullingSet() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::CullingSet* lret = &self->getCurrentCullingSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1161,7 +1161,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Viewport * osg::CullStack::getViewport()");
+			luaL_error(L, "Invalid object in function call osg::Viewport * osg::CullStack::getViewport(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::Viewport * lret = self->getViewport();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1182,7 +1182,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getModelViewMatrix()");
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getModelViewMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::RefMatrixd * lret = self->getModelViewMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1203,7 +1203,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getProjectionMatrix()");
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::getProjectionMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::RefMatrixd * lret = self->getProjectionMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1224,7 +1224,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::CullStack::getWindowMatrix()");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::CullStack::getWindowMatrix(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getWindowMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1246,7 +1246,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osg::CullStack::getMVPW()");
+			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osg::CullStack::getMVPW(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::RefMatrixd * lret = self->getMVPW();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1267,7 +1267,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getReferenceViewPoint() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getReferenceViewPoint();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1293,7 +1293,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::pushReferenceViewPoint(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->pushReferenceViewPoint(viewPoint);
 
@@ -1311,7 +1311,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::popReferenceViewPoint()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::popReferenceViewPoint(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->popReferenceViewPoint();
 
@@ -1329,7 +1329,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getEyeLocal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getEyeLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getEyeLocal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1350,7 +1350,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getViewPointLocal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::CullStack::getViewPointLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getViewPointLocal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1371,7 +1371,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getUpLocal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getUpLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::Vec3f stack_lret = self->getUpLocal();
 		const osg::Vec3f* lret = new const osg::Vec3f(stack_lret);
@@ -1393,7 +1393,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getLookVectorLocal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f osg::CullStack::getLookVectorLocal() const. Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		const osg::Vec3f stack_lret = self->getLookVectorLocal();
 		const osg::Vec3f* lret = new const osg::Vec3f(stack_lret);
@@ -1415,7 +1415,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::base_setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::base_setDefaults(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->CullStack::setDefaults();
 
@@ -1438,7 +1438,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->CullStack::inheritCullSettings(settings);
 
@@ -1462,7 +1462,7 @@ public:
 		osg::CullStack* self=Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::base_inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->CullStack::inheritCullSettings(settings, inheritanceMask);
 

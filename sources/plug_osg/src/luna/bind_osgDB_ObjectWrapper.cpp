@@ -239,7 +239,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::setUpdatedVersion(int)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::setUpdatedVersion(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUpdatedVersion(ver);
 
@@ -257,7 +257,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Object * osgDB::ObjectWrapper::getProto() const");
+			luaL_error(L, "Invalid object in function call const osg::Object * osgDB::ObjectWrapper::getProto() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Object * lret = self->getProto();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -278,7 +278,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::ObjectWrapper::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::ObjectWrapper::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -297,7 +297,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::StringList & osgDB::ObjectWrapper::getAssociates() const");
+			luaL_error(L, "Invalid object in function call const osgDB::StringList & osgDB::ObjectWrapper::getAssociates() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::StringList* lret = &self->getAssociates();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -322,7 +322,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::addSerializer(osgDB::BaseSerializer *, osgDB::BaseSerializer::Type)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::addSerializer(osgDB::BaseSerializer *, osgDB::BaseSerializer::Type). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addSerializer(s, t);
 
@@ -341,7 +341,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::markSerializerAsRemoved(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::markSerializerAsRemoved(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->markSerializerAsRemoved(name);
 
@@ -360,7 +360,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::BaseSerializer * osgDB::ObjectWrapper::getSerializer(const std::string &)");
+			luaL_error(L, "Invalid object in function call osgDB::BaseSerializer * osgDB::ObjectWrapper::getSerializer(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::BaseSerializer * lret = self->getSerializer(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -382,7 +382,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::addFinishedObjectReadCallback(osgDB::FinishedObjectReadCallback *)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::addFinishedObjectReadCallback(osgDB::FinishedObjectReadCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addFinishedObjectReadCallback(forc);
 
@@ -410,7 +410,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ObjectWrapper::read(osgDB::InputStream &, osg::Object &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::ObjectWrapper::read(osgDB::InputStream &, osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->read(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -439,7 +439,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ObjectWrapper::write(osgDB::OutputStream &, const osg::Object &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::ObjectWrapper::write(osgDB::OutputStream &, const osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->write(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -468,7 +468,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ObjectWrapper::readSchema(const osgDB::StringList &, const std::vector< int > &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::ObjectWrapper::readSchema(const osgDB::StringList &, const std::vector< int > &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->readSchema(properties, types);
 		lua_pushboolean(L,lret?1:0);
@@ -497,7 +497,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::writeSchema(osgDB::StringList &, std::vector< int > &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::writeSchema(osgDB::StringList &, std::vector< int > &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->writeSchema(properties, types);
 
@@ -515,7 +515,7 @@ public:
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::resetSchema()");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectWrapper::resetSchema(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->resetSchema();
 

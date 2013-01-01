@@ -256,7 +256,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Sphere::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Sphere::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -276,7 +276,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Sphere::setRadius(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Sphere::setRadius(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setRadius(radius);
 
@@ -294,7 +294,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Sphere::getRadius() const");
+			luaL_error(L, "Invalid object in function call float SPK::Sphere::getRadius() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getRadius();
 		lua_pushnumber(L,lret);
@@ -319,7 +319,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Sphere::generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Sphere::generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->generatePosition(particle, full);
 
@@ -342,7 +342,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Sphere::contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Sphere::contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -373,7 +373,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Sphere::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Sphere::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -398,7 +398,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Sphere::moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Sphere::moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->moveAtBorder(point, inside);
 
@@ -421,7 +421,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Sphere::computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Sphere::computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -468,7 +468,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Sphere::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Sphere::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Sphere::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -494,7 +494,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Sphere::base_setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Sphere::base_setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Sphere::setPosition(v);
 
@@ -512,7 +512,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Sphere::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Sphere::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Sphere::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -537,7 +537,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Sphere::base_generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Sphere::base_generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Sphere::generatePosition(particle, full);
 
@@ -560,7 +560,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Sphere::base_contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Sphere::base_contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->Sphere::contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -591,7 +591,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Sphere::base_intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Sphere::base_intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->Sphere::intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -616,7 +616,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Sphere::base_moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Sphere::base_moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Sphere::moveAtBorder(point, inside);
 
@@ -639,7 +639,7 @@ public:
 		SPK::Sphere* self=Luna< SPK::Registerable >::checkSubType< SPK::Sphere >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Sphere::base_computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Sphere::base_computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->Sphere::computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);

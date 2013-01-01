@@ -121,7 +121,7 @@ public:
 		osgDB::FileLocationCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::FileLocationCallback::Location lret = self->fileLocation(filename, options);
 		lua_pushnumber(L,lret);
@@ -140,7 +140,7 @@ public:
 		osgDB::FileLocationCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FileLocationCallback::useFileCache() const");
+			luaL_error(L, "Invalid object in function call bool osgDB::FileLocationCallback::useFileCache() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->useFileCache();
 		lua_pushboolean(L,lret?1:0);

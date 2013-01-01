@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >",name);
 	}
+
 };
 
 std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::
 luna_RegType LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_osg_ref_ptr_osgText_GlyphTexture_osgText_Text_GlyphQuads::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_osg_ref_ptr_osgText_GlyphTexture_osgText_Text_GlyphQuads::_bind___eq},
+	
 	{0,0}
 };
 

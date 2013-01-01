@@ -193,7 +193,7 @@ public:
 		wrapper_wxFilterOutputStream* self=Luna< wxObject >::checkSubType< wrapper_wxFilterOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxOutputStream::public_OnSysWrite(const void *, size_t)");
+			luaL_error(L, "Invalid object in function call size_t wxOutputStream::public_OnSysWrite(const void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->public_OnSysWrite(buffer, bufsize);
 		lua_pushnumber(L,lret);

@@ -123,7 +123,7 @@ public:
 		osgDB::FinishedObjectReadCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FinishedObjectReadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream &, osg::Object &)");
+			luaL_error(L, "Invalid object in function call void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream &, osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->objectRead(is, obj);
 

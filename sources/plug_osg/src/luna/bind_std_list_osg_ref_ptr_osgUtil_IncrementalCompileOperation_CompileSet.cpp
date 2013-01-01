@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >",name);
 	}
+
 };
 
 std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >* LunaTraits< std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperat
 luna_RegType LunaTraits< std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_list_osg_ref_ptr_osgUtil_IncrementalCompileOperation_CompileSet::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_list_osg_ref_ptr_osgUtil_IncrementalCompileOperation_CompileSet::_bind___eq},
+	
 	{0,0}
 };
 

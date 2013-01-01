@@ -215,7 +215,7 @@ public:
 		wrapper_wxTextValidator* self=Luna< wxObject >::checkSubType< wrapper_wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->public_ContainsOnlyIncludedCharacters(val);
 		lua_pushboolean(L,lret?1:0);
@@ -235,7 +235,7 @@ public:
 		wrapper_wxTextValidator* self=Luna< wxObject >::checkSubType< wrapper_wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsExcludedCharacters(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsExcludedCharacters(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->public_ContainsExcludedCharacters(val);
 		lua_pushboolean(L,lret?1:0);

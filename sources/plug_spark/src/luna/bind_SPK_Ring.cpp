@@ -292,7 +292,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Ring::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Ring::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -316,7 +316,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::setNormal(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::setNormal(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setNormal(normal);
 
@@ -336,7 +336,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::setRadius(float, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::setRadius(float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setRadius(minRadius, maxRadius);
 
@@ -354,7 +354,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Ring::getNormal() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Ring::getNormal() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Ring::getTransformedNormal() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Ring::getTransformedNormal() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -396,7 +396,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Ring::getMinRadius() const");
+			luaL_error(L, "Invalid object in function call float SPK::Ring::getMinRadius() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getMinRadius();
 		lua_pushnumber(L,lret);
@@ -415,7 +415,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Ring::getMaxRadius() const");
+			luaL_error(L, "Invalid object in function call float SPK::Ring::getMaxRadius() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getMaxRadius();
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->generatePosition(particle, full);
 
@@ -463,7 +463,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Ring::contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Ring::contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -494,7 +494,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Ring::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Ring::intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -519,7 +519,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->moveAtBorder(point, inside);
 
@@ -542,7 +542,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Ring::computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Ring::computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
@@ -595,7 +595,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Ring::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Ring::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Ring::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -621,7 +621,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::base_setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::base_setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Ring::setPosition(v);
 
@@ -639,7 +639,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Ring::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Ring::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Ring::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -664,7 +664,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::base_generatePosition(SPK::Particle &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::base_generatePosition(SPK::Particle &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Ring::generatePosition(particle, full);
 
@@ -687,7 +687,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Ring::base_contains(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Ring::base_contains(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->Ring::contains(point);
 		lua_pushboolean(L,lret?1:0);
@@ -718,7 +718,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Ring::base_intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const");
+			luaL_error(L, "Invalid object in function call bool SPK::Ring::base_intersects(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Vector3D *, SPK::Vector3D *) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->Ring::intersects(v0, v1, intersection, normal);
 		lua_pushboolean(L,lret?1:0);
@@ -743,7 +743,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Ring::base_moveAtBorder(SPK::Vector3D &, bool) const");
+			luaL_error(L, "Invalid object in function call void SPK::Ring::base_moveAtBorder(SPK::Vector3D &, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Ring::moveAtBorder(point, inside);
 
@@ -766,7 +766,7 @@ public:
 		SPK::Ring* self=Luna< SPK::Registerable >::checkSubType< SPK::Ring >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Ring::base_computeNormal(const SPK::Vector3D &) const");
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Ring::base_computeNormal(const SPK::Vector3D &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Vector3D stack_lret = self->Ring::computeNormal(point);
 		SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);

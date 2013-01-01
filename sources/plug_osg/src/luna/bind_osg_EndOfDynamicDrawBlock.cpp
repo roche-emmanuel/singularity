@@ -150,7 +150,7 @@ public:
 		osg::EndOfDynamicDrawBlock* self=Luna< osg::Referenced >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::completed(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::completed(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->completed(state);
 
@@ -169,7 +169,7 @@ public:
 		osg::EndOfDynamicDrawBlock* self=Luna< osg::Referenced >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_completed(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_completed(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EndOfDynamicDrawBlock::completed(state);
 

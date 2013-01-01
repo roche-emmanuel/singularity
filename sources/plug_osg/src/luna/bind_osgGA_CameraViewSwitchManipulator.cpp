@@ -425,7 +425,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::CameraViewSwitchManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::CameraViewSwitchManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -449,7 +449,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByMatrix(_arg1);
 
@@ -472,7 +472,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByInverseMatrix(_arg1);
 
@@ -490,7 +490,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -512,7 +512,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -535,7 +535,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNode(_arg1);
 
@@ -553,7 +553,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::CameraViewSwitchManipulator::getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::CameraViewSwitchManipulator::getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -574,7 +574,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::CameraViewSwitchManipulator::getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::CameraViewSwitchManipulator::getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -614,7 +614,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init(_arg1, _arg2);
 
@@ -642,7 +642,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::CameraViewSwitchManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::CameraViewSwitchManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -666,7 +666,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -685,7 +685,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setName(name);
 
@@ -703,7 +703,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::computeDataVariance();
 
@@ -722,7 +722,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setUserData(obj);
 
@@ -740,7 +740,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::CameraViewSwitchManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::CameraViewSwitchManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->CameraViewSwitchManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -761,7 +761,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::CameraViewSwitchManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::CameraViewSwitchManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->CameraViewSwitchManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -794,7 +794,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::releaseGLObjects(_arg1);
 
@@ -812,7 +812,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::CameraViewSwitchManipulator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::CameraViewSwitchManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->CameraViewSwitchManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -838,7 +838,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::CameraViewSwitchManipulator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::CameraViewSwitchManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->CameraViewSwitchManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -860,7 +860,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::CameraViewSwitchManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::CameraViewSwitchManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->CameraViewSwitchManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -879,7 +879,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::CameraViewSwitchManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::CameraViewSwitchManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CameraViewSwitchManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -900,7 +900,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::event(nv, drawable);
 
@@ -919,7 +919,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setCoordinateFrameCallback(cb);
 
@@ -937,7 +937,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::CameraViewSwitchManipulator::base_getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::CameraViewSwitchManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->CameraViewSwitchManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -956,7 +956,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::CameraViewSwitchManipulator::base_getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::CameraViewSwitchManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->CameraViewSwitchManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -993,7 +993,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1026,7 +1026,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::getHomePosition(eye, center, up);
 
@@ -1045,7 +1045,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setAutoComputeHomePosition(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setAutoComputeHomePosition(flag);
 
@@ -1067,7 +1067,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_computeHomePosition(const osg::Camera *, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::computeHomePosition(camera, useBoundingBox);
 
@@ -1095,7 +1095,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::home(_arg1, _arg2);
 
@@ -1114,7 +1114,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::home(_arg1);
 
@@ -1141,7 +1141,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::CameraViewSwitchManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::CameraViewSwitchManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CameraViewSwitchManipulator::className();
 		lua_pushstring(L,lret);
@@ -1165,7 +1165,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setByMatrix(_arg1);
 
@@ -1188,7 +1188,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setByInverseMatrix(_arg1);
 
@@ -1206,7 +1206,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::base_getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->CameraViewSwitchManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1228,7 +1228,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::base_getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraViewSwitchManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->CameraViewSwitchManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1251,7 +1251,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::setNode(_arg1);
 
@@ -1269,7 +1269,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::CameraViewSwitchManipulator::base_getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::CameraViewSwitchManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->CameraViewSwitchManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1290,7 +1290,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::CameraViewSwitchManipulator::base_getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::CameraViewSwitchManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->CameraViewSwitchManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1330,7 +1330,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::init(_arg1, _arg2);
 
@@ -1358,7 +1358,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::CameraViewSwitchManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::CameraViewSwitchManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->CameraViewSwitchManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1382,7 +1382,7 @@ public:
 		osgGA::CameraViewSwitchManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraViewSwitchManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::CameraViewSwitchManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CameraViewSwitchManipulator::getUsage(usage);
 

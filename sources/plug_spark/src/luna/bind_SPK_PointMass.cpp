@@ -229,7 +229,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -253,7 +253,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setPosition(pos);
 
@@ -272,7 +272,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMass(float)");
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMass(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setMass(mass);
 
@@ -291,7 +291,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMinDistance(float)");
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMinDistance(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setMinDistance(minDistance);
 
@@ -309,7 +309,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -330,7 +330,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -351,7 +351,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMass() const");
+			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMass() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getMass();
 		lua_pushnumber(L,lret);
@@ -370,7 +370,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMinDistance() const");
+			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMinDistance() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getMinDistance();
 		lua_pushnumber(L,lret);
@@ -416,7 +416,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->PointMass::createBuffers(group);
 
@@ -439,7 +439,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->PointMass::destroyBuffers(group);
 
@@ -458,7 +458,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::PointMass::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::PointMass::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->PointMass::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -479,7 +479,7 @@ public:
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->PointMass::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -136,7 +136,7 @@ public:
 		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxQueryNewPaletteEvent::SetPaletteRealized(bool)");
+			luaL_error(L, "Invalid object in function call void wxQueryNewPaletteEvent::SetPaletteRealized(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPaletteRealized(realized);
 
@@ -154,7 +154,7 @@ public:
 		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxQueryNewPaletteEvent::GetPaletteRealized()");
+			luaL_error(L, "Invalid object in function call bool wxQueryNewPaletteEvent::GetPaletteRealized(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetPaletteRealized();
 		lua_pushboolean(L,lret?1:0);
@@ -173,7 +173,7 @@ public:
 		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxQueryNewPaletteEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxQueryNewPaletteEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxQueryNewPaletteEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -194,7 +194,7 @@ public:
 		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxQueryNewPaletteEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxQueryNewPaletteEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxQueryNewPaletteEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

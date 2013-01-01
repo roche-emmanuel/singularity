@@ -1035,7 +1035,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::Create(wxWindow *, int, const wxString &, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::Create(wxWindow *, int, const wxString &, const wxString &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, mainLabel, note, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1056,7 +1056,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetMainLabelAndNote(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetMainLabelAndNote(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMainLabelAndNote(mainLabel, note);
 
@@ -1075,7 +1075,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLabel(label);
 
@@ -1093,7 +1093,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1113,7 +1113,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetMainLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetMainLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMainLabel(mainLabel);
 
@@ -1132,7 +1132,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetNote(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::SetNote(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetNote(note);
 
@@ -1150,7 +1150,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::GetMainLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::GetMainLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetMainLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1169,7 +1169,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::GetNote() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::GetNote() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetNote();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1188,7 +1188,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommandLinkButton::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommandLinkButton::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCommandLinkButton::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1209,7 +1209,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1228,7 +1228,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1247,7 +1247,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1266,7 +1266,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1286,7 +1286,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetCanFocus(canFocus);
 
@@ -1304,7 +1304,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetFocus();
 
@@ -1322,7 +1322,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetFocusFromKbd();
 
@@ -1341,7 +1341,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::AddChild(child);
 
@@ -1360,7 +1360,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::RemoveChild(child);
 
@@ -1379,7 +1379,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1402,7 +1402,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1421,7 +1421,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCommandLinkButton::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1441,7 +1441,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCommandLinkButton::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1461,7 +1461,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCommandLinkButton::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1481,7 +1481,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1501,7 +1501,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1521,7 +1521,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1545,7 +1545,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::ScrollWindow(dx, dy, rect);
 
@@ -1568,7 +1568,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetScrollPos(orientation, pos, refresh);
 
@@ -1593,7 +1593,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1616,7 +1616,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1643,7 +1643,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1665,7 +1665,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::Fit();
 
@@ -1683,7 +1683,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::FitInside();
 
@@ -1701,7 +1701,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1723,7 +1723,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1745,7 +1745,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1767,7 +1767,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1789,7 +1789,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1811,7 +1811,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1833,7 +1833,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCommandLinkButton::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCommandLinkButton::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1858,7 +1858,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1880,7 +1880,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SendSizeEvent(flags);
 
@@ -1903,7 +1903,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetMaxClientSize(size);
 
@@ -1926,7 +1926,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetMaxSize(size);
 
@@ -1949,7 +1949,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetMinClientSize(size);
 
@@ -1972,7 +1972,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetMinSize(size);
 
@@ -2007,7 +2007,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2033,7 +2033,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2060,7 +2060,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxCommandLinkButton::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxCommandLinkButton::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxCommandLinkButton::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2082,7 +2082,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::ClearBackground();
 
@@ -2100,7 +2100,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxCommandLinkButton::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxCommandLinkButton::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxCommandLinkButton::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2119,7 +2119,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCommandLinkButton::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2138,7 +2138,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxCommandLinkButton::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCommandLinkButton::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2157,7 +2157,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxCommandLinkButton::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxCommandLinkButton::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxCommandLinkButton::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2183,7 +2183,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::Refresh(eraseBackground, rect);
 
@@ -2201,7 +2201,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::Update();
 
@@ -2220,7 +2220,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2244,7 +2244,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2263,7 +2263,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2283,7 +2283,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetThemeEnabled(enable);
 
@@ -2301,7 +2301,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2320,7 +2320,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2340,7 +2340,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2360,7 +2360,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetNextHandler(handler);
 
@@ -2379,7 +2379,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetPreviousHandler(handler);
 
@@ -2397,7 +2397,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxCommandLinkButton::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxCommandLinkButton::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxCommandLinkButton::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2417,7 +2417,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetExtraStyle(exStyle);
 
@@ -2436,7 +2436,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetWindowStyleFlag(style);
 
@@ -2454,7 +2454,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::Lower();
 
@@ -2472,7 +2472,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::Raise();
 
@@ -2494,7 +2494,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2513,7 +2513,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2532,7 +2532,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2554,7 +2554,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2576,7 +2576,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2599,7 +2599,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2624,7 +2624,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCommandLinkButton::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2643,7 +2643,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxCommandLinkButton::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxCommandLinkButton::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxCommandLinkButton::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2669,7 +2669,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetValidator(validator);
 
@@ -2687,7 +2687,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2706,7 +2706,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2725,7 +2725,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2744,7 +2744,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxCommandLinkButton::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxCommandLinkButton::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxCommandLinkButton::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2763,7 +2763,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCommandLinkButton::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2783,7 +2783,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetLayoutDirection(dir);
 
@@ -2802,7 +2802,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetName(name);
 
@@ -2825,7 +2825,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetAcceleratorTable(accel);
 
@@ -2843,7 +2843,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2862,7 +2862,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxCommandLinkButton::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxCommandLinkButton::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxCommandLinkButton::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2884,7 +2884,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetDropTarget(target);
 
@@ -2903,7 +2903,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::DragAcceptFiles(accept);
 
@@ -2921,7 +2921,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2940,7 +2940,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2964,7 +2964,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2985,7 +2985,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::WarpPointer(x, y);
 
@@ -3008,7 +3008,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::DoUpdateWindowUI(event);
 
@@ -3026,7 +3026,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3045,7 +3045,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::InheritAttributes();
 
@@ -3063,7 +3063,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::InitDialog();
 
@@ -3081,7 +3081,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3100,7 +3100,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3122,7 +3122,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::MakeModal(modal);
 
@@ -3140,7 +3140,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::OnInternalIdle();
 
@@ -3161,7 +3161,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3181,7 +3181,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxCommandLinkButton::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCommandLinkButton::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3203,7 +3203,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::UpdateWindowUI(flags);
 
@@ -3226,7 +3226,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::Command(event);
 
@@ -3244,7 +3244,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxCommandLinkButton::base_SetDefault()");
+			luaL_error(L, "Invalid object in function call wxWindow * wxCommandLinkButton::base_SetDefault(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxCommandLinkButton::SetDefault();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3266,7 +3266,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandLinkButton::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCommandLinkButton::SetLabel(label);
 
@@ -3284,7 +3284,7 @@ public:
 		wxCommandLinkButton* self=Luna< wxObject >::checkSubType< wxCommandLinkButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandLinkButton::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCommandLinkButton::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());

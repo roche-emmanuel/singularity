@@ -88,7 +88,7 @@ public:
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime &) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime &) const. Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

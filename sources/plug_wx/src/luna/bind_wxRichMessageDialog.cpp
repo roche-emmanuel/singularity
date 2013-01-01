@@ -218,7 +218,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichMessageDialog::ShowCheckBox(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxRichMessageDialog::ShowCheckBox(const wxString &, bool). Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		self->ShowCheckBox(checkBoxText, checked);
 
@@ -236,7 +236,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRichMessageDialog::GetCheckBoxText() const");
+			luaL_error(L, "Invalid object in function call wxString wxRichMessageDialog::GetCheckBoxText() const. Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		wxString lret = self->GetCheckBoxText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -256,7 +256,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichMessageDialog::ShowDetailedText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRichMessageDialog::ShowDetailedText(const wxString &). Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		self->ShowDetailedText(detailedText);
 
@@ -274,7 +274,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRichMessageDialog::GetDetailedText() const");
+			luaL_error(L, "Invalid object in function call wxString wxRichMessageDialog::GetDetailedText() const. Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		wxString lret = self->GetDetailedText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -293,7 +293,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRichMessageDialog::IsCheckBoxChecked() const");
+			luaL_error(L, "Invalid object in function call bool wxRichMessageDialog::IsCheckBoxChecked() const. Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		bool lret = self->IsCheckBoxChecked();
 		lua_pushboolean(L,lret?1:0);
@@ -312,7 +312,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRichMessageDialog::ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxRichMessageDialog::ShowModal(). Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		int lret = self->ShowModal();
 		lua_pushnumber(L,lret);
@@ -331,7 +331,7 @@ public:
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRichMessageDialog::base_ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxRichMessageDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxRichMessageDialog >::check(L,1)).name());
 		}
 		int lret = self->wxRichMessageDialog::ShowModal();
 		lua_pushnumber(L,lret);

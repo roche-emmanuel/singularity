@@ -626,7 +626,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -652,7 +652,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -674,7 +674,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture1D::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture1D::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -693,7 +693,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -712,7 +712,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -731,7 +731,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture1D::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture1D::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -755,7 +755,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -774,7 +774,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::getTextureTarget() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::getTextureTarget() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTextureTarget();
 		lua_pushnumber(L,lret);
@@ -794,7 +794,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::setImage(osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::setImage(osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImage(image);
 
@@ -814,7 +814,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::setImage(unsigned int, osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::setImage(unsigned int, osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImage(_arg1, image);
 
@@ -841,7 +841,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture1D::getImage()");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture1D::getImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Image * lret = self->getImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -862,7 +862,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture1D::getImage() const");
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture1D::getImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Image * lret = self->getImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -884,7 +884,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture1D::getImage(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture1D::getImage(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Image * lret = self->getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -906,7 +906,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture1D::getImage(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture1D::getImage(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Image * lret = self->getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -939,7 +939,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int & osg::Texture1D::getModifiedCount(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int & osg::Texture1D::getModifiedCount(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int & lret = self->getModifiedCount(contextID);
 		lua_pushnumber(L,lret);
@@ -958,7 +958,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::getNumImages() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::getNumImages() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumImages();
 		lua_pushnumber(L,lret);
@@ -978,7 +978,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::setTextureWidth(int)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::setTextureWidth(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureWidth(width);
 
@@ -996,7 +996,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::getTextureWidth() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::getTextureWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getTextureWidth();
 		lua_pushnumber(L,lret);
@@ -1015,7 +1015,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::getTextureHeight() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::getTextureHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getTextureHeight();
 		lua_pushnumber(L,lret);
@@ -1034,7 +1034,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::getTextureDepth() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::getTextureDepth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getTextureDepth();
 		lua_pushnumber(L,lret);
@@ -1054,7 +1054,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::setSubloadCallback(osg::Texture1D::SubloadCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::setSubloadCallback(osg::Texture1D::SubloadCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSubloadCallback(cb);
 
@@ -1072,7 +1072,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture1D::SubloadCallback * osg::Texture1D::getSubloadCallback()");
+			luaL_error(L, "Invalid object in function call osg::Texture1D::SubloadCallback * osg::Texture1D::getSubloadCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture1D::SubloadCallback * lret = self->getSubloadCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1093,7 +1093,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture1D::SubloadCallback * osg::Texture1D::getSubloadCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture1D::SubloadCallback * osg::Texture1D::getSubloadCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture1D::SubloadCallback * lret = self->getSubloadCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1124,7 +1124,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::setNumMipmapLevels(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::setNumMipmapLevels(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNumMipmapLevels(num);
 
@@ -1142,7 +1142,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::getNumMipmapLevels() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::getNumMipmapLevels() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumMipmapLevels();
 		lua_pushnumber(L,lret);
@@ -1169,7 +1169,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::copyTexImage1D(osg::State &, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::copyTexImage1D(osg::State &, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->copyTexImage1D(state, x, y, width);
 
@@ -1196,7 +1196,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::copyTexSubImage1D(osg::State &, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::copyTexSubImage1D(osg::State &, int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->copyTexSubImage1D(state, xoffset, x, y, width);
 
@@ -1219,7 +1219,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(state);
 
@@ -1238,7 +1238,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::setName(name);
 
@@ -1256,7 +1256,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::computeDataVariance();
 
@@ -1275,7 +1275,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::setUserData(obj);
 
@@ -1293,7 +1293,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Texture1D::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Texture1D::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Texture1D::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1314,7 +1314,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Texture1D::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Texture1D::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Texture1D::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1344,7 +1344,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Texture1D::getMember();
 		lua_pushnumber(L,lret);
@@ -1368,7 +1368,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Texture1D::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1387,7 +1387,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::Texture1D::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::Texture1D::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->Texture1D::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1408,7 +1408,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Texture1D::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Texture1D::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->Texture1D::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1438,7 +1438,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Texture1D::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1462,7 +1462,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Texture1D::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1486,7 +1486,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::compileGLObjects(state);
 
@@ -1507,7 +1507,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::releaseGLObjects(state);
 
@@ -1525,7 +1525,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Texture1D::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1551,7 +1551,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Texture1D::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Texture1D::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1573,7 +1573,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture1D::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Texture1D::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1592,7 +1592,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Texture1D::libraryName();
 		lua_pushstring(L,lret);
@@ -1611,7 +1611,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Texture1D::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Texture1D::className();
 		lua_pushstring(L,lret);
@@ -1630,7 +1630,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture1D::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Texture1D::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->Texture1D::getType();
 		lua_pushnumber(L,lret);
@@ -1654,7 +1654,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Texture1D::compare(rhs);
 		lua_pushnumber(L,lret);
@@ -1673,7 +1673,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::base_getTextureTarget() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::base_getTextureTarget() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Texture1D::getTextureTarget();
 		lua_pushnumber(L,lret);
@@ -1694,7 +1694,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_setImage(unsigned int, osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_setImage(unsigned int, osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::setImage(_arg1, image);
 
@@ -1713,7 +1713,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture1D::base_getImage(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture1D::base_getImage(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Image * lret = self->Texture1D::getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1735,7 +1735,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture1D::base_getImage(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture1D::base_getImage(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Image * lret = self->Texture1D::getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1765,7 +1765,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::base_getNumImages() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Texture1D::base_getNumImages() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Texture1D::getNumImages();
 		lua_pushnumber(L,lret);
@@ -1784,7 +1784,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_getTextureWidth() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_getTextureWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Texture1D::getTextureWidth();
 		lua_pushnumber(L,lret);
@@ -1803,7 +1803,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_getTextureHeight() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_getTextureHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Texture1D::getTextureHeight();
 		lua_pushnumber(L,lret);
@@ -1822,7 +1822,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_getTextureDepth() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture1D::base_getTextureDepth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Texture1D::getTextureDepth();
 		lua_pushnumber(L,lret);
@@ -1846,7 +1846,7 @@ public:
 		osg::Texture1D* self=Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture1D::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Texture1D::apply(state);
 

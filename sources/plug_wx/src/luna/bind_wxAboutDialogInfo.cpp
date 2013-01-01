@@ -238,7 +238,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddArtist(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddArtist(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->AddArtist(artist);
 
@@ -257,7 +257,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddDeveloper(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddDeveloper(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->AddDeveloper(developer);
 
@@ -276,7 +276,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddDocWriter(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddDocWriter(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->AddDocWriter(docwriter);
 
@@ -295,7 +295,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddTranslator(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::AddTranslator(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->AddTranslator(translator);
 
@@ -313,7 +313,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxAboutDialogInfo::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxAboutDialogInfo::GetName() const. Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -332,7 +332,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAboutDialogInfo::HasDescription() const");
+			luaL_error(L, "Invalid object in function call bool wxAboutDialogInfo::HasDescription() const. Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasDescription();
 		lua_pushboolean(L,lret?1:0);
@@ -351,7 +351,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxAboutDialogInfo::GetDescription()");
+			luaL_error(L, "Invalid object in function call const wxString & wxAboutDialogInfo::GetDescription(). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -370,7 +370,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAboutDialogInfo::HasCopyright() const");
+			luaL_error(L, "Invalid object in function call bool wxAboutDialogInfo::HasCopyright() const. Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		bool lret = self->HasCopyright();
 		lua_pushboolean(L,lret?1:0);
@@ -389,7 +389,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxAboutDialogInfo::GetCopyright() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxAboutDialogInfo::GetCopyright() const. Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetCopyright();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -413,7 +413,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetArtists(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetArtists(const wxArrayString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetArtists(artists);
 
@@ -432,7 +432,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetCopyright(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetCopyright(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetCopyright(copyright);
 
@@ -451,7 +451,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetDescription(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetDescription(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetDescription(desc);
 
@@ -474,7 +474,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetDevelopers(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetDevelopers(const wxArrayString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetDevelopers(developers);
 
@@ -497,7 +497,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetDocWriters(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetDocWriters(const wxArrayString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetDocWriters(docwriters);
 
@@ -520,7 +520,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetIcon(const wxIcon &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetIcon(const wxIcon &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetIcon(icon);
 
@@ -539,7 +539,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetLicence(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetLicence(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetLicence(licence);
 
@@ -558,7 +558,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetLicense(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetLicense(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetLicense(licence);
 
@@ -577,7 +577,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetName(const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetName(name);
 
@@ -600,7 +600,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetTranslators(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetTranslators(const wxArrayString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetTranslators(translators);
 
@@ -622,7 +622,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetVersion(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetVersion(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetVersion(version, longVersion);
 
@@ -644,7 +644,7 @@ public:
 		wxAboutDialogInfo* self=(Luna< wxAboutDialogInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetWebSite(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAboutDialogInfo::SetWebSite(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxAboutDialogInfo >::check(L,1)).name());
 		}
 		self->SetWebSite(url, desc);
 

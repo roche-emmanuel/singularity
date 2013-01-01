@@ -185,7 +185,7 @@ public:
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxRealPoint &)");
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxRealPoint &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
 		}
 		const wxRealPoint* lret = &self->operator+=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -211,7 +211,7 @@ public:
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxSize &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
 		}
 		const wxRealPoint* lret = &self->operator+=(sz);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -246,7 +246,7 @@ public:
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxRealPoint &)");
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxRealPoint &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
 		}
 		const wxRealPoint* lret = &self->operator-=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -272,7 +272,7 @@ public:
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxSize &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
 		}
 		const wxRealPoint* lret = &self->operator-=(sz);
 		if(!lret) return 0; // Do not write NULL pointers.

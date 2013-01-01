@@ -580,7 +580,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -606,7 +606,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -628,7 +628,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DrawArrayLengths::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::DrawArrayLengths::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -647,7 +647,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -666,7 +666,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -686,7 +686,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::setFirst(int)");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::setFirst(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFirst(first);
 
@@ -704,7 +704,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::DrawArrayLengths::getFirst() const");
+			luaL_error(L, "Invalid object in function call int osg::DrawArrayLengths::getFirst() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getFirst();
 		lua_pushnumber(L,lret);
@@ -729,7 +729,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::draw(osg::State &, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::draw(osg::State &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->draw(state, useVertexBufferObjects);
 
@@ -747,7 +747,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::getNumIndices() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::getNumIndices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumIndices();
 		lua_pushnumber(L,lret);
@@ -767,7 +767,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::index(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::index(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->index(pos);
 		lua_pushnumber(L,lret);
@@ -787,7 +787,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::offsetIndices(int)");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::offsetIndices(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->offsetIndices(offset);
 
@@ -805,7 +805,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::getNumPrimitives() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::getNumPrimitives() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumPrimitives();
 		lua_pushnumber(L,lret);
@@ -825,7 +825,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::setName(name);
 
@@ -843,7 +843,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::computeDataVariance();
 
@@ -862,7 +862,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::setUserData(obj);
 
@@ -880,7 +880,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::DrawArrayLengths::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::DrawArrayLengths::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->DrawArrayLengths::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -901,7 +901,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::DrawArrayLengths::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::DrawArrayLengths::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->DrawArrayLengths::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -934,7 +934,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::releaseGLObjects(state);
 
@@ -952,7 +952,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * osg::DrawArrayLengths::base_getDataPointer() const");
+			luaL_error(L, "Invalid object in function call const void * osg::DrawArrayLengths::base_getDataPointer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const void * lret = self->DrawArrayLengths::getDataPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -973,7 +973,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_getTotalDataSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_getTotalDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->DrawArrayLengths::getTotalDataSize();
 		lua_pushnumber(L,lret);
@@ -992,7 +992,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DrawArrayLengths::base_supportsBufferObject() const");
+			luaL_error(L, "Invalid object in function call bool osg::DrawArrayLengths::base_supportsBufferObject() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DrawArrayLengths::supportsBufferObject();
 		lua_pushboolean(L,lret?1:0);
@@ -1011,7 +1011,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DrawElements * osg::DrawArrayLengths::base_getDrawElements()");
+			luaL_error(L, "Invalid object in function call osg::DrawElements * osg::DrawArrayLengths::base_getDrawElements(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DrawElements * lret = self->DrawArrayLengths::getDrawElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1032,7 +1032,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DrawElements * osg::DrawArrayLengths::base_getDrawElements() const");
+			luaL_error(L, "Invalid object in function call const osg::DrawElements * osg::DrawArrayLengths::base_getDrawElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DrawElements * lret = self->DrawArrayLengths::getDrawElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1062,7 +1062,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_computeRange() const");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_computeRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::computeRange();
 
@@ -1080,7 +1080,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DrawArrayLengths::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1106,7 +1106,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::DrawArrayLengths::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DrawArrayLengths::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1128,7 +1128,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::DrawArrayLengths::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::DrawArrayLengths::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DrawArrayLengths::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1147,7 +1147,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DrawArrayLengths::libraryName();
 		lua_pushstring(L,lret);
@@ -1166,7 +1166,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::DrawArrayLengths::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DrawArrayLengths::className();
 		lua_pushstring(L,lret);
@@ -1191,7 +1191,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_draw(osg::State &, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_draw(osg::State &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::draw(state, useVertexBufferObjects);
 
@@ -1209,7 +1209,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_getNumIndices() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_getNumIndices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->DrawArrayLengths::getNumIndices();
 		lua_pushnumber(L,lret);
@@ -1229,7 +1229,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_index(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_index(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->DrawArrayLengths::index(pos);
 		lua_pushnumber(L,lret);
@@ -1249,7 +1249,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_offsetIndices(int)");
+			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::base_offsetIndices(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawArrayLengths::offsetIndices(offset);
 
@@ -1267,7 +1267,7 @@ public:
 		osg::DrawArrayLengths* self=Luna< osg::Referenced >::checkSubType< osg::DrawArrayLengths >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_getNumPrimitives() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::base_getNumPrimitives() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->DrawArrayLengths::getNumPrimitives();
 		lua_pushnumber(L,lret);

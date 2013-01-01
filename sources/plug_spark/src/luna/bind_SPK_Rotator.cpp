@@ -168,7 +168,7 @@ public:
 		SPK::Rotator* self=Luna< SPK::Registerable >::checkSubType< SPK::Rotator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Rotator::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Rotator::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -208,7 +208,7 @@ public:
 		SPK::Rotator* self=Luna< SPK::Registerable >::checkSubType< SPK::Rotator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Rotator::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Rotator::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Rotator::createBuffers(group);
 
@@ -231,7 +231,7 @@ public:
 		SPK::Rotator* self=Luna< SPK::Registerable >::checkSubType< SPK::Rotator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Rotator::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Rotator::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Rotator::destroyBuffers(group);
 
@@ -250,7 +250,7 @@ public:
 		SPK::Rotator* self=Luna< SPK::Registerable >::checkSubType< SPK::Rotator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Rotator::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Rotator::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Rotator::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -271,7 +271,7 @@ public:
 		SPK::Rotator* self=Luna< SPK::Registerable >::checkSubType< SPK::Rotator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Rotator::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Rotator::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Rotator::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

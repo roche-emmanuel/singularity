@@ -111,7 +111,7 @@ public:
 		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTreeListItem wxTreeListEvent::GetItem() const");
+			luaL_error(L, "Invalid object in function call wxTreeListItem wxTreeListEvent::GetItem() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxTreeListItem stack_lret = self->GetItem();
 		wxTreeListItem* lret = new wxTreeListItem(stack_lret);
@@ -133,7 +133,7 @@ public:
 		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCheckBoxState wxTreeListEvent::GetOldCheckedState() const");
+			luaL_error(L, "Invalid object in function call wxCheckBoxState wxTreeListEvent::GetOldCheckedState() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxCheckBoxState lret = self->GetOldCheckedState();
 		lua_pushnumber(L,lret);
@@ -152,7 +152,7 @@ public:
 		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxTreeListEvent::GetColumn() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxTreeListEvent::GetColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetColumn();
 		lua_pushnumber(L,lret);
@@ -171,7 +171,7 @@ public:
 		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxTreeListEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxTreeListEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxTreeListEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

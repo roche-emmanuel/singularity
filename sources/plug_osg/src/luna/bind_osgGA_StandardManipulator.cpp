@@ -535,7 +535,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::StandardManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::StandardManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -564,7 +564,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setTransformation(const osg::Vec3d &, const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTransformation(eye, rotation);
 
@@ -597,7 +597,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTransformation(eye, center, up);
 
@@ -634,7 +634,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::getTransformation(osg::Vec3d &, osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getTransformation(eye, rotation);
 
@@ -667,7 +667,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getTransformation(eye, center, up);
 
@@ -695,7 +695,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNode(_arg1);
 
@@ -713,7 +713,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::StandardManipulator::getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::StandardManipulator::getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -734,7 +734,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::StandardManipulator::getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::StandardManipulator::getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -765,7 +765,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setVerticalAxisFixed(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVerticalAxisFixed(value);
 
@@ -783,7 +783,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::getVerticalAxisFixed() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::getVerticalAxisFixed() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getVerticalAxisFixed();
 		lua_pushboolean(L,lret?1:0);
@@ -802,7 +802,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::getAllowThrow() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::getAllowThrow() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAllowThrow();
 		lua_pushboolean(L,lret?1:0);
@@ -822,7 +822,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setAllowThrow(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAllowThrow(allowThrow);
 
@@ -841,7 +841,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setAnimationTime(const double)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAnimationTime(t);
 
@@ -859,7 +859,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::StandardManipulator::getAnimationTime() const");
+			luaL_error(L, "Invalid object in function call double osgGA::StandardManipulator::getAnimationTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getAnimationTime();
 		lua_pushnumber(L,lret);
@@ -878,7 +878,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::isAnimating() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::isAnimating() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isAnimating();
 		lua_pushboolean(L,lret?1:0);
@@ -897,7 +897,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::finishAnimation()");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->finishAnimation();
 
@@ -925,7 +925,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->home(_arg1, _arg2);
 
@@ -944,7 +944,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->home(_arg1);
 
@@ -981,7 +981,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init(_arg1, _arg2);
 
@@ -1009,7 +1009,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1033,7 +1033,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(_arg1);
 
@@ -1052,7 +1052,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setName(name);
 
@@ -1070,7 +1070,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::computeDataVariance();
 
@@ -1089,7 +1089,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setUserData(obj);
 
@@ -1107,7 +1107,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::StandardManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::StandardManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->StandardManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1128,7 +1128,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::StandardManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::StandardManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->StandardManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1161,7 +1161,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::releaseGLObjects(_arg1);
 
@@ -1179,7 +1179,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::StandardManipulator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::StandardManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->StandardManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1205,7 +1205,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::StandardManipulator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::StandardManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->StandardManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1227,7 +1227,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StandardManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1246,7 +1246,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::StandardManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::StandardManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StandardManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1267,7 +1267,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::event(nv, drawable);
 
@@ -1286,7 +1286,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setCoordinateFrameCallback(cb);
 
@@ -1304,7 +1304,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::StandardManipulator::base_getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::StandardManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->StandardManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1323,7 +1323,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::base_getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::StandardManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->StandardManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1360,7 +1360,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1393,7 +1393,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::getHomePosition(eye, center, up);
 
@@ -1412,7 +1412,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setAutoComputeHomePosition(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setAutoComputeHomePosition(flag);
 
@@ -1434,7 +1434,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_computeHomePosition(const osg::Camera *, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::computeHomePosition(camera, useBoundingBox);
 
@@ -1452,7 +1452,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::StandardManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::StandardManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StandardManipulator::className();
 		lua_pushstring(L,lret);
@@ -1472,7 +1472,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setNode(_arg1);
 
@@ -1490,7 +1490,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::StandardManipulator::base_getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::StandardManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->StandardManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1511,7 +1511,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::StandardManipulator::base_getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::StandardManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->StandardManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1542,7 +1542,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setVerticalAxisFixed(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setVerticalAxisFixed(value);
 
@@ -1561,7 +1561,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setAllowThrow(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setAllowThrow(allowThrow);
 
@@ -1580,7 +1580,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setAnimationTime(const double)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::setAnimationTime(t);
 
@@ -1598,7 +1598,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_finishAnimation()");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::finishAnimation();
 
@@ -1626,7 +1626,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::home(_arg1, _arg2);
 
@@ -1645,7 +1645,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::home(_arg1);
 
@@ -1682,7 +1682,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::init(_arg1, _arg2);
 
@@ -1710,7 +1710,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::StandardManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StandardManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1734,7 +1734,7 @@ public:
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StandardManipulator::getUsage(_arg1);
 

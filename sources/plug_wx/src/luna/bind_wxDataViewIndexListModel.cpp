@@ -170,7 +170,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_Cleared()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_Cleared(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewIndexListModel::Cleared();
 		lua_pushboolean(L,lret?1:0);
@@ -201,7 +201,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewIndexListModel::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewIndexListModel::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewIndexListModel::Compare(item1, item2, column, ascending);
 		lua_pushnumber(L,lret);
@@ -231,7 +231,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewIndexListModel::GetAttr(item, col, attr);
 		lua_pushboolean(L,lret?1:0);
@@ -256,7 +256,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_IsEnabled(const wxDataViewItem &, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_IsEnabled(const wxDataViewItem &, unsigned int) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewIndexListModel::IsEnabled(item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -280,7 +280,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_HasContainerColumns(const wxDataViewItem &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_HasContainerColumns(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewIndexListModel::HasContainerColumns(item);
 		lua_pushboolean(L,lret?1:0);
@@ -299,7 +299,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_HasDefaultCompare() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_HasDefaultCompare() const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewIndexListModel::HasDefaultCompare();
 		lua_pushboolean(L,lret?1:0);
@@ -318,7 +318,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewIndexListModel::base_Resort()");
+			luaL_error(L, "Invalid object in function call void wxDataViewIndexListModel::base_Resort(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		self->wxDataViewIndexListModel::Resort();
 
@@ -342,7 +342,7 @@ public:
 		wxDataViewIndexListModel* self=Luna< wxDataViewModel >::checkSubType< wxDataViewIndexListModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_ValueChanged(const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewIndexListModel::base_ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewIndexListModel::ValueChanged(item, col);
 		lua_pushboolean(L,lret?1:0);

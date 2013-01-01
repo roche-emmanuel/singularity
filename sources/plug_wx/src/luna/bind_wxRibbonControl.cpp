@@ -1018,7 +1018,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::SetArtProvider(wxRibbonArtProvider *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::SetArtProvider(wxRibbonArtProvider *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetArtProvider(art);
 
@@ -1036,7 +1036,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonArtProvider * wxRibbonControl::GetArtProvider() const");
+			luaL_error(L, "Invalid object in function call wxRibbonArtProvider * wxRibbonControl::GetArtProvider() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonArtProvider * lret = self->GetArtProvider();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1057,7 +1057,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::IsSizingContinuous() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::IsSizingContinuous() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSizingContinuous();
 		lua_pushboolean(L,lret?1:0);
@@ -1077,7 +1077,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextSmallerSize(wxOrientation) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextSmallerSize(wxOrientation) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetNextSmallerSize(direction);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1105,7 +1105,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextSmallerSize(wxOrientation, wxSize) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextSmallerSize(wxOrientation, wxSize) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetNextSmallerSize(direction, relative_to);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1137,7 +1137,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextLargerSize(wxOrientation) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextLargerSize(wxOrientation) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetNextLargerSize(direction);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1165,7 +1165,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextLargerSize(wxOrientation, wxSize) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::GetNextLargerSize(wxOrientation, wxSize) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetNextLargerSize(direction, relative_to);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1196,7 +1196,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::Realize()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::Realize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Realize();
 		lua_pushboolean(L,lret?1:0);
@@ -1215,7 +1215,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::Realise()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::Realise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Realise();
 		lua_pushboolean(L,lret?1:0);
@@ -1234,7 +1234,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonControl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonControl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxRibbonControl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1255,7 +1255,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1274,7 +1274,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1293,7 +1293,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1312,7 +1312,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1332,7 +1332,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetCanFocus(canFocus);
 
@@ -1350,7 +1350,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetFocus();
 
@@ -1368,7 +1368,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetFocusFromKbd();
 
@@ -1387,7 +1387,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::AddChild(child);
 
@@ -1406,7 +1406,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::RemoveChild(child);
 
@@ -1425,7 +1425,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1448,7 +1448,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1467,7 +1467,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRibbonControl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1487,7 +1487,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRibbonControl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1507,7 +1507,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRibbonControl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1527,7 +1527,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1547,7 +1547,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1567,7 +1567,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1591,7 +1591,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::ScrollWindow(dx, dy, rect);
 
@@ -1614,7 +1614,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetScrollPos(orientation, pos, refresh);
 
@@ -1639,7 +1639,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1662,7 +1662,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1689,7 +1689,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1711,7 +1711,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::Fit();
 
@@ -1729,7 +1729,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::FitInside();
 
@@ -1747,7 +1747,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1769,7 +1769,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1791,7 +1791,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1813,7 +1813,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1835,7 +1835,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1857,7 +1857,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1879,7 +1879,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonControl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxRibbonControl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1904,7 +1904,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1926,7 +1926,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SendSizeEvent(flags);
 
@@ -1949,7 +1949,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetMaxClientSize(size);
 
@@ -1972,7 +1972,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetMaxSize(size);
 
@@ -1995,7 +1995,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetMinClientSize(size);
 
@@ -2018,7 +2018,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetMinSize(size);
 
@@ -2053,7 +2053,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2079,7 +2079,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2106,7 +2106,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRibbonControl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRibbonControl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxRibbonControl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2128,7 +2128,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::ClearBackground();
 
@@ -2146,7 +2146,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxRibbonControl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxRibbonControl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxRibbonControl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2165,7 +2165,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRibbonControl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2184,7 +2184,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxRibbonControl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxRibbonControl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2203,7 +2203,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxRibbonControl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxRibbonControl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxRibbonControl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2229,7 +2229,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::Refresh(eraseBackground, rect);
 
@@ -2247,7 +2247,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::Update();
 
@@ -2266,7 +2266,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2290,7 +2290,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2309,7 +2309,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2329,7 +2329,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetThemeEnabled(enable);
 
@@ -2347,7 +2347,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2366,7 +2366,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2386,7 +2386,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2406,7 +2406,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetNextHandler(handler);
 
@@ -2425,7 +2425,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetPreviousHandler(handler);
 
@@ -2443,7 +2443,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxRibbonControl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxRibbonControl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxRibbonControl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2463,7 +2463,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetExtraStyle(exStyle);
 
@@ -2482,7 +2482,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetWindowStyleFlag(style);
 
@@ -2500,7 +2500,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::Lower();
 
@@ -2518,7 +2518,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::Raise();
 
@@ -2540,7 +2540,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2559,7 +2559,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2578,7 +2578,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2600,7 +2600,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2622,7 +2622,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2645,7 +2645,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2670,7 +2670,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRibbonControl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxRibbonControl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRibbonControl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2689,7 +2689,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxRibbonControl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxRibbonControl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxRibbonControl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2715,7 +2715,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetValidator(validator);
 
@@ -2733,7 +2733,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2752,7 +2752,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2771,7 +2771,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2790,7 +2790,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxRibbonControl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxRibbonControl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxRibbonControl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2809,7 +2809,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRibbonControl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxRibbonControl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRibbonControl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2829,7 +2829,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetLayoutDirection(dir);
 
@@ -2848,7 +2848,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetName(name);
 
@@ -2871,7 +2871,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetAcceleratorTable(accel);
 
@@ -2889,7 +2889,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2908,7 +2908,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxRibbonControl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxRibbonControl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxRibbonControl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2930,7 +2930,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetDropTarget(target);
 
@@ -2949,7 +2949,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::DragAcceptFiles(accept);
 
@@ -2967,7 +2967,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2986,7 +2986,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3010,7 +3010,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3031,7 +3031,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::WarpPointer(x, y);
 
@@ -3054,7 +3054,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::DoUpdateWindowUI(event);
 
@@ -3072,7 +3072,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3091,7 +3091,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::InheritAttributes();
 
@@ -3109,7 +3109,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::InitDialog();
 
@@ -3127,7 +3127,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3146,7 +3146,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3168,7 +3168,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::MakeModal(modal);
 
@@ -3186,7 +3186,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::OnInternalIdle();
 
@@ -3207,7 +3207,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3227,7 +3227,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3249,7 +3249,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::UpdateWindowUI(flags);
 
@@ -3272,7 +3272,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::Command(event);
 
@@ -3290,7 +3290,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRibbonControl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxRibbonControl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxRibbonControl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3310,7 +3310,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetLabel(label);
 
@@ -3329,7 +3329,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetArtProvider(wxRibbonArtProvider *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonControl::base_SetArtProvider(wxRibbonArtProvider *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRibbonControl::SetArtProvider(art);
 
@@ -3347,7 +3347,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsSizingContinuous() const");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_IsSizingContinuous() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::IsSizingContinuous();
 		lua_pushboolean(L,lret?1:0);
@@ -3366,7 +3366,7 @@ public:
 		wxRibbonControl* self=Luna< wxObject >::checkSubType< wxRibbonControl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Realize()");
+			luaL_error(L, "Invalid object in function call bool wxRibbonControl::base_Realize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRibbonControl::Realize();
 		lua_pushboolean(L,lret?1:0);

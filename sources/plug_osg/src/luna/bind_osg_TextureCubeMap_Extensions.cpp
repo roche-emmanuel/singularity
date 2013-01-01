@@ -156,7 +156,7 @@ public:
 		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -175,7 +175,7 @@ public:
 		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setCubeMapSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setCubeMapSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCubeMapSupported(flag);
 
@@ -193,7 +193,7 @@ public:
 		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TextureCubeMap::Extensions::isCubeMapSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::TextureCubeMap::Extensions::isCubeMapSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCubeMapSupported();
 		lua_pushboolean(L,lret?1:0);

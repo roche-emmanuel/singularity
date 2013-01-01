@@ -563,7 +563,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::Clone() const");
+			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -584,7 +584,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->TransferFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -603,7 +603,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->TransferToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -622,7 +622,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericValidator::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericValidator::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGenericValidator::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -644,7 +644,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericValidator::QueueEvent(event);
 
@@ -667,7 +667,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericValidator::AddPendingEvent(event);
 
@@ -690,7 +690,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericValidator::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -710,7 +710,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericValidator::SetNextHandler(handler);
 
@@ -729,7 +729,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxGenericValidator::SetPreviousHandler(handler);
 
@@ -748,7 +748,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_Validate(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_Validate(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericValidator::Validate(parent);
 		lua_pushboolean(L,lret?1:0);
@@ -767,7 +767,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::base_Clone() const");
+			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->wxGenericValidator::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -788,7 +788,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericValidator::TransferFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -807,7 +807,7 @@ public:
 		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGenericValidator::TransferToWindow();
 		lua_pushboolean(L,lret?1:0);

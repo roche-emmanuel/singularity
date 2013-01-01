@@ -121,7 +121,7 @@ public:
 		wxImageHistogram* self=(Luna< wxImageHistogram >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHistogram::FindFirstUnusedColour(unsigned char *, unsigned char *, unsigned char *, unsigned char, unsigned char, unsigned char) const");
+			luaL_error(L, "Invalid object in function call bool wxImageHistogram::FindFirstUnusedColour(unsigned char *, unsigned char *, unsigned char *, unsigned char, unsigned char, unsigned char) const. Got : '%s'",typeid(Luna< wxImageHistogram >::check(L,1)).name());
 		}
 		bool lret = self->FindFirstUnusedColour(&r, &g, &b, startR, startG, startB);
 		lua_pushboolean(L,lret?1:0);

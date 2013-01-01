@@ -170,7 +170,7 @@ public:
 		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::findDataFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
+			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::findDataFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->findDataFile(filename, options, caseSensitivity);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -192,7 +192,7 @@ public:
 		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::findLibraryFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
+			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::findLibraryFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->findLibraryFile(filename, options, caseSensitivity);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -214,7 +214,7 @@ public:
 		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::base_findDataFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
+			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::base_findDataFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->FindFileCallback::findDataFile(filename, options, caseSensitivity);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -236,7 +236,7 @@ public:
 		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::base_findLibraryFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
+			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::base_findLibraryFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->FindFileCallback::findLibraryFile(filename, options, caseSensitivity);
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -170,7 +170,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->SetParameters(params);
 
@@ -188,7 +188,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_Destroy()");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_Destroy(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::Destroy();
 
@@ -211,7 +211,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_HandleReturn(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_HandleReturn(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::HandleReturn(event);
 
@@ -235,7 +235,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::PaintBackground(rectCell, attr);
 
@@ -258,7 +258,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_SetSize(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_SetSize(const wxRect &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::SetSize(rect);
 
@@ -280,7 +280,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_Show(bool, wxGridCellAttr *)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_Show(bool, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::Show(show, attr);
 
@@ -298,7 +298,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_StartingClick()");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_StartingClick(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::StartingClick();
 
@@ -321,7 +321,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_StartingKey(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_StartingKey(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::StartingKey(event);
 
@@ -340,7 +340,7 @@ public:
 		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellTextEditor::SetParameters(params);
 

@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::set< osgUtil::PolytopeIntersector::Intersection >",name);
 	}
+
 };
 
 std::set< osgUtil::PolytopeIntersector::Intersection >* LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > >::
 luna_RegType LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_set_osgUtil_PolytopeIntersector_Intersection::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_set_osgUtil_PolytopeIntersector_Intersection::_bind___eq},
+	
 	{0,0}
 };
 

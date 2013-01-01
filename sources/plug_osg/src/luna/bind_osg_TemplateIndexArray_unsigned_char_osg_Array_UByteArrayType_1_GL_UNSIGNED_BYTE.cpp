@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE >",name);
 	}
+
 };
 
 osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE >* LunaTraits< osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::TemplateIndexArray< unsigned char, osg::Array::UByteA
 luna_RegType LunaTraits< osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_TemplateIndexArray_unsigned_char_osg_Array_UByteArrayType_1_GL_UNSIGNED_BYTE::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_TemplateIndexArray_unsigned_char_osg_Array_UByteArrayType_1_GL_UNSIGNED_BYTE::_bind___eq},
+	
 	{0,0}
 };
 

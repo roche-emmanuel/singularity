@@ -129,7 +129,7 @@ public:
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnDir(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
 		}
 		wxDirTraverseResult lret = self->OnDir(dirname);
 		lua_pushnumber(L,lret);
@@ -149,7 +149,7 @@ public:
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnFile(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
 		}
 		wxDirTraverseResult lret = self->OnFile(filename);
 		lua_pushnumber(L,lret);
@@ -169,7 +169,7 @@ public:
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
 		}
 		wxDirTraverseResult lret = self->OnOpenError(openerrorname);
 		lua_pushnumber(L,lret);
@@ -189,7 +189,7 @@ public:
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
 		}
 		wxDirTraverseResult lret = self->wxDirTraverser::OnOpenError(openerrorname);
 		lua_pushnumber(L,lret);

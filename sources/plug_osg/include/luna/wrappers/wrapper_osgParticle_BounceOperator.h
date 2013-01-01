@@ -357,7 +357,7 @@ public:
 		wrapper_osgParticle_BounceOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f &, const osg::Vec3f &, osg::Vec3f &, osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f &, const osg::Vec3f &, osg::Vec3f &, osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeNewBasis(_arg1, _arg2, _arg3, _arg4);
 
@@ -376,7 +376,7 @@ public:
 		wrapper_osgParticle_BounceOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_ignore(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_ignore(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_ignore(func);
 
@@ -396,7 +396,7 @@ public:
 		wrapper_osgParticle_BounceOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -414,7 +414,7 @@ public:
 		wrapper_osgParticle_BounceOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

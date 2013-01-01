@@ -152,7 +152,7 @@ public:
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::asView()");
+			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::asView(). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
 		}
 		osg::View * lret = self->asView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -173,7 +173,7 @@ public:
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestRedraw()");
+			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestRedraw(). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
 		}
 		self->requestRedraw();
 
@@ -194,7 +194,7 @@ public:
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestContinuousUpdate(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestContinuousUpdate(bool). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
 		}
 		self->requestContinuousUpdate(needed);
 
@@ -214,7 +214,7 @@ public:
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestWarpPointer(float, float)");
+			luaL_error(L, "Invalid object in function call void osgGA::GUIActionAdapter::requestWarpPointer(float, float). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
 		}
 		self->requestWarpPointer(x, y);
 
@@ -232,7 +232,7 @@ public:
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::base_asView()");
+			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::base_asView(). Got : '%s'",typeid(Luna< osgGA::GUIActionAdapter >::check(L,1)).name());
 		}
 		osg::View * lret = self->GUIActionAdapter::asView();
 		if(!lret) return 0; // Do not write NULL pointers.

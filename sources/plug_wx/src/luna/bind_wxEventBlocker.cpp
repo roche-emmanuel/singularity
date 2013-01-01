@@ -196,7 +196,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventBlocker::Block(int)");
+			luaL_error(L, "Invalid object in function call void wxEventBlocker::Block(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Block(eventType);
 
@@ -214,7 +214,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxEventBlocker::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEventBlocker::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxEventBlocker::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -236,7 +236,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxEventBlocker::QueueEvent(event);
 
@@ -259,7 +259,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxEventBlocker::AddPendingEvent(event);
 
@@ -282,7 +282,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventBlocker::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxEventBlocker::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxEventBlocker::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -302,7 +302,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxEventBlocker::SetNextHandler(handler);
 
@@ -321,7 +321,7 @@ public:
 		wxEventBlocker* self=Luna< wxObject >::checkSubType< wxEventBlocker >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxEventBlocker::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxEventBlocker::SetPreviousHandler(handler);
 

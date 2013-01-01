@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >",name);
 	}
+
 };
 
 osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >* LunaTraits< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType
 luna_RegType LunaTraits< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_TemplateArray_osg_Vec4s_osg_Array_Vec4sArrayType_4_GL_SHORT::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_TemplateArray_osg_Vec4s_osg_Array_Vec4sArrayType_4_GL_SHORT::_bind___eq},
+	
 	{0,0}
 };
 

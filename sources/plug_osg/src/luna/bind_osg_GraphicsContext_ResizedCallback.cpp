@@ -121,7 +121,7 @@ public:
 		osg::GraphicsContext::ResizedCallback* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::ResizedCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext *, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext *, int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->resizedImplementation(gc, x, y, width, height);
 

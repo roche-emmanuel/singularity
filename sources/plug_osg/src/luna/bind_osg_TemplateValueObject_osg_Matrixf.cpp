@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::TemplateValueObject< osg::Matrixf >",name);
 	}
+
 };
 
 osg::TemplateValueObject< osg::Matrixf >* LunaTraits< osg::TemplateValueObject< osg::Matrixf > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::TemplateValueObject< osg::Matrixf > >::uniqueIDs[] = 
 luna_RegType LunaTraits< osg::TemplateValueObject< osg::Matrixf > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_TemplateValueObject_osg_Matrixf::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_TemplateValueObject_osg_Matrixf::_bind___eq},
+	
 	{0,0}
 };
 

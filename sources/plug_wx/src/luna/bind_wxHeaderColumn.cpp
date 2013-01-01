@@ -209,7 +209,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderColumn::GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxHeaderColumn::GetTitle() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxString lret = self->GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -228,7 +228,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumn::GetBitmap() const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumn::GetBitmap() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->GetBitmap();
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -250,7 +250,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumn::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumn::GetWidth() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -269,7 +269,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumn::GetMinWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumn::GetMinWidth() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->GetMinWidth();
 		lua_pushnumber(L,lret);
@@ -288,7 +288,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumn::GetAlignment() const");
+			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumn::GetAlignment() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxAlignment lret = self->GetAlignment();
 		lua_pushnumber(L,lret);
@@ -307,7 +307,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumn::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumn::GetFlags() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -327,7 +327,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::HasFlag(int) const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::HasFlag(int) const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->HasFlag(flag);
 		lua_pushboolean(L,lret?1:0);
@@ -346,7 +346,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsResizeable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsResizeable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsResizeable();
 		lua_pushboolean(L,lret?1:0);
@@ -365,7 +365,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsSortable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsSortable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsSortable();
 		lua_pushboolean(L,lret?1:0);
@@ -384,7 +384,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsReorderable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsReorderable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsReorderable();
 		lua_pushboolean(L,lret?1:0);
@@ -403,7 +403,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsHidden() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsHidden() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsHidden();
 		lua_pushboolean(L,lret?1:0);
@@ -422,7 +422,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsShown() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -441,7 +441,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsSortKey() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsSortKey() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsSortKey();
 		lua_pushboolean(L,lret?1:0);
@@ -460,7 +460,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsSortOrderAscending() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::IsSortOrderAscending() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsSortOrderAscending();
 		lua_pushboolean(L,lret?1:0);
@@ -479,7 +479,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsResizeable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsResizeable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumn::IsResizeable();
 		lua_pushboolean(L,lret?1:0);
@@ -498,7 +498,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsSortable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsSortable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumn::IsSortable();
 		lua_pushboolean(L,lret?1:0);
@@ -517,7 +517,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsReorderable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsReorderable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumn::IsReorderable();
 		lua_pushboolean(L,lret?1:0);
@@ -536,7 +536,7 @@ public:
 		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsHidden() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsHidden() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumn::IsHidden();
 		lua_pushboolean(L,lret?1:0);

@@ -979,7 +979,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::Create(wxWindow *, int, const wxDateTime &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::Create(wxWindow *, int, const wxDateTime &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, dt, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -998,7 +998,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxTimePickerCtrl::GetValue() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxTimePickerCtrl::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetValue();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1025,7 +1025,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::SetValue(const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::SetValue(const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(dt);
 
@@ -1043,7 +1043,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTimePickerCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTimePickerCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTimePickerCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1064,7 +1064,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1083,7 +1083,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1102,7 +1102,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1121,7 +1121,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1141,7 +1141,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetCanFocus(canFocus);
 
@@ -1159,7 +1159,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetFocus();
 
@@ -1177,7 +1177,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetFocusFromKbd();
 
@@ -1196,7 +1196,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::AddChild(child);
 
@@ -1215,7 +1215,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::RemoveChild(child);
 
@@ -1234,7 +1234,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1257,7 +1257,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1276,7 +1276,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxTimePickerCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1296,7 +1296,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxTimePickerCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1316,7 +1316,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxTimePickerCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1336,7 +1336,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1356,7 +1356,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1376,7 +1376,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1400,7 +1400,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::ScrollWindow(dx, dy, rect);
 
@@ -1423,7 +1423,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -1448,7 +1448,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1471,7 +1471,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1498,7 +1498,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1520,7 +1520,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::Fit();
 
@@ -1538,7 +1538,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::FitInside();
 
@@ -1556,7 +1556,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1578,7 +1578,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1600,7 +1600,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1622,7 +1622,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1644,7 +1644,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1666,7 +1666,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1688,7 +1688,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxTimePickerCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxTimePickerCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1713,7 +1713,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1735,7 +1735,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SendSizeEvent(flags);
 
@@ -1758,7 +1758,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetMaxClientSize(size);
 
@@ -1781,7 +1781,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetMaxSize(size);
 
@@ -1804,7 +1804,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetMinClientSize(size);
 
@@ -1827,7 +1827,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetMinSize(size);
 
@@ -1862,7 +1862,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1888,7 +1888,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1915,7 +1915,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxTimePickerCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxTimePickerCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxTimePickerCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1937,7 +1937,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::ClearBackground();
 
@@ -1955,7 +1955,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxTimePickerCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxTimePickerCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxTimePickerCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1974,7 +1974,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxTimePickerCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1993,7 +1993,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxTimePickerCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxTimePickerCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2012,7 +2012,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxTimePickerCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxTimePickerCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxTimePickerCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2038,7 +2038,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::Refresh(eraseBackground, rect);
 
@@ -2056,7 +2056,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::Update();
 
@@ -2075,7 +2075,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2099,7 +2099,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2118,7 +2118,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2138,7 +2138,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetThemeEnabled(enable);
 
@@ -2156,7 +2156,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2175,7 +2175,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2195,7 +2195,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2215,7 +2215,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetNextHandler(handler);
 
@@ -2234,7 +2234,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetPreviousHandler(handler);
 
@@ -2252,7 +2252,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTimePickerCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxTimePickerCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxTimePickerCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2272,7 +2272,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetExtraStyle(exStyle);
 
@@ -2291,7 +2291,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetWindowStyleFlag(style);
 
@@ -2309,7 +2309,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::Lower();
 
@@ -2327,7 +2327,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::Raise();
 
@@ -2349,7 +2349,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2368,7 +2368,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2387,7 +2387,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2409,7 +2409,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2431,7 +2431,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2454,7 +2454,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2479,7 +2479,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTimePickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxTimePickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTimePickerCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2498,7 +2498,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxTimePickerCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxTimePickerCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxTimePickerCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2524,7 +2524,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetValidator(validator);
 
@@ -2542,7 +2542,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2561,7 +2561,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2580,7 +2580,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2599,7 +2599,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxTimePickerCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxTimePickerCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxTimePickerCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2618,7 +2618,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTimePickerCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxTimePickerCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTimePickerCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2638,7 +2638,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetLayoutDirection(dir);
 
@@ -2657,7 +2657,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetName(name);
 
@@ -2680,7 +2680,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetAcceleratorTable(accel);
 
@@ -2698,7 +2698,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2717,7 +2717,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxTimePickerCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxTimePickerCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxTimePickerCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2739,7 +2739,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetDropTarget(target);
 
@@ -2758,7 +2758,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::DragAcceptFiles(accept);
 
@@ -2776,7 +2776,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2795,7 +2795,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2819,7 +2819,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2840,7 +2840,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::WarpPointer(x, y);
 
@@ -2863,7 +2863,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::DoUpdateWindowUI(event);
 
@@ -2881,7 +2881,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2900,7 +2900,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::InheritAttributes();
 
@@ -2918,7 +2918,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::InitDialog();
 
@@ -2936,7 +2936,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2955,7 +2955,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2977,7 +2977,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::MakeModal(modal);
 
@@ -2995,7 +2995,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::OnInternalIdle();
 
@@ -3016,7 +3016,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3036,7 +3036,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxTimePickerCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTimePickerCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3058,7 +3058,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::UpdateWindowUI(flags);
 
@@ -3081,7 +3081,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::Command(event);
 
@@ -3099,7 +3099,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTimePickerCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxTimePickerCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxTimePickerCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3119,7 +3119,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetLabel(label);
 
@@ -3137,7 +3137,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxTimePickerCtrl::base_GetValue() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxTimePickerCtrl::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->wxTimePickerCtrl::GetValue();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3164,7 +3164,7 @@ public:
 		wxTimePickerCtrl* self=Luna< wxObject >::checkSubType< wxTimePickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetValue(const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call void wxTimePickerCtrl::base_SetValue(const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTimePickerCtrl::SetValue(dt);
 

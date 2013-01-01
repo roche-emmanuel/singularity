@@ -398,7 +398,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -424,7 +424,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -446,7 +446,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CompositeShape::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::CompositeShape::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -465,7 +465,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -484,7 +484,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -508,7 +508,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -531,7 +531,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -559,7 +559,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::setShape(osg::Shape *)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::setShape(osg::Shape *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setShape(shape);
 
@@ -577,7 +577,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shape * osg::CompositeShape::getShape()");
+			luaL_error(L, "Invalid object in function call osg::Shape * osg::CompositeShape::getShape(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Shape * lret = self->getShape();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -598,7 +598,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Shape * osg::CompositeShape::getShape() const");
+			luaL_error(L, "Invalid object in function call const osg::Shape * osg::CompositeShape::getShape() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Shape * lret = self->getShape();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -628,7 +628,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CompositeShape::getNumChildren() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CompositeShape::getNumChildren() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumChildren();
 		lua_pushnumber(L,lret);
@@ -648,7 +648,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shape * osg::CompositeShape::getChild(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Shape * osg::CompositeShape::getChild(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Shape * lret = self->getChild(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -670,7 +670,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Shape * osg::CompositeShape::getChild(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Shape * osg::CompositeShape::getChild(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Shape * lret = self->getChild(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -701,7 +701,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::addChild(osg::Shape *)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::addChild(osg::Shape *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addChild(shape);
 
@@ -720,7 +720,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::removeChild(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::removeChild(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeChild(i);
 
@@ -739,7 +739,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CompositeShape::findChildNo(osg::Shape *) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CompositeShape::findChildNo(osg::Shape *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->findChildNo(shape);
 		lua_pushnumber(L,lret);
@@ -759,7 +759,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositeShape::setName(name);
 
@@ -777,7 +777,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositeShape::computeDataVariance();
 
@@ -796,7 +796,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositeShape::setUserData(obj);
 
@@ -814,7 +814,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CompositeShape::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CompositeShape::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->CompositeShape::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -835,7 +835,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::CompositeShape::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::CompositeShape::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->CompositeShape::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -868,7 +868,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositeShape::releaseGLObjects(_arg1);
 
@@ -886,7 +886,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->CompositeShape::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -912,7 +912,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CompositeShape::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->CompositeShape::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -934,7 +934,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CompositeShape::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::CompositeShape::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->CompositeShape::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -953,7 +953,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CompositeShape::libraryName();
 		lua_pushstring(L,lret);
@@ -972,7 +972,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CompositeShape::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CompositeShape::className();
 		lua_pushstring(L,lret);
@@ -996,7 +996,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositeShape::accept(_arg1);
 
@@ -1019,7 +1019,7 @@ public:
 		osg::CompositeShape* self=Luna< osg::Referenced >::checkSubType< osg::CompositeShape >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::CompositeShape::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositeShape::accept(_arg1);
 

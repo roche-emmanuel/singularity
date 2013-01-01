@@ -159,7 +159,7 @@ public:
 		osg::Observer* self=(Luna< osg::Observer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Observer::objectDeleted(void *)");
+			luaL_error(L, "Invalid object in function call void osg::Observer::objectDeleted(void *). Got : '%s'",typeid(Luna< osg::Observer >::check(L,1)).name());
 		}
 		self->objectDeleted(_arg1);
 
@@ -178,7 +178,7 @@ public:
 		osg::Observer* self=(Luna< osg::Observer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Observer::base_objectDeleted(void *)");
+			luaL_error(L, "Invalid object in function call void osg::Observer::base_objectDeleted(void *). Got : '%s'",typeid(Luna< osg::Observer >::check(L,1)).name());
 		}
 		self->Observer::objectDeleted(_arg1);
 

@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >",name);
 	}
+
 };
 
 std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >* LunaTraits< std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > 
 luna_RegType LunaTraits< std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_pair_osg_ref_ptr_osg_StateSet_osg_Polytope::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_pair_osg_ref_ptr_osg_StateSet_osg_Polytope::_bind___eq},
+	
 	{0,0}
 };
 

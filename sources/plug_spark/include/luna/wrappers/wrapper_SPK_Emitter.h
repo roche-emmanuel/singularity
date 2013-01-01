@@ -274,7 +274,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_registerChild(SPK::Registerable *, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_registerChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->public_registerChild(child, registerAll);
 
@@ -294,7 +294,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable *, bool)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->public_copyChild(child, createBase);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -317,7 +317,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Registerable::public_destroyChild(SPK::Registerable *, bool)");
+			luaL_error(L, "Invalid object in function call bool SPK::Registerable::public_destroyChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->public_destroyChild(child, keepChildren);
 		lua_pushboolean(L,lret?1:0);
@@ -337,7 +337,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_incrementChildReference(SPK::Registerable *)");
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_incrementChildReference(SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->public_incrementChildReference(child);
 
@@ -356,7 +356,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_decrementChildReference(SPK::Registerable *)");
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_decrementChildReference(SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->public_decrementChildReference(child);
 
@@ -378,7 +378,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::Registerable::public_registerObject(SPK::Registerable *, bool)");
+			luaL_error(L, "Invalid object in function call static void SPK::Registerable::public_registerObject(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->public_registerObject(obj, registerAll);
 
@@ -406,7 +406,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformPos(SPK::Vector3D &, const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformPos(SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->public_transformPos(tPos, pos);
 
@@ -434,7 +434,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformDir(SPK::Vector3D &, const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformDir(SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->public_transformDir(tDir, dir);
 
@@ -452,7 +452,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Transformable::public_isUpdateNotified() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Transformable::public_isUpdateNotified() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		bool lret = self->public_isUpdateNotified();
 		lua_pushboolean(L,lret?1:0);
@@ -471,7 +471,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_notifyForUpdate()");
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_notifyForUpdate(). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		self->public_notifyForUpdate();
 
@@ -489,7 +489,7 @@ public:
 		wrapper_SPK_Emitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_Emitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Transformable * SPK::Transformable::public_getParentTransform() const");
+			luaL_error(L, "Invalid object in function call const SPK::Transformable * SPK::Transformable::public_getParentTransform() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
 		const SPK::Transformable * lret = self->public_getParentTransform();
 		if(!lret) return 0; // Do not write NULL pointers.

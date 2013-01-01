@@ -297,7 +297,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::AddButton(wxButton *)");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::AddButton(wxButton *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddButton(button);
 
@@ -315,7 +315,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::Realize()");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::Realize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Realize();
 
@@ -334,7 +334,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetAffirmativeButton(wxButton *)");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetAffirmativeButton(wxButton *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAffirmativeButton(button);
 
@@ -353,7 +353,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetCancelButton(wxButton *)");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetCancelButton(wxButton *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCancelButton(button);
 
@@ -372,7 +372,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetNegativeButton(wxButton *)");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetNegativeButton(wxButton *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetNegativeButton(button);
 
@@ -390,7 +390,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::RecalcSizes()");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RecalcSizes();
 
@@ -408,7 +408,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStdDialogButtonSizer::CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxStdDialogButtonSizer::CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -430,7 +430,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxStdDialogButtonSizer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxStdDialogButtonSizer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxStdDialogButtonSizer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -454,7 +454,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_Clear(bool)");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_Clear(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxStdDialogButtonSizer::Clear(delete_windows);
 
@@ -473,7 +473,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Detach(window);
 		lua_pushboolean(L,lret?1:0);
@@ -493,7 +493,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(wxSizer *)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Detach(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -513,7 +513,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(int)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Detach(index);
 		lua_pushboolean(L,lret?1:0);
@@ -545,7 +545,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -564,7 +564,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_Layout()");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxStdDialogButtonSizer::Layout();
 
@@ -583,7 +583,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Remove(wxSizer *)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Remove(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Remove(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -603,7 +603,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Remove(int)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Remove(index);
 		lua_pushboolean(L,lret?1:0);
@@ -636,7 +636,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(wxWindow *, wxWindow *, bool)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(wxWindow *, wxWindow *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Replace(oldwin, newwin, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -660,7 +660,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(wxSizer *, wxSizer *, bool)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(wxSizer *, wxSizer *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Replace(oldsz, newsz, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -681,7 +681,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(size_t, wxSizerItem *)");
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(size_t, wxSizerItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStdDialogButtonSizer::Replace(index, newitem);
 		lua_pushboolean(L,lret?1:0);
@@ -711,7 +711,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerItem * wxStdDialogButtonSizer::base_AddSpacer(int)");
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxStdDialogButtonSizer::base_AddSpacer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSizerItem * lret = self->wxStdDialogButtonSizer::AddSpacer(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -732,7 +732,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_RecalcSizes()");
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxStdDialogButtonSizer::RecalcSizes();
 
@@ -750,7 +750,7 @@ public:
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStdDialogButtonSizer::base_CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxStdDialogButtonSizer::base_CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxStdDialogButtonSizer::CalcMin();
 		wxSize* lret = new wxSize(stack_lret);

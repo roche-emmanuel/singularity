@@ -487,7 +487,7 @@ public:
 		wrapper_osgViewer_GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_addCamera(osg::Camera *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_addCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addCamera(camera);
 
@@ -506,7 +506,7 @@ public:
 		wrapper_osgViewer_GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_removeCamera(osg::Camera *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_removeCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeCamera(camera);
 
@@ -525,7 +525,7 @@ public:
 		wrapper_osgViewer_GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_registerGraphicsContext(gc);
 
@@ -544,7 +544,7 @@ public:
 		wrapper_osgViewer_GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_unregisterGraphicsContext(gc);
 
@@ -564,7 +564,7 @@ public:
 		wrapper_osgViewer_GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -582,7 +582,7 @@ public:
 		wrapper_osgViewer_GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

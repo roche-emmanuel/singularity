@@ -211,7 +211,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -230,7 +230,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -254,7 +254,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifierVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifierVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -272,7 +272,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifierVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifierVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawElementTypeSimplifierVisitor::reset();
 
@@ -290,7 +290,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DrawElementTypeSimplifierVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DrawElementTypeSimplifierVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->DrawElementTypeSimplifierVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -312,7 +312,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DrawElementTypeSimplifierVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DrawElementTypeSimplifierVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->DrawElementTypeSimplifierVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -340,7 +340,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DrawElementTypeSimplifierVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DrawElementTypeSimplifierVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->DrawElementTypeSimplifierVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -365,7 +365,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DrawElementTypeSimplifierVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DrawElementTypeSimplifierVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->DrawElementTypeSimplifierVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -390,7 +390,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DrawElementTypeSimplifierVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DrawElementTypeSimplifierVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->DrawElementTypeSimplifierVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -409,7 +409,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DrawElementTypeSimplifierVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -428,7 +428,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DrawElementTypeSimplifierVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DrawElementTypeSimplifierVisitor::className();
 		lua_pushstring(L,lret);
@@ -452,7 +452,7 @@ public:
 		osgUtil::DrawElementTypeSimplifierVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DrawElementTypeSimplifierVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifierVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DrawElementTypeSimplifierVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DrawElementTypeSimplifierVisitor::apply(node);
 

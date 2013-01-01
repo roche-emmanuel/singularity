@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::PagedLOD::PerRangeData >",name);
 	}
+
 };
 
 std::vector< osg::PagedLOD::PerRangeData >* LunaTraits< std::vector< osg::PagedLOD::PerRangeData > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::PagedLOD::PerRangeData > >::uniqueIDs[] 
 luna_RegType LunaTraits< std::vector< osg::PagedLOD::PerRangeData > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_PagedLOD_PerRangeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_PagedLOD_PerRangeData::_bind___eq},
+	
 	{0,0}
 };
 

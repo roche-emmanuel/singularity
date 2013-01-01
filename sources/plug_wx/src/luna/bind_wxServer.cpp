@@ -166,7 +166,7 @@ public:
 		wxServer* self=(Luna< wxServer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxServer::Create(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxServer::Create(const wxString &). Got : '%s'",typeid(Luna< wxServer >::check(L,1)).name());
 		}
 		bool lret = self->Create(service);
 		lua_pushboolean(L,lret?1:0);
@@ -186,7 +186,7 @@ public:
 		wxServer* self=(Luna< wxServer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxServer::OnAcceptConnection(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxServer::OnAcceptConnection(const wxString &). Got : '%s'",typeid(Luna< wxServer >::check(L,1)).name());
 		}
 		wxConnectionBase * lret = self->OnAcceptConnection(topic);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -208,7 +208,7 @@ public:
 		wxServer* self=(Luna< wxServer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString &). Got : '%s'",typeid(Luna< wxServer >::check(L,1)).name());
 		}
 		wxConnectionBase * lret = self->wxServer::OnAcceptConnection(topic);
 		if(!lret) return 0; // Do not write NULL pointers.

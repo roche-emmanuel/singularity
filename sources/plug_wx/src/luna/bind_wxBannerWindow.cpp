@@ -1025,7 +1025,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::Create(wxWindow *, int, wxDirection, const wxPoint &, const wxSize &, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::Create(wxWindow *, int, wxDirection, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, winid, dir, pos, size, style, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1049,7 +1049,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::SetBitmap(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::SetBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBitmap(bmp);
 
@@ -1069,7 +1069,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::SetText(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::SetText(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetText(title, message);
 
@@ -1097,7 +1097,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::SetGradient(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::SetGradient(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetGradient(start, end);
 
@@ -1115,7 +1115,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBannerWindow::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBannerWindow::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxBannerWindow::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1136,7 +1136,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1155,7 +1155,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1174,7 +1174,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1193,7 +1193,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1213,7 +1213,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetCanFocus(canFocus);
 
@@ -1231,7 +1231,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetFocus();
 
@@ -1249,7 +1249,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetFocusFromKbd();
 
@@ -1268,7 +1268,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::AddChild(child);
 
@@ -1287,7 +1287,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::RemoveChild(child);
 
@@ -1306,7 +1306,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1329,7 +1329,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1348,7 +1348,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBannerWindow::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1368,7 +1368,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBannerWindow::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1388,7 +1388,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBannerWindow::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1408,7 +1408,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1428,7 +1428,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1448,7 +1448,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1472,7 +1472,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::ScrollWindow(dx, dy, rect);
 
@@ -1495,7 +1495,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetScrollPos(orientation, pos, refresh);
 
@@ -1520,7 +1520,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1543,7 +1543,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1570,7 +1570,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1592,7 +1592,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::Fit();
 
@@ -1610,7 +1610,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::FitInside();
 
@@ -1628,7 +1628,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1650,7 +1650,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1672,7 +1672,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1694,7 +1694,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1716,7 +1716,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1738,7 +1738,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1760,7 +1760,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBannerWindow::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBannerWindow::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1785,7 +1785,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1807,7 +1807,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SendSizeEvent(flags);
 
@@ -1830,7 +1830,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetMaxClientSize(size);
 
@@ -1853,7 +1853,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetMaxSize(size);
 
@@ -1876,7 +1876,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetMinClientSize(size);
 
@@ -1899,7 +1899,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetMinSize(size);
 
@@ -1934,7 +1934,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1960,7 +1960,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1987,7 +1987,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxBannerWindow::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxBannerWindow::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxBannerWindow::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2009,7 +2009,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::ClearBackground();
 
@@ -2027,7 +2027,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxBannerWindow::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxBannerWindow::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxBannerWindow::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2046,7 +2046,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBannerWindow::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2065,7 +2065,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxBannerWindow::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBannerWindow::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2084,7 +2084,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxBannerWindow::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxBannerWindow::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxBannerWindow::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2110,7 +2110,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::Refresh(eraseBackground, rect);
 
@@ -2128,7 +2128,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::Update();
 
@@ -2147,7 +2147,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2171,7 +2171,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2190,7 +2190,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2210,7 +2210,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetThemeEnabled(enable);
 
@@ -2228,7 +2228,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2247,7 +2247,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2267,7 +2267,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2287,7 +2287,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetNextHandler(handler);
 
@@ -2306,7 +2306,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetPreviousHandler(handler);
 
@@ -2324,7 +2324,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxBannerWindow::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxBannerWindow::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxBannerWindow::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2344,7 +2344,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetExtraStyle(exStyle);
 
@@ -2363,7 +2363,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetWindowStyleFlag(style);
 
@@ -2381,7 +2381,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::Lower();
 
@@ -2399,7 +2399,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::Raise();
 
@@ -2421,7 +2421,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2440,7 +2440,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2459,7 +2459,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2481,7 +2481,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2503,7 +2503,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2526,7 +2526,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2551,7 +2551,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBannerWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxBannerWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBannerWindow::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2570,7 +2570,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxBannerWindow::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxBannerWindow::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxBannerWindow::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2596,7 +2596,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetValidator(validator);
 
@@ -2614,7 +2614,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2633,7 +2633,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2652,7 +2652,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2671,7 +2671,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBannerWindow::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxBannerWindow::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBannerWindow::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2690,7 +2690,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxBannerWindow::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxBannerWindow::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxBannerWindow::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2709,7 +2709,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBannerWindow::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxBannerWindow::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBannerWindow::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2729,7 +2729,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetLabel(label);
 
@@ -2748,7 +2748,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetLayoutDirection(dir);
 
@@ -2767,7 +2767,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetName(name);
 
@@ -2790,7 +2790,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetAcceleratorTable(accel);
 
@@ -2808,7 +2808,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2827,7 +2827,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxBannerWindow::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxBannerWindow::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxBannerWindow::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2849,7 +2849,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::SetDropTarget(target);
 
@@ -2868,7 +2868,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::DragAcceptFiles(accept);
 
@@ -2886,7 +2886,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2905,7 +2905,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2929,7 +2929,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2950,7 +2950,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::WarpPointer(x, y);
 
@@ -2973,7 +2973,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::DoUpdateWindowUI(event);
 
@@ -2991,7 +2991,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3010,7 +3010,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::InheritAttributes();
 
@@ -3028,7 +3028,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::InitDialog();
 
@@ -3046,7 +3046,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3065,7 +3065,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3087,7 +3087,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::MakeModal(modal);
 
@@ -3105,7 +3105,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::OnInternalIdle();
 
@@ -3126,7 +3126,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3146,7 +3146,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxBannerWindow::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBannerWindow::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3168,7 +3168,7 @@ public:
 		wxBannerWindow* self=Luna< wxObject >::checkSubType< wxBannerWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxBannerWindow::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBannerWindow::UpdateWindowUI(flags);
 

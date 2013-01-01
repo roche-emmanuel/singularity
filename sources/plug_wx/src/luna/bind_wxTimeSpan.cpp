@@ -396,7 +396,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Abs() const");
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Abs() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxTimeSpan stack_lret = self->Abs();
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -423,7 +423,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Add(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Add(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxTimeSpan stack_lret = self->Add(diff);
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -450,7 +450,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Add(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Add(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->Add(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,7 +483,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTimeSpan::Format(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxTimeSpan::Format(const wxString &) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxString lret = self->Format(_arg1);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -502,7 +502,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetDays() const");
+			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetDays() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		int lret = self->GetDays();
 		lua_pushnumber(L,lret);
@@ -521,7 +521,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetHours() const");
+			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetHours() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		int lret = self->GetHours();
 		lua_pushnumber(L,lret);
@@ -540,7 +540,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxTimeSpan::GetMilliseconds() const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxTimeSpan::GetMilliseconds() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->GetMilliseconds();
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -562,7 +562,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetMinutes() const");
+			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetMinutes() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		int lret = self->GetMinutes();
 		lua_pushnumber(L,lret);
@@ -581,7 +581,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxTimeSpan::GetSeconds() const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxTimeSpan::GetSeconds() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->GetSeconds();
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -603,7 +603,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxTimeSpan::GetValue() const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxTimeSpan::GetValue() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->GetValue();
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -625,7 +625,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetWeeks() const");
+			luaL_error(L, "Invalid object in function call int wxTimeSpan::GetWeeks() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		int lret = self->GetWeeks();
 		lua_pushnumber(L,lret);
@@ -649,7 +649,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsEqualTo(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsEqualTo(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		bool lret = self->IsEqualTo(ts);
 		lua_pushboolean(L,lret?1:0);
@@ -673,7 +673,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsLongerThan(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsLongerThan(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		bool lret = self->IsLongerThan(ts);
 		lua_pushboolean(L,lret?1:0);
@@ -692,7 +692,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsNegative() const");
+			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsNegative() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		bool lret = self->IsNegative();
 		lua_pushboolean(L,lret?1:0);
@@ -711,7 +711,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsNull() const");
+			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsNull() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		bool lret = self->IsNull();
 		lua_pushboolean(L,lret?1:0);
@@ -730,7 +730,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsPositive() const");
+			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsPositive() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		bool lret = self->IsPositive();
 		lua_pushboolean(L,lret?1:0);
@@ -754,7 +754,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsShorterThan(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxTimeSpan::IsShorterThan(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		bool lret = self->IsShorterThan(ts);
 		lua_pushboolean(L,lret?1:0);
@@ -774,7 +774,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Multiply(int) const");
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Multiply(int) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxTimeSpan stack_lret = self->Multiply(n);
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -797,7 +797,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Multiply(int)");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Multiply(int). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->Multiply(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -827,7 +827,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Neg()");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Neg(). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->Neg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -848,7 +848,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Negate() const");
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Negate() const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxTimeSpan stack_lret = self->Negate();
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -875,7 +875,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Subtract(const wxTimeSpan &) const");
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxTimeSpan::Subtract(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		wxTimeSpan stack_lret = self->Subtract(diff);
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -902,7 +902,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Subtract(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::Subtract(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->Subtract(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1157,7 +1157,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator+=(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator+=(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->operator+=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1179,7 +1179,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator*=(int)");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator*=(int). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->operator*=(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1200,7 +1200,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator-()");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator-(). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->operator-();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1226,7 +1226,7 @@ public:
 		wxTimeSpan* self=(Luna< wxTimeSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator-=(const wxTimeSpan &)");
+			luaL_error(L, "Invalid object in function call wxTimeSpan & wxTimeSpan::operator-=(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxTimeSpan >::check(L,1)).name());
 		}
 		const wxTimeSpan* lret = &self->operator-=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.

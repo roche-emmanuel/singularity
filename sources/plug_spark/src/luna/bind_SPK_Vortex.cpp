@@ -296,7 +296,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Vortex::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Vortex::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -320,7 +320,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::setPosition(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setPosition(position);
 
@@ -343,7 +343,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::setDirection(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::setDirection(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setDirection(direction);
 
@@ -363,7 +363,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::setRotationSpeed(float, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::setRotationSpeed(float, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setRotationSpeed(rotationSpeed, angular);
 
@@ -383,7 +383,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::setAttractionSpeed(float, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::setAttractionSpeed(float, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setAttractionSpeed(attractionSpeed, linear);
 
@@ -402,7 +402,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::setEyeRadius(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::setEyeRadius(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setEyeRadius(eyeRadius);
 
@@ -421,7 +421,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::enableParticleKilling(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::enableParticleKilling(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->enableParticleKilling(kill);
 
@@ -439,7 +439,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -460,7 +460,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getDirection() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -481,7 +481,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getTransformedPosition() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getTransformedPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -502,7 +502,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getTransformedDirection() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Vortex::getTransformedDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -523,7 +523,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Vortex::getRotationSpeed() const");
+			luaL_error(L, "Invalid object in function call float SPK::Vortex::getRotationSpeed() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getRotationSpeed();
 		lua_pushnumber(L,lret);
@@ -542,7 +542,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Vortex::getAttractionSpeed() const");
+			luaL_error(L, "Invalid object in function call float SPK::Vortex::getAttractionSpeed() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getAttractionSpeed();
 		lua_pushnumber(L,lret);
@@ -561,7 +561,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Vortex::isRotationSpeedAngular() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Vortex::isRotationSpeedAngular() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isRotationSpeedAngular();
 		lua_pushboolean(L,lret?1:0);
@@ -580,7 +580,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Vortex::isAttractionSpeedLinear() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Vortex::isAttractionSpeedLinear() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isAttractionSpeedLinear();
 		lua_pushboolean(L,lret?1:0);
@@ -599,7 +599,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Vortex::getEyeRadius() const");
+			luaL_error(L, "Invalid object in function call float SPK::Vortex::getEyeRadius() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getEyeRadius();
 		lua_pushnumber(L,lret);
@@ -618,7 +618,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Vortex::isParticleKillingEnabled() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Vortex::isParticleKillingEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isParticleKillingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -672,7 +672,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::base_createBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Vortex::createBuffers(group);
 
@@ -695,7 +695,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Vortex::base_destroyBuffers(const SPK::Group &)");
+			luaL_error(L, "Invalid object in function call void SPK::Vortex::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->Vortex::destroyBuffers(group);
 
@@ -714,7 +714,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Vortex::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Vortex::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Vortex::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -735,7 +735,7 @@ public:
 		SPK::Vortex* self=Luna< SPK::Registerable >::checkSubType< SPK::Vortex >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Vortex::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Vortex::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Vortex::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

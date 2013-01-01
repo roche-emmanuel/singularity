@@ -603,7 +603,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -622,7 +622,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -642,7 +642,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setEventQueue(osgGA::EventQueue *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setEventQueue(osgGA::EventQueue *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEventQueue(eventQueue);
 
@@ -660,7 +660,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::EventQueue * osgViewer::GraphicsWindow::getEventQueue()");
+			luaL_error(L, "Invalid object in function call osgGA::EventQueue * osgViewer::GraphicsWindow::getEventQueue(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgGA::EventQueue * lret = self->getEventQueue();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -681,7 +681,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::EventQueue * osgViewer::GraphicsWindow::getEventQueue() const");
+			luaL_error(L, "Invalid object in function call const osgGA::EventQueue * osgViewer::GraphicsWindow::getEventQueue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgGA::EventQueue * lret = self->getEventQueue();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -711,7 +711,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::checkEvents()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::checkEvents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->checkEvents();
 
@@ -733,7 +733,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setWindowRectangle(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setWindowRectangle(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWindowRectangle(x, y, width, height);
 
@@ -755,7 +755,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setWindowRectangleImplementation(_arg1, _arg2, _arg3, _arg4);
 		lua_pushboolean(L,lret?1:0);
@@ -778,7 +778,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::getWindowRectangle(int &, int &, int &, int &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::getWindowRectangle(int &, int &, int &, int &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getWindowRectangle(x, y, width, height);
 
@@ -797,7 +797,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setWindowDecoration(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setWindowDecoration(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWindowDecoration(flag);
 
@@ -816,7 +816,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setWindowDecorationImplementation(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -835,7 +835,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::getWindowDecoration() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::getWindowDecoration() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getWindowDecoration();
 		lua_pushboolean(L,lret?1:0);
@@ -854,7 +854,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::grabFocus()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::grabFocus(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->grabFocus();
 
@@ -872,7 +872,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::grabFocusIfPointerInWindow()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::grabFocusIfPointerInWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->grabFocusIfPointerInWindow();
 
@@ -890,7 +890,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::raiseWindow()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::raiseWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->raiseWindow();
 
@@ -909,7 +909,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setWindowName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setWindowName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWindowName(_arg1);
 
@@ -927,7 +927,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgViewer::GraphicsWindow::getWindowName()");
+			luaL_error(L, "Invalid object in function call std::string osgViewer::GraphicsWindow::getWindowName(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->getWindowName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -947,7 +947,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::useCursor(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::useCursor(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->useCursor(cursorOn);
 
@@ -966,7 +966,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCursor(_arg1);
 
@@ -985,7 +985,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setSyncToVBlank(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setSyncToVBlank(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSyncToVBlank(on);
 
@@ -1003,7 +1003,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::getSyncToVBlank() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::getSyncToVBlank() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getSyncToVBlank();
 		lua_pushboolean(L,lret?1:0);
@@ -1025,7 +1025,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setSwapGroup(bool, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::setSwapGroup(bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSwapGroup(on, group, barrier);
 
@@ -1046,7 +1046,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::getSwapGroup(bool &, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::getSwapGroup(bool &, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getSwapGroup(on, group, barrier);
 
@@ -1064,7 +1064,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::valid() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -1083,7 +1083,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::realizeImplementation()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::realizeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->realizeImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1102,7 +1102,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::isRealizedImplementation() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::isRealizedImplementation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isRealizedImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1121,7 +1121,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::closeImplementation()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::closeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->closeImplementation();
 
@@ -1139,7 +1139,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::makeCurrentImplementation()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::makeCurrentImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->makeCurrentImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1158,7 +1158,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::releaseContextImplementation()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::releaseContextImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->releaseContextImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1178,7 +1178,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->bindPBufferToTextureImplementation(_arg1);
 
@@ -1196,7 +1196,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::swapBuffersImplementation()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::swapBuffersImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->swapBuffersImplementation();
 
@@ -1219,7 +1219,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::getViews(osgViewer::GraphicsWindow::Views &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::getViews(osgViewer::GraphicsWindow::Views &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getViews(views);
 
@@ -1237,7 +1237,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::requestRedraw()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::requestRedraw(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestRedraw();
 
@@ -1258,7 +1258,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::requestContinuousUpdate(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::requestContinuousUpdate(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestContinuousUpdate(needed);
 
@@ -1278,7 +1278,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::requestWarpPointer(float, float)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::requestWarpPointer(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestWarpPointer(x, y);
 
@@ -1297,7 +1297,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::setName(name);
 
@@ -1315,7 +1315,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::computeDataVariance();
 
@@ -1334,7 +1334,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::setUserData(obj);
 
@@ -1352,7 +1352,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::GraphicsWindow::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::GraphicsWindow::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->GraphicsWindow::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1373,7 +1373,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::GraphicsWindow::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::GraphicsWindow::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->GraphicsWindow::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1406,7 +1406,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::releaseGLObjects(_arg1);
 
@@ -1424,7 +1424,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_clear()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::clear();
 
@@ -1446,7 +1446,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_resizedImplementation(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_resizedImplementation(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::resizedImplementation(x, y, width, height);
 
@@ -1464,7 +1464,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osgViewer::GraphicsWindow::base_asView()");
+			luaL_error(L, "Invalid object in function call osg::View * osgViewer::GraphicsWindow::base_asView(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::View * lret = self->GraphicsWindow::asView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1485,7 +1485,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->GraphicsWindow::libraryName();
 		lua_pushstring(L,lret);
@@ -1504,7 +1504,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::GraphicsWindow::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->GraphicsWindow::className();
 		lua_pushstring(L,lret);
@@ -1523,7 +1523,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_checkEvents()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_checkEvents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::checkEvents();
 
@@ -1545,7 +1545,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_setWindowRectangleImplementation(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_setWindowRectangleImplementation(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::setWindowRectangleImplementation(_arg1, _arg2, _arg3, _arg4);
 		lua_pushboolean(L,lret?1:0);
@@ -1568,7 +1568,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_getWindowRectangle(int &, int &, int &, int &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_getWindowRectangle(int &, int &, int &, int &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::getWindowRectangle(x, y, width, height);
 
@@ -1587,7 +1587,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_setWindowDecorationImplementation(bool)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_setWindowDecorationImplementation(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::setWindowDecorationImplementation(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1606,7 +1606,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_getWindowDecoration() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_getWindowDecoration() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::getWindowDecoration();
 		lua_pushboolean(L,lret?1:0);
@@ -1625,7 +1625,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_grabFocus()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_grabFocus(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::grabFocus();
 
@@ -1643,7 +1643,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_grabFocusIfPointerInWindow()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_grabFocusIfPointerInWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::grabFocusIfPointerInWindow();
 
@@ -1661,7 +1661,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_raiseWindow()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_raiseWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::raiseWindow();
 
@@ -1680,7 +1680,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setWindowName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setWindowName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::setWindowName(_arg1);
 
@@ -1698,7 +1698,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgViewer::GraphicsWindow::base_getWindowName()");
+			luaL_error(L, "Invalid object in function call std::string osgViewer::GraphicsWindow::base_getWindowName(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->GraphicsWindow::getWindowName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1718,7 +1718,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_useCursor(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_useCursor(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::useCursor(cursorOn);
 
@@ -1737,7 +1737,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setCursor(osgViewer::GraphicsWindow::MouseCursor)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setCursor(osgViewer::GraphicsWindow::MouseCursor). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::setCursor(_arg1);
 
@@ -1756,7 +1756,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setSyncToVBlank(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setSyncToVBlank(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::setSyncToVBlank(on);
 
@@ -1777,7 +1777,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setSwapGroup(bool, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_setSwapGroup(bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::setSwapGroup(on, group, barrier);
 
@@ -1795,7 +1795,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_valid() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::valid();
 		lua_pushboolean(L,lret?1:0);
@@ -1814,7 +1814,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_realizeImplementation()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_realizeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::realizeImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1833,7 +1833,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_isRealizedImplementation() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_isRealizedImplementation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::isRealizedImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1852,7 +1852,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_closeImplementation()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_closeImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::closeImplementation();
 
@@ -1870,7 +1870,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_makeCurrentImplementation()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_makeCurrentImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::makeCurrentImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1889,7 +1889,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_releaseContextImplementation()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::GraphicsWindow::base_releaseContextImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->GraphicsWindow::releaseContextImplementation();
 		lua_pushboolean(L,lret?1:0);
@@ -1909,7 +1909,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_bindPBufferToTextureImplementation(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_bindPBufferToTextureImplementation(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::bindPBufferToTextureImplementation(_arg1);
 
@@ -1927,7 +1927,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_swapBuffersImplementation()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_swapBuffersImplementation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::swapBuffersImplementation();
 
@@ -1945,7 +1945,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_requestRedraw()");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_requestRedraw(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::requestRedraw();
 
@@ -1966,7 +1966,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_requestContinuousUpdate(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_requestContinuousUpdate(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::requestContinuousUpdate(needed);
 
@@ -1986,7 +1986,7 @@ public:
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_requestWarpPointer(float, float)");
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindow::base_requestWarpPointer(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GraphicsWindow::requestWarpPointer(x, y);
 
@@ -1995,6 +1995,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_osgGA_GUIActionAdapter(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_osgGA_GUIActionAdapter(lua_State *L) {
+		if (!_lg_typecheck_baseCast_osgGA_GUIActionAdapter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_osgGA_GUIActionAdapter function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		osgGA::GUIActionAdapter* res = dynamic_cast<osgGA::GUIActionAdapter*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< osgGA::GUIActionAdapter >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -2088,6 +2114,7 @@ luna_RegType LunaTraits< osgViewer::GraphicsWindow >::methods[] = {
 	{"base_requestWarpPointer", &luna_wrapper_osgViewer_GraphicsWindow::_bind_base_requestWarpPointer},
 	{"__eq", &luna_wrapper_osgViewer_GraphicsWindow::_bind___eq},
 	{"getTable", &luna_wrapper_osgViewer_GraphicsWindow::_bind_getTable},
+	{"asGUIActionAdapter", &luna_wrapper_osgViewer_GraphicsWindow::_bind_baseCast_osgGA_GUIActionAdapter},
 	{0,0}
 };
 

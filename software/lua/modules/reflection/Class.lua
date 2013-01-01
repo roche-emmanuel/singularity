@@ -64,7 +64,7 @@ function Class:getAllAbsoluteBaseHashes()
 		table.insert(hashes,utils.getHash(tm:getAbsoluteBaseName(self)))
 	else
 	    for _,v in self:getAbsoluteBases():sequence() do
-	        table.insert(hashes,utils.getHash(v:getFullName()));
+	        table.insert(hashes,utils.getHash(tm:getAbsoluteBaseName(v)));
 	    end
     end
     return hashes

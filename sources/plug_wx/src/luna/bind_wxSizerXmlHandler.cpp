@@ -163,7 +163,7 @@ public:
 		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxSizerXmlHandler::DoCreateResource()");
+			luaL_error(L, "Invalid object in function call wxObject * wxSizerXmlHandler::DoCreateResource(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->DoCreateResource();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -185,7 +185,7 @@ public:
 		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSizerXmlHandler::CanHandle(wxXmlNode *)");
+			luaL_error(L, "Invalid object in function call bool wxSizerXmlHandler::CanHandle(wxXmlNode *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanHandle(node);
 		lua_pushboolean(L,lret?1:0);
@@ -204,7 +204,7 @@ public:
 		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizerXmlHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizerXmlHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSizerXmlHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -225,7 +225,7 @@ public:
 		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxSizerXmlHandler::base_DoCreateResource()");
+			luaL_error(L, "Invalid object in function call wxObject * wxSizerXmlHandler::base_DoCreateResource(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->wxSizerXmlHandler::DoCreateResource();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -247,7 +247,7 @@ public:
 		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSizerXmlHandler::base_CanHandle(wxXmlNode *)");
+			luaL_error(L, "Invalid object in function call bool wxSizerXmlHandler::base_CanHandle(wxXmlNode *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSizerXmlHandler::CanHandle(node);
 		lua_pushboolean(L,lret?1:0);

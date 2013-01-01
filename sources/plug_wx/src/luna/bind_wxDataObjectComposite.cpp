@@ -142,7 +142,7 @@ public:
 		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataObjectComposite::Add(wxDataObjectSimple *, bool)");
+			luaL_error(L, "Invalid object in function call void wxDataObjectComposite::Add(wxDataObjectSimple *, bool). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->Add(dataObject, preferred);
 
@@ -160,7 +160,7 @@ public:
 		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataFormat wxDataObjectComposite::GetReceivedFormat() const");
+			luaL_error(L, "Invalid object in function call wxDataFormat wxDataObjectComposite::GetReceivedFormat() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		wxDataFormat stack_lret = self->GetReceivedFormat();
 		wxDataFormat* lret = new wxDataFormat(stack_lret);
@@ -190,7 +190,7 @@ public:
 		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataObjectSimple * wxDataObjectComposite::GetObject(const wxDataFormat &, wxDataObjectBase::Direction) const");
+			luaL_error(L, "Invalid object in function call wxDataObjectSimple * wxDataObjectComposite::GetObject(const wxDataFormat &, wxDataObjectBase::Direction) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		wxDataObjectSimple * lret = self->GetObject(format, dir);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -218,7 +218,7 @@ public:
 		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectComposite::base_SetData(const wxDataFormat &, size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxDataObjectComposite::base_SetData(const wxDataFormat &, size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataObjectComposite::SetData(format, len, buf);
 		lua_pushboolean(L,lret?1:0);

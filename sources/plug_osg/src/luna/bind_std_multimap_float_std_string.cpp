@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::multimap< float, std::string >",name);
 	}
+
 };
 
 std::multimap< float, std::string >* LunaTraits< std::multimap< float, std::string > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::multimap< float, std::string > >::uniqueIDs[] = {4971
 luna_RegType LunaTraits< std::multimap< float, std::string > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_multimap_float_std_string::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_multimap_float_std_string::_bind___eq},
+	
 	{0,0}
 };
 

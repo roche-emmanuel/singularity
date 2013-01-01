@@ -236,7 +236,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::setShared(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::setShared(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setShared(shared);
 
@@ -255,7 +255,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::setDestroyable(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::setDestroyable(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setDestroyable(destroyable);
 
@@ -274,7 +274,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::setName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setName(name);
 
@@ -292,7 +292,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long SPK::Registerable::getSPKID() const");
+			luaL_error(L, "Invalid object in function call unsigned long SPK::Registerable::getSPKID() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned long lret = self->getSPKID();
 		lua_pushnumber(L,lret);
@@ -311,7 +311,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long SPK::Registerable::getID() const");
+			luaL_error(L, "Invalid object in function call unsigned long SPK::Registerable::getID() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned long lret = self->getID();
 		lua_pushnumber(L,lret);
@@ -330,7 +330,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::Registerable::getNbReferences() const");
+			luaL_error(L, "Invalid object in function call unsigned int SPK::Registerable::getNbReferences() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNbReferences();
 		lua_pushnumber(L,lret);
@@ -349,7 +349,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Registerable::isRegistered() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Registerable::isRegistered() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isRegistered();
 		lua_pushboolean(L,lret?1:0);
@@ -368,7 +368,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Registerable::isShared() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Registerable::isShared() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isShared();
 		lua_pushboolean(L,lret?1:0);
@@ -387,7 +387,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Registerable::isDestroyable() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Registerable::isDestroyable() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isDestroyable();
 		lua_pushboolean(L,lret?1:0);
@@ -406,7 +406,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & SPK::Registerable::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & SPK::Registerable::getName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -425,7 +425,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Registerable::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Registerable::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -445,7 +445,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -467,7 +467,7 @@ public:
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Registerable::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.

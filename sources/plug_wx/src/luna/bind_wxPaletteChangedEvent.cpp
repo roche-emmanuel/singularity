@@ -136,7 +136,7 @@ public:
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPaletteChangedEvent::SetChangedWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPaletteChangedEvent::SetChangedWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetChangedWindow(win);
 
@@ -154,7 +154,7 @@ public:
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxPaletteChangedEvent::GetChangedWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxPaletteChangedEvent::GetChangedWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetChangedWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -175,7 +175,7 @@ public:
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPaletteChangedEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -196,7 +196,7 @@ public:
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxPaletteChangedEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

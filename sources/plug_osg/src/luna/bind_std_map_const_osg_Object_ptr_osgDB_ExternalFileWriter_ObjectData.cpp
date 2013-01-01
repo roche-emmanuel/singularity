@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >",name);
 	}
+
 };
 
 std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::
 luna_RegType LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_const_osg_Object_ptr_osgDB_ExternalFileWriter_ObjectData::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_const_osg_Object_ptr_osgDB_ExternalFileWriter_ObjectData::_bind___eq},
+	
 	{0,0}
 };
 

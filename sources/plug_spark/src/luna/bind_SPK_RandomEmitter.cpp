@@ -142,7 +142,7 @@ public:
 		SPK::RandomEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::RandomEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::RandomEmitter::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::RandomEmitter::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -178,7 +178,7 @@ public:
 		SPK::RandomEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::RandomEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::RandomEmitter::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::RandomEmitter::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->RandomEmitter::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -199,7 +199,7 @@ public:
 		SPK::RandomEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::RandomEmitter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::RandomEmitter::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::RandomEmitter::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->RandomEmitter::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

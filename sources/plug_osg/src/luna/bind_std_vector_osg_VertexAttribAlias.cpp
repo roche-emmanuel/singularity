@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::VertexAttribAlias >",name);
 	}
+
 };
 
 std::vector< osg::VertexAttribAlias >* LunaTraits< std::vector< osg::VertexAttribAlias > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::VertexAttribAlias > >::uniqueIDs[] = {89
 luna_RegType LunaTraits< std::vector< osg::VertexAttribAlias > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_VertexAttribAlias::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_VertexAttribAlias::_bind___eq},
+	
 	{0,0}
 };
 

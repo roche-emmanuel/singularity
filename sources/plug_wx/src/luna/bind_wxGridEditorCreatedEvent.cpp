@@ -197,7 +197,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetCol()");
+			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -216,7 +216,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxControl * wxGridEditorCreatedEvent::GetControl()");
+			luaL_error(L, "Invalid object in function call wxControl * wxGridEditorCreatedEvent::GetControl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxControl * lret = self->GetControl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -237,7 +237,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetRow()");
+			luaL_error(L, "Invalid object in function call int wxGridEditorCreatedEvent::GetRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -257,7 +257,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetCol(int)");
+			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetCol(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCol(col);
 
@@ -276,7 +276,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetControl(wxControl *)");
+			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetControl(wxControl *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetControl(ctrl);
 
@@ -295,7 +295,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetRow(int)");
+			luaL_error(L, "Invalid object in function call void wxGridEditorCreatedEvent::SetRow(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRow(row);
 
@@ -313,7 +313,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEditorCreatedEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGridEditorCreatedEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -334,7 +334,7 @@ public:
 		wxGridEditorCreatedEvent* self=Luna< wxObject >::checkSubType< wxGridEditorCreatedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEditorCreatedEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxGridEditorCreatedEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

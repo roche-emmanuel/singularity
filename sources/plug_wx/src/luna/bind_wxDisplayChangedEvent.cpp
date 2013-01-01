@@ -117,7 +117,7 @@ public:
 		wxDisplayChangedEvent* self=Luna< wxObject >::checkSubType< wxDisplayChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDisplayChangedEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDisplayChangedEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDisplayChangedEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -138,7 +138,7 @@ public:
 		wxDisplayChangedEvent* self=Luna< wxObject >::checkSubType< wxDisplayChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxDisplayChangedEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDisplayChangedEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxDisplayChangedEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

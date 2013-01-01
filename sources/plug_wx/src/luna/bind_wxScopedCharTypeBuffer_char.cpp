@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"wxScopedCharTypeBuffer< char >",name);
 	}
+
 };
 
 wxScopedCharTypeBuffer< char >* LunaTraits< wxScopedCharTypeBuffer< char > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< wxScopedCharTypeBuffer< char > >::uniqueIDs[] = {59324013,
 luna_RegType LunaTraits< wxScopedCharTypeBuffer< char > >::methods[] = {
 	{"dynCast", &luna_wrapper_wxScopedCharTypeBuffer_char::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxScopedCharTypeBuffer_char::_bind___eq},
+	
 	{0,0}
 };
 

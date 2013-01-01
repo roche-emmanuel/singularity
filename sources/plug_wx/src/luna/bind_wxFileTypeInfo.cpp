@@ -155,7 +155,7 @@ public:
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::AddExtension(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::AddExtension(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
 		}
 		self->AddExtension(ext);
 
@@ -174,7 +174,7 @@ public:
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetDescription(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetDescription(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
 		}
 		self->SetDescription(description);
 
@@ -193,7 +193,7 @@ public:
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetOpenCommand(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetOpenCommand(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
 		}
 		self->SetOpenCommand(command);
 
@@ -212,7 +212,7 @@ public:
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetPrintCommand(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetPrintCommand(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
 		}
 		self->SetPrintCommand(command);
 
@@ -231,7 +231,7 @@ public:
 		wxFileTypeInfo* self=(Luna< wxFileTypeInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetShortDesc(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileTypeInfo::SetShortDesc(const wxString &). Got : '%s'",typeid(Luna< wxFileTypeInfo >::check(L,1)).name());
 		}
 		self->SetShortDesc(shortDesc);
 

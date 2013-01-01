@@ -238,7 +238,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawBackground(wxDC &, wxWindow *, int, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawBackground(wxDC &, wxWindow *, int, const wxRect &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->DrawBackground(dc, window, orientation, rect);
 
@@ -272,7 +272,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawBorder(wxDC &, wxWindow *, const wxRect &, wxAuiPaneInfo &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawBorder(wxDC &, wxWindow *, const wxRect &, wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->DrawBorder(dc, window, rect, pane);
 
@@ -307,7 +307,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawCaption(wxDC &, wxWindow *, const wxString &, const wxRect &, wxAuiPaneInfo &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawCaption(wxDC &, wxWindow *, const wxString &, const wxRect &, wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->DrawCaption(dc, window, text, rect, pane);
 
@@ -341,7 +341,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawGripper(wxDC &, wxWindow *, const wxRect &, wxAuiPaneInfo &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawGripper(wxDC &, wxWindow *, const wxRect &, wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->DrawGripper(dc, window, rect, pane);
 
@@ -377,7 +377,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawPaneButton(wxDC &, wxWindow *, int, int, const wxRect &, wxAuiPaneInfo &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawPaneButton(wxDC &, wxWindow *, int, int, const wxRect &, wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->DrawPaneButton(dc, window, button, button_state, rect, pane);
 
@@ -407,7 +407,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawSash(wxDC &, wxWindow *, int, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::DrawSash(wxDC &, wxWindow *, int, const wxRect &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->DrawSash(dc, window, orientation, rect);
 
@@ -426,7 +426,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxAuiDockArt::GetColour(int)");
+			luaL_error(L, "Invalid object in function call wxColour wxAuiDockArt::GetColour(int). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColour(id);
 		wxColour* lret = new wxColour(stack_lret);
@@ -449,7 +449,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxAuiDockArt::GetFont(int)");
+			luaL_error(L, "Invalid object in function call wxFont wxAuiDockArt::GetFont(int). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		wxFont stack_lret = self->GetFont(id);
 		wxFont* lret = new wxFont(stack_lret);
@@ -472,7 +472,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiDockArt::GetMetric(int)");
+			luaL_error(L, "Invalid object in function call int wxAuiDockArt::GetMetric(int). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		int lret = self->GetMetric(id);
 		lua_pushnumber(L,lret);
@@ -497,7 +497,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::SetColour(int, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::SetColour(int, const wxColour &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->SetColour(id, colour);
 
@@ -521,7 +521,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::SetFont(int, const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::SetFont(int, const wxFont &). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->SetFont(id, font);
 
@@ -541,7 +541,7 @@ public:
 		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiDockArt::SetMetric(int, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiDockArt::SetMetric(int, int). Got : '%s'",typeid(Luna< wxAuiDockArt >::check(L,1)).name());
 		}
 		self->SetMetric(id, new_val);
 

@@ -144,7 +144,7 @@ public:
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumTouchPoints();
 		lua_pushnumber(L,lret);
@@ -164,7 +164,7 @@ public:
 		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgGA::GUIEventAdapter::TouchData::TouchPoint stack_lret = self->get(i);
 		const osgGA::GUIEventAdapter::TouchData::TouchPoint* lret = new const osgGA::GUIEventAdapter::TouchData::TouchPoint(stack_lret);

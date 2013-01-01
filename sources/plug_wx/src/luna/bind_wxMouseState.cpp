@@ -185,7 +185,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMouseState::GetX() const");
+			luaL_error(L, "Invalid object in function call int wxMouseState::GetX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetX();
 		lua_pushnumber(L,lret);
@@ -204,7 +204,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMouseState::GetY() const");
+			luaL_error(L, "Invalid object in function call int wxMouseState::GetY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetY();
 		lua_pushnumber(L,lret);
@@ -223,7 +223,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxMouseState::GetPosition() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxMouseState::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -247,7 +247,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::GetPosition(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxMouseState::GetPosition(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetPosition(&x, &y);
 
@@ -274,7 +274,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::LeftIsDown() const");
+			luaL_error(L, "Invalid object in function call bool wxMouseState::LeftIsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LeftIsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -293,7 +293,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::MiddleIsDown() const");
+			luaL_error(L, "Invalid object in function call bool wxMouseState::MiddleIsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->MiddleIsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -312,7 +312,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::RightIsDown() const");
+			luaL_error(L, "Invalid object in function call bool wxMouseState::RightIsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RightIsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -331,7 +331,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux1IsDown() const");
+			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux1IsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Aux1IsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -350,7 +350,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux2IsDown() const");
+			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux2IsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Aux2IsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -370,7 +370,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetX(int)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetX(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetX(x);
 
@@ -389,7 +389,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetY(int)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetY(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetY(y);
 
@@ -412,7 +412,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetPosition(wxPoint)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetPosition(wxPoint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPosition(pos);
 
@@ -431,7 +431,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetLeftDown(bool)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetLeftDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLeftDown(down);
 
@@ -450,7 +450,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetMiddleDown(bool)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetMiddleDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMiddleDown(down);
 
@@ -469,7 +469,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetRightDown(bool)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetRightDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRightDown(down);
 
@@ -488,7 +488,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux1Down(bool)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux1Down(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAux1Down(down);
 
@@ -507,7 +507,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux2Down(bool)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux2Down(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAux2Down(down);
 
@@ -530,7 +530,7 @@ public:
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetState(const wxMouseState &)");
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetState(const wxMouseState &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetState(state);
 

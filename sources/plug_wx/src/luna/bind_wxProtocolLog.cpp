@@ -177,7 +177,7 @@ public:
 		wxProtocolLog* self=(Luna< wxProtocolLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocolLog::LogRequest(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocolLog::LogRequest(const wxString &). Got : '%s'",typeid(Luna< wxProtocolLog >::check(L,1)).name());
 		}
 		self->LogRequest(str);
 
@@ -196,7 +196,7 @@ public:
 		wxProtocolLog* self=(Luna< wxProtocolLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocolLog::LogResponse(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocolLog::LogResponse(const wxString &). Got : '%s'",typeid(Luna< wxProtocolLog >::check(L,1)).name());
 		}
 		self->LogResponse(str);
 
@@ -215,7 +215,7 @@ public:
 		wxProtocolLog* self=(Luna< wxProtocolLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocolLog::base_LogRequest(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocolLog::base_LogRequest(const wxString &). Got : '%s'",typeid(Luna< wxProtocolLog >::check(L,1)).name());
 		}
 		self->wxProtocolLog::LogRequest(str);
 
@@ -234,7 +234,7 @@ public:
 		wxProtocolLog* self=(Luna< wxProtocolLog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxProtocolLog::base_LogResponse(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxProtocolLog::base_LogResponse(const wxString &). Got : '%s'",typeid(Luna< wxProtocolLog >::check(L,1)).name());
 		}
 		self->wxProtocolLog::LogResponse(str);
 

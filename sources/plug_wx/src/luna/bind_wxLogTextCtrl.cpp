@@ -143,7 +143,7 @@ public:
 		wxLogTextCtrl* self=Luna< wxLog >::checkSubType< wxLogTextCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogTextCtrl::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogTextCtrl::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogTextCtrl::Flush();
 

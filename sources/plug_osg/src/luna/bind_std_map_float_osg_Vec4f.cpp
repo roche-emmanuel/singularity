@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< float, osg::Vec4f >",name);
 	}
+
 };
 
 std::map< float, osg::Vec4f >* LunaTraits< std::map< float, osg::Vec4f > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< float, osg::Vec4f > >::uniqueIDs[] = {55588956,0
 luna_RegType LunaTraits< std::map< float, osg::Vec4f > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_float_osg_Vec4f::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_float_osg_Vec4f::_bind___eq},
+	
 	{0,0}
 };
 

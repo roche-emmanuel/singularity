@@ -133,7 +133,7 @@ public:
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesMode(unsigned int). Got : '%s'",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name());
 		}
 		self->usesMode(mode);
 
@@ -152,7 +152,7 @@ public:
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int). Got : '%s'",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name());
 		}
 		self->usesTextureMode(mode);
 

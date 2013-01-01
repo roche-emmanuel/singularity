@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< osg::Group * >",name);
 	}
+
 };
 
 std::vector< osg::Group * >* LunaTraits< std::vector< osg::Group * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< osg::Group * > >::uniqueIDs[] = {91690910,0};
 luna_RegType LunaTraits< std::vector< osg::Group * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_osg_Group_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_osg_Group_ptr::_bind___eq},
+	
 	{0,0}
 };
 

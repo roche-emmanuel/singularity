@@ -159,7 +159,7 @@ public:
 		osgUtil::Simplifier::ContinueSimplificationCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier::ContinueSimplificationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification(const osgUtil::Simplifier &, float, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification(const osgUtil::Simplifier &, float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->continueSimplification(simplifier, nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -186,7 +186,7 @@ public:
 		osgUtil::Simplifier::ContinueSimplificationCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier::ContinueSimplificationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::ContinueSimplificationCallback::base_continueSimplification(const osgUtil::Simplifier &, float, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::ContinueSimplificationCallback::base_continueSimplification(const osgUtil::Simplifier &, float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ContinueSimplificationCallback::continueSimplification(simplifier, nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);

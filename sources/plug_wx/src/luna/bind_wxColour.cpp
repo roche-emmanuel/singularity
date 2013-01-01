@@ -522,7 +522,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Alpha() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Alpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->Alpha();
 		lua_pushnumber(L,(int)lret);
@@ -541,7 +541,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Blue() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Blue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->Blue();
 		lua_pushnumber(L,(int)lret);
@@ -563,7 +563,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColour::GetAsString(long) const");
+			luaL_error(L, "Invalid object in function call wxString wxColour::GetAsString(long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetAsString(flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -583,7 +583,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::SetRGB(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxColour::SetRGB(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRGB(colRGB);
 
@@ -602,7 +602,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::SetRGBA(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxColour::SetRGBA(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRGBA(colRGBA);
 
@@ -620,7 +620,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGB() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGB() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetRGB();
 		lua_pushnumber(L,lret);
@@ -639,7 +639,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGBA() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGBA() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetRGBA();
 		lua_pushnumber(L,lret);
@@ -658,7 +658,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ssize_t wxColour::GetPixel() const");
+			luaL_error(L, "Invalid object in function call ssize_t wxColour::GetPixel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		ssize_t lret = self->GetPixel();
 		lua_pushnumber(L,lret);
@@ -677,7 +677,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Green() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Green() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->Green();
 		lua_pushnumber(L,(int)lret);
@@ -696,7 +696,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxColour::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -715,7 +715,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Red() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Red() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->Red();
 		lua_pushnumber(L,(int)lret);
@@ -740,7 +740,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned char, unsigned char, unsigned char, unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned char, unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Set(red, green, blue, alpha);
 
@@ -759,7 +759,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned long)");
+			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Set(RGB);
 
@@ -778,7 +778,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::Set(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxColour::Set(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Set(str);
 		lua_pushboolean(L,lret?1:0);
@@ -808,7 +808,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColour::ChangeLightness(int) const");
+			luaL_error(L, "Invalid object in function call wxColour wxColour::ChangeLightness(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->ChangeLightness(ialpha);
 		wxColour* lret = new wxColour(stack_lret);
@@ -953,7 +953,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxColour::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColour::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxColour::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -974,7 +974,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Alpha() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Alpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->wxColour::Alpha();
 		lua_pushnumber(L,(int)lret);
@@ -993,7 +993,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Blue() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Blue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->wxColour::Blue();
 		lua_pushnumber(L,(int)lret);
@@ -1015,7 +1015,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColour::base_GetAsString(long) const");
+			luaL_error(L, "Invalid object in function call wxString wxColour::base_GetAsString(long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxColour::GetAsString(flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1034,7 +1034,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Green() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Green() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->wxColour::Green();
 		lua_pushnumber(L,(int)lret);
@@ -1053,7 +1053,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxColour::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColour::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -1072,7 +1072,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Red() const");
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Red() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned char lret = self->wxColour::Red();
 		lua_pushnumber(L,(int)lret);
@@ -1098,7 +1098,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::operator!=(const wxColour &) const");
+			luaL_error(L, "Invalid object in function call bool wxColour::operator!=(const wxColour &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(colour);
 		lua_pushboolean(L,lret?1:0);
@@ -1122,7 +1122,7 @@ public:
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::operator==(const wxColour &) const");
+			luaL_error(L, "Invalid object in function call bool wxColour::operator==(const wxColour &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator==(colour);
 		lua_pushboolean(L,lret?1:0);

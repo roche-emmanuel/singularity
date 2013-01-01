@@ -196,7 +196,7 @@ public:
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbol(const wxString &, bool *) const");
+			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbol(const wxString &, bool *) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
 		void * lret = self->GetSymbol(name, &success);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -218,7 +218,7 @@ public:
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbolAorW(const wxString &) const");
+			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbolAorW(const wxString &) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
 		void * lret = self->GetSymbolAorW(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -240,7 +240,7 @@ public:
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::HasSymbol(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::HasSymbol(const wxString &) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
 		bool lret = self->HasSymbol(name);
 		lua_pushboolean(L,lret?1:0);
@@ -259,7 +259,7 @@ public:
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::IsLoaded() const");
+			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::IsLoaded() const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
 		bool lret = self->IsLoaded();
 		lua_pushboolean(L,lret?1:0);
@@ -282,7 +282,7 @@ public:
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::Load(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxDynamicLibrary::Load(const wxString &, int). Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
 		bool lret = self->Load(name, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -301,7 +301,7 @@ public:
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDynamicLibrary::Unload()");
+			luaL_error(L, "Invalid object in function call void wxDynamicLibrary::Unload(). Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
 		self->Unload();
 

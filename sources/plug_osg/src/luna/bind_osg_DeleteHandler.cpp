@@ -226,7 +226,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setNumFramesToRetainObjects(unsigned int). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->setNumFramesToRetainObjects(numberOfFramesToRetainObjects);
 
@@ -244,7 +244,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getNumFramesToRetainObjects() const. Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumFramesToRetainObjects();
 		lua_pushnumber(L,lret);
@@ -264,7 +264,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setFrameNumber(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::setFrameNumber(unsigned int). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->setFrameNumber(frameNumber);
 
@@ -282,7 +282,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getFrameNumber() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DeleteHandler::getFrameNumber() const. Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFrameNumber();
 		lua_pushnumber(L,lret);
@@ -302,7 +302,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::doDelete(const osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::doDelete(const osg::Referenced *). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->doDelete(object);
 
@@ -320,7 +320,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flush()");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flush(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->flush();
 
@@ -338,7 +338,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flushAll()");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::flushAll(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->flushAll();
 
@@ -357,7 +357,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::requestDelete(const osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::requestDelete(const osg::Referenced *). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->requestDelete(object);
 
@@ -375,7 +375,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flush()");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flush(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->DeleteHandler::flush();
 
@@ -393,7 +393,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flushAll()");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flushAll(). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->DeleteHandler::flushAll();
 
@@ -412,7 +412,7 @@ public:
 		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_requestDelete(const osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_requestDelete(const osg::Referenced *). Got : '%s'",typeid(Luna< osg::DeleteHandler >::check(L,1)).name());
 		}
 		self->DeleteHandler::requestDelete(object);
 

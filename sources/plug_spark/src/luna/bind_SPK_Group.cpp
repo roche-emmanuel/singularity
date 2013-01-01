@@ -631,7 +631,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Group::getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Group::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -651,7 +651,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::setModel(SPK::Model *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::setModel(SPK::Model *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setModel(model);
 
@@ -670,7 +670,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::setRenderer(SPK::Renderer *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::setRenderer(SPK::Renderer *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setRenderer(renderer);
 
@@ -689,7 +689,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::setFriction(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::setFriction(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setFriction(friction);
 
@@ -712,7 +712,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::setGravity(const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::setGravity(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->setGravity(gravity);
 
@@ -731,7 +731,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::enableSorting(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::enableSorting(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->enableSorting(sort);
 
@@ -750,7 +750,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::enableDistanceComputation(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::enableDistanceComputation(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->enableDistanceComputation(distanceComputation);
 
@@ -769,7 +769,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::enableAABBComputing(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::enableAABBComputing(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->enableAABBComputing(AABB);
 
@@ -787,7 +787,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Pool< SPK::Particle > & SPK::Group::getParticles() const");
+			luaL_error(L, "Invalid object in function call const SPK::Pool< SPK::Particle > & SPK::Group::getParticles() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Pool< SPK::Particle >* lret = &self->getParticles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -809,7 +809,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Particle & SPK::Group::getParticle(size_t)");
+			luaL_error(L, "Invalid object in function call SPK::Particle & SPK::Group::getParticle(size_t). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Particle* lret = &self->getParticle(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -831,7 +831,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Particle & SPK::Group::getParticle(size_t) const");
+			luaL_error(L, "Invalid object in function call const SPK::Particle & SPK::Group::getParticle(size_t) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Particle* lret = &self->getParticle(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -861,7 +861,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Group::getNbParticles() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Group::getNbParticles() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbParticles();
 		lua_pushnumber(L,lret);
@@ -881,7 +881,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Emitter * SPK::Group::getEmitter(size_t) const");
+			luaL_error(L, "Invalid object in function call SPK::Emitter * SPK::Group::getEmitter(size_t) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Emitter * lret = self->getEmitter(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -902,7 +902,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Group::getNbEmitters() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Group::getNbEmitters() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbEmitters();
 		lua_pushnumber(L,lret);
@@ -922,7 +922,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Modifier * SPK::Group::getModifier(size_t) const");
+			luaL_error(L, "Invalid object in function call SPK::Modifier * SPK::Group::getModifier(size_t) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Modifier * lret = self->getModifier(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -943,7 +943,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Group::getNbModifiers() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Group::getNbModifiers() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getNbModifiers();
 		lua_pushnumber(L,lret);
@@ -962,7 +962,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Model * SPK::Group::getModel() const");
+			luaL_error(L, "Invalid object in function call SPK::Model * SPK::Group::getModel() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Model * lret = self->getModel();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -983,7 +983,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Renderer * SPK::Group::getRenderer() const");
+			luaL_error(L, "Invalid object in function call SPK::Renderer * SPK::Group::getRenderer() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Renderer * lret = self->getRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1004,7 +1004,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Group::getFriction() const");
+			luaL_error(L, "Invalid object in function call float SPK::Group::getFriction() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->getFriction();
 		lua_pushnumber(L,lret);
@@ -1023,7 +1023,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Group::getGravity() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Group::getGravity() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getGravity();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1044,7 +1044,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Group::isSortingEnabled() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Group::isSortingEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isSortingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -1063,7 +1063,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Group::isDistanceComputationEnabled() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Group::isDistanceComputationEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isDistanceComputationEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -1082,7 +1082,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Group::isAABBComputingEnabled() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Group::isAABBComputingEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->isAABBComputingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -1101,7 +1101,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Group::getAABBMin() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Group::getAABBMin() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getAABBMin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1122,7 +1122,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Group::getAABBMax() const");
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Group::getAABBMax() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const SPK::Vector3D* lret = &self->getAABBMax();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1144,7 +1144,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * SPK::Group::getParamAddress(SPK::ModelParam) const");
+			luaL_error(L, "Invalid object in function call const void * SPK::Group::getParamAddress(SPK::ModelParam) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const void * lret = self->getParamAddress(param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1165,7 +1165,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * SPK::Group::getPositionAddress() const");
+			luaL_error(L, "Invalid object in function call const void * SPK::Group::getPositionAddress() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		const void * lret = self->getPositionAddress();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1186,7 +1186,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Group::getParamStride() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Group::getParamStride() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getParamStride();
 		lua_pushnumber(L,lret);
@@ -1205,7 +1205,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::Group::getPositionStride() const");
+			luaL_error(L, "Invalid object in function call size_t SPK::Group::getPositionStride() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		size_t lret = self->getPositionStride();
 		lua_pushnumber(L,lret);
@@ -1235,7 +1235,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Vector3D &, const SPK::Vector3D &)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(nb, position, velocity);
 
@@ -1259,7 +1259,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Zone *, SPK::Emitter *, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Zone *, SPK::Emitter *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(nb, zone, emitter, full);
 
@@ -1287,7 +1287,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Zone *, const SPK::Vector3D &, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Zone *, const SPK::Vector3D &, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(nb, zone, velocity, full);
 
@@ -1312,7 +1312,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Vector3D &, SPK::Emitter *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, const SPK::Vector3D &, SPK::Emitter *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(nb, position, emitter);
 
@@ -1332,7 +1332,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, SPK::Emitter *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(unsigned int, SPK::Emitter *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(nb, emitter);
 
@@ -1356,7 +1356,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(const SPK::Zone *, SPK::Emitter *, float, bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(const SPK::Zone *, SPK::Emitter *, float, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(zone, emitter, deltaTime, full);
 
@@ -1381,7 +1381,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(const SPK::Vector3D &, SPK::Emitter *, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(const SPK::Vector3D &, SPK::Emitter *, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(position, emitter, deltaTime);
 
@@ -1401,7 +1401,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(SPK::Emitter *, float)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addParticles(SPK::Emitter *, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addParticles(emitter, deltaTime);
 
@@ -1434,7 +1434,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Group::addParticles(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Emitter *, float, float)");
+			luaL_error(L, "Invalid object in function call float SPK::Group::addParticles(const SPK::Vector3D &, const SPK::Vector3D &, SPK::Emitter *, float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->addParticles(start, end, emitter, step, offset);
 		lua_pushnumber(L,lret);
@@ -1472,7 +1472,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Group::addParticles(const SPK::Vector3D &, const SPK::Vector3D &, const SPK::Vector3D &, float, float)");
+			luaL_error(L, "Invalid object in function call float SPK::Group::addParticles(const SPK::Vector3D &, const SPK::Vector3D &, const SPK::Vector3D &, float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		float lret = self->addParticles(start, end, velocity, step, offset);
 		lua_pushnumber(L,lret);
@@ -1509,7 +1509,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::removeParticle(size_t)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::removeParticle(size_t). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->removeParticle(index);
 
@@ -1528,7 +1528,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addEmitter(SPK::Emitter *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addEmitter(SPK::Emitter *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addEmitter(emitter);
 
@@ -1547,7 +1547,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::removeEmitter(SPK::Emitter *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::removeEmitter(SPK::Emitter *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->removeEmitter(emitter);
 
@@ -1566,7 +1566,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::addModifier(SPK::Modifier *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::addModifier(SPK::Modifier *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->addModifier(modifier);
 
@@ -1585,7 +1585,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::removeModifier(SPK::Modifier *)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::removeModifier(SPK::Modifier *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->removeModifier(modifier);
 
@@ -1604,7 +1604,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Group::update(float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Group::update(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		bool lret = self->update(deltaTime);
 		lua_pushboolean(L,lret?1:0);
@@ -1623,7 +1623,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::render()");
+			luaL_error(L, "Invalid object in function call void SPK::Group::render(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->render();
 
@@ -1641,7 +1641,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::empty()");
+			luaL_error(L, "Invalid object in function call void SPK::Group::empty(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->empty();
 
@@ -1659,7 +1659,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::flushAddedParticles()");
+			luaL_error(L, "Invalid object in function call void SPK::Group::flushAddedParticles(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->flushAddedParticles();
 
@@ -1677,7 +1677,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::sortParticles()");
+			luaL_error(L, "Invalid object in function call void SPK::Group::sortParticles(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->sortParticles();
 
@@ -1695,7 +1695,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::computeDistances()");
+			luaL_error(L, "Invalid object in function call void SPK::Group::computeDistances(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->computeDistances();
 
@@ -1713,7 +1713,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::computeAABB()");
+			luaL_error(L, "Invalid object in function call void SPK::Group::computeAABB(). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->computeAABB();
 
@@ -1732,7 +1732,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::reallocate(size_t)");
+			luaL_error(L, "Invalid object in function call void SPK::Group::reallocate(size_t). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->reallocate(capacity);
 
@@ -1760,7 +1760,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Buffer * SPK::Group::createBuffer(const std::string &, const SPK::BufferCreator &, unsigned int, bool) const");
+			luaL_error(L, "Invalid object in function call SPK::Buffer * SPK::Group::createBuffer(const std::string &, const SPK::BufferCreator &, unsigned int, bool) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Buffer * lret = self->createBuffer(ID, creator, flag, swapData);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1782,7 +1782,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::destroyBuffer(const std::string &) const");
+			luaL_error(L, "Invalid object in function call void SPK::Group::destroyBuffer(const std::string &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->destroyBuffer(ID);
 
@@ -1800,7 +1800,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Group::destroyAllBuffers() const");
+			luaL_error(L, "Invalid object in function call void SPK::Group::destroyAllBuffers() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		self->destroyAllBuffers();
 
@@ -1820,7 +1820,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Buffer * SPK::Group::getBuffer(const std::string &, unsigned int) const");
+			luaL_error(L, "Invalid object in function call SPK::Buffer * SPK::Group::getBuffer(const std::string &, unsigned int) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Buffer * lret = self->getBuffer(ID, flag);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1842,7 +1842,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Buffer * SPK::Group::getBuffer(const std::string &) const");
+			luaL_error(L, "Invalid object in function call SPK::Buffer * SPK::Group::getBuffer(const std::string &) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Buffer * lret = self->getBuffer(ID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1873,7 +1873,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Group::findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Group::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1942,7 +1942,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::Group::base_getClassName() const");
+			luaL_error(L, "Invalid object in function call std::string SPK::Group::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		std::string lret = self->Group::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1962,7 +1962,7 @@ public:
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Group::base_findByName(const std::string &)");
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Group::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
 		}
 		SPK::Registerable * lret = self->Group::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1974,6 +1974,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_SPK_Transformable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_SPK_Transformable(lua_State *L) {
+		if (!_lg_typecheck_baseCast_SPK_Transformable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_Transformable function, expected prototype:\nbaseCast()");
+		}
+
+		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		SPK::Transformable* res = dynamic_cast<SPK::Transformable*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< SPK::Transformable >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -2050,6 +2076,7 @@ luna_RegType LunaTraits< SPK::Group >::methods[] = {
 	{"base_findByName", &luna_wrapper_SPK_Group::_bind_base_findByName},
 	{"__eq", &luna_wrapper_SPK_Group::_bind___eq},
 	{"getTable", &luna_wrapper_SPK_Group::_bind_getTable},
+	{"asTransformable", &luna_wrapper_SPK_Group::_bind_baseCast_SPK_Transformable},
 	{0,0}
 };
 

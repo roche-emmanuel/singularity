@@ -354,7 +354,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxTextValidator::Clone() const");
+			luaL_error(L, "Invalid object in function call wxObject * wxTextValidator::Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString & wxTextValidator::GetExcludes()");
+			luaL_error(L, "Invalid object in function call wxArrayString & wxTextValidator::GetExcludes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxArrayString* lret = &self->GetExcludes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -396,7 +396,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString & wxTextValidator::GetIncludes()");
+			luaL_error(L, "Invalid object in function call wxArrayString & wxTextValidator::GetIncludes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxArrayString* lret = &self->GetIncludes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -417,7 +417,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextValidator::GetStyle() const");
+			luaL_error(L, "Invalid object in function call long wxTextValidator::GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -437,7 +437,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::HasFlag(wxTextValidatorStyle) const");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::HasFlag(wxTextValidatorStyle) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasFlag(style);
 		lua_pushboolean(L,lret?1:0);
@@ -461,7 +461,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::OnChar(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::OnChar(wxKeyEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnChar(event);
 
@@ -484,7 +484,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::SetExcludes(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::SetExcludes(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetExcludes(stringList);
 
@@ -503,7 +503,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::SetCharExcludes(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::SetCharExcludes(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCharExcludes(chars);
 
@@ -526,7 +526,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::SetIncludes(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::SetIncludes(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetIncludes(stringList);
 
@@ -545,7 +545,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::SetCharIncludes(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::SetCharIncludes(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCharIncludes(chars);
 
@@ -564,7 +564,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::SetStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::SetStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStyle(style);
 
@@ -582,7 +582,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::TransferFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::TransferFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->TransferFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -601,7 +601,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::TransferToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::TransferToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->TransferToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -621,7 +621,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::Validate(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::Validate(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Validate(parent);
 		lua_pushboolean(L,lret?1:0);
@@ -640,7 +640,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTextValidator::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTextValidator::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTextValidator::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -662,7 +662,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextValidator::QueueEvent(event);
 
@@ -685,7 +685,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextValidator::AddPendingEvent(event);
 
@@ -708,7 +708,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextValidator::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -728,7 +728,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextValidator::SetNextHandler(handler);
 
@@ -747,7 +747,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextValidator::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxTextValidator::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTextValidator::SetPreviousHandler(handler);
 
@@ -765,7 +765,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxTextValidator::base_Clone() const");
+			luaL_error(L, "Invalid object in function call wxObject * wxTextValidator::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->wxTextValidator::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -786,7 +786,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_TransferFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_TransferFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextValidator::TransferFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -805,7 +805,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_TransferToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_TransferToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextValidator::TransferToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -825,7 +825,7 @@ public:
 		wxTextValidator* self=Luna< wxObject >::checkSubType< wxTextValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_Validate(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::base_Validate(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTextValidator::Validate(parent);
 		lua_pushboolean(L,lret?1:0);

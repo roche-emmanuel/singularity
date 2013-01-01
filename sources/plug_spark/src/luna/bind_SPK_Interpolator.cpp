@@ -196,7 +196,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::setType(SPK::InterpolationType, SPK::ModelParam)");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::setType(SPK::InterpolationType, SPK::ModelParam). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->setType(type, param);
 
@@ -215,7 +215,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::enableLooping(bool)");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::enableLooping(bool). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->enableLooping(loop);
 
@@ -234,7 +234,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::setScaleXVariation(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::setScaleXVariation(float). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->setScaleXVariation(scaleXVariation);
 
@@ -253,7 +253,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::setOffsetXVariation(float)");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::setOffsetXVariation(float). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->setOffsetXVariation(offsetXVariation);
 
@@ -271,7 +271,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::InterpolationType SPK::Interpolator::getType() const");
+			luaL_error(L, "Invalid object in function call SPK::InterpolationType SPK::Interpolator::getType() const. Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		SPK::InterpolationType lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -290,7 +290,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::ModelParam SPK::Interpolator::getInterpolatorParam() const");
+			luaL_error(L, "Invalid object in function call SPK::ModelParam SPK::Interpolator::getInterpolatorParam() const. Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		SPK::ModelParam lret = self->getInterpolatorParam();
 		lua_pushnumber(L,lret);
@@ -309,7 +309,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::isLoopingEnabled() const");
+			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::isLoopingEnabled() const. Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		bool lret = self->isLoopingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -328,7 +328,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Interpolator::getScaleXVariation() const");
+			luaL_error(L, "Invalid object in function call float SPK::Interpolator::getScaleXVariation() const. Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		float lret = self->getScaleXVariation();
 		lua_pushnumber(L,lret);
@@ -347,7 +347,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::Interpolator::getOffsetXVariation() const");
+			luaL_error(L, "Invalid object in function call float SPK::Interpolator::getOffsetXVariation() const. Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		float lret = self->getOffsetXVariation();
 		lua_pushnumber(L,lret);
@@ -371,7 +371,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::addEntry(const SPK::InterpolatorEntry &)");
+			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::addEntry(const SPK::InterpolatorEntry &). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		bool lret = self->addEntry(entry);
 		lua_pushboolean(L,lret?1:0);
@@ -392,7 +392,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::addEntry(float, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::addEntry(float, float). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		bool lret = self->addEntry(x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -414,7 +414,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::addEntry(float, float, float)");
+			luaL_error(L, "Invalid object in function call bool SPK::Interpolator::addEntry(float, float, float). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		bool lret = self->addEntry(x, y0, y1);
 		lua_pushboolean(L,lret?1:0);
@@ -443,7 +443,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::clearGraph()");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::clearGraph(). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->clearGraph();
 
@@ -469,7 +469,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::generateSinCurve(float, float, float, float, float, float, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::generateSinCurve(float, float, float, float, float, float, unsigned int, unsigned int). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->generateSinCurve(period, amplitudeMin, amplitudeMax, offsetX, offsetY, startX, length, nbSamples);
 
@@ -494,7 +494,7 @@ public:
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Interpolator::generatePolyCurve(float, float, float, float, float, float, unsigned int)");
+			luaL_error(L, "Invalid object in function call void SPK::Interpolator::generatePolyCurve(float, float, float, float, float, float, unsigned int). Got : '%s'",typeid(Luna< SPK::Interpolator >::check(L,1)).name());
 		}
 		self->generatePolyCurve(constant, linear, quadratic, cubic, startX, endX, nbSamples);
 

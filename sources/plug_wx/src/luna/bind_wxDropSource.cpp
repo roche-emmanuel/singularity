@@ -357,7 +357,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::DoDragDrop(int)");
+			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::DoDragDrop(int). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		wxDragResult lret = self->DoDragDrop(flags);
 		lua_pushnumber(L,lret);
@@ -376,7 +376,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataObject * wxDropSource::GetDataObject()");
+			luaL_error(L, "Invalid object in function call wxDataObject * wxDropSource::GetDataObject(). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		wxDataObject * lret = self->GetDataObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -398,7 +398,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDropSource::GiveFeedback(wxDragResult)");
+			luaL_error(L, "Invalid object in function call bool wxDropSource::GiveFeedback(wxDragResult). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		bool lret = self->GiveFeedback(effect);
 		lua_pushboolean(L,lret?1:0);
@@ -423,7 +423,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDropSource::SetCursor(wxDragResult, const wxCursor &)");
+			luaL_error(L, "Invalid object in function call void wxDropSource::SetCursor(wxDragResult, const wxCursor &). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		self->SetCursor(res, cursor);
 
@@ -446,7 +446,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDropSource::SetData(wxDataObject &)");
+			luaL_error(L, "Invalid object in function call void wxDropSource::SetData(wxDataObject &). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		self->SetData(data);
 
@@ -467,7 +467,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::base_DoDragDrop(int)");
+			luaL_error(L, "Invalid object in function call wxDragResult wxDropSource::base_DoDragDrop(int). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		wxDragResult lret = self->wxDropSource::DoDragDrop(flags);
 		lua_pushnumber(L,lret);
@@ -487,7 +487,7 @@ public:
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDropSource::base_GiveFeedback(wxDragResult)");
+			luaL_error(L, "Invalid object in function call bool wxDropSource::base_GiveFeedback(wxDragResult). Got : '%s'",typeid(Luna< wxDropSource >::check(L,1)).name());
 		}
 		bool lret = self->wxDropSource::GiveFeedback(effect);
 		lua_pushboolean(L,lret?1:0);

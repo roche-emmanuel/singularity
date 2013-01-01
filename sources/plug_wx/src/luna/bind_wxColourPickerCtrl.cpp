@@ -974,7 +974,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::Create(wxWindow *, int, const wxColour &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::Create(wxWindow *, int, const wxColour &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, colour, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -993,7 +993,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColourPickerCtrl::GetColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxColourPickerCtrl::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -1020,7 +1020,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(col);
 
@@ -1039,7 +1039,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::SetColour(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::SetColour(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(colname);
 
@@ -1066,7 +1066,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxColourPickerCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1087,7 +1087,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1106,7 +1106,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1125,7 +1125,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1144,7 +1144,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1164,7 +1164,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetCanFocus(canFocus);
 
@@ -1182,7 +1182,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetFocus();
 
@@ -1200,7 +1200,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetFocusFromKbd();
 
@@ -1219,7 +1219,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::AddChild(child);
 
@@ -1238,7 +1238,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::RemoveChild(child);
 
@@ -1257,7 +1257,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1280,7 +1280,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1299,7 +1299,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxColourPickerCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1319,7 +1319,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxColourPickerCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1339,7 +1339,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxColourPickerCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1359,7 +1359,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1379,7 +1379,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1399,7 +1399,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1423,7 +1423,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::ScrollWindow(dx, dy, rect);
 
@@ -1446,7 +1446,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -1471,7 +1471,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1494,7 +1494,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1521,7 +1521,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1543,7 +1543,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::Fit();
 
@@ -1561,7 +1561,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::FitInside();
 
@@ -1579,7 +1579,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1601,7 +1601,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1623,7 +1623,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1645,7 +1645,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1667,7 +1667,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1689,7 +1689,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1711,7 +1711,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxColourPickerCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxColourPickerCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1736,7 +1736,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1758,7 +1758,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SendSizeEvent(flags);
 
@@ -1781,7 +1781,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetMaxClientSize(size);
 
@@ -1804,7 +1804,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetMaxSize(size);
 
@@ -1827,7 +1827,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetMinClientSize(size);
 
@@ -1850,7 +1850,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetMinSize(size);
 
@@ -1885,7 +1885,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1911,7 +1911,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1938,7 +1938,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxColourPickerCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxColourPickerCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxColourPickerCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1960,7 +1960,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::ClearBackground();
 
@@ -1978,7 +1978,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxColourPickerCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxColourPickerCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxColourPickerCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1997,7 +1997,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxColourPickerCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2016,7 +2016,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxColourPickerCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxColourPickerCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2035,7 +2035,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxColourPickerCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxColourPickerCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxColourPickerCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2061,7 +2061,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::Refresh(eraseBackground, rect);
 
@@ -2079,7 +2079,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::Update();
 
@@ -2098,7 +2098,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2122,7 +2122,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2141,7 +2141,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2161,7 +2161,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetThemeEnabled(enable);
 
@@ -2179,7 +2179,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2198,7 +2198,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2218,7 +2218,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2238,7 +2238,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetNextHandler(handler);
 
@@ -2257,7 +2257,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetPreviousHandler(handler);
 
@@ -2275,7 +2275,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxColourPickerCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxColourPickerCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxColourPickerCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2295,7 +2295,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetExtraStyle(exStyle);
 
@@ -2314,7 +2314,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetWindowStyleFlag(style);
 
@@ -2332,7 +2332,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::Lower();
 
@@ -2350,7 +2350,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::Raise();
 
@@ -2372,7 +2372,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2391,7 +2391,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2410,7 +2410,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2432,7 +2432,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2454,7 +2454,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2477,7 +2477,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2502,7 +2502,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColourPickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxColourPickerCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxColourPickerCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2521,7 +2521,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxColourPickerCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxColourPickerCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxColourPickerCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2547,7 +2547,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetValidator(validator);
 
@@ -2565,7 +2565,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2584,7 +2584,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2603,7 +2603,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2622,7 +2622,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxColourPickerCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxColourPickerCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxColourPickerCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2641,7 +2641,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColourPickerCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxColourPickerCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxColourPickerCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2661,7 +2661,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetLayoutDirection(dir);
 
@@ -2680,7 +2680,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetName(name);
 
@@ -2703,7 +2703,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetAcceleratorTable(accel);
 
@@ -2721,7 +2721,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2740,7 +2740,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxColourPickerCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxColourPickerCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxColourPickerCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2762,7 +2762,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetDropTarget(target);
 
@@ -2781,7 +2781,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::DragAcceptFiles(accept);
 
@@ -2799,7 +2799,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2818,7 +2818,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2842,7 +2842,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2863,7 +2863,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::WarpPointer(x, y);
 
@@ -2886,7 +2886,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::DoUpdateWindowUI(event);
 
@@ -2904,7 +2904,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2923,7 +2923,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::InheritAttributes();
 
@@ -2941,7 +2941,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::InitDialog();
 
@@ -2959,7 +2959,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2978,7 +2978,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3000,7 +3000,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::MakeModal(modal);
 
@@ -3018,7 +3018,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::OnInternalIdle();
 
@@ -3039,7 +3039,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3059,7 +3059,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxColourPickerCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxColourPickerCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3081,7 +3081,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::UpdateWindowUI(flags);
 
@@ -3104,7 +3104,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::Command(event);
 
@@ -3122,7 +3122,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColourPickerCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxColourPickerCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxColourPickerCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3142,7 +3142,7 @@ public:
 		wxColourPickerCtrl* self=Luna< wxObject >::checkSubType< wxColourPickerCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxColourPickerCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxColourPickerCtrl::SetLabel(label);
 

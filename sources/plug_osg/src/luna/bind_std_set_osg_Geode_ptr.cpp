@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::set< osg::Geode * >",name);
 	}
+
 };
 
 std::set< osg::Geode * >* LunaTraits< std::set< osg::Geode * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::set< osg::Geode * > >::uniqueIDs[] = {27015607,0};
 luna_RegType LunaTraits< std::set< osg::Geode * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_set_osg_Geode_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_set_osg_Geode_ptr::_bind___eq},
+	
 	{0,0}
 };
 

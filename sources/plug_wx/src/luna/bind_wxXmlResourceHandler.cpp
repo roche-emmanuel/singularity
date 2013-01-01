@@ -143,7 +143,7 @@ public:
 		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::CreateResource(wxXmlNode *, wxObject *, wxObject *)");
+			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::CreateResource(wxXmlNode *, wxObject *, wxObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->CreateResource(node, parent, instance);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -164,7 +164,7 @@ public:
 		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::DoCreateResource()");
+			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::DoCreateResource(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxObject * lret = self->DoCreateResource();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -186,7 +186,7 @@ public:
 		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::CanHandle(wxXmlNode *)");
+			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::CanHandle(wxXmlNode *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanHandle(node);
 		lua_pushboolean(L,lret?1:0);
@@ -206,7 +206,7 @@ public:
 		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::SetParentResource(wxXmlResource *)");
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::SetParentResource(wxXmlResource *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetParentResource(res);
 
@@ -224,7 +224,7 @@ public:
 		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxXmlResourceHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxXmlResourceHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxXmlResourceHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -150,7 +150,7 @@ public:
 		osgUtil::EdgeCollector::Point* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::Point::clear()");
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::Point::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->clear();
 
@@ -168,7 +168,7 @@ public:
 		osgUtil::EdgeCollector::Point* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Point::isBoundaryPoint() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Point::isBoundaryPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isBoundaryPoint();
 		lua_pushboolean(L,lret?1:0);
@@ -194,7 +194,7 @@ public:
 		osgUtil::EdgeCollector::Point* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Point::operator<(const osgUtil::EdgeCollector::Point &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Point::operator<(const osgUtil::EdgeCollector::Point &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);

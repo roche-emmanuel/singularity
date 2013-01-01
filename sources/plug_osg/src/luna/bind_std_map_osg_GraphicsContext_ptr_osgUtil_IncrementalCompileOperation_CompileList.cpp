@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >",name);
 	}
+
 };
 
 std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalComp
 luna_RegType LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_osg_GraphicsContext_ptr_osgUtil_IncrementalCompileOperation_CompileList::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_osg_GraphicsContext_ptr_osgUtil_IncrementalCompileOperation_CompileList::_bind___eq},
+	
 	{0,0}
 };
 

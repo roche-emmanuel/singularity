@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::deque< std::string >",name);
 	}
+
 };
 
 std::deque< std::string >* LunaTraits< std::deque< std::string > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::deque< std::string > >::uniqueIDs[] = {79889541,0};
 luna_RegType LunaTraits< std::deque< std::string > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_deque_std_string::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_deque_std_string::_bind___eq},
+	
 	{0,0}
 };
 

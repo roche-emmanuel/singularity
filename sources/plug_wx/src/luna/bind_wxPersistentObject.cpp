@@ -150,7 +150,7 @@ public:
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistentObject::Save() const");
+			luaL_error(L, "Invalid object in function call void wxPersistentObject::Save() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
 		}
 		self->Save();
 
@@ -168,7 +168,7 @@ public:
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPersistentObject::Restore()");
+			luaL_error(L, "Invalid object in function call bool wxPersistentObject::Restore(). Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
 		}
 		bool lret = self->Restore();
 		lua_pushboolean(L,lret?1:0);
@@ -187,7 +187,7 @@ public:
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetKind() const");
+			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetKind() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetKind();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -206,7 +206,7 @@ public:
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPersistentObject::GetName() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -225,7 +225,7 @@ public:
 		wxPersistentObject* self=(Luna< wxPersistentObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxPersistentObject::GetObject() const");
+			luaL_error(L, "Invalid object in function call void * wxPersistentObject::GetObject() const. Got : '%s'",typeid(Luna< wxPersistentObject >::check(L,1)).name());
 		}
 		void * lret = self->GetObject();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"OpenThreads::ScopedLock< OpenThreads::Mutex >",name);
 	}
+
 };
 
 OpenThreads::ScopedLock< OpenThreads::Mutex >* LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::uniqueIDs
 luna_RegType LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::methods[] = {
 	{"dynCast", &luna_wrapper_OpenThreads_ScopedLock_OpenThreads_Mutex::_bind_dynCast},
 	{"__eq", &luna_wrapper_OpenThreads_ScopedLock_OpenThreads_Mutex::_bind___eq},
+	
 	{0,0}
 };
 

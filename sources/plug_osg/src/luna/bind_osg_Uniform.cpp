@@ -2397,7 +2397,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2423,7 +2423,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2445,7 +2445,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2464,7 +2464,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -2483,7 +2483,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -2503,7 +2503,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setType(osg::Uniform::Type)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setType(osg::Uniform::Type). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setType(t);
 		lua_pushboolean(L,lret?1:0);
@@ -2522,7 +2522,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform::Type osg::Uniform::getType() const");
+			luaL_error(L, "Invalid object in function call osg::Uniform::Type osg::Uniform::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Uniform::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -2542,7 +2542,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setName(name);
 
@@ -2561,7 +2561,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::setNumElements(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::setNumElements(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNumElements(numElements);
 
@@ -2579,7 +2579,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getNumElements() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getNumElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumElements();
 		lua_pushnumber(L,lret);
@@ -2598,7 +2598,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getInternalArrayNumElements() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getInternalArrayNumElements() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getInternalArrayNumElements();
 		lua_pushnumber(L,lret);
@@ -2622,7 +2622,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Uniform::compare(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call int osg::Uniform::compare(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(rhs);
 		lua_pushnumber(L,lret);
@@ -2646,7 +2646,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Uniform::compareData(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call int osg::Uniform::compareData(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compareData(rhs);
 		lua_pushnumber(L,lret);
@@ -2670,7 +2670,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::copyData(const osg::Uniform &)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::copyData(const osg::Uniform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->copyData(rhs);
 
@@ -2688,7 +2688,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Uniform::ParentList & osg::Uniform::getParents() const");
+			luaL_error(L, "Invalid object in function call const osg::Uniform::ParentList & osg::Uniform::getParents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Uniform::ParentList* lret = &self->getParents();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2709,7 +2709,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform::ParentList osg::Uniform::getParents()");
+			luaL_error(L, "Invalid object in function call osg::Uniform::ParentList osg::Uniform::getParents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Uniform::ParentList stack_lret = self->getParents();
 		osg::Uniform::ParentList* lret = new osg::Uniform::ParentList(stack_lret);
@@ -2741,7 +2741,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osg::Uniform::getParent(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osg::Uniform::getParent(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getParent(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2763,7 +2763,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osg::Uniform::getParent(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osg::Uniform::getParent(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet * lret = self->getParent(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2793,7 +2793,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getNumParents() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getNumParents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumParents();
 		lua_pushnumber(L,lret);
@@ -2813,7 +2813,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(float)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(f);
 		lua_pushboolean(L,lret?1:0);
@@ -2833,7 +2833,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i);
 		lua_pushboolean(L,lret?1:0);
@@ -2853,7 +2853,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i);
 		lua_pushboolean(L,lret?1:0);
@@ -2873,7 +2873,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(b);
 		lua_pushboolean(L,lret?1:0);
@@ -2897,7 +2897,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(v2);
 		lua_pushboolean(L,lret?1:0);
@@ -2921,7 +2921,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(v3);
 		lua_pushboolean(L,lret?1:0);
@@ -2945,7 +2945,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(v4);
 		lua_pushboolean(L,lret?1:0);
@@ -2969,7 +2969,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrix2 &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrix2 &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(m2);
 		lua_pushboolean(L,lret?1:0);
@@ -2993,7 +2993,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrix3 &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrix3 &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(m3);
 		lua_pushboolean(L,lret?1:0);
@@ -3017,7 +3017,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(m4);
 		lua_pushboolean(L,lret?1:0);
@@ -3041,7 +3041,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(m4);
 		lua_pushboolean(L,lret?1:0);
@@ -3062,7 +3062,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -3084,7 +3084,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -3107,7 +3107,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -3128,7 +3128,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -3150,7 +3150,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -3173,7 +3173,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int, unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -3194,7 +3194,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(b0, b1);
 		lua_pushboolean(L,lret?1:0);
@@ -3216,7 +3216,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool, bool, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(b0, b1, b2);
 		lua_pushboolean(L,lret?1:0);
@@ -3239,7 +3239,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool, bool, bool, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::set(bool, bool, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->set(b0, b1, b2, b3);
 		lua_pushboolean(L,lret?1:0);
@@ -3286,7 +3286,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(float &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(f);
 		lua_pushboolean(L,lret?1:0);
@@ -3306,7 +3306,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i);
 		lua_pushboolean(L,lret?1:0);
@@ -3326,7 +3326,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i);
 		lua_pushboolean(L,lret?1:0);
@@ -3346,7 +3346,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(b);
 		lua_pushboolean(L,lret?1:0);
@@ -3370,7 +3370,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Vec2f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Vec2f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(v2);
 		lua_pushboolean(L,lret?1:0);
@@ -3394,7 +3394,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(v3);
 		lua_pushboolean(L,lret?1:0);
@@ -3418,7 +3418,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Vec4f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(v4);
 		lua_pushboolean(L,lret?1:0);
@@ -3442,7 +3442,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrix2 &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrix2 &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(m2);
 		lua_pushboolean(L,lret?1:0);
@@ -3466,7 +3466,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrix3 &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrix3 &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(m3);
 		lua_pushboolean(L,lret?1:0);
@@ -3490,7 +3490,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrixf &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(m4);
 		lua_pushboolean(L,lret?1:0);
@@ -3514,7 +3514,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrixd &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(m4);
 		lua_pushboolean(L,lret?1:0);
@@ -3535,7 +3535,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -3557,7 +3557,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -3580,7 +3580,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &, int &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(int &, int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -3601,7 +3601,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -3623,7 +3623,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -3646,7 +3646,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &, unsigned int &, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(unsigned int &, unsigned int &, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -3667,7 +3667,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(b0, b1);
 		lua_pushboolean(L,lret?1:0);
@@ -3689,7 +3689,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &, bool &, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &, bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(b0, b1, b2);
 		lua_pushboolean(L,lret?1:0);
@@ -3712,7 +3712,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &, bool &, bool &, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::get(bool &, bool &, bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->get(b0, b1, b2, b3);
 		lua_pushboolean(L,lret?1:0);
@@ -3760,7 +3760,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, float)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, f);
 		lua_pushboolean(L,lret?1:0);
@@ -3781,7 +3781,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i);
 		lua_pushboolean(L,lret?1:0);
@@ -3802,7 +3802,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i);
 		lua_pushboolean(L,lret?1:0);
@@ -3823,7 +3823,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, b);
 		lua_pushboolean(L,lret?1:0);
@@ -3848,7 +3848,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Vec2f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, v2);
 		lua_pushboolean(L,lret?1:0);
@@ -3873,7 +3873,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, v3);
 		lua_pushboolean(L,lret?1:0);
@@ -3898,7 +3898,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, v4);
 		lua_pushboolean(L,lret?1:0);
@@ -3923,7 +3923,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrix2 &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrix2 &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, m2);
 		lua_pushboolean(L,lret?1:0);
@@ -3948,7 +3948,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrix3 &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrix3 &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, m3);
 		lua_pushboolean(L,lret?1:0);
@@ -3973,7 +3973,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, m4);
 		lua_pushboolean(L,lret?1:0);
@@ -3998,7 +3998,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, m4);
 		lua_pushboolean(L,lret?1:0);
@@ -4020,7 +4020,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -4043,7 +4043,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -4067,7 +4067,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -4089,7 +4089,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -4112,7 +4112,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -4136,7 +4136,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -4158,7 +4158,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, b0, b1);
 		lua_pushboolean(L,lret?1:0);
@@ -4181,7 +4181,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool, bool, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, b0, b1, b2);
 		lua_pushboolean(L,lret?1:0);
@@ -4205,7 +4205,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool, bool, bool, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setElement(unsigned int, bool, bool, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setElement(index, b0, b1, b2, b3);
 		lua_pushboolean(L,lret?1:0);
@@ -4253,7 +4253,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, float &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, f);
 		lua_pushboolean(L,lret?1:0);
@@ -4274,7 +4274,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i);
 		lua_pushboolean(L,lret?1:0);
@@ -4295,7 +4295,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i);
 		lua_pushboolean(L,lret?1:0);
@@ -4316,7 +4316,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, b);
 		lua_pushboolean(L,lret?1:0);
@@ -4341,7 +4341,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Vec2f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Vec2f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, v2);
 		lua_pushboolean(L,lret?1:0);
@@ -4366,7 +4366,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, v3);
 		lua_pushboolean(L,lret?1:0);
@@ -4391,7 +4391,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Vec4f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, v4);
 		lua_pushboolean(L,lret?1:0);
@@ -4416,7 +4416,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrix2 &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrix2 &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, m2);
 		lua_pushboolean(L,lret?1:0);
@@ -4441,7 +4441,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrix3 &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrix3 &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, m3);
 		lua_pushboolean(L,lret?1:0);
@@ -4466,7 +4466,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrixf &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, m4);
 		lua_pushboolean(L,lret?1:0);
@@ -4491,7 +4491,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrixd &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, m4);
 		lua_pushboolean(L,lret?1:0);
@@ -4513,7 +4513,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -4536,7 +4536,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -4560,7 +4560,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &, int &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, int &, int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -4582,7 +4582,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i0, i1);
 		lua_pushboolean(L,lret?1:0);
@@ -4605,7 +4605,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
@@ -4629,7 +4629,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &, unsigned int &, unsigned int &, unsigned int &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, unsigned int &, unsigned int &, unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
@@ -4651,7 +4651,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, b0, b1);
 		lua_pushboolean(L,lret?1:0);
@@ -4674,7 +4674,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &, bool &, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &, bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, b0, b1, b2);
 		lua_pushboolean(L,lret?1:0);
@@ -4698,7 +4698,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &, bool &, bool &, bool &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::getElement(unsigned int, bool &, bool &, bool &, bool &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getElement(index, b0, b1, b2, b3);
 		lua_pushboolean(L,lret?1:0);
@@ -4745,7 +4745,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::setUpdateCallback(osg::Uniform::Callback *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::setUpdateCallback(osg::Uniform::Callback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUpdateCallback(uc);
 
@@ -4763,7 +4763,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform::Callback * osg::Uniform::getUpdateCallback()");
+			luaL_error(L, "Invalid object in function call osg::Uniform::Callback * osg::Uniform::getUpdateCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Uniform::Callback * lret = self->getUpdateCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4784,7 +4784,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Uniform::Callback * osg::Uniform::getUpdateCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Uniform::Callback * osg::Uniform::getUpdateCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Uniform::Callback * lret = self->getUpdateCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4815,7 +4815,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::setEventCallback(osg::Uniform::Callback *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::setEventCallback(osg::Uniform::Callback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEventCallback(ec);
 
@@ -4833,7 +4833,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform::Callback * osg::Uniform::getEventCallback()");
+			luaL_error(L, "Invalid object in function call osg::Uniform::Callback * osg::Uniform::getEventCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Uniform::Callback * lret = self->getEventCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4854,7 +4854,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Uniform::Callback * osg::Uniform::getEventCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Uniform::Callback * osg::Uniform::getEventCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Uniform::Callback * lret = self->getEventCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4884,7 +4884,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::dirty()");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::dirty(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->dirty();
 
@@ -4903,7 +4903,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setArray(osg::FloatArray *)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setArray(osg::FloatArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setArray(array);
 		lua_pushboolean(L,lret?1:0);
@@ -4923,7 +4923,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setArray(osg::IntArray *)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setArray(osg::IntArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setArray(array);
 		lua_pushboolean(L,lret?1:0);
@@ -4943,7 +4943,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::setArray(osg::UIntArray *)");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::setArray(osg::UIntArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setArray(array);
 		lua_pushboolean(L,lret?1:0);
@@ -4972,7 +4972,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FloatArray * osg::Uniform::getFloatArray()");
+			luaL_error(L, "Invalid object in function call osg::FloatArray * osg::Uniform::getFloatArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::FloatArray * lret = self->getFloatArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4993,7 +4993,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::FloatArray * osg::Uniform::getFloatArray() const");
+			luaL_error(L, "Invalid object in function call const osg::FloatArray * osg::Uniform::getFloatArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::FloatArray * lret = self->getFloatArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5023,7 +5023,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::IntArray * osg::Uniform::getIntArray()");
+			luaL_error(L, "Invalid object in function call osg::IntArray * osg::Uniform::getIntArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::IntArray * lret = self->getIntArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5044,7 +5044,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::IntArray * osg::Uniform::getIntArray() const");
+			luaL_error(L, "Invalid object in function call const osg::IntArray * osg::Uniform::getIntArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::IntArray * lret = self->getIntArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5074,7 +5074,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::UIntArray * osg::Uniform::getUIntArray()");
+			luaL_error(L, "Invalid object in function call osg::UIntArray * osg::Uniform::getUIntArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::UIntArray * lret = self->getUIntArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5095,7 +5095,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::UIntArray * osg::Uniform::getUIntArray() const");
+			luaL_error(L, "Invalid object in function call const osg::UIntArray * osg::Uniform::getUIntArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::UIntArray * lret = self->getUIntArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5126,7 +5126,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::setModifiedCount(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::setModifiedCount(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setModifiedCount(mc);
 
@@ -5144,7 +5144,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getModifiedCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getModifiedCount() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getModifiedCount();
 		lua_pushnumber(L,lret);
@@ -5163,7 +5163,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getNameID() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Uniform::getNameID() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNameID();
 		lua_pushnumber(L,lret);
@@ -5208,7 +5208,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::apply(const osg::GL2Extensions *, int) const");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::apply(const osg::GL2Extensions *, int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(ext, location);
 
@@ -5331,7 +5331,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Uniform::computeDataVariance();
 
@@ -5350,7 +5350,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Uniform::setUserData(obj);
 
@@ -5368,7 +5368,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Uniform::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Uniform::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Uniform::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5389,7 +5389,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Uniform::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Uniform::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Uniform::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5422,7 +5422,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Uniform::releaseGLObjects(_arg1);
 
@@ -5440,7 +5440,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Uniform::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5466,7 +5466,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Uniform::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5488,7 +5488,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Uniform::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -5507,7 +5507,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Uniform::libraryName();
 		lua_pushstring(L,lret);
@@ -5526,7 +5526,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Uniform::className();
 		lua_pushstring(L,lret);
@@ -5546,7 +5546,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Uniform::setName(name);
 
@@ -5569,7 +5569,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Uniform::base_compare(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call int osg::Uniform::base_compare(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Uniform::compare(rhs);
 		lua_pushnumber(L,lret);
@@ -5593,7 +5593,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Uniform::base_compareData(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call int osg::Uniform::base_compareData(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Uniform::compareData(rhs);
 		lua_pushnumber(L,lret);
@@ -5619,7 +5619,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::operator<(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::operator<(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -5643,7 +5643,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::operator==(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::operator==(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -5667,7 +5667,7 @@ public:
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::operator!=(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::operator!=(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(rhs);
 		lua_pushboolean(L,lret?1:0);

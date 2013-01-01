@@ -125,7 +125,7 @@ public:
 		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxConnectionBase::Request(const wxString &, size_t *, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call const void * wxConnectionBase::Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const void * lret = self->Request(_arg1, &_arg2, _arg3);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -147,7 +147,7 @@ public:
 		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnectionBase::StartAdvise(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnectionBase::StartAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StartAdvise(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -167,7 +167,7 @@ public:
 		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnectionBase::StopAdvise(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnectionBase::StopAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StopAdvise(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -186,7 +186,7 @@ public:
 		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnectionBase::Disconnect()");
+			luaL_error(L, "Invalid object in function call bool wxConnectionBase::Disconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Disconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -205,7 +205,7 @@ public:
 		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxConnectionBase::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxConnectionBase::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxConnectionBase::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

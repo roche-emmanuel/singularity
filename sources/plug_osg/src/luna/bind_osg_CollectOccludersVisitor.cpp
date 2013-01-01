@@ -434,7 +434,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -453,7 +453,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -472,7 +472,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CollectOccludersVisitor * osg::CollectOccludersVisitor::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::CollectOccludersVisitor * osg::CollectOccludersVisitor::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CollectOccludersVisitor * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -493,7 +493,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::reset()");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -517,7 +517,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -542,7 +542,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -567,7 +567,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -591,7 +591,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -614,7 +614,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -637,7 +637,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -660,7 +660,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -683,7 +683,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -706,7 +706,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::OccluderNode &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::apply(osg::OccluderNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -738,7 +738,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setMinimumShadowOccluderVolume(float)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setMinimumShadowOccluderVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMinimumShadowOccluderVolume(vol);
 
@@ -756,7 +756,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getMinimumShadowOccluderVolume() const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::getMinimumShadowOccluderVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getMinimumShadowOccluderVolume();
 		lua_pushnumber(L,lret);
@@ -776,7 +776,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setMaximumNumberOfActiveOccluders(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setMaximumNumberOfActiveOccluders(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaximumNumberOfActiveOccluders(num);
 
@@ -794,7 +794,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CollectOccludersVisitor::getMaximumNumberOfActiveOccluders() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CollectOccludersVisitor::getMaximumNumberOfActiveOccluders() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getMaximumNumberOfActiveOccluders();
 		lua_pushnumber(L,lret);
@@ -814,7 +814,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setCreateDrawablesOnOccludeNodes(bool)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setCreateDrawablesOnOccludeNodes(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCreateDrawablesOnOccludeNodes(flag);
 
@@ -832,7 +832,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CollectOccludersVisitor::getCreateDrawablesOnOccludeNodes() const");
+			luaL_error(L, "Invalid object in function call bool osg::CollectOccludersVisitor::getCreateDrawablesOnOccludeNodes() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCreateDrawablesOnOccludeNodes();
 		lua_pushboolean(L,lret?1:0);
@@ -856,7 +856,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setCollectedOccluderSet(const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::setCollectedOccluderSet(const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCollectedOccluderSet(svol);
 
@@ -874,7 +874,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CollectOccludersVisitor::ShadowVolumeOccluderSet & osg::CollectOccludersVisitor::getCollectedOccluderSet()");
+			luaL_error(L, "Invalid object in function call osg::CollectOccludersVisitor::ShadowVolumeOccluderSet & osg::CollectOccludersVisitor::getCollectedOccluderSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet* lret = &self->getCollectedOccluderSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -895,7 +895,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet & osg::CollectOccludersVisitor::getCollectedOccluderSet() const");
+			luaL_error(L, "Invalid object in function call const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet & osg::CollectOccludersVisitor::getCollectedOccluderSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet* lret = &self->getCollectedOccluderSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -925,7 +925,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::removeOccludedOccluders()");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::removeOccludedOccluders(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeOccludedOccluders();
 
@@ -943,7 +943,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::CollectOccludersVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::CollectOccludersVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->CollectOccludersVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -965,7 +965,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::CollectOccludersVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::CollectOccludersVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->CollectOccludersVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -987,7 +987,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::setDefaults();
 
@@ -1010,7 +1010,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_inheritCullSettings(const osg::CullSettings &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_inheritCullSettings(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::inheritCullSettings(settings);
 
@@ -1034,7 +1034,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_inheritCullSettings(const osg::CullSettings &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::inheritCullSettings(settings, inheritanceMask);
 
@@ -1061,7 +1061,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CollectOccludersVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -1080,7 +1080,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::CollectOccludersVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CollectOccludersVisitor::className();
 		lua_pushstring(L,lret);
@@ -1099,7 +1099,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CollectOccludersVisitor * osg::CollectOccludersVisitor::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::CollectOccludersVisitor * osg::CollectOccludersVisitor::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CollectOccludersVisitor * lret = self->CollectOccludersVisitor::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1120,7 +1120,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::reset();
 
@@ -1144,7 +1144,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->CollectOccludersVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -1169,7 +1169,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->CollectOccludersVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -1194,7 +1194,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::CollectOccludersVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->CollectOccludersVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -1218,7 +1218,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::apply(_arg1);
 
@@ -1241,7 +1241,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::apply(node);
 
@@ -1264,7 +1264,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::apply(node);
 
@@ -1287,7 +1287,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::apply(node);
 
@@ -1310,7 +1310,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::apply(node);
 
@@ -1333,7 +1333,7 @@ public:
 		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::OccluderNode &)");
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_apply(osg::OccluderNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CollectOccludersVisitor::apply(node);
 
@@ -1355,6 +1355,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_osg_CullSettings(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_osg_CullSettings(lua_State *L) {
+		if (!_lg_typecheck_baseCast_osg_CullSettings(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_osg_CullSettings function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		osg::CullSettings* res = dynamic_cast<osg::CullSettings*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< osg::CullSettings >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -1407,6 +1433,7 @@ luna_RegType LunaTraits< osg::CollectOccludersVisitor >::methods[] = {
 	{"base_apply", &luna_wrapper_osg_CollectOccludersVisitor::_bind_base_apply},
 	{"__eq", &luna_wrapper_osg_CollectOccludersVisitor::_bind___eq},
 	{"getTable", &luna_wrapper_osg_CollectOccludersVisitor::_bind_getTable},
+	{"asCullSettings", &luna_wrapper_osg_CollectOccludersVisitor::_bind_baseCast_osg_CullSettings},
 	{0,0}
 };
 

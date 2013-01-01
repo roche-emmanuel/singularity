@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"osg::MixinVector< unsigned char >",name);
 	}
+
 };
 
 osg::MixinVector< unsigned char >* LunaTraits< osg::MixinVector< unsigned char > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< osg::MixinVector< unsigned char > >::uniqueIDs[] = {782212
 luna_RegType LunaTraits< osg::MixinVector< unsigned char > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_MixinVector_unsigned_char::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_MixinVector_unsigned_char::_bind___eq},
+	
 	{0,0}
 };
 

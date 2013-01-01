@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::multiset< osgUtil::LineSegmentIntersector::Intersection >",name);
 	}
+
 };
 
 std::multiset< osgUtil::LineSegmentIntersector::Intersection >* LunaTraits< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::multiset< osgUtil::LineSegmentIntersector::Intersecti
 luna_RegType LunaTraits< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_multiset_osgUtil_LineSegmentIntersector_Intersection::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_multiset_osgUtil_LineSegmentIntersector_Intersection::_bind___eq},
+	
 	{0,0}
 };
 

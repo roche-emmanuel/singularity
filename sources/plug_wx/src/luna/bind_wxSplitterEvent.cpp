@@ -155,7 +155,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterEvent::GetSashPosition() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterEvent::GetSashPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSashPosition();
 		lua_pushnumber(L,lret);
@@ -174,7 +174,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxSplitterEvent::GetWindowBeingRemoved() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxSplitterEvent::GetWindowBeingRemoved() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetWindowBeingRemoved();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -195,7 +195,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterEvent::GetX() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterEvent::GetX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetX();
 		lua_pushnumber(L,lret);
@@ -214,7 +214,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSplitterEvent::GetY() const");
+			luaL_error(L, "Invalid object in function call int wxSplitterEvent::GetY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetY();
 		lua_pushnumber(L,lret);
@@ -234,7 +234,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSplitterEvent::SetSashPosition(int)");
+			luaL_error(L, "Invalid object in function call void wxSplitterEvent::SetSashPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSashPosition(pos);
 
@@ -252,7 +252,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSplitterEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSplitterEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSplitterEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -273,7 +273,7 @@ public:
 		wxSplitterEvent* self=Luna< wxObject >::checkSubType< wxSplitterEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxSplitterEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSplitterEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxSplitterEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -132,7 +132,7 @@ public:
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGBSpan::GetColspan() const");
+			luaL_error(L, "Invalid object in function call int wxGBSpan::GetColspan() const. Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
 		}
 		int lret = self->GetColspan();
 		lua_pushnumber(L,lret);
@@ -151,7 +151,7 @@ public:
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGBSpan::GetRowspan() const");
+			luaL_error(L, "Invalid object in function call int wxGBSpan::GetRowspan() const. Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
 		}
 		int lret = self->GetRowspan();
 		lua_pushnumber(L,lret);
@@ -171,7 +171,7 @@ public:
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSpan::SetColspan(int)");
+			luaL_error(L, "Invalid object in function call void wxGBSpan::SetColspan(int). Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
 		}
 		self->SetColspan(colspan);
 
@@ -190,7 +190,7 @@ public:
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBSpan::SetRowspan(int)");
+			luaL_error(L, "Invalid object in function call void wxGBSpan::SetRowspan(int). Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
 		}
 		self->SetRowspan(rowspan);
 
@@ -215,7 +215,7 @@ public:
 		wxGBSpan* self=(Luna< wxGBSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBSpan::operator==(const wxGBSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxGBSpan::operator==(const wxGBSpan &) const. Got : '%s'",typeid(Luna< wxGBSpan >::check(L,1)).name());
 		}
 		bool lret = self->operator==(o);
 		lua_pushboolean(L,lret?1:0);

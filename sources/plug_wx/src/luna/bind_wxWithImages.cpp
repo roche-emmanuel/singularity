@@ -172,7 +172,7 @@ public:
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxWithImages::AssignImageList(wxImageList *)");
+			luaL_error(L, "Invalid object in function call void wxWithImages::AssignImageList(wxImageList *). Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
 		}
 		self->AssignImageList(imageList);
 
@@ -191,7 +191,7 @@ public:
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxWithImages::SetImageList(wxImageList *)");
+			luaL_error(L, "Invalid object in function call void wxWithImages::SetImageList(wxImageList *). Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
 		}
 		self->SetImageList(imageList);
 
@@ -209,7 +209,7 @@ public:
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImageList * wxWithImages::GetImageList() const");
+			luaL_error(L, "Invalid object in function call wxImageList * wxWithImages::GetImageList() const. Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
 		}
 		wxImageList * lret = self->GetImageList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -231,7 +231,7 @@ public:
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxWithImages::base_SetImageList(wxImageList *)");
+			luaL_error(L, "Invalid object in function call void wxWithImages::base_SetImageList(wxImageList *). Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
 		}
 		self->wxWithImages::SetImageList(imageList);
 

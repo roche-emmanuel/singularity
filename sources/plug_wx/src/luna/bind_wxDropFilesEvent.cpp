@@ -144,7 +144,7 @@ public:
 		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString * wxDropFilesEvent::GetFiles() const");
+			luaL_error(L, "Invalid object in function call wxString * wxDropFilesEvent::GetFiles() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString * lret = self->GetFiles();
 		lua_pushlstring(L,lret->data(),lret->size());
@@ -163,7 +163,7 @@ public:
 		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDropFilesEvent::GetNumberOfFiles() const");
+			luaL_error(L, "Invalid object in function call int wxDropFilesEvent::GetNumberOfFiles() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetNumberOfFiles();
 		lua_pushnumber(L,lret);
@@ -182,7 +182,7 @@ public:
 		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxDropFilesEvent::GetPosition() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxDropFilesEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -204,7 +204,7 @@ public:
 		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDropFilesEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDropFilesEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDropFilesEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -225,7 +225,7 @@ public:
 		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxDropFilesEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDropFilesEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxDropFilesEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
