@@ -1258,7 +1258,7 @@ spark::SparkDrawable* LunaTraits< spark::SparkDrawable >::_bind_ctor(lua_State *
 }
 
 void LunaTraits< spark::SparkDrawable >::_bind_dtor(spark::SparkDrawable* obj) {
-	//delete obj; // destructor protected.
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< spark::SparkDrawable >::className[] = "SparkDrawable";

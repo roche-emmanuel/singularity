@@ -188,7 +188,7 @@ spark::SparkDrawable::DeferredSystemHandler* LunaTraits< spark::SparkDrawable::D
 }
 
 void LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::_bind_dtor(spark::SparkDrawable::DeferredSystemHandler* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< spark::SparkDrawable::DeferredSystemHandler >::className[] = "SparkDrawable_DeferredSystemHandler";

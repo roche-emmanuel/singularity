@@ -450,7 +450,7 @@ spark::SparkUpdatingHandler* LunaTraits< spark::SparkUpdatingHandler >::_bind_ct
 }
 
 void LunaTraits< spark::SparkUpdatingHandler >::_bind_dtor(spark::SparkUpdatingHandler* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< spark::SparkUpdatingHandler >::className[] = "SparkUpdatingHandler";

@@ -216,6 +216,9 @@ function TypeManager:getDeleter(class)
 	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class argument")
 
 	--self:info("Checking deleter for ",class:getFullName())
+	if class:isExternal() then
+		return self._deleters:get(self:getAbsoluteBaseName(class))
+	end
 	
 	local del = self._deleters:get(class:getFullName())
 	if del then
