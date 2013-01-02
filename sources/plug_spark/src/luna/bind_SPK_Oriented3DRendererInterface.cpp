@@ -96,6 +96,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setLookVector(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,95637678)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,70092749)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUpVector(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,95637678)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,70092749)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -220,6 +236,36 @@ public:
 		return 1;
 	}
 
+	// void SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)
+	static int _bind_setLookVector(lua_State *L) {
+		if (!_lg_typecheck_setLookVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 95637678\narg 2 ID = 70092749\n");
+		}
+
+		SPK::Oriented3DRendererInterface* intf=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		SPK::Vector3D* vec=(Luna< SPK::Vector3D >::check(L,2));
+
+		setLookVector(intf, vec);
+
+		return 0;
+	}
+
+	// void SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)
+	static int _bind_setUpVector(lua_State *L) {
+		if (!_lg_typecheck_setUpVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 95637678\narg 2 ID = 70092749\n");
+		}
+
+		SPK::Oriented3DRendererInterface* intf=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		SPK::Vector3D* vec=(Luna< SPK::Vector3D >::check(L,2));
+
+		setUpVector(intf, vec);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -247,6 +293,8 @@ luna_RegType LunaTraits< SPK::Oriented3DRendererInterface >::methods[] = {
 	{"getLookOrientation", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getLookOrientation},
 	{"getUpOrientation", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getUpOrientation},
 	{"getLockedAxis", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getLockedAxis},
+	{"setLookVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_setLookVector},
+	{"setUpVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_setUpVector},
 	{"dynCast", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_dynCast},
 	{"__eq", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind___eq},
 	{0,0}

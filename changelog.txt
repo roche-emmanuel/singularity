@@ -26,3 +26,4 @@
 - Added support for direct type extension (without further type declaration or usage anywhere else).
 - Fixed deleter usage for unspecified base external (was missing for SparkUpdatingHandler for instance).
 - Added support for external type returns (for instance osg::Transform* SparkUpdatingHandler::getTrackee();)
+- Added Smoke, Fire and Explosion systems for SPARK tests.

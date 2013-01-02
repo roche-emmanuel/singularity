@@ -9,8 +9,8 @@ function Class:initialize(options)
 	options = options or {}
 		
 	local mt = self:loadModel("tests/data/glider.osgt")
-	-- app:createCube(1)
-	-- app:createBase()
+	self:createCube(1)
+	--self:createBase()
 	self:applyCircleAnimation(mt, 4.0, 6.0)
 
 	local spark = require "spark"
@@ -33,6 +33,31 @@ function Class:initialize(options)
 		local SimpleSystem = require "spark.SimpleSystem"
 		sdraw:setBaseSystemCreator( SimpleSystem():getWrapper() );
 		sdraw:addParticleSystem();
+	elseif options.system == "smoke" then		
+		sdraw:addImage( "smoke", tools:getImage("tests/data/smoke.png"), gl.RGBA );
+		
+		local System = require "spark.SmokeSystem"
+		sdraw:setBaseSystemCreator( System():getWrapper() );
+		sdraw:addParticleSystem();
+		tracking = true
+	elseif options.system == "fire" then		
+		sdraw:addImage( "fire", tools:getImage("tests/data/fire2.bmp"), gl.RGBA );
+		sdraw:addImage( "explosion", tools:getImage("tests/data/explosion.bmp"), gl.ALPHA );
+		
+		local System = require "spark.FireSystem"
+		sdraw:setBaseSystemCreator( System():getWrapper() );
+		sdraw:addParticleSystem();
+	elseif options.system == "explosion" then		
+		sdraw:addImage( "explosion", tools:getImage("tests/data/explosion.bmp"), gl.ALPHA );
+		sdraw:addImage( "flash", tools:getImage("tests/data/flash.bmp"), gl.RGB );
+		sdraw:addImage( "spark1", tools:getImage("tests/data/spark1.bmp"), gl.RGB );
+		sdraw:addImage( "spark2", tools:getImage("tests/data/point.bmp"), gl.ALPHA );
+		sdraw:addImage( "wave", tools:getImage("tests/data/wave.bmp"), gl.RGBA );
+		
+		local System = require "spark.ExplosionSystem"
+		sdraw:setBaseSystemCreator( System():getWrapper() );
+		sdraw:addParticleSystem();
+		sdraw:setSortParticles( true );
 	else
 		self:error("Invalid system for SPARK test.")
 	end
