@@ -22,4 +22,6 @@
 - Added support for multi base converters.
 - Implemented SimpleSystem for spark test.
 - Added support for extension functions for simple registered types.
+- Fixed incorrect hash code for registered type bases.
+- Added support for direct type extension (without further type declaration or usage anywhere else).
 

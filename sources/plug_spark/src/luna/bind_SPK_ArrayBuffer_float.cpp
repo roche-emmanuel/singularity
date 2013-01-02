@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"SPK::ArrayBuffer< float >",name);
 	}
+
 };
 
 SPK::ArrayBuffer< float >* LunaTraits< SPK::ArrayBuffer< float > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< SPK::ArrayBuffer< float > >::uniqueIDs[] = {28491752,0};
 luna_RegType LunaTraits< SPK::ArrayBuffer< float > >::methods[] = {
 	{"dynCast", &luna_wrapper_SPK_ArrayBuffer_float::_bind_dynCast},
 	{"__eq", &luna_wrapper_SPK_ArrayBuffer_float::_bind___eq},
+	
 	{0,0}
 };
 

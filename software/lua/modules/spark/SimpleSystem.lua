@@ -10,9 +10,10 @@ function Class:initialize(options)
 end
 
 function Class:op_call(textureIDMap, screenWidth, screenHeight)
-   local flareTexID = 1;
-    
-    -- Create the model
+    local flareTexID = textureIDMap:get("flare") --1;
+	--self:info("Retrieved flare ID=",flareTexID)
+	
+    -- Create the model	
     local model = spark.Model.create(
         bit.bor(spark.FLAG_RED,spark.FLAG_GREEN,spark.FLAG_BLUE,spark.FLAG_ALPHA),
 		bit.bor(spark.FLAG_ALPHA,spark.FLAG_RED,spark.FLAG_GREEN,spark.FLAG_BLUE));

@@ -177,7 +177,7 @@ function TypeManager:getAbsoluteBaseName(class)
 	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class argument")
 	
 	local tname = class:getTypeName()
-	return self._externalParents:get(tname) or class:getFullName()
+	return self._externalParents:get(tname) or tname; --class:getFullName()
 end
 
 function TypeManager:getExternalBase(tname,noRef)

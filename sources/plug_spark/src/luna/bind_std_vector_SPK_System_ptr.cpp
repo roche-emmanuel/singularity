@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::vector< SPK::System * >",name);
 	}
+
 };
 
 std::vector< SPK::System * >* LunaTraits< std::vector< SPK::System * > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::vector< SPK::System * > >::uniqueIDs[] = {36285581,0}
 luna_RegType LunaTraits< std::vector< SPK::System * > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_SPK_System_ptr::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_SPK_System_ptr::_bind___eq},
+	
 	{0,0}
 };
 

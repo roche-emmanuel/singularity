@@ -306,7 +306,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::DrawElementsUShort >::Register(L);
 	Luna< osg::DrawElementsUInt >::Register(L);
 	Luna< osg::Program >::Register(L);
-	Luna< std::map< std::string, unsigned int > >::Register(L);
 	Luna< std::map< unsigned int, osg::Program::ActiveVarInfo > >::Register(L);
 	Luna< std::map< std::string, osg::Program::ActiveVarInfo > >::Register(L);
 	Luna< std::map< std::string, osg::Program::UniformBlockInfo > >::Register(L);

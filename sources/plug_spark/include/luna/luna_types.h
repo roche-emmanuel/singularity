@@ -174,7 +174,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< SPK::System * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< SPK::System * >* obj);
-	typedef spark::SparkDrawable::ParticleSystemList parent_t;
+	typedef std::vector< SPK::System * > parent_t;
 	typedef std::vector< SPK::System * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -192,7 +192,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, spark::SparkDrawable::ImageAttribute >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, spark::SparkDrawable::ImageAttribute >* obj);
-	typedef spark::SparkDrawable::TextureObjMap parent_t;
+	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > parent_t;
 	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > base_t;
 	static luna_ConverterType converters[];
 };
@@ -210,7 +210,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef osg::Program::AttribBindingList parent_t;
+	typedef std::map< std::string, unsigned int > parent_t;
 	typedef std::map< std::string, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -336,7 +336,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static SPK::ArrayBuffer< float >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(SPK::ArrayBuffer< float >* obj);
-	typedef SPK::FloatBuffer parent_t;
+	typedef SPK::ArrayBuffer< float > parent_t;
 	typedef SPK::ArrayBuffer< float > base_t;
 	static luna_ConverterType converters[];
 };
@@ -354,7 +354,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static SPK::ArrayBufferCreator< float >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(SPK::ArrayBufferCreator< float >* obj);
-	typedef SPK::FloatBufferCreator parent_t;
+	typedef SPK::ArrayBufferCreator< float > parent_t;
 	typedef SPK::ArrayBufferCreator< float > base_t;
 	static luna_ConverterType converters[];
 };

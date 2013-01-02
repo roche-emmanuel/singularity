@@ -32,9 +32,9 @@ const int LunaTraits< osgGA::GUIEventHandler >::uniqueIDs[] = {50169651,0};
 
 const char LunaTraits< spark::SparkDrawable::TextureIDMap >::className[] = "std_map_std_string_unsigned_int";
 const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "std::map< std::string, unsigned int >";
-const char LunaTraits< spark::SparkDrawable::TextureIDMap >::moduleName[] = "osg";
+const char LunaTraits< spark::SparkDrawable::TextureIDMap >::moduleName[] = "sgt";
 const int LunaTraits< spark::SparkDrawable::TextureIDMap >::hash = 14771105;
-const int LunaTraits< spark::SparkDrawable::TextureIDMap >::uniqueIDs[] = {65712176,0};
+const int LunaTraits< spark::SparkDrawable::TextureIDMap >::uniqueIDs[] = {72783721,0};
 
 const char LunaTraits< osg::CopyOp >::className[] = "CopyOp";
 const char LunaTraits< osg::CopyOp >::fullName[] = "osg::CopyOp";

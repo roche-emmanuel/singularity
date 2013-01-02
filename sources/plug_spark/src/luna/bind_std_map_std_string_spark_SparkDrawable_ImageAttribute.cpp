@@ -53,6 +53,7 @@ public:
 		
 		return luna_dynamicCast(L,converters,"std::map< std::string, spark::SparkDrawable::ImageAttribute >",name);
 	}
+
 };
 
 std::map< std::string, spark::SparkDrawable::ImageAttribute >* LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::_bind_ctor(lua_State *L) {
@@ -73,6 +74,7 @@ const int LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribut
 luna_RegType LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_map_std_string_spark_SparkDrawable_ImageAttribute::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_map_std_string_spark_SparkDrawable_ImageAttribute::_bind___eq},
+	
 	{0,0}
 };
 

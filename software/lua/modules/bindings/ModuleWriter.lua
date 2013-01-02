@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="ModuleWriter",bases="base.Object"};
 
 local rm = require "bindings.ReflectionManager"
+local tm = require "bindings.TypeManager"
 local injector = require "bindings.CodeInjector"
 local im = require "bindings.IgnoreManager"
 local snippets = require "bindings.SnippetManager"
@@ -46,7 +47,6 @@ function Class:writeFile()
 	local currentModule = nil
 	local moduleSet = Set();
 	local classes = rm:getClasses()
-	local currentParent = nil
 	
 	for _,v in classes:sequence() do
 		local tname = v:getTypeName()
@@ -55,12 +55,7 @@ function Class:writeFile()
 			
 			-- check if we should change the currentModule:
 			local modName = v:getModule() or mname
-			if currentModule ~= modName then
-				if currentParent then
-					buf:writeSubLine("luna_popModule(L);")
-					currentParent = nil
-				end
-				
+			if currentModule ~= modName then				
 				if currentModule then
 					buf:writeSubLine("luna_popModule(L);")
 				end
@@ -69,22 +64,6 @@ function Class:writeFile()
 				moduleSet:push_back(modName) -- add the module to the set.
 			end
 			self:info("Would write class ", tname, " in module ", modName)
-			
-			local parentName = nil
-			if v:getParent():isClass() then
-				--parentName = v:getParent():getName()
-			end
-
-			if parentName~=currentParent then
-				if currentParent then
-					buf:writeSubLine("luna_popModule(L);")
-				end
-				
-				currentParent = parentName
-				if currentParent then
-					buf:writeSubLine('luna_pushModule(L,"${1}",-1);',currentParent)
-				end
-			end
 				
 			buf:writeSubLine("Luna< ${1} >::Register(L);",tname)
 		else
@@ -92,10 +71,29 @@ function Class:writeFile()
 		end
 	end
 	
-	if currentParent then
-		buf:writeSubLine("luna_popModule(L);")
+	local classes = tm:getRegisteredMappedTypes()
+	for _,tname in classes:sequence() do
+		if not im:ignore(tname,"class_declaration") and not written:contains(tname) then
+			written:push_back(tname)
+			
+			-- check if we should change the currentModule:
+			local modName = mname
+			if currentModule ~= modName then
+				if currentModule then
+					buf:writeSubLine("luna_popModule(L);")
+				end
+				buf:writeSubLine('luna_pushModule(L,"${1}");',modName)
+				currentModule = modName
+				moduleSet:push_back(modName) -- add the module to the set.
+			end
+			self:info("Would write class ", tname, " in module ", modName)
+				
+			buf:writeSubLine("Luna< ${1} >::Register(L);",tname)
+		else
+			self:warn("Ignoring registration for class ", tname)
+		end
 	end
-	
+		
 	buf:writeSubLine("luna_popModule(L);") -- pop the module at the end.	
 	--buf:writeForeach(buf.classes,"Luna< ${1} >::Register(L);",getValueName)
 	buf:newLine()

@@ -958,15 +958,6 @@ namespace osg {
 
 	class Program: public osg::StateAttribute {
 	public:
-		class AttribBindingList {
-		};
-
-		class FragDataBindingList {
-		};
-
-		class UniformBlockBindingList {
-		};
-
 		class ActiveUniformMap {
 		};
 

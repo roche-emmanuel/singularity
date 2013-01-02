@@ -97,6 +97,14 @@ int map_get(std::map< std::string, int >* data, const std::string& id) {
 	return 0;
 }
 
+
+unsigned int map_uint_get(std::map< std::string, unsigned int >* data, const std::string& id) {
+	std::map< std::string, unsigned int >::iterator it = data->find(id);
+	if(it != data->end())
+		return it->second;
+	return 0;
+}
+
 /*
 int datamap_get(sgt::DataMap* dmap, String& name, lua_Any* dummy, lua_State* L) {
 	// if there is already a value push it:

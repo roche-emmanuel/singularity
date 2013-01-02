@@ -16,4 +16,7 @@ int vector_get(sgt::AnyVector* vec, unsigned int index, lua_State* L);
 /** LUNA_CLASS_EXTENSION LUNA_RENAME get */
 int map_get(std::map< std::string, int >* data, const std::string& id);
 
+/** LUNA_CLASS_EXTENSION LUNA_RENAME get */
+unsigned int map_uint_get(std::map< std::string, unsigned int >* data, const std::string& id);
+
 #endif
