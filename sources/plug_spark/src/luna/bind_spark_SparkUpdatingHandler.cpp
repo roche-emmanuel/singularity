@@ -270,9 +270,9 @@ public:
 			luaL_error(L, "Invalid object in function call osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->getTrackee(i);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'osg::Transform *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Transform >::push(L,lret,false);
 
 		return 1;
 	}
@@ -292,9 +292,9 @@ public:
 			luaL_error(L, "Invalid object in function call const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->getTrackee(i);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const osg::Transform *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Transform >::push(L,lret,false);
 
 		return 1;
 	}

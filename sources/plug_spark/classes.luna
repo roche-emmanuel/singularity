@@ -52,7 +52,6 @@ SPK::Plane => SPK::Registerable
 SPK::Point => SPK::Registerable
 SPK::Ring => SPK::Registerable
 SPK::Sphere => SPK::Registerable
-SPK::Pool< class SPK::Particle > => SPK::Pool< class SPK::Particle >
 GL::GLExtHandler => GL::GLExtHandler
 GL::GLRenderer => SPK::Registerable
 GL::GLLineRenderer => SPK::Registerable

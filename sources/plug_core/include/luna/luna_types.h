@@ -520,6 +520,24 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< OpenThreads::Mutex > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Mutex* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Mutex* obj);
+	typedef OpenThreads::Mutex parent_t;
+	typedef OpenThreads::Mutex base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 32973728 > {
@@ -665,6 +683,13 @@ template<>
 class LunaType< 74170402 > {
 public:
 	typedef std::set< std::string > type;
+	
+};
+
+template<>
+class LunaType< 3168391 > {
+public:
+	typedef OpenThreads::Mutex type;
 	
 };
 

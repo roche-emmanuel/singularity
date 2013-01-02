@@ -1041,10 +1041,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::BoundingBox spark::SparkDrawable::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		osg::BoundingBox lret = self->computeBound();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'osg::BoundingBox'
-		////////////////////////////////////////////////////////////////////
+		osg::BoundingBox stack_lret = self->computeBound();
+		osg::BoundingBox* lret = new osg::BoundingBox(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::BoundingBox >::push(L,lret,true);
 
 		return 1;
 	}
@@ -1215,10 +1216,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::BoundingBox spark::SparkDrawable::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		osg::BoundingBox lret = self->SparkDrawable::computeBound();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'osg::BoundingBox'
-		////////////////////////////////////////////////////////////////////
+		osg::BoundingBox stack_lret = self->SparkDrawable::computeBound();
+		osg::BoundingBox* lret = new osg::BoundingBox(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::BoundingBox >::push(L,lret,true);
 
 		return 1;
 	}

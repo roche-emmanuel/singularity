@@ -15,7 +15,7 @@ local core = require "core"
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
 local App = require "spark.SparkTestApp"
-local app = App{profileFile="test_spark_profile.log"}
+local app = App{profileFile="test_spark_profile.log",system="simple"}
 
 app:run()
 	

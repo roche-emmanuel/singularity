@@ -72,10 +72,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable *, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		osg::Matrix lret = self->public_computeTransformMatrix(spark, trackee);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'osg::Matrix'
-		////////////////////////////////////////////////////////////////////
+		osg::Matrix stack_lret = self->public_computeTransformMatrix(spark, trackee);
+		osg::Matrix* lret = new osg::Matrix(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrix >::push(L,lret,true);
 
 		return 1;
 	}

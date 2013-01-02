@@ -253,7 +253,7 @@ function Class:writeFunctionCall(cname,func,args)
 		-- we cannot use a pointer to temporary memory so if the result is on the stack we need to create
 		-- the corresponding heap ressource and use a copy constructor.
 		-- if there is a converter, it is responsible for performing the proper convertion.
-		if not rt:isPointer() and rt:isClass() and not converter then
+		if not rt:isPointer() and not rt:isInteger() and not rt:isString() and not rt:isNumber() and not rt:isBoolean() and not converter then  -- rt:isClass()
 			if rt:isReference() then
 				self:writeSubLine("const ${1}* ${4} = &${5}${2}(${3});",rt:getBaseName(),fname,args,argname,prefix);		
 			else
@@ -288,17 +288,24 @@ function Class:writeFunctionCall(cname,func,args)
 		else
 			result_count = 0
 		end			
-	elseif rt:isClass() then
+	else	
+		if not rt:isClass() then
+			tm:registerMappedType(rt:getBaseName(true))
+		end
+		
+		tm:getExternalBase(rt:getBaseName(true))
+	
 		-- get the class absolute parent hash:
 		self:writeSubLine("if(!${1}) return 0; // Do not write NULL pointers.",argname)
 		self:newLine()
 		
 		self:writeSubLine('Luna< ${1} >::push(L,${2},${3});',rname,argname,force_gc and "true" or "false")			
-	else
+		
+	--[[else
 		self:writeLine("////////////////////////////////////////////////////////////////////")
 		self:writeLine("// ERROR: Cannot decide the argument type for '".. rt:getName() .. "'")
 		self:writeLine("////////////////////////////////////////////////////////////////////")
-		self:error("Unsupported type : ".. rt:getName().. " in functionCall for function ".. func:getFullName())
+		self:error("Unsupported type : ".. rt:getName().. " in functionCall for function ".. func:getFullName())]]
 	end	
 	self:newLine()
 	

@@ -26,3 +26,4 @@ std::istream => std::istream
 std::ostream => std::ostream
 module=sgt
 std::map< std::string, unsigned int > => std::map< std::string, unsigned int >
+OpenThreads::Mutex => OpenThreads::Mutex

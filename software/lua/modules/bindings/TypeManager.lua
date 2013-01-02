@@ -55,6 +55,7 @@ end
 
 function TypeManager:registerMappedType(mtype)
 	if not self._externals:get(mtype) then -- We should ignore external types at this point.
+		self:info("Registering mapped type '",mtype,"'")
 		self._registeredMappedTypes:push_back(mtype)
 	end
 end
@@ -187,7 +188,9 @@ function TypeManager:getExternalBase(tname,noRef)
 	
 	local parentClass = self._externalParents:get(tname)
 	if parentClass then
+		self:info("Adding referenced external '",parentClass,"'")
 		self._referencedExternals:push_back(parentClass)
+		self:info("Adding referenced external '",tname,"'")
 		self._referencedExternals:push_back(tname)
 	end
 	return parentClass

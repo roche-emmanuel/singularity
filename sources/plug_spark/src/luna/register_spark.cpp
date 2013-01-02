@@ -71,7 +71,6 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	Luna< SPK::Point >::Register(L);
 	Luna< SPK::Ring >::Register(L);
 	Luna< SPK::Sphere >::Register(L);
-	Luna< SPK::Pool< class SPK::Particle > >::Register(L);
 	Luna< GL::GLExtHandler >::Register(L);
 	Luna< GL::GLRenderer >::Register(L);
 	Luna< GL::GLLineRenderer >::Register(L);

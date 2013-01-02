@@ -5,15 +5,13 @@ local tools = require "osg.Tools"
 local fs = require "base.FileSystem"
 local gl = require "luagl"
 
-function Class:initialize()
-	local app = self;
-	
-	local mt = app:loadModel("tests/data/glider.osgt")
+function Class:initialize(options)
+	options = options or {}
+		
+	local mt = self:loadModel("tests/data/glider.osgt")
 	-- app:createCube(1)
 	-- app:createBase()
-	app:applyCircleAnimation(mt, 4.0, 6.0)
-
-	app:home()
+	self:applyCircleAnimation(mt, 4.0, 6.0)
 
 	local spark = require "spark"
 
@@ -27,26 +25,35 @@ function Class:initialize()
 	spark.System.useAdaptiveStep( 0.001, 0.01 );
 		
 	local sdraw = spark.SparkDrawable();
-	sdraw:addImage( "flare", tools:getImage("tests/data/flare.bmp"), gl.ALPHA );
-
-	local SimpleSystem = require "spark.SimpleSystem"
-
-	sdraw:setBaseSystemCreator( SimpleSystem():getWrapper() );
-	sdraw:addParticleSystem();
+	local tracking = false;
+	
+	if options.system == "simple" then
+		sdraw:addImage( "flare", tools:getImage("tests/data/flare.bmp"), gl.ALPHA );
+		
+		local SimpleSystem = require "spark.SimpleSystem"
+		sdraw:setBaseSystemCreator( SimpleSystem():getWrapper() );
+		sdraw:addParticleSystem();
+	else
+		self:error("Invalid system for SPARK test.")
+	end
 
 	local geode = osg.Geode();
 	geode:addDrawable( sdraw );
 	geode:getOrCreateStateSet():setRenderingHint( osg.StateSet.TRANSPARENT_BIN );
 	geode:getOrCreateStateSet():setMode( gl.LIGHTING, osg.StateAttribute.OFF );
 
-	
 	local handler = spark.SparkUpdatingHandler();
 	handler:addSpark( sdraw );
-	handler:setTrackee( 0, mt );
-	self._handler = handler;
+	if tracking then
+		handler:setTrackee( 0, mt );
+	end
 	
-	app:getRoot():addChild(geode)
-	app:getViewer():addEventHandler( handler );
+	--self._handler = handler;
+	
+	self:getRoot():addChild(geode)
+	self:getViewer():addEventHandler( handler );
+
+	self:home()
 end
 
 return Class -- return class instance.

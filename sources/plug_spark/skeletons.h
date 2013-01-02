@@ -212,9 +212,6 @@ namespace SPK {
 	class Sphere: public SPK::Zone {
 	};
 
-	class Pool< class SPK::Particle > {
-	};
-
 };
 
 namespace GL {

@@ -385,9 +385,9 @@ public:
 			luaL_error(L, "Invalid object in function call OpenThreads::Mutex * osg::Referenced::getRefMutex() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		OpenThreads::Mutex * lret = self->getRefMutex();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'OpenThreads::Mutex *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< OpenThreads::Mutex >::push(L,lret,false);
 
 		return 1;
 	}
@@ -557,9 +557,9 @@ public:
 
 
 		OpenThreads::Mutex * lret = osg::Referenced::getGlobalReferencedMutex();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'OpenThreads::Mutex *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< OpenThreads::Mutex >::push(L,lret,false);
 
 		return 1;
 	}

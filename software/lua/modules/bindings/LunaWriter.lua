@@ -77,6 +77,10 @@ function Class:writeBindings()
 	local GlobalFunctionWriter = require "bindings.GlobalFunctionWriter"
 	local ClassSkeletonExporter = require "bindings.ClassSkeletonExporter"
 	
+	self:writeClassWrappers()
+    self:writeClassSources()
+	self:writeRegisteredTypes()
+	
 	local classExp = ClassExporter();
 	classExp:writeFile()
 	
@@ -100,10 +104,6 @@ function Class:writeBindings()
 		
 	local skeWriter = ClassSkeletonExporter();
 	skeWriter:writeFile();
-	
-	self:writeClassWrappers()
-    self:writeClassSources()
-	self:writeRegisteredTypes()
 	
 	local extWriter = ExternalWriter();
 	extWriter:writeFile();	

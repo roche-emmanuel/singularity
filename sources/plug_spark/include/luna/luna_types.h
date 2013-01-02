@@ -1116,24 +1116,6 @@ public:
 };
 
 template<>
-class LunaTraits< SPK::Pool< class SPK::Particle > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SPK::Pool< class SPK::Particle >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SPK::Pool< class SPK::Particle >* obj);
-	typedef SPK::Pool< class SPK::Particle > parent_t;
-	typedef SPK::Pool< class SPK::Particle > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
 class LunaTraits< GL::GLExtHandler > {
 public:
 	static const char className[];
@@ -1436,13 +1418,6 @@ template<>
 class LunaType< 74399712 > {
 public:
 	typedef SPK::QuadRendererInterface type;
-	
-};
-
-template<>
-class LunaType< 49606317 > {
-public:
-	typedef SPK::Pool< class SPK::Particle > type;
 	
 };
 
