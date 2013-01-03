@@ -1,4 +1,5 @@
 module=spark
+spark::GroupCustomUpdate => spark::GroupCustomUpdate
 spark::SparkDrawable => osg::Drawable
 std::vector< SPK::System * > => std::vector< SPK::System * >
 std::map< std::string, spark::SparkDrawable::ImageAttribute > => std::map< std::string, spark::SparkDrawable::ImageAttribute >

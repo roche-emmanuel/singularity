@@ -18,6 +18,7 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	luna_popModule(L);
 
 	luna_pushModule(L,"spark");
+	Luna< spark::GroupCustomUpdate >::Register(L);
 	Luna< spark::SparkDrawable >::Register(L);
 	Luna< std::vector< SPK::System * > >::Register(L);
 	Luna< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::Register(L);

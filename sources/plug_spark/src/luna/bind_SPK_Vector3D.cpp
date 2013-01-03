@@ -113,6 +113,27 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_x(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,70092749)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_y(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,70092749)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_z(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,70092749)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 9 valid operators)
@@ -337,6 +358,51 @@ public:
 		self->crossProduct(v);
 
 		return 0;
+	}
+
+	// float SPK::Vector3D::vec_get_x(SPK::Vector3D * vec)
+	static int _bind_x(lua_State *L) {
+		if (!_lg_typecheck_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float SPK::Vector3D::vec_get_x(SPK::Vector3D * vec) function, expected prototype:\nfloat SPK::Vector3D::vec_get_x(SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 70092749\n");
+		}
+
+		SPK::Vector3D* vec=(Luna< SPK::Vector3D >::check(L,1));
+
+		float lret = vec_get_x(vec);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float SPK::Vector3D::vec_get_y(SPK::Vector3D * vec)
+	static int _bind_y(lua_State *L) {
+		if (!_lg_typecheck_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float SPK::Vector3D::vec_get_y(SPK::Vector3D * vec) function, expected prototype:\nfloat SPK::Vector3D::vec_get_y(SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 70092749\n");
+		}
+
+		SPK::Vector3D* vec=(Luna< SPK::Vector3D >::check(L,1));
+
+		float lret = vec_get_y(vec);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float SPK::Vector3D::vec_get_z(SPK::Vector3D * vec)
+	static int _bind_z(lua_State *L) {
+		if (!_lg_typecheck_z(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float SPK::Vector3D::vec_get_z(SPK::Vector3D * vec) function, expected prototype:\nfloat SPK::Vector3D::vec_get_z(SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 70092749\n");
+		}
+
+		SPK::Vector3D* vec=(Luna< SPK::Vector3D >::check(L,1));
+
+		float lret = vec_get_z(vec);
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -598,6 +664,9 @@ luna_RegType LunaTraits< SPK::Vector3D >::methods[] = {
 	{"revert", &luna_wrapper_SPK_Vector3D::_bind_revert},
 	{"abs", &luna_wrapper_SPK_Vector3D::_bind_abs},
 	{"crossProduct", &luna_wrapper_SPK_Vector3D::_bind_crossProduct},
+	{"x", &luna_wrapper_SPK_Vector3D::_bind_x},
+	{"y", &luna_wrapper_SPK_Vector3D::_bind_y},
+	{"z", &luna_wrapper_SPK_Vector3D::_bind_z},
 	{"op_add", &luna_wrapper_SPK_Vector3D::_bind_op_add},
 	{"op_sub", &luna_wrapper_SPK_Vector3D::_bind_op_sub},
 	{"op_mult", &luna_wrapper_SPK_Vector3D::_bind_op_mult},

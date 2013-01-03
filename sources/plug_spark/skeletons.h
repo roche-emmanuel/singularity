@@ -8,6 +8,9 @@ namespace osgGA {
 };
 
 namespace spark {
+	class GroupCustomUpdate {
+	};
+
 	class SparkDrawable: public osg::Drawable {
 	public:
 		class ParticleSystemList {

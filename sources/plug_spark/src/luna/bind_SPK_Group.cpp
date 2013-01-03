@@ -560,6 +560,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setCustomUpdate(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,31337102)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7361390)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_getClassName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1931,6 +1939,21 @@ public:
 		return 1;
 	}
 
+	// void SPK::Group::setCustomUpdate(SPK::Group * grp, spark::GroupCustomUpdate * cb)
+	static int _bind_setCustomUpdate(lua_State *L) {
+		if (!_lg_typecheck_setCustomUpdate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void SPK::Group::setCustomUpdate(SPK::Group * grp, spark::GroupCustomUpdate * cb) function, expected prototype:\nvoid SPK::Group::setCustomUpdate(SPK::Group * grp, spark::GroupCustomUpdate * cb)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 7361390\n");
+		}
+
+		SPK::Group* grp=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1));
+		spark::GroupCustomUpdate* cb=(Luna< spark::GroupCustomUpdate >::check(L,2));
+
+		setCustomUpdate(grp, cb);
+
+		return 0;
+	}
+
 	// std::string SPK::Group::base_getClassName() const
 	static int _bind_base_getClassName(lua_State *L) {
 		if (!_lg_typecheck_base_getClassName(L)) {
@@ -2072,6 +2095,7 @@ luna_RegType LunaTraits< SPK::Group >::methods[] = {
 	{"create", &luna_wrapper_SPK_Group::_bind_create},
 	{"enableBuffersManagement", &luna_wrapper_SPK_Group::_bind_enableBuffersManagement},
 	{"isBuffersManagementEnabled", &luna_wrapper_SPK_Group::_bind_isBuffersManagementEnabled},
+	{"setCustomUpdate", &luna_wrapper_SPK_Group::_bind_setCustomUpdate},
 	{"base_getClassName", &luna_wrapper_SPK_Group::_bind_base_getClassName},
 	{"base_findByName", &luna_wrapper_SPK_Group::_bind_base_findByName},
 	{"__eq", &luna_wrapper_SPK_Group::_bind___eq},

@@ -3,6 +3,7 @@
 
 #include <plug_common.h>
 
+#include <plug_extensions.h>
 #include <SparkDrawable.h>
 #include <SparkUpdatingHandler.h>
 #include <Core/SPK_ArrayBuffer.h>
@@ -140,6 +141,24 @@ public:
 	static void _bind_dtor(osgGA::GUIEventHandler* obj);
 	typedef osg::Referenced parent_t;
 	typedef osgGA::GUIEventHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< spark::GroupCustomUpdate > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::GroupCustomUpdate* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::GroupCustomUpdate* obj);
+	typedef spark::GroupCustomUpdate parent_t;
+	typedef spark::GroupCustomUpdate base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1257,6 +1276,13 @@ template<>
 class LunaType< 29676225 > {
 public:
 	typedef osgGA::GUIEventHandler type;
+	
+};
+
+template<>
+class LunaType< 7361390 > {
+public:
+	typedef spark::GroupCustomUpdate type;
 	
 };
 
