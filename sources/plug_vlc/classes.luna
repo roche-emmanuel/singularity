@@ -1,0 +1,2 @@
+module=vlc
+vlc::VLCImageStream => osg::ImageStream

@@ -30,3 +30,4 @@
 - Investigated usage of functors to replace function pointers : this will not work.
 - Added partial implementation of rain system for SPARK.
 - Added TUIO module with working test.
+- Failed to add support for VLC module.

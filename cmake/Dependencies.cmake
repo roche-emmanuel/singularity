@@ -90,6 +90,9 @@ SET(SPICE_INC_DIR 	${DEP_SPICE}/include)
 SET(SPICE_LIB_DIR 	${DEP_SPICE}/lib)
 SET(SPICE_LIBS 		cspice csupport)
 
+SET(VLC_INC_DIR 	${DEP_VLC}/include)
+SET(VLC_LIB_DIR 	${DEP_VLC}/lib)
+SET(VLC_LIBS 		libvlc libvlccore)
 
 # SET(WXWEBKIT_INC_DIR 	${DEP_WXWEBKIT}/Source/WebKit/wx)
 # SET(WXWEBKIT_LIB_DIR 	${DEP_WXWEBKIT}/WebKitBuild/Release)
