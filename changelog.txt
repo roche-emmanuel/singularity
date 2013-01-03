@@ -29,3 +29,4 @@
 - Added Smoke, Fire and Explosion systems for SPARK tests.
 - Investigated usage of functors to replace function pointers : this will not work.
 - Added partial implementation of rain system for SPARK.
+- Added TUIO module with working test.

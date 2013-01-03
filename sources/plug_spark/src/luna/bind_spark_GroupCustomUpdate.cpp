@@ -101,7 +101,9 @@ public:
 	inline static bool _lg_typecheck_op_call(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73657533) ) return false;
+		////////////////////////////////////////////////////////////////////
+		// ERROR: Cannot decide the argument type for 'SPK::Particle &'
+		////////////////////////////////////////////////////////////////////
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -147,14 +149,12 @@ public:
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const function, expected prototype:\nbool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const\nClass arguments details:\narg 1 ID = 73657533\n");
+			luaL_error(L, "luna typecheck failed in bool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const function, expected prototype:\nbool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const\nClass arguments details:\n");
 		}
 
-		SPK::Particle* particle_ptr=(Luna< SPK::Particle >::check(L,2));
-		if( !particle_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg particle in spark::GroupCustomUpdate::operator() function");
-		}
-		SPK::Particle & particle=*particle_ptr;
+		////////////////////////////////////////////////////////////////////
+		// ERROR: Cannot decide the argument type for 'SPK::Particle &' baseTypeName is 'SPK::Particle'
+		////////////////////////////////////////////////////////////////////
 		float deltaTime=(float)lua_tonumber(L,3);
 
 		spark::GroupCustomUpdate* self=(Luna< spark::GroupCustomUpdate >::check(L,1));

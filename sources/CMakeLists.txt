@@ -37,7 +37,8 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_norad)
 # ADD_SUBDIRECTORY(plug_FANN)
 # ADD_SUBDIRECTORY(plug_awesomium)
-ADD_SUBDIRECTORY(plug_spark)
+# ADD_SUBDIRECTORY(plug_spark)
+ADD_SUBDIRECTORY(plug_tuio)
 
 
 ADD_SUBDIRECTORY(sgt_launcher)

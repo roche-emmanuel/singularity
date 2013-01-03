@@ -31,7 +31,6 @@ SET(INCLUDE_PATH ${SPICE_INC_DIR})
 
 SET(INTF_FILES)
 LIST(APPEND INTF_FILES "${SPARK_INC_DIR}")
-ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../include/SparkDrawable.h")
 ADD_FILES(INTF_FILES "../include/SparkUpdatingHandler.h")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")

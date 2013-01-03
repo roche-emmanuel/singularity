@@ -263,7 +263,7 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../include/luna
 			COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../src/luna
 			COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../include/luna/wrappers
-			COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../src/luna/wrappers
+			# COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../src/luna/wrappers
 			COMMAND echo "Generating doxygen wrapper docs..."
 			COMMAND echo INPUT=${${INTERFACE_FILES}} > ${DOXFILE}
 			COMMAND echo FILE_PATTERNS=${FILE_PATTERNS} >> ${DOXFILE}

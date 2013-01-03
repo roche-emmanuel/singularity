@@ -1,7 +1,0 @@
-module=spark
-SPK::isFurtherToCamera
-SPK::swapParticles
-SPK::getSqrDist
-SPK::getDist
-SPK::dotProduct
-SPK::crossProduct

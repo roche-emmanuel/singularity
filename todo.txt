@@ -5,8 +5,6 @@
 
 - Todo:
 
-* generate spark examples
-* investigate implementation of lua functors (needed for instance in spark for rainGroup->setCustomUpdate(&killRain);)
 * add getter and setters for public class variables.
 * improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)
 * Implement all listeners for webview

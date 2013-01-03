@@ -30,7 +30,7 @@ public:
 	// bool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const
 	bool operator()(SPK::Particle & particle, float deltaTime) const {
 		if(_obj.pushFunction("op_call")) {
-			_obj.pushArg(&particle);
+			_obj.pushArg(particle);
 			_obj.pushArg(deltaTime);
 			return (_obj.callFunction<bool>());
 		}
