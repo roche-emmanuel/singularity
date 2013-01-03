@@ -274,7 +274,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -293,7 +293,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -312,7 +312,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::KdTreeBuilder * osg::KdTreeBuilder::clone()");
+			luaL_error(L, "Invalid object in function call osg::KdTreeBuilder * osg::KdTreeBuilder::clone(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::KdTreeBuilder * lret = self->clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -338,7 +338,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -356,7 +356,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::base_reset()");
+			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTreeBuilder::reset();
 
@@ -374,7 +374,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::KdTreeBuilder::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::KdTreeBuilder::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->KdTreeBuilder::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -396,7 +396,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::KdTreeBuilder::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::KdTreeBuilder::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->KdTreeBuilder::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -424,7 +424,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::KdTreeBuilder::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::KdTreeBuilder::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->KdTreeBuilder::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -449,7 +449,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::KdTreeBuilder::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::KdTreeBuilder::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->KdTreeBuilder::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -474,7 +474,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::KdTreeBuilder::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::KdTreeBuilder::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->KdTreeBuilder::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -493,7 +493,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->KdTreeBuilder::libraryName();
 		lua_pushstring(L,lret);
@@ -512,7 +512,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTreeBuilder::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->KdTreeBuilder::className();
 		lua_pushstring(L,lret);
@@ -531,7 +531,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::KdTreeBuilder * osg::KdTreeBuilder::base_clone()");
+			luaL_error(L, "Invalid object in function call osg::KdTreeBuilder * osg::KdTreeBuilder::base_clone(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::KdTreeBuilder * lret = self->KdTreeBuilder::clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -557,7 +557,7 @@ public:
 		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTreeBuilder::apply(geode);
 

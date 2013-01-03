@@ -352,7 +352,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Add(bitmap, mask);
 		lua_pushnumber(L,lret);
@@ -381,7 +381,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Add(bitmap, maskColour);
 		lua_pushnumber(L,lret);
@@ -405,7 +405,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxIcon &)");
+			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxIcon &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Add(icon);
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Create(int, int, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxImageList::Create(int, int, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(width, height, mask, initialCount);
 		lua_pushboolean(L,lret?1:0);
@@ -471,7 +471,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Draw(int, wxDC &, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxImageList::Draw(int, wxDC &, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Draw(index, dc, x, y, flags, solidBackground);
 		lua_pushboolean(L,lret?1:0);
@@ -491,7 +491,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxImageList::GetBitmap(int) const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxImageList::GetBitmap(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->GetBitmap(index);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -514,7 +514,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxImageList::GetIcon(int) const");
+			luaL_error(L, "Invalid object in function call wxIcon wxImageList::GetIcon(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxIcon stack_lret = self->GetIcon(index);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -536,7 +536,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::GetImageCount() const");
+			luaL_error(L, "Invalid object in function call int wxImageList::GetImageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetImageCount();
 		lua_pushnumber(L,lret);
@@ -558,7 +558,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::GetSize(int, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool wxImageList::GetSize(int, int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetSize(index, width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -578,7 +578,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Remove(int)");
+			luaL_error(L, "Invalid object in function call bool wxImageList::Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Remove(index);
 		lua_pushboolean(L,lret?1:0);
@@ -597,7 +597,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::RemoveAll()");
+			luaL_error(L, "Invalid object in function call bool wxImageList::RemoveAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RemoveAll();
 		lua_pushboolean(L,lret?1:0);
@@ -629,7 +629,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxBitmap &, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxBitmap &, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Replace(index, bitmap, mask);
 		lua_pushboolean(L,lret?1:0);
@@ -654,7 +654,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxIcon &)");
+			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxIcon &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Replace(index, icon);
 		lua_pushboolean(L,lret?1:0);
@@ -682,7 +682,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageList::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageList::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxImageList::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -715,7 +715,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::base_Draw(int, wxDC &, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call bool wxImageList::base_Draw(int, wxDC &, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxImageList::Draw(index, dc, x, y, flags, solidBackground);
 		lua_pushboolean(L,lret?1:0);
@@ -734,7 +734,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageList::base_GetImageCount() const");
+			luaL_error(L, "Invalid object in function call int wxImageList::base_GetImageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxImageList::GetImageCount();
 		lua_pushnumber(L,lret);
@@ -756,7 +756,7 @@ public:
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageList::base_GetSize(int, int &, int &) const");
+			luaL_error(L, "Invalid object in function call bool wxImageList::base_GetSize(int, int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxImageList::GetSize(index, width, height);
 		lua_pushboolean(L,lret?1:0);

@@ -349,7 +349,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -397,7 +397,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -416,7 +416,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -435,7 +435,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -466,7 +466,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &, osg::Object *, osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &, osg::Object *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, aa, _arg3, _arg4);
 		lua_pushboolean(L,lret?1:0);
@@ -488,7 +488,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::cull(osg::NodeVisitor *, osg::Drawable *, osg::RenderInfo *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::cull(osg::NodeVisitor *, osg::Drawable *, osg::RenderInfo *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->cull(nv, drawable, renderInfo);
 		lua_pushboolean(L,lret?1:0);
@@ -508,7 +508,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InteractiveImageHandler::setName(name);
 
@@ -526,7 +526,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InteractiveImageHandler::computeDataVariance();
 
@@ -545,7 +545,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InteractiveImageHandler::setUserData(obj);
 
@@ -563,7 +563,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::InteractiveImageHandler::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::InteractiveImageHandler::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->InteractiveImageHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -584,7 +584,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::InteractiveImageHandler::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::InteractiveImageHandler::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->InteractiveImageHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -617,7 +617,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InteractiveImageHandler::releaseGLObjects(_arg1);
 
@@ -637,7 +637,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InteractiveImageHandler::event(nv, drawable);
 
@@ -660,7 +660,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::InteractiveImageHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InteractiveImageHandler::getUsage(_arg1);
 
@@ -678,7 +678,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->InteractiveImageHandler::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -704,7 +704,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::InteractiveImageHandler::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->InteractiveImageHandler::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -726,7 +726,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->InteractiveImageHandler::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -745,7 +745,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->InteractiveImageHandler::libraryName();
 		lua_pushstring(L,lret);
@@ -764,7 +764,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::InteractiveImageHandler::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->InteractiveImageHandler::className();
 		lua_pushstring(L,lret);
@@ -795,7 +795,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &, osg::Object *, osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &, osg::Object *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->InteractiveImageHandler::handle(ea, aa, _arg3, _arg4);
 		lua_pushboolean(L,lret?1:0);
@@ -817,7 +817,7 @@ public:
 		osgViewer::InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::InteractiveImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::base_cull(osg::NodeVisitor *, osg::Drawable *, osg::RenderInfo *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::InteractiveImageHandler::base_cull(osg::NodeVisitor *, osg::Drawable *, osg::RenderInfo *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->InteractiveImageHandler::cull(nv, drawable, renderInfo);
 		lua_pushboolean(L,lret?1:0);
@@ -843,7 +843,7 @@ void LunaTraits< osgViewer::InteractiveImageHandler >::_bind_dtor(osgViewer::Int
 const char LunaTraits< osgViewer::InteractiveImageHandler >::className[] = "InteractiveImageHandler";
 const char LunaTraits< osgViewer::InteractiveImageHandler >::fullName[] = "osgViewer::InteractiveImageHandler";
 const char LunaTraits< osgViewer::InteractiveImageHandler >::moduleName[] = "osgViewer";
-const char* LunaTraits< osgViewer::InteractiveImageHandler >::parents[] = {"osgGA.GUIEventHandler", "osg.CullCallback", 0};
+const char* LunaTraits< osgViewer::InteractiveImageHandler >::parents[] = {"osgGA.GUIEventHandler", "osg.Drawable_CullCallback", 0};
 const int LunaTraits< osgViewer::InteractiveImageHandler >::hash = 75863370;
 const int LunaTraits< osgViewer::InteractiveImageHandler >::uniqueIDs[] = {50169651,0};
 

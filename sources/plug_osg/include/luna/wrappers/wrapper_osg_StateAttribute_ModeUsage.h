@@ -19,6 +19,12 @@ public:
 		}
 	};
 	
+	wrapper_osg_StateAttribute_ModeUsage(lua_State* L, lua_Table* dum) : osg::StateAttribute::ModeUsage(), luna_wrapper_base(L) { register_protected_methods(L); };
+
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
 
 	// Public virtual methods:
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
@@ -35,9 +41,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

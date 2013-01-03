@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
 	void DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) {
@@ -130,9 +135,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

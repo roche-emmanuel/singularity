@@ -166,7 +166,7 @@ public:
 		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -185,7 +185,7 @@ public:
 		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::setBlendFuncSeparateSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::setBlendFuncSeparateSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBlendFuncSeparateSupported(flag);
 
@@ -203,7 +203,7 @@ public:
 		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::Extensions::isBlendFuncSeparateSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::Extensions::isBlendFuncSeparateSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isBlendFuncSeparateSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -226,7 +226,7 @@ public:
 		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::glBlendFuncSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::glBlendFuncSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 
@@ -248,7 +248,7 @@ void LunaTraits< osg::BlendFunc::Extensions >::_bind_dtor(osg::BlendFunc::Extens
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::BlendFunc::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::BlendFunc::Extensions >::className[] = "BlendFunc_Extensions";
 const char LunaTraits< osg::BlendFunc::Extensions >::fullName[] = "osg::BlendFunc::Extensions";
 const char LunaTraits< osg::BlendFunc::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::BlendFunc::Extensions >::parents[] = {"osg.Referenced", 0};

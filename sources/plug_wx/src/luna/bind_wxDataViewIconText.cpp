@@ -238,7 +238,7 @@ public:
 		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewIconText::GetIcon() const");
+			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewIconText::GetIcon() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxIcon* lret = &self->GetIcon();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -259,7 +259,7 @@ public:
 		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewIconText::GetText() const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewIconText::GetText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -283,7 +283,7 @@ public:
 		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewIconText::SetIcon(const wxIcon &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewIconText::SetIcon(const wxIcon &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetIcon(icon);
 
@@ -302,7 +302,7 @@ public:
 		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewIconText::SetText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewIconText::SetText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetText(text);
 
@@ -320,7 +320,7 @@ public:
 		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewIconText::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewIconText::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewIconText::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

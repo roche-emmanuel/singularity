@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_usesMode(lua_State *L) {
@@ -101,6 +108,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data)
+	static osg::StateAttribute::ModeUsage* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data) function, expected prototype:\nosg::StateAttribute::ModeUsage::ModeUsage(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_StateAttribute_ModeUsage(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
@@ -115,7 +133,7 @@ public:
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesMode(unsigned int). Got : '%s'",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name());
 		}
 		self->usesMode(mode);
 
@@ -134,7 +152,7 @@ public:
 		osg::StateAttribute::ModeUsage* self=(Luna< osg::StateAttribute::ModeUsage >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int). Got : '%s'",typeid(Luna< osg::StateAttribute::ModeUsage >::check(L,1)).name());
 		}
 		self->usesTextureMode(mode);
 
@@ -147,7 +165,7 @@ public:
 };
 
 osg::StateAttribute::ModeUsage* LunaTraits< osg::StateAttribute::ModeUsage >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_StateAttribute_ModeUsage::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
@@ -158,7 +176,7 @@ void LunaTraits< osg::StateAttribute::ModeUsage >::_bind_dtor(osg::StateAttribut
 	delete obj;
 }
 
-const char LunaTraits< osg::StateAttribute::ModeUsage >::className[] = "ModeUsage";
+const char LunaTraits< osg::StateAttribute::ModeUsage >::className[] = "StateAttribute_ModeUsage";
 const char LunaTraits< osg::StateAttribute::ModeUsage >::fullName[] = "osg::StateAttribute::ModeUsage";
 const char LunaTraits< osg::StateAttribute::ModeUsage >::moduleName[] = "osg";
 const char* LunaTraits< osg::StateAttribute::ModeUsage >::parents[] = {0};

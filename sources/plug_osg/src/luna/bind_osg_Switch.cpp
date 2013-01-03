@@ -592,7 +592,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Switch::asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Switch::asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -613,7 +613,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Switch::asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Switch::asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -643,7 +643,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -669,7 +669,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -691,7 +691,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -710,7 +710,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Switch::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Switch::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -729,7 +729,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Switch::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Switch::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -753,7 +753,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -776,7 +776,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->traverse(_arg1);
 
@@ -795,7 +795,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::setNewChildDefaultValue(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::setNewChildDefaultValue(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNewChildDefaultValue(value);
 
@@ -813,7 +813,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::getNewChildDefaultValue() const");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::getNewChildDefaultValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getNewChildDefaultValue();
 		lua_pushboolean(L,lret?1:0);
@@ -833,7 +833,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -854,7 +854,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::addChild(osg::Node *, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::addChild(osg::Node *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addChild(child, value);
 		lua_pushboolean(L,lret?1:0);
@@ -884,7 +884,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -906,7 +906,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::insertChild(unsigned int, osg::Node *, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::insertChild(unsigned int, osg::Node *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->insertChild(index, child, value);
 		lua_pushboolean(L,lret?1:0);
@@ -936,7 +936,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -957,7 +957,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::setValue(unsigned int, bool)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::setValue(unsigned int, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setValue(pos, value);
 
@@ -976,7 +976,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::getValue(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::getValue(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getValue(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -997,7 +997,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::setChildValue(const osg::Node *, bool)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::setChildValue(const osg::Node *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setChildValue(child, value);
 
@@ -1016,7 +1016,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::getChildValue(const osg::Node *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::getChildValue(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getChildValue(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1035,7 +1035,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::setAllChildrenOff()");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::setAllChildrenOff(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setAllChildrenOff();
 		lua_pushboolean(L,lret?1:0);
@@ -1054,7 +1054,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::setAllChildrenOn()");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::setAllChildrenOn(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setAllChildrenOn();
 		lua_pushboolean(L,lret?1:0);
@@ -1074,7 +1074,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::setSingleChildOn(unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::setSingleChildOn(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setSingleChildOn(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -1098,7 +1098,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::setValueList(const osg::Switch::ValueList &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::setValueList(const osg::Switch::ValueList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setValueList(values);
 
@@ -1116,7 +1116,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch::ValueList & osg::Switch::getValueList() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch::ValueList & osg::Switch::getValueList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch::ValueList* lret = &self->getValueList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1137,7 +1137,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Switch::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Switch::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1160,7 +1160,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::setName(name);
 
@@ -1178,7 +1178,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::computeDataVariance();
 
@@ -1197,7 +1197,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::setUserData(obj);
 
@@ -1215,7 +1215,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Switch::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Switch::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Switch::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1236,7 +1236,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Switch::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Switch::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Switch::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1266,7 +1266,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::Switch::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Switch::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->Switch::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1287,7 +1287,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Switch::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Switch::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->Switch::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1317,7 +1317,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Switch::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Switch::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->Switch::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1338,7 +1338,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Switch::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Switch::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->Switch::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1373,7 +1373,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::ascend(nv);
 
@@ -1391,7 +1391,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::Switch::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Switch::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->Switch::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1412,7 +1412,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::Switch::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Switch::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->Switch::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1444,7 +1444,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1465,7 +1465,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1487,7 +1487,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::releaseGLObjects(_arg1);
 
@@ -1505,7 +1505,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Switch::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Switch::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->Switch::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1526,7 +1526,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Switch::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Switch::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->Switch::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1556,7 +1556,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Switch::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1582,7 +1582,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Switch::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Switch::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1604,7 +1604,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1623,7 +1623,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Switch::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Switch::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Switch::className();
 		lua_pushstring(L,lret);
@@ -1642,7 +1642,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Switch::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Switch::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Switch::libraryName();
 		lua_pushstring(L,lret);
@@ -1666,7 +1666,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::accept(nv);
 
@@ -1689,7 +1689,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Switch::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Switch::traverse(_arg1);
 
@@ -1708,7 +1708,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1729,7 +1729,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_addChild(osg::Node *, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_addChild(osg::Node *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::addChild(child, value);
 		lua_pushboolean(L,lret?1:0);
@@ -1759,7 +1759,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1781,7 +1781,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_insertChild(unsigned int, osg::Node *, bool)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_insertChild(unsigned int, osg::Node *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::insertChild(index, child, value);
 		lua_pushboolean(L,lret?1:0);
@@ -1811,7 +1811,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Switch::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Switch::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Switch::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1830,7 +1830,7 @@ public:
 		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Switch::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Switch::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->Switch::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);

@@ -22,6 +22,11 @@ public:
 	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) : osg::CullStack(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) : osg::CullStack(cs), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
@@ -53,9 +58,6 @@ public:
 		return CullStack::inheritCullSettings(settings, inheritanceMask);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::CullStack::computeFrustumVolume()
@@ -96,7 +98,7 @@ public:
 		wrapper_osg_CullStack* self=Luna< osg::CullSettings >::checkSubType< wrapper_osg_CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->public_computeFrustumVolume();
 
@@ -119,7 +121,7 @@ public:
 		wrapper_osg_CullStack* self=Luna< osg::CullSettings >::checkSubType< wrapper_osg_CullStack >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::RefMatrixd * lret = self->public_createOrReuseMatrix(value);
 		if(!lret) return 0; // Do not write NULL pointers.

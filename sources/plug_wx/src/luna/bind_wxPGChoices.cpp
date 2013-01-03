@@ -338,7 +338,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoices::Assign(const wxPGChoices &)");
+			luaL_error(L, "Invalid object in function call void wxPGChoices::Assign(const wxPGChoices &). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		self->Assign(a);
 
@@ -357,7 +357,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoices::AssignData(wxPGChoicesData *)");
+			luaL_error(L, "Invalid object in function call void wxPGChoices::AssignData(wxPGChoicesData *). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		self->AssignData(data);
 
@@ -375,7 +375,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoices::Clear()");
+			luaL_error(L, "Invalid object in function call void wxPGChoices::Clear(). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -393,7 +393,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoices wxPGChoices::Copy() const");
+			luaL_error(L, "Invalid object in function call wxPGChoices wxPGChoices::Copy() const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		wxPGChoices stack_lret = self->Copy();
 		wxPGChoices* lret = new wxPGChoices(stack_lret);
@@ -416,7 +416,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxPGChoices::GetLabel(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxPGChoices::GetLabel(unsigned int) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetLabel(ind);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -435,7 +435,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxPGChoices::GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxPGChoices::GetCount() const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -455,7 +455,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPGChoices::GetValue(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int wxPGChoices::GetValue(unsigned int) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		int lret = self->GetValue(ind);
 		lua_pushnumber(L,lret);
@@ -479,7 +479,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayInt wxPGChoices::GetValuesForStrings(const wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call wxArrayInt wxPGChoices::GetValuesForStrings(const wxArrayString &) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		wxArrayInt stack_lret = self->GetValuesForStrings(strings);
 		wxArrayInt* lret = new wxArrayInt(stack_lret);
@@ -509,7 +509,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayInt wxPGChoices::GetIndicesForStrings(const wxArrayString &, wxArrayString *) const");
+			luaL_error(L, "Invalid object in function call wxArrayInt wxPGChoices::GetIndicesForStrings(const wxArrayString &, wxArrayString *) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		wxArrayInt stack_lret = self->GetIndicesForStrings(strings, unmatched);
 		wxArrayInt* lret = new wxArrayInt(stack_lret);
@@ -532,7 +532,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPGChoices::Index(const wxString &) const");
+			luaL_error(L, "Invalid object in function call int wxPGChoices::Index(const wxString &) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		int lret = self->Index(label);
 		lua_pushnumber(L,lret);
@@ -552,7 +552,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPGChoices::Index(int) const");
+			luaL_error(L, "Invalid object in function call int wxPGChoices::Index(int) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		int lret = self->Index(val);
 		lua_pushnumber(L,lret);
@@ -585,7 +585,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::Insert(const wxString &, int, int)");
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::Insert(const wxString &, int, int). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Insert(label, index, value);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -612,7 +612,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::Insert(const wxPGChoiceEntry &, int)");
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::Insert(const wxPGChoiceEntry &, int). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Insert(entry, index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -642,7 +642,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPGChoices::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxPGChoices::IsOk() const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -662,7 +662,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoices::Item(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoices::Item(unsigned int) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Item(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -684,7 +684,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::Item(unsigned int)");
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::Item(unsigned int). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Item(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -718,7 +718,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoices::RemoveAt(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxPGChoices::RemoveAt(size_t, size_t). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		self->RemoveAt(nIndex, count);
 
@@ -748,7 +748,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoices::Set(const wxArrayString &, const wxArrayInt &)");
+			luaL_error(L, "Invalid object in function call void wxPGChoices::Set(const wxArrayString &, const wxArrayInt &). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		self->Set(labels, values);
 
@@ -766,7 +766,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString wxPGChoices::GetLabels() const");
+			luaL_error(L, "Invalid object in function call wxArrayString wxPGChoices::GetLabels() const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		wxArrayString stack_lret = self->GetLabels();
 		wxArrayString* lret = new wxArrayString(stack_lret);
@@ -791,7 +791,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::operator[](unsigned int)");
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoices::operator[](unsigned int). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->operator[](i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -813,7 +813,7 @@ public:
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoices::operator[](unsigned int) const");
+			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoices::operator[](unsigned int) const. Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->operator[](i);
 		if(!lret) return 0; // Do not write NULL pointers.

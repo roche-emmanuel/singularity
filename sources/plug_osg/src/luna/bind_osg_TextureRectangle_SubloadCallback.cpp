@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_load(lua_State *L) {
@@ -90,6 +97,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::TextureRectangle::SubloadCallback::SubloadCallback(lua_Table * data)
+	static osg::TextureRectangle::SubloadCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::TextureRectangle::SubloadCallback::SubloadCallback(lua_Table * data) function, expected prototype:\nosg::TextureRectangle::SubloadCallback::SubloadCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_TextureRectangle_SubloadCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
@@ -113,7 +131,7 @@ public:
 		osg::TextureRectangle::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->load(_arg1, _arg2);
 
@@ -141,7 +159,7 @@ public:
 		osg::TextureRectangle::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->subload(_arg1, _arg2);
 
@@ -154,7 +172,7 @@ public:
 };
 
 osg::TextureRectangle::SubloadCallback* LunaTraits< osg::TextureRectangle::SubloadCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_TextureRectangle_SubloadCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
@@ -165,7 +183,7 @@ void LunaTraits< osg::TextureRectangle::SubloadCallback >::_bind_dtor(osg::Textu
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::TextureRectangle::SubloadCallback >::className[] = "SubloadCallback";
+const char LunaTraits< osg::TextureRectangle::SubloadCallback >::className[] = "TextureRectangle_SubloadCallback";
 const char LunaTraits< osg::TextureRectangle::SubloadCallback >::fullName[] = "osg::TextureRectangle::SubloadCallback";
 const char LunaTraits< osg::TextureRectangle::SubloadCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::TextureRectangle::SubloadCallback >::parents[] = {"osg.Referenced", 0};

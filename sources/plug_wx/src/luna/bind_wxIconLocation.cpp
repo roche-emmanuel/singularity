@@ -93,7 +93,7 @@ public:
 		wxIconLocation* self=(Luna< wxIconLocation >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIconLocation::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxIconLocation::IsOk() const. Got : '%s'",typeid(Luna< wxIconLocation >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -113,7 +113,7 @@ public:
 		wxIconLocation* self=(Luna< wxIconLocation >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIconLocation::SetFileName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxIconLocation::SetFileName(const wxString &). Got : '%s'",typeid(Luna< wxIconLocation >::check(L,1)).name());
 		}
 		self->SetFileName(filename);
 
@@ -131,7 +131,7 @@ public:
 		wxIconLocation* self=(Luna< wxIconLocation >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxIconLocation::GetFileName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxIconLocation::GetFileName() const. Got : '%s'",typeid(Luna< wxIconLocation >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetFileName();
 		lua_pushlstring(L,lret.data(),lret.size());

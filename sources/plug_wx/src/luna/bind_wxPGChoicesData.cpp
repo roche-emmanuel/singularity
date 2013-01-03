@@ -120,7 +120,7 @@ public:
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoicesData::CopyDataFrom(wxPGChoicesData *)");
+			luaL_error(L, "Invalid object in function call void wxPGChoicesData::CopyDataFrom(wxPGChoicesData *). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
 		}
 		self->CopyDataFrom(data);
 
@@ -144,7 +144,7 @@ public:
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Insert(int, const wxPGChoiceEntry &)");
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Insert(int, const wxPGChoiceEntry &). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Insert(index, item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -165,7 +165,7 @@ public:
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoicesData::Clear()");
+			luaL_error(L, "Invalid object in function call void wxPGChoicesData::Clear(). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -183,7 +183,7 @@ public:
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxPGChoicesData::GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxPGChoicesData::GetCount() const. Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -203,7 +203,7 @@ public:
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int) const. Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Item(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -225,7 +225,7 @@ public:
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int)");
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
 		}
 		const wxPGChoiceEntry* lret = &self->Item(i);
 		if(!lret) return 0; // Do not write NULL pointers.

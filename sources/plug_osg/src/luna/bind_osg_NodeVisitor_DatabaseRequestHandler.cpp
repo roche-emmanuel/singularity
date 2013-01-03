@@ -130,7 +130,7 @@ public:
 		osg::NodeVisitor::DatabaseRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::DatabaseRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
 
@@ -153,7 +153,7 @@ void LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::_bind_dtor(osg::Nod
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::className[] = "DatabaseRequestHandler";
+const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::className[] = "NodeVisitor_DatabaseRequestHandler";
 const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::fullName[] = "osg::NodeVisitor::DatabaseRequestHandler";
 const char LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::moduleName[] = "osg";
 const char* LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::parents[] = {"osg.Referenced", 0};

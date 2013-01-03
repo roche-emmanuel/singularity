@@ -256,7 +256,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -275,7 +275,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -295,7 +295,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::setDisplaySettings(osg::DisplaySettings *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::setDisplaySettings(osg::DisplaySettings *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDisplaySettings(ds);
 
@@ -313,7 +313,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DisplaySettings * osgUtil::DisplayRequirementsVisitor::getDisplaySettings() const");
+			luaL_error(L, "Invalid object in function call const osg::DisplaySettings * osgUtil::DisplayRequirementsVisitor::getDisplaySettings() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DisplaySettings * lret = self->getDisplaySettings();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -339,7 +339,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::applyStateSet(osg::StateSet &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::applyStateSet(osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->applyStateSet(stateset);
 
@@ -362,7 +362,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -385,7 +385,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -412,7 +412,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DisplayRequirementsVisitor::reset();
 
@@ -430,7 +430,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DisplayRequirementsVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DisplayRequirementsVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->DisplayRequirementsVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -452,7 +452,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DisplayRequirementsVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::DisplayRequirementsVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->DisplayRequirementsVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -480,7 +480,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DisplayRequirementsVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DisplayRequirementsVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->DisplayRequirementsVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -505,7 +505,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DisplayRequirementsVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DisplayRequirementsVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->DisplayRequirementsVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -530,7 +530,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DisplayRequirementsVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DisplayRequirementsVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->DisplayRequirementsVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -549,7 +549,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DisplayRequirementsVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -568,7 +568,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DisplayRequirementsVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DisplayRequirementsVisitor::className();
 		lua_pushstring(L,lret);
@@ -592,7 +592,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_applyStateSet(osg::StateSet &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_applyStateSet(osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DisplayRequirementsVisitor::applyStateSet(stateset);
 
@@ -615,7 +615,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DisplayRequirementsVisitor::apply(node);
 
@@ -638,7 +638,7 @@ public:
 		osgUtil::DisplayRequirementsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::DisplayRequirementsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DisplayRequirementsVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DisplayRequirementsVisitor::apply(geode);
 

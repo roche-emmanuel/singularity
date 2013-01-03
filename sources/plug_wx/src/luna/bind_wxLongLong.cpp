@@ -214,7 +214,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::Abs() const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::Abs() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->Abs();
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -236,7 +236,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::Abs()");
+			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::Abs(). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		const wxLongLong* lret = &self->Abs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -267,7 +267,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::Assign(double)");
+			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::Assign(double). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->Assign(d);
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -289,7 +289,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxLongLong::GetHi() const");
+			luaL_error(L, "Invalid object in function call long wxLongLong::GetHi() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		long lret = self->GetHi();
 		lua_pushnumber(L,lret);
@@ -308,7 +308,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long wxLongLong::GetLo() const");
+			luaL_error(L, "Invalid object in function call unsigned long wxLongLong::GetLo() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		unsigned long lret = self->GetLo();
 		lua_pushnumber(L,lret);
@@ -327,7 +327,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxLongLong::GetValue() const");
+			luaL_error(L, "Invalid object in function call long long wxLongLong::GetValue() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		long long lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -346,7 +346,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxLongLong::ToDouble() const");
+			luaL_error(L, "Invalid object in function call double wxLongLong::ToDouble() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		double lret = self->ToDouble();
 		lua_pushnumber(L,lret);
@@ -365,7 +365,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxLongLong::ToLong() const");
+			luaL_error(L, "Invalid object in function call long wxLongLong::ToLong() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		long lret = self->ToLong();
 		lua_pushnumber(L,lret);
@@ -384,7 +384,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLongLong::ToString() const");
+			luaL_error(L, "Invalid object in function call wxString wxLongLong::ToString() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -410,7 +410,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::operator+(const wxLongLong &) const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::operator+(const wxLongLong &) const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->operator+(ll);
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -437,7 +437,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator+(const wxLongLong &)");
+			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator+(const wxLongLong &). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		const wxLongLong* lret = &self->operator+(ll);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -472,7 +472,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::operator-(const wxLongLong &) const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::operator-(const wxLongLong &) const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->operator-(ll);
 		wxLongLong* lret = new wxLongLong(stack_lret);
@@ -499,7 +499,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator-(const wxLongLong &)");
+			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator-(const wxLongLong &). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		const wxLongLong* lret = &self->operator-(ll);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -529,7 +529,7 @@ public:
 		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::operator-() const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxLongLong::operator-() const. Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->operator-();
 		wxLongLong* lret = new wxLongLong(stack_lret);

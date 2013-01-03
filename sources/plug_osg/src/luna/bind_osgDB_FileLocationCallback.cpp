@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_fileLocation(lua_State *L) {
@@ -88,6 +95,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgDB::FileLocationCallback::FileLocationCallback(lua_Table * data)
+	static osgDB::FileLocationCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FileLocationCallback::FileLocationCallback(lua_Table * data) function, expected prototype:\nosgDB::FileLocationCallback::FileLocationCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_FileLocationCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)
@@ -103,7 +121,7 @@ public:
 		osgDB::FileLocationCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string &, const osgDB::Options *)");
+			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string &, const osgDB::Options *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::FileLocationCallback::Location lret = self->fileLocation(filename, options);
 		lua_pushnumber(L,lret);
@@ -122,7 +140,7 @@ public:
 		osgDB::FileLocationCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FileLocationCallback::useFileCache() const");
+			luaL_error(L, "Invalid object in function call bool osgDB::FileLocationCallback::useFileCache() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->useFileCache();
 		lua_pushboolean(L,lret?1:0);
@@ -136,7 +154,7 @@ public:
 };
 
 osgDB::FileLocationCallback* LunaTraits< osgDB::FileLocationCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgDB_FileLocationCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)

@@ -1109,7 +1109,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalX(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalX(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->DeviceToLogicalX(x);
 		lua_pushnumber(L,lret);
@@ -1129,7 +1129,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalXRel(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalXRel(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->DeviceToLogicalXRel(x);
 		lua_pushnumber(L,lret);
@@ -1149,7 +1149,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalY(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalY(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->DeviceToLogicalY(y);
 		lua_pushnumber(L,lret);
@@ -1169,7 +1169,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalYRel(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalYRel(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->DeviceToLogicalYRel(y);
 		lua_pushnumber(L,lret);
@@ -1189,7 +1189,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceX(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceX(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->LogicalToDeviceX(x);
 		lua_pushnumber(L,lret);
@@ -1209,7 +1209,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceXRel(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceXRel(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->LogicalToDeviceXRel(x);
 		lua_pushnumber(L,lret);
@@ -1229,7 +1229,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceY(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceY(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->LogicalToDeviceY(y);
 		lua_pushnumber(L,lret);
@@ -1249,7 +1249,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceYRel(int) const");
+			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceYRel(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->LogicalToDeviceYRel(y);
 		lua_pushnumber(L,lret);
@@ -1268,7 +1268,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::Clear()");
+			luaL_error(L, "Invalid object in function call void wxDC::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -1292,7 +1292,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawArc(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawArc(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawArc(xStart, yStart, xEnd, yEnd, xc, yc);
 
@@ -1325,7 +1325,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawArc(const wxPoint &, const wxPoint &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawArc(const wxPoint &, const wxPoint &, const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawArc(ptStart, ptEnd, centre);
 
@@ -1362,7 +1362,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawBitmap(const wxBitmap &, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawBitmap(const wxBitmap &, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawBitmap(bitmap, x, y, useMask);
 
@@ -1393,7 +1393,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawBitmap(const wxBitmap &, const wxPoint &, bool)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawBitmap(const wxBitmap &, const wxPoint &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawBitmap(bmp, pt, useMask);
 
@@ -1424,7 +1424,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawCheckMark(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawCheckMark(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawCheckMark(x, y, width, height);
 
@@ -1447,7 +1447,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawCheckMark(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawCheckMark(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawCheckMark(rect);
 
@@ -1477,7 +1477,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawCircle(int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawCircle(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawCircle(x, y, radius);
 
@@ -1501,7 +1501,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawCircle(const wxPoint &, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawCircle(const wxPoint &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawCircle(pt, radius);
 
@@ -1532,7 +1532,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawEllipse(x, y, width, height);
 
@@ -1560,7 +1560,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(const wxPoint &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(const wxPoint &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawEllipse(pt, size);
 
@@ -1583,7 +1583,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawEllipse(rect);
 
@@ -1617,7 +1617,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipticArc(int, int, int, int, double, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipticArc(int, int, int, int, double, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawEllipticArc(x, y, width, height, start, end);
 
@@ -1647,7 +1647,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipticArc(const wxPoint &, const wxSize &, double, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipticArc(const wxPoint &, const wxSize &, double, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawEllipticArc(pt, sz, sa, ea);
 
@@ -1681,7 +1681,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawIcon(const wxIcon &, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawIcon(const wxIcon &, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawIcon(icon, x, y);
 
@@ -1709,7 +1709,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawIcon(const wxIcon &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawIcon(const wxIcon &, const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawIcon(icon, pt);
 
@@ -1752,7 +1752,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawLabel(const wxString &, const wxBitmap &, const wxRect &, int, int, wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawLabel(const wxString &, const wxBitmap &, const wxRect &, int, int, wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawLabel(text, bitmap, rect, alignment, indexAccel, rectBounding);
 
@@ -1780,7 +1780,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawLabel(const wxString &, const wxRect &, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawLabel(const wxString &, const wxRect &, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawLabel(text, rect, alignment, indexAccel);
 
@@ -1811,7 +1811,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawLine(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawLine(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawLine(x1, y1, x2, y2);
 
@@ -1839,7 +1839,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawLine(const wxPoint &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawLine(const wxPoint &, const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawLine(pt1, pt2);
 
@@ -1871,7 +1871,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawLines(const wxPointList *, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawLines(const wxPointList *, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawLines(&points, xoffset, yoffset);
 
@@ -1891,7 +1891,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawPoint(int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawPoint(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawPoint(x, y);
 
@@ -1914,7 +1914,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawPoint(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawPoint(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawPoint(pt);
 
@@ -1947,7 +1947,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawPolygon(const wxPointList *, int, int, wxPolygonFillMode)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawPolygon(const wxPointList *, int, int, wxPolygonFillMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawPolygon(&points, xoffset, yoffset, fill_style);
 
@@ -1969,7 +1969,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRectangle(x, y, width, height);
 
@@ -1997,7 +1997,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(const wxPoint &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(const wxPoint &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRectangle(pt, sz);
 
@@ -2020,7 +2020,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRectangle(rect);
 
@@ -2052,7 +2052,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRotatedText(const wxString &, int, int, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRotatedText(const wxString &, int, int, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRotatedText(text, x, y, angle);
 
@@ -2077,7 +2077,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRotatedText(const wxString &, const wxPoint &, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRotatedText(const wxString &, const wxPoint &, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRotatedText(text, point, angle);
 
@@ -2109,7 +2109,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(int, int, int, int, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(int, int, int, int, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRoundedRectangle(x, y, width, height, radius);
 
@@ -2138,7 +2138,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(const wxPoint &, const wxSize &, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(const wxPoint &, const wxSize &, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRoundedRectangle(pt, sz, radius);
 
@@ -2162,7 +2162,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(const wxRect &, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(const wxRect &, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawRoundedRectangle(rect, radius);
 
@@ -2191,7 +2191,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawSpline(const wxPointList *)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawSpline(const wxPointList *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawSpline(&points);
 
@@ -2215,7 +2215,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawSpline(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawSpline(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawSpline(x1, y1, x2, y2, x3, y3);
 
@@ -2245,7 +2245,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawText(const wxString &, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawText(const wxString &, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawText(text, x, y);
 
@@ -2269,7 +2269,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DrawText(const wxString &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::DrawText(const wxString &, const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DrawText(text, pt);
 
@@ -2311,7 +2311,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GradientFillConcentric(const wxRect &, const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxDC::GradientFillConcentric(const wxRect &, const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GradientFillConcentric(rect, initialColour, destColour);
 
@@ -2349,7 +2349,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GradientFillConcentric(const wxRect &, const wxColour &, const wxColour &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::GradientFillConcentric(const wxRect &, const wxColour &, const wxColour &, const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GradientFillConcentric(rect, initialColour, destColour, circleCenter);
 
@@ -2394,7 +2394,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GradientFillLinear(const wxRect &, const wxColour &, const wxColour &, wxDirection)");
+			luaL_error(L, "Invalid object in function call void wxDC::GradientFillLinear(const wxRect &, const wxColour &, const wxColour &, wxDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GradientFillLinear(rect, initialColour, destColour, nDirection);
 
@@ -2422,7 +2422,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::FloodFill(int, int, const wxColour &, wxFloodFillStyle)");
+			luaL_error(L, "Invalid object in function call bool wxDC::FloodFill(int, int, const wxColour &, wxFloodFillStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->FloodFill(x, y, colour, style);
 		lua_pushboolean(L,lret?1:0);
@@ -2454,7 +2454,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::FloodFill(const wxPoint &, const wxColour &, wxFloodFillStyle)");
+			luaL_error(L, "Invalid object in function call bool wxDC::FloodFill(const wxPoint &, const wxColour &, wxFloodFillStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->FloodFill(pt, col, style);
 		lua_pushboolean(L,lret?1:0);
@@ -2484,7 +2484,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::CrossHair(int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::CrossHair(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CrossHair(x, y);
 
@@ -2507,7 +2507,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::CrossHair(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxDC::CrossHair(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CrossHair(pt);
 
@@ -2534,7 +2534,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::DestroyClippingRegion()");
+			luaL_error(L, "Invalid object in function call void wxDC::DestroyClippingRegion(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DestroyClippingRegion();
 
@@ -2556,7 +2556,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetClippingBox(int *, int *, int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetClippingBox(int *, int *, int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetClippingBox(&x, &y, &width, &height);
 
@@ -2578,7 +2578,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClippingRegion(x, y, width, height);
 
@@ -2606,7 +2606,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(const wxPoint &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(const wxPoint &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClippingRegion(pt, sz);
 
@@ -2629,7 +2629,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClippingRegion(rect);
 
@@ -2662,7 +2662,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetDeviceClippingRegion(const wxRegion &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetDeviceClippingRegion(const wxRegion &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDeviceClippingRegion(region);
 
@@ -2680,7 +2680,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxDC::GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2699,7 +2699,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxDC::GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2718,7 +2718,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontMetrics wxDC::GetFontMetrics() const");
+			luaL_error(L, "Invalid object in function call wxFontMetrics wxDC::GetFontMetrics() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxFontMetrics stack_lret = self->GetFontMetrics();
 		wxFontMetrics* lret = new wxFontMetrics(stack_lret);
@@ -2747,7 +2747,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetMultiLineTextExtent(const wxString &, int *, int *, int *, const wxFont *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetMultiLineTextExtent(const wxString &, int *, int *, int *, const wxFont *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetMultiLineTextExtent(string, &w, &h, &heightLine, font);
 
@@ -2766,7 +2766,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDC::GetMultiLineTextExtent(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxDC::GetMultiLineTextExtent(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetMultiLineTextExtent(string);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2803,7 +2803,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::GetPartialTextExtents(const wxString &, wxArrayInt &) const");
+			luaL_error(L, "Invalid object in function call bool wxDC::GetPartialTextExtents(const wxString &, wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetPartialTextExtents(text, widths);
 		lua_pushboolean(L,lret?1:0);
@@ -2830,7 +2830,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetTextExtent(const wxString &, int *, int *, int *, int *, const wxFont *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetTextExtent(const wxString &, int *, int *, int *, int *, const wxFont *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetTextExtent(string, &w, &h, &descent, &externalLeading, font);
 
@@ -2849,7 +2849,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDC::GetTextExtent(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxDC::GetTextExtent(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetTextExtent(string);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2880,7 +2880,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::GetBackgroundMode() const");
+			luaL_error(L, "Invalid object in function call int wxDC::GetBackgroundMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetBackgroundMode();
 		lua_pushnumber(L,lret);
@@ -2899,7 +2899,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxDC::GetFont() const");
+			luaL_error(L, "Invalid object in function call const wxFont & wxDC::GetFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2920,7 +2920,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxDC::GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxDC::GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2939,7 +2939,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxDC::GetTextBackground() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxDC::GetTextBackground() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetTextBackground();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2960,7 +2960,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxDC::GetTextForeground() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxDC::GetTextForeground() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetTextForeground();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2982,7 +2982,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetBackgroundMode(int)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetBackgroundMode(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBackgroundMode(mode);
 
@@ -3005,7 +3005,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFont(font);
 
@@ -3028,7 +3028,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetTextBackground(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetTextBackground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTextBackground(colour);
 
@@ -3051,7 +3051,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetTextForeground(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetTextForeground(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTextForeground(colour);
 
@@ -3070,7 +3070,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLayoutDirection(dir);
 
@@ -3090,7 +3090,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::CalcBoundingBox(int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::CalcBoundingBox(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CalcBoundingBox(x, y);
 
@@ -3108,7 +3108,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::MaxX() const");
+			luaL_error(L, "Invalid object in function call int wxDC::MaxX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->MaxX();
 		lua_pushnumber(L,lret);
@@ -3127,7 +3127,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::MaxY() const");
+			luaL_error(L, "Invalid object in function call int wxDC::MaxY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->MaxY();
 		lua_pushnumber(L,lret);
@@ -3146,7 +3146,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::MinX() const");
+			luaL_error(L, "Invalid object in function call int wxDC::MinX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->MinX();
 		lua_pushnumber(L,lret);
@@ -3165,7 +3165,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::MinY() const");
+			luaL_error(L, "Invalid object in function call int wxDC::MinY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->MinY();
 		lua_pushnumber(L,lret);
@@ -3184,7 +3184,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::ResetBoundingBox()");
+			luaL_error(L, "Invalid object in function call void wxDC::ResetBoundingBox(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ResetBoundingBox();
 
@@ -3203,7 +3203,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::StartDoc(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDC::StartDoc(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StartDoc(message);
 		lua_pushboolean(L,lret?1:0);
@@ -3222,7 +3222,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::StartPage()");
+			luaL_error(L, "Invalid object in function call void wxDC::StartPage(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->StartPage();
 
@@ -3240,7 +3240,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::EndDoc()");
+			luaL_error(L, "Invalid object in function call void wxDC::EndDoc(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EndDoc();
 
@@ -3258,7 +3258,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::EndPage()");
+			luaL_error(L, "Invalid object in function call void wxDC::EndPage(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EndPage();
 
@@ -3289,7 +3289,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::Blit(int, int, int, int, wxDC *, int, int, wxRasterOperationMode, bool, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxDC::Blit(int, int, int, int, wxDC *, int, int, wxRasterOperationMode, bool, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Blit(xdest, ydest, width, height, source, xsrc, ysrc, logicalFunc, useMask, xsrcMask, ysrcMask);
 		lua_pushboolean(L,lret?1:0);
@@ -3323,7 +3323,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::StretchBlit(int, int, int, int, wxDC *, int, int, int, int, wxRasterOperationMode, bool, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxDC::StretchBlit(int, int, int, int, wxDC *, int, int, int, int, wxRasterOperationMode, bool, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StretchBlit(xdest, ydest, dstWidth, dstHeight, source, xsrc, ysrc, srcWidth, srcHeight, logicalFunc, useMask, xsrcMask, ysrcMask);
 		lua_pushboolean(L,lret?1:0);
@@ -3342,7 +3342,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBrush & wxDC::GetBackground() const");
+			luaL_error(L, "Invalid object in function call const wxBrush & wxDC::GetBackground() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBrush* lret = &self->GetBackground();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3363,7 +3363,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBrush & wxDC::GetBrush() const");
+			luaL_error(L, "Invalid object in function call const wxBrush & wxDC::GetBrush() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBrush* lret = &self->GetBrush();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3384,7 +3384,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPen & wxDC::GetPen() const");
+			luaL_error(L, "Invalid object in function call const wxPen & wxDC::GetPen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxPen* lret = &self->GetPen();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3410,7 +3410,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetBackground(const wxBrush &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetBackground(const wxBrush &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBackground(brush);
 
@@ -3433,7 +3433,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetBrush(const wxBrush &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetBrush(const wxBrush &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBrush(brush);
 
@@ -3456,7 +3456,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetPen(const wxPen &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetPen(const wxPen &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPen(pen);
 
@@ -3479,7 +3479,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::CopyAttributes(const wxDC &)");
+			luaL_error(L, "Invalid object in function call void wxDC::CopyAttributes(const wxDC &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CopyAttributes(dc);
 
@@ -3497,7 +3497,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDC::GetDepth() const");
+			luaL_error(L, "Invalid object in function call int wxDC::GetDepth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetDepth();
 		lua_pushnumber(L,lret);
@@ -3516,7 +3516,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxDC::GetDeviceOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxDC::GetDeviceOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetDeviceOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -3538,7 +3538,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRasterOperationMode wxDC::GetLogicalFunction() const");
+			luaL_error(L, "Invalid object in function call wxRasterOperationMode wxDC::GetLogicalFunction() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRasterOperationMode lret = self->GetLogicalFunction();
 		lua_pushnumber(L,lret);
@@ -3557,7 +3557,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMappingMode wxDC::GetMapMode() const");
+			luaL_error(L, "Invalid object in function call wxMappingMode wxDC::GetMapMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMappingMode lret = self->GetMapMode();
 		lua_pushnumber(L,lret);
@@ -3579,7 +3579,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::GetPixel(int, int, wxColour *) const");
+			luaL_error(L, "Invalid object in function call bool wxDC::GetPixel(int, int, wxColour *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetPixel(x, y, colour);
 		lua_pushboolean(L,lret?1:0);
@@ -3598,7 +3598,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDC::GetPPI() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDC::GetPPI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetPPI();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3622,7 +3622,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetSize(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetSize(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetSize(&width, &height);
 
@@ -3640,7 +3640,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDC::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDC::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3673,7 +3673,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetSizeMM(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetSizeMM(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetSizeMM(&width, &height);
 
@@ -3691,7 +3691,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDC::GetSizeMM() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDC::GetSizeMM() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSizeMM();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3724,7 +3724,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetUserScale(double *, double *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetUserScale(double *, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetUserScale(&x, &y);
 
@@ -3742,7 +3742,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxDC::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -3763,7 +3763,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetAxisOrientation(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetAxisOrientation(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAxisOrientation(xLeftRight, yBottomUp);
 
@@ -3783,7 +3783,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetDeviceOrigin(int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetDeviceOrigin(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDeviceOrigin(x, y);
 
@@ -3802,7 +3802,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalFunction(wxRasterOperationMode)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalFunction(wxRasterOperationMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLogicalFunction(function);
 
@@ -3821,7 +3821,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetMapMode(wxMappingMode)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetMapMode(wxMappingMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMapMode(mode);
 
@@ -3844,7 +3844,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetPalette(const wxPalette &)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetPalette(const wxPalette &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPalette(palette);
 
@@ -3864,7 +3864,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetUserScale(double, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetUserScale(double, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetUserScale(xScale, yScale);
 
@@ -3882,7 +3882,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::CanUseTransformMatrix() const");
+			luaL_error(L, "Invalid object in function call bool wxDC::CanUseTransformMatrix() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanUseTransformMatrix();
 		lua_pushboolean(L,lret?1:0);
@@ -3906,7 +3906,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDC::SetTransformMatrix(const wxAffineMatrix2D &)");
+			luaL_error(L, "Invalid object in function call bool wxDC::SetTransformMatrix(const wxAffineMatrix2D &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetTransformMatrix(matrix);
 		lua_pushboolean(L,lret?1:0);
@@ -3925,7 +3925,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAffineMatrix2D wxDC::GetTransformMatrix() const");
+			luaL_error(L, "Invalid object in function call wxAffineMatrix2D wxDC::GetTransformMatrix() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxAffineMatrix2D stack_lret = self->GetTransformMatrix();
 		wxAffineMatrix2D* lret = new wxAffineMatrix2D(stack_lret);
@@ -3947,7 +3947,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::ResetTransformMatrix()");
+			luaL_error(L, "Invalid object in function call void wxDC::ResetTransformMatrix(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ResetTransformMatrix();
 
@@ -3967,7 +3967,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalScale(double, double)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalScale(double, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLogicalScale(x, y);
 
@@ -3987,7 +3987,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalScale(double *, double *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalScale(double *, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetLogicalScale(&x, &y);
 
@@ -4007,7 +4007,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalOrigin(int, int)");
+			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalOrigin(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLogicalOrigin(x, y);
 
@@ -4027,7 +4027,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalOrigin(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalOrigin(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetLogicalOrigin(&x, &y);
 
@@ -4045,7 +4045,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxDC::GetLogicalOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxDC::GetLogicalOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetLogicalOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -4076,7 +4076,7 @@ public:
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDC::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDC::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDC::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

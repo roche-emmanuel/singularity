@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxDataViewModelNotifier(lua_State* L, lua_Table* dum) : wxDataViewModelNotifier(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxDataViewModelNotifier::Cleared()
 	bool Cleared() {
@@ -97,9 +102,6 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

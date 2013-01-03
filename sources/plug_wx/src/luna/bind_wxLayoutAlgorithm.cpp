@@ -168,7 +168,7 @@ public:
 		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutFrame(wxFrame *, wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutFrame(wxFrame *, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LayoutFrame(frame, mainWindow);
 		lua_pushboolean(L,lret?1:0);
@@ -191,7 +191,7 @@ public:
 		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutMDIFrame(wxMDIParentFrame *, wxRect *)");
+			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutMDIFrame(wxMDIParentFrame *, wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LayoutMDIFrame(frame, rect);
 		lua_pushboolean(L,lret?1:0);
@@ -214,7 +214,7 @@ public:
 		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutWindow(wxWindow *, wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutWindow(wxWindow *, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LayoutWindow(parent, mainWindow);
 		lua_pushboolean(L,lret?1:0);
@@ -233,7 +233,7 @@ public:
 		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxLayoutAlgorithm::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxLayoutAlgorithm::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxLayoutAlgorithm::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

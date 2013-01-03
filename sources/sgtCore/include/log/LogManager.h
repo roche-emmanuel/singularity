@@ -123,6 +123,9 @@ public:
 	*/
 	void addSink(LogSink * sink);
 
+	/** Remove a LogSnk by pointer. */
+	bool removeSink(LogSink * sink);
+
 	/** Remove a LogSnk by name. */
 	bool removeSink(const std::string& name);
 

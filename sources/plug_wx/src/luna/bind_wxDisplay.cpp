@@ -169,7 +169,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDisplay::ChangeMode(const wxVideoMode &)");
+			luaL_error(L, "Invalid object in function call bool wxDisplay::ChangeMode(const wxVideoMode &). Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		bool lret = self->ChangeMode(mode);
 		lua_pushboolean(L,lret?1:0);
@@ -188,7 +188,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetClientArea() const");
+			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetClientArea() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetClientArea();
 		wxRect* lret = new wxRect(stack_lret);
@@ -210,7 +210,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVideoMode wxDisplay::GetCurrentMode() const");
+			luaL_error(L, "Invalid object in function call wxVideoMode wxDisplay::GetCurrentMode() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		wxVideoMode stack_lret = self->GetCurrentMode();
 		wxVideoMode* lret = new wxVideoMode(stack_lret);
@@ -232,7 +232,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetGeometry() const");
+			luaL_error(L, "Invalid object in function call wxRect wxDisplay::GetGeometry() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetGeometry();
 		wxRect* lret = new wxRect(stack_lret);
@@ -261,7 +261,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode &) const");
+			luaL_error(L, "Invalid object in function call wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		wxArrayVideoModes lret = self->GetModes(mode);
 		////////////////////////////////////////////////////////////////////
@@ -282,7 +282,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDisplay::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDisplay::GetName() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -301,7 +301,7 @@ public:
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDisplay::IsPrimary() const");
+			luaL_error(L, "Invalid object in function call bool wxDisplay::IsPrimary() const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
 		bool lret = self->IsPrimary();
 		lua_pushboolean(L,lret?1:0);

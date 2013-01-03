@@ -338,7 +338,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -364,7 +364,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -386,7 +386,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::InfinitePlane::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::InfinitePlane::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -405,7 +405,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -424,7 +424,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -448,7 +448,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -471,7 +471,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -499,7 +499,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InfinitePlane::setName(name);
 
@@ -517,7 +517,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InfinitePlane::computeDataVariance();
 
@@ -536,7 +536,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InfinitePlane::setUserData(obj);
 
@@ -554,7 +554,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::InfinitePlane::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::InfinitePlane::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->InfinitePlane::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -575,7 +575,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::InfinitePlane::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::InfinitePlane::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->InfinitePlane::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -608,7 +608,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InfinitePlane::releaseGLObjects(_arg1);
 
@@ -626,7 +626,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->InfinitePlane::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -652,7 +652,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::InfinitePlane::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->InfinitePlane::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -674,7 +674,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::InfinitePlane::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::InfinitePlane::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->InfinitePlane::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -693,7 +693,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->InfinitePlane::libraryName();
 		lua_pushstring(L,lret);
@@ -712,7 +712,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::InfinitePlane::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->InfinitePlane::className();
 		lua_pushstring(L,lret);
@@ -736,7 +736,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InfinitePlane::accept(_arg1);
 
@@ -759,7 +759,7 @@ public:
 		osg::InfinitePlane* self=Luna< osg::Referenced >::checkSubType< osg::InfinitePlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::InfinitePlane::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->InfinitePlane::accept(_arg1);
 
@@ -777,6 +777,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_osg_Plane(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_osg_Plane(lua_State *L) {
+		if (!_lg_typecheck_baseCast_osg_Plane(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_osg_Plane function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		osg::Plane* res = dynamic_cast<osg::Plane*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< osg::Plane >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -817,6 +843,7 @@ luna_RegType LunaTraits< osg::InfinitePlane >::methods[] = {
 	{"base_accept", &luna_wrapper_osg_InfinitePlane::_bind_base_accept},
 	{"__eq", &luna_wrapper_osg_InfinitePlane::_bind___eq},
 	{"getTable", &luna_wrapper_osg_InfinitePlane::_bind_getTable},
+	{"asPlane", &luna_wrapper_osg_InfinitePlane::_bind_baseCast_osg_Plane},
 	{0,0}
 };
 

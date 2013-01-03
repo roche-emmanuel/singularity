@@ -92,7 +92,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback 
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::className[] = "CompileCompletedCallback";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::className[] = "IncrementalCompileOperation_CompileCompletedCallback";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileCompletedCallback";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::parents[] = {"osg.Referenced", 0};

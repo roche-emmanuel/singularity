@@ -300,7 +300,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -319,7 +319,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -338,7 +338,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -357,7 +357,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::setMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::setMode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(mode);
 
@@ -375,7 +375,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::GLObjectsVisitor::getMode() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::GLObjectsVisitor::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -395,7 +395,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::setState(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::setState(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setState(state);
 
@@ -413,7 +413,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::State * osgUtil::GLObjectsVisitor::getState()");
+			luaL_error(L, "Invalid object in function call osg::State * osgUtil::GLObjectsVisitor::getState(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::State * lret = self->getState();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -439,7 +439,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::setRenderInfo(osg::RenderInfo &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::setRenderInfo(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderInfo(renderInfo);
 
@@ -457,7 +457,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RenderInfo & osgUtil::GLObjectsVisitor::getRenderInfo()");
+			luaL_error(L, "Invalid object in function call osg::RenderInfo & osgUtil::GLObjectsVisitor::getRenderInfo(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::RenderInfo* lret = &self->getRenderInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,7 +483,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -506,7 +506,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -529,7 +529,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::Drawable &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(drawable);
 
@@ -552,7 +552,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::StateSet &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::apply(osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(stateset);
 
@@ -581,7 +581,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GLObjectsVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GLObjectsVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->GLObjectsVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -603,7 +603,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GLObjectsVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::GLObjectsVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->GLObjectsVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -631,7 +631,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GLObjectsVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::GLObjectsVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->GLObjectsVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -656,7 +656,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GLObjectsVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::GLObjectsVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->GLObjectsVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -681,7 +681,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::GLObjectsVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::GLObjectsVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->GLObjectsVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -700,7 +700,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->GLObjectsVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -719,7 +719,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::GLObjectsVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->GLObjectsVisitor::className();
 		lua_pushstring(L,lret);
@@ -738,7 +738,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GLObjectsVisitor::reset();
 
@@ -761,7 +761,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GLObjectsVisitor::apply(node);
 
@@ -784,7 +784,7 @@ public:
 		osgUtil::GLObjectsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->GLObjectsVisitor::apply(node);
 

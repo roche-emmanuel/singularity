@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_ScreenCaptureHandler(lua_State* L, lua_Table* dum, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1) : osgViewer::ScreenCaptureHandler(defaultOperation, numFrames), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -180,9 +185,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osgViewer::ScreenCaptureHandler::addCallbackToViewer(osgViewer::ViewerBase & viewer)
 	void public_addCallbackToViewer(osgViewer::ViewerBase & viewer) {
@@ -264,7 +266,7 @@ public:
 		wrapper_osgViewer_ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::public_addCallbackToViewer(osgViewer::ViewerBase &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::public_addCallbackToViewer(osgViewer::ViewerBase &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addCallbackToViewer(viewer);
 
@@ -287,7 +289,7 @@ public:
 		wrapper_osgViewer_ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::public_removeCallbackFromViewer(osgViewer::ViewerBase &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::public_removeCallbackFromViewer(osgViewer::ViewerBase &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeCallbackFromViewer(viewer);
 
@@ -310,7 +312,7 @@ public:
 		wrapper_osgViewer_ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera * osgViewer::ScreenCaptureHandler::public_findAppropriateCameraForCallback(osgViewer::ViewerBase &)");
+			luaL_error(L, "Invalid object in function call osg::Camera * osgViewer::ScreenCaptureHandler::public_findAppropriateCameraForCallback(osgViewer::ViewerBase &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera * lret = self->public_findAppropriateCameraForCallback(viewer);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -333,7 +335,7 @@ public:
 		wrapper_osgViewer_ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -351,7 +353,7 @@ public:
 		wrapper_osgViewer_ScreenCaptureHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_ScreenCaptureHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

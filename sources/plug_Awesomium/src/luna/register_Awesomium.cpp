@@ -18,6 +18,7 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	luna_popModule(L);
 
 	luna_pushModule(L,"Awesomium");
+	Luna< SurfaceSubloadCallback >::Register(L);
 	Luna< Awesomium::Surface >::Register(L);
 	Luna< Awesomium::BitmapSurface >::Register(L);
 	Luna< Awesomium::SurfaceFactory >::Register(L);
@@ -51,8 +52,6 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	Luna< Awesomium::WebPopupMenuInfo >::Register(L);
 	Luna< Awesomium::WebContextMenuInfo >::Register(L);
 	Luna< Awesomium::WebLoginDialogInfo >::Register(L);
-	luna_popModule(L);
-	luna_pushModule(L,"WebViewListener");
 	Luna< WebViewListener::View >::Register(L);
 	Luna< WebViewListener::Load >::Register(L);
 	Luna< WebViewListener::Process >::Register(L);
@@ -69,12 +68,11 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
 
+	register_global_functions(L);
+
 	luna_copyParents(L,"Awesomium");
-	luna_copyParents(L,"WebViewListener");
 
 	luna_pushModule(L,"Awesomium");
 	return 1;

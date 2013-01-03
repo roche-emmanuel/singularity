@@ -275,7 +275,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::StateToCompile::empty() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::StateToCompile::empty() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -299,7 +299,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -322,7 +322,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -345,7 +345,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Drawable &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(drawable);
 
@@ -368,7 +368,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::StateSet &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(stateset);
 
@@ -391,7 +391,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Texture &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::apply(osg::Texture &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(texture);
 
@@ -421,7 +421,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::StateToCompile::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::StateToCompile::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StateToCompile::libraryName();
 		lua_pushstring(L,lret);
@@ -440,7 +440,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::StateToCompile::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::StateToCompile::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StateToCompile::className();
 		lua_pushstring(L,lret);
@@ -459,7 +459,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateToCompile::reset();
 
@@ -477,7 +477,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::StateToCompile::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::StateToCompile::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->StateToCompile::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -499,7 +499,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::StateToCompile::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::StateToCompile::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->StateToCompile::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -527,7 +527,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateToCompile::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::StateToCompile::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->StateToCompile::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -552,7 +552,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateToCompile::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::StateToCompile::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->StateToCompile::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -577,7 +577,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateToCompile::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::StateToCompile::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->StateToCompile::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -601,7 +601,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateToCompile::apply(node);
 
@@ -624,7 +624,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateToCompile::apply(node);
 
@@ -647,7 +647,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Drawable &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateToCompile::apply(drawable);
 
@@ -670,7 +670,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::StateSet &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateToCompile::apply(stateset);
 
@@ -693,7 +693,7 @@ public:
 		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Texture &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_apply(osg::Texture &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateToCompile::apply(texture);
 

@@ -150,7 +150,7 @@ public:
 		osg::EndOfDynamicDrawBlock* self=Luna< osg::Referenced >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::completed(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::completed(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->completed(state);
 
@@ -169,7 +169,7 @@ public:
 		osg::EndOfDynamicDrawBlock* self=Luna< osg::Referenced >::checkSubType< osg::EndOfDynamicDrawBlock >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_completed(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::EndOfDynamicDrawBlock::base_completed(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->EndOfDynamicDrawBlock::completed(state);
 
@@ -194,7 +194,7 @@ void LunaTraits< osg::EndOfDynamicDrawBlock >::_bind_dtor(osg::EndOfDynamicDrawB
 const char LunaTraits< osg::EndOfDynamicDrawBlock >::className[] = "EndOfDynamicDrawBlock";
 const char LunaTraits< osg::EndOfDynamicDrawBlock >::fullName[] = "osg::EndOfDynamicDrawBlock";
 const char LunaTraits< osg::EndOfDynamicDrawBlock >::moduleName[] = "osg";
-const char* LunaTraits< osg::EndOfDynamicDrawBlock >::parents[] = {"osg.DynamicObjectRenderingCompletedCallback", 0};
+const char* LunaTraits< osg::EndOfDynamicDrawBlock >::parents[] = {"osg.State_DynamicObjectRenderingCompletedCallback", 0};
 const int LunaTraits< osg::EndOfDynamicDrawBlock >::hash = 64833397;
 const int LunaTraits< osg::EndOfDynamicDrawBlock >::uniqueIDs[] = {50169651,0};
 

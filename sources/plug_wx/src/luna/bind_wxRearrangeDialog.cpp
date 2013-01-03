@@ -204,7 +204,7 @@ public:
 		wxRearrangeDialog* self=(Luna< wxRearrangeDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRearrangeDialog::Create(wxWindow *, const wxString &, const wxString &, const wxArrayInt &, const wxArrayString &, const wxPoint &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxRearrangeDialog::Create(wxWindow *, const wxString &, const wxString &, const wxArrayInt &, const wxArrayString &, const wxPoint &, const wxString &). Got : '%s'",typeid(Luna< wxRearrangeDialog >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, message, title, order, items, pos, name);
 		lua_pushboolean(L,lret?1:0);
@@ -224,7 +224,7 @@ public:
 		wxRearrangeDialog* self=(Luna< wxRearrangeDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRearrangeDialog::AddExtraControls(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxRearrangeDialog::AddExtraControls(wxWindow *). Got : '%s'",typeid(Luna< wxRearrangeDialog >::check(L,1)).name());
 		}
 		self->AddExtraControls(win);
 
@@ -242,7 +242,7 @@ public:
 		wxRearrangeDialog* self=(Luna< wxRearrangeDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRearrangeList * wxRearrangeDialog::GetList() const");
+			luaL_error(L, "Invalid object in function call wxRearrangeList * wxRearrangeDialog::GetList() const. Got : '%s'",typeid(Luna< wxRearrangeDialog >::check(L,1)).name());
 		}
 		wxRearrangeList * lret = self->GetList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -263,7 +263,7 @@ public:
 		wxRearrangeDialog* self=(Luna< wxRearrangeDialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayInt wxRearrangeDialog::GetOrder() const");
+			luaL_error(L, "Invalid object in function call wxArrayInt wxRearrangeDialog::GetOrder() const. Got : '%s'",typeid(Luna< wxRearrangeDialog >::check(L,1)).name());
 		}
 		wxArrayInt stack_lret = self->GetOrder();
 		wxArrayInt* lret = new wxArrayInt(stack_lret);

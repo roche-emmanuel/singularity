@@ -127,7 +127,7 @@ public:
 		wxGridCellDateTimeRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellDateTimeRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellDateTimeRenderer::SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellDateTimeRenderer::SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		self->SetParameters(params);
 
@@ -146,7 +146,7 @@ public:
 		wxGridCellDateTimeRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellDateTimeRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellDateTimeRenderer::base_SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellDateTimeRenderer::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		self->wxGridCellDateTimeRenderer::SetParameters(params);
 

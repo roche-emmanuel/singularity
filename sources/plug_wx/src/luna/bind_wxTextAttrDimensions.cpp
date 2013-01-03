@@ -162,7 +162,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::Reset()");
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::Reset(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		self->Reset();
 
@@ -185,7 +185,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::EqPartial(const wxTextAttrDimensions &) const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::EqPartial(const wxTextAttrDimensions &) const. Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		bool lret = self->EqPartial(dims);
 		lua_pushboolean(L,lret?1:0);
@@ -212,7 +212,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::Apply(const wxTextAttrDimensions &, const wxTextAttrDimensions *)");
+			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::Apply(const wxTextAttrDimensions &, const wxTextAttrDimensions *). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		bool lret = self->Apply(dims, compareWith);
 		lua_pushboolean(L,lret?1:0);
@@ -246,7 +246,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::CollectCommonAttributes(const wxTextAttrDimensions &, wxTextAttrDimensions &, wxTextAttrDimensions &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::CollectCommonAttributes(const wxTextAttrDimensions &, wxTextAttrDimensions &, wxTextAttrDimensions &). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		self->CollectCommonAttributes(attr, clashingAttr, absentAttr);
 
@@ -269,7 +269,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::RemoveStyle(const wxTextAttrDimensions &)");
+			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::RemoveStyle(const wxTextAttrDimensions &). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		bool lret = self->RemoveStyle(attr);
 		lua_pushboolean(L,lret?1:0);
@@ -288,7 +288,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetLeft() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetLeft() const. Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeft();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -309,7 +309,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetLeft()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetLeft(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetLeft();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -339,7 +339,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetRight() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetRight() const. Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -360,7 +360,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetRight()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetRight(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetRight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -390,7 +390,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetTop() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetTop() const. Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -411,7 +411,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetTop()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetTop(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetTop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -441,7 +441,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetBottom() const");
+			luaL_error(L, "Invalid object in function call const wxTextAttrDimension & wxTextAttrDimensions::GetBottom() const. Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -462,7 +462,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetBottom()");
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension & wxTextAttrDimensions::GetBottom(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		const wxTextAttrDimension* lret = &self->GetBottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -499,7 +499,7 @@ public:
 		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::operator==(const wxTextAttrDimensions &) const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttrDimensions::operator==(const wxTextAttrDimensions &) const. Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
 		}
 		bool lret = self->operator==(dims);
 		lua_pushboolean(L,lret?1:0);

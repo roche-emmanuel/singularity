@@ -184,7 +184,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpData::AddBook(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpData::AddBook(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AddBook(book_url);
 		lua_pushboolean(L,lret?1:0);
@@ -204,7 +204,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageById(int)");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageById(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->FindPageById(id);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -224,7 +224,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageByName(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageByName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->FindPageByName(page);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -243,7 +243,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const");
+			luaL_error(L, "Invalid object in function call const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxHtmlBookRecArray & lret = self->GetBookRecArray();
 		////////////////////////////////////////////////////////////////////
@@ -264,7 +264,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const");
+			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxHtmlHelpDataItems & lret = self->GetContentsArray();
 		////////////////////////////////////////////////////////////////////
@@ -285,7 +285,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const");
+			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxHtmlHelpDataItems & lret = self->GetIndexArray();
 		////////////////////////////////////////////////////////////////////
@@ -307,7 +307,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpData::SetTempDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpData::SetTempDir(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTempDir(path);
 
@@ -325,7 +325,7 @@ public:
 		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlHelpData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

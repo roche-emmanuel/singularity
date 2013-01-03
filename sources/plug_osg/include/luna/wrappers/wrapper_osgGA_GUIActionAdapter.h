@@ -19,6 +19,12 @@ public:
 		}
 	};
 	
+	wrapper_osgGA_GUIActionAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIActionAdapter(), luna_wrapper_base(L) { register_protected_methods(L); };
+
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
 
 	// Public virtual methods:
 	// osg::View * osgGA::GUIActionAdapter::asView()
@@ -51,9 +57,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

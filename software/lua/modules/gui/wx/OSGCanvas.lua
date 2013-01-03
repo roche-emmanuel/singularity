@@ -8,13 +8,13 @@ local i18n = require "i18n"
 local cfg = require "config"
 local gl = require "luagl"
 local Event = require "base.Event"
+local prof = require "debugging.Profiler"
+local tools = require "osg.Tools"
+local fs = require "base.FileSystem"
 
 --- Create an OSG Canvas:
 function Class:initialize(options)
 	self:debug4("Initializing OSG Canvas.")
-	self:check(options.intf,"Invalid interface in OSGCanvas constructor.")
-
-	local intf = options.intf
 	
 	self._root = options.root or osg.Group()
 	 
@@ -40,24 +40,22 @@ function Class:create()
 	self._context = wx.wxGLContext:new(self._window)
 	self:check(self._context,"Invalid wxGLContext")
 
-	-- create graphicswindow:
-	self._gw = osgWX.GraphicsWindowWX(self._window,self._context) -- instance owned by lua
-	
 	-- create a viewer:
 	self._viewer = osgViewer.Viewer()
+	self._viewer:setCameraManipulator(osgGA.TrackballManipulator())
+	
+	-- create graphicswindow:
+	self._gw = osgWX.GraphicsWindowWX(self._window,self._context) -- instance owned by lua	
 	
 	self._viewer:setSceneData(self._root);
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
-		
-		
-	--self._viewer:frame()
+	--self._viewer:addEventHandler( osgViewer.StatsHandler() )	
+	--self._viewer:addEventHandler( osgViewer.WindowSizeHandler() )
 	
 	-- connect the event handlers for the canvas:
 	self._intf:connectHandler(self._window,wx.wxEVT_SIZE,function(intf,event)
-    	--local evt = event:dynCast("wxSizeEvent")
-    	--self:check(event,"Invalid wxSizeEvent")
     	local size = event:GetSize()
     	local ww = size:GetWidth()
     	local hh = size:GetHeight()
@@ -67,20 +65,65 @@ function Class:create()
         self._gw:resized(0,0,ww,hh);
 		self._viewer:getCamera():setViewport(0,0,ww,hh);
 		
-		self._viewer:frame();
+		--self._viewer:frame();
 	end)
 
+	local mouseDownHandler = function(intf,event)
+    	--self:info("Sending mouse down event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
+		self._gw:getEventQueue():mouseButtonPress(event:GetX(), event:GetY(), event:GetButton())
+		--self._viewer:getCamera():setClearColor(osg.Vec4f(0.0,1.0,0.0,1.0))
+		event:Skip();
+	end
+	
+	local mouseUpHandler = function(intf,event)
+    	--self:info("Sending mouse up event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
+		self._gw:getEventQueue():mouseButtonRelease(event:GetX(), event:GetY(), event:GetButton())
+		--self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
+		event:Skip();
+	end
+	
+	local mouseWheelHandler = function(intf,event)
+    	--self:info("Sending mouse wheel event: ",event:GetWheelRotation()>0.0 and "DOWN" or "UP")
+		self._gw:getEventQueue():mouseScroll(event:GetWheelRotation()>0.0 and osgGA.GUIEventAdapter.SCROLL_DOWN or osgGA.GUIEventAdapter.SCROLL_UP);
+		event:Skip();
+	end
+
+	local mouseMotionHandler = function(intf,event)
+    	--self:info("Sending mouse motion event: X=",event:GetX(),", Y=",event:GetY())
+		self._gw:getEventQueue():mouseMotion(event:GetX(), event:GetY());
+		event:Skip();
+	end
+	
+	self._intf:connectHandler(self._window,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_RIGHT_DOWN,mouseDownHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_LEFT_UP,mouseUpHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_MIDDLE_UP,mouseUpHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_RIGHT_UP,mouseUpHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_MOUSEWHEEL,mouseWheelHandler)
+	self._intf:connectHandler(self._window,wx.wxEVT_MOTION,mouseMotionHandler)
+	
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
 end
 
 function Class:onFrame()
 	--self:info("Rendering frame...")
+	prof:start("OSG frame")
 	self._viewer:frame();
+	prof:stop()
 	--self:info("Done rendering frame.")
+end
+
+function Class:home()
+	self._viewer:getCameraManipulator():home(0.0)
 end
 
 function Class:getRoot()
 	return self._root
+end
+
+function Class:getViewer()
+	return self._viewer
 end
 
 return Class

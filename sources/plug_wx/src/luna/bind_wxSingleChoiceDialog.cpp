@@ -959,7 +959,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -978,7 +978,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char * wxSingleChoiceDialog::GetSelectionClientData() const");
+			luaL_error(L, "Invalid object in function call char * wxSingleChoiceDialog::GetSelectionClientData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		char * lret = self->GetSelectionClientData();
 		lua_pushnumber(L,*lret);
@@ -997,7 +997,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1017,7 +1017,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::SetSelection(int)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelection(selection);
 
@@ -1035,7 +1035,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->ShowModal();
 		lua_pushnumber(L,lret);
@@ -1054,7 +1054,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSingleChoiceDialog::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSingleChoiceDialog::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSingleChoiceDialog::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1075,7 +1075,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1094,7 +1094,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1113,7 +1113,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1132,7 +1132,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1152,7 +1152,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetCanFocus(canFocus);
 
@@ -1170,7 +1170,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetFocus();
 
@@ -1188,7 +1188,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetFocusFromKbd();
 
@@ -1207,7 +1207,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::AddChild(child);
 
@@ -1226,7 +1226,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::RemoveChild(child);
 
@@ -1245,7 +1245,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1268,7 +1268,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1287,7 +1287,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSingleChoiceDialog::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1307,7 +1307,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSingleChoiceDialog::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1327,7 +1327,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSingleChoiceDialog::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1347,7 +1347,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1367,7 +1367,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1387,7 +1387,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1411,7 +1411,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::ScrollWindow(dx, dy, rect);
 
@@ -1434,7 +1434,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetScrollPos(orientation, pos, refresh);
 
@@ -1459,7 +1459,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1482,7 +1482,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1509,7 +1509,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1531,7 +1531,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Fit();
 
@@ -1549,7 +1549,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::FitInside();
 
@@ -1567,7 +1567,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1589,7 +1589,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1611,7 +1611,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1633,7 +1633,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1655,7 +1655,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1677,7 +1677,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1699,7 +1699,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSingleChoiceDialog::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSingleChoiceDialog::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1724,7 +1724,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1746,7 +1746,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SendSizeEvent(flags);
 
@@ -1769,7 +1769,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetMaxClientSize(size);
 
@@ -1792,7 +1792,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetMinClientSize(size);
 
@@ -1810,7 +1810,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxSingleChoiceDialog::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxSingleChoiceDialog::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxSingleChoiceDialog::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1832,7 +1832,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::ClearBackground();
 
@@ -1850,7 +1850,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSingleChoiceDialog::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSingleChoiceDialog::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxSingleChoiceDialog::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1869,7 +1869,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSingleChoiceDialog::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1888,7 +1888,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSingleChoiceDialog::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1907,7 +1907,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSingleChoiceDialog::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSingleChoiceDialog::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxSingleChoiceDialog::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1933,7 +1933,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Refresh(eraseBackground, rect);
 
@@ -1951,7 +1951,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Update();
 
@@ -1970,7 +1970,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1994,7 +1994,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2013,7 +2013,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2033,7 +2033,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetThemeEnabled(enable);
 
@@ -2051,7 +2051,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2071,7 +2071,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetNextHandler(handler);
 
@@ -2090,7 +2090,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetPreviousHandler(handler);
 
@@ -2108,7 +2108,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSingleChoiceDialog::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxSingleChoiceDialog::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSingleChoiceDialog::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2128,7 +2128,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetExtraStyle(exStyle);
 
@@ -2147,7 +2147,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetWindowStyleFlag(style);
 
@@ -2165,7 +2165,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Lower();
 
@@ -2183,7 +2183,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Raise();
 
@@ -2205,7 +2205,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2224,7 +2224,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2243,7 +2243,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2265,7 +2265,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2288,7 +2288,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2313,7 +2313,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSingleChoiceDialog::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2332,7 +2332,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxSingleChoiceDialog::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxSingleChoiceDialog::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxSingleChoiceDialog::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2358,7 +2358,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetValidator(validator);
 
@@ -2376,7 +2376,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2395,7 +2395,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2414,7 +2414,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2433,7 +2433,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSingleChoiceDialog::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2452,7 +2452,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSingleChoiceDialog::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSingleChoiceDialog::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxSingleChoiceDialog::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2471,7 +2471,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSingleChoiceDialog::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2491,7 +2491,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetLabel(label);
 
@@ -2510,7 +2510,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetLayoutDirection(dir);
 
@@ -2529,7 +2529,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetName(name);
 
@@ -2552,7 +2552,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetAcceleratorTable(accel);
 
@@ -2570,7 +2570,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2589,7 +2589,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxSingleChoiceDialog::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxSingleChoiceDialog::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxSingleChoiceDialog::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2611,7 +2611,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetDropTarget(target);
 
@@ -2630,7 +2630,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::DragAcceptFiles(accept);
 
@@ -2648,7 +2648,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2672,7 +2672,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2693,7 +2693,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::WarpPointer(x, y);
 
@@ -2716,7 +2716,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::DoUpdateWindowUI(event);
 
@@ -2734,7 +2734,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2753,7 +2753,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::InheritAttributes();
 
@@ -2771,7 +2771,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::InitDialog();
 
@@ -2789,7 +2789,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2808,7 +2808,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2830,7 +2830,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::MakeModal(modal);
 
@@ -2848,7 +2848,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::OnInternalIdle();
 
@@ -2869,7 +2869,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2889,7 +2889,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2911,7 +2911,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::UpdateWindowUI(flags);
 
@@ -2929,7 +2929,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2951,7 +2951,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_EnableCloseButton(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2970,7 +2970,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxSingleChoiceDialog::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSingleChoiceDialog::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2989,7 +2989,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsActive()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -3008,7 +3008,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsAlwaysMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3027,7 +3027,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsFullScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3046,7 +3046,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3065,7 +3065,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3087,7 +3087,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Maximize(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Maximize(maximize);
 
@@ -3108,7 +3108,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_RequestUserAttention(int)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::RequestUserAttention(flags);
 
@@ -3131,7 +3131,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetMaxSize(size);
 
@@ -3154,7 +3154,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetMinSize(size);
 
@@ -3180,7 +3180,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3215,7 +3215,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3243,7 +3243,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetTitle(title);
 
@@ -3262,7 +3262,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3281,7 +3281,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShouldPreventAppExit() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3301,7 +3301,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_OSXSetModified(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::OSXSetModified(modified);
 
@@ -3319,7 +3319,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_OSXIsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3342,7 +3342,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShowFullScreen(bool, long)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3361,7 +3361,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_CanDoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_CanDoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::CanDoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3380,7 +3380,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_DoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_DoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::DoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3400,7 +3400,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_EndModal(int)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_EndModal(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::EndModal(retCode);
 
@@ -3418,7 +3418,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxSingleChoiceDialog::base_GetContentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxSingleChoiceDialog::base_GetContentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxSingleChoiceDialog::GetContentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3442,7 +3442,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Iconize(bool)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::Iconize(iconize);
 
@@ -3460,7 +3460,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3479,7 +3479,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsModal() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_IsModal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::IsModal();
 		lua_pushboolean(L,lret?1:0);
@@ -3503,7 +3503,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetIcons(const wxIconBundle &)");
+			luaL_error(L, "Invalid object in function call void wxSingleChoiceDialog::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSingleChoiceDialog::SetIcons(icons);
 
@@ -3524,7 +3524,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSingleChoiceDialog::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSingleChoiceDialog::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3543,7 +3543,7 @@ public:
 		wxSingleChoiceDialog* self=Luna< wxObject >::checkSubType< wxSingleChoiceDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxSingleChoiceDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSingleChoiceDialog::ShowModal();
 		lua_pushnumber(L,lret);

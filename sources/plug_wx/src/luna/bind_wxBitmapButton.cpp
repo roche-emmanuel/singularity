@@ -996,7 +996,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::Create(wxWindow *, int, const wxBitmap &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::Create(wxWindow *, int, const wxBitmap &, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, bitmap, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1015,7 +1015,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapButton::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapButton::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxBitmapButton::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1036,7 +1036,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1055,7 +1055,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1074,7 +1074,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1093,7 +1093,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1113,7 +1113,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetCanFocus(canFocus);
 
@@ -1131,7 +1131,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetFocus();
 
@@ -1149,7 +1149,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetFocusFromKbd();
 
@@ -1168,7 +1168,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::AddChild(child);
 
@@ -1187,7 +1187,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::RemoveChild(child);
 
@@ -1206,7 +1206,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1229,7 +1229,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1248,7 +1248,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapButton::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1268,7 +1268,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapButton::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1288,7 +1288,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapButton::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1308,7 +1308,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1328,7 +1328,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1348,7 +1348,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1372,7 +1372,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::ScrollWindow(dx, dy, rect);
 
@@ -1395,7 +1395,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetScrollPos(orientation, pos, refresh);
 
@@ -1420,7 +1420,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1443,7 +1443,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1470,7 +1470,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1492,7 +1492,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::Fit();
 
@@ -1510,7 +1510,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::FitInside();
 
@@ -1528,7 +1528,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1550,7 +1550,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1572,7 +1572,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1594,7 +1594,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1616,7 +1616,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1638,7 +1638,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1660,7 +1660,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapButton::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapButton::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1685,7 +1685,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1707,7 +1707,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SendSizeEvent(flags);
 
@@ -1730,7 +1730,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetMaxClientSize(size);
 
@@ -1753,7 +1753,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetMaxSize(size);
 
@@ -1776,7 +1776,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetMinClientSize(size);
 
@@ -1799,7 +1799,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetMinSize(size);
 
@@ -1834,7 +1834,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1860,7 +1860,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1887,7 +1887,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxBitmapButton::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxBitmapButton::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxBitmapButton::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1909,7 +1909,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::ClearBackground();
 
@@ -1927,7 +1927,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxBitmapButton::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxBitmapButton::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxBitmapButton::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1946,7 +1946,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapButton::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1965,7 +1965,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxBitmapButton::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapButton::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1984,7 +1984,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxBitmapButton::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxBitmapButton::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxBitmapButton::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2010,7 +2010,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::Refresh(eraseBackground, rect);
 
@@ -2028,7 +2028,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::Update();
 
@@ -2047,7 +2047,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2071,7 +2071,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2090,7 +2090,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2110,7 +2110,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetThemeEnabled(enable);
 
@@ -2128,7 +2128,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2147,7 +2147,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2167,7 +2167,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2187,7 +2187,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetNextHandler(handler);
 
@@ -2206,7 +2206,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetPreviousHandler(handler);
 
@@ -2224,7 +2224,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxBitmapButton::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxBitmapButton::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxBitmapButton::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2244,7 +2244,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetExtraStyle(exStyle);
 
@@ -2263,7 +2263,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetWindowStyleFlag(style);
 
@@ -2281,7 +2281,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::Lower();
 
@@ -2299,7 +2299,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::Raise();
 
@@ -2321,7 +2321,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2340,7 +2340,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2359,7 +2359,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2381,7 +2381,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2403,7 +2403,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2426,7 +2426,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2451,7 +2451,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapButton::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapButton::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapButton::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2470,7 +2470,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxBitmapButton::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxBitmapButton::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxBitmapButton::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2496,7 +2496,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetValidator(validator);
 
@@ -2514,7 +2514,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2533,7 +2533,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2552,7 +2552,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2571,7 +2571,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxBitmapButton::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxBitmapButton::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxBitmapButton::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2590,7 +2590,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapButton::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapButton::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapButton::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2610,7 +2610,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetLayoutDirection(dir);
 
@@ -2629,7 +2629,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetName(name);
 
@@ -2652,7 +2652,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetAcceleratorTable(accel);
 
@@ -2670,7 +2670,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2689,7 +2689,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxBitmapButton::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxBitmapButton::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxBitmapButton::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2711,7 +2711,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetDropTarget(target);
 
@@ -2730,7 +2730,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::DragAcceptFiles(accept);
 
@@ -2748,7 +2748,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2767,7 +2767,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2791,7 +2791,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2812,7 +2812,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::WarpPointer(x, y);
 
@@ -2835,7 +2835,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::DoUpdateWindowUI(event);
 
@@ -2853,7 +2853,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2872,7 +2872,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::InheritAttributes();
 
@@ -2890,7 +2890,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::InitDialog();
 
@@ -2908,7 +2908,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2927,7 +2927,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2949,7 +2949,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::MakeModal(modal);
 
@@ -2967,7 +2967,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::OnInternalIdle();
 
@@ -2988,7 +2988,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3008,7 +3008,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapButton::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapButton::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3030,7 +3030,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::UpdateWindowUI(flags);
 
@@ -3053,7 +3053,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::Command(event);
 
@@ -3071,7 +3071,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapButton::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapButton::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapButton::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3090,7 +3090,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxBitmapButton::base_SetDefault()");
+			luaL_error(L, "Invalid object in function call wxWindow * wxBitmapButton::base_SetDefault(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxBitmapButton::SetDefault();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3112,7 +3112,7 @@ public:
 		wxBitmapButton* self=Luna< wxObject >::checkSubType< wxBitmapButton >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapButton::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapButton::SetLabel(label);
 

@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxGridCellAttrProvider(lua_State* L, lua_Table* dum) : wxGridCellAttrProvider(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxGridCellAttr * wxGridCellAttrProvider::GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const
 	wxGridCellAttr * GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const {
@@ -97,9 +102,6 @@ public:
 		return wxGridCellAttrProvider::GetCornerRenderer();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

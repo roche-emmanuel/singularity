@@ -140,7 +140,7 @@ public:
 		wxTreeListItemComparator* self=(Luna< wxTreeListItemComparator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTreeListItemComparator::Compare(wxTreeListCtrl *, unsigned int, wxTreeListItem, wxTreeListItem)");
+			luaL_error(L, "Invalid object in function call int wxTreeListItemComparator::Compare(wxTreeListCtrl *, unsigned int, wxTreeListItem, wxTreeListItem). Got : '%s'",typeid(Luna< wxTreeListItemComparator >::check(L,1)).name());
 		}
 		int lret = self->Compare(treelist, column, first, second);
 		lua_pushnumber(L,lret);

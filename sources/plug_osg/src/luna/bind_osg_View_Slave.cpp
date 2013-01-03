@@ -312,7 +312,7 @@ public:
 		osg::View::Slave* self=(Luna< osg::View::Slave >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::View::Slave::updateSlave(osg::View &)");
+			luaL_error(L, "Invalid object in function call void osg::View::Slave::updateSlave(osg::View &). Got : '%s'",typeid(Luna< osg::View::Slave >::check(L,1)).name());
 		}
 		self->updateSlave(view);
 
@@ -335,7 +335,7 @@ public:
 		osg::View::Slave* self=(Luna< osg::View::Slave >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::View::Slave::updateSlaveImplementation(osg::View &)");
+			luaL_error(L, "Invalid object in function call void osg::View::Slave::updateSlaveImplementation(osg::View &). Got : '%s'",typeid(Luna< osg::View::Slave >::check(L,1)).name());
 		}
 		self->updateSlaveImplementation(view);
 
@@ -358,7 +358,7 @@ public:
 		osg::View::Slave* self=(Luna< osg::View::Slave >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::View::Slave::base_updateSlaveImplementation(osg::View &)");
+			luaL_error(L, "Invalid object in function call void osg::View::Slave::base_updateSlaveImplementation(osg::View &). Got : '%s'",typeid(Luna< osg::View::Slave >::check(L,1)).name());
 		}
 		self->Slave::updateSlaveImplementation(view);
 
@@ -380,7 +380,7 @@ void LunaTraits< osg::View::Slave >::_bind_dtor(osg::View::Slave* obj) {
 	delete obj;
 }
 
-const char LunaTraits< osg::View::Slave >::className[] = "Slave";
+const char LunaTraits< osg::View::Slave >::className[] = "View_Slave";
 const char LunaTraits< osg::View::Slave >::fullName[] = "osg::View::Slave";
 const char LunaTraits< osg::View::Slave >::moduleName[] = "osg";
 const char* LunaTraits< osg::View::Slave >::parents[] = {0};

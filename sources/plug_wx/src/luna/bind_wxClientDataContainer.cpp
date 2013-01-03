@@ -117,7 +117,7 @@ public:
 		wxClientDataContainer* self=(Luna< wxClientDataContainer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxClientDataContainer::GetClientData() const");
+			luaL_error(L, "Invalid object in function call void * wxClientDataContainer::GetClientData() const. Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		void * lret = self->GetClientData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -138,7 +138,7 @@ public:
 		wxClientDataContainer* self=(Luna< wxClientDataContainer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClientData * wxClientDataContainer::GetClientObject() const");
+			luaL_error(L, "Invalid object in function call wxClientData * wxClientDataContainer::GetClientObject() const. Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		wxClientData * lret = self->GetClientObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -160,7 +160,7 @@ public:
 		wxClientDataContainer* self=(Luna< wxClientDataContainer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClientDataContainer::SetClientData(void *)");
+			luaL_error(L, "Invalid object in function call void wxClientDataContainer::SetClientData(void *). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->SetClientData(data);
 
@@ -179,7 +179,7 @@ public:
 		wxClientDataContainer* self=(Luna< wxClientDataContainer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClientDataContainer::SetClientObject(wxClientData *)");
+			luaL_error(L, "Invalid object in function call void wxClientDataContainer::SetClientObject(wxClientData *). Got : '%s'",typeid(Luna< wxClientDataContainer >::check(L,1)).name());
 		}
 		self->SetClientObject(data);
 

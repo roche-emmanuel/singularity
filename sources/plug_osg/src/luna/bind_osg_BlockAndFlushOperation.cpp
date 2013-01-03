@@ -150,7 +150,7 @@ public:
 		osg::BlockAndFlushOperation* self=Luna< osg::Referenced >::checkSubType< osg::BlockAndFlushOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::release()");
+			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->release();
 
@@ -168,7 +168,7 @@ public:
 		osg::BlockAndFlushOperation* self=Luna< osg::Referenced >::checkSubType< osg::BlockAndFlushOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::base_release()");
+			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlockAndFlushOperation::release();
 
@@ -189,7 +189,7 @@ public:
 		osg::BlockAndFlushOperation* self=Luna< osg::Referenced >::checkSubType< osg::BlockAndFlushOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(_arg1);
 

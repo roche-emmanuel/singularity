@@ -139,7 +139,7 @@ public:
 		wxRibbonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRibbonPage * wxRibbonBarEvent::GetPage()");
+			luaL_error(L, "Invalid object in function call wxRibbonPage * wxRibbonBarEvent::GetPage(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonPage * lret = self->GetPage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -161,7 +161,7 @@ public:
 		wxRibbonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonBarEvent::SetPage(wxRibbonPage *)");
+			luaL_error(L, "Invalid object in function call void wxRibbonBarEvent::SetPage(wxRibbonPage *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPage(page);
 
@@ -179,7 +179,7 @@ public:
 		wxRibbonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonBarEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonBarEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxRibbonBarEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -200,7 +200,7 @@ public:
 		wxRibbonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonBarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonBarEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxRibbonBarEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxRibbonBarEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

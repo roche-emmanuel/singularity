@@ -207,7 +207,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCommandEvent::GetClientData() const");
+			luaL_error(L, "Invalid object in function call void * wxCommandEvent::GetClientData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		void * lret = self->GetClientData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -228,7 +228,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClientData * wxCommandEvent::GetClientObject() const");
+			luaL_error(L, "Invalid object in function call wxClientData * wxCommandEvent::GetClientObject() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClientData * lret = self->GetClientObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -249,7 +249,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxCommandEvent::GetExtraLong() const");
+			luaL_error(L, "Invalid object in function call long wxCommandEvent::GetExtraLong() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetExtraLong();
 		lua_pushnumber(L,lret);
@@ -268,7 +268,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandEvent::GetInt() const");
+			luaL_error(L, "Invalid object in function call int wxCommandEvent::GetInt() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetInt();
 		lua_pushnumber(L,lret);
@@ -287,7 +287,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandEvent::GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxCommandEvent::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -306,7 +306,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandEvent::GetString() const");
+			luaL_error(L, "Invalid object in function call wxString wxCommandEvent::GetString() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -325,7 +325,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandEvent::IsChecked() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandEvent::IsChecked() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsChecked();
 		lua_pushboolean(L,lret?1:0);
@@ -344,7 +344,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandEvent::IsSelection() const");
+			luaL_error(L, "Invalid object in function call bool wxCommandEvent::IsSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSelection();
 		lua_pushboolean(L,lret?1:0);
@@ -364,7 +364,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetClientData(void *)");
+			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetClientData(void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClientData(clientData);
 
@@ -383,7 +383,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetClientObject(wxClientData *)");
+			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetClientObject(wxClientData *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClientObject(clientObject);
 
@@ -402,7 +402,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetExtraLong(long)");
+			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetExtraLong(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetExtraLong(extraLong);
 
@@ -421,7 +421,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetInt(int)");
+			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetInt(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInt(intCommand);
 
@@ -440,7 +440,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetString(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCommandEvent::SetString(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetString(string);
 
@@ -458,7 +458,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommandEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommandEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCommandEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -479,7 +479,7 @@ public:
 		wxCommandEvent* self=Luna< wxObject >::checkSubType< wxCommandEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCommandEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCommandEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxCommandEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -20,6 +20,39 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	void DoSetItemClientData(unsigned int arg1, void * arg2) {
+		THROW_IF(!_obj.pushFunction("DoSetItemClientData"),"No implementation for abstract function wxItemContainer::DoSetItemClientData");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		return (_obj.callFunction<void>());
+	};
+
+	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	void * DoGetItemClientData(unsigned int arg1) const {
+		THROW_IF(!_obj.pushFunction("DoGetItemClientData"),"No implementation for abstract function wxItemContainer::DoGetItemClientData");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<void*>());
+	};
+
+	// void wxItemContainer::DoClear()
+	void DoClear() {
+		THROW_IF(!_obj.pushFunction("DoClear"),"No implementation for abstract function wxItemContainer::DoClear");
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	void DoDeleteOneItem(unsigned int arg1) {
+		THROW_IF(!_obj.pushFunction("DoDeleteOneItem"),"No implementation for abstract function wxItemContainer::DoDeleteOneItem");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<void>());
+	};
+
+public:
 	// Public virtual methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {
@@ -76,9 +109,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:
@@ -88,6 +118,13 @@ public:
 	void register_protected_methods(lua_State* L) {
 	};
 
+
+protected:
+// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
+int DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) {
+	THROW_IF(true,"The function call int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) is not implemented in wrapper.");
+	return int();
+};
 
 };
 

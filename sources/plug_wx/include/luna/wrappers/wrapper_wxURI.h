@@ -23,17 +23,8 @@ public:
 	wrapper_wxURI(lua_State* L, lua_Table* dum, const wxString & uri) : wxURI(uri), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxURI(lua_State* L, lua_Table* dum, const wxURI & uri) : wxURI(uri), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxURI::GetClassInfo();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -56,6 +47,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxURI::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

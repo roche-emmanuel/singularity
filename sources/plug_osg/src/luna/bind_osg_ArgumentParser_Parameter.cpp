@@ -241,7 +241,7 @@ public:
 		osg::ArgumentParser::Parameter* self=(Luna< osg::ArgumentParser::Parameter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::Parameter::valid(const char *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::Parameter::valid(const char *) const. Got : '%s'",typeid(Luna< osg::ArgumentParser::Parameter >::check(L,1)).name());
 		}
 		bool lret = self->valid(str);
 		lua_pushboolean(L,lret?1:0);
@@ -261,7 +261,7 @@ public:
 		osg::ArgumentParser::Parameter* self=(Luna< osg::ArgumentParser::Parameter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::Parameter::assign(const char *)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::Parameter::assign(const char *). Got : '%s'",typeid(Luna< osg::ArgumentParser::Parameter >::check(L,1)).name());
 		}
 		bool lret = self->assign(str);
 		lua_pushboolean(L,lret?1:0);
@@ -284,7 +284,7 @@ void LunaTraits< osg::ArgumentParser::Parameter >::_bind_dtor(osg::ArgumentParse
 	delete obj;
 }
 
-const char LunaTraits< osg::ArgumentParser::Parameter >::className[] = "Parameter";
+const char LunaTraits< osg::ArgumentParser::Parameter >::className[] = "ArgumentParser_Parameter";
 const char LunaTraits< osg::ArgumentParser::Parameter >::fullName[] = "osg::ArgumentParser::Parameter";
 const char LunaTraits< osg::ArgumentParser::Parameter >::moduleName[] = "osg";
 const char* LunaTraits< osg::ArgumentParser::Parameter >::parents[] = {0};

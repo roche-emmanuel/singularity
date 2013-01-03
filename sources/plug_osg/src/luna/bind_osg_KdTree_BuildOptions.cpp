@@ -95,7 +95,7 @@ void LunaTraits< osg::KdTree::BuildOptions >::_bind_dtor(osg::KdTree::BuildOptio
 	delete obj;
 }
 
-const char LunaTraits< osg::KdTree::BuildOptions >::className[] = "BuildOptions";
+const char LunaTraits< osg::KdTree::BuildOptions >::className[] = "KdTree_BuildOptions";
 const char LunaTraits< osg::KdTree::BuildOptions >::fullName[] = "osg::KdTree::BuildOptions";
 const char LunaTraits< osg::KdTree::BuildOptions >::moduleName[] = "osg";
 const char* LunaTraits< osg::KdTree::BuildOptions >::parents[] = {0};

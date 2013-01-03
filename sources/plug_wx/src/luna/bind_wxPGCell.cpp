@@ -379,7 +379,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPGCellData * wxPGCell::GetData() const");
+			luaL_error(L, "Invalid object in function call const wxPGCellData * wxPGCell::GetData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxPGCellData * lret = self->GetData();
 		////////////////////////////////////////////////////////////////////
@@ -400,7 +400,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGCellData * wxPGCell::GetData()");
+			luaL_error(L, "Invalid object in function call wxPGCellData * wxPGCell::GetData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPGCellData * lret = self->GetData();
 		////////////////////////////////////////////////////////////////////
@@ -430,7 +430,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPGCell::HasText() const");
+			luaL_error(L, "Invalid object in function call bool wxPGCell::HasText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasText();
 		lua_pushboolean(L,lret?1:0);
@@ -454,7 +454,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::MergeFrom(const wxPGCell &)");
+			luaL_error(L, "Invalid object in function call void wxPGCell::MergeFrom(const wxPGCell &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->MergeFrom(srcCell);
 
@@ -473,7 +473,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetText(text);
 
@@ -496,7 +496,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetBitmap(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBitmap(bitmap);
 
@@ -519,7 +519,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetFgCol(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetFgCol(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFgCol(col);
 
@@ -542,7 +542,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFont(font);
 
@@ -565,7 +565,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetBgCol(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetBgCol(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBgCol(col);
 
@@ -583,7 +583,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxPGCell::GetText() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxPGCell::GetText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -602,7 +602,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBitmap & wxPGCell::GetBitmap() const");
+			luaL_error(L, "Invalid object in function call const wxBitmap & wxPGCell::GetBitmap() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxBitmap* lret = &self->GetBitmap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -623,7 +623,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetFgCol() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetFgCol() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetFgCol();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -644,7 +644,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxPGCell::GetFont() const");
+			luaL_error(L, "Invalid object in function call const wxFont & wxPGCell::GetFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -665,7 +665,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetBgCol() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetBgCol() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetBgCol();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -686,7 +686,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetEmptyData()");
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetEmptyData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetEmptyData();
 
@@ -704,7 +704,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPGCell::IsInvalid() const");
+			luaL_error(L, "Invalid object in function call bool wxPGCell::IsInvalid() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsInvalid();
 		lua_pushboolean(L,lret?1:0);
@@ -723,7 +723,7 @@ public:
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGCell::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGCell::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPGCell::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

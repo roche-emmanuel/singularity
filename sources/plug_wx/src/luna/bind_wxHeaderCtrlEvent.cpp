@@ -117,7 +117,7 @@ public:
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetColumn() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetColumn();
 		lua_pushnumber(L,lret);
@@ -136,7 +136,7 @@ public:
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -155,7 +155,7 @@ public:
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxHeaderCtrlEvent::GetNewOrder() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxHeaderCtrlEvent::GetNewOrder() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetNewOrder();
 		lua_pushnumber(L,lret);
@@ -174,7 +174,7 @@ public:
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHeaderCtrlEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -195,7 +195,7 @@ public:
 		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxHeaderCtrlEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

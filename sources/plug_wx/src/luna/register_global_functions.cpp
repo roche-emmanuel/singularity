@@ -3932,6 +3932,7 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
+	luna_pushModule(L,"wx");
 	lua_pushcfunction(L, _bind_wxAboutBox); lua_setfield(L,-2,"wxAboutBox");
 	lua_pushcfunction(L, _bind_wxHandleFatalExceptions); lua_setfield(L,-2,"wxHandleFatalExceptions");
 	lua_pushcfunction(L, _bind_wxInitialize); lua_setfield(L,-2,"wxInitialize");
@@ -4065,6 +4066,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_wxStrlen); lua_setfield(L,-2,"wxStrlen");
 	lua_pushcfunction(L, _bind_wxStrlcpy); lua_setfield(L,-2,"wxStrlcpy");
 	lua_pushcfunction(L, _bind_wxStrrchr); lua_setfield(L,-2,"wxStrrchr");
+	luna_popModule(L);
 }
 
 #ifdef __cplusplus

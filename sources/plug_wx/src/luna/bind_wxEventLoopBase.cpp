@@ -271,7 +271,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsMain() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsMain() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->IsMain();
 		lua_pushboolean(L,lret?1:0);
@@ -290,7 +290,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxEventLoopBase::Run()");
+			luaL_error(L, "Invalid object in function call int wxEventLoopBase::Run(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		int lret = self->Run();
 		lua_pushnumber(L,lret);
@@ -309,7 +309,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsRunning() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsRunning() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->IsRunning();
 		lua_pushboolean(L,lret?1:0);
@@ -328,7 +328,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsOk() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -350,7 +350,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventLoopBase::Exit(int)");
+			luaL_error(L, "Invalid object in function call void wxEventLoopBase::Exit(int). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		self->Exit(rc);
 
@@ -368,7 +368,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::Pending() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::Pending() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->Pending();
 		lua_pushboolean(L,lret?1:0);
@@ -387,7 +387,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::Dispatch()");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::Dispatch(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->Dispatch();
 		lua_pushboolean(L,lret?1:0);
@@ -407,7 +407,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxEventLoopBase::DispatchTimeout(unsigned long)");
+			luaL_error(L, "Invalid object in function call int wxEventLoopBase::DispatchTimeout(unsigned long). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		int lret = self->DispatchTimeout(timeout);
 		lua_pushnumber(L,lret);
@@ -426,7 +426,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventLoopBase::WakeUp()");
+			luaL_error(L, "Invalid object in function call void wxEventLoopBase::WakeUp(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		self->WakeUp();
 
@@ -444,7 +444,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventLoopBase::WakeUpIdle()");
+			luaL_error(L, "Invalid object in function call void wxEventLoopBase::WakeUpIdle(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		self->WakeUpIdle();
 
@@ -462,7 +462,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::ProcessIdle()");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::ProcessIdle(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->ProcessIdle();
 		lua_pushboolean(L,lret?1:0);
@@ -481,7 +481,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsYielding() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsYielding() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->IsYielding();
 		lua_pushboolean(L,lret?1:0);
@@ -503,7 +503,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::Yield(bool)");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::Yield(bool). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->Yield(onlyIfNeeded);
 		lua_pushboolean(L,lret?1:0);
@@ -523,7 +523,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::YieldFor(long)");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::YieldFor(long). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->YieldFor(eventsToProcess);
 		lua_pushboolean(L,lret?1:0);
@@ -543,7 +543,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsEventAllowedInsideYield(wxEventCategory) const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::IsEventAllowedInsideYield(wxEventCategory) const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->IsEventAllowedInsideYield(cat);
 		lua_pushboolean(L,lret?1:0);
@@ -562,7 +562,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsOk() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->wxEventLoopBase::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -581,7 +581,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxEventLoopBase::base_WakeUpIdle()");
+			luaL_error(L, "Invalid object in function call void wxEventLoopBase::base_WakeUpIdle(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		self->wxEventLoopBase::WakeUpIdle();
 
@@ -599,7 +599,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_ProcessIdle()");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_ProcessIdle(). Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->wxEventLoopBase::ProcessIdle();
 		lua_pushboolean(L,lret?1:0);
@@ -618,7 +618,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsYielding() const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsYielding() const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->wxEventLoopBase::IsYielding();
 		lua_pushboolean(L,lret?1:0);
@@ -638,7 +638,7 @@ public:
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsEventAllowedInsideYield(wxEventCategory) const");
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsEventAllowedInsideYield(wxEventCategory) const. Got : '%s'",typeid(Luna< wxEventLoopBase >::check(L,1)).name());
 		}
 		bool lret = self->wxEventLoopBase::IsEventAllowedInsideYield(cat);
 		lua_pushboolean(L,lret?1:0);

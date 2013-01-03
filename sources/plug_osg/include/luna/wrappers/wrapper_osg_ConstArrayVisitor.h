@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osg_ConstArrayVisitor(lua_State* L, lua_Table* dum) : osg::ConstArrayVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::ConstArrayVisitor::apply(const osg::Array & arg1)
 	void apply(const osg::Array & arg1) {
@@ -252,9 +257,6 @@ public:
 		return ConstArrayVisitor::apply(arg1);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

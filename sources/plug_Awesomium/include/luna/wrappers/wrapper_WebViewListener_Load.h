@@ -11,9 +11,22 @@
 class wrapper_WebViewListener_Load : public WebViewListener::Load, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_WebViewListener_Load() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_WebViewListener_Load(lua_State* L, lua_Table* dum) : WebViewListener::Load(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
 	void OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page) {
 		THROW_IF(!_obj.pushFunction("OnBeginLoadingFrame"),"No implementation for abstract function WebViewListener::Load::OnBeginLoadingFrame");
@@ -56,6 +69,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

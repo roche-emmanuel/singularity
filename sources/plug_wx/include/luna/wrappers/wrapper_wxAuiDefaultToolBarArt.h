@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxAuiDefaultToolBarArt(lua_State* L, lua_Table* dum) : wxAuiDefaultToolBarArt(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxAuiToolBarArt * wxAuiDefaultToolBarArt::Clone()
 	wxAuiToolBarArt * Clone() {
@@ -245,9 +250,6 @@ public:
 		return wxAuiDefaultToolBarArt::ShowDropDown(wnd, items);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

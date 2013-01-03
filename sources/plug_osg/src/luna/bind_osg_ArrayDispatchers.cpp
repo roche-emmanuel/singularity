@@ -330,7 +330,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::setState(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::setState(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setState(state);
 
@@ -350,7 +350,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::vertexDispatcher(osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::vertexDispatcher(osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->vertexDispatcher(array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -373,7 +373,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::normalDispatcher(osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::normalDispatcher(osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->normalDispatcher(array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -396,7 +396,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::colorDispatcher(osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::colorDispatcher(osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->colorDispatcher(array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -419,7 +419,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::secondaryColorDispatcher(osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::secondaryColorDispatcher(osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->secondaryColorDispatcher(array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -442,7 +442,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::fogCoordDispatcher(osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::fogCoordDispatcher(osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->fogCoordDispatcher(array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -466,7 +466,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::texCoordDispatcher(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::texCoordDispatcher(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->texCoordDispatcher(unit, array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -490,7 +490,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::vertexAttribDispatcher(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call osg::AttributeDispatch * osg::ArrayDispatchers::vertexAttribDispatcher(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::AttributeDispatch * lret = self->vertexAttribDispatcher(unit, array, indices);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -511,7 +511,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::reset()");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -530,7 +530,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::setUseGLBeginEndAdapter(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::setUseGLBeginEndAdapter(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUseGLBeginEndAdapter(flag);
 
@@ -548,7 +548,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArrayDispatchers::getUseGLBeginEndAdapter() const");
+			luaL_error(L, "Invalid object in function call bool osg::ArrayDispatchers::getUseGLBeginEndAdapter() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getUseGLBeginEndAdapter();
 		lua_pushboolean(L,lret?1:0);
@@ -568,7 +568,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::setUseVertexAttribAlias(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::setUseVertexAttribAlias(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUseVertexAttribAlias(flag);
 
@@ -586,7 +586,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArrayDispatchers::getUseVertexAttribAlias() const");
+			luaL_error(L, "Invalid object in function call bool osg::ArrayDispatchers::getUseVertexAttribAlias() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getUseVertexAttribAlias();
 		lua_pushboolean(L,lret?1:0);
@@ -607,7 +607,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activate(unsigned int, osg::AttributeDispatch *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activate(unsigned int, osg::AttributeDispatch *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activate(binding, at);
 
@@ -628,7 +628,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateVertexArray(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateVertexArray(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateVertexArray(binding, array, indices);
 
@@ -649,7 +649,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateColorArray(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateColorArray(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateColorArray(binding, array, indices);
 
@@ -670,7 +670,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateNormalArray(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateNormalArray(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateNormalArray(binding, array, indices);
 
@@ -691,7 +691,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateSecondaryColorArray(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateSecondaryColorArray(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateSecondaryColorArray(binding, array, indices);
 
@@ -712,7 +712,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateFogCoordArray(unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateFogCoordArray(unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateFogCoordArray(binding, array, indices);
 
@@ -734,7 +734,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateTexCoordArray(unsigned int, unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateTexCoordArray(unsigned int, unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateTexCoordArray(binding, unit, array, indices);
 
@@ -756,7 +756,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateVertexAttribArray(unsigned int, unsigned int, osg::Array *, osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::activateVertexAttribArray(unsigned int, unsigned int, osg::Array *, osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->activateVertexAttribArray(binding, unit, array, indices);
 
@@ -776,7 +776,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::dispatch(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::dispatch(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->dispatch(binding, index);
 
@@ -795,7 +795,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArrayDispatchers::active(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArrayDispatchers::active(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->active(binding);
 		lua_pushboolean(L,lret?1:0);
@@ -815,7 +815,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::Begin(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::Begin(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Begin(mode);
 
@@ -833,7 +833,7 @@ public:
 		osg::ArrayDispatchers* self=Luna< osg::Referenced >::checkSubType< osg::ArrayDispatchers >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::End()");
+			luaL_error(L, "Invalid object in function call void osg::ArrayDispatchers::End(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->End();
 

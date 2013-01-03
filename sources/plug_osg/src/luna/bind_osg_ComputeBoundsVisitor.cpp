@@ -305,7 +305,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -324,7 +324,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -343,7 +343,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::reset()");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -361,7 +361,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd & osg::ComputeBoundsVisitor::getBoundingBox()");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd & osg::ComputeBoundsVisitor::getBoundingBox(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::BoundingBoxd* lret = &self->getBoundingBox();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -390,7 +390,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::getPolytope(osg::Polytope &, float) const");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::getPolytope(osg::Polytope &, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getPolytope(polytope, margin);
 
@@ -416,7 +416,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::getBase(osg::Polytope &, float) const");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::getBase(osg::Polytope &, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getBase(polytope, margin);
 
@@ -439,7 +439,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -462,7 +462,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(transform);
 
@@ -485,7 +485,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -518,7 +518,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::pushMatrix(osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::pushMatrix(osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->pushMatrix(matrix);
 
@@ -536,7 +536,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::popMatrix()");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::popMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->popMatrix();
 
@@ -555,7 +555,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::applyDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::applyDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->applyDrawable(drawable);
 
@@ -573,7 +573,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::ComputeBoundsVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::ComputeBoundsVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->ComputeBoundsVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -595,7 +595,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::ComputeBoundsVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::ComputeBoundsVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->ComputeBoundsVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -623,7 +623,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ComputeBoundsVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::ComputeBoundsVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->ComputeBoundsVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -648,7 +648,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ComputeBoundsVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::ComputeBoundsVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->ComputeBoundsVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -673,7 +673,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::ComputeBoundsVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osg::ComputeBoundsVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->ComputeBoundsVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -692,7 +692,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ComputeBoundsVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -711,7 +711,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ComputeBoundsVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ComputeBoundsVisitor::className();
 		lua_pushstring(L,lret);
@@ -730,7 +730,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundsVisitor::reset();
 
@@ -753,7 +753,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundsVisitor::apply(node);
 
@@ -776,7 +776,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundsVisitor::apply(transform);
 
@@ -799,7 +799,7 @@ public:
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osg::ComputeBoundsVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundsVisitor::apply(geode);
 

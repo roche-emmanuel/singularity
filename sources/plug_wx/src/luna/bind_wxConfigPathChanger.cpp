@@ -107,7 +107,7 @@ public:
 		wxConfigPathChanger* self=(Luna< wxConfigPathChanger >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxConfigPathChanger::Name() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxConfigPathChanger::Name() const. Got : '%s'",typeid(Luna< wxConfigPathChanger >::check(L,1)).name());
 		}
 		const wxString & lret = self->Name();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -126,7 +126,7 @@ public:
 		wxConfigPathChanger* self=(Luna< wxConfigPathChanger >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxConfigPathChanger::UpdateIfDeleted()");
+			luaL_error(L, "Invalid object in function call void wxConfigPathChanger::UpdateIfDeleted(). Got : '%s'",typeid(Luna< wxConfigPathChanger >::check(L,1)).name());
 		}
 		self->UpdateIfDeleted();
 

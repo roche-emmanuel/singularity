@@ -164,7 +164,7 @@ public:
 		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -183,7 +183,7 @@ public:
 		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::setClampColorSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::setClampColorSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClampColorSupported(flag);
 
@@ -201,7 +201,7 @@ public:
 		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClampColor::Extensions::isClampColorSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::ClampColor::Extensions::isClampColorSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isClampColorSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -222,7 +222,7 @@ public:
 		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::glClampColor(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::glClampColor(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glClampColor(target, mode);
 
@@ -244,7 +244,7 @@ void LunaTraits< osg::ClampColor::Extensions >::_bind_dtor(osg::ClampColor::Exte
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::ClampColor::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::ClampColor::Extensions >::className[] = "ClampColor_Extensions";
 const char LunaTraits< osg::ClampColor::Extensions >::fullName[] = "osg::ClampColor::Extensions";
 const char LunaTraits< osg::ClampColor::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::ClampColor::Extensions >::parents[] = {"osg.Referenced", 0};

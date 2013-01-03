@@ -210,7 +210,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableSaving()");
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableSaving(). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		self->DisableSaving();
 
@@ -228,7 +228,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableRestoring()");
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableRestoring(). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		self->DisableRestoring();
 
@@ -248,7 +248,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Register(void *, wxPersistentObject *)");
+			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Register(void *, wxPersistentObject *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		wxPersistentObject * lret = self->Register(obj, po);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -270,7 +270,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Find(void *) const");
+			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Find(void *) const. Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		wxPersistentObject * lret = self->Find(obj);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -292,7 +292,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Unregister(void *)");
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Unregister(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		self->Unregister(obj);
 
@@ -311,7 +311,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Save(void *)");
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Save(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		self->Save(obj);
 
@@ -330,7 +330,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::Restore(void *)");
+			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::Restore(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		bool lret = self->Restore(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -350,7 +350,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::SaveAndUnregister(void *)");
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::SaveAndUnregister(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		self->SaveAndUnregister(obj);
 
@@ -370,7 +370,7 @@ public:
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::RegisterAndRestore(void *, wxPersistentObject *)");
+			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::RegisterAndRestore(void *, wxPersistentObject *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
 		}
 		bool lret = self->RegisterAndRestore(obj, po);
 		lua_pushboolean(L,lret?1:0);

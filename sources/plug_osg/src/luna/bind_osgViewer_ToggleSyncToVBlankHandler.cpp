@@ -255,7 +255,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::setKeyEventToggleSyncToVBlankHandler(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::setKeyEventToggleSyncToVBlankHandler(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventToggleSyncToVBlankHandler(key);
 
@@ -273,7 +273,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::ToggleSyncToVBlankHandler::getKeyEventToggleSyncToVBlankHandler() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::ToggleSyncToVBlankHandler::getKeyEventToggleSyncToVBlankHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventToggleSyncToVBlankHandler();
 		lua_pushnumber(L,lret);
@@ -302,7 +302,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::ToggleSyncToVBlankHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::ToggleSyncToVBlankHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -326,7 +326,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -345,7 +345,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ToggleSyncToVBlankHandler::setName(name);
 
@@ -363,7 +363,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ToggleSyncToVBlankHandler::computeDataVariance();
 
@@ -382,7 +382,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ToggleSyncToVBlankHandler::setUserData(obj);
 
@@ -400,7 +400,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::ToggleSyncToVBlankHandler::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::ToggleSyncToVBlankHandler::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ToggleSyncToVBlankHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,7 +421,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::ToggleSyncToVBlankHandler::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::ToggleSyncToVBlankHandler::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ToggleSyncToVBlankHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -454,7 +454,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ToggleSyncToVBlankHandler::releaseGLObjects(_arg1);
 
@@ -472,7 +472,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ToggleSyncToVBlankHandler::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ToggleSyncToVBlankHandler::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ToggleSyncToVBlankHandler::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -498,7 +498,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ToggleSyncToVBlankHandler::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::ToggleSyncToVBlankHandler::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ToggleSyncToVBlankHandler::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -520,7 +520,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::ToggleSyncToVBlankHandler::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::ToggleSyncToVBlankHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ToggleSyncToVBlankHandler::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -539,7 +539,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::ToggleSyncToVBlankHandler::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::ToggleSyncToVBlankHandler::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ToggleSyncToVBlankHandler::libraryName();
 		lua_pushstring(L,lret);
@@ -558,7 +558,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::ToggleSyncToVBlankHandler::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::ToggleSyncToVBlankHandler::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ToggleSyncToVBlankHandler::className();
 		lua_pushstring(L,lret);
@@ -579,7 +579,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ToggleSyncToVBlankHandler::event(nv, drawable);
 
@@ -607,7 +607,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::ToggleSyncToVBlankHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::ToggleSyncToVBlankHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ToggleSyncToVBlankHandler::handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -631,7 +631,7 @@ public:
 		osgViewer::ToggleSyncToVBlankHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::ToggleSyncToVBlankHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::ToggleSyncToVBlankHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ToggleSyncToVBlankHandler::getUsage(usage);
 

@@ -158,7 +158,7 @@ public:
 		osg::GeometryCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GeometryCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GeometryCostEstimator::setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::GeometryCostEstimator::setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDefaults();
 
@@ -181,7 +181,7 @@ public:
 		osg::GeometryCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GeometryCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GeometryCostEstimator::calibrate(osg::RenderInfo &)");
+			luaL_error(L, "Invalid object in function call void osg::GeometryCostEstimator::calibrate(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->calibrate(renderInfo);
 
@@ -200,7 +200,7 @@ public:
 		osg::GeometryCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GeometryCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GeometryCostEstimator::estimateCompileCost(const osg::Geometry *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GeometryCostEstimator::estimateCompileCost(const osg::Geometry *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(geometry);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -223,7 +223,7 @@ public:
 		osg::GeometryCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GeometryCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GeometryCostEstimator::estimateDrawCost(const osg::Geometry *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GeometryCostEstimator::estimateDrawCost(const osg::Geometry *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(geometry);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);

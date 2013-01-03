@@ -308,7 +308,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::Create(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::Create(wxWindow *). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent);
 		lua_pushboolean(L,lret?1:0);
@@ -327,7 +327,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::DestroyPopup()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::DestroyPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->DestroyPopup();
 
@@ -345,7 +345,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::Dismiss()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::Dismiss(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->Dismiss();
 
@@ -367,7 +367,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::FindItem(const wxString &, wxString *)");
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::FindItem(const wxString &, wxString *). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		bool lret = self->FindItem(item, &trueItem);
 		lua_pushboolean(L,lret?1:0);
@@ -389,7 +389,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::GetAdjustedSize(int, int, int)");
+			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::GetAdjustedSize(int, int, int). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetAdjustedSize(minWidth, prefHeight, maxHeight);
 		wxSize* lret = new wxSize(stack_lret);
@@ -411,7 +411,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxComboCtrl * wxComboPopup::GetComboCtrl() const");
+			luaL_error(L, "Invalid object in function call wxComboCtrl * wxComboPopup::GetComboCtrl() const. Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		wxComboCtrl * lret = self->GetComboCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -432,7 +432,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxComboPopup::GetControl()");
+			luaL_error(L, "Invalid object in function call wxWindow * wxComboPopup::GetControl(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetControl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -453,7 +453,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboPopup::GetStringValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxComboPopup::GetStringValue() const. Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		wxString lret = self->GetStringValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -472,7 +472,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::Init()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::Init(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->Init();
 
@@ -490,7 +490,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::IsCreated() const");
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::IsCreated() const. Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		bool lret = self->IsCreated();
 		lua_pushboolean(L,lret?1:0);
@@ -509,7 +509,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::LazyCreate()");
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::LazyCreate(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		bool lret = self->LazyCreate();
 		lua_pushboolean(L,lret?1:0);
@@ -528,7 +528,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboDoubleClick()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboDoubleClick(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->OnComboDoubleClick();
 
@@ -551,7 +551,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboKeyEvent(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboKeyEvent(wxKeyEvent &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->OnComboKeyEvent(event);
 
@@ -569,7 +569,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnDismiss()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnDismiss(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->OnDismiss();
 
@@ -587,7 +587,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnPopup()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->OnPopup();
 
@@ -615,7 +615,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::PaintComboControl(wxDC &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::PaintComboControl(wxDC &, const wxRect &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->PaintComboControl(dc, rect);
 
@@ -634,7 +634,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::SetStringValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::SetStringValue(const wxString &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->SetStringValue(value);
 
@@ -652,7 +652,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_DestroyPopup()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_DestroyPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::DestroyPopup();
 
@@ -674,7 +674,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_FindItem(const wxString &, wxString *)");
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_FindItem(const wxString &, wxString *). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		bool lret = self->wxComboPopup::FindItem(item, &trueItem);
 		lua_pushboolean(L,lret?1:0);
@@ -696,7 +696,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::base_GetAdjustedSize(int, int, int)");
+			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::base_GetAdjustedSize(int, int, int). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxComboPopup::GetAdjustedSize(minWidth, prefHeight, maxHeight);
 		wxSize* lret = new wxSize(stack_lret);
@@ -718,7 +718,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_Init()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_Init(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::Init();
 
@@ -736,7 +736,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_LazyCreate()");
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_LazyCreate(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		bool lret = self->wxComboPopup::LazyCreate();
 		lua_pushboolean(L,lret?1:0);
@@ -755,7 +755,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboDoubleClick()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboDoubleClick(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::OnComboDoubleClick();
 
@@ -778,7 +778,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::OnComboKeyEvent(event);
 
@@ -796,7 +796,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnDismiss()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnDismiss(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::OnDismiss();
 
@@ -814,7 +814,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnPopup()");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::OnPopup();
 
@@ -842,7 +842,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_PaintComboControl(wxDC &, const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_PaintComboControl(wxDC &, const wxRect &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::PaintComboControl(dc, rect);
 
@@ -861,7 +861,7 @@ public:
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_SetStringValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_SetStringValue(const wxString &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
 		}
 		self->wxComboPopup::SetStringValue(value);
 

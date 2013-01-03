@@ -566,7 +566,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -592,7 +592,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -614,7 +614,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Text::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgText::Text::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -633,7 +633,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Text::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Text::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -652,7 +652,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Text::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Text::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -674,7 +674,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setFont(osgText::Font *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setFont(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFont(font);
 
@@ -693,7 +693,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setFont(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setFont(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFont(fontfile);
 
@@ -721,7 +721,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setEnableDepthWrites(bool)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setEnableDepthWrites(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEnableDepthWrites(enable);
 
@@ -739,7 +739,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Text::getEnableDepthWrites() const");
+			luaL_error(L, "Invalid object in function call bool osgText::Text::getEnableDepthWrites() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getEnableDepthWrites();
 		lua_pushboolean(L,lret?1:0);
@@ -759,7 +759,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropType(osgText::Text::BackdropType)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropType(osgText::Text::BackdropType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBackdropType(type);
 
@@ -777,7 +777,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::BackdropType osgText::Text::getBackdropType() const");
+			luaL_error(L, "Invalid object in function call osgText::Text::BackdropType osgText::Text::getBackdropType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgText::Text::BackdropType lret = self->getBackdropType();
 		lua_pushnumber(L,lret);
@@ -799,7 +799,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropOffset(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropOffset(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBackdropOffset(offset);
 
@@ -819,7 +819,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropOffset(float, float)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropOffset(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBackdropOffset(horizontal, vertical);
 
@@ -846,7 +846,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Text::getBackdropHorizontalOffset() const");
+			luaL_error(L, "Invalid object in function call float osgText::Text::getBackdropHorizontalOffset() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getBackdropHorizontalOffset();
 		lua_pushnumber(L,lret);
@@ -865,7 +865,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Text::getBackdropVerticalOffset() const");
+			luaL_error(L, "Invalid object in function call float osgText::Text::getBackdropVerticalOffset() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getBackdropVerticalOffset();
 		lua_pushnumber(L,lret);
@@ -889,7 +889,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropColor(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBackdropColor(color);
 
@@ -907,7 +907,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getBackdropColor() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getBackdropColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getBackdropColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -929,7 +929,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropImplementation(osgText::Text::BackdropImplementation)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setBackdropImplementation(osgText::Text::BackdropImplementation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBackdropImplementation(implementation);
 
@@ -947,7 +947,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::BackdropImplementation osgText::Text::getBackdropImplementation() const");
+			luaL_error(L, "Invalid object in function call osgText::Text::BackdropImplementation osgText::Text::getBackdropImplementation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgText::Text::BackdropImplementation lret = self->getBackdropImplementation();
 		lua_pushnumber(L,lret);
@@ -967,7 +967,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setColorGradientMode(osgText::Text::ColorGradientMode)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setColorGradientMode(osgText::Text::ColorGradientMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setColorGradientMode(mode);
 
@@ -985,7 +985,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::ColorGradientMode osgText::Text::getColorGradientMode() const");
+			luaL_error(L, "Invalid object in function call osgText::Text::ColorGradientMode osgText::Text::getColorGradientMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgText::Text::ColorGradientMode lret = self->getColorGradientMode();
 		lua_pushnumber(L,lret);
@@ -1024,7 +1024,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::setColorGradientCorners(const osg::Vec4f &, const osg::Vec4f &, const osg::Vec4f &, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::setColorGradientCorners(const osg::Vec4f &, const osg::Vec4f &, const osg::Vec4f &, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setColorGradientCorners(topLeft, bottomLeft, bottomRight, topRight);
 
@@ -1042,7 +1042,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientTopLeft() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientTopLeft() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getColorGradientTopLeft();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1063,7 +1063,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientBottomLeft() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientBottomLeft() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getColorGradientBottomLeft();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1084,7 +1084,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientBottomRight() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientBottomRight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getColorGradientBottomRight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1105,7 +1105,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientTopRight() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgText::Text::getColorGradientTopRight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getColorGradientTopRight();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1131,7 +1131,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text::drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->drawImplementation(renderInfo);
 
@@ -1152,7 +1152,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(state);
 
@@ -1171,7 +1171,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads * osgText::Text::getGlyphQuads(osgText::GlyphTexture *) const");
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads * osgText::Text::getGlyphQuads(osgText::GlyphTexture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads * lret = self->getGlyphQuads(texture);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1193,7 +1193,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setName(name);
 
@@ -1212,7 +1212,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setUserData(obj);
 
@@ -1230,7 +1230,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::Text::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::Text::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Text::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1251,7 +1251,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::Text::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::Text::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Text::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1281,7 +1281,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::Text::base_asGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::Text::base_asGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->Text::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1302,7 +1302,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geometry * osgText::Text::base_asGeometry() const");
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osgText::Text::base_asGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geometry * lret = self->Text::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1332,7 +1332,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::computeDataVariance();
 
@@ -1351,7 +1351,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setUseVertexBufferObjects(bool)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setUseVertexBufferObjects(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setUseVertexBufferObjects(flag);
 
@@ -1369,7 +1369,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_dirtyDisplayList()");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_dirtyDisplayList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::dirtyDisplayList();
 
@@ -1387,7 +1387,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgText::Text::base_getGLObjectSizeHint() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgText::Text::base_getGLObjectSizeHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Text::getGLObjectSizeHint();
 		lua_pushnumber(L,lret);
@@ -1411,7 +1411,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_compileGLObjects(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::compileGLObjects(renderInfo);
 
@@ -1430,7 +1430,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setUpdateCallback(osg::Drawable::UpdateCallback *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setUpdateCallback(ac);
 
@@ -1449,7 +1449,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setEventCallback(osg::Drawable::EventCallback *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setEventCallback(ac);
 
@@ -1468,7 +1468,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setCullCallback(osg::Drawable::CullCallback *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setCullCallback(cc);
 
@@ -1487,7 +1487,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setDrawCallback(osg::Drawable::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setDrawCallback(dc);
 
@@ -1505,7 +1505,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::Text::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::Text::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingBoxd stack_lret = self->Text::computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
@@ -1527,7 +1527,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Text::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1553,7 +1553,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Text::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Text::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1575,7 +1575,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Text::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgText::Text::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Text::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1594,7 +1594,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Text::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Text::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Text::className();
 		lua_pushstring(L,lret);
@@ -1613,7 +1613,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Text::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Text::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Text::libraryName();
 		lua_pushstring(L,lret);
@@ -1635,7 +1635,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setFont(osgText::Font *)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setFont(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setFont(font);
 
@@ -1654,7 +1654,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_setFont(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_setFont(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::setFont(fontfile);
 
@@ -1686,7 +1686,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::drawImplementation(renderInfo);
 
@@ -1707,7 +1707,7 @@ public:
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Text::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgText::Text::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Text::releaseGLObjects(state);
 

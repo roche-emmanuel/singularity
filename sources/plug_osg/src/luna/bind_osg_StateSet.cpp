@@ -920,7 +920,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -946,7 +946,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -968,7 +968,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -987,7 +987,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StateSet::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StateSet::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -1006,7 +1006,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StateSet::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StateSet::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -1033,7 +1033,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StateSet::compare(const osg::StateSet &, bool) const");
+			luaL_error(L, "Invalid object in function call int osg::StateSet::compare(const osg::StateSet &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(rhs, compareAttributeContents);
 		lua_pushnumber(L,lret);
@@ -1052,7 +1052,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::ParentList & osg::StateSet::getParents() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::ParentList & osg::StateSet::getParents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::ParentList* lret = &self->getParents();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1073,7 +1073,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::ParentList osg::StateSet::getParents()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::ParentList osg::StateSet::getParents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet::ParentList stack_lret = self->getParents();
 		osg::StateSet::ParentList* lret = new osg::StateSet::ParentList(stack_lret);
@@ -1105,7 +1105,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::getParent(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::getParent(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->getParent(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1127,7 +1127,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Object * osg::StateSet::getParent(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Object * osg::StateSet::getParent(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Object * lret = self->getParent(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1157,7 +1157,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumParents() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumParents() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumParents();
 		lua_pushnumber(L,lret);
@@ -1176,7 +1176,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->computeDataVariance();
 
@@ -1194,7 +1194,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setGlobalDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setGlobalDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setGlobalDefaults();
 
@@ -1212,7 +1212,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::clear()");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->clear();
 
@@ -1235,7 +1235,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::merge(const osg::StateSet &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::merge(const osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->merge(rhs);
 
@@ -1255,7 +1255,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setMode(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setMode(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(mode, value);
 
@@ -1274,7 +1274,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeMode(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeMode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeMode(mode);
 
@@ -1293,7 +1293,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getMode(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getMode(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getMode(mode);
 		lua_pushnumber(L,lret);
@@ -1317,7 +1317,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setModeList(osg::StateSet::ModeList &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setModeList(osg::StateSet::ModeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setModeList(ml);
 
@@ -1335,7 +1335,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::ModeList & osg::StateSet::getModeList()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::ModeList & osg::StateSet::getModeList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::ModeList* lret = &self->getModeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1356,7 +1356,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::ModeList & osg::StateSet::getModeList() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::ModeList & osg::StateSet::getModeList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::ModeList* lret = &self->getModeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1390,7 +1390,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setAttribute(osg::StateAttribute *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setAttribute(osg::StateAttribute *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAttribute(attribute, value);
 
@@ -1412,7 +1412,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setAttributeAndModes(osg::StateAttribute *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setAttributeAndModes(osg::StateAttribute *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAttributeAndModes(attribute, value);
 
@@ -1434,7 +1434,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAttribute(osg::StateAttribute::Type, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAttribute(osg::StateAttribute::Type, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeAttribute(type, member);
 
@@ -1453,7 +1453,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAttribute(osg::StateAttribute *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAttribute(osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeAttribute(attribute);
 
@@ -1484,7 +1484,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::StateSet::getAttribute(osg::StateAttribute::Type, unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::StateSet::getAttribute(osg::StateAttribute::Type, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute * lret = self->getAttribute(type, member);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1509,7 +1509,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::StateSet::getAttribute(osg::StateAttribute::Type, unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::StateSet::getAttribute(osg::StateAttribute::Type, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateAttribute * lret = self->getAttribute(type, member);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1543,7 +1543,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::RefAttributePair * osg::StateSet::getAttributePair(osg::StateAttribute::Type, unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::RefAttributePair * osg::StateSet::getAttributePair(osg::StateAttribute::Type, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::RefAttributePair * lret = self->getAttributePair(type, member);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1569,7 +1569,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setAttributeList(osg::StateSet::AttributeList &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setAttributeList(osg::StateSet::AttributeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAttributeList(al);
 
@@ -1587,7 +1587,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::AttributeList & osg::StateSet::getAttributeList()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::AttributeList & osg::StateSet::getAttributeList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::AttributeList* lret = &self->getAttributeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1608,7 +1608,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::AttributeList & osg::StateSet::getAttributeList() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::AttributeList & osg::StateSet::getAttributeList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::AttributeList* lret = &self->getAttributeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1641,7 +1641,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureMode(unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureMode(unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureMode(unit, mode, value);
 
@@ -1661,7 +1661,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeTextureMode(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeTextureMode(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeTextureMode(unit, mode);
 
@@ -1681,7 +1681,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getTextureMode(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getTextureMode(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTextureMode(unit, mode);
 		lua_pushnumber(L,lret);
@@ -1705,7 +1705,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureModeList(osg::StateSet::TextureModeList &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureModeList(osg::StateSet::TextureModeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureModeList(tml);
 
@@ -1723,7 +1723,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::TextureModeList & osg::StateSet::getTextureModeList()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::TextureModeList & osg::StateSet::getTextureModeList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::TextureModeList* lret = &self->getTextureModeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1744,7 +1744,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::TextureModeList & osg::StateSet::getTextureModeList() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::TextureModeList & osg::StateSet::getTextureModeList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::TextureModeList* lret = &self->getTextureModeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1774,7 +1774,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumTextureModeLists() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumTextureModeLists() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumTextureModeLists();
 		lua_pushnumber(L,lret);
@@ -1798,7 +1798,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureAttribute(unsigned int, osg::StateAttribute *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureAttribute(unsigned int, osg::StateAttribute *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureAttribute(unit, attribute, value);
 
@@ -1821,7 +1821,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureAttributeAndModes(unsigned int, osg::StateAttribute *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureAttributeAndModes(unsigned int, osg::StateAttribute *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureAttributeAndModes(unit, attribute, value);
 
@@ -1841,7 +1841,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeTextureAttribute(unsigned int, osg::StateAttribute::Type)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeTextureAttribute(unsigned int, osg::StateAttribute::Type). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeTextureAttribute(unit, type);
 
@@ -1861,7 +1861,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeTextureAttribute(unsigned int, osg::StateAttribute *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeTextureAttribute(unsigned int, osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeTextureAttribute(unit, attribute);
 
@@ -1890,7 +1890,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::StateSet::getTextureAttribute(unsigned int, osg::StateAttribute::Type)");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::StateSet::getTextureAttribute(unsigned int, osg::StateAttribute::Type). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute * lret = self->getTextureAttribute(unit, type);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1913,7 +1913,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::StateSet::getTextureAttribute(unsigned int, osg::StateAttribute::Type) const");
+			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::StateSet::getTextureAttribute(unsigned int, osg::StateAttribute::Type) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateAttribute * lret = self->getTextureAttribute(unit, type);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1945,7 +1945,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::RefAttributePair * osg::StateSet::getTextureAttributePair(unsigned int, osg::StateAttribute::Type) const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::RefAttributePair * osg::StateSet::getTextureAttributePair(unsigned int, osg::StateAttribute::Type) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::RefAttributePair * lret = self->getTextureAttributePair(unit, type);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1971,7 +1971,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureAttributeList(osg::StateSet::TextureAttributeList &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setTextureAttributeList(osg::StateSet::TextureAttributeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureAttributeList(tal);
 
@@ -1989,7 +1989,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::TextureAttributeList & osg::StateSet::getTextureAttributeList()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::TextureAttributeList & osg::StateSet::getTextureAttributeList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::TextureAttributeList* lret = &self->getTextureAttributeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2010,7 +2010,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::TextureAttributeList & osg::StateSet::getTextureAttributeList() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::TextureAttributeList & osg::StateSet::getTextureAttributeList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::TextureAttributeList* lret = &self->getTextureAttributeList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2040,7 +2040,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumTextureAttributeLists() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumTextureAttributeLists() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumTextureAttributeLists();
 		lua_pushnumber(L,lret);
@@ -2061,7 +2061,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setAssociatedModes(const osg::StateAttribute *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setAssociatedModes(const osg::StateAttribute *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAssociatedModes(attribute, value);
 
@@ -2080,7 +2080,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAssociatedModes(const osg::StateAttribute *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAssociatedModes(const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeAssociatedModes(attribute);
 
@@ -2101,7 +2101,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setAssociatedTextureModes(unsigned int, const osg::StateAttribute *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setAssociatedTextureModes(unsigned int, const osg::StateAttribute *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAssociatedTextureModes(unit, attribute, value);
 
@@ -2121,7 +2121,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAssociatedTextureModes(unsigned int, const osg::StateAttribute *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeAssociatedTextureModes(unsigned int, const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeAssociatedTextureModes(unit, attribute);
 
@@ -2143,7 +2143,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::addUniform(osg::Uniform *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::addUniform(osg::Uniform *, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addUniform(uniform, value);
 
@@ -2162,7 +2162,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeUniform(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeUniform(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeUniform(name);
 
@@ -2181,7 +2181,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::removeUniform(osg::Uniform *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::removeUniform(osg::Uniform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeUniform(uniform);
 
@@ -2209,7 +2209,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform * osg::StateSet::getUniform(const std::string &)");
+			luaL_error(L, "Invalid object in function call osg::Uniform * osg::StateSet::getUniform(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Uniform * lret = self->getUniform(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2231,7 +2231,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Uniform * osg::StateSet::getUniform(const std::string &) const");
+			luaL_error(L, "Invalid object in function call const osg::Uniform * osg::StateSet::getUniform(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Uniform * lret = self->getUniform(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2266,7 +2266,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform * osg::StateSet::getOrCreateUniform(const std::string &, osg::Uniform::Type, unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Uniform * osg::StateSet::getOrCreateUniform(const std::string &, osg::Uniform::Type, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Uniform * lret = self->getOrCreateUniform(name, type, numElements);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2288,7 +2288,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::RefUniformPair * osg::StateSet::getUniformPair(const std::string &) const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::RefUniformPair * osg::StateSet::getUniformPair(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::RefUniformPair * lret = self->getUniformPair(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2314,7 +2314,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setUniformList(osg::StateSet::UniformList &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setUniformList(osg::StateSet::UniformList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUniformList(al);
 
@@ -2332,7 +2332,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::UniformList & osg::StateSet::getUniformList()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::UniformList & osg::StateSet::getUniformList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::UniformList* lret = &self->getUniformList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2353,7 +2353,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::UniformList & osg::StateSet::getUniformList() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::UniformList & osg::StateSet::getUniformList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::UniformList* lret = &self->getUniformList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2384,7 +2384,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderingHint(int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderingHint(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderingHint(hint);
 
@@ -2402,7 +2402,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StateSet::getRenderingHint() const");
+			luaL_error(L, "Invalid object in function call int osg::StateSet::getRenderingHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getRenderingHint();
 		lua_pushnumber(L,lret);
@@ -2426,7 +2426,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderBinDetails(int, const std::string &, osg::StateSet::RenderBinMode)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderBinDetails(int, const std::string &, osg::StateSet::RenderBinMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderBinDetails(binNum, binName, mode);
 
@@ -2444,7 +2444,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderBinToInherit()");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderBinToInherit(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderBinToInherit();
 
@@ -2462,7 +2462,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::useRenderBinDetails() const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::useRenderBinDetails() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->useRenderBinDetails();
 		lua_pushboolean(L,lret?1:0);
@@ -2482,7 +2482,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderBinMode(osg::StateSet::RenderBinMode)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setRenderBinMode(osg::StateSet::RenderBinMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderBinMode(mode);
 
@@ -2500,7 +2500,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::RenderBinMode osg::StateSet::getRenderBinMode() const");
+			luaL_error(L, "Invalid object in function call osg::StateSet::RenderBinMode osg::StateSet::getRenderBinMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet::RenderBinMode lret = self->getRenderBinMode();
 		lua_pushnumber(L,lret);
@@ -2520,7 +2520,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setBinNumber(int)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setBinNumber(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBinNumber(num);
 
@@ -2538,7 +2538,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::StateSet::getBinNumber() const");
+			luaL_error(L, "Invalid object in function call int osg::StateSet::getBinNumber() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getBinNumber();
 		lua_pushnumber(L,lret);
@@ -2558,7 +2558,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setBinName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setBinName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBinName(name);
 
@@ -2576,7 +2576,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::StateSet::getBinName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::StateSet::getBinName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getBinName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2596,7 +2596,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setNestRenderBins(bool)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setNestRenderBins(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNestRenderBins(val);
 
@@ -2614,7 +2614,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::getNestRenderBins() const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::getNestRenderBins() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getNestRenderBins();
 		lua_pushboolean(L,lret?1:0);
@@ -2634,7 +2634,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setUpdateCallback(osg::StateSet::Callback *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setUpdateCallback(osg::StateSet::Callback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUpdateCallback(ac);
 
@@ -2652,7 +2652,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::Callback * osg::StateSet::getUpdateCallback()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::Callback * osg::StateSet::getUpdateCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet::Callback * lret = self->getUpdateCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2673,7 +2673,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::Callback * osg::StateSet::getUpdateCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::Callback * osg::StateSet::getUpdateCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::Callback * lret = self->getUpdateCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2703,7 +2703,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::requiresUpdateTraversal() const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::requiresUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->requiresUpdateTraversal();
 		lua_pushboolean(L,lret?1:0);
@@ -2722,7 +2722,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumChildrenRequiringUpdateTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumChildrenRequiringUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumChildrenRequiringUpdateTraversal();
 		lua_pushnumber(L,lret);
@@ -2742,7 +2742,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::runUpdateCallbacks(osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::runUpdateCallbacks(osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->runUpdateCallbacks(nv);
 
@@ -2761,7 +2761,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setEventCallback(osg::StateSet::Callback *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setEventCallback(osg::StateSet::Callback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEventCallback(ac);
 
@@ -2779,7 +2779,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet::Callback * osg::StateSet::getEventCallback()");
+			luaL_error(L, "Invalid object in function call osg::StateSet::Callback * osg::StateSet::getEventCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet::Callback * lret = self->getEventCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2800,7 +2800,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet::Callback * osg::StateSet::getEventCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet::Callback * osg::StateSet::getEventCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet::Callback * lret = self->getEventCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2830,7 +2830,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::requiresEventTraversal() const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::requiresEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->requiresEventTraversal();
 		lua_pushboolean(L,lret?1:0);
@@ -2849,7 +2849,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumChildrenRequiringEventTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::StateSet::getNumChildrenRequiringEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumChildrenRequiringEventTraversal();
 		lua_pushnumber(L,lret);
@@ -2869,7 +2869,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::runEventCallbacks(osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::runEventCallbacks(osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->runEventCallbacks(nv);
 
@@ -2892,7 +2892,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->checkValidityOfAssociatedModes(state);
 		lua_pushboolean(L,lret?1:0);
@@ -2916,7 +2916,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compileGLObjects(state);
 
@@ -2937,7 +2937,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(state);
 
@@ -2956,7 +2956,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSet::setName(name);
 
@@ -2975,7 +2975,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSet::setUserData(obj);
 
@@ -2993,7 +2993,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::StateSet::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::StateSet::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->StateSet::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3014,7 +3014,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::StateSet::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::StateSet::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->StateSet::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3044,7 +3044,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->StateSet::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3070,7 +3070,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::StateSet::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->StateSet::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3092,7 +3092,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StateSet::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -3111,7 +3111,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StateSet::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StateSet::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StateSet::libraryName();
 		lua_pushstring(L,lret);
@@ -3130,7 +3130,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::StateSet::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::StateSet::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StateSet::className();
 		lua_pushstring(L,lret);
@@ -3149,7 +3149,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSet::computeDataVariance();
 
@@ -3170,7 +3170,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::StateSet::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSet::releaseGLObjects(state);
 
@@ -3195,7 +3195,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::operator<(const osg::StateSet &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::operator<(const osg::StateSet &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -3219,7 +3219,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::operator==(const osg::StateSet &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::operator==(const osg::StateSet &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -3243,7 +3243,7 @@ public:
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::StateSet::operator!=(const osg::StateSet &) const");
+			luaL_error(L, "Invalid object in function call bool osg::StateSet::operator!=(const osg::StateSet &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(rhs);
 		lua_pushboolean(L,lret?1:0);

@@ -21,16 +21,15 @@ public:
 	
 	wrapper_wxHtmlEasyPrinting(lua_State* L, lua_Table* dum, const wxString & name = "Printing", wxWindow * parentWindow = NULL) : wxHtmlEasyPrinting(name, parentWindow), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
-
-		return wxHtmlEasyPrinting::GetClassInfo();
+private:
+	// Private virtual methods:
+	// bool wxHtmlEasyPrinting::CheckFit(const wxSize & pageArea, const wxSize & docArea) const
+	bool CheckFit(const wxSize & pageArea, const wxSize & docArea) const {
+		THROW_IF(!_obj.pushFunction("CheckFit"),"No implementation for abstract function wxHtmlEasyPrinting::CheckFit");
+		_obj.pushArg(&pageArea);
+		_obj.pushArg(&docArea);
+		return (_obj.callFunction<bool>());
 	};
-
 
 protected:
 	// Protected virtual methods:
@@ -54,6 +53,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxHtmlEasyPrinting::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

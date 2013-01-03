@@ -64,6 +64,10 @@ SET(AWESOMIUM_INC_DIR 	${DEP_AWESOMIUM}/include)
 SET(AWESOMIUM_LIB_DIR 	${DEP_AWESOMIUM}/lib)
 SET(AWESOMIUM_LIBS 		awesomium.lib)
 
+SET(SPARK_INC_DIR 	${DEP_SPARK}/include)
+SET(SPARK_LIB_DIR 	${DEP_SPARK}/lib/vc2008/static/)
+SET(SPARK_LIBS 		SPARK.lib SPARK_GL.lib)
+
 SET(OSG_INC_DIR 	${DEP_OSG}/include)
 SET(OSG_LIB_DIR 	${DEP_OSG}/lib ${DEP_OSG}/lib/osgPlugins-3.0.1)
 SET(OSG_LIBS     	OpenThreads

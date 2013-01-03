@@ -144,7 +144,15 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_removeSink(lua_State *L) {
+	inline static bool _lg_typecheck_removeSink_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_removeSink_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -282,7 +290,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::log(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::log(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->log(level, trace, msg);
 
@@ -301,7 +309,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::LogManager::getLevelFlags(int)");
+			luaL_error(L, "Invalid object in function call int sgt::LogManager::getLevelFlags(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getLevelFlags(level);
 		lua_pushnumber(L,lret);
@@ -322,7 +330,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::setLevelFlags(int, int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setLevelFlags(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setLevelFlags(level, flags);
 
@@ -342,7 +350,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::addLevelFlags(int, int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::addLevelFlags(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addLevelFlags(level, flags);
 
@@ -362,7 +370,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::removeLevelFlags(int, int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::removeLevelFlags(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeLevelFlags(level, flags);
 
@@ -381,7 +389,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::LogManager::getTraceFlags(std::string)");
+			luaL_error(L, "Invalid object in function call int sgt::LogManager::getTraceFlags(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getTraceFlags(trace);
 		lua_pushnumber(L,lret);
@@ -402,7 +410,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::setTraceFlags(std::string, int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setTraceFlags(std::string, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTraceFlags(trace, flags);
 
@@ -421,16 +429,36 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::addSink(sgt::LogSink *)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::addSink(sgt::LogSink *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addSink(sink);
 
 		return 0;
 	}
 
+	// bool sgt::LogManager::removeSink(sgt::LogSink * sink)
+	static int _bind_removeSink_overload_1(lua_State *L) {
+		if (!_lg_typecheck_removeSink_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool sgt::LogManager::removeSink(sgt::LogSink * sink) function, expected prototype:\nbool sgt::LogManager::removeSink(sgt::LogSink * sink)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		sgt::LogSink* sink=(Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,2));
+
+		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeSink(sgt::LogSink *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->removeSink(sink);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// bool sgt::LogManager::removeSink(const std::string & name)
-	static int _bind_removeSink(lua_State *L) {
-		if (!_lg_typecheck_removeSink(L)) {
+	static int _bind_removeSink_overload_2(lua_State *L) {
+		if (!_lg_typecheck_removeSink_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool sgt::LogManager::removeSink(const std::string & name) function, expected prototype:\nbool sgt::LogManager::removeSink(const std::string & name)\nClass arguments details:\n");
 		}
@@ -440,12 +468,21 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeSink(const std::string &)");
+			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeSink(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeSink(name);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// Overload binder for sgt::LogManager::removeSink
+	static int _bind_removeSink(lua_State *L) {
+		if (_lg_typecheck_removeSink_overload_1(L)) return _bind_removeSink_overload_1(L);
+		if (_lg_typecheck_removeSink_overload_2(L)) return _bind_removeSink_overload_2(L);
+
+		luaL_error(L, "error in function removeSink, cannot match any of the overloads for function removeSink:\n  removeSink(sgt::LogSink *)\n  removeSink(const std::string &)\n");
+		return 0;
 	}
 
 	// sgt::LogSink * sgt::LogManager::getSink(const std::string & name)
@@ -460,7 +497,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call sgt::LogSink * sgt::LogManager::getSink(const std::string &)");
+			luaL_error(L, "Invalid object in function call sgt::LogSink * sgt::LogManager::getSink(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		sgt::LogSink * lret = self->getSink(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -481,7 +518,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::LogManager::getNotifyLevel()");
+			luaL_error(L, "Invalid object in function call int sgt::LogManager::getNotifyLevel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getNotifyLevel();
 		lua_pushnumber(L,lret);
@@ -501,7 +538,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::setNotifyLevel(int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setNotifyLevel(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNotifyLevel(level);
 
@@ -519,7 +556,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::LogManager::getVerbose()");
+			luaL_error(L, "Invalid object in function call bool sgt::LogManager::getVerbose(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getVerbose();
 		lua_pushboolean(L,lret?1:0);
@@ -539,7 +576,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::setVerbose(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setVerbose(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVerbose(verbose);
 
@@ -558,7 +595,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getLevelString(int)");
+			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getLevelString(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->getLevelString(level);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -577,7 +614,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getTimeStamp()");
+			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getTimeStamp(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->getTimeStamp();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -597,7 +634,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultTraceFlags(int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultTraceFlags(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDefaultTraceFlags(val);
 
@@ -616,7 +653,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultLevelFlags(int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultLevelFlags(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDefaultLevelFlags(val);
 
@@ -664,7 +701,7 @@ public:
 		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogManager::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LogManager::setThreadSafeRefUnref(threadSafe);
 

@@ -409,7 +409,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::CheckOSVersion(int, int) const");
+			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::CheckOSVersion(int, int) const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		bool lret = self->CheckOSVersion(major, minor);
 		lua_pushboolean(L,lret?1:0);
@@ -430,7 +430,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::CheckToolkitVersion(int, int) const");
+			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::CheckToolkitVersion(int, int) const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		bool lret = self->CheckToolkitVersion(major, minor);
 		lua_pushboolean(L,lret?1:0);
@@ -449,7 +449,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::IsOk() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -468,7 +468,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::IsUsingUniversalWidgets() const");
+			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::IsUsingUniversalWidgets() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsUsingUniversalWidgets();
 		lua_pushboolean(L,lret?1:0);
@@ -487,7 +487,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArchitecture wxPlatformInfo::GetArchitecture() const");
+			luaL_error(L, "Invalid object in function call wxArchitecture wxPlatformInfo::GetArchitecture() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxArchitecture lret = self->GetArchitecture();
 		lua_pushnumber(L,lret);
@@ -506,7 +506,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEndianness wxPlatformInfo::GetEndianness() const");
+			luaL_error(L, "Invalid object in function call wxEndianness wxPlatformInfo::GetEndianness() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxEndianness lret = self->GetEndianness();
 		lua_pushnumber(L,lret);
@@ -549,7 +549,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetOSMajorVersion() const");
+			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetOSMajorVersion() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		int lret = self->GetOSMajorVersion();
 		lua_pushnumber(L,lret);
@@ -568,7 +568,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetOSMinorVersion() const");
+			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetOSMinorVersion() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		int lret = self->GetOSMinorVersion();
 		lua_pushnumber(L,lret);
@@ -587,7 +587,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOperatingSystemId wxPlatformInfo::GetOperatingSystemId() const");
+			luaL_error(L, "Invalid object in function call wxOperatingSystemId wxPlatformInfo::GetOperatingSystemId() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxOperatingSystemId lret = self->GetOperatingSystemId();
 		lua_pushnumber(L,lret);
@@ -630,7 +630,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetOperatingSystemDescription() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetOperatingSystemDescription() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetOperatingSystemDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -649,7 +649,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPortId wxPlatformInfo::GetPortId() const");
+			luaL_error(L, "Invalid object in function call wxPortId wxPlatformInfo::GetPortId() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxPortId lret = self->GetPortId();
 		lua_pushnumber(L,lret);
@@ -692,7 +692,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLinuxDistributionInfo wxPlatformInfo::GetLinuxDistributionInfo() const");
+			luaL_error(L, "Invalid object in function call wxLinuxDistributionInfo wxPlatformInfo::GetLinuxDistributionInfo() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxLinuxDistributionInfo stack_lret = self->GetLinuxDistributionInfo();
 		wxLinuxDistributionInfo* lret = new wxLinuxDistributionInfo(stack_lret);
@@ -714,7 +714,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetDesktopEnvironment() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetDesktopEnvironment() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetDesktopEnvironment();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -733,7 +733,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetToolkitMajorVersion() const");
+			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetToolkitMajorVersion() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		int lret = self->GetToolkitMajorVersion();
 		lua_pushnumber(L,lret);
@@ -752,7 +752,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetToolkitMinorVersion() const");
+			luaL_error(L, "Invalid object in function call int wxPlatformInfo::GetToolkitMinorVersion() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		int lret = self->GetToolkitMinorVersion();
 		lua_pushnumber(L,lret);
@@ -771,7 +771,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetArchName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetArchName() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetArchName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -814,7 +814,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetEndiannessName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetEndiannessName() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetEndiannessName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -857,7 +857,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetOperatingSystemFamilyName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetOperatingSystemFamilyName() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetOperatingSystemFamilyName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -900,7 +900,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetOperatingSystemIdName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetOperatingSystemIdName() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetOperatingSystemIdName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -943,7 +943,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetPortIdName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetPortIdName() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetPortIdName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -987,7 +987,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetPortIdShortName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPlatformInfo::GetPortIdShortName() const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetPortIdShortName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1032,7 +1032,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetArchitecture(wxArchitecture)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetArchitecture(wxArchitecture). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetArchitecture(n);
 
@@ -1051,7 +1051,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetEndianness(wxEndianness)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetEndianness(wxEndianness). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetEndianness(n);
 
@@ -1071,7 +1071,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetOSVersion(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetOSVersion(int, int). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetOSVersion(major, minor);
 
@@ -1090,7 +1090,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetOperatingSystemId(wxOperatingSystemId)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetOperatingSystemId(wxOperatingSystemId). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetOperatingSystemId(n);
 
@@ -1109,7 +1109,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetPortId(wxPortId)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetPortId(wxPortId). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetPortId(n);
 
@@ -1129,7 +1129,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetToolkitVersion(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetToolkitVersion(int, int). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetToolkitVersion(major, minor);
 
@@ -1148,7 +1148,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetOperatingSystemDescription(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetOperatingSystemDescription(const wxString &). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetOperatingSystemDescription(desc);
 
@@ -1167,7 +1167,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetDesktopEnvironment(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetDesktopEnvironment(const wxString &). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetDesktopEnvironment(de);
 
@@ -1190,7 +1190,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetLinuxDistributionInfo(const wxLinuxDistributionInfo &)");
+			luaL_error(L, "Invalid object in function call void wxPlatformInfo::SetLinuxDistributionInfo(const wxLinuxDistributionInfo &). Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		self->SetLinuxDistributionInfo(di);
 
@@ -1260,7 +1260,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::operator!=(const wxPlatformInfo &) const");
+			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::operator!=(const wxPlatformInfo &) const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(t);
 		lua_pushboolean(L,lret?1:0);
@@ -1284,7 +1284,7 @@ public:
 		wxPlatformInfo* self=(Luna< wxPlatformInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::operator==(const wxPlatformInfo &) const");
+			luaL_error(L, "Invalid object in function call bool wxPlatformInfo::operator==(const wxPlatformInfo &) const. Got : '%s'",typeid(Luna< wxPlatformInfo >::check(L,1)).name());
 		}
 		bool lret = self->operator==(t);
 		lua_pushboolean(L,lret?1:0);

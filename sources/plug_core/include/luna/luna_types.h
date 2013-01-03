@@ -208,7 +208,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::ref_ptr< osg::Referenced >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::ref_ptr< osg::Referenced >* obj);
-	typedef sgt::RefPtr parent_t;
+	typedef osg::ref_ptr< osg::Referenced > parent_t;
 	typedef osg::ref_ptr< osg::Referenced > base_t;
 	static luna_ConverterType converters[];
 };
@@ -352,7 +352,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< sgt::LogSink > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< sgt::LogSink > >* obj);
-	typedef sgt::LogManager::SinkVector parent_t;
+	typedef std::vector< osg::ref_ptr< sgt::LogSink > > parent_t;
 	typedef std::vector< osg::ref_ptr< sgt::LogSink > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -370,7 +370,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< int, int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< int, int >* obj);
-	typedef sgt::LogManager::LevelFlagMap parent_t;
+	typedef std::map< int, int > parent_t;
 	typedef std::map< int, int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -388,7 +388,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, int >* obj);
-	typedef sgt::LogManager::TraceFlagMap parent_t;
+	typedef std::map< std::string, int > parent_t;
 	typedef std::map< std::string, int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -424,7 +424,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< std::string >* obj);
-	typedef sgt::LogSink::StringSet parent_t;
+	typedef std::set< std::string > parent_t;
 	typedef std::set< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -498,6 +498,43 @@ public:
 	static void _bind_dtor(std::ostream* obj);
 	typedef std::ostream parent_t;
 	typedef std::ostream base_t;
+	static luna_ConverterType converters[];
+};
+
+
+template<>
+class LunaTraits< std::map< std::string, unsigned int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
+	typedef std::map< std::string, unsigned int > parent_t;
+	typedef std::map< std::string, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Mutex > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Mutex* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Mutex* obj);
+	typedef OpenThreads::Mutex parent_t;
+	typedef OpenThreads::Mutex base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -604,6 +641,55 @@ template<>
 class LunaType< 2993706 > {
 public:
 	typedef std::ostream type;
+	
+};
+
+template<>
+class LunaType< 27704170 > {
+public:
+	typedef std::map< std::string, int > type;
+	
+};
+
+template<>
+class LunaType< 72783721 > {
+public:
+	typedef std::map< std::string, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 84922662 > {
+public:
+	typedef osg::ref_ptr< osg::Referenced > type;
+	
+};
+
+template<>
+class LunaType< 20265607 > {
+public:
+	typedef std::vector< osg::ref_ptr< sgt::LogSink > > type;
+	
+};
+
+template<>
+class LunaType< 79429939 > {
+public:
+	typedef std::map< int, int > type;
+	
+};
+
+template<>
+class LunaType< 74170402 > {
+public:
+	typedef std::set< std::string > type;
+	
+};
+
+template<>
+class LunaType< 3168391 > {
+public:
+	typedef OpenThreads::Mutex type;
 	
 };
 

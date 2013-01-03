@@ -22,6 +22,30 @@ public:
 	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, osg::GraphicsContext::Traits * traits = 0) : osgViewer::GraphicsWindowEmbedded(traits), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : osgViewer::GraphicsWindowEmbedded(x, y, width, height), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// osg::Object * osg::GraphicsContext::cloneType() const
+	osg::Object * cloneType() const {
+		if(_obj.pushFunction("cloneType")) {
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsWindowEmbedded::cloneType();
+	};
+
+	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
+	osg::Object * clone(const osg::CopyOp & arg1) const {
+		if(_obj.pushFunction("clone")) {
+			_obj.pushArg(&arg1);
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsWindowEmbedded::clone(arg1);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -375,28 +399,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// osg::Object * osg::GraphicsContext::cloneType() const
-	osg::Object * cloneType() const {
-		if(_obj.pushFunction("cloneType")) {
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return GraphicsWindowEmbedded::cloneType();
-	};
-
-	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
-	osg::Object * clone(const osg::CopyOp & arg1) const {
-		if(_obj.pushFunction("clone")) {
-			_obj.pushArg(&arg1);
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return GraphicsWindowEmbedded::clone(arg1);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osg::GraphicsContext::addCamera(osg::Camera * camera)
 	void public_addCamera(osg::Camera * camera) {
@@ -486,7 +488,7 @@ public:
 		wrapper_osgViewer_GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindowEmbedded >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_addCamera(osg::Camera *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_addCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addCamera(camera);
 
@@ -505,7 +507,7 @@ public:
 		wrapper_osgViewer_GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindowEmbedded >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_removeCamera(osg::Camera *)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::public_removeCamera(osg::Camera *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeCamera(camera);
 
@@ -524,7 +526,7 @@ public:
 		wrapper_osgViewer_GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindowEmbedded >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_registerGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_registerGraphicsContext(gc);
 
@@ -543,7 +545,7 @@ public:
 		wrapper_osgViewer_GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindowEmbedded >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call static void osg::GraphicsContext::public_unregisterGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_unregisterGraphicsContext(gc);
 
@@ -563,7 +565,7 @@ public:
 		wrapper_osgViewer_GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindowEmbedded >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -581,7 +583,7 @@ public:
 		wrapper_osgViewer_GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_GraphicsWindowEmbedded >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

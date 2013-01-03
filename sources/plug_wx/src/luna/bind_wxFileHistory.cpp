@@ -263,7 +263,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFileToHistory(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFileToHistory(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddFileToHistory(filename);
 
@@ -281,7 +281,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFilesToMenu()");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFilesToMenu(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddFilesToMenu();
 
@@ -300,7 +300,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFilesToMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFilesToMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddFilesToMenu(menu);
 
@@ -327,7 +327,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileHistory::GetBaseId() const");
+			luaL_error(L, "Invalid object in function call int wxFileHistory::GetBaseId() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetBaseId();
 		lua_pushnumber(L,lret);
@@ -346,7 +346,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileHistory::GetCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxFileHistory::GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -366,7 +366,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileHistory::GetHistoryFile(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileHistory::GetHistoryFile(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetHistoryFile(index);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -385,7 +385,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileHistory::GetMaxFiles() const");
+			luaL_error(L, "Invalid object in function call int wxFileHistory::GetMaxFiles() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetMaxFiles();
 		lua_pushnumber(L,lret);
@@ -404,7 +404,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxList & wxFileHistory::GetMenus() const");
+			luaL_error(L, "Invalid object in function call const wxList & wxFileHistory::GetMenus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxList* lret = &self->GetMenus();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -430,7 +430,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::Load(const wxConfigBase &)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::Load(const wxConfigBase &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Load(config);
 
@@ -449,7 +449,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::RemoveFileFromHistory(size_t)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::RemoveFileFromHistory(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RemoveFileFromHistory(i);
 
@@ -468,7 +468,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::RemoveMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::RemoveMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RemoveMenu(menu);
 
@@ -491,7 +491,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::Save(wxConfigBase &)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::Save(wxConfigBase &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Save(config);
 
@@ -510,7 +510,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::SetBaseId(int)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::SetBaseId(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBaseId(baseId);
 
@@ -529,7 +529,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::UseMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::UseMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UseMenu(menu);
 
@@ -547,7 +547,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileHistory::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileHistory::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFileHistory::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,7 +569,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFileToHistory(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFileToHistory(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::AddFileToHistory(filename);
 
@@ -587,7 +587,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFilesToMenu()");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFilesToMenu(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::AddFilesToMenu();
 
@@ -606,7 +606,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFilesToMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFilesToMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::AddFilesToMenu(menu);
 
@@ -633,7 +633,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileHistory::base_GetCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxFileHistory::base_GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxFileHistory::GetCount();
 		lua_pushnumber(L,lret);
@@ -653,7 +653,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileHistory::base_GetHistoryFile(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxFileHistory::base_GetHistoryFile(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxFileHistory::GetHistoryFile(index);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -672,7 +672,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileHistory::base_GetMaxFiles() const");
+			luaL_error(L, "Invalid object in function call int wxFileHistory::base_GetMaxFiles() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxFileHistory::GetMaxFiles();
 		lua_pushnumber(L,lret);
@@ -696,7 +696,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_Load(const wxConfigBase &)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_Load(const wxConfigBase &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::Load(config);
 
@@ -715,7 +715,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_RemoveFileFromHistory(size_t)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_RemoveFileFromHistory(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::RemoveFileFromHistory(i);
 
@@ -734,7 +734,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_RemoveMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_RemoveMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::RemoveMenu(menu);
 
@@ -757,7 +757,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_Save(wxConfigBase &)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_Save(wxConfigBase &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::Save(config);
 
@@ -776,7 +776,7 @@ public:
 		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileHistory::base_UseMenu(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_UseMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileHistory::UseMenu(menu);
 

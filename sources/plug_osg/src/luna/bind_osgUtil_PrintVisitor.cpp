@@ -250,7 +250,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(node);
 
@@ -268,7 +268,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::ostream & osgUtil::PrintVisitor::output()");
+			luaL_error(L, "Invalid object in function call std::ostream & osgUtil::PrintVisitor::output(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::ostream* lret = &self->output();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -289,7 +289,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::enter()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::enter(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->enter();
 
@@ -307,7 +307,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->leave();
 
@@ -325,7 +325,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PrintVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PrintVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PrintVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -344,7 +344,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PrintVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PrintVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PrintVisitor::className();
 		lua_pushstring(L,lret);
@@ -363,7 +363,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrintVisitor::reset();
 
@@ -381,7 +381,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PrintVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PrintVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->PrintVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -403,7 +403,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PrintVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PrintVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->PrintVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -431,7 +431,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->PrintVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -456,7 +456,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->PrintVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -481,7 +481,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->PrintVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -505,7 +505,7 @@ public:
 		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrintVisitor::apply(node);
 

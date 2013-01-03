@@ -129,7 +129,7 @@ public:
 		wxSimpleHelpProvider* self=Luna< wxHelpProvider >::checkSubType< wxSimpleHelpProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSimpleHelpProvider::base_AddHelp(wxWindow *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSimpleHelpProvider::base_AddHelp(wxWindow *, const wxString &). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->wxSimpleHelpProvider::AddHelp(window, text);
 
@@ -149,7 +149,7 @@ public:
 		wxSimpleHelpProvider* self=Luna< wxHelpProvider >::checkSubType< wxSimpleHelpProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSimpleHelpProvider::base_AddHelp(int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSimpleHelpProvider::base_AddHelp(int, const wxString &). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->wxSimpleHelpProvider::AddHelp(id, text);
 
@@ -177,7 +177,7 @@ public:
 		wxSimpleHelpProvider* self=Luna< wxHelpProvider >::checkSubType< wxSimpleHelpProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSimpleHelpProvider::base_RemoveHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSimpleHelpProvider::base_RemoveHelp(wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->wxSimpleHelpProvider::RemoveHelp(window);
 
@@ -196,7 +196,7 @@ public:
 		wxSimpleHelpProvider* self=Luna< wxHelpProvider >::checkSubType< wxSimpleHelpProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSimpleHelpProvider::base_ShowHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSimpleHelpProvider::base_ShowHelp(wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		bool lret = self->wxSimpleHelpProvider::ShowHelp(window);
 		lua_pushboolean(L,lret?1:0);
@@ -222,7 +222,7 @@ public:
 		wxSimpleHelpProvider* self=Luna< wxHelpProvider >::checkSubType< wxSimpleHelpProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSimpleHelpProvider::base_ShowHelpAtPoint(wxWindow *, const wxPoint &, wxHelpEvent::Origin)");
+			luaL_error(L, "Invalid object in function call bool wxSimpleHelpProvider::base_ShowHelpAtPoint(wxWindow *, const wxPoint &, wxHelpEvent::Origin). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		bool lret = self->wxSimpleHelpProvider::ShowHelpAtPoint(window, point, origin);
 		lua_pushboolean(L,lret?1:0);

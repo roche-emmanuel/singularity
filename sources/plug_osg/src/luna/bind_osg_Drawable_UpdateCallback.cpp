@@ -316,7 +316,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -342,7 +342,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -364,7 +364,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::UpdateCallback::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::UpdateCallback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -383,7 +383,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -402,7 +402,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -423,7 +423,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::update(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::update(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->update(_arg1, _arg2);
 
@@ -442,7 +442,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->UpdateCallback::setName(name);
 
@@ -460,7 +460,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->UpdateCallback::computeDataVariance();
 
@@ -479,7 +479,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->UpdateCallback::setUserData(obj);
 
@@ -497,7 +497,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Drawable::UpdateCallback::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Drawable::UpdateCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->UpdateCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -518,7 +518,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Drawable::UpdateCallback::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Drawable::UpdateCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->UpdateCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -551,7 +551,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->UpdateCallback::releaseGLObjects(_arg1);
 
@@ -569,7 +569,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->UpdateCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -595,7 +595,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Drawable::UpdateCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->UpdateCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -617,7 +617,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::UpdateCallback::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::UpdateCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->UpdateCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -636,7 +636,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->UpdateCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -655,7 +655,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Drawable::UpdateCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->UpdateCallback::className();
 		lua_pushstring(L,lret);
@@ -676,7 +676,7 @@ public:
 		osg::Drawable::UpdateCallback* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_update(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::UpdateCallback::base_update(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->UpdateCallback::update(_arg1, _arg2);
 
@@ -698,7 +698,7 @@ void LunaTraits< osg::Drawable::UpdateCallback >::_bind_dtor(osg::Drawable::Upda
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Drawable::UpdateCallback >::className[] = "UpdateCallback";
+const char LunaTraits< osg::Drawable::UpdateCallback >::className[] = "Drawable_UpdateCallback";
 const char LunaTraits< osg::Drawable::UpdateCallback >::fullName[] = "osg::Drawable::UpdateCallback";
 const char LunaTraits< osg::Drawable::UpdateCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Drawable::UpdateCallback >::parents[] = {"osg.Object", 0};

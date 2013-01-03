@@ -520,7 +520,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRect::CentreIn(const wxRect &, int) const");
+			luaL_error(L, "Invalid object in function call wxRect wxRect::CentreIn(const wxRect &, int) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->CentreIn(r, dir);
 		wxRect* lret = new wxRect(stack_lret);
@@ -550,7 +550,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRect::CenterIn(const wxRect &, int) const");
+			luaL_error(L, "Invalid object in function call wxRect wxRect::CenterIn(const wxRect &, int) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->CenterIn(r, dir);
 		wxRect* lret = new wxRect(stack_lret);
@@ -574,7 +574,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect::Contains(int, int) const");
+			luaL_error(L, "Invalid object in function call bool wxRect::Contains(int, int) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		bool lret = self->Contains(x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -598,7 +598,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect::Contains(const wxPoint &) const");
+			luaL_error(L, "Invalid object in function call bool wxRect::Contains(const wxPoint &) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		bool lret = self->Contains(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -622,7 +622,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect::Contains(const wxRect &) const");
+			luaL_error(L, "Invalid object in function call bool wxRect::Contains(const wxRect &) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		bool lret = self->Contains(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -653,7 +653,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Deflate(int, int)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Deflate(int, int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Deflate(dx, dy);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -679,7 +679,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Deflate(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Deflate(const wxSize &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Deflate(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -701,7 +701,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Deflate(int)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Deflate(int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Deflate(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -724,7 +724,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRect::Deflate(int, int) const");
+			luaL_error(L, "Invalid object in function call wxRect wxRect::Deflate(int, int) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->Deflate(dx, dy);
 		wxRect* lret = new wxRect(stack_lret);
@@ -757,7 +757,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetBottom() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetBottom() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetBottom();
 		lua_pushnumber(L,lret);
@@ -776,7 +776,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetBottomLeft() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetBottomLeft() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetBottomLeft();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -798,7 +798,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetBottomRight() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetBottomRight() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetBottomRight();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -820,7 +820,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetHeight() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetHeight() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -839,7 +839,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetLeft() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetLeft() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetLeft();
 		lua_pushnumber(L,lret);
@@ -858,7 +858,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetPosition() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetPosition() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -880,7 +880,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetRight() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetRight() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetRight();
 		lua_pushnumber(L,lret);
@@ -899,7 +899,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRect::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxRect::GetSize() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -921,7 +921,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetTop() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetTop() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetTop();
 		lua_pushnumber(L,lret);
@@ -940,7 +940,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetTopLeft() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetTopLeft() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetTopLeft();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -962,7 +962,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetTopRight() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxRect::GetTopRight() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetTopRight();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -984,7 +984,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetWidth() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -1003,7 +1003,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetX() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetX() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetX();
 		lua_pushnumber(L,lret);
@@ -1022,7 +1022,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRect::GetY() const");
+			luaL_error(L, "Invalid object in function call int wxRect::GetY() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		int lret = self->GetY();
 		lua_pushnumber(L,lret);
@@ -1043,7 +1043,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Inflate(int, int)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Inflate(int, int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Inflate(dx, dy);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1069,7 +1069,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Inflate(const wxSize &)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Inflate(const wxSize &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Inflate(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1091,7 +1091,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Inflate(int)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Inflate(int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Inflate(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1114,7 +1114,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRect::Inflate(int, int) const");
+			luaL_error(L, "Invalid object in function call wxRect wxRect::Inflate(int, int) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->Inflate(dx, dy);
 		wxRect* lret = new wxRect(stack_lret);
@@ -1152,7 +1152,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Intersect(const wxRect &)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Intersect(const wxRect &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Intersect(rect);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1178,7 +1178,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRect::Intersect(const wxRect &) const");
+			luaL_error(L, "Invalid object in function call wxRect wxRect::Intersect(const wxRect &) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->Intersect(rect);
 		wxRect* lret = new wxRect(stack_lret);
@@ -1214,7 +1214,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect::Intersects(const wxRect &) const");
+			luaL_error(L, "Invalid object in function call bool wxRect::Intersects(const wxRect &) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		bool lret = self->Intersects(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1233,7 +1233,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRect::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxRect::IsEmpty() const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1254,7 +1254,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::Offset(int, int)");
+			luaL_error(L, "Invalid object in function call void wxRect::Offset(int, int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->Offset(dx, dy);
 
@@ -1277,7 +1277,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::Offset(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxRect::Offset(const wxPoint &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->Offset(pt);
 
@@ -1305,7 +1305,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::SetHeight(int)");
+			luaL_error(L, "Invalid object in function call void wxRect::SetHeight(int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->SetHeight(height);
 
@@ -1328,7 +1328,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::SetSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxRect::SetSize(const wxSize &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->SetSize(s);
 
@@ -1347,7 +1347,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxRect::SetWidth(int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->SetWidth(width);
 
@@ -1366,7 +1366,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::SetX(int)");
+			luaL_error(L, "Invalid object in function call void wxRect::SetX(int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->SetX(x);
 
@@ -1385,7 +1385,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRect::SetY(int)");
+			luaL_error(L, "Invalid object in function call void wxRect::SetY(int). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		self->SetY(y);
 
@@ -1408,7 +1408,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRect::Union(const wxRect &) const");
+			luaL_error(L, "Invalid object in function call wxRect wxRect::Union(const wxRect &) const. Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->Union(rect);
 		wxRect* lret = new wxRect(stack_lret);
@@ -1435,7 +1435,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::Union(const wxRect &)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::Union(const wxRect &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->Union(rect);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1472,7 +1472,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::operator+=(const wxRect &)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::operator+=(const wxRect &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->operator+=(r);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1498,7 +1498,7 @@ public:
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect & wxRect::operator*=(const wxRect &)");
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::operator*=(const wxRect &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
 		}
 		const wxRect* lret = &self->operator*=(r);
 		if(!lret) return 0; // Do not write NULL pointers.

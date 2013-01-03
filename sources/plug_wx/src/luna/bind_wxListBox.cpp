@@ -80,39 +80,13 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=0 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<5 || luatop>8 ) return false;
-
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
-		if( (!(Luna< wxPoint >::check(L,3))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( (!(Luna< wxSize >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,59507769) ) return false;
-		if( (!(Luna< wxArrayString >::check(L,5))) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
-		if( luatop>6 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<6 || luatop>9 ) return false;
 
@@ -1022,57 +996,9 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxListBox::wxListBox()
+	// wxListBox::wxListBox(lua_Table * data)
 	static wxListBox* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxListBox::wxListBox() function, expected prototype:\nwxListBox::wxListBox()\nClass arguments details:\n");
-		}
-
-
-		return new wxListBox();
-	}
-
-	// wxListBox::wxListBox(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr)
-	static wxListBox* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxListBox::wxListBox(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr) function, expected prototype:\nwxListBox::wxListBox(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 5 ID = 59507769\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=(int)lua_tointeger(L,2);
-		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,3));
-		if( !pos_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxListBox::wxListBox function");
-		}
-		const wxPoint & pos=*pos_ptr;
-		const wxSize* size_ptr=(Luna< wxSize >::check(L,4));
-		if( !size_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg size in wxListBox::wxListBox function");
-		}
-		const wxSize & size=*size_ptr;
-		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,5));
-		if( !choices_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxListBox::wxListBox function");
-		}
-		const wxArrayString & choices=*choices_ptr;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
-		const wxValidator* validator_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxValidator >(L,7)) : NULL;
-		if( luatop>6 && !validator_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxListBox::wxListBox function");
-		}
-		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
-		wxString name(lua_tostring(L,8),lua_objlen(L,8));
-
-		return new wxListBox(parent, id, pos, size, choices, style, validator, name);
-	}
-
-	// wxListBox::wxListBox(lua_Table * data)
-	static wxListBox* _bind_ctor_overload_3(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxListBox::wxListBox(lua_Table * data) function, expected prototype:\nwxListBox::wxListBox(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -1082,8 +1008,8 @@ public:
 	}
 
 	// wxListBox::wxListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr)
-	static wxListBox* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
+	static wxListBox* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxListBox::wxListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr) function, expected prototype:\nwxListBox::wxListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
 		}
@@ -1122,10 +1048,8 @@ public:
 	static wxListBox* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
-		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxListBox, cannot match any of the overloads for function wxListBox:\n  wxListBox()\n  wxListBox(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxListBox(lua_Table *)\n  wxListBox(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxListBox, cannot match any of the overloads for function wxListBox:\n  wxListBox(lua_Table *)\n  wxListBox(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -1168,7 +1092,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::Create(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::Create(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, pos, size, choices, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1188,7 +1112,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::Deselect(int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::Deselect(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Deselect(n);
 
@@ -1206,7 +1130,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxListBox::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -1230,7 +1154,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::GetSelections(wxArrayInt &) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::GetSelections(wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelections(selections);
 		lua_pushnumber(L,lret);
@@ -1254,7 +1178,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::HitTest(const wxPoint &) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::HitTest(const wxPoint &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->HitTest(point);
 		lua_pushnumber(L,lret);
@@ -1275,7 +1199,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::HitTest(int, int) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::HitTest(int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->HitTest(x, y);
 		lua_pushnumber(L,lret);
@@ -1306,7 +1230,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::InsertItems(unsigned int, const wxString *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::InsertItems(unsigned int, const wxString *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->InsertItems(nItems, &items, pos);
 
@@ -1330,7 +1254,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::InsertItems(const wxArrayString &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::InsertItems(const wxArrayString &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->InsertItems(items, pos);
 
@@ -1358,7 +1282,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::IsSelected(int) const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::IsSelected(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSelected(n);
 		lua_pushboolean(L,lret?1:0);
@@ -1378,7 +1302,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::EnsureVisible(int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::EnsureVisible(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EnsureVisible(n);
 
@@ -1396,7 +1320,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::IsSorted() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::IsSorted() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSorted();
 		lua_pushboolean(L,lret?1:0);
@@ -1419,7 +1343,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Refresh(eraseBackground, rect);
 
@@ -1437,7 +1361,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxListBox::GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxListBox::GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -1457,7 +1381,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxListBox::GetString(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxListBox::GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1480,7 +1404,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -1499,7 +1423,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxListBox::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxListBox::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxListBox::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1520,7 +1444,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1539,7 +1463,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1558,7 +1482,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1577,7 +1501,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1597,7 +1521,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetCanFocus(canFocus);
 
@@ -1615,7 +1539,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetFocus();
 
@@ -1633,7 +1557,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetFocusFromKbd();
 
@@ -1652,7 +1576,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::AddChild(child);
 
@@ -1671,7 +1595,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::RemoveChild(child);
 
@@ -1690,7 +1614,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1713,7 +1637,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1732,7 +1656,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1752,7 +1676,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1772,7 +1696,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1792,7 +1716,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1812,7 +1736,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1832,7 +1756,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1856,7 +1780,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::ScrollWindow(dx, dy, rect);
 
@@ -1879,7 +1803,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetScrollPos(orientation, pos, refresh);
 
@@ -1904,7 +1828,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1927,7 +1851,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1954,7 +1878,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1976,7 +1900,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::Fit();
 
@@ -1994,7 +1918,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::FitInside();
 
@@ -2012,7 +1936,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2034,7 +1958,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2056,7 +1980,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2078,7 +2002,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2100,7 +2024,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2122,7 +2046,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2144,7 +2068,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxListBox::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxListBox::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2169,7 +2093,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2191,7 +2115,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SendSizeEvent(flags);
 
@@ -2214,7 +2138,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetMaxClientSize(size);
 
@@ -2237,7 +2161,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetMaxSize(size);
 
@@ -2260,7 +2184,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetMinClientSize(size);
 
@@ -2283,7 +2207,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetMinSize(size);
 
@@ -2318,7 +2242,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2344,7 +2268,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2371,7 +2295,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxListBox::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxListBox::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxListBox::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2393,7 +2317,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::ClearBackground();
 
@@ -2411,7 +2335,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxListBox::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxListBox::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxListBox::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2430,7 +2354,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2449,7 +2373,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2468,7 +2392,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxListBox::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxListBox::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxListBox::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2490,7 +2414,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::Update();
 
@@ -2509,7 +2433,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2533,7 +2457,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2552,7 +2476,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2572,7 +2496,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetThemeEnabled(enable);
 
@@ -2590,7 +2514,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2609,7 +2533,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2629,7 +2553,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2649,7 +2573,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetNextHandler(handler);
 
@@ -2668,7 +2592,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetPreviousHandler(handler);
 
@@ -2686,7 +2610,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxListBox::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxListBox::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxListBox::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2706,7 +2630,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetExtraStyle(exStyle);
 
@@ -2725,7 +2649,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetWindowStyleFlag(style);
 
@@ -2743,7 +2667,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::Lower();
 
@@ -2761,7 +2685,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::Raise();
 
@@ -2783,7 +2707,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2802,7 +2726,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2821,7 +2745,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2843,7 +2767,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2865,7 +2789,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2888,7 +2812,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2913,7 +2837,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxListBox::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2932,7 +2856,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxListBox::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxListBox::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxListBox::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2958,7 +2882,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetValidator(validator);
 
@@ -2976,7 +2900,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2995,7 +2919,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3014,7 +2938,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3033,7 +2957,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxListBox::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxListBox::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxListBox::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3052,7 +2976,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxListBox::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3072,7 +2996,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetLayoutDirection(dir);
 
@@ -3091,7 +3015,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetName(name);
 
@@ -3114,7 +3038,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetAcceleratorTable(accel);
 
@@ -3132,7 +3056,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3151,7 +3075,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxListBox::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxListBox::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxListBox::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3173,7 +3097,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetDropTarget(target);
 
@@ -3192,7 +3116,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::DragAcceptFiles(accept);
 
@@ -3210,7 +3134,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3229,7 +3153,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3253,7 +3177,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3274,7 +3198,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::WarpPointer(x, y);
 
@@ -3297,7 +3221,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::DoUpdateWindowUI(event);
 
@@ -3315,7 +3239,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3334,7 +3258,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::InheritAttributes();
 
@@ -3352,7 +3276,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::InitDialog();
 
@@ -3370,7 +3294,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3389,7 +3313,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3411,7 +3335,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::MakeModal(modal);
 
@@ -3429,7 +3353,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::OnInternalIdle();
 
@@ -3450,7 +3374,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3470,7 +3394,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3492,7 +3416,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::UpdateWindowUI(flags);
 
@@ -3515,7 +3439,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::Command(event);
 
@@ -3533,7 +3457,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxListBox::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3553,7 +3477,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::SetLabel(label);
 
@@ -3571,7 +3495,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxListBox::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3590,7 +3514,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetSelection();
 		lua_pushnumber(L,lret);
@@ -3614,7 +3538,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_GetSelections(wxArrayInt &) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_GetSelections(wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::GetSelections(selections);
 		lua_pushnumber(L,lret);
@@ -3634,7 +3558,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsSelected(int) const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsSelected(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsSelected(n);
 		lua_pushboolean(L,lret?1:0);
@@ -3654,7 +3578,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_EnsureVisible(int)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_EnsureVisible(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::EnsureVisible(n);
 
@@ -3672,7 +3596,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsSorted() const");
+			luaL_error(L, "Invalid object in function call bool wxListBox::base_IsSorted() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxListBox::IsSorted();
 		lua_pushboolean(L,lret?1:0);
@@ -3695,7 +3619,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxListBox::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxListBox::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxListBox::Refresh(eraseBackground, rect);
 
@@ -3713,7 +3637,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxListBox::base_GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxListBox::base_GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxListBox::GetCount();
 		lua_pushnumber(L,lret);
@@ -3733,7 +3657,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetString(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxListBox::base_GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxListBox::GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3756,7 +3680,7 @@ public:
 		wxListBox* self=Luna< wxObject >::checkSubType< wxListBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxListBox::base_FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxListBox::base_FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxListBox::FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -3773,6 +3697,11 @@ wxListBox* LunaTraits< wxListBox >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxListBox::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	// void wxItemContainer::DoClear()
+	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 }
 
 void LunaTraits< wxListBox >::_bind_dtor(wxListBox* obj) {

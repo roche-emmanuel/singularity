@@ -78,7 +78,7 @@ void LunaTraits< osgDB::XmlNode::ControlMap >::_bind_dtor(osgDB::XmlNode::Contro
 	delete obj;
 }
 
-const char LunaTraits< osgDB::XmlNode::ControlMap >::className[] = "ControlMap";
+const char LunaTraits< osgDB::XmlNode::ControlMap >::className[] = "XmlNode_ControlMap";
 const char LunaTraits< osgDB::XmlNode::ControlMap >::fullName[] = "osgDB::XmlNode::ControlMap";
 const char LunaTraits< osgDB::XmlNode::ControlMap >::moduleName[] = "osgDB";
 const char* LunaTraits< osgDB::XmlNode::ControlMap >::parents[] = {0};

@@ -132,7 +132,7 @@ public:
 		wxGBPosition* self=(Luna< wxGBPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGBPosition::GetCol() const");
+			luaL_error(L, "Invalid object in function call int wxGBPosition::GetCol() const. Got : '%s'",typeid(Luna< wxGBPosition >::check(L,1)).name());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -151,7 +151,7 @@ public:
 		wxGBPosition* self=(Luna< wxGBPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGBPosition::GetRow() const");
+			luaL_error(L, "Invalid object in function call int wxGBPosition::GetRow() const. Got : '%s'",typeid(Luna< wxGBPosition >::check(L,1)).name());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -171,7 +171,7 @@ public:
 		wxGBPosition* self=(Luna< wxGBPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBPosition::SetCol(int)");
+			luaL_error(L, "Invalid object in function call void wxGBPosition::SetCol(int). Got : '%s'",typeid(Luna< wxGBPosition >::check(L,1)).name());
 		}
 		self->SetCol(col);
 
@@ -190,7 +190,7 @@ public:
 		wxGBPosition* self=(Luna< wxGBPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGBPosition::SetRow(int)");
+			luaL_error(L, "Invalid object in function call void wxGBPosition::SetRow(int). Got : '%s'",typeid(Luna< wxGBPosition >::check(L,1)).name());
 		}
 		self->SetRow(row);
 
@@ -215,7 +215,7 @@ public:
 		wxGBPosition* self=(Luna< wxGBPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGBPosition::operator==(const wxGBPosition &) const");
+			luaL_error(L, "Invalid object in function call bool wxGBPosition::operator==(const wxGBPosition &) const. Got : '%s'",typeid(Luna< wxGBPosition >::check(L,1)).name());
 		}
 		bool lret = self->operator==(p);
 		lua_pushboolean(L,lret?1:0);

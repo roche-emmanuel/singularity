@@ -162,7 +162,7 @@ public:
 		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxClient::MakeConnection(const wxString &, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxClient::MakeConnection(const wxString &, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConnectionBase * lret = self->MakeConnection(host, service, topic);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -183,7 +183,7 @@ public:
 		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConnectionBase * wxClient::OnMakeConnection()");
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxClient::OnMakeConnection(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConnectionBase * lret = self->OnMakeConnection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -205,7 +205,7 @@ public:
 		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClient::ValidHost(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxClient::ValidHost(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ValidHost(host);
 		lua_pushboolean(L,lret?1:0);
@@ -224,7 +224,7 @@ public:
 		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxClient::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxClient::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxClient::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -137,7 +137,7 @@ public:
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -156,7 +156,7 @@ public:
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isMultisampleSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -175,7 +175,7 @@ public:
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleCoverageSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleCoverageSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isMultisampleCoverageSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -194,7 +194,7 @@ public:
 		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isPackedDepthStencilSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isPackedDepthStencilSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isPackedDepthStencilSupported();
 		lua_pushboolean(L,lret?1:0);

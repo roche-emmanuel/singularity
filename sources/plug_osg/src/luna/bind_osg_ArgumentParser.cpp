@@ -539,7 +539,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isOption(int) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isOption(int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->isOption(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -583,7 +583,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isString(int) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isString(int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->isString(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -627,7 +627,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isNumber(int) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::isNumber(int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->isNumber(pos);
 		lua_pushboolean(L,lret?1:0);
@@ -671,7 +671,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage *)");
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage *). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		self->setApplicationUsage(usage);
 
@@ -689,7 +689,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage()");
+			luaL_error(L, "Invalid object in function call osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		osg::ApplicationUsage * lret = self->getApplicationUsage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -710,7 +710,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const");
+			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage * osg::ArgumentParser::getApplicationUsage() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		const osg::ApplicationUsage * lret = self->getApplicationUsage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -740,7 +740,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int & osg::ArgumentParser::argc()");
+			luaL_error(L, "Invalid object in function call int & osg::ArgumentParser::argc(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		int & lret = self->argc();
 		lua_pushnumber(L,lret);
@@ -759,7 +759,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char ** osg::ArgumentParser::argv()");
+			luaL_error(L, "Invalid object in function call char ** osg::ArgumentParser::argv(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		char ** lret = self->argv();
 		////////////////////////////////////////////////////////////////////
@@ -780,7 +780,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osg::ArgumentParser::getApplicationName() const");
+			luaL_error(L, "Invalid object in function call std::string osg::ArgumentParser::getApplicationName() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		std::string lret = self->getApplicationName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -800,7 +800,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ArgumentParser::find(const std::string &) const");
+			luaL_error(L, "Invalid object in function call int osg::ArgumentParser::find(const std::string &) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		int lret = self->find(str);
 		lua_pushnumber(L,lret);
@@ -819,7 +819,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::containsOptions() const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::containsOptions() const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->containsOptions();
 		lua_pushboolean(L,lret?1:0);
@@ -842,7 +842,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::remove(int, int)");
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::remove(int, int). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		self->remove(pos, num);
 
@@ -862,7 +862,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::match(int, const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::match(int, const std::string &) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->match(pos, str);
 		lua_pushboolean(L,lret?1:0);
@@ -882,7 +882,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str);
 		lua_pushboolean(L,lret?1:0);
@@ -907,7 +907,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1);
 		lua_pushboolean(L,lret?1:0);
@@ -937,7 +937,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2);
 		lua_pushboolean(L,lret?1:0);
@@ -972,7 +972,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2, value3);
 		lua_pushboolean(L,lret?1:0);
@@ -1012,7 +1012,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4);
 		lua_pushboolean(L,lret?1:0);
@@ -1057,7 +1057,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5);
 		lua_pushboolean(L,lret?1:0);
@@ -1107,7 +1107,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6);
 		lua_pushboolean(L,lret?1:0);
@@ -1162,7 +1162,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6, value7);
 		lua_pushboolean(L,lret?1:0);
@@ -1222,7 +1222,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(str, value1, value2, value3, value4, value5, value6, value7, value8);
 		lua_pushboolean(L,lret?1:0);
@@ -1243,7 +1243,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str);
 		lua_pushboolean(L,lret?1:0);
@@ -1269,7 +1269,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1);
 		lua_pushboolean(L,lret?1:0);
@@ -1300,7 +1300,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2);
 		lua_pushboolean(L,lret?1:0);
@@ -1336,7 +1336,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3);
 		lua_pushboolean(L,lret?1:0);
@@ -1377,7 +1377,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4);
 		lua_pushboolean(L,lret?1:0);
@@ -1423,7 +1423,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5);
 		lua_pushboolean(L,lret?1:0);
@@ -1474,7 +1474,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5, value6);
 		lua_pushboolean(L,lret?1:0);
@@ -1530,7 +1530,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5, value6, value7);
 		lua_pushboolean(L,lret?1:0);
@@ -1591,7 +1591,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter)");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::read(int, const std::string &, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter, osg::ArgumentParser::Parameter). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->read(pos, str, value1, value2, value3, value4, value5, value6, value7, value8);
 		lua_pushboolean(L,lret?1:0);
@@ -1638,7 +1638,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity) const");
+			luaL_error(L, "Invalid object in function call bool osg::ArgumentParser::errors(osg::ArgumentParser::ErrorSeverity) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		bool lret = self->errors(severity);
 		lua_pushboolean(L,lret?1:0);
@@ -1661,7 +1661,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportError(const std::string &, osg::ArgumentParser::ErrorSeverity)");
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportError(const std::string &, osg::ArgumentParser::ErrorSeverity). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		self->reportError(message, severity);
 
@@ -1682,7 +1682,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity)");
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::reportRemainingOptionsAsUnrecognized(osg::ArgumentParser::ErrorSeverity). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		self->reportRemainingOptionsAsUnrecognized(severity);
 
@@ -1708,7 +1708,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::writeErrorMessages(std::ostream &, osg::ArgumentParser::ErrorSeverity)");
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::writeErrorMessages(std::ostream &, osg::ArgumentParser::ErrorSeverity). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		self->writeErrorMessages(output, sevrity);
 
@@ -1726,7 +1726,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType()");
+			luaL_error(L, "Invalid object in function call osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		osg::ApplicationUsage::Type lret = self->readHelpType();
 		lua_pushnumber(L,lret);
@@ -1748,7 +1748,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char * osg::ArgumentParser::operator[](int)");
+			luaL_error(L, "Invalid object in function call char * osg::ArgumentParser::operator[](int). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		char * lret = self->operator[](pos);
 		lua_pushnumber(L,*lret);
@@ -1768,7 +1768,7 @@ public:
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ArgumentParser::operator[](int) const");
+			luaL_error(L, "Invalid object in function call const char * osg::ArgumentParser::operator[](int) const. Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
 		}
 		const char * lret = self->operator[](pos);
 		lua_pushstring(L,lret);

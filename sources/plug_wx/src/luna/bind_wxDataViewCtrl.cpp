@@ -1585,7 +1585,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::AppendColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::AppendColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AppendColumn(col);
 		lua_pushboolean(L,lret?1:0);
@@ -1605,7 +1605,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::PrependColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::PrependColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->PrependColumn(col);
 		lua_pushboolean(L,lret?1:0);
@@ -1626,7 +1626,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::InsertColumn(unsigned int, wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::InsertColumn(unsigned int, wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->InsertColumn(pos, col);
 		lua_pushboolean(L,lret?1:0);
@@ -1653,7 +1653,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendBitmapColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1686,7 +1686,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendBitmapColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1724,7 +1724,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendDateColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1757,7 +1757,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendDateColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1795,7 +1795,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendIconTextColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1828,7 +1828,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendIconTextColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1866,7 +1866,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendProgressColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1899,7 +1899,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendProgressColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1937,7 +1937,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendTextColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1970,7 +1970,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendTextColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2008,7 +2008,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendToggleColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2041,7 +2041,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int)");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap &, unsigned int, wxDataViewCellMode, int, wxAlignment, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->AppendToggleColumn(label, model_column, mode, width, align, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2072,7 +2072,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::AssociateModel(wxDataViewModel *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::AssociateModel(wxDataViewModel *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AssociateModel(model);
 		lua_pushboolean(L,lret?1:0);
@@ -2091,7 +2091,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::ClearColumns()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::ClearColumns(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ClearColumns();
 		lua_pushboolean(L,lret?1:0);
@@ -2115,7 +2115,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Collapse(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Collapse(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Collapse(item);
 
@@ -2154,7 +2154,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -2174,7 +2174,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::DeleteColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::DeleteColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteColumn(column);
 		lua_pushboolean(L,lret?1:0);
@@ -2198,7 +2198,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::EnableDragSource(const wxDataFormat &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::EnableDragSource(const wxDataFormat &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->EnableDragSource(format);
 		lua_pushboolean(L,lret?1:0);
@@ -2222,7 +2222,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::EnableDropTarget(const wxDataFormat &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::EnableDropTarget(const wxDataFormat &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->EnableDropTarget(format);
 		lua_pushboolean(L,lret?1:0);
@@ -2249,7 +2249,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::EnsureVisible(const wxDataViewItem &, const wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::EnsureVisible(const wxDataViewItem &, const wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EnsureVisible(item, column);
 
@@ -2272,7 +2272,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Expand(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Expand(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Expand(item);
 
@@ -2295,7 +2295,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::ExpandAncestors(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::ExpandAncestors(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ExpandAncestors(item);
 
@@ -2314,7 +2314,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::GetColumn(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::GetColumn(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->GetColumn(pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2335,7 +2335,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataViewCtrl::GetColumnCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxDataViewCtrl::GetColumnCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetColumnCount();
 		lua_pushnumber(L,lret);
@@ -2355,7 +2355,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetColumnPosition(const wxDataViewColumn *) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetColumnPosition(const wxDataViewColumn *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetColumnPosition(column);
 		lua_pushnumber(L,lret);
@@ -2374,7 +2374,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::GetExpanderColumn() const");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::GetExpanderColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->GetExpanderColumn();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2395,7 +2395,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewCtrl::GetCurrentItem() const");
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewCtrl::GetCurrentItem() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewItem stack_lret = self->GetCurrentItem();
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -2417,7 +2417,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetIndent() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetIndent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetIndent();
 		lua_pushnumber(L,lret);
@@ -2444,7 +2444,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxDataViewCtrl::GetItemRect(const wxDataViewItem &, const wxDataViewColumn *) const");
+			luaL_error(L, "Invalid object in function call wxRect wxDataViewCtrl::GetItemRect(const wxDataViewItem &, const wxDataViewColumn *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetItemRect(item, col);
 		wxRect* lret = new wxRect(stack_lret);
@@ -2466,7 +2466,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewCtrl::GetModel()");
+			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewCtrl::GetModel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewModel * lret = self->GetModel();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2487,7 +2487,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetSelectedItemsCount() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetSelectedItemsCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelectedItemsCount();
 		lua_pushnumber(L,lret);
@@ -2506,7 +2506,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewCtrl::GetSelection() const");
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewCtrl::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewItem stack_lret = self->GetSelection();
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -2533,7 +2533,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetSelections(wxDataViewItemArray &) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::GetSelections(wxDataViewItemArray &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelections(sel);
 		lua_pushnumber(L,lret);
@@ -2552,7 +2552,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::GetSortingColumn() const");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::GetSortingColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->GetSortingColumn();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2573,7 +2573,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::HasSelection() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::HasSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasSelection();
 		lua_pushboolean(L,lret?1:0);
@@ -2603,7 +2603,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::HitTest(const wxPoint &, wxDataViewItem &, wxDataViewColumn *&) const");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::HitTest(const wxPoint &, wxDataViewItem &, wxDataViewColumn *&) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->HitTest(point, item, col);
 
@@ -2626,7 +2626,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::IsExpanded(const wxDataViewItem &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::IsExpanded(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsExpanded(item);
 		lua_pushboolean(L,lret?1:0);
@@ -2650,7 +2650,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::IsSelected(const wxDataViewItem &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::IsSelected(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSelected(item);
 		lua_pushboolean(L,lret?1:0);
@@ -2674,7 +2674,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Select(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Select(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Select(item);
 
@@ -2692,7 +2692,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SelectAll();
 
@@ -2711,7 +2711,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetExpanderColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetExpanderColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetExpanderColumn(col);
 
@@ -2734,7 +2734,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetCurrentItem(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetCurrentItem(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCurrentItem(item);
 
@@ -2753,7 +2753,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetIndent(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetIndent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetIndent(indent);
 
@@ -2776,7 +2776,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetSelections(const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::SetSelections(const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelections(sel);
 
@@ -2800,7 +2800,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::StartEditor(const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::StartEditor(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->StartEditor(item, column);
 
@@ -2823,7 +2823,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Unselect(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::Unselect(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Unselect(item);
 
@@ -2841,7 +2841,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::UnselectAll()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::UnselectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UnselectAll();
 
@@ -2860,7 +2860,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::SetRowHeight(int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::SetRowHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetRowHeight(rowHeight);
 		lua_pushboolean(L,lret?1:0);
@@ -2879,7 +2879,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2900,7 +2900,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2919,7 +2919,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -2938,7 +2938,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -2957,7 +2957,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2977,7 +2977,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetCanFocus(canFocus);
 
@@ -2995,7 +2995,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetFocus();
 
@@ -3013,7 +3013,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetFocusFromKbd();
 
@@ -3032,7 +3032,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::AddChild(child);
 
@@ -3051,7 +3051,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::RemoveChild(child);
 
@@ -3070,7 +3070,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -3093,7 +3093,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -3112,7 +3112,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -3132,7 +3132,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -3152,7 +3152,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -3172,7 +3172,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -3192,7 +3192,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -3212,7 +3212,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -3236,7 +3236,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::ScrollWindow(dx, dy, rect);
 
@@ -3259,7 +3259,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -3284,7 +3284,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -3307,7 +3307,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -3334,7 +3334,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -3356,7 +3356,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Fit();
 
@@ -3374,7 +3374,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::FitInside();
 
@@ -3392,7 +3392,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3414,7 +3414,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3436,7 +3436,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3458,7 +3458,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3480,7 +3480,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3502,7 +3502,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3524,7 +3524,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxDataViewCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -3549,7 +3549,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -3571,7 +3571,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SendSizeEvent(flags);
 
@@ -3594,7 +3594,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetMaxClientSize(size);
 
@@ -3617,7 +3617,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetMaxSize(size);
 
@@ -3640,7 +3640,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetMinClientSize(size);
 
@@ -3663,7 +3663,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetMinSize(size);
 
@@ -3698,7 +3698,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3724,7 +3724,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3751,7 +3751,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxDataViewCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxDataViewCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxDataViewCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -3773,7 +3773,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::ClearBackground();
 
@@ -3791,7 +3791,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxDataViewCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxDataViewCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxDataViewCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -3810,7 +3810,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -3829,7 +3829,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -3848,7 +3848,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxDataViewCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxDataViewCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxDataViewCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -3874,7 +3874,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Refresh(eraseBackground, rect);
 
@@ -3892,7 +3892,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Update();
 
@@ -3911,7 +3911,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -3935,7 +3935,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -3954,7 +3954,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -3974,7 +3974,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetThemeEnabled(enable);
 
@@ -3992,7 +3992,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -4011,7 +4011,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -4031,7 +4031,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -4051,7 +4051,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetNextHandler(handler);
 
@@ -4070,7 +4070,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetPreviousHandler(handler);
 
@@ -4088,7 +4088,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxDataViewCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxDataViewCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxDataViewCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -4108,7 +4108,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetExtraStyle(exStyle);
 
@@ -4127,7 +4127,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetWindowStyleFlag(style);
 
@@ -4145,7 +4145,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Lower();
 
@@ -4163,7 +4163,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Raise();
 
@@ -4185,7 +4185,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -4204,7 +4204,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -4223,7 +4223,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -4245,7 +4245,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -4267,7 +4267,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -4290,7 +4290,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -4315,7 +4315,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxDataViewCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4334,7 +4334,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxDataViewCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxDataViewCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxDataViewCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4360,7 +4360,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetValidator(validator);
 
@@ -4378,7 +4378,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -4397,7 +4397,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -4416,7 +4416,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -4435,7 +4435,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxDataViewCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxDataViewCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxDataViewCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -4454,7 +4454,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxDataViewCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4474,7 +4474,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetLayoutDirection(dir);
 
@@ -4493,7 +4493,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetName(name);
 
@@ -4516,7 +4516,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetAcceleratorTable(accel);
 
@@ -4534,7 +4534,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -4553,7 +4553,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxDataViewCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxDataViewCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxDataViewCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4575,7 +4575,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetDropTarget(target);
 
@@ -4594,7 +4594,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::DragAcceptFiles(accept);
 
@@ -4612,7 +4612,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -4631,7 +4631,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -4655,7 +4655,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -4676,7 +4676,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::WarpPointer(x, y);
 
@@ -4699,7 +4699,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::DoUpdateWindowUI(event);
 
@@ -4717,7 +4717,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -4736,7 +4736,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::InheritAttributes();
 
@@ -4754,7 +4754,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::InitDialog();
 
@@ -4772,7 +4772,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -4791,7 +4791,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -4813,7 +4813,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::MakeModal(modal);
 
@@ -4831,7 +4831,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::OnInternalIdle();
 
@@ -4852,7 +4852,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -4872,7 +4872,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -4894,7 +4894,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::UpdateWindowUI(flags);
 
@@ -4917,7 +4917,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Command(event);
 
@@ -4935,7 +4935,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxDataViewCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4955,7 +4955,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetLabel(label);
 
@@ -4974,7 +4974,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AppendColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AppendColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::AppendColumn(col);
 		lua_pushboolean(L,lret?1:0);
@@ -4994,7 +4994,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_PrependColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_PrependColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::PrependColumn(col);
 		lua_pushboolean(L,lret?1:0);
@@ -5015,7 +5015,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_InsertColumn(unsigned int, wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_InsertColumn(unsigned int, wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::InsertColumn(pos, col);
 		lua_pushboolean(L,lret?1:0);
@@ -5035,7 +5035,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AssociateModel(wxDataViewModel *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_AssociateModel(wxDataViewModel *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::AssociateModel(model);
 		lua_pushboolean(L,lret?1:0);
@@ -5054,7 +5054,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ClearColumns()");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_ClearColumns(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::ClearColumns();
 		lua_pushboolean(L,lret?1:0);
@@ -5078,7 +5078,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Collapse(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Collapse(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Collapse(item);
 
@@ -5097,7 +5097,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_DeleteColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_DeleteColumn(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::DeleteColumn(column);
 		lua_pushboolean(L,lret?1:0);
@@ -5121,7 +5121,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_EnableDragSource(const wxDataFormat &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_EnableDragSource(const wxDataFormat &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::EnableDragSource(format);
 		lua_pushboolean(L,lret?1:0);
@@ -5145,7 +5145,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_EnableDropTarget(const wxDataFormat &)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_EnableDropTarget(const wxDataFormat &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::EnableDropTarget(format);
 		lua_pushboolean(L,lret?1:0);
@@ -5172,7 +5172,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_EnsureVisible(const wxDataViewItem &, const wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_EnsureVisible(const wxDataViewItem &, const wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::EnsureVisible(item, column);
 
@@ -5195,7 +5195,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Expand(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Expand(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Expand(item);
 
@@ -5218,7 +5218,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_ExpandAncestors(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_ExpandAncestors(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::ExpandAncestors(item);
 
@@ -5237,7 +5237,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::base_GetColumn(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::base_GetColumn(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->wxDataViewCtrl::GetColumn(pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5258,7 +5258,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataViewCtrl::base_GetColumnCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxDataViewCtrl::base_GetColumnCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxDataViewCtrl::GetColumnCount();
 		lua_pushnumber(L,lret);
@@ -5278,7 +5278,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetColumnPosition(const wxDataViewColumn *) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetColumnPosition(const wxDataViewColumn *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetColumnPosition(column);
 		lua_pushnumber(L,lret);
@@ -5305,7 +5305,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxDataViewCtrl::base_GetItemRect(const wxDataViewItem &, const wxDataViewColumn *) const");
+			luaL_error(L, "Invalid object in function call wxRect wxDataViewCtrl::base_GetItemRect(const wxDataViewItem &, const wxDataViewColumn *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->wxDataViewCtrl::GetItemRect(item, col);
 		wxRect* lret = new wxRect(stack_lret);
@@ -5327,7 +5327,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetSelectedItemsCount() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetSelectedItemsCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetSelectedItemsCount();
 		lua_pushnumber(L,lret);
@@ -5346,7 +5346,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewCtrl::base_GetSelection() const");
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewCtrl::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewItem stack_lret = self->wxDataViewCtrl::GetSelection();
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -5373,7 +5373,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetSelections(wxDataViewItemArray &) const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCtrl::base_GetSelections(wxDataViewItemArray &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCtrl::GetSelections(sel);
 		lua_pushnumber(L,lret);
@@ -5392,7 +5392,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::base_GetSortingColumn() const");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewCtrl::base_GetSortingColumn() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->wxDataViewCtrl::GetSortingColumn();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5424,7 +5424,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_HitTest(const wxPoint &, wxDataViewItem &, wxDataViewColumn *&) const");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_HitTest(const wxPoint &, wxDataViewItem &, wxDataViewColumn *&) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::HitTest(point, item, col);
 
@@ -5447,7 +5447,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsExpanded(const wxDataViewItem &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsExpanded(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsExpanded(item);
 		lua_pushboolean(L,lret?1:0);
@@ -5471,7 +5471,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsSelected(const wxDataViewItem &) const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_IsSelected(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::IsSelected(item);
 		lua_pushboolean(L,lret?1:0);
@@ -5495,7 +5495,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Select(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Select(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Select(item);
 
@@ -5513,7 +5513,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SelectAll();
 
@@ -5536,7 +5536,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetSelections(const wxDataViewItemArray &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_SetSelections(const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::SetSelections(sel);
 
@@ -5560,7 +5560,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_StartEditor(const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_StartEditor(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::StartEditor(item, column);
 
@@ -5583,7 +5583,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Unselect(const wxDataViewItem &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_Unselect(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::Unselect(item);
 
@@ -5601,7 +5601,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_UnselectAll()");
+			luaL_error(L, "Invalid object in function call void wxDataViewCtrl::base_UnselectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCtrl::UnselectAll();
 
@@ -5620,7 +5620,7 @@ public:
 		wxDataViewCtrl* self=Luna< wxObject >::checkSubType< wxDataViewCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetRowHeight(int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCtrl::base_SetRowHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCtrl::SetRowHeight(rowHeight);
 		lua_pushboolean(L,lret?1:0);

@@ -156,7 +156,7 @@ public:
 		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -175,7 +175,7 @@ public:
 		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setCubeMapSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setCubeMapSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCubeMapSupported(flag);
 
@@ -193,7 +193,7 @@ public:
 		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::TextureCubeMap::Extensions::isCubeMapSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::TextureCubeMap::Extensions::isCubeMapSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCubeMapSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -216,7 +216,7 @@ void LunaTraits< osg::TextureCubeMap::Extensions >::_bind_dtor(osg::TextureCubeM
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::TextureCubeMap::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::TextureCubeMap::Extensions >::className[] = "TextureCubeMap_Extensions";
 const char LunaTraits< osg::TextureCubeMap::Extensions >::fullName[] = "osg::TextureCubeMap::Extensions";
 const char LunaTraits< osg::TextureCubeMap::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::TextureCubeMap::Extensions >::parents[] = {"osg.Referenced", 0};

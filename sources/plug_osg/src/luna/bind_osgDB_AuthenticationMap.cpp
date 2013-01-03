@@ -119,7 +119,7 @@ public:
 		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::addAuthenticationDetails(const std::string &, osgDB::AuthenticationDetails *)");
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::addAuthenticationDetails(const std::string &, osgDB::AuthenticationDetails *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addAuthenticationDetails(path, details);
 
@@ -138,7 +138,7 @@ public:
 		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::getAuthenticationDetails(const std::string &) const");
+			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::getAuthenticationDetails(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::AuthenticationDetails * lret = self->getAuthenticationDetails(path);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -161,7 +161,7 @@ public:
 		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string &, osgDB::AuthenticationDetails *)");
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string &, osgDB::AuthenticationDetails *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AuthenticationMap::addAuthenticationDetails(path, details);
 
@@ -180,7 +180,7 @@ public:
 		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::base_getAuthenticationDetails(const std::string &) const");
+			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::base_getAuthenticationDetails(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::AuthenticationDetails * lret = self->AuthenticationMap::getAuthenticationDetails(path);
 		if(!lret) return 0; // Do not write NULL pointers.

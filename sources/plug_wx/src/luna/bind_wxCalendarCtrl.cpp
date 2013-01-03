@@ -1256,7 +1256,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::Create(wxWindow *, int, const wxDateTime &, const wxPoint &, const wxSize &, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::Create(wxWindow *, int, const wxDateTime &, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, date, pos, size, style, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1278,7 +1278,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::EnableHolidayDisplay(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::EnableHolidayDisplay(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EnableHolidayDisplay(display);
 
@@ -1299,7 +1299,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::EnableMonthChange(bool)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::EnableMonthChange(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->EnableMonthChange(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -1319,7 +1319,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCalendarDateAttr * wxCalendarCtrl::GetAttr(size_t) const");
+			luaL_error(L, "Invalid object in function call wxCalendarDateAttr * wxCalendarCtrl::GetAttr(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxCalendarDateAttr * lret = self->GetAttr(day);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1340,7 +1340,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxCalendarCtrl::GetDate() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxCalendarCtrl::GetDate() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetDate();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1362,7 +1362,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHeaderColourBg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHeaderColourBg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetHeaderColourBg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1383,7 +1383,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHeaderColourFg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHeaderColourFg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetHeaderColourFg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1404,7 +1404,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHighlightColourBg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHighlightColourBg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetHighlightColourBg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1425,7 +1425,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHighlightColourFg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHighlightColourFg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetHighlightColourFg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1446,7 +1446,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHolidayColourBg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHolidayColourBg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetHolidayColourBg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1467,7 +1467,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHolidayColourFg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::GetHolidayColourFg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetHolidayColourFg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1489,7 +1489,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::ResetAttr(size_t)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::ResetAttr(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ResetAttr(day);
 
@@ -1509,7 +1509,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetAttr(size_t, wxCalendarDateAttr *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetAttr(size_t, wxCalendarDateAttr *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAttr(day, attr);
 
@@ -1532,7 +1532,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::SetDate(const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::SetDate(const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetDate(date);
 		lua_pushboolean(L,lret?1:0);
@@ -1561,7 +1561,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHeaderColours(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHeaderColours(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHeaderColours(colFg, colBg);
 
@@ -1589,7 +1589,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHighlightColours(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHighlightColours(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHighlightColours(colFg, colBg);
 
@@ -1608,7 +1608,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHoliday(size_t)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHoliday(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHoliday(day);
 
@@ -1636,7 +1636,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHolidayColours(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::SetHolidayColours(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHolidayColours(colFg, colBg);
 
@@ -1656,7 +1656,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::Mark(size_t, bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::Mark(size_t, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Mark(day, mark);
 
@@ -1686,7 +1686,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::SetDateRange(const wxDateTime &, const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::SetDateRange(const wxDateTime &, const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetDateRange(lowerdate, upperdate);
 		lua_pushboolean(L,lret?1:0);
@@ -1707,7 +1707,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::GetDateRange(wxDateTime *, wxDateTime *) const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::GetDateRange(wxDateTime *, wxDateTime *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDateRange(lowerdate, upperdate);
 		lua_pushboolean(L,lret?1:0);
@@ -1726,7 +1726,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalendarCtrl::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalendarCtrl::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCalendarCtrl::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1747,7 +1747,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1766,7 +1766,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1785,7 +1785,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1804,7 +1804,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1824,7 +1824,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetCanFocus(canFocus);
 
@@ -1842,7 +1842,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetFocus();
 
@@ -1860,7 +1860,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetFocusFromKbd();
 
@@ -1879,7 +1879,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::AddChild(child);
 
@@ -1898,7 +1898,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::RemoveChild(child);
 
@@ -1917,7 +1917,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1940,7 +1940,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1959,7 +1959,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCalendarCtrl::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1979,7 +1979,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCalendarCtrl::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1999,7 +1999,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCalendarCtrl::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -2019,7 +2019,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -2039,7 +2039,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -2059,7 +2059,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -2083,7 +2083,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::ScrollWindow(dx, dy, rect);
 
@@ -2106,7 +2106,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetScrollPos(orientation, pos, refresh);
 
@@ -2131,7 +2131,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -2154,7 +2154,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2181,7 +2181,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2203,7 +2203,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Fit();
 
@@ -2221,7 +2221,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::FitInside();
 
@@ -2239,7 +2239,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2261,7 +2261,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2283,7 +2283,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2305,7 +2305,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2327,7 +2327,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2349,7 +2349,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2371,7 +2371,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCalendarCtrl::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxCalendarCtrl::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2396,7 +2396,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2418,7 +2418,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SendSizeEvent(flags);
 
@@ -2441,7 +2441,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetMaxClientSize(size);
 
@@ -2464,7 +2464,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetMaxSize(size);
 
@@ -2487,7 +2487,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetMinClientSize(size);
 
@@ -2510,7 +2510,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetMinSize(size);
 
@@ -2545,7 +2545,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2571,7 +2571,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2598,7 +2598,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxCalendarCtrl::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxCalendarCtrl::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxCalendarCtrl::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2620,7 +2620,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::ClearBackground();
 
@@ -2638,7 +2638,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxCalendarCtrl::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxCalendarCtrl::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxCalendarCtrl::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2657,7 +2657,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCalendarCtrl::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2676,7 +2676,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxCalendarCtrl::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxCalendarCtrl::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2695,7 +2695,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxCalendarCtrl::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxCalendarCtrl::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxCalendarCtrl::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2721,7 +2721,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Refresh(eraseBackground, rect);
 
@@ -2739,7 +2739,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Update();
 
@@ -2758,7 +2758,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2782,7 +2782,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2801,7 +2801,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2821,7 +2821,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetThemeEnabled(enable);
 
@@ -2839,7 +2839,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2858,7 +2858,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2878,7 +2878,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2898,7 +2898,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetNextHandler(handler);
 
@@ -2917,7 +2917,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetPreviousHandler(handler);
 
@@ -2935,7 +2935,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxCalendarCtrl::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxCalendarCtrl::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxCalendarCtrl::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2955,7 +2955,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetExtraStyle(exStyle);
 
@@ -2974,7 +2974,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetWindowStyleFlag(style);
 
@@ -2992,7 +2992,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Lower();
 
@@ -3010,7 +3010,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Raise();
 
@@ -3032,7 +3032,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3051,7 +3051,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -3070,7 +3070,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3092,7 +3092,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3114,7 +3114,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3137,7 +3137,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3162,7 +3162,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCalendarCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxCalendarCtrl::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCalendarCtrl::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3181,7 +3181,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxCalendarCtrl::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxCalendarCtrl::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxCalendarCtrl::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3207,7 +3207,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetValidator(validator);
 
@@ -3225,7 +3225,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3244,7 +3244,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3263,7 +3263,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3282,7 +3282,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxCalendarCtrl::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxCalendarCtrl::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxCalendarCtrl::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3301,7 +3301,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCalendarCtrl::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxCalendarCtrl::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCalendarCtrl::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3321,7 +3321,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetLayoutDirection(dir);
 
@@ -3340,7 +3340,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetName(name);
 
@@ -3363,7 +3363,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetAcceleratorTable(accel);
 
@@ -3381,7 +3381,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3400,7 +3400,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxCalendarCtrl::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxCalendarCtrl::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxCalendarCtrl::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3422,7 +3422,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetDropTarget(target);
 
@@ -3441,7 +3441,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::DragAcceptFiles(accept);
 
@@ -3459,7 +3459,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3478,7 +3478,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3502,7 +3502,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3523,7 +3523,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::WarpPointer(x, y);
 
@@ -3546,7 +3546,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::DoUpdateWindowUI(event);
 
@@ -3564,7 +3564,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3583,7 +3583,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::InheritAttributes();
 
@@ -3601,7 +3601,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::InitDialog();
 
@@ -3619,7 +3619,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3638,7 +3638,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3660,7 +3660,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::MakeModal(modal);
 
@@ -3678,7 +3678,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::OnInternalIdle();
 
@@ -3699,7 +3699,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3719,7 +3719,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3741,7 +3741,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::UpdateWindowUI(flags);
 
@@ -3764,7 +3764,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Command(event);
 
@@ -3782,7 +3782,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCalendarCtrl::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxCalendarCtrl::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxCalendarCtrl::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3802,7 +3802,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetLabel(label);
 
@@ -3823,7 +3823,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_EnableHolidayDisplay(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_EnableHolidayDisplay(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::EnableHolidayDisplay(display);
 
@@ -3844,7 +3844,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_EnableMonthChange(bool)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_EnableMonthChange(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::EnableMonthChange(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3864,7 +3864,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCalendarDateAttr * wxCalendarCtrl::base_GetAttr(size_t) const");
+			luaL_error(L, "Invalid object in function call wxCalendarDateAttr * wxCalendarCtrl::base_GetAttr(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxCalendarDateAttr * lret = self->wxCalendarCtrl::GetAttr(day);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3885,7 +3885,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxCalendarCtrl::base_GetDate() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxCalendarCtrl::base_GetDate() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->wxCalendarCtrl::GetDate();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3907,7 +3907,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHeaderColourBg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHeaderColourBg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->wxCalendarCtrl::GetHeaderColourBg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3928,7 +3928,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHeaderColourFg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHeaderColourFg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->wxCalendarCtrl::GetHeaderColourFg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3949,7 +3949,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHighlightColourBg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHighlightColourBg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->wxCalendarCtrl::GetHighlightColourBg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3970,7 +3970,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHighlightColourFg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHighlightColourFg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->wxCalendarCtrl::GetHighlightColourFg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3991,7 +3991,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHolidayColourBg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHolidayColourBg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->wxCalendarCtrl::GetHolidayColourBg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4012,7 +4012,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHolidayColourFg() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarCtrl::base_GetHolidayColourFg() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->wxCalendarCtrl::GetHolidayColourFg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4034,7 +4034,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_ResetAttr(size_t)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_ResetAttr(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::ResetAttr(day);
 
@@ -4054,7 +4054,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetAttr(size_t, wxCalendarDateAttr *)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetAttr(size_t, wxCalendarDateAttr *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetAttr(day, attr);
 
@@ -4077,7 +4077,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetDate(const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetDate(const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::SetDate(date);
 		lua_pushboolean(L,lret?1:0);
@@ -4106,7 +4106,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHeaderColours(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHeaderColours(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetHeaderColours(colFg, colBg);
 
@@ -4134,7 +4134,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHighlightColours(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHighlightColours(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetHighlightColours(colFg, colBg);
 
@@ -4153,7 +4153,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHoliday(size_t)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHoliday(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetHoliday(day);
 
@@ -4181,7 +4181,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHolidayColours(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_SetHolidayColours(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::SetHolidayColours(colFg, colBg);
 
@@ -4201,7 +4201,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Mark(size_t, bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarCtrl::base_Mark(size_t, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxCalendarCtrl::Mark(day, mark);
 
@@ -4231,7 +4231,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetDateRange(const wxDateTime &, const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_SetDateRange(const wxDateTime &, const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::SetDateRange(lowerdate, upperdate);
 		lua_pushboolean(L,lret?1:0);
@@ -4252,7 +4252,7 @@ public:
 		wxCalendarCtrl* self=Luna< wxObject >::checkSubType< wxCalendarCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_GetDateRange(wxDateTime *, wxDateTime *) const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarCtrl::base_GetDateRange(wxDateTime *, wxDateTime *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCalendarCtrl::GetDateRange(lowerdate, upperdate);
 		lua_pushboolean(L,lret?1:0);

@@ -297,7 +297,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::StateGraph * osgUtil::StateGraph::cloneType() const");
+			luaL_error(L, "Invalid object in function call osgUtil::StateGraph * osgUtil::StateGraph::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::StateGraph * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,7 +319,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUserData(obj);
 
@@ -337,7 +337,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::StateGraph::getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::StateGraph::getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -358,7 +358,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::StateGraph::getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::StateGraph::getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -388,7 +388,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osgUtil::StateGraph::getStateSet() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osgUtil::StateGraph::getStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet * lret = self->getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -409,7 +409,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::StateGraph::empty() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::StateGraph::empty() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -428,7 +428,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::StateGraph::leaves_empty() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::StateGraph::leaves_empty() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->leaves_empty();
 		lua_pushboolean(L,lret?1:0);
@@ -447,7 +447,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateGraph::getAverageDistance() const");
+			luaL_error(L, "Invalid object in function call float osgUtil::StateGraph::getAverageDistance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getAverageDistance();
 		lua_pushnumber(L,lret);
@@ -466,7 +466,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateGraph::getMinimumDistance() const");
+			luaL_error(L, "Invalid object in function call float osgUtil::StateGraph::getMinimumDistance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getMinimumDistance();
 		lua_pushnumber(L,lret);
@@ -485,7 +485,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::sortFrontToBack()");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::sortFrontToBack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->sortFrontToBack();
 
@@ -503,7 +503,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -521,7 +521,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::clean()");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::clean(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->clean();
 
@@ -539,7 +539,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::prune()");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::prune(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->prune();
 
@@ -558,7 +558,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::StateGraph * osgUtil::StateGraph::find_or_insert(const osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call osgUtil::StateGraph * osgUtil::StateGraph::find_or_insert(const osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::StateGraph * lret = self->find_or_insert(stateset);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -580,7 +580,7 @@ public:
 		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::addLeaf(osgUtil::RenderLeaf *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::addLeaf(osgUtil::RenderLeaf *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addLeaf(leaf);
 

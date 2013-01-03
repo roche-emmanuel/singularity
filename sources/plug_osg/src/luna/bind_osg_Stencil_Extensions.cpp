@@ -156,7 +156,7 @@ public:
 		osg::Stencil::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Stencil::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stencil::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Stencil::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -175,7 +175,7 @@ public:
 		osg::Stencil::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Stencil::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Stencil::Extensions::setStencilWrapSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Stencil::Extensions::setStencilWrapSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStencilWrapSupported(flag);
 
@@ -193,7 +193,7 @@ public:
 		osg::Stencil::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Stencil::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Stencil::Extensions::isStencilWrapSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Stencil::Extensions::isStencilWrapSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isStencilWrapSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -216,7 +216,7 @@ void LunaTraits< osg::Stencil::Extensions >::_bind_dtor(osg::Stencil::Extensions
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Stencil::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Stencil::Extensions >::className[] = "Stencil_Extensions";
 const char LunaTraits< osg::Stencil::Extensions >::fullName[] = "osg::Stencil::Extensions";
 const char LunaTraits< osg::Stencil::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Stencil::Extensions >::parents[] = {"osg.Referenced", 0};

@@ -162,7 +162,7 @@ public:
 		osg::Texture::TextureProfile* self=(Luna< osg::Texture::TextureProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::TextureProfile::set(int, unsigned int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osg::Texture::TextureProfile::set(int, unsigned int, int, int, int, int). Got : '%s'",typeid(Luna< osg::Texture::TextureProfile >::check(L,1)).name());
 		}
 		self->set(numMipmapLevels, internalFormat, width, height, depth, border);
 
@@ -187,7 +187,7 @@ public:
 		osg::Texture::TextureProfile* self=(Luna< osg::Texture::TextureProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureProfile::match(unsigned int, int, unsigned int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureProfile::match(unsigned int, int, unsigned int, int, int, int, int). Got : '%s'",typeid(Luna< osg::Texture::TextureProfile >::check(L,1)).name());
 		}
 		bool lret = self->match(target, numMipmapLevels, internalFormat, width, height, depth, border);
 		lua_pushboolean(L,lret?1:0);
@@ -206,7 +206,7 @@ public:
 		osg::Texture::TextureProfile* self=(Luna< osg::Texture::TextureProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::TextureProfile::computeSize()");
+			luaL_error(L, "Invalid object in function call void osg::Texture::TextureProfile::computeSize(). Got : '%s'",typeid(Luna< osg::Texture::TextureProfile >::check(L,1)).name());
 		}
 		self->computeSize();
 
@@ -231,7 +231,7 @@ public:
 		osg::Texture::TextureProfile* self=(Luna< osg::Texture::TextureProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureProfile::operator<(const osg::Texture::TextureProfile &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureProfile::operator<(const osg::Texture::TextureProfile &) const. Got : '%s'",typeid(Luna< osg::Texture::TextureProfile >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -255,7 +255,7 @@ public:
 		osg::Texture::TextureProfile* self=(Luna< osg::Texture::TextureProfile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureProfile::operator==(const osg::Texture::TextureProfile &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureProfile::operator==(const osg::Texture::TextureProfile &) const. Got : '%s'",typeid(Luna< osg::Texture::TextureProfile >::check(L,1)).name());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -276,7 +276,7 @@ void LunaTraits< osg::Texture::TextureProfile >::_bind_dtor(osg::Texture::Textur
 	delete obj;
 }
 
-const char LunaTraits< osg::Texture::TextureProfile >::className[] = "TextureProfile";
+const char LunaTraits< osg::Texture::TextureProfile >::className[] = "Texture_TextureProfile";
 const char LunaTraits< osg::Texture::TextureProfile >::fullName[] = "osg::Texture::TextureProfile";
 const char LunaTraits< osg::Texture::TextureProfile >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture::TextureProfile >::parents[] = {0};

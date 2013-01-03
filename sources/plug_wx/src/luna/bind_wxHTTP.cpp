@@ -255,7 +255,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Connect(host);
 		lua_pushboolean(L,lret?1:0);
@@ -276,7 +276,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &, unsigned short)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxString &, unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Connect(host, port);
 		lua_pushboolean(L,lret?1:0);
@@ -301,7 +301,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxSockAddress &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::Connect(const wxSockAddress &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Connect(address, wait);
 		lua_pushboolean(L,lret?1:0);
@@ -331,7 +331,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetHeader(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetHeader(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetHeader(header);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -351,7 +351,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::GetInputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -372,7 +372,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHTTP::GetResponse() const");
+			luaL_error(L, "Invalid object in function call int wxHTTP::GetResponse() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetResponse();
 		lua_pushnumber(L,lret);
@@ -393,7 +393,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHTTP::SetHeader(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHTTP::SetHeader(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHeader(header, h_data);
 
@@ -412,7 +412,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetCookie(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxHTTP::GetCookie(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetCookie(cookie);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -431,7 +431,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::HasCookies() const");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::HasCookies() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasCookies();
 		lua_pushboolean(L,lret?1:0);
@@ -450,7 +450,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHTTP::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHTTP::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHTTP::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -476,7 +476,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetLocal(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -500,7 +500,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetPeer(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -519,7 +519,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -543,7 +543,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_SetLocal(const wxIPV4address &)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);
@@ -562,7 +562,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolError wxHTTP::base_GetError() const");
+			luaL_error(L, "Invalid object in function call wxProtocolError wxHTTP::base_GetError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxProtocolError lret = self->wxHTTP::GetError();
 		lua_pushnumber(L,lret);
@@ -582,7 +582,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetPassword(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetPassword(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHTTP::SetPassword(user);
 
@@ -601,7 +601,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetUser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHTTP::base_SetUser(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHTTP::SetUser(user);
 
@@ -620,7 +620,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::Connect(host);
 		lua_pushboolean(L,lret?1:0);
@@ -641,7 +641,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &, unsigned short)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxString &, unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::Connect(host, port);
 		lua_pushboolean(L,lret?1:0);
@@ -666,7 +666,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxSockAddress &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxHTTP::base_Connect(const wxSockAddress &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHTTP::Connect(address, wait);
 		lua_pushboolean(L,lret?1:0);
@@ -696,7 +696,7 @@ public:
 		wxHTTP* self=Luna< wxObject >::checkSubType< wxHTTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::base_GetInputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxHTTP::base_GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->wxHTTP::GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.

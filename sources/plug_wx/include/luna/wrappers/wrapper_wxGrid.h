@@ -22,6 +22,11 @@ public:
 	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxPen wxGrid::GetColGridLinePen(int col)
 	wxPen GetColGridLinePen(int col) {
@@ -104,9 +109,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// bool wxGrid::CanHaveAttributes() const
 	bool public_CanHaveAttributes() const {
@@ -182,7 +184,7 @@ public:
 		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGrid::public_CanHaveAttributes() const");
+			luaL_error(L, "Invalid object in function call bool wxGrid::public_CanHaveAttributes() const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
 		bool lret = self->public_CanHaveAttributes();
 		lua_pushboolean(L,lret?1:0);
@@ -202,7 +204,7 @@ public:
 		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColMinimalWidth(int) const");
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColMinimalWidth(int) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
 		int lret = self->public_GetColMinimalWidth(col);
 		lua_pushnumber(L,lret);
@@ -222,7 +224,7 @@ public:
 		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColRight(int) const");
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColRight(int) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
 		int lret = self->public_GetColRight(col);
 		lua_pushnumber(L,lret);
@@ -242,7 +244,7 @@ public:
 		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColLeft(int) const");
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetColLeft(int) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
 		int lret = self->public_GetColLeft(col);
 		lua_pushnumber(L,lret);
@@ -262,7 +264,7 @@ public:
 		wrapper_wxGrid* self=Luna< wxGrid >::checkSubType< wrapper_wxGrid >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGrid::public_GetRowMinimalHeight(int) const");
+			luaL_error(L, "Invalid object in function call int wxGrid::public_GetRowMinimalHeight(int) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
 		int lret = self->public_GetRowMinimalHeight(col);
 		lua_pushnumber(L,lret);

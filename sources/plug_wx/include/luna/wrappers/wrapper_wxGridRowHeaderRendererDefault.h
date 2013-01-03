@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const
 	void DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const {
@@ -49,9 +54,6 @@ public:
 		return wxGridRowHeaderRendererDefault::DrawBorder(grid, dc, rect);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

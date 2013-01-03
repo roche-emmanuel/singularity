@@ -333,7 +333,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::CloseContainer()");
+			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::CloseContainer(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxHtmlContainerCell * lret = self->CloseContainer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -354,7 +354,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont * wxHtmlWinParser::CreateCurrentFont()");
+			luaL_error(L, "Invalid object in function call wxFont * wxHtmlWinParser::CreateCurrentFont(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxFont * lret = self->CreateCurrentFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxHtmlWinParser::GetActualColor() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxHtmlWinParser::GetActualColor() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetActualColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -396,7 +396,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetAlign() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetAlign() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetAlign();
 		lua_pushnumber(L,lret);
@@ -415,7 +415,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetCharHeight() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -434,7 +434,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetCharWidth() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -453,7 +453,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::GetContainer() const");
+			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::GetContainer() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxHtmlContainerCell * lret = self->GetContainer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -474,7 +474,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDC * wxHtmlWinParser::GetDC()");
+			luaL_error(L, "Invalid object in function call wxDC * wxHtmlWinParser::GetDC(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxDC * lret = self->GetDC();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -495,7 +495,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontBold() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontBold() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetFontBold();
 		lua_pushnumber(L,lret);
@@ -514,7 +514,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlWinParser::GetFontFace() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlWinParser::GetFontFace() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxString lret = self->GetFontFace();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -533,7 +533,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontFixed() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontFixed() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetFontFixed();
 		lua_pushnumber(L,lret);
@@ -552,7 +552,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontItalic() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontItalic() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetFontItalic();
 		lua_pushnumber(L,lret);
@@ -571,7 +571,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontSize() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontSize() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetFontSize();
 		lua_pushnumber(L,lret);
@@ -590,7 +590,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontUnderlined() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlWinParser::GetFontUnderlined() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		int lret = self->GetFontUnderlined();
 		lua_pushnumber(L,lret);
@@ -609,7 +609,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlLinkInfo & wxHtmlWinParser::GetLink() const");
+			luaL_error(L, "Invalid object in function call const wxHtmlLinkInfo & wxHtmlWinParser::GetLink() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		const wxHtmlLinkInfo* lret = &self->GetLink();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -630,7 +630,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxHtmlWinParser::GetLinkColor() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxHtmlWinParser::GetLinkColor() const. Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetLinkColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -651,7 +651,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::OpenContainer()");
+			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::OpenContainer(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxHtmlContainerCell * lret = self->OpenContainer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,7 +677,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetActualColor(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetActualColor(const wxColour &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetActualColor(clr);
 
@@ -696,7 +696,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetAlign(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetAlign(int). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetAlign(a);
 
@@ -715,7 +715,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::SetContainer(wxHtmlContainerCell *)");
+			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlWinParser::SetContainer(wxHtmlContainerCell *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxHtmlContainerCell * lret = self->SetContainer(c);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -740,7 +740,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetDC(wxDC *, double)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetDC(wxDC *, double). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetDC(dc, pixel_scale);
 
@@ -759,7 +759,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontBold(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontBold(int). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFontBold(x);
 
@@ -778,7 +778,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontFace(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontFace(const wxString &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFontFace(face);
 
@@ -797,7 +797,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontFixed(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontFixed(int). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFontFixed(x);
 
@@ -816,7 +816,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontItalic(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontItalic(int). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFontItalic(x);
 
@@ -835,7 +835,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontSize(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontSize(int). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFontSize(s);
 
@@ -854,7 +854,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontUnderlined(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFontUnderlined(int). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFontUnderlined(x);
 
@@ -877,7 +877,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFonts(const wxString &, const wxString &, const int *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetFonts(normal_face, fixed_face, &sizes);
 
@@ -900,7 +900,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetLink(const wxHtmlLinkInfo &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetLink(const wxHtmlLinkInfo &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetLink(link);
 
@@ -923,7 +923,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetLinkColor(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetLinkColor(const wxColour &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->SetLinkColor(clr);
 
@@ -956,7 +956,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_AddTagHandler(wxHtmlTagHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_AddTagHandler(wxHtmlTagHandler *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlWinParser::AddTagHandler(handler);
 
@@ -974,7 +974,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_DoneParser()");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_DoneParser(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlWinParser::DoneParser();
 
@@ -993,7 +993,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_InitParser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_InitParser(const wxString &). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlWinParser::InitParser(source);
 
@@ -1011,7 +1011,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_StopParsing()");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_StopParsing(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlWinParser::StopParsing();
 
@@ -1029,7 +1029,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont * wxHtmlWinParser::base_CreateCurrentFont()");
+			luaL_error(L, "Invalid object in function call wxFont * wxHtmlWinParser::base_CreateCurrentFont(). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		wxFont * lret = self->wxHtmlWinParser::CreateCurrentFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1054,7 +1054,7 @@ public:
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_SetDC(wxDC *, double)");
+			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::base_SetDC(wxDC *, double). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
 		self->wxHtmlWinParser::SetDC(dc, pixel_scale);
 

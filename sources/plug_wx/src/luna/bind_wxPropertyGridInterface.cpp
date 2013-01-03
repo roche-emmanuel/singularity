@@ -272,7 +272,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty *)");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty *). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->Append(property);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,7 +293,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Clear()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Clear(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -314,7 +314,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ClearSelection(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ClearSelection(bool). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		bool lret = self->ClearSelection(validation);
 		lua_pushboolean(L,lret?1:0);
@@ -333,7 +333,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::ClearModifiedStatus()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::ClearModifiedStatus(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		self->ClearModifiedStatus();
 
@@ -351,7 +351,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::CollapseAll()");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::CollapseAll(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		bool lret = self->CollapseAll();
 		lua_pushboolean(L,lret?1:0);
@@ -370,7 +370,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::EditorValidate()");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::EditorValidate(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		bool lret = self->EditorValidate();
 		lua_pushboolean(L,lret?1:0);
@@ -392,7 +392,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ExpandAll(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ExpandAll(bool). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		bool lret = self->ExpandAll(expand);
 		lua_pushboolean(L,lret?1:0);
@@ -412,7 +412,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertyGridInterface::GetColumnProportion(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int wxPropertyGridInterface::GetColumnProportion(unsigned int) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		int lret = self->GetColumnProportion(column);
 		lua_pushnumber(L,lret);
@@ -434,7 +434,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetFirst(int)");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetFirst(int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetFirst(flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -456,7 +456,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetProperty(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -478,7 +478,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetPropertyByLabel(label);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -500,7 +500,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetPropertyByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -523,7 +523,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetPropertyByName(name, subname);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -554,7 +554,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty *)");
+			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty *). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxString lret = self->GetPropertyName(property);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -573,7 +573,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetSelection() const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetSelection() const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetSelection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -598,7 +598,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::RestoreEditableState(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::RestoreEditableState(const wxString &, int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		bool lret = self->RestoreEditableState(src, restoreStates);
 		lua_pushboolean(L,lret?1:0);
@@ -620,7 +620,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::SaveEditableState(int) const");
+			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::SaveEditableState(int) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		wxString lret = self->SaveEditableState(includedStates);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -641,7 +641,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::SetColumnProportion(unsigned int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::SetColumnProportion(unsigned int, int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		bool lret = self->SetColumnProportion(column, proportion);
 		lua_pushboolean(L,lret?1:0);
@@ -661,7 +661,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::SetValidationFailureBehavior(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::SetValidationFailureBehavior(int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		self->SetValidationFailureBehavior(vfbFlags);
 
@@ -682,7 +682,7 @@ public:
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Sort(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Sort(int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
 		}
 		self->Sort(flags);
 

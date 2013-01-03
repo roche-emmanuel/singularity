@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick)
 	void checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick) {
@@ -57,9 +62,6 @@ public:
 		return OpenGLQuerySupport::initialize(state, startTick);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
@@ -103,7 +105,7 @@ public:
 		wrapper_osgViewer_OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -121,7 +123,7 @@ public:
 		wrapper_osgViewer_OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

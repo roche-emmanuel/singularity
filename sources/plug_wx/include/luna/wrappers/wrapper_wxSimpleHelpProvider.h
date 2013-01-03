@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {
@@ -82,9 +87,6 @@ public:
 		return wxSimpleHelpProvider::ShowHelpAtPoint(window, point, origin);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

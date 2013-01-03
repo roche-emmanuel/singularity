@@ -23,6 +23,11 @@ public:
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) : osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osgUtil::Intersector * osgUtil::LineSegmentIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
@@ -82,9 +87,6 @@ public:
 		return LineSegmentIntersector::containsIntersections();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgUtil::LineSegmentIntersector::intersects(const osg::BoundingSphered & bs)
@@ -157,7 +159,7 @@ public:
 		wrapper_osgUtil_LineSegmentIntersector* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_LineSegmentIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::LineSegmentIntersector::public_intersects(const osg::BoundingSphered &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::LineSegmentIntersector::public_intersects(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_intersects(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -191,7 +193,7 @@ public:
 		wrapper_osgUtil_LineSegmentIntersector* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_LineSegmentIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::LineSegmentIntersector::public_intersectAndClip(osg::Vec3d &, osg::Vec3d &, const osg::BoundingBoxd &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::LineSegmentIntersector::public_intersectAndClip(osg::Vec3d &, osg::Vec3d &, const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_intersectAndClip(s, e, bb);
 		lua_pushboolean(L,lret?1:0);
@@ -212,7 +214,7 @@ public:
 		wrapper_osgUtil_LineSegmentIntersector* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_LineSegmentIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -230,7 +232,7 @@ public:
 		wrapper_osgUtil_LineSegmentIntersector* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_LineSegmentIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

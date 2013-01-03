@@ -78,7 +78,7 @@ void LunaTraits< osgUtil::RenderStage::Attachment >::_bind_dtor(osgUtil::RenderS
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::RenderStage::Attachment >::className[] = "Attachment";
+const char LunaTraits< osgUtil::RenderStage::Attachment >::className[] = "RenderStage_Attachment";
 const char LunaTraits< osgUtil::RenderStage::Attachment >::fullName[] = "osgUtil::RenderStage::Attachment";
 const char LunaTraits< osgUtil::RenderStage::Attachment >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::RenderStage::Attachment >::parents[] = {0};

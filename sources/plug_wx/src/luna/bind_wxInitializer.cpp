@@ -80,7 +80,7 @@ public:
 		wxInitializer* self=(Luna< wxInitializer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxInitializer::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxInitializer::IsOk() const. Got : '%s'",typeid(Luna< wxInitializer >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);

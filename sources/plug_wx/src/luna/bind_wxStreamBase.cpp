@@ -199,7 +199,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStreamError wxStreamBase::GetLastError() const");
+			luaL_error(L, "Invalid object in function call wxStreamError wxStreamBase::GetLastError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxStreamError lret = self->GetLastError();
 		lua_pushnumber(L,lret);
@@ -218,7 +218,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxStreamBase::GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxStreamBase::GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->GetLength();
 		lua_pushnumber(L,lret);
@@ -237,7 +237,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStreamBase::GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxStreamBase::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetSize();
 		lua_pushnumber(L,lret);
@@ -256,7 +256,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStreamBase::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxStreamBase::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -275,7 +275,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStreamBase::IsSeekable() const");
+			luaL_error(L, "Invalid object in function call bool wxStreamBase::IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsSeekable();
 		lua_pushboolean(L,lret?1:0);
@@ -297,7 +297,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStreamBase::Reset(wxStreamError)");
+			luaL_error(L, "Invalid object in function call void wxStreamBase::Reset(wxStreamError). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Reset(error);
 
@@ -315,7 +315,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxStreamBase::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxStreamBase::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxStreamBase::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -336,7 +336,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxStreamBase::base_GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxStreamBase::base_GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxStreamBase::GetLength();
 		lua_pushnumber(L,lret);
@@ -355,7 +355,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStreamBase::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxStreamBase::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxStreamBase::GetSize();
 		lua_pushnumber(L,lret);
@@ -374,7 +374,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStreamBase::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxStreamBase::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStreamBase::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -393,7 +393,7 @@ public:
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStreamBase::base_IsSeekable() const");
+			luaL_error(L, "Invalid object in function call bool wxStreamBase::base_IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStreamBase::IsSeekable();
 		lua_pushboolean(L,lret?1:0);

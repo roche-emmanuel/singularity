@@ -285,7 +285,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFile::GetLastError() const");
+			luaL_error(L, "Invalid object in function call int wxFile::GetLastError() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		int lret = self->GetLastError();
 		lua_pushnumber(L,lret);
@@ -304,7 +304,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFile::ClearLastError()");
+			luaL_error(L, "Invalid object in function call void wxFile::ClearLastError(). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		self->ClearLastError();
 
@@ -323,7 +323,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFile::Attach(int)");
+			luaL_error(L, "Invalid object in function call void wxFile::Attach(int). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		self->Attach(fd);
 
@@ -341,7 +341,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFile::Close()");
+			luaL_error(L, "Invalid object in function call bool wxFile::Close(). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		bool lret = self->Close();
 		lua_pushboolean(L,lret?1:0);
@@ -365,7 +365,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFile::Create(const wxString &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxFile::Create(const wxString &, bool, int). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		bool lret = self->Create(filename, overwrite, access);
 		lua_pushboolean(L,lret?1:0);
@@ -384,7 +384,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFile::Detach()");
+			luaL_error(L, "Invalid object in function call void wxFile::Detach(). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		self->Detach();
 
@@ -402,7 +402,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFile::Eof() const");
+			luaL_error(L, "Invalid object in function call bool wxFile::Eof() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		bool lret = self->Eof();
 		lua_pushboolean(L,lret?1:0);
@@ -421,7 +421,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFile::Flush()");
+			luaL_error(L, "Invalid object in function call bool wxFile::Flush(). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		bool lret = self->Flush();
 		lua_pushboolean(L,lret?1:0);
@@ -440,7 +440,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileKind wxFile::GetKind() const");
+			luaL_error(L, "Invalid object in function call wxFileKind wxFile::GetKind() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		wxFileKind lret = self->GetKind();
 		lua_pushnumber(L,lret);
@@ -459,7 +459,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFile::IsOpened() const");
+			luaL_error(L, "Invalid object in function call bool wxFile::IsOpened() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		bool lret = self->IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -478,7 +478,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFile::Length() const");
+			luaL_error(L, "Invalid object in function call long long wxFile::Length() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		long long lret = self->Length();
 		lua_pushnumber(L,lret);
@@ -502,7 +502,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFile::Open(const wxString &, wxFile::OpenMode, int)");
+			luaL_error(L, "Invalid object in function call bool wxFile::Open(const wxString &, wxFile::OpenMode, int). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		bool lret = self->Open(filename, mode, access);
 		lua_pushboolean(L,lret?1:0);
@@ -523,7 +523,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ssize_t wxFile::Read(void *, size_t)");
+			luaL_error(L, "Invalid object in function call ssize_t wxFile::Read(void *, size_t). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		ssize_t lret = self->Read(buffer, count);
 		lua_pushnumber(L,lret);
@@ -546,7 +546,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFile::Seek(long long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxFile::Seek(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		long long lret = self->Seek(ofs, mode);
 		lua_pushnumber(L,lret);
@@ -568,7 +568,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFile::SeekEnd(long long)");
+			luaL_error(L, "Invalid object in function call long long wxFile::SeekEnd(long long). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		long long lret = self->SeekEnd(ofs);
 		lua_pushnumber(L,lret);
@@ -587,7 +587,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFile::Tell() const");
+			luaL_error(L, "Invalid object in function call long long wxFile::Tell() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		long long lret = self->Tell();
 		lua_pushnumber(L,lret);
@@ -608,7 +608,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFile::Write(const void *, size_t)");
+			luaL_error(L, "Invalid object in function call size_t wxFile::Write(const void *, size_t). Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		size_t lret = self->Write(buffer, count);
 		lua_pushnumber(L,lret);
@@ -627,7 +627,7 @@ public:
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFile::fd() const");
+			luaL_error(L, "Invalid object in function call int wxFile::fd() const. Got : '%s'",typeid(Luna< wxFile >::check(L,1)).name());
 		}
 		int lret = self->fd();
 		lua_pushnumber(L,lret);

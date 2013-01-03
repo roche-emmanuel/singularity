@@ -283,7 +283,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBackgroundColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBackgroundColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetBackgroundColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -304,7 +304,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const");
+			luaL_error(L, "Invalid object in function call wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		wxCalendarDateBorder lret = self->GetBorder();
 		lua_pushnumber(L,lret);
@@ -323,7 +323,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBorderColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBorderColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetBorderColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -344,7 +344,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxCalendarDateAttr::GetFont() const");
+			luaL_error(L, "Invalid object in function call const wxFont & wxCalendarDateAttr::GetFont() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -365,7 +365,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetTextColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetTextColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetTextColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -386,7 +386,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBackgroundColour() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBackgroundColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBackgroundColour();
 		lua_pushboolean(L,lret?1:0);
@@ -405,7 +405,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorder() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorder() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBorder();
 		lua_pushboolean(L,lret?1:0);
@@ -424,7 +424,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorderColour() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorderColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBorderColour();
 		lua_pushboolean(L,lret?1:0);
@@ -443,7 +443,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasFont() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasFont() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFont();
 		lua_pushboolean(L,lret?1:0);
@@ -462,7 +462,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasTextColour() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasTextColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasTextColour();
 		lua_pushboolean(L,lret?1:0);
@@ -481,7 +481,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::IsHoliday() const");
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::IsHoliday() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		bool lret = self->IsHoliday();
 		lua_pushboolean(L,lret?1:0);
@@ -505,7 +505,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBackgroundColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		self->SetBackgroundColour(colBack);
 
@@ -524,7 +524,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder)");
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		self->SetBorder(border);
 
@@ -547,7 +547,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorderColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorderColour(const wxColour &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		self->SetBorderColour(col);
 
@@ -570,7 +570,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		self->SetFont(font);
 
@@ -589,7 +589,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetHoliday(bool)");
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetHoliday(bool). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		self->SetHoliday(holiday);
 
@@ -612,7 +612,7 @@ public:
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetTextColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
 		}
 		self->SetTextColour(colText);
 

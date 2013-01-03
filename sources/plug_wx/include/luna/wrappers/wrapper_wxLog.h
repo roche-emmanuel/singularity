@@ -20,17 +20,8 @@ public:
 	};
 	
 
-	// Public virtual methods:
-	// void wxLog::Flush()
-	void Flush() {
-		if(_obj.pushFunction("Flush")) {
-			return (_obj.callFunction<void>());
-		}
 
-		return wxLog::Flush();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
@@ -67,6 +58,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// void wxLog::Flush()
+	void Flush() {
+		if(_obj.pushFunction("Flush")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxLog::Flush();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

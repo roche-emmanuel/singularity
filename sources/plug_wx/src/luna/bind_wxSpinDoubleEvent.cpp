@@ -173,7 +173,7 @@ public:
 		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxSpinDoubleEvent::GetValue() const");
+			luaL_error(L, "Invalid object in function call double wxSpinDoubleEvent::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -193,7 +193,7 @@ public:
 		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSpinDoubleEvent::SetValue(double)");
+			luaL_error(L, "Invalid object in function call void wxSpinDoubleEvent::SetValue(double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(value);
 
@@ -211,7 +211,7 @@ public:
 		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSpinDoubleEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSpinDoubleEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSpinDoubleEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -232,7 +232,7 @@ public:
 		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxSpinDoubleEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSpinDoubleEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxSpinDoubleEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -136,7 +136,7 @@ public:
 		wxXLocale* self=(Luna< wxXLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXLocale::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxXLocale::IsOk() const. Got : '%s'",typeid(Luna< wxXLocale >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -178,7 +178,7 @@ public:
 		wxXLocale* self=(Luna< wxXLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXLocale::operator==(const wxXLocale &) const");
+			luaL_error(L, "Invalid object in function call bool wxXLocale::operator==(const wxXLocale &) const. Got : '%s'",typeid(Luna< wxXLocale >::check(L,1)).name());
 		}
 		bool lret = self->operator==(loc);
 		lua_pushboolean(L,lret?1:0);

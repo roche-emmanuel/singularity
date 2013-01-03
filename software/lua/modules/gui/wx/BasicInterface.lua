@@ -7,6 +7,7 @@ local winman = require "gui.wx.WindowManager"
 
 local Vector = require "std.Vector"
 local LicensedItem = require "gui.wx.LicensedItem"
+local prof = require "debugging.Profiler"
 
 wx.wxInitAllImageHandlers() -- init all image handlers.
 
@@ -53,7 +54,6 @@ function Class:close()
 	self:debug("Closing BasicInterface...")
 	self:fireEvent("InterfaceClosing")
 	self:disconnectHandlers()
-	--self._root:DestroyChildren()
 	
 	self:uninitialize()
 end
@@ -199,11 +199,15 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     --self:warn("Connecting event handler...")
     
     ctrl:connect(id or wx.wxID_ANY,eventType,function(event) 
-    	local className = event:GetClassInfo():GetClassName()
+    	prof:start("Event handlers")
+		local className = event:GetClassInfo():GetClassName()
     	--self:info("Casting event to class: ",className)
-    	event = event:dynCast(className)
+    	prof:start("Event dyncat")
+		event = event:dynCast(className)
+		prof:stop()
     	self:check(event,"Invalid event after cast to ",className)
     	func(self,event,data) 
+		prof:stop()
 	end)
 	
 	-- register a connection item:

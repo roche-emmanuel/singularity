@@ -144,7 +144,7 @@ public:
 		wxMenuEvent* self=Luna< wxObject >::checkSubType< wxMenuEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenu * wxMenuEvent::GetMenu() const");
+			luaL_error(L, "Invalid object in function call wxMenu * wxMenuEvent::GetMenu() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenu * lret = self->GetMenu();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -165,7 +165,7 @@ public:
 		wxMenuEvent* self=Luna< wxObject >::checkSubType< wxMenuEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMenuEvent::GetMenuId() const");
+			luaL_error(L, "Invalid object in function call int wxMenuEvent::GetMenuId() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetMenuId();
 		lua_pushnumber(L,lret);
@@ -184,7 +184,7 @@ public:
 		wxMenuEvent* self=Luna< wxObject >::checkSubType< wxMenuEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenuEvent::IsPopup() const");
+			luaL_error(L, "Invalid object in function call bool wxMenuEvent::IsPopup() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsPopup();
 		lua_pushboolean(L,lret?1:0);
@@ -203,7 +203,7 @@ public:
 		wxMenuEvent* self=Luna< wxObject >::checkSubType< wxMenuEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMenuEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMenuEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMenuEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -224,7 +224,7 @@ public:
 		wxMenuEvent* self=Luna< wxObject >::checkSubType< wxMenuEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxMenuEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxMenuEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxMenuEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

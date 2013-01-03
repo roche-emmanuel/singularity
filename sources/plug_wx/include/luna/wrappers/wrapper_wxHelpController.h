@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxHelpController(lua_State* L, lua_Table* dum, wxWindow * parentWindow = NULL) : wxHelpController(parentWindow), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxHelpController::DisplayBlock(long blockNo)
 	bool DisplayBlock(long blockNo) {
@@ -188,9 +193,6 @@ public:
 		return wxHelpController::SetViewer(viewer, flags);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -370,7 +370,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::Connect(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::Connect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Connect(host);
 		lua_pushboolean(L,lret?1:0);
@@ -391,7 +391,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::Connect(const wxString &, unsigned short)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::Connect(const wxString &, unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Connect(host, port);
 		lua_pushboolean(L,lret?1:0);
@@ -419,7 +419,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::Abort()");
+			luaL_error(L, "Invalid object in function call bool wxFTP::Abort(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Abort();
 		lua_pushboolean(L,lret?1:0);
@@ -438,7 +438,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::Close()");
+			luaL_error(L, "Invalid object in function call bool wxFTP::Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Close();
 		lua_pushboolean(L,lret?1:0);
@@ -459,7 +459,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::CheckCommand(const wxString &, char)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::CheckCommand(const wxString &, char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CheckCommand(command, ret);
 		lua_pushboolean(L,lret?1:0);
@@ -478,7 +478,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFTP::GetLastResult()");
+			luaL_error(L, "Invalid object in function call const wxString & wxFTP::GetLastResult(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetLastResult();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -498,7 +498,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char wxFTP::SendCommand(const wxString &)");
+			luaL_error(L, "Invalid object in function call char wxFTP::SendCommand(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		char lret = self->SendCommand(command);
 		lua_pushnumber(L,lret);
@@ -517,7 +517,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::SetAscii()");
+			luaL_error(L, "Invalid object in function call bool wxFTP::SetAscii(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetAscii();
 		lua_pushboolean(L,lret?1:0);
@@ -536,7 +536,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::SetBinary()");
+			luaL_error(L, "Invalid object in function call bool wxFTP::SetBinary(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetBinary();
 		lua_pushboolean(L,lret?1:0);
@@ -556,7 +556,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFTP::SetPassive(bool)");
+			luaL_error(L, "Invalid object in function call void wxFTP::SetPassive(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPassive(pasv);
 
@@ -575,7 +575,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFTP::SetPassword(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFTP::SetPassword(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPassword(passwd);
 
@@ -594,7 +594,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::SetTransferMode(wxFTP::TransferMode)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::SetTransferMode(wxFTP::TransferMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetTransferMode(mode);
 		lua_pushboolean(L,lret?1:0);
@@ -614,7 +614,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFTP::SetUser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFTP::SetUser(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetUser(user);
 
@@ -633,7 +633,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::ChDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::ChDir(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ChDir(dir);
 		lua_pushboolean(L,lret?1:0);
@@ -653,7 +653,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::MkDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::MkDir(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->MkDir(dir);
 		lua_pushboolean(L,lret?1:0);
@@ -672,7 +672,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFTP::Pwd()");
+			luaL_error(L, "Invalid object in function call wxString wxFTP::Pwd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->Pwd();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -693,7 +693,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::Rename(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::Rename(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Rename(src, dst);
 		lua_pushboolean(L,lret?1:0);
@@ -713,7 +713,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::RmDir(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::RmDir(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RmDir(dir);
 		lua_pushboolean(L,lret?1:0);
@@ -733,7 +733,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::RmFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::RmFile(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RmFile(path);
 		lua_pushboolean(L,lret?1:0);
@@ -753,7 +753,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::FileExists(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::FileExists(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->FileExists(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -780,7 +780,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::GetDirList(wxArrayString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::GetDirList(wxArrayString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDirList(files, wildcard);
 		lua_pushboolean(L,lret?1:0);
@@ -800,7 +800,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFTP::GetFileSize(const wxString &)");
+			luaL_error(L, "Invalid object in function call int wxFTP::GetFileSize(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFileSize(filename);
 		lua_pushnumber(L,lret);
@@ -827,7 +827,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::GetFilesList(wxArrayString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::GetFilesList(wxArrayString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetFilesList(files, wildcard);
 		lua_pushboolean(L,lret?1:0);
@@ -847,7 +847,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxFTP::GetInputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxFTP::GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -869,7 +869,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOutputStream * wxFTP::GetOutputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxOutputStream * wxFTP::GetOutputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxOutputStream * lret = self->GetOutputStream(file);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -890,7 +890,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFTP::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFTP::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFTP::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -916,7 +916,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_GetLocal(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -940,7 +940,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_GetPeer(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -964,7 +964,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_SetLocal(const wxIPV4address &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);
@@ -983,7 +983,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxProtocolError wxFTP::base_GetError() const");
+			luaL_error(L, "Invalid object in function call wxProtocolError wxFTP::base_GetError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxProtocolError lret = self->wxFTP::GetError();
 		lua_pushnumber(L,lret);
@@ -1003,7 +1003,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_Connect(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_Connect(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::Connect(host);
 		lua_pushboolean(L,lret?1:0);
@@ -1024,7 +1024,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_Connect(const wxString &, unsigned short)");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_Connect(const wxString &, unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::Connect(host, port);
 		lua_pushboolean(L,lret?1:0);
@@ -1052,7 +1052,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_Abort()");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_Abort(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::Abort();
 		lua_pushboolean(L,lret?1:0);
@@ -1071,7 +1071,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFTP::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxFTP::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFTP::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -1091,7 +1091,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFTP::base_SetPassword(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFTP::base_SetPassword(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFTP::SetPassword(passwd);
 
@@ -1110,7 +1110,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFTP::base_SetUser(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFTP::base_SetUser(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFTP::SetUser(user);
 
@@ -1129,7 +1129,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxFTP::base_GetInputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxFTP::base_GetInputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->wxFTP::GetInputStream(path);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1151,7 +1151,7 @@ public:
 		wxFTP* self=Luna< wxObject >::checkSubType< wxFTP >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOutputStream * wxFTP::base_GetOutputStream(const wxString &)");
+			luaL_error(L, "Invalid object in function call wxOutputStream * wxFTP::base_GetOutputStream(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxOutputStream * lret = self->wxFTP::GetOutputStream(file);
 		if(!lret) return 0; // Do not write NULL pointers.

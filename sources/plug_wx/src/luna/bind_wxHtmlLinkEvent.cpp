@@ -131,7 +131,7 @@ public:
 		wxHtmlLinkEvent* self=Luna< wxObject >::checkSubType< wxHtmlLinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlLinkInfo & wxHtmlLinkEvent::GetLinkInfo() const");
+			luaL_error(L, "Invalid object in function call const wxHtmlLinkInfo & wxHtmlLinkEvent::GetLinkInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxHtmlLinkInfo* lret = &self->GetLinkInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -152,7 +152,7 @@ public:
 		wxHtmlLinkEvent* self=Luna< wxObject >::checkSubType< wxHtmlLinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlLinkEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlLinkEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlLinkEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -173,7 +173,7 @@ public:
 		wxHtmlLinkEvent* self=Luna< wxObject >::checkSubType< wxHtmlLinkEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxHtmlLinkEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHtmlLinkEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxHtmlLinkEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

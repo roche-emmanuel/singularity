@@ -244,7 +244,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->output(level, trace, msg);
 
@@ -266,7 +266,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool)");
+			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->init(filename, append);
 		lua_pushboolean(L,lret?1:0);
@@ -285,7 +285,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename()");
+			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->getFilename();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -304,7 +304,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending()");
+			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAppending();
 		lua_pushboolean(L,lret?1:0);
@@ -324,7 +324,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FileLogger::setThreadSafeRefUnref(threadSafe);
 
@@ -345,7 +345,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_process(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FileLogger::process(level, trace, msg);
 
@@ -366,7 +366,7 @@ public:
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_output(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FileLogger::output(level, trace, msg);
 

@@ -277,7 +277,7 @@ public:
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMemoryFSHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,7 +302,7 @@ public:
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindFirst(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindFirst(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxMemoryFSHandler::FindFirst(wildcard, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -321,7 +321,7 @@ public:
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindNext()");
+			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindNext(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxMemoryFSHandler::FindNext();
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -112,7 +112,7 @@ public:
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDateTime & wxDateEvent::GetDate() const");
+			luaL_error(L, "Invalid object in function call const wxDateTime & wxDateEvent::GetDate() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxDateTime* lret = &self->GetDate();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -138,7 +138,7 @@ public:
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateEvent::SetDate(const wxDateTime &)");
+			luaL_error(L, "Invalid object in function call void wxDateEvent::SetDate(const wxDateTime &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDate(date);
 
@@ -156,7 +156,7 @@ public:
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDateEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDateEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDateEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -177,7 +177,7 @@ public:
 		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxDateEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDateEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxDateEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

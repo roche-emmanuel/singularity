@@ -185,7 +185,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFonts(const wxString &, const wxString &, const int *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFonts(normal_face, fixed_face, &sizes);
 
@@ -207,7 +207,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFooter(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFooter(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFooter(footer, pg);
 
@@ -229,7 +229,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHeader(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHeader(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHeader(header, pg);
 
@@ -248,7 +248,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHtmlFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHtmlFile(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHtmlFile(htmlfile);
 
@@ -271,7 +271,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHtmlText(const wxString &, const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHtmlText(const wxString &, const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHtmlText(html, basepath, isdir);
 
@@ -296,7 +296,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetMargins(float, float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetMargins(float, float, float, float, float). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMargins(top, bottom, left, right, spaces);
 
@@ -328,7 +328,7 @@ public:
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlPrintout::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlPrintout::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlPrintout::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

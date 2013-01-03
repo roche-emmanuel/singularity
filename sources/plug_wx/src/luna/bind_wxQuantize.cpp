@@ -137,7 +137,7 @@ public:
 		wxQuantize* self=Luna< wxObject >::checkSubType< wxQuantize >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxQuantize::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxQuantize::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxQuantize::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

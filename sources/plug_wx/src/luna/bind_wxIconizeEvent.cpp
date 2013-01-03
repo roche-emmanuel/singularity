@@ -136,7 +136,7 @@ public:
 		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIconizeEvent::IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxIconizeEvent::IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -155,7 +155,7 @@ public:
 		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIconizeEvent::Iconized() const");
+			luaL_error(L, "Invalid object in function call bool wxIconizeEvent::Iconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Iconized();
 		lua_pushboolean(L,lret?1:0);
@@ -174,7 +174,7 @@ public:
 		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIconizeEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIconizeEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxIconizeEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -195,7 +195,7 @@ public:
 		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxIconizeEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxIconizeEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxIconizeEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

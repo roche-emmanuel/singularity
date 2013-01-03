@@ -1044,7 +1044,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, pos, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1063,7 +1063,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::GetPageSize() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::GetPageSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPageSize();
 		lua_pushnumber(L,lret);
@@ -1082,7 +1082,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::GetRange() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::GetRange() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetRange();
 		lua_pushnumber(L,lret);
@@ -1101,7 +1101,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::GetThumbPosition() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::GetThumbPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetThumbPosition();
 		lua_pushnumber(L,lret);
@@ -1120,7 +1120,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::GetThumbSize() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::GetThumbSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetThumbSize();
 		lua_pushnumber(L,lret);
@@ -1146,7 +1146,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetScrollbar(position, thumbSize, range, pageSize, refresh);
 
@@ -1165,7 +1165,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::SetThumbPosition(int)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::SetThumbPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetThumbPosition(viewStart);
 
@@ -1183,7 +1183,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollBar::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollBar::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxScrollBar::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1204,7 +1204,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1223,7 +1223,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1242,7 +1242,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1261,7 +1261,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1281,7 +1281,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetCanFocus(canFocus);
 
@@ -1299,7 +1299,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetFocus();
 
@@ -1317,7 +1317,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetFocusFromKbd();
 
@@ -1336,7 +1336,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::AddChild(child);
 
@@ -1355,7 +1355,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::RemoveChild(child);
 
@@ -1374,7 +1374,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1397,7 +1397,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1416,7 +1416,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1436,7 +1436,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1456,7 +1456,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1476,7 +1476,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1496,7 +1496,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1516,7 +1516,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1540,7 +1540,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::ScrollWindow(dx, dy, rect);
 
@@ -1563,7 +1563,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetScrollPos(orientation, pos, refresh);
 
@@ -1586,7 +1586,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1613,7 +1613,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1635,7 +1635,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::Fit();
 
@@ -1653,7 +1653,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::FitInside();
 
@@ -1671,7 +1671,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1693,7 +1693,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1715,7 +1715,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1737,7 +1737,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1759,7 +1759,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1781,7 +1781,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1803,7 +1803,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxScrollBar::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxScrollBar::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1828,7 +1828,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1850,7 +1850,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SendSizeEvent(flags);
 
@@ -1873,7 +1873,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetMaxClientSize(size);
 
@@ -1896,7 +1896,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetMaxSize(size);
 
@@ -1919,7 +1919,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetMinClientSize(size);
 
@@ -1942,7 +1942,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetMinSize(size);
 
@@ -1977,7 +1977,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2003,7 +2003,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2030,7 +2030,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxScrollBar::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxScrollBar::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxScrollBar::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2052,7 +2052,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::ClearBackground();
 
@@ -2070,7 +2070,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxScrollBar::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxScrollBar::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxScrollBar::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2089,7 +2089,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2108,7 +2108,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2127,7 +2127,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxScrollBar::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxScrollBar::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxScrollBar::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2153,7 +2153,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::Refresh(eraseBackground, rect);
 
@@ -2171,7 +2171,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::Update();
 
@@ -2190,7 +2190,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2214,7 +2214,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2233,7 +2233,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2253,7 +2253,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetThemeEnabled(enable);
 
@@ -2271,7 +2271,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2290,7 +2290,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2310,7 +2310,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2330,7 +2330,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetNextHandler(handler);
 
@@ -2349,7 +2349,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetPreviousHandler(handler);
 
@@ -2367,7 +2367,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxScrollBar::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxScrollBar::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxScrollBar::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2387,7 +2387,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetExtraStyle(exStyle);
 
@@ -2406,7 +2406,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetWindowStyleFlag(style);
 
@@ -2424,7 +2424,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::Lower();
 
@@ -2442,7 +2442,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::Raise();
 
@@ -2464,7 +2464,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2483,7 +2483,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2502,7 +2502,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2524,7 +2524,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2546,7 +2546,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2569,7 +2569,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2594,7 +2594,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxScrollBar::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxScrollBar::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxScrollBar::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2613,7 +2613,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxScrollBar::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxScrollBar::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxScrollBar::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2639,7 +2639,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetValidator(validator);
 
@@ -2657,7 +2657,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2676,7 +2676,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2695,7 +2695,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2714,7 +2714,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxScrollBar::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxScrollBar::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxScrollBar::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2733,7 +2733,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxScrollBar::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxScrollBar::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxScrollBar::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2753,7 +2753,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetLayoutDirection(dir);
 
@@ -2772,7 +2772,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetName(name);
 
@@ -2795,7 +2795,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetAcceleratorTable(accel);
 
@@ -2813,7 +2813,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2832,7 +2832,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxScrollBar::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxScrollBar::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxScrollBar::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2854,7 +2854,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetDropTarget(target);
 
@@ -2873,7 +2873,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::DragAcceptFiles(accept);
 
@@ -2891,7 +2891,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2910,7 +2910,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2934,7 +2934,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2955,7 +2955,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::WarpPointer(x, y);
 
@@ -2978,7 +2978,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::DoUpdateWindowUI(event);
 
@@ -2996,7 +2996,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3015,7 +3015,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::InheritAttributes();
 
@@ -3033,7 +3033,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::InitDialog();
 
@@ -3051,7 +3051,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3070,7 +3070,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3092,7 +3092,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::MakeModal(modal);
 
@@ -3110,7 +3110,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::OnInternalIdle();
 
@@ -3131,7 +3131,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3151,7 +3151,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxScrollBar::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxScrollBar::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3173,7 +3173,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::UpdateWindowUI(flags);
 
@@ -3196,7 +3196,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::Command(event);
 
@@ -3214,7 +3214,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxScrollBar::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxScrollBar::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxScrollBar::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3234,7 +3234,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetLabel(label);
 
@@ -3252,7 +3252,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetPageSize() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetPageSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetPageSize();
 		lua_pushnumber(L,lret);
@@ -3271,7 +3271,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetRange() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetRange() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetRange();
 		lua_pushnumber(L,lret);
@@ -3290,7 +3290,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetThumbPosition() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetThumbPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetThumbPosition();
 		lua_pushnumber(L,lret);
@@ -3309,7 +3309,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetThumbSize() const");
+			luaL_error(L, "Invalid object in function call int wxScrollBar::base_GetThumbSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxScrollBar::GetThumbSize();
 		lua_pushnumber(L,lret);
@@ -3335,7 +3335,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetScrollbar(position, thumbSize, range, pageSize, refresh);
 
@@ -3354,7 +3354,7 @@ public:
 		wxScrollBar* self=Luna< wxObject >::checkSubType< wxScrollBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetThumbPosition(int)");
+			luaL_error(L, "Invalid object in function call void wxScrollBar::base_SetThumbPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxScrollBar::SetThumbPosition(viewStart);
 

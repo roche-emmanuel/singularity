@@ -181,7 +181,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::setEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setEnabled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEnabled(enabled);
 
@@ -202,7 +202,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::output(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->output(level, trace, msg);
 
@@ -222,7 +222,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLevelRange(int, int)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLevelRange(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setLevelRange(mini, maxi);
 
@@ -241,7 +241,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::addTrace(std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::addTrace(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addTrace(trace);
 
@@ -260,7 +260,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::removeTrace(std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::removeTrace(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeTrace(trace);
 
@@ -279,7 +279,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLogTraceList(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLogTraceList(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setLogTraceList(enabled);
 
@@ -300,7 +300,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::process(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->process(level, trace, msg);
 
@@ -319,7 +319,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LogSink::setThreadSafeRefUnref(threadSafe);
 
@@ -340,7 +340,7 @@ public:
 		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_process(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LogSink::process(level, trace, msg);
 

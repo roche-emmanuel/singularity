@@ -308,7 +308,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -334,7 +334,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -356,7 +356,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::Callback::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::Callback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -375,7 +375,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -394,7 +394,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -414,7 +414,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Callback::setName(name);
 
@@ -432,7 +432,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Callback::computeDataVariance();
 
@@ -451,7 +451,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Callback::setUserData(obj);
 
@@ -469,7 +469,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Uniform::Callback::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Uniform::Callback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Callback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -490,7 +490,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Uniform::Callback::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Uniform::Callback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Callback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -523,7 +523,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Callback::releaseGLObjects(_arg1);
 
@@ -541,7 +541,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Callback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -567,7 +567,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Uniform::Callback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Callback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -589,7 +589,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Uniform::Callback::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Uniform::Callback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Callback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -608,7 +608,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Callback::libraryName();
 		lua_pushstring(L,lret);
@@ -627,7 +627,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Uniform::Callback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Callback::className();
 		lua_pushstring(L,lret);
@@ -650,7 +650,7 @@ public:
 		osg::Uniform::Callback* self=Luna< osg::Referenced >::checkSubType< osg::Uniform::Callback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::operator()(osg::Uniform *, osg::NodeVisitor *)");
+			luaL_error(L, "Invalid object in function call void osg::Uniform::Callback::operator()(osg::Uniform *, osg::NodeVisitor *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(_arg1, _arg2);
 
@@ -670,7 +670,7 @@ void LunaTraits< osg::Uniform::Callback >::_bind_dtor(osg::Uniform::Callback* ob
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Uniform::Callback >::className[] = "Callback";
+const char LunaTraits< osg::Uniform::Callback >::className[] = "Uniform_Callback";
 const char LunaTraits< osg::Uniform::Callback >::fullName[] = "osg::Uniform::Callback";
 const char LunaTraits< osg::Uniform::Callback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Uniform::Callback >::parents[] = {"osg.Object", 0};

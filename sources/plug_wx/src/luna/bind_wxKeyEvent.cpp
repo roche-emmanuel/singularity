@@ -185,7 +185,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetKeyCode() const");
+			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetKeyCode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetKeyCode();
 		lua_pushnumber(L,lret);
@@ -205,7 +205,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyEvent::IsKeyInCategory(int) const");
+			luaL_error(L, "Invalid object in function call bool wxKeyEvent::IsKeyInCategory(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsKeyInCategory(category);
 		lua_pushboolean(L,lret?1:0);
@@ -224,7 +224,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxKeyEvent::GetPosition() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxKeyEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -248,7 +248,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyEvent::GetPosition(long *, long *) const");
+			luaL_error(L, "Invalid object in function call void wxKeyEvent::GetPosition(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetPosition(&x, &y);
 
@@ -275,7 +275,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxKeyEvent::GetRawKeyCode() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxKeyEvent::GetRawKeyCode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetRawKeyCode();
 		lua_pushnumber(L,lret);
@@ -294,7 +294,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxKeyEvent::GetRawKeyFlags() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxKeyEvent::GetRawKeyFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetRawKeyFlags();
 		lua_pushnumber(L,lret);
@@ -313,7 +313,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetX() const");
+			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetX();
 		lua_pushnumber(L,lret);
@@ -332,7 +332,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetY() const");
+			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetY();
 		lua_pushnumber(L,lret);
@@ -351,7 +351,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyEvent::DoAllowNextEvent()");
+			luaL_error(L, "Invalid object in function call void wxKeyEvent::DoAllowNextEvent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DoAllowNextEvent();
 
@@ -369,7 +369,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyEvent::IsNextEventAllowed() const");
+			luaL_error(L, "Invalid object in function call bool wxKeyEvent::IsNextEventAllowed() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsNextEventAllowed();
 		lua_pushboolean(L,lret?1:0);
@@ -388,7 +388,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxKeyEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxKeyEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxKeyEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -409,7 +409,7 @@ public:
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxKeyEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxKeyEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxKeyEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -419,6 +419,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_wxKeyboardState(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_wxKeyboardState(lua_State *L) {
+		if (!_lg_typecheck_baseCast_wxKeyboardState(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_wxKeyboardState function, expected prototype:\nbaseCast()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		wxKeyboardState* res = dynamic_cast<wxKeyboardState*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< wxKeyboardState >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -454,6 +480,7 @@ luna_RegType LunaTraits< wxKeyEvent >::methods[] = {
 	{"base_GetEventCategory", &luna_wrapper_wxKeyEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxKeyEvent::_bind___eq},
 	{"getTable", &luna_wrapper_wxKeyEvent::_bind_getTable},
+	{"aswxKeyboardState", &luna_wrapper_wxKeyEvent::_bind_baseCast_wxKeyboardState},
 	{0,0}
 };
 

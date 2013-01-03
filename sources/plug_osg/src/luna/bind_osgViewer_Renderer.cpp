@@ -267,7 +267,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView * osgViewer::Renderer::getSceneView(unsigned int)");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView * osgViewer::Renderer::getSceneView(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView * lret = self->getSceneView(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -289,7 +289,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::SceneView * osgViewer::Renderer::getSceneView(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osgUtil::SceneView * osgViewer::Renderer::getSceneView(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgUtil::SceneView * lret = self->getSceneView(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -320,7 +320,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setDone(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setDone(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDone(done);
 
@@ -338,7 +338,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getDone()");
+			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getDone(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getDone();
 		lua_pushboolean(L,lret?1:0);
@@ -357,7 +357,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::cull()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::cull(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->cull();
 
@@ -375,7 +375,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::draw()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::draw(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->draw();
 
@@ -393,7 +393,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::cull_draw()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::cull_draw(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->cull_draw();
 
@@ -411,7 +411,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::compile()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::compile(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compile();
 
@@ -430,7 +430,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setCompileOnNextDraw(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setCompileOnNextDraw(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCompileOnNextDraw(flag);
 
@@ -448,7 +448,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getCompileOnNextDraw() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getCompileOnNextDraw() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCompileOnNextDraw();
 		lua_pushboolean(L,lret?1:0);
@@ -467,7 +467,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::release()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->release();
 
@@ -486,7 +486,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setCameraRequiresSetUp(bool)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setCameraRequiresSetUp(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCameraRequiresSetUp(flag);
 
@@ -504,7 +504,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getCameraRequiresSetUp() const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getCameraRequiresSetUp() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getCameraRequiresSetUp();
 		lua_pushboolean(L,lret?1:0);
@@ -523,7 +523,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_cull()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_cull(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Renderer::cull();
 
@@ -541,7 +541,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_draw()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_draw(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Renderer::draw();
 
@@ -559,7 +559,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_cull_draw()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_cull_draw(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Renderer::cull_draw();
 
@@ -577,7 +577,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_compile()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_compile(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Renderer::compile();
 
@@ -595,7 +595,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_release()");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Renderer::release();
 
@@ -616,7 +616,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::operator()(osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::operator()(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(object);
 
@@ -635,7 +635,7 @@ public:
 		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::operator()(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(context);
 

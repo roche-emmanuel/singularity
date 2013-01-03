@@ -424,7 +424,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrameBufferAttachment::isMultisample() const");
+			luaL_error(L, "Invalid object in function call bool osg::FrameBufferAttachment::isMultisample() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		bool lret = self->isMultisample();
 		lua_pushboolean(L,lret?1:0);
@@ -451,7 +451,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::attach(osg::State &, unsigned int, unsigned int, const osg::FBOExtensions *) const");
+			luaL_error(L, "Invalid object in function call void osg::FrameBufferAttachment::attach(osg::State &, unsigned int, unsigned int, const osg::FBOExtensions *) const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		self->attach(state, target, attachment_point, ext);
 
@@ -474,7 +474,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment &) const");
+			luaL_error(L, "Invalid object in function call int osg::FrameBufferAttachment::compare(const osg::FrameBufferAttachment &) const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		int lret = self->compare(fa);
 		lua_pushnumber(L,lret);
@@ -493,7 +493,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer()");
+			luaL_error(L, "Invalid object in function call osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer(). Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		osg::RenderBuffer * lret = self->getRenderBuffer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -514,7 +514,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const");
+			luaL_error(L, "Invalid object in function call const osg::RenderBuffer * osg::FrameBufferAttachment::getRenderBuffer() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		const osg::RenderBuffer * lret = self->getRenderBuffer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -544,7 +544,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::FrameBufferAttachment::getTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::FrameBufferAttachment::getTexture(). Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->getTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -565,7 +565,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FrameBufferAttachment::getTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FrameBufferAttachment::getTexture() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->getTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -595,7 +595,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getCubeMapFace() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getCubeMapFace() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		unsigned int lret = self->getCubeMapFace();
 		lua_pushnumber(L,lret);
@@ -614,7 +614,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureLevel() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureLevel() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTextureLevel();
 		lua_pushnumber(L,lret);
@@ -633,7 +633,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTexture3DZOffset() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTexture3DZOffset();
 		lua_pushnumber(L,lret);
@@ -652,7 +652,7 @@ public:
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrameBufferAttachment::getTextureArrayLayer() const. Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTextureArrayLayer();
 		lua_pushnumber(L,lret);

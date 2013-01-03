@@ -48,6 +48,10 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< std::istream >::Register(L);
 	Luna< std::ostream >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"sgt");
+	Luna< std::map< std::string, unsigned int > >::Register(L);
+	Luna< OpenThreads::Mutex >::Register(L);
+	luna_popModule(L);
 
 	luna_pushModule(L,"sgt");
 
@@ -55,9 +59,9 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"sgt");
 	luna_copyParents(L,"posix_time");

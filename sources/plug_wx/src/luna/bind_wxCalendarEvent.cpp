@@ -112,7 +112,7 @@ public:
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const");
+			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxCalendarEvent::GetWeekDay() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDateTime::WeekDay lret = self->GetWeekDay();
 		lua_pushnumber(L,lret);
@@ -132,7 +132,7 @@ public:
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay)");
+			luaL_error(L, "Invalid object in function call void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetWeekDay(day);
 
@@ -150,7 +150,7 @@ public:
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalendarEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCalendarEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxCalendarEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -171,7 +171,7 @@ public:
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCalendarEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCalendarEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxCalendarEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

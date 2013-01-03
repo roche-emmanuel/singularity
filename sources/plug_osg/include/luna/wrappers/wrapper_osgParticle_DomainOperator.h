@@ -22,6 +22,107 @@ public:
 	wrapper_osgParticle_DomainOperator(lua_State* L, lua_Table* dum) : osgParticle::DomainOperator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_DomainOperator(lua_State* L, lua_Table* dum, const osgParticle::DomainOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::DomainOperator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgParticle::DomainOperator::handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handlePoint")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handlePoint(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleLineSegment")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleLineSegment(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleTriangle")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleTriangle(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleRectangle")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleRectangle(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handlePlane")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handlePlane(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleSphere")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleSphere(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleBox")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleBox(domain, P, dt);
+	};
+
+	// void osgParticle::DomainOperator::handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleDisk")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleDisk(domain, P, dt);
+	};
+
+public:
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -169,105 +270,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgParticle::DomainOperator::handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handlePoint")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handlePoint(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleLineSegment")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handleLineSegment(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleTriangle")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handleTriangle(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleRectangle")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handleRectangle(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handlePlane")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handlePlane(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleSphere")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handleSphere(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleBox")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handleBox(domain, P, dt);
-	};
-
-	// void osgParticle::DomainOperator::handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
-	void handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
-		if(_obj.pushFunction("handleDisk")) {
-			_obj.pushArg(&domain);
-			_obj.pushArg(P);
-			_obj.pushArg(dt);
-			return (_obj.callFunction<void>());
-		}
-
-		return DomainOperator::handleDisk(domain, P, dt);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgParticle::DomainOperator::computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
 	void public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4) {
@@ -355,7 +357,7 @@ public:
 		wrapper_osgParticle_DomainOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f &, const osg::Vec3f &, osg::Vec3f &, osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f &, const osg::Vec3f &, osg::Vec3f &, osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeNewBasis(_arg1, _arg2, _arg3, _arg4);
 
@@ -374,7 +376,7 @@ public:
 		wrapper_osgParticle_DomainOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_ignore(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::public_ignore(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_ignore(func);
 
@@ -394,7 +396,7 @@ public:
 		wrapper_osgParticle_DomainOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -412,7 +414,7 @@ public:
 		wrapper_osgParticle_DomainOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

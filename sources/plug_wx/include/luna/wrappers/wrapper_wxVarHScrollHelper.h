@@ -21,6 +21,65 @@ public:
 	
 	wrapper_wxVarHScrollHelper(lua_State* L, lua_Table* dum, wxWindow * winToScroll) : wxVarHScrollHelper(winToScroll), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
+	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
+		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
+			_obj.pushArg(unitMin);
+			_obj.pushArg(unitMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVarHScrollHelper::OnGetUnitsSizeHint(unitMin, unitMax);
+	};
+
+	// int wxVarScrollHelperBase::EstimateTotalSize() const
+	int EstimateTotalSize() const {
+		if(_obj.pushFunction("EstimateTotalSize")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxVarHScrollHelper::EstimateTotalSize();
+	};
+
+	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
+	int OnGetUnitSize(size_t unit) const {
+		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
+		_obj.pushArg(unit);
+		return (_obj.callFunction<int>());
+	};
+
+	// int wxVarHScrollHelper::EstimateTotalWidth() const
+	int EstimateTotalWidth() const {
+		if(_obj.pushFunction("EstimateTotalWidth")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxVarHScrollHelper::EstimateTotalWidth();
+	};
+
+	// void wxVarHScrollHelper::OnGetColumnsWidthHint(size_t columnMin, size_t columnMax) const
+	void OnGetColumnsWidthHint(size_t columnMin, size_t columnMax) const {
+		if(_obj.pushFunction("OnGetColumnsWidthHint")) {
+			_obj.pushArg(columnMin);
+			_obj.pushArg(columnMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVarHScrollHelper::OnGetColumnsWidthHint(columnMin, columnMax);
+	};
+
+	// int wxVarHScrollHelper::OnGetColumnWidth(size_t column) const
+	int OnGetColumnWidth(size_t column) const {
+		THROW_IF(!_obj.pushFunction("OnGetColumnWidth"),"No implementation for abstract function wxVarHScrollHelper::OnGetColumnWidth");
+		_obj.pushArg(column);
+		return (_obj.callFunction<int>());
+	};
+
+public:
 	// Public virtual methods:
 	// int wxVarScrollHelperBase::GetNonOrientationTargetSize() const
 	int GetNonOrientationTargetSize() const {
@@ -119,63 +178,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
-	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
-		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
-			_obj.pushArg(unitMin);
-			_obj.pushArg(unitMax);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVarHScrollHelper::OnGetUnitsSizeHint(unitMin, unitMax);
-	};
-
-	// int wxVarScrollHelperBase::EstimateTotalSize() const
-	int EstimateTotalSize() const {
-		if(_obj.pushFunction("EstimateTotalSize")) {
-			return (_obj.callFunction<int>());
-		}
-
-		return wxVarHScrollHelper::EstimateTotalSize();
-	};
-
-	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-	int OnGetUnitSize(size_t unit) const {
-		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
-		_obj.pushArg(unit);
-		return (_obj.callFunction<int>());
-	};
-
-	// int wxVarHScrollHelper::EstimateTotalWidth() const
-	int EstimateTotalWidth() const {
-		if(_obj.pushFunction("EstimateTotalWidth")) {
-			return (_obj.callFunction<int>());
-		}
-
-		return wxVarHScrollHelper::EstimateTotalWidth();
-	};
-
-	// void wxVarHScrollHelper::OnGetColumnsWidthHint(size_t columnMin, size_t columnMax) const
-	void OnGetColumnsWidthHint(size_t columnMin, size_t columnMax) const {
-		if(_obj.pushFunction("OnGetColumnsWidthHint")) {
-			_obj.pushArg(columnMin);
-			_obj.pushArg(columnMax);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxVarHScrollHelper::OnGetColumnsWidthHint(columnMin, columnMax);
-	};
-
-	// int wxVarHScrollHelper::OnGetColumnWidth(size_t column) const
-	int OnGetColumnWidth(size_t column) const {
-		THROW_IF(!_obj.pushFunction("OnGetColumnWidth"),"No implementation for abstract function wxVarHScrollHelper::OnGetColumnWidth");
-		_obj.pushArg(column);
-		return (_obj.callFunction<int>());
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

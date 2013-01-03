@@ -21,6 +21,21 @@ public:
 	
 	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) : osgViewer::Renderer(camera), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgViewer::Renderer::updateSceneView(osgUtil::SceneView * sceneView)
+	void updateSceneView(osgUtil::SceneView * sceneView) {
+		if(_obj.pushFunction("updateSceneView")) {
+			_obj.pushArg(sceneView);
+			return (_obj.callFunction<void>());
+		}
+
+		return Renderer::updateSceneView(sceneView);
+	};
+
+public:
 	// Public virtual methods:
 	// void osgViewer::Renderer::cull()
 	void cull() {
@@ -88,19 +103,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgViewer::Renderer::updateSceneView(osgUtil::SceneView * sceneView)
-	void updateSceneView(osgUtil::SceneView * sceneView) {
-		if(_obj.pushFunction("updateSceneView")) {
-			_obj.pushArg(sceneView);
-			return (_obj.callFunction<void>());
-		}
-
-		return Renderer::updateSceneView(sceneView);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void osgViewer::Renderer::initialize(osg::State * state)
 	void public_initialize(osg::State * state) {
@@ -154,7 +156,7 @@ public:
 		wrapper_osgViewer_Renderer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::public_initialize(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::public_initialize(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_initialize(state);
 
@@ -174,7 +176,7 @@ public:
 		wrapper_osgViewer_Renderer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -192,7 +194,7 @@ public:
 		wrapper_osgViewer_Renderer* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_Renderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

@@ -728,7 +728,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -754,7 +754,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -776,7 +776,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::FirstPersonManipulator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::FirstPersonManipulator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -795,7 +795,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -814,7 +814,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -838,7 +838,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByMatrix(matrix);
 
@@ -861,7 +861,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByInverseMatrix(matrix);
 
@@ -879,7 +879,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -901,7 +901,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -933,7 +933,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setTransformation(const osg::Vec3d &, const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTransformation(eye, rotation);
 
@@ -966,7 +966,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTransformation(eye, center, up);
 
@@ -1003,7 +1003,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::getTransformation(osg::Vec3d &, osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getTransformation(eye, rotation);
 
@@ -1036,7 +1036,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getTransformation(eye, center, up);
 
@@ -1064,7 +1064,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setVelocity(const double &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setVelocity(const double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVelocity(velocity);
 
@@ -1082,7 +1082,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getVelocity() const");
+			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getVelocity() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getVelocity();
 		lua_pushnumber(L,lret);
@@ -1105,7 +1105,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setAcceleration(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setAcceleration(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAcceleration(acceleration, relativeToModelSize);
 
@@ -1126,7 +1126,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getAcceleration(bool *) const");
+			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getAcceleration(bool *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getAcceleration(&relativeToModelSize);
 		lua_pushnumber(L,lret);
@@ -1149,7 +1149,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setMaxVelocity(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setMaxVelocity(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaxVelocity(maxVelocity, relativeToModelSize);
 
@@ -1170,7 +1170,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getMaxVelocity(bool *) const");
+			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getMaxVelocity(bool *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getMaxVelocity(&relativeToModelSize);
 		lua_pushnumber(L,lret);
@@ -1193,7 +1193,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setWheelMovement(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::setWheelMovement(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWheelMovement(wheelMovement, relativeToModelSize);
 
@@ -1214,7 +1214,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getWheelMovement(bool *) const");
+			luaL_error(L, "Invalid object in function call double osgGA::FirstPersonManipulator::getWheelMovement(bool *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getWheelMovement(&relativeToModelSize);
 		lua_pushnumber(L,lret);
@@ -1243,7 +1243,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->home(_arg1, _arg2);
 
@@ -1262,7 +1262,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->home(_arg1);
 
@@ -1299,7 +1299,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init(_arg1, _arg2);
 
@@ -1318,7 +1318,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setName(name);
 
@@ -1336,7 +1336,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::computeDataVariance();
 
@@ -1355,7 +1355,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setUserData(obj);
 
@@ -1373,7 +1373,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::FirstPersonManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::FirstPersonManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->FirstPersonManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1394,7 +1394,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::FirstPersonManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::FirstPersonManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->FirstPersonManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1427,7 +1427,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::releaseGLObjects(_arg1);
 
@@ -1447,7 +1447,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::event(nv, drawable);
 
@@ -1466,7 +1466,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setCoordinateFrameCallback(cb);
 
@@ -1484,7 +1484,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::FirstPersonManipulator::base_getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::FirstPersonManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->FirstPersonManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1503,7 +1503,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::FirstPersonManipulator::base_getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::FirstPersonManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->FirstPersonManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1540,7 +1540,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1573,7 +1573,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::getHomePosition(eye, center, up);
 
@@ -1592,7 +1592,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAutoComputeHomePosition(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setAutoComputeHomePosition(flag);
 
@@ -1614,7 +1614,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_computeHomePosition(const osg::Camera *, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_computeHomePosition(const osg::Camera *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::computeHomePosition(camera, useBoundingBox);
 
@@ -1633,7 +1633,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setNode(_arg1);
 
@@ -1651,7 +1651,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::FirstPersonManipulator::base_getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::FirstPersonManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->FirstPersonManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1672,7 +1672,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::FirstPersonManipulator::base_getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::FirstPersonManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->FirstPersonManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1703,7 +1703,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setVerticalAxisFixed(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setVerticalAxisFixed(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setVerticalAxisFixed(value);
 
@@ -1722,7 +1722,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAllowThrow(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setAllowThrow(allowThrow);
 
@@ -1741,7 +1741,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAnimationTime(const double)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAnimationTime(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setAnimationTime(t);
 
@@ -1759,7 +1759,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_finishAnimation()");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_finishAnimation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::finishAnimation();
 
@@ -1787,7 +1787,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::FirstPersonManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::FirstPersonManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->FirstPersonManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1811,7 +1811,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::getUsage(_arg1);
 
@@ -1829,7 +1829,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->FirstPersonManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1855,7 +1855,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::FirstPersonManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->FirstPersonManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1877,7 +1877,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::FirstPersonManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::FirstPersonManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->FirstPersonManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1896,7 +1896,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->FirstPersonManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1915,7 +1915,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::FirstPersonManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->FirstPersonManipulator::className();
 		lua_pushstring(L,lret);
@@ -1939,7 +1939,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setByMatrix(matrix);
 
@@ -1962,7 +1962,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setByInverseMatrix(matrix);
 
@@ -1980,7 +1980,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::base_getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->FirstPersonManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -2002,7 +2002,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::base_getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::FirstPersonManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->FirstPersonManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -2034,7 +2034,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setTransformation(const osg::Vec3d &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setTransformation(eye, rotation);
 
@@ -2067,7 +2067,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setTransformation(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setTransformation(eye, center, up);
 
@@ -2104,7 +2104,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getTransformation(osg::Vec3d &, osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::getTransformation(eye, rotation);
 
@@ -2137,7 +2137,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_getTransformation(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::getTransformation(eye, center, up);
 
@@ -2165,7 +2165,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setVelocity(const double &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setVelocity(const double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setVelocity(velocity);
 
@@ -2187,7 +2187,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAcceleration(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setAcceleration(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setAcceleration(acceleration, relativeToModelSize);
 
@@ -2209,7 +2209,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setMaxVelocity(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setMaxVelocity(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setMaxVelocity(maxVelocity, relativeToModelSize);
 
@@ -2231,7 +2231,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setWheelMovement(const double &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setWheelMovement(const double &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::setWheelMovement(wheelMovement, relativeToModelSize);
 
@@ -2259,7 +2259,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::home(_arg1, _arg2);
 
@@ -2278,7 +2278,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::home(_arg1);
 
@@ -2315,7 +2315,7 @@ public:
 		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FirstPersonManipulator::init(_arg1, _arg2);
 

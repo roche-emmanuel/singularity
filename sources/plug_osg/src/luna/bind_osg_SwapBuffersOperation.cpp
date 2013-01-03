@@ -144,7 +144,7 @@ public:
 		osg::SwapBuffersOperation* self=Luna< osg::Referenced >::checkSubType< osg::SwapBuffersOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::base_release()");
+			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::base_release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SwapBuffersOperation::release();
 
@@ -165,7 +165,7 @@ public:
 		osg::SwapBuffersOperation* self=Luna< osg::Referenced >::checkSubType< osg::SwapBuffersOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::operator()(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osg::SwapBuffersOperation::operator()(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(context);
 

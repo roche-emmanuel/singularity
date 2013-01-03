@@ -11,9 +11,22 @@
 class wrapper_Awesomium_ResourceRequest : public Awesomium::ResourceRequest, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_ResourceRequest() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_Awesomium_ResourceRequest(lua_State* L, lua_Table* dum) : Awesomium::ResourceRequest(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// void Awesomium::ResourceRequest::Cancel()
 	void Cancel() {
 		THROW_IF(!_obj.pushFunction("Cancel"),"No implementation for abstract function Awesomium::ResourceRequest::Cancel");
@@ -114,6 +127,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

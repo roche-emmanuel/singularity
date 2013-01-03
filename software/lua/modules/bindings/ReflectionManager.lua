@@ -1,5 +1,20 @@
 local Class = require("classBuilder"){name="ReflectionManager",bases="base.Object"};
 
+function Class:initialize()
+	self._config = {}
+	self._config.wrapper_default_constructor = true
+end
+
+function Class:setConfig(cfg)
+	for k,v in pairs(cfg) do
+		self._config[k] = v
+	end
+end
+
+function Class:getConfig()
+	return self._config
+end
+
 function Class:setDefaultModuleName(modname)
 	self:checkNonEmptyString(modname,"Invalid default module name argument.");
 	self._defaultModuleName = modname
@@ -38,6 +53,10 @@ end
 
 function Class:getNamespaces()
 	return self._datamap:getAllNamespaces()
+end
+
+function Class:getRootNamespace()
+	return self._datamap:getGlobalNamespace()
 end
 
 function Class:getEnums()
@@ -84,6 +103,15 @@ function Class:writeSource(filename,buf)
 	writer:newLine()
 	
 	self:writeFile("src/luna/" .. filename,writer) 
+end
+
+function Class:writeDefaultFile(filename,buf)
+	local writer = require("io.BufferWriter")()
+			
+	-- write the buffer content:
+	writer:appendBuffer(buf)
+		
+	self:writeFile(filename,writer) 
 end
 
 function Class:writeFile(filename,buf)

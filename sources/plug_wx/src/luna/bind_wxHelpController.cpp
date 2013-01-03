@@ -401,7 +401,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayBlock(long)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayBlock(long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplayBlock(blockNo);
 		lua_pushboolean(L,lret?1:0);
@@ -420,7 +420,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContents()");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContents(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -440,7 +440,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContextPopup(int)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContextPopup(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplayContextPopup(contextId);
 		lua_pushboolean(L,lret?1:0);
@@ -460,7 +460,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplaySection(section);
 		lua_pushboolean(L,lret?1:0);
@@ -480,7 +480,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(int)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplaySection(sectionNo);
 		lua_pushboolean(L,lret?1:0);
@@ -514,7 +514,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayTextPopup(const wxString &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayTextPopup(const wxString &, const wxPoint &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->DisplayTextPopup(text, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -538,7 +538,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::GetFrameParameters(wxSize *, wxPoint *, bool *)");
+			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		wxFrame * lret = self->GetFrameParameters(size, pos, &newFrameEachTime);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -559,7 +559,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::GetParentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::GetParentWindow() const. Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetParentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -581,7 +581,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->Initialize(file);
 		lua_pushboolean(L,lret?1:0);
@@ -602,7 +602,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &, int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->Initialize(file, server);
 		lua_pushboolean(L,lret?1:0);
@@ -634,7 +634,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::KeywordSearch(const wxString &, wxHelpSearchMode)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->KeywordSearch(keyWord, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -656,7 +656,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::LoadFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::LoadFile(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->LoadFile(file);
 		lua_pushboolean(L,lret?1:0);
@@ -675,7 +675,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::Quit()");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::Quit(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->Quit();
 		lua_pushboolean(L,lret?1:0);
@@ -708,7 +708,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool)");
+			luaL_error(L, "Invalid object in function call void wxHelpController::SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		self->SetFrameParameters(title, size, pos, newFrameEachTime);
 
@@ -727,7 +727,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::SetParentWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHelpController::SetParentWindow(wxWindow *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		self->SetParentWindow(parentWindow);
 
@@ -747,7 +747,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::SetViewer(const wxString &, long)");
+			luaL_error(L, "Invalid object in function call void wxHelpController::SetViewer(const wxString &, long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		self->SetViewer(viewer, flags);
 
@@ -766,7 +766,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayBlock(long)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayBlock(long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::DisplayBlock(blockNo);
 		lua_pushboolean(L,lret?1:0);
@@ -785,7 +785,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContents()");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContents(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -805,7 +805,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContextPopup(int)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContextPopup(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::DisplayContextPopup(contextId);
 		lua_pushboolean(L,lret?1:0);
@@ -825,7 +825,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::DisplaySection(section);
 		lua_pushboolean(L,lret?1:0);
@@ -845,7 +845,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(int)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::DisplaySection(sectionNo);
 		lua_pushboolean(L,lret?1:0);
@@ -879,7 +879,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayTextPopup(const wxString &, const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayTextPopup(const wxString &, const wxPoint &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::DisplayTextPopup(text, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -903,7 +903,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::base_GetFrameParameters(wxSize *, wxPoint *, bool *)");
+			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::base_GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		wxFrame * lret = self->wxHelpController::GetFrameParameters(size, pos, &newFrameEachTime);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -924,7 +924,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::base_GetParentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::base_GetParentWindow() const. Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxHelpController::GetParentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -946,7 +946,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::Initialize(file);
 		lua_pushboolean(L,lret?1:0);
@@ -967,7 +967,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &, int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::Initialize(file, server);
 		lua_pushboolean(L,lret?1:0);
@@ -999,7 +999,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::KeywordSearch(keyWord, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -1021,7 +1021,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_LoadFile(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_LoadFile(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::LoadFile(file);
 		lua_pushboolean(L,lret?1:0);
@@ -1040,7 +1040,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Quit()");
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Quit(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpController::Quit();
 		lua_pushboolean(L,lret?1:0);
@@ -1073,7 +1073,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool)");
+			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		self->wxHelpController::SetFrameParameters(title, size, pos, newFrameEachTime);
 
@@ -1092,7 +1092,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetParentWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetParentWindow(wxWindow *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		self->wxHelpController::SetParentWindow(parentWindow);
 
@@ -1112,7 +1112,7 @@ public:
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetViewer(const wxString &, long)");
+			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetViewer(const wxString &, long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
 		self->wxHelpController::SetViewer(viewer, flags);
 

@@ -153,7 +153,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetBackgroundColour(const wxColour &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetBackgroundColour(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
 		}
 		self->SetBackgroundColour(col, colEnd);
 
@@ -174,7 +174,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(int)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(int). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
 		}
 		self->SetIcon(icon);
 
@@ -197,7 +197,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(const wxIcon &)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(const wxIcon &). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
 		}
 		self->SetIcon(icon);
 
@@ -225,7 +225,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTimeout(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTimeout(unsigned int). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
 		}
 		self->SetTimeout(milliseconds);
 
@@ -244,7 +244,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTipKind(wxTipKind)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTipKind(wxTipKind). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
 		}
 		self->SetTipKind(tipKind);
 
@@ -263,7 +263,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::ShowFor(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::ShowFor(wxWindow *). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
 		}
 		self->ShowFor(win);
 

@@ -175,7 +175,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Flush()");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Flush(). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->Flush();
 
@@ -193,7 +193,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxOutputStream & wxTextOutputStream::GetOutputStream() const");
+			luaL_error(L, "Invalid object in function call const wxOutputStream & wxTextOutputStream::GetOutputStream() const. Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		const wxOutputStream* lret = &self->GetOutputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -214,7 +214,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEOL wxTextOutputStream::GetMode()");
+			luaL_error(L, "Invalid object in function call wxEOL wxTextOutputStream::GetMode(). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		wxEOL lret = self->GetMode();
 		lua_pushnumber(L,lret);
@@ -236,7 +236,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::SetMode(wxEOL)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::SetMode(wxEOL). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->SetMode(mode);
 
@@ -255,7 +255,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write16(unsigned short)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write16(unsigned short). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->Write16(i16);
 
@@ -274,7 +274,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write32(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write32(unsigned int). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->Write32(i32);
 
@@ -293,7 +293,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write8(unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write8(unsigned char). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->Write8(i8);
 
@@ -312,7 +312,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteDouble(double)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteDouble(double). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->WriteDouble(f);
 
@@ -331,7 +331,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteString(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteString(const wxString &). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->WriteString(string);
 
@@ -350,7 +350,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteDouble(double)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteDouble(double). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->wxTextOutputStream::WriteDouble(f);
 
@@ -369,7 +369,7 @@ public:
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteString(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteString(const wxString &). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
 		}
 		self->wxTextOutputStream::WriteString(string);
 

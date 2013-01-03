@@ -234,7 +234,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -253,7 +253,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -273,7 +273,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Counter::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Counter::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -293,7 +293,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::Counter::numParticlesToCreate(double) const");
+			luaL_error(L, "Invalid object in function call int osgParticle::Counter::numParticlesToCreate(double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->numParticlesToCreate(dt);
 		lua_pushnumber(L,lret);
@@ -313,7 +313,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Counter::setName(name);
 
@@ -331,7 +331,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Counter::computeDataVariance();
 
@@ -350,7 +350,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Counter::setUserData(obj);
 
@@ -368,7 +368,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::Counter::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::Counter::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Counter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -389,7 +389,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::Counter::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::Counter::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Counter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -422,7 +422,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Counter::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Counter::releaseGLObjects(_arg1);
 
@@ -440,7 +440,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Counter::libraryName();
 		lua_pushstring(L,lret);
@@ -459,7 +459,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Counter::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Counter::className();
 		lua_pushstring(L,lret);
@@ -479,7 +479,7 @@ public:
 		osgParticle::Counter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Counter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Counter::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Counter::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Counter::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);

@@ -268,7 +268,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextFile::AddLine(const wxString &, wxTextFileType)");
+			luaL_error(L, "Invalid object in function call void wxTextFile::AddLine(const wxString &, wxTextFileType). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		self->AddLine(str, type);
 
@@ -286,7 +286,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextFile::Clear()");
+			luaL_error(L, "Invalid object in function call void wxTextFile::Clear(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -304,7 +304,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextFile::Close()");
+			luaL_error(L, "Invalid object in function call bool wxTextFile::Close(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		bool lret = self->Close();
 		lua_pushboolean(L,lret?1:0);
@@ -323,7 +323,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextFile::Create()");
+			luaL_error(L, "Invalid object in function call bool wxTextFile::Create(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		bool lret = self->Create();
 		lua_pushboolean(L,lret?1:0);
@@ -343,7 +343,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextFile::Create(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTextFile::Create(const wxString &). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		bool lret = self->Create(strFile);
 		lua_pushboolean(L,lret?1:0);
@@ -371,7 +371,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextFile::Eof() const");
+			luaL_error(L, "Invalid object in function call bool wxTextFile::Eof() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		bool lret = self->Eof();
 		lua_pushboolean(L,lret?1:0);
@@ -390,7 +390,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextFile::Exists() const");
+			luaL_error(L, "Invalid object in function call bool wxTextFile::Exists() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		bool lret = self->Exists();
 		lua_pushboolean(L,lret?1:0);
@@ -409,7 +409,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextFile::GetCurrentLine() const");
+			luaL_error(L, "Invalid object in function call size_t wxTextFile::GetCurrentLine() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		size_t lret = self->GetCurrentLine();
 		lua_pushnumber(L,lret);
@@ -428,7 +428,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetFirstLine()");
+			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetFirstLine(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxString & lret = self->GetFirstLine();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -447,7 +447,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetLastLine()");
+			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetLastLine(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxString & lret = self->GetLastLine();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -467,7 +467,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetLine(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetLine(size_t) const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxString & lret = self->GetLine(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -486,7 +486,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTextFile::GetLineCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxTextFile::GetLineCount() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		size_t lret = self->GetLineCount();
 		lua_pushnumber(L,lret);
@@ -506,7 +506,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextFileType wxTextFile::GetLineType(size_t) const");
+			luaL_error(L, "Invalid object in function call wxTextFileType wxTextFile::GetLineType(size_t) const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxTextFileType lret = self->GetLineType(n);
 		lua_pushnumber(L,lret);
@@ -525,7 +525,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextFile::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextFile::GetName() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -544,7 +544,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetNextLine()");
+			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetNextLine(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxString & lret = self->GetNextLine();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -563,7 +563,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetPrevLine()");
+			luaL_error(L, "Invalid object in function call wxString & wxTextFile::GetPrevLine(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxString & lret = self->GetPrevLine();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -583,7 +583,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextFile::GoToLine(size_t)");
+			luaL_error(L, "Invalid object in function call void wxTextFile::GoToLine(size_t). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		self->GoToLine(n);
 
@@ -601,7 +601,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextFileType wxTextFile::GuessType() const");
+			luaL_error(L, "Invalid object in function call wxTextFileType wxTextFile::GuessType() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxTextFileType lret = self->GuessType();
 		lua_pushnumber(L,lret);
@@ -625,7 +625,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextFile::InsertLine(const wxString &, size_t, wxTextFileType)");
+			luaL_error(L, "Invalid object in function call void wxTextFile::InsertLine(const wxString &, size_t, wxTextFileType). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		self->InsertLine(str, n, type);
 
@@ -643,7 +643,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextFile::IsOpened() const");
+			luaL_error(L, "Invalid object in function call bool wxTextFile::IsOpened() const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		bool lret = self->IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -663,7 +663,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextFile::RemoveLine(size_t)");
+			luaL_error(L, "Invalid object in function call void wxTextFile::RemoveLine(size_t). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		self->RemoveLine(n);
 
@@ -684,7 +684,7 @@ public:
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxTextFile::operator[](size_t) const");
+			luaL_error(L, "Invalid object in function call wxString & wxTextFile::operator[](size_t) const. Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
 		}
 		wxString & lret = self->operator[](n);
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -234,6 +234,11 @@ inline unsigned int getValue(lua_State* L, int index) {
 }
 
 template <>
+inline unsigned long getValue(lua_State* L, int index) {
+	return (unsigned long)lua_tointeger(L,index);
+}
+
+template <>
 inline unsigned char getValue(lua_State* L, int index) {
 	return (unsigned char)lua_tointeger(L,index);
 }

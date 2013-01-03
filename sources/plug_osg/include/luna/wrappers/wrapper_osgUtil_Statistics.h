@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_Statistics(lua_State* L, lua_Table* dum) : osgUtil::Statistics(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices)
 	void setVertexArray(unsigned int count, const osg::Vec3f * vertices) {
@@ -221,9 +226,6 @@ public:
 		return Statistics::end();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

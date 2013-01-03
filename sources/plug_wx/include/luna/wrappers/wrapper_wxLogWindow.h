@@ -21,6 +21,44 @@ public:
 	
 	wrapper_wxLogWindow(lua_State* L, lua_Table* dum, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) : wxLogWindow(pParent, szTitle, show, passToOld), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
+	void DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) {
+		if(_obj.pushFunction("DoLogRecord")) {
+			_obj.pushArg(level);
+			_obj.pushArg(msg);
+			_obj.pushArg(&info);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxLogWindow::DoLogRecord(level, msg, info);
+	};
+
+	// void wxLog::DoLogTextAtLevel(unsigned long level, const wxString & msg)
+	void DoLogTextAtLevel(unsigned long level, const wxString & msg) {
+		if(_obj.pushFunction("DoLogTextAtLevel")) {
+			_obj.pushArg(level);
+			_obj.pushArg(msg);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxLogWindow::DoLogTextAtLevel(level, msg);
+	};
+
+	// void wxLog::DoLogText(const wxString & msg)
+	void DoLogText(const wxString & msg) {
+		if(_obj.pushFunction("DoLogText")) {
+			_obj.pushArg(msg);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxLogWindow::DoLogText(msg);
+	};
+
+public:
 	// Public virtual methods:
 	// void wxLog::Flush()
 	void Flush() {
@@ -62,42 +100,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
-	void DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) {
-		if(_obj.pushFunction("DoLogRecord")) {
-			_obj.pushArg(level);
-			_obj.pushArg(msg);
-			_obj.pushArg(&info);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxLogWindow::DoLogRecord(level, msg, info);
-	};
-
-	// void wxLog::DoLogTextAtLevel(unsigned long level, const wxString & msg)
-	void DoLogTextAtLevel(unsigned long level, const wxString & msg) {
-		if(_obj.pushFunction("DoLogTextAtLevel")) {
-			_obj.pushArg(level);
-			_obj.pushArg(msg);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxLogWindow::DoLogTextAtLevel(level, msg);
-	};
-
-	// void wxLog::DoLogText(const wxString & msg)
-	void DoLogText(const wxString & msg) {
-		if(_obj.pushFunction("DoLogText")) {
-			_obj.pushArg(msg);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxLogWindow::DoLogText(msg);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

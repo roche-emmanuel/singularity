@@ -358,7 +358,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -377,7 +377,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -397,7 +397,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSampleRatio(float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSampleRatio(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSampleRatio(sampleRatio);
 
@@ -415,7 +415,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getSampleRatio() const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getSampleRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getSampleRatio();
 		lua_pushnumber(L,lret);
@@ -435,7 +435,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumError(float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumError(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaximumError(error);
 
@@ -453,7 +453,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumError() const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumError() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getMaximumError();
 		lua_pushnumber(L,lret);
@@ -473,7 +473,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumLength(float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setMaximumLength(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaximumLength(length);
 
@@ -491,7 +491,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumLength() const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::getMaximumLength() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getMaximumLength();
 		lua_pushnumber(L,lret);
@@ -511,7 +511,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setDoTriStrip(bool)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setDoTriStrip(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDoTriStrip(on);
 
@@ -529,7 +529,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getDoTriStrip() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getDoTriStrip() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getDoTriStrip();
 		lua_pushboolean(L,lret?1:0);
@@ -549,7 +549,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSmoothing(bool)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setSmoothing(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSmoothing(on);
 
@@ -567,7 +567,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getSmoothing() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::getSmoothing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getSmoothing();
 		lua_pushboolean(L,lret?1:0);
@@ -587,7 +587,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::setContinueSimplificationCallback(osgUtil::Simplifier::ContinueSimplificationCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setContinueSimplificationCallback(cb);
 
@@ -605,7 +605,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback()");
+			luaL_error(L, "Invalid object in function call osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Simplifier::ContinueSimplificationCallback * lret = self->getContinueSimplificationCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -626,7 +626,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const");
+			luaL_error(L, "Invalid object in function call const osgUtil::Simplifier::ContinueSimplificationCallback * osgUtil::Simplifier::getContinueSimplificationCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgUtil::Simplifier::ContinueSimplificationCallback * lret = self->getContinueSimplificationCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -659,7 +659,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplification(float, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplification(float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->continueSimplification(nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -681,7 +681,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplificationImplementation(float, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::continueSimplificationImplementation(float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->continueSimplificationImplementation(nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -705,7 +705,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
 
@@ -728,7 +728,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->simplify(geometry);
 
@@ -756,7 +756,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &, const osgUtil::Simplifier::IndexList &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::simplify(osg::Geometry &, const osgUtil::Simplifier::IndexList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->simplify(geometry, protectedPoints);
 
@@ -783,7 +783,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Simplifier::reset();
 
@@ -801,7 +801,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->Simplifier::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -823,7 +823,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Simplifier::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->Simplifier::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -851,7 +851,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->Simplifier::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -876,7 +876,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->Simplifier::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -901,7 +901,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::Simplifier::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->Simplifier::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -920,7 +920,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Simplifier::libraryName();
 		lua_pushstring(L,lret);
@@ -939,7 +939,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::Simplifier::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Simplifier::className();
 		lua_pushstring(L,lret);
@@ -961,7 +961,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::base_continueSimplificationImplementation(float, unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::Simplifier::base_continueSimplificationImplementation(float, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Simplifier::continueSimplificationImplementation(nextError, numOriginalPrimitives, numRemainingPrimitives);
 		lua_pushboolean(L,lret?1:0);
@@ -985,7 +985,7 @@ public:
 		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Simplifier::apply(geode);
 

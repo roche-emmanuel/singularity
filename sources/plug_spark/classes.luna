@@ -1,0 +1,8 @@
+module=spark
+spark::GroupCustomUpdate => spark::GroupCustomUpdate
+module=tuio
+tuio::TUIOClientHandler => osgGA::GUIEventHandler
+module=spark
+SPK::Oriented3DRendererInterface => SPK::Oriented3DRendererInterface
+SPK::Group => SPK::Group
+SPK::Vector3D => SPK::Vector3D

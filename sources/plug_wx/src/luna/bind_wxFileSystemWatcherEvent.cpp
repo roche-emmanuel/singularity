@@ -135,7 +135,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFileName & wxFileSystemWatcherEvent::GetPath() const");
+			luaL_error(L, "Invalid object in function call const wxFileName & wxFileSystemWatcherEvent::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxFileName* lret = &self->GetPath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -156,7 +156,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFileName & wxFileSystemWatcherEvent::GetNewPath() const");
+			luaL_error(L, "Invalid object in function call const wxFileName & wxFileSystemWatcherEvent::GetNewPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxFileName* lret = &self->GetNewPath();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -177,7 +177,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileSystemWatcherEvent::GetChangeType() const");
+			luaL_error(L, "Invalid object in function call int wxFileSystemWatcherEvent::GetChangeType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetChangeType();
 		lua_pushnumber(L,lret);
@@ -196,7 +196,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcherEvent::IsError() const");
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcherEvent::IsError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsError();
 		lua_pushboolean(L,lret?1:0);
@@ -215,7 +215,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystemWatcherEvent::GetErrorDescription() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemWatcherEvent::GetErrorDescription() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetErrorDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -234,7 +234,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystemWatcherEvent::ToString() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemWatcherEvent::ToString() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -253,7 +253,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemWatcherEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemWatcherEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFileSystemWatcherEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -274,7 +274,7 @@ public:
 		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxFileSystemWatcherEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFileSystemWatcherEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxFileSystemWatcherEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

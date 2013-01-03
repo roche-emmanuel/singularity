@@ -202,7 +202,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::Alloc(size_t)");
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::Alloc(size_t). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		void * lret = self->Alloc(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -223,7 +223,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCustomDataObject::Free()");
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::Free(). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->Free();
 
@@ -241,7 +241,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::GetData() const");
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::GetData() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		void * lret = self->GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -262,7 +262,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::GetSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetSize();
 		lua_pushnumber(L,lret);
@@ -283,7 +283,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::SetData(size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->SetData(size, data);
 		lua_pushboolean(L,lret?1:0);
@@ -304,7 +304,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCustomDataObject::TakeData(size_t, void *)");
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::TakeData(size_t, void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->TakeData(size, data);
 
@@ -323,7 +323,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_GetDataHere(void *) const");
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCustomDataObject::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -342,7 +342,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetDataSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxCustomDataObject::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -362,7 +362,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_Alloc(size_t)");
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_Alloc(size_t). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		void * lret = self->wxCustomDataObject::Alloc(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -383,7 +383,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCustomDataObject::base_Free()");
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::base_Free(). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->wxCustomDataObject::Free();
 
@@ -401,7 +401,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_GetData() const");
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_GetData() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		void * lret = self->wxCustomDataObject::GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -422,7 +422,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxCustomDataObject::GetSize();
 		lua_pushnumber(L,lret);
@@ -443,7 +443,7 @@ public:
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_SetData(size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxCustomDataObject::SetData(size, data);
 		lua_pushboolean(L,lret?1:0);

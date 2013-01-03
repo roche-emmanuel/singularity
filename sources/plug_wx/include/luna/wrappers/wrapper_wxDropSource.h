@@ -22,6 +22,11 @@ public:
 	wrapper_wxDropSource(lua_State* L, lua_Table* dum, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) : wxDropSource(win, iconCopy, iconMove, iconNone), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxDropSource(lua_State* L, lua_Table* dum, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) : wxDropSource(data, win, iconCopy, iconMove, iconNone), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)
 	wxDragResult DoDragDrop(int flags = ::wxDrag_CopyOnly) {
@@ -43,9 +48,6 @@ public:
 		return wxDropSource::GiveFeedback(effect);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

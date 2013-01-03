@@ -1272,7 +1272,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AddPage(page, caption, select, bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -1295,7 +1295,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AddPage(page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -1326,7 +1326,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::AdvanceSelection(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::AdvanceSelection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AdvanceSelection(forward);
 
@@ -1345,7 +1345,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::ChangeSelection(size_t)");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::ChangeSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->ChangeSelection(n);
 		lua_pushnumber(L,lret);
@@ -1379,7 +1379,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::Create(wxWindow *, int, const wxPoint &, const wxSize &, long)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::Create(wxWindow *, int, const wxPoint &, const wxSize &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, pos, size, style);
 		lua_pushboolean(L,lret?1:0);
@@ -1398,7 +1398,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeleteAllPages()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeleteAllPages(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteAllPages();
 		lua_pushboolean(L,lret?1:0);
@@ -1418,7 +1418,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeletePage(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeletePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeletePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -1437,7 +1437,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiNotebook::GetArtProvider() const");
+			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiNotebook::GetArtProvider() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxAuiTabArt * lret = self->GetArtProvider();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1458,7 +1458,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetCurrentPage() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetCurrentPage() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetCurrentPage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1480,7 +1480,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetHeightForPageHeight(int)");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetHeightForPageHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetHeightForPageHeight(pageHeight);
 		lua_pushnumber(L,lret);
@@ -1500,7 +1500,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetPage(size_t) const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetPage(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetPage(page_idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1522,7 +1522,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxAuiNotebook::GetPageBitmap(size_t) const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxAuiNotebook::GetPageBitmap(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->GetPageBitmap(page);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -1544,7 +1544,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::GetPageCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::GetPageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetPageCount();
 		lua_pushnumber(L,lret);
@@ -1564,7 +1564,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageIndex(wxWindow *) const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageIndex(wxWindow *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPageIndex(page_wnd);
 		lua_pushnumber(L,lret);
@@ -1584,7 +1584,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::GetPageText(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::GetPageText(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetPageText(page);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1603,7 +1603,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -1622,7 +1622,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetTabCtrlHeight() const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetTabCtrlHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetTabCtrlHeight();
 		lua_pushnumber(L,lret);
@@ -1652,7 +1652,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->InsertPage(page_idx, page, caption, select, bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -1678,7 +1678,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->InsertPage(index, page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -1707,7 +1707,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::RemovePage(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::RemovePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RemovePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -1727,7 +1727,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetArtProvider(wxAuiTabArt *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetArtProvider(wxAuiTabArt *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetArtProvider(art);
 
@@ -1750,7 +1750,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1774,7 +1774,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetMeasuringFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetMeasuringFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMeasuringFont(font);
 
@@ -1797,7 +1797,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetNormalFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetNormalFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetNormalFont(font);
 
@@ -1821,7 +1821,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageBitmap(size_t, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageBitmap(size_t, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetPageBitmap(page, bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -1842,7 +1842,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageImage(size_t, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageImage(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetPageImage(n, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -1863,7 +1863,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageText(size_t, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageText(size_t, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetPageText(page, text);
 		lua_pushboolean(L,lret?1:0);
@@ -1887,7 +1887,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetSelectedFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetSelectedFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelectedFont(font);
 
@@ -1906,7 +1906,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::SetSelection(size_t)");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::SetSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->SetSelection(new_page);
 		lua_pushnumber(L,lret);
@@ -1926,7 +1926,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetTabCtrlHeight(int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetTabCtrlHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTabCtrlHeight(height);
 
@@ -1949,7 +1949,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetUniformBitmapSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetUniformBitmapSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetUniformBitmapSize(size);
 
@@ -1969,7 +1969,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::Split(size_t, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::Split(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Split(page, direction);
 
@@ -1987,7 +1987,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::ShowWindowMenu()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::ShowWindowMenu(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ShowWindowMenu();
 		lua_pushboolean(L,lret?1:0);
@@ -2006,7 +2006,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiNotebook::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiNotebook::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxAuiNotebook::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2027,7 +2027,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2046,7 +2046,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -2065,7 +2065,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -2084,7 +2084,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2104,7 +2104,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetCanFocus(canFocus);
 
@@ -2122,7 +2122,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetFocus();
 
@@ -2140,7 +2140,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetFocusFromKbd();
 
@@ -2159,7 +2159,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::AddChild(child);
 
@@ -2178,7 +2178,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::RemoveChild(child);
 
@@ -2197,7 +2197,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -2220,7 +2220,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::AlwaysShowScrollbars(hflag, vflag);
 
@@ -2239,7 +2239,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -2259,7 +2259,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -2279,7 +2279,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -2299,7 +2299,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -2319,7 +2319,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -2339,7 +2339,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -2363,7 +2363,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::ScrollWindow(dx, dy, rect);
 
@@ -2386,7 +2386,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetScrollPos(orientation, pos, refresh);
 
@@ -2411,7 +2411,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -2434,7 +2434,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2461,7 +2461,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2483,7 +2483,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Fit();
 
@@ -2501,7 +2501,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::FitInside();
 
@@ -2519,7 +2519,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2541,7 +2541,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2563,7 +2563,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2585,7 +2585,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2607,7 +2607,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2629,7 +2629,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2651,7 +2651,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2676,7 +2676,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2698,7 +2698,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SendSizeEvent(flags);
 
@@ -2721,7 +2721,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetMaxClientSize(size);
 
@@ -2744,7 +2744,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetMaxSize(size);
 
@@ -2767,7 +2767,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetMinClientSize(size);
 
@@ -2790,7 +2790,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetMinSize(size);
 
@@ -2825,7 +2825,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2851,7 +2851,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2878,7 +2878,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxAuiNotebook::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2900,7 +2900,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::ClearBackground();
 
@@ -2918,7 +2918,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxAuiNotebook::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2937,7 +2937,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2956,7 +2956,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2975,7 +2975,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxAuiNotebook::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -3001,7 +3001,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Refresh(eraseBackground, rect);
 
@@ -3019,7 +3019,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Update();
 
@@ -3038,7 +3038,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -3057,7 +3057,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -3077,7 +3077,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetThemeEnabled(enable);
 
@@ -3095,7 +3095,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -3114,7 +3114,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -3134,7 +3134,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3154,7 +3154,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetNextHandler(handler);
 
@@ -3173,7 +3173,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetPreviousHandler(handler);
 
@@ -3191,7 +3191,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxAuiNotebook::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxAuiNotebook::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxAuiNotebook::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -3211,7 +3211,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetExtraStyle(exStyle);
 
@@ -3230,7 +3230,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetWindowStyleFlag(style);
 
@@ -3248,7 +3248,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Lower();
 
@@ -3266,7 +3266,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Raise();
 
@@ -3288,7 +3288,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3307,7 +3307,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -3326,7 +3326,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3348,7 +3348,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3370,7 +3370,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3393,7 +3393,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3418,7 +3418,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxAuiNotebook::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3437,7 +3437,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxAuiNotebook::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxAuiNotebook::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxAuiNotebook::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3463,7 +3463,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetValidator(validator);
 
@@ -3481,7 +3481,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3500,7 +3500,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3519,7 +3519,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3538,7 +3538,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxAuiNotebook::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3557,7 +3557,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxAuiNotebook::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3577,7 +3577,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetLayoutDirection(dir);
 
@@ -3596,7 +3596,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetName(name);
 
@@ -3619,7 +3619,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetAcceleratorTable(accel);
 
@@ -3637,7 +3637,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3656,7 +3656,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxAuiNotebook::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxAuiNotebook::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxAuiNotebook::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3678,7 +3678,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetDropTarget(target);
 
@@ -3697,7 +3697,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::DragAcceptFiles(accept);
 
@@ -3715,7 +3715,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3734,7 +3734,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3758,7 +3758,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3779,7 +3779,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::WarpPointer(x, y);
 
@@ -3802,7 +3802,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::DoUpdateWindowUI(event);
 
@@ -3820,7 +3820,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3839,7 +3839,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::InheritAttributes();
 
@@ -3857,7 +3857,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::InitDialog();
 
@@ -3875,7 +3875,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3894,7 +3894,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3916,7 +3916,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::MakeModal(modal);
 
@@ -3934,7 +3934,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::OnInternalIdle();
 
@@ -3955,7 +3955,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3975,7 +3975,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3997,7 +3997,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::UpdateWindowUI(flags);
 
@@ -4020,7 +4020,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Command(event);
 
@@ -4038,7 +4038,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxAuiNotebook::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4058,7 +4058,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetLabel(label);
 
@@ -4077,7 +4077,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetImageList(wxImageList *)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetImageList(wxImageList *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetImageList(imageList);
 
@@ -4100,7 +4100,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPageSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPageSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetPageSize(size);
 
@@ -4126,7 +4126,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_HitTest(const wxPoint &, long *) const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_HitTest(const wxPoint &, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::HitTest(pt, &flags);
 		lua_pushnumber(L,lret);
@@ -4149,7 +4149,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AddPage(wxWindow *, const wxString &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AddPage(wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::AddPage(page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -4169,7 +4169,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_ChangeSelection(size_t)");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_ChangeSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::ChangeSelection(n);
 		lua_pushnumber(L,lret);
@@ -4188,7 +4188,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeleteAllPages()");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeleteAllPages(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::DeleteAllPages();
 		lua_pushboolean(L,lret?1:0);
@@ -4208,7 +4208,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeletePage(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeletePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::DeletePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -4227,7 +4227,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::base_GetPageCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::base_GetPageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxAuiNotebook::GetPageCount();
 		lua_pushnumber(L,lret);
@@ -4247,7 +4247,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetPageText(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetPageText(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxAuiNotebook::GetPageText(page);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4266,7 +4266,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::GetSelection();
 		lua_pushnumber(L,lret);
@@ -4292,7 +4292,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InsertPage(size_t, wxWindow *, const wxString &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::InsertPage(index, page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -4312,7 +4312,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RemovePage(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RemovePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::RemovePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -4336,7 +4336,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -4357,7 +4357,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageImage(size_t, int)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageImage(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::SetPageImage(n, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -4378,7 +4378,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageText(size_t, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageText(size_t, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAuiNotebook::SetPageText(page, text);
 		lua_pushboolean(L,lret?1:0);
@@ -4398,7 +4398,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_SetSelection(size_t)");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_SetSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAuiNotebook::SetSelection(new_page);
 		lua_pushnumber(L,lret);
@@ -4418,7 +4418,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetTabCtrlHeight(int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetTabCtrlHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetTabCtrlHeight(height);
 
@@ -4441,7 +4441,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::SetUniformBitmapSize(size);
 
@@ -4461,7 +4461,7 @@ public:
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Split(size_t, int)");
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Split(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxAuiNotebook::Split(page, direction);
 

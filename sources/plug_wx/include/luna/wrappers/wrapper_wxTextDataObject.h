@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxTextDataObject(lua_State* L, lua_Table* dum, const wxString & text = wxEmptyString) : wxTextDataObject(text), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// size_t wxDataObject::GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const
 	size_t GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const {
@@ -112,9 +117,6 @@ public:
 		return wxTextDataObject::SetText(strText);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

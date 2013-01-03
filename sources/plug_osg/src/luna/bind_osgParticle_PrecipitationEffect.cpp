@@ -581,7 +581,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -600,7 +600,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -620,7 +620,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -644,7 +644,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -667,7 +667,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->traverse(_arg1);
 
@@ -686,7 +686,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::rain(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::rain(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->rain(intensity);
 
@@ -705,7 +705,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::snow(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::snow(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->snow(intensity);
 
@@ -724,7 +724,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setMaximumParticleDensity(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setMaximumParticleDensity(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaximumParticleDensity(density);
 
@@ -742,7 +742,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getMaximumParticleDensity() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getMaximumParticleDensity() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getMaximumParticleDensity();
 		lua_pushnumber(L,lret);
@@ -766,7 +766,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setWind(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setWind(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setWind(wind);
 
@@ -784,7 +784,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::PrecipitationEffect::getWind() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::PrecipitationEffect::getWind() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getWind();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -810,7 +810,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setPosition(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setPosition(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPosition(position);
 
@@ -828,7 +828,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::PrecipitationEffect::getPosition() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::PrecipitationEffect::getPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -854,7 +854,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setCellSize(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setCellSize(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCellSize(cellSize);
 
@@ -872,7 +872,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::PrecipitationEffect::getCellSize() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::PrecipitationEffect::getCellSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getCellSize();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -894,7 +894,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setParticleSpeed(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setParticleSpeed(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setParticleSpeed(particleSpeed);
 
@@ -912,7 +912,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getParticleSpeed() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getParticleSpeed() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getParticleSpeed();
 		lua_pushnumber(L,lret);
@@ -932,7 +932,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setParticleSize(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setParticleSize(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setParticleSize(particleSize);
 
@@ -950,7 +950,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getParticleSize() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getParticleSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getParticleSize();
 		lua_pushnumber(L,lret);
@@ -974,7 +974,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setParticleColor(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setParticleColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setParticleColor(color);
 
@@ -992,7 +992,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgParticle::PrecipitationEffect::getParticleColor() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgParticle::PrecipitationEffect::getParticleColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getParticleColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1014,7 +1014,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setNearTransition(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setNearTransition(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNearTransition(nearTransition);
 
@@ -1032,7 +1032,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getNearTransition() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getNearTransition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getNearTransition();
 		lua_pushnumber(L,lret);
@@ -1052,7 +1052,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setFarTransition(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setFarTransition(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFarTransition(farTransition);
 
@@ -1070,7 +1070,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getFarTransition() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::PrecipitationEffect::getFarTransition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getFarTransition();
 		lua_pushnumber(L,lret);
@@ -1090,7 +1090,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setUseFarLineSegments(bool)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setUseFarLineSegments(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setUseFarLineSegments(useFarLineSegments);
 
@@ -1108,7 +1108,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::getUseFarLineSegments() const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::getUseFarLineSegments() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getUseFarLineSegments();
 		lua_pushboolean(L,lret?1:0);
@@ -1128,7 +1128,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setFog(osg::Fog *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::setFog(osg::Fog *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFog(fog);
 
@@ -1146,7 +1146,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Fog * osgParticle::PrecipitationEffect::getFog()");
+			luaL_error(L, "Invalid object in function call osg::Fog * osgParticle::PrecipitationEffect::getFog(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Fog * lret = self->getFog();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1167,7 +1167,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Fog * osgParticle::PrecipitationEffect::getFog() const");
+			luaL_error(L, "Invalid object in function call const osg::Fog * osgParticle::PrecipitationEffect::getFog() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Fog * lret = self->getFog();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1197,7 +1197,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgParticle::PrecipitationEffect::getQuadGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgParticle::PrecipitationEffect::getQuadGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->getQuadGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1218,7 +1218,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgParticle::PrecipitationEffect::getQuadStateSet()");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgParticle::PrecipitationEffect::getQuadStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getQuadStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1239,7 +1239,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgParticle::PrecipitationEffect::getLineGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgParticle::PrecipitationEffect::getLineGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->getLineGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1260,7 +1260,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgParticle::PrecipitationEffect::getLineStateSet()");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgParticle::PrecipitationEffect::getLineStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getLineStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1281,7 +1281,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgParticle::PrecipitationEffect::getPointGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgParticle::PrecipitationEffect::getPointGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->getPointGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1302,7 +1302,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgParticle::PrecipitationEffect::getPointStateSet()");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgParticle::PrecipitationEffect::getPointStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getPointStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1324,7 +1324,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::setName(name);
 
@@ -1342,7 +1342,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::computeDataVariance();
 
@@ -1361,7 +1361,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::setUserData(obj);
 
@@ -1379,7 +1379,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::PrecipitationEffect::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::PrecipitationEffect::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PrecipitationEffect::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1400,7 +1400,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::PrecipitationEffect::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::PrecipitationEffect::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PrecipitationEffect::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1430,7 +1430,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::PrecipitationEffect::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::PrecipitationEffect::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PrecipitationEffect::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1456,7 +1456,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::PrecipitationEffect::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::PrecipitationEffect::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PrecipitationEffect::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1477,7 +1477,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osgParticle::PrecipitationEffect::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osgParticle::PrecipitationEffect::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->PrecipitationEffect::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1498,7 +1498,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osgParticle::PrecipitationEffect::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osgParticle::PrecipitationEffect::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->PrecipitationEffect::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1528,7 +1528,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osgParticle::PrecipitationEffect::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osgParticle::PrecipitationEffect::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->PrecipitationEffect::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1549,7 +1549,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osgParticle::PrecipitationEffect::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osgParticle::PrecipitationEffect::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->PrecipitationEffect::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1579,7 +1579,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osgParticle::PrecipitationEffect::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osgParticle::PrecipitationEffect::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->PrecipitationEffect::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1600,7 +1600,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osgParticle::PrecipitationEffect::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osgParticle::PrecipitationEffect::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->PrecipitationEffect::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1630,7 +1630,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osgParticle::PrecipitationEffect::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osgParticle::PrecipitationEffect::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->PrecipitationEffect::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1651,7 +1651,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osgParticle::PrecipitationEffect::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osgParticle::PrecipitationEffect::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->PrecipitationEffect::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1686,7 +1686,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::ascend(nv);
 
@@ -1704,7 +1704,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osgParticle::PrecipitationEffect::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osgParticle::PrecipitationEffect::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->PrecipitationEffect::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1729,7 +1729,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::releaseGLObjects(_arg1);
 
@@ -1747,7 +1747,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PrecipitationEffect::libraryName();
 		lua_pushstring(L,lret);
@@ -1766,7 +1766,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::PrecipitationEffect::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PrecipitationEffect::className();
 		lua_pushstring(L,lret);
@@ -1786,7 +1786,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PrecipitationEffect::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1810,7 +1810,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::accept(nv);
 
@@ -1833,7 +1833,7 @@ public:
 		osgParticle::PrecipitationEffect* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PrecipitationEffect::traverse(_arg1);
 

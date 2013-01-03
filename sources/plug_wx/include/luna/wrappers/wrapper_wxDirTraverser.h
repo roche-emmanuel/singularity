@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	wxDirTraverseResult OnDir(const wxString & dirname) {
@@ -45,9 +50,6 @@ public:
 		return wxDirTraverser::OnOpenError(openerrorname);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

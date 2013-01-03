@@ -7,7 +7,7 @@ local EventCallback = require "base.EventCallback"
 function Class:initialize(options)
 	-- The listeners are saved in a Map of vectors per category.
 	self._listeners = Map();
-	self._oneShots = Set();
+	self._markedForRemoval = Set();
 end
 
 function Class:addListener(desc,cb,oneShot)
@@ -26,34 +26,36 @@ function Class:addListener(desc,cb,oneShot)
 	return cb
 end
 
-function Class:removeListener(cb,eventName)
-	--self:checkNonEmptyString(eventName,"Invalid callback even name.")
+function Class:removeListener(cb)
 	self:check(cb,"Invalid callback object.")
 	self:checkType(cb,EventCallback)
 	
-	if eventName then
-		local list = self._listeners:get(eventName)
-		if not list then
-			return false-- nothing to do.
-		end
-		
-		return list:eraseValue(cb)	
-	else
-		-- remove this listener from all events:
-		local found = false
-		for _,list in self._listeners:sequence() do
-			found = list:eraseValue(cb) or found
-		end
-		
-		return found
+	if self._currentEvent == cb._event then
+		-- we should not remove a callback from the callback event process itself.
+		-- so we just mask this callback for removal:
+		self._markedForRemoval:push_back(cb)
+		return
 	end
+	
+	local list = self._listeners:get(cb._event)
+	if not list then
+		return false-- nothing to do.
+	end
+	
+	local rem = list:eraseValue(cb)
+	self:check(rem==nil or rem==cb,"Invalid removed callback.")
+	return rem
 end
 
 function Class:removeAllListeners(eventName)
 	if eventName then
+		self:check(not (self._currentEvent==eventName),"Trying to remove all event callback while in event process.")
 		-- Remove all the listeners for this category only:
+		self:info("Removing all listener for event: ",eventName)
 		self._listeners:erase(eventName)
 	else
+		self:check(self._currentEvent==nil,"Trying to remove all event callback while in event process.")
+		self:info("Removing all listeners")
 		self._listeners:clear();
 	end
 end
@@ -65,20 +67,28 @@ function Class:fireEvent(eventName,...)
 		return; -- nothing to do.
 	end
 	
+	self._currentEvent = eventName
+
 	for _, cb in list:sequence() do
+		--if cb._name then
+		--	self:info("Calling cb: ",cb._name)
+		--end
+		
 		-- call the callback:
 		cb{handler=self,event=eventName,args={...}};
 		
 		if cb:isOneShot() then
-			self._oneShots:push_back(cb)
+			self._markedForRemoval:push_back(cb)
 		end
 	end
 	
 	-- clear the once methods:
-	for _,cb in self._oneShots:sequence() do
+	for _,cb in self._markedForRemoval:sequence() do
 		list:eraseValue(cb)
 	end
-	self._oneShots:clear();
+	self._markedForRemoval:clear();
+	
+	self._currentEvent = nil
 end
 
 return Class

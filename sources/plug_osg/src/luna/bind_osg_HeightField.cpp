@@ -521,7 +521,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -547,7 +547,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,7 +569,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::HeightField::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::HeightField::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -588,7 +588,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -607,7 +607,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -631,7 +631,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -654,7 +654,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -683,7 +683,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::allocate(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::allocate(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->allocate(numColumns, numRows);
 
@@ -701,7 +701,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumColumns() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumColumns() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumColumns();
 		lua_pushnumber(L,lret);
@@ -720,7 +720,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumRows() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getNumRows() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumRows();
 		lua_pushnumber(L,lret);
@@ -744,7 +744,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setOrigin(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setOrigin(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setOrigin(origin);
 
@@ -762,7 +762,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::HeightField::getOrigin() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::HeightField::getOrigin() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getOrigin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -784,7 +784,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setXInterval(float)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setXInterval(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setXInterval(dx);
 
@@ -802,7 +802,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getXInterval() const");
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getXInterval() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getXInterval();
 		lua_pushnumber(L,lret);
@@ -822,7 +822,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setYInterval(float)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setYInterval(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setYInterval(dy);
 
@@ -840,7 +840,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getYInterval() const");
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getYInterval() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getYInterval();
 		lua_pushnumber(L,lret);
@@ -859,7 +859,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FloatArray * osg::HeightField::getFloatArray()");
+			luaL_error(L, "Invalid object in function call osg::FloatArray * osg::HeightField::getFloatArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::FloatArray * lret = self->getFloatArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -880,7 +880,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::FloatArray * osg::HeightField::getFloatArray() const");
+			luaL_error(L, "Invalid object in function call const osg::FloatArray * osg::HeightField::getFloatArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::FloatArray * lret = self->getFloatArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -910,7 +910,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::HeightField::HeightList & osg::HeightField::getHeightList()");
+			luaL_error(L, "Invalid object in function call osg::HeightField::HeightList & osg::HeightField::getHeightList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::HeightField::HeightList* lret = &self->getHeightList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -931,7 +931,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::HeightField::HeightList & osg::HeightField::getHeightList() const");
+			luaL_error(L, "Invalid object in function call const osg::HeightField::HeightList & osg::HeightField::getHeightList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::HeightField::HeightList* lret = &self->getHeightList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -962,7 +962,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setSkirtHeight(float)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setSkirtHeight(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSkirtHeight(skirtHeight);
 
@@ -980,7 +980,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getSkirtHeight() const");
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getSkirtHeight() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getSkirtHeight();
 		lua_pushnumber(L,lret);
@@ -1000,7 +1000,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setBorderWidth(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setBorderWidth(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBorderWidth(borderWidth);
 
@@ -1018,7 +1018,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getBorderWidth() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::HeightField::getBorderWidth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getBorderWidth();
 		lua_pushnumber(L,lret);
@@ -1042,7 +1042,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setRotation(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRotation(quat);
 
@@ -1060,7 +1060,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::HeightField::getRotation() const");
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::HeightField::getRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1081,7 +1081,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::HeightField::computeRotationMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::HeightField::computeRotationMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->computeRotationMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1103,7 +1103,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::HeightField::zeroRotation() const");
+			luaL_error(L, "Invalid object in function call bool osg::HeightField::zeroRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->zeroRotation();
 		lua_pushboolean(L,lret?1:0);
@@ -1125,7 +1125,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::setHeight(unsigned int, unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::setHeight(unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setHeight(c, r, value);
 
@@ -1145,7 +1145,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & osg::HeightField::getHeight(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call float & osg::HeightField::getHeight(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float & lret = self->getHeight(c, r);
 		lua_pushnumber(L,lret);
@@ -1166,7 +1166,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::HeightField::getHeight(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call float osg::HeightField::getHeight(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getHeight(c, r);
 		lua_pushnumber(L,lret);
@@ -1196,7 +1196,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getVertex(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getVertex(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->getVertex(c, r);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -1220,7 +1220,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getNormal(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::HeightField::getNormal(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->getNormal(c, r);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -1244,7 +1244,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec2f osg::HeightField::getHeightDelta(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call osg::Vec2f osg::HeightField::getHeightDelta(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec2f stack_lret = self->getHeightDelta(c, r);
 		osg::Vec2f* lret = new osg::Vec2f(stack_lret);
@@ -1267,7 +1267,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->HeightField::setName(name);
 
@@ -1285,7 +1285,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->HeightField::computeDataVariance();
 
@@ -1304,7 +1304,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->HeightField::setUserData(obj);
 
@@ -1322,7 +1322,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::HeightField::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::HeightField::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->HeightField::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1343,7 +1343,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::HeightField::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::HeightField::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->HeightField::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1376,7 +1376,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->HeightField::releaseGLObjects(_arg1);
 
@@ -1394,7 +1394,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->HeightField::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1420,7 +1420,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::HeightField::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->HeightField::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1442,7 +1442,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::HeightField::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::HeightField::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->HeightField::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1461,7 +1461,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->HeightField::libraryName();
 		lua_pushstring(L,lret);
@@ -1480,7 +1480,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::HeightField::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->HeightField::className();
 		lua_pushstring(L,lret);
@@ -1504,7 +1504,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->HeightField::accept(_arg1);
 
@@ -1527,7 +1527,7 @@ public:
 		osg::HeightField* self=Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::HeightField::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->HeightField::accept(_arg1);
 

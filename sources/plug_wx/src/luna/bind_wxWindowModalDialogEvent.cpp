@@ -181,7 +181,7 @@ public:
 		wxWindowModalDialogEvent* self=Luna< wxObject >::checkSubType< wxWindowModalDialogEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDialog * wxWindowModalDialogEvent::GetDialog() const");
+			luaL_error(L, "Invalid object in function call wxDialog * wxWindowModalDialogEvent::GetDialog() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDialog * lret = self->GetDialog();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -202,7 +202,7 @@ public:
 		wxWindowModalDialogEvent* self=Luna< wxObject >::checkSubType< wxWindowModalDialogEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxWindowModalDialogEvent::GetReturnCode() const");
+			luaL_error(L, "Invalid object in function call int wxWindowModalDialogEvent::GetReturnCode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetReturnCode();
 		lua_pushnumber(L,lret);
@@ -221,7 +221,7 @@ public:
 		wxWindowModalDialogEvent* self=Luna< wxObject >::checkSubType< wxWindowModalDialogEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxWindowModalDialogEvent::Clone() const");
+			luaL_error(L, "Invalid object in function call wxEvent * wxWindowModalDialogEvent::Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEvent * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -242,7 +242,7 @@ public:
 		wxWindowModalDialogEvent* self=Luna< wxObject >::checkSubType< wxWindowModalDialogEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxWindowModalDialogEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxWindowModalDialogEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxWindowModalDialogEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -263,7 +263,7 @@ public:
 		wxWindowModalDialogEvent* self=Luna< wxObject >::checkSubType< wxWindowModalDialogEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxWindowModalDialogEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxWindowModalDialogEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxWindowModalDialogEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -282,7 +282,7 @@ public:
 		wxWindowModalDialogEvent* self=Luna< wxObject >::checkSubType< wxWindowModalDialogEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxWindowModalDialogEvent::base_Clone() const");
+			luaL_error(L, "Invalid object in function call wxEvent * wxWindowModalDialogEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEvent * lret = self->wxWindowModalDialogEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

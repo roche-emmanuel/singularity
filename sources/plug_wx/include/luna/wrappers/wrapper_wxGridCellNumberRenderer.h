@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxGridCellNumberRenderer(lua_State* L, lua_Table* dum) : wxGridCellNumberRenderer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {
@@ -52,9 +57,6 @@ public:
 		return *(_obj.callFunction<wxSize*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

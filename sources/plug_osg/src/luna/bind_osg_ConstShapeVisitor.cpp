@@ -325,7 +325,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Shape &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Shape &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -348,7 +348,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Sphere &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Sphere &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -371,7 +371,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Box &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Box &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -394,7 +394,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Cone &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Cone &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -417,7 +417,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Cylinder &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Cylinder &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -440,7 +440,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Capsule &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::Capsule &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -463,7 +463,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::InfinitePlane &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::InfinitePlane &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -486,7 +486,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::TriangleMesh &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::TriangleMesh &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -509,7 +509,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::ConvexHull &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::ConvexHull &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -532,7 +532,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::HeightField &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::HeightField &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -555,7 +555,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::CompositeShape &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::apply(const osg::CompositeShape &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -596,7 +596,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Shape &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Shape &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -619,7 +619,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Sphere &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Sphere &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -642,7 +642,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Box &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Box &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -665,7 +665,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Cone &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Cone &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -688,7 +688,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Cylinder &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Cylinder &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -711,7 +711,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Capsule &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::Capsule &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -734,7 +734,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::InfinitePlane &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::InfinitePlane &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -757,7 +757,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::TriangleMesh &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::TriangleMesh &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -780,7 +780,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::ConvexHull &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::ConvexHull &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -803,7 +803,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::HeightField &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::HeightField &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 
@@ -826,7 +826,7 @@ public:
 		osg::ConstShapeVisitor* self=(Luna< osg::ConstShapeVisitor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::CompositeShape &)");
+			luaL_error(L, "Invalid object in function call void osg::ConstShapeVisitor::base_apply(const osg::CompositeShape &). Got : '%s'",typeid(Luna< osg::ConstShapeVisitor >::check(L,1)).name());
 		}
 		self->ConstShapeVisitor::apply(_arg1);
 

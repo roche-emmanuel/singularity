@@ -149,7 +149,7 @@ public:
 		wxSingleInstanceChecker* self=(Luna< wxSingleInstanceChecker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::Create(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::Create(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name());
 		}
 		bool lret = self->Create(name, path);
 		lua_pushboolean(L,lret?1:0);
@@ -168,7 +168,7 @@ public:
 		wxSingleInstanceChecker* self=(Luna< wxSingleInstanceChecker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::CreateDefault()");
+			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::CreateDefault(). Got : '%s'",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name());
 		}
 		bool lret = self->CreateDefault();
 		lua_pushboolean(L,lret?1:0);
@@ -187,7 +187,7 @@ public:
 		wxSingleInstanceChecker* self=(Luna< wxSingleInstanceChecker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::IsAnotherRunning() const");
+			luaL_error(L, "Invalid object in function call bool wxSingleInstanceChecker::IsAnotherRunning() const. Got : '%s'",typeid(Luna< wxSingleInstanceChecker >::check(L,1)).name());
 		}
 		bool lret = self->IsAnotherRunning();
 		lua_pushboolean(L,lret?1:0);

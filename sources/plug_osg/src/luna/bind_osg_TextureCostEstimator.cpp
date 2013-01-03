@@ -158,7 +158,7 @@ public:
 		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCostEstimator::setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::TextureCostEstimator::setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDefaults();
 
@@ -181,7 +181,7 @@ public:
 		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TextureCostEstimator::calibrate(osg::RenderInfo &)");
+			luaL_error(L, "Invalid object in function call void osg::TextureCostEstimator::calibrate(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->calibrate(renderInfo);
 
@@ -200,7 +200,7 @@ public:
 		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::TextureCostEstimator::estimateCompileCost(const osg::Texture *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::TextureCostEstimator::estimateCompileCost(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(texture);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -223,7 +223,7 @@ public:
 		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::TextureCostEstimator::estimateDrawCost(const osg::Texture *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::TextureCostEstimator::estimateDrawCost(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(texture);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);

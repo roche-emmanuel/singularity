@@ -217,7 +217,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileSystem::ChangePathTo(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call void wxFileSystem::ChangePathTo(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ChangePathTo(location, is_dir);
 
@@ -238,7 +238,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystem::FindFileInPath(wxString *, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileSystem::FindFileInPath(wxString *, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->FindFileInPath(&pStr, path, file);
 		lua_pushboolean(L,lret?1:0);
@@ -261,7 +261,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystem::FindFirst(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call wxString wxFileSystem::FindFirst(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->FindFirst(wildcard, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -280,7 +280,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystem::FindNext()");
+			luaL_error(L, "Invalid object in function call wxString wxFileSystem::FindNext(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->FindNext();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -299,7 +299,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFileSystem::GetPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxFileSystem::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -322,7 +322,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFSFile * wxFileSystem::OpenFile(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call wxFSFile * wxFileSystem::OpenFile(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxFSFile * lret = self->OpenFile(location, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -409,7 +409,7 @@ public:
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystem::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystem::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFileSystem::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

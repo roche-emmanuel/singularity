@@ -152,7 +152,7 @@ public:
 		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Referenced::setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void sgt::Referenced::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setName(name);
 
@@ -170,7 +170,7 @@ public:
 		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string sgt::Referenced::getName()");
+			luaL_error(L, "Invalid object in function call std::string sgt::Referenced::getName(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -190,7 +190,7 @@ public:
 		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::Referenced::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::Referenced::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Referenced::setThreadSafeRefUnref(threadSafe);
 

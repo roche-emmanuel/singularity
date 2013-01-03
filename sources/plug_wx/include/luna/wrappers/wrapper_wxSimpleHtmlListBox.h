@@ -22,6 +22,239 @@ public:
 	wrapper_wxSimpleHtmlListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = wxHLB_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxSimpleHtmlListBoxNameStr) : wxSimpleHtmlListBox(parent, id, pos, size, choices, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxSimpleHtmlListBox(lua_State* L, lua_Table* dum) : wxSimpleHtmlListBox(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSimpleHtmlListBox::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSimpleHtmlListBox::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSimpleHtmlListBox::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSimpleHtmlListBox::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxSimpleHtmlListBox::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSimpleHtmlListBox::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::AddPendingEvent(event);
+	};
+
+	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
+	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
+		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
+			_obj.pushArg(unitMin);
+			_obj.pushArg(unitMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::OnGetUnitsSizeHint(unitMin, unitMax);
+	};
+
+	// int wxVarScrollHelperBase::EstimateTotalSize() const
+	int EstimateTotalSize() const {
+		if(_obj.pushFunction("EstimateTotalSize")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxSimpleHtmlListBox::EstimateTotalSize();
+	};
+
+	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
+	int OnGetUnitSize(size_t unit) const {
+		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
+		_obj.pushArg(unit);
+		return (_obj.callFunction<int>());
+	};
+
+	// void wxVarVScrollHelper::OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const
+	void OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const {
+		if(_obj.pushFunction("OnGetRowsHeightHint")) {
+			_obj.pushArg(rowMin);
+			_obj.pushArg(rowMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::OnGetRowsHeightHint(rowMin, rowMax);
+	};
+
+	// int wxVarVScrollHelper::EstimateTotalHeight() const
+	int EstimateTotalHeight() const {
+		if(_obj.pushFunction("EstimateTotalHeight")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxSimpleHtmlListBox::EstimateTotalHeight();
+	};
+
+	// int wxVarVScrollHelper::OnGetRowHeight(size_t row) const
+	int OnGetRowHeight(size_t row) const {
+		THROW_IF(!_obj.pushFunction("OnGetRowHeight"),"No implementation for abstract function wxVarVScrollHelper::OnGetRowHeight");
+		_obj.pushArg(row);
+		return (_obj.callFunction<int>());
+	};
+
+	// void wxHtmlListBox::OnLinkClicked(size_t n, const wxHtmlLinkInfo & link)
+	void OnLinkClicked(size_t n, const wxHtmlLinkInfo & link) {
+		if(_obj.pushFunction("OnLinkClicked")) {
+			_obj.pushArg(n);
+			_obj.pushArg(&link);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSimpleHtmlListBox::OnLinkClicked(n, link);
+	};
+
+	// wxColour wxHtmlListBox::GetSelectedTextBgColour(const wxColour & colBg) const
+	wxColour GetSelectedTextBgColour(const wxColour & colBg) const {
+		if(_obj.pushFunction("GetSelectedTextBgColour")) {
+			_obj.pushArg(&colBg);
+			return *(_obj.callFunction<wxColour*>());
+		}
+
+		return wxSimpleHtmlListBox::GetSelectedTextBgColour(colBg);
+	};
+
+	// wxColour wxHtmlListBox::GetSelectedTextColour(const wxColour & colFg) const
+	wxColour GetSelectedTextColour(const wxColour & colFg) const {
+		if(_obj.pushFunction("GetSelectedTextColour")) {
+			_obj.pushArg(&colFg);
+			return *(_obj.callFunction<wxColour*>());
+		}
+
+		return wxSimpleHtmlListBox::GetSelectedTextColour(colFg);
+	};
+
+	// wxString wxHtmlListBox::OnGetItemMarkup(size_t n) const
+	wxString OnGetItemMarkup(size_t n) const {
+		if(_obj.pushFunction("OnGetItemMarkup")) {
+			_obj.pushArg(n);
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxSimpleHtmlListBox::OnGetItemMarkup(n);
+	};
+
+	// wxString wxHtmlListBox::OnGetItem(size_t n) const
+	wxString OnGetItem(size_t n) const {
+		THROW_IF(!_obj.pushFunction("OnGetItem"),"No implementation for abstract function wxHtmlListBox::OnGetItem");
+		_obj.pushArg(n);
+		return *(_obj.callFunction<wxString*>());
+	};
+
+	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	void DoSetItemClientData(unsigned int arg1, void * arg2) {
+		THROW_IF(!_obj.pushFunction("DoSetItemClientData"),"No implementation for abstract function wxItemContainer::DoSetItemClientData");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		return (_obj.callFunction<void>());
+	};
+
+	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	void * DoGetItemClientData(unsigned int arg1) const {
+		THROW_IF(!_obj.pushFunction("DoGetItemClientData"),"No implementation for abstract function wxItemContainer::DoGetItemClientData");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<void*>());
+	};
+
+	// void wxItemContainer::DoClear()
+	void DoClear() {
+		THROW_IF(!_obj.pushFunction("DoClear"),"No implementation for abstract function wxItemContainer::DoClear");
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	void DoDeleteOneItem(unsigned int arg1) {
+		THROW_IF(!_obj.pushFunction("DoDeleteOneItem"),"No implementation for abstract function wxItemContainer::DoDeleteOneItem");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<void>());
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1131,209 +1364,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxSimpleHtmlListBox::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxSimpleHtmlListBox::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxSimpleHtmlListBox::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxSimpleHtmlListBox::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxSimpleHtmlListBox::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxSimpleHtmlListBox::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::AddPendingEvent(event);
-	};
-
-	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
-	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
-		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
-			_obj.pushArg(unitMin);
-			_obj.pushArg(unitMax);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::OnGetUnitsSizeHint(unitMin, unitMax);
-	};
-
-	// int wxVarScrollHelperBase::EstimateTotalSize() const
-	int EstimateTotalSize() const {
-		if(_obj.pushFunction("EstimateTotalSize")) {
-			return (_obj.callFunction<int>());
-		}
-
-		return wxSimpleHtmlListBox::EstimateTotalSize();
-	};
-
-	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-	int OnGetUnitSize(size_t unit) const {
-		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
-		_obj.pushArg(unit);
-		return (_obj.callFunction<int>());
-	};
-
-	// void wxVarVScrollHelper::OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const
-	void OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const {
-		if(_obj.pushFunction("OnGetRowsHeightHint")) {
-			_obj.pushArg(rowMin);
-			_obj.pushArg(rowMax);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::OnGetRowsHeightHint(rowMin, rowMax);
-	};
-
-	// int wxVarVScrollHelper::EstimateTotalHeight() const
-	int EstimateTotalHeight() const {
-		if(_obj.pushFunction("EstimateTotalHeight")) {
-			return (_obj.callFunction<int>());
-		}
-
-		return wxSimpleHtmlListBox::EstimateTotalHeight();
-	};
-
-	// int wxVarVScrollHelper::OnGetRowHeight(size_t row) const
-	int OnGetRowHeight(size_t row) const {
-		THROW_IF(!_obj.pushFunction("OnGetRowHeight"),"No implementation for abstract function wxVarVScrollHelper::OnGetRowHeight");
-		_obj.pushArg(row);
-		return (_obj.callFunction<int>());
-	};
-
-	// void wxHtmlListBox::OnLinkClicked(size_t n, const wxHtmlLinkInfo & link)
-	void OnLinkClicked(size_t n, const wxHtmlLinkInfo & link) {
-		if(_obj.pushFunction("OnLinkClicked")) {
-			_obj.pushArg(n);
-			_obj.pushArg(&link);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxSimpleHtmlListBox::OnLinkClicked(n, link);
-	};
-
-	// wxColour wxHtmlListBox::GetSelectedTextBgColour(const wxColour & colBg) const
-	wxColour GetSelectedTextBgColour(const wxColour & colBg) const {
-		if(_obj.pushFunction("GetSelectedTextBgColour")) {
-			_obj.pushArg(&colBg);
-			return *(_obj.callFunction<wxColour*>());
-		}
-
-		return wxSimpleHtmlListBox::GetSelectedTextBgColour(colBg);
-	};
-
-	// wxColour wxHtmlListBox::GetSelectedTextColour(const wxColour & colFg) const
-	wxColour GetSelectedTextColour(const wxColour & colFg) const {
-		if(_obj.pushFunction("GetSelectedTextColour")) {
-			_obj.pushArg(&colFg);
-			return *(_obj.callFunction<wxColour*>());
-		}
-
-		return wxSimpleHtmlListBox::GetSelectedTextColour(colFg);
-	};
-
-	// wxString wxHtmlListBox::OnGetItemMarkup(size_t n) const
-	wxString OnGetItemMarkup(size_t n) const {
-		if(_obj.pushFunction("OnGetItemMarkup")) {
-			_obj.pushArg(n);
-			return *(_obj.callFunction<wxString*>());
-		}
-
-		return wxSimpleHtmlListBox::OnGetItemMarkup(n);
-	};
-
-	// wxString wxHtmlListBox::OnGetItem(size_t n) const
-	wxString OnGetItem(size_t n) const {
-		THROW_IF(!_obj.pushFunction("OnGetItem"),"No implementation for abstract function wxHtmlListBox::OnGetItem");
-		_obj.pushArg(n);
-		return *(_obj.callFunction<wxString*>());
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:
@@ -1354,6 +1384,13 @@ protected:
 // int wxVListBox::OnMeasureItem(size_t n) const
 int OnMeasureItem(size_t) const {
 	THROW_IF(true,"The function call int wxVListBox::OnMeasureItem(size_t) const is not implemented in wrapper.");
+	return int();
+};
+
+protected:
+// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
+int DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) {
+	THROW_IF(true,"The function call int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) is not implemented in wrapper.");
 	return int();
 };
 

@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	wxColour GetSelectedTextColour(const wxColour & clr) {
@@ -35,9 +40,6 @@ public:
 		return *(_obj.callFunction<wxColour*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

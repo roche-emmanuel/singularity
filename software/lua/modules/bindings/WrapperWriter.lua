@@ -3,6 +3,7 @@ local Class = require("classBuilder"){name="WrapperWriter",bases="bindings.Funct
 local rm = require "bindings.ReflectionManager"
 local corr = require "bindings.TextCorrector"
 local snippets = require "bindings.SnippetManager"
+local tm = require "bindings.TypeManager"
 
 local utils = require "utils"
 
@@ -31,6 +32,8 @@ function Class:pushParam(param,k)
 	local name = param:getName()
 	name = name=="" and "arg"..k or name
 	local rtname = rt:getName()
+	local external = tm:getExternalBase(rt:getBaseName(true))
+	
 	if rt:isString() then
 		-- do nothing.
 	elseif rtname == "unsigned char *" 
@@ -44,7 +47,7 @@ function Class:pushParam(param,k)
 	elseif rt:isEnum() and rt:isPointer() then
 		name = "(int*)"..name
 	else
-		name = (rt:isReference() and rt:isClass() and not rt:isPointer() and "&" or "") .. name
+		name = (rt:isReference() and (rt:isClass() or external) and not rt:isPointer() and "&" or "") .. name
 	end
 	
 	self:writeSubLine("_obj.pushArg(${1});",name)
@@ -60,14 +63,17 @@ function Class:writeFunctionCall2(func)
 	local rt = func:getReturnType()
 	self:check(rt,"Invalid return type for function: ",func:getFullName())
 	
+	local external = tm:getExternalBase(rt:getBaseName(true))
+	
 	local rtype = rt:getBaseName() .. ((rt:isPointer() or rt:isClass()) and "*" or "")
-	local conv = (rt:isEnum() or rtype=="char") and "("..rtype..")" or ""
+	local conv = (rt:isEnum() or rtype=="char" or rtype=="unsigned char*") and "("..rtype..")" or ""
 	
 	rtype = rt:isConst() and rtype=="char*" and "const "..rtype or rtype
 	
 	-- specific conversions:
 	rtype = rt:isEnum() and "int" or rtype
 	rtype = rtype=="char" and "int" or rtype
+	rtype = rtype=="unsigned char*" and "void*" or rtype
 	
 	self:writeSubLine("return ${3}${2}(_obj.callFunction<${1}>());",rtype,(rt:isClass() and not rt:isPointer()) and "*" or "",conv);
 end
@@ -80,7 +86,7 @@ function Class:writeFunctionBody(func)
 
 	local fname = func:getLuaName() or func:getName()
 	
-	if func:isAbstract() then
+	if func:isAbstract() or func:isPrivate() then
 		buf:writeSubLine('THROW_IF(!_obj.pushFunction("${1}"),"No implementation for abstract function ${2}");',fname,func:getFullName())
 		self:writeFunctionCall2(func)
 	else
@@ -152,6 +158,11 @@ function Class:writeHeader()
 	
 	buf:clearContent();
 	
+	-- Add the default constructor if needed.
+	if rm:getConfig().wrapper_default_constructor then
+		class:addDefaultConstructor()
+	end
+	
 	local funcs = self._class:getVirtualFunctions():filterItems({"ValidWrapper"},{self._class})
 	local allConstructors = self._class:getFunctions{"Constructor","Public"} + self._class:getFunctions{"Constructor","Protected"}
 	
@@ -181,20 +192,21 @@ function Class:writeHeader()
 		end
 	end
 
+	buf:popIndent();
 	buf:newLine();
 	
 	local publicFuncs = funcs:filterItems{"Public"}
 	local protectedFuncs = funcs:filterItems{"Protected"}
+	local privateFuncs = funcs:filterItems{"Private"}
 	
-	-- buf:writeLine("public:")
-	
-	buf:writeLine("// Public virtual methods:")
-	for _,func in publicFuncs:sequence() do
+	buf:writeLine(privateFuncs:empty() and "" or "private:") -- not needed if empty.
+	buf:pushIndent()
+	buf:writeLine("// Private virtual methods:")
+	for _,func in privateFuncs:sequence() do
 		buf:writeLine("// "..func:getPrototype(true,true,true))
 		self:writeFunction(func)
 	end
 	buf:popIndent()
-	buf:newLine();
 	
 	buf:writeLine(protectedFuncs:empty() and "" or "protected:") -- not needed if empty.
 	buf:pushIndent()
@@ -205,7 +217,18 @@ function Class:writeHeader()
 	end
 	buf:popIndent()
 
-	buf:writeLine(protectedFuncs:empty() and "" or "public:")
+	
+	buf:writeLine((not protectedFuncs:empty() or not privateFuncs:empty()) and "public:" or "")
+	buf:pushIndent()
+	buf:writeLine("// Public virtual methods:")
+	for _,func in publicFuncs:sequence() do
+		buf:writeLine("// "..func:getPrototype(true,true,true))
+		self:writeFunction(func)
+	end
+	buf:popIndent()
+	buf:newLine();
+	
+	
 	-- write the public wrapping for the protected non virtual functions:
 	local notVirtualFuncs = class:getProtectedFunctions():filterItems{"Valid"}
 	buf:pushIndent()

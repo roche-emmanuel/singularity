@@ -86,8 +86,8 @@ public:
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,92036952) ) return false;
-		if( luatop>7 && (!(Luna< wxKeyboardState >::check(L,8))) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
+		if( luatop>7 && (!(Luna< wxObject >::checkSubType< wxKeyboardState >(L,8))) ) return false;
 		return true;
 	}
 
@@ -203,7 +203,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::AltDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::AltDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AltDown();
 		lua_pushboolean(L,lret?1:0);
@@ -222,7 +222,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::ControlDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::ControlDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ControlDown();
 		lua_pushboolean(L,lret?1:0);
@@ -241,7 +241,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxGridSizeEvent::GetPosition()");
+			luaL_error(L, "Invalid object in function call wxPoint wxGridSizeEvent::GetPosition(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -263,7 +263,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridSizeEvent::GetRowOrCol()");
+			luaL_error(L, "Invalid object in function call int wxGridSizeEvent::GetRowOrCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetRowOrCol();
 		lua_pushnumber(L,lret);
@@ -282,7 +282,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::MetaDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::MetaDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->MetaDown();
 		lua_pushboolean(L,lret?1:0);
@@ -301,7 +301,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::ShiftDown() const");
+			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::ShiftDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ShiftDown();
 		lua_pushboolean(L,lret?1:0);
@@ -320,7 +320,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridSizeEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridSizeEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGridSizeEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -341,7 +341,7 @@ public:
 		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxGridSizeEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridSizeEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxGridSizeEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

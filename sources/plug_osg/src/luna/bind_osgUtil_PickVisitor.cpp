@@ -289,7 +289,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::runNestedPickVisitor(osg::Node &, const osg::Viewport *, const osg::Matrixd &, const osg::Matrixd &, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::runNestedPickVisitor(osg::Node &, const osg::Viewport *, const osg::Matrixd &, const osg::Matrixd &, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->runNestedPickVisitor(node, viewport, proj, view, mx, my);
 
@@ -312,7 +312,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(projection);
 
@@ -335,7 +335,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::apply(osg::Camera &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::apply(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(camera);
 
@@ -362,7 +362,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PickVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PickVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->PickVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -390,7 +390,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::PickVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::PickVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->PickVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -415,7 +415,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::PickVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::PickVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->PickVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -434,7 +434,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PickVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PickVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PickVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -453,7 +453,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::PickVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PickVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PickVisitor::className();
 		lua_pushstring(L,lret);
@@ -472,7 +472,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PickVisitor::reset();
 
@@ -490,7 +490,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PickVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PickVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->PickVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -518,7 +518,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::PickVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::PickVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->PickVisitor::getDistanceToEyePoint(pos, withLODScale);
 		lua_pushnumber(L,lret);
@@ -542,7 +542,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PickVisitor::apply(projection);
 
@@ -565,7 +565,7 @@ public:
 		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_apply(osg::Camera &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_apply(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PickVisitor::apply(camera);
 

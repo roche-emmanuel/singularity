@@ -1212,7 +1212,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::ClearSel()");
+			luaL_error(L, "Invalid object in function call void wxSlider::ClearSel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ClearSel();
 
@@ -1230,7 +1230,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::ClearTicks()");
+			luaL_error(L, "Invalid object in function call void wxSlider::ClearTicks(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ClearTicks();
 
@@ -1272,7 +1272,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::Create(wxWindow *, int, int, int, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::Create(wxWindow *, int, int, int, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, value, minValue, maxValue, point, size, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1291,7 +1291,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetLineSize() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetLineSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetLineSize();
 		lua_pushnumber(L,lret);
@@ -1310,7 +1310,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetMax() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetMax() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetMax();
 		lua_pushnumber(L,lret);
@@ -1329,7 +1329,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetMin() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetMin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetMin();
 		lua_pushnumber(L,lret);
@@ -1348,7 +1348,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetPageSize() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetPageSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetPageSize();
 		lua_pushnumber(L,lret);
@@ -1367,7 +1367,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetSelEnd() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetSelEnd() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelEnd();
 		lua_pushnumber(L,lret);
@@ -1386,7 +1386,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetSelStart() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetSelStart() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSelStart();
 		lua_pushnumber(L,lret);
@@ -1405,7 +1405,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetThumbLength() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetThumbLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetThumbLength();
 		lua_pushnumber(L,lret);
@@ -1424,7 +1424,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetTickFreq() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetTickFreq() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetTickFreq();
 		lua_pushnumber(L,lret);
@@ -1443,7 +1443,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::GetValue() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -1463,7 +1463,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetLineSize(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetLineSize(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLineSize(lineSize);
 
@@ -1482,7 +1482,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetPageSize(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetPageSize(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPageSize(pageSize);
 
@@ -1502,7 +1502,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetRange(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetRange(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRange(minValue, maxValue);
 
@@ -1522,7 +1522,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetSelection(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetSelection(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSelection(startPos, endPos);
 
@@ -1541,7 +1541,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetThumbLength(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetThumbLength(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetThumbLength(len);
 
@@ -1560,7 +1560,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetTick(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetTick(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTick(tickPos);
 
@@ -1579,7 +1579,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetTickFreq(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetTickFreq(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTickFreq(n);
 
@@ -1598,7 +1598,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::SetValue(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::SetValue(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetValue(value);
 
@@ -1616,7 +1616,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSlider::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSlider::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSlider::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1637,7 +1637,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1656,7 +1656,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1675,7 +1675,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1694,7 +1694,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1714,7 +1714,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetCanFocus(canFocus);
 
@@ -1732,7 +1732,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetFocus();
 
@@ -1750,7 +1750,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetFocusFromKbd();
 
@@ -1769,7 +1769,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::AddChild(child);
 
@@ -1788,7 +1788,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::RemoveChild(child);
 
@@ -1807,7 +1807,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1830,7 +1830,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1849,7 +1849,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1869,7 +1869,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1889,7 +1889,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1909,7 +1909,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1929,7 +1929,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1949,7 +1949,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1973,7 +1973,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::ScrollWindow(dx, dy, rect);
 
@@ -1996,7 +1996,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetScrollPos(orientation, pos, refresh);
 
@@ -2021,7 +2021,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -2044,7 +2044,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2071,7 +2071,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2093,7 +2093,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::Fit();
 
@@ -2111,7 +2111,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::FitInside();
 
@@ -2129,7 +2129,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2151,7 +2151,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2173,7 +2173,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2195,7 +2195,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2217,7 +2217,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2239,7 +2239,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2261,7 +2261,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxSlider::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxSlider::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2286,7 +2286,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2308,7 +2308,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SendSizeEvent(flags);
 
@@ -2331,7 +2331,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetMaxClientSize(size);
 
@@ -2354,7 +2354,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetMaxSize(size);
 
@@ -2377,7 +2377,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetMinClientSize(size);
 
@@ -2400,7 +2400,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetMinSize(size);
 
@@ -2435,7 +2435,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2461,7 +2461,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2488,7 +2488,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxSlider::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxSlider::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxSlider::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2510,7 +2510,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::ClearBackground();
 
@@ -2528,7 +2528,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSlider::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxSlider::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxSlider::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2547,7 +2547,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2566,7 +2566,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2585,7 +2585,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSlider::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxSlider::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxSlider::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2611,7 +2611,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::Refresh(eraseBackground, rect);
 
@@ -2629,7 +2629,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::Update();
 
@@ -2648,7 +2648,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2672,7 +2672,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2691,7 +2691,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2711,7 +2711,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetThemeEnabled(enable);
 
@@ -2729,7 +2729,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2748,7 +2748,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2768,7 +2768,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2788,7 +2788,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetNextHandler(handler);
 
@@ -2807,7 +2807,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetPreviousHandler(handler);
 
@@ -2825,7 +2825,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSlider::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxSlider::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxSlider::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2845,7 +2845,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetExtraStyle(exStyle);
 
@@ -2864,7 +2864,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetWindowStyleFlag(style);
 
@@ -2882,7 +2882,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::Lower();
 
@@ -2900,7 +2900,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::Raise();
 
@@ -2922,7 +2922,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2941,7 +2941,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2960,7 +2960,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2982,7 +2982,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3004,7 +3004,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3027,7 +3027,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3052,7 +3052,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSlider::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxSlider::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSlider::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3071,7 +3071,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxSlider::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxSlider::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxSlider::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3097,7 +3097,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetValidator(validator);
 
@@ -3115,7 +3115,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3134,7 +3134,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3153,7 +3153,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3172,7 +3172,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSlider::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxSlider::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxSlider::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3191,7 +3191,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSlider::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxSlider::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSlider::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3211,7 +3211,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetLayoutDirection(dir);
 
@@ -3230,7 +3230,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetName(name);
 
@@ -3253,7 +3253,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetAcceleratorTable(accel);
 
@@ -3271,7 +3271,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3290,7 +3290,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxSlider::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxSlider::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxSlider::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3312,7 +3312,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetDropTarget(target);
 
@@ -3331,7 +3331,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::DragAcceptFiles(accept);
 
@@ -3349,7 +3349,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3368,7 +3368,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3392,7 +3392,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3413,7 +3413,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::WarpPointer(x, y);
 
@@ -3436,7 +3436,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::DoUpdateWindowUI(event);
 
@@ -3454,7 +3454,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3473,7 +3473,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::InheritAttributes();
 
@@ -3491,7 +3491,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::InitDialog();
 
@@ -3509,7 +3509,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3528,7 +3528,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3550,7 +3550,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::MakeModal(modal);
 
@@ -3568,7 +3568,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::OnInternalIdle();
 
@@ -3589,7 +3589,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3609,7 +3609,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSlider::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxSlider::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSlider::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3631,7 +3631,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::UpdateWindowUI(flags);
 
@@ -3654,7 +3654,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::Command(event);
 
@@ -3672,7 +3672,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxSlider::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxSlider::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxSlider::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3692,7 +3692,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetLabel(label);
 
@@ -3710,7 +3710,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_ClearSel()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_ClearSel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::ClearSel();
 
@@ -3728,7 +3728,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_ClearTicks()");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_ClearTicks(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::ClearTicks();
 
@@ -3746,7 +3746,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetLineSize() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetLineSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetLineSize();
 		lua_pushnumber(L,lret);
@@ -3765,7 +3765,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetMax() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetMax() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetMax();
 		lua_pushnumber(L,lret);
@@ -3784,7 +3784,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetMin() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetMin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetMin();
 		lua_pushnumber(L,lret);
@@ -3803,7 +3803,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetPageSize() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetPageSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetPageSize();
 		lua_pushnumber(L,lret);
@@ -3822,7 +3822,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetSelEnd() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetSelEnd() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetSelEnd();
 		lua_pushnumber(L,lret);
@@ -3841,7 +3841,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetSelStart() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetSelStart() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetSelStart();
 		lua_pushnumber(L,lret);
@@ -3860,7 +3860,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetThumbLength() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetThumbLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetThumbLength();
 		lua_pushnumber(L,lret);
@@ -3879,7 +3879,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetTickFreq() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetTickFreq() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetTickFreq();
 		lua_pushnumber(L,lret);
@@ -3898,7 +3898,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSlider::base_GetValue() const");
+			luaL_error(L, "Invalid object in function call int wxSlider::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxSlider::GetValue();
 		lua_pushnumber(L,lret);
@@ -3918,7 +3918,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetLineSize(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetLineSize(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetLineSize(lineSize);
 
@@ -3937,7 +3937,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetPageSize(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetPageSize(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetPageSize(pageSize);
 
@@ -3957,7 +3957,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetRange(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetRange(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetRange(minValue, maxValue);
 
@@ -3977,7 +3977,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetSelection(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetSelection(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetSelection(startPos, endPos);
 
@@ -3996,7 +3996,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetThumbLength(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetThumbLength(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetThumbLength(len);
 
@@ -4015,7 +4015,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetTick(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetTick(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetTick(tickPos);
 
@@ -4034,7 +4034,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetTickFreq(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetTickFreq(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetTickFreq(n);
 
@@ -4053,7 +4053,7 @@ public:
 		wxSlider* self=Luna< wxObject >::checkSubType< wxSlider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSlider::base_SetValue(int)");
+			luaL_error(L, "Invalid object in function call void wxSlider::base_SetValue(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxSlider::SetValue(value);
 

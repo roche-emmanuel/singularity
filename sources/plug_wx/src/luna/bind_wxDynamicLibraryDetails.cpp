@@ -92,7 +92,7 @@ public:
 		wxDynamicLibraryDetails* self=(Luna< wxDynamicLibraryDetails >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDynamicLibraryDetails::GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDynamicLibraryDetails::GetName() const. Got : '%s'",typeid(Luna< wxDynamicLibraryDetails >::check(L,1)).name());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -111,7 +111,7 @@ public:
 		wxDynamicLibraryDetails* self=(Luna< wxDynamicLibraryDetails >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDynamicLibraryDetails::GetPath() const");
+			luaL_error(L, "Invalid object in function call wxString wxDynamicLibraryDetails::GetPath() const. Got : '%s'",typeid(Luna< wxDynamicLibraryDetails >::check(L,1)).name());
 		}
 		wxString lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -130,7 +130,7 @@ public:
 		wxDynamicLibraryDetails* self=(Luna< wxDynamicLibraryDetails >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDynamicLibraryDetails::GetVersion() const");
+			luaL_error(L, "Invalid object in function call wxString wxDynamicLibraryDetails::GetVersion() const. Got : '%s'",typeid(Luna< wxDynamicLibraryDetails >::check(L,1)).name());
 		}
 		wxString lret = self->GetVersion();
 		lua_pushlstring(L,lret.data(),lret.size());

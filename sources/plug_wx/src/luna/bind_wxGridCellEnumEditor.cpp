@@ -167,7 +167,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_Destroy()");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_Destroy(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::Destroy();
 
@@ -190,7 +190,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_HandleReturn(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_HandleReturn(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::HandleReturn(event);
 
@@ -214,7 +214,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::PaintBackground(rectCell, attr);
 
@@ -237,7 +237,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_SetSize(const wxRect &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_SetSize(const wxRect &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::SetSize(rect);
 
@@ -259,7 +259,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_Show(bool, wxGridCellAttr *)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_Show(bool, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::Show(show, attr);
 
@@ -277,7 +277,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_StartingClick()");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_StartingClick(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::StartingClick();
 
@@ -300,7 +300,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_StartingKey(wxKeyEvent &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_StartingKey(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::StartingKey(event);
 
@@ -319,7 +319,7 @@ public:
 		wxGridCellEnumEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellEnumEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumEditor::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		self->wxGridCellEnumEditor::SetParameters(params);
 

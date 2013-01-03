@@ -174,7 +174,7 @@ public:
 		wxGLContext* self=Luna< wxObject >::checkSubType< wxGLContext >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGLContext::SetCurrent(const wxGLCanvas &) const");
+			luaL_error(L, "Invalid object in function call bool wxGLContext::SetCurrent(const wxGLCanvas &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetCurrent(win);
 		lua_pushboolean(L,lret?1:0);
@@ -193,7 +193,7 @@ public:
 		wxGLContext* self=Luna< wxObject >::checkSubType< wxGLContext >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGLContext::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGLContext::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGLContext::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -219,7 +219,7 @@ public:
 		wxGLContext* self=Luna< wxObject >::checkSubType< wxGLContext >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGLContext::base_SetCurrent(const wxGLCanvas &) const");
+			luaL_error(L, "Invalid object in function call bool wxGLContext::base_SetCurrent(const wxGLCanvas &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxGLContext::SetCurrent(win);
 		lua_pushboolean(L,lret?1:0);

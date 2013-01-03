@@ -144,7 +144,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::BigEndianOrdered(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::BigEndianOrdered(bool). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		self->BigEndianOrdered(be_order);
 
@@ -162,7 +162,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxDataInputStream::Read8()");
+			luaL_error(L, "Invalid object in function call unsigned char wxDataInputStream::Read8(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		unsigned char lret = self->Read8();
 		lua_pushnumber(L,(int)lret);
@@ -183,7 +183,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read8(unsigned char *, size_t)");
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read8(unsigned char *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		self->Read8(&buffer, size);
 
@@ -210,7 +210,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDataInputStream::Read16()");
+			luaL_error(L, "Invalid object in function call unsigned short wxDataInputStream::Read16(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		unsigned short lret = self->Read16();
 		lua_pushnumber(L,lret);
@@ -231,7 +231,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read16(unsigned short *, size_t)");
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read16(unsigned short *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		self->Read16(&buffer, size);
 
@@ -258,7 +258,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxDataInputStream::Read32()");
+			luaL_error(L, "Invalid object in function call unsigned int wxDataInputStream::Read32(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		unsigned int lret = self->Read32();
 		lua_pushnumber(L,lret);
@@ -279,7 +279,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read32(unsigned int *, size_t)");
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read32(unsigned int *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		self->Read32(&buffer, size);
 
@@ -306,7 +306,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDataInputStream::ReadDouble()");
+			luaL_error(L, "Invalid object in function call double wxDataInputStream::ReadDouble(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		double lret = self->ReadDouble();
 		lua_pushnumber(L,lret);
@@ -327,7 +327,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataInputStream::ReadDouble(double *, size_t)");
+			luaL_error(L, "Invalid object in function call void wxDataInputStream::ReadDouble(double *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		self->ReadDouble(&buffer, size);
 
@@ -354,7 +354,7 @@ public:
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataInputStream::ReadString()");
+			luaL_error(L, "Invalid object in function call wxString wxDataInputStream::ReadString(). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
 		wxString lret = self->ReadString();
 		lua_pushlstring(L,lret.data(),lret.size());

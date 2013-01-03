@@ -175,7 +175,7 @@ public:
 		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogChain::DetachOldLog()");
+			luaL_error(L, "Invalid object in function call void wxLogChain::DetachOldLog(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->DetachOldLog();
 
@@ -193,7 +193,7 @@ public:
 		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLog * wxLogChain::GetOldLog() const");
+			luaL_error(L, "Invalid object in function call wxLog * wxLogChain::GetOldLog() const. Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		wxLog * lret = self->GetOldLog();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -214,7 +214,7 @@ public:
 		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLogChain::IsPassingMessages() const");
+			luaL_error(L, "Invalid object in function call bool wxLogChain::IsPassingMessages() const. Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		bool lret = self->IsPassingMessages();
 		lua_pushboolean(L,lret?1:0);
@@ -234,7 +234,7 @@ public:
 		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogChain::PassMessages(bool)");
+			luaL_error(L, "Invalid object in function call void wxLogChain::PassMessages(bool). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->PassMessages(passMessages);
 
@@ -253,7 +253,7 @@ public:
 		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogChain::SetLog(wxLog *)");
+			luaL_error(L, "Invalid object in function call void wxLogChain::SetLog(wxLog *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->SetLog(logger);
 
@@ -271,7 +271,7 @@ public:
 		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogChain::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogChain::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogChain::Flush();
 

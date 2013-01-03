@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,71064061) ) return false;
-		if( (!dynamic_cast< FANN::neural_net* >(Luna< FANN::neural_net >::check(L,1))) ) return false;
+		if( (!(Luna< FANN::neural_net >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -87,7 +87,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,71064061)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< FANN::neural_net* >(Luna< FANN::neural_net >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< FANN::neural_net >::check(L,1)) ) ) return false;
 		if( lua_istable(L,2)==0 ) return false;
 		return true;
 	}

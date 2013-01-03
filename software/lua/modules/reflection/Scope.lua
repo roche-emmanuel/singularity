@@ -5,6 +5,7 @@ Class.NAMESPACE = 0
 Class.CLASS = 1
 Class.ENUM = 2
 Class.TEMPLATE = 3
+Class.TYPE = 4
 
 function Class:initialize(options)	
 	local ItemSet = require "reflection.ItemSet"
@@ -72,6 +73,10 @@ end
 
 function Class:isTemplate()
 	return self._scopeType == Class.TEMPLATE
+end
+
+function Class:isType()
+	return self._scopeType == Class.TYPE
 end
 
 return Class

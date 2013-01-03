@@ -128,7 +128,7 @@ void LunaTraits< osg::GLBufferObject::BufferEntry >::_bind_dtor(osg::GLBufferObj
 	delete obj;
 }
 
-const char LunaTraits< osg::GLBufferObject::BufferEntry >::className[] = "BufferEntry";
+const char LunaTraits< osg::GLBufferObject::BufferEntry >::className[] = "GLBufferObject_BufferEntry";
 const char LunaTraits< osg::GLBufferObject::BufferEntry >::fullName[] = "osg::GLBufferObject::BufferEntry";
 const char LunaTraits< osg::GLBufferObject::BufferEntry >::moduleName[] = "osg";
 const char* LunaTraits< osg::GLBufferObject::BufferEntry >::parents[] = {0};

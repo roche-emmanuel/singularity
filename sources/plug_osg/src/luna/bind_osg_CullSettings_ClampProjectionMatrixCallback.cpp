@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_clampProjectionMatrixImplementation_overload_1(lua_State *L) {
@@ -94,6 +101,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::CullSettings::ClampProjectionMatrixCallback::ClampProjectionMatrixCallback(lua_Table * data)
+	static osg::CullSettings::ClampProjectionMatrixCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullSettings::ClampProjectionMatrixCallback::ClampProjectionMatrixCallback(lua_Table * data) function, expected prototype:\nosg::CullSettings::ClampProjectionMatrixCallback::ClampProjectionMatrixCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CullSettings_ClampProjectionMatrixCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
@@ -114,7 +132,7 @@ public:
 		osg::CullSettings::ClampProjectionMatrixCallback* self=Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
@@ -140,7 +158,7 @@ public:
 		osg::CullSettings::ClampProjectionMatrixCallback* self=Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
@@ -163,7 +181,7 @@ public:
 };
 
 osg::CullSettings::ClampProjectionMatrixCallback* LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_CullSettings_ClampProjectionMatrixCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
@@ -174,7 +192,7 @@ void LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::_bind_dtor(
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::className[] = "ClampProjectionMatrixCallback";
+const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::className[] = "CullSettings_ClampProjectionMatrixCallback";
 const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::fullName[] = "osg::CullSettings::ClampProjectionMatrixCallback";
 const char LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::parents[] = {"osg.Referenced", 0};

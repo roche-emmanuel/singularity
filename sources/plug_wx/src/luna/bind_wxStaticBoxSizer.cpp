@@ -335,7 +335,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStaticBox * wxStaticBoxSizer::GetStaticBox() const");
+			luaL_error(L, "Invalid object in function call wxStaticBox * wxStaticBoxSizer::GetStaticBox() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxStaticBox * lret = self->GetStaticBox();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -356,7 +356,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStaticBoxSizer::CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxStaticBoxSizer::CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -378,7 +378,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::RecalcSizes()");
+			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RecalcSizes();
 
@@ -396,7 +396,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxStaticBoxSizer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxStaticBoxSizer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxStaticBoxSizer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -420,7 +420,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::base_Clear(bool)");
+			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::base_Clear(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxStaticBoxSizer::Clear(delete_windows);
 
@@ -439,7 +439,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Detach(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Detach(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Detach(window);
 		lua_pushboolean(L,lret?1:0);
@@ -459,7 +459,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Detach(wxSizer *)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Detach(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Detach(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -479,7 +479,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Detach(int)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Detach(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Detach(index);
 		lua_pushboolean(L,lret?1:0);
@@ -511,7 +511,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -530,7 +530,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::base_Layout()");
+			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxStaticBoxSizer::Layout();
 
@@ -549,7 +549,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Remove(wxSizer *)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Remove(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Remove(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -569,7 +569,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Remove(int)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Remove(index);
 		lua_pushboolean(L,lret?1:0);
@@ -602,7 +602,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Replace(wxWindow *, wxWindow *, bool)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Replace(wxWindow *, wxWindow *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Replace(oldwin, newwin, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -626,7 +626,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Replace(wxSizer *, wxSizer *, bool)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Replace(wxSizer *, wxSizer *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Replace(oldsz, newsz, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -647,7 +647,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Replace(size_t, wxSizerItem *)");
+			luaL_error(L, "Invalid object in function call bool wxStaticBoxSizer::base_Replace(size_t, wxSizerItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxStaticBoxSizer::Replace(index, newitem);
 		lua_pushboolean(L,lret?1:0);
@@ -677,7 +677,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerItem * wxStaticBoxSizer::base_AddSpacer(int)");
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxStaticBoxSizer::base_AddSpacer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSizerItem * lret = self->wxStaticBoxSizer::AddSpacer(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -698,7 +698,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxStaticBoxSizer::base_CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxStaticBoxSizer::base_CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxStaticBoxSizer::CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -720,7 +720,7 @@ public:
 		wxStaticBoxSizer* self=Luna< wxObject >::checkSubType< wxStaticBoxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::base_RecalcSizes()");
+			luaL_error(L, "Invalid object in function call void wxStaticBoxSizer::base_RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxStaticBoxSizer::RecalcSizes();
 

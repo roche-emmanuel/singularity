@@ -120,7 +120,7 @@ public:
 		wxGridCornerHeaderRendererDefault* self=Luna< wxGridCornerHeaderRenderer >::checkSubType< wxGridCornerHeaderRendererDefault >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid &, wxDC &, wxRect &) const");
+			luaL_error(L, "Invalid object in function call void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid &, wxDC &, wxRect &) const. Got : '%s'",typeid(Luna< wxGridCornerHeaderRenderer >::check(L,1)).name());
 		}
 		self->DrawBorder(grid, dc, rect);
 
@@ -153,7 +153,7 @@ public:
 		wxGridCornerHeaderRendererDefault* self=Luna< wxGridCornerHeaderRenderer >::checkSubType< wxGridCornerHeaderRendererDefault >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid &, wxDC &, wxRect &) const");
+			luaL_error(L, "Invalid object in function call void wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid &, wxDC &, wxRect &) const. Got : '%s'",typeid(Luna< wxGridCornerHeaderRenderer >::check(L,1)).name());
 		}
 		self->wxGridCornerHeaderRendererDefault::DrawBorder(grid, dc, rect);
 

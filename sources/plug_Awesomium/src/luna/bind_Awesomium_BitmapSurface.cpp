@@ -522,7 +522,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		Awesomium::BitmapSurface* surface=(Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1));
-		osg::Image* img=(Luna< osg::Image >::check(L,2));
+		osg::Image* img=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
 		bool to_rgba=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 		bool flip_y=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
 

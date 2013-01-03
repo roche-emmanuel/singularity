@@ -119,7 +119,7 @@ public:
 		wxColourDatabase* self=(Luna< wxColourDatabase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColourDatabase::AddColour(const wxString &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxColourDatabase::AddColour(const wxString &, const wxColour &). Got : '%s'",typeid(Luna< wxColourDatabase >::check(L,1)).name());
 		}
 		self->AddColour(colourName, colour);
 
@@ -138,7 +138,7 @@ public:
 		wxColourDatabase* self=(Luna< wxColourDatabase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColourDatabase::Find(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxColour wxColourDatabase::Find(const wxString &) const. Got : '%s'",typeid(Luna< wxColourDatabase >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->Find(colourName);
 		wxColour* lret = new wxColour(stack_lret);
@@ -165,7 +165,7 @@ public:
 		wxColourDatabase* self=(Luna< wxColourDatabase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColourDatabase::FindName(const wxColour &) const");
+			luaL_error(L, "Invalid object in function call wxString wxColourDatabase::FindName(const wxColour &) const. Got : '%s'",typeid(Luna< wxColourDatabase >::check(L,1)).name());
 		}
 		wxString lret = self->FindName(colour);
 		lua_pushlstring(L,lret.data(),lret.size());

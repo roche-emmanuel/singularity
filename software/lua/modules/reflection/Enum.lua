@@ -26,6 +26,10 @@ function Class:contains(value)
 	return false;
 end
 
+function Class:isEmpty()
+	return self._values:empty()
+end
+
 function Class:addValue(value)
 	self:check(value,"Invalid value argument");
 	self:checkType(value,require "reflection.EnumValue")

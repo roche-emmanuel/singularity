@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxString wxGridCellEditor::GetValue() const
 	wxString GetValue() const {
@@ -159,9 +164,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// bool wxGridCellNumberEditor::HasRange() const
 	bool public_HasRange() const {
@@ -200,7 +202,7 @@ public:
 		wrapper_wxGridCellNumberEditor* self=Luna< wxGridCellEditor >::checkSubType< wrapper_wxGridCellNumberEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellNumberEditor::public_HasRange() const");
+			luaL_error(L, "Invalid object in function call bool wxGridCellNumberEditor::public_HasRange() const. Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		bool lret = self->public_HasRange();
 		lua_pushboolean(L,lret?1:0);
@@ -219,7 +221,7 @@ public:
 		wrapper_wxGridCellNumberEditor* self=Luna< wxGridCellEditor >::checkSubType< wrapper_wxGridCellNumberEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxGridCellNumberEditor::public_GetString() const");
+			luaL_error(L, "Invalid object in function call wxString wxGridCellNumberEditor::public_GetString() const. Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
 		}
 		wxString lret = self->public_GetString();
 		lua_pushlstring(L,lret.data(),lret.size());

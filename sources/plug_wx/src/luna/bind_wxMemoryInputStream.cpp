@@ -251,7 +251,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryInputStream::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryInputStream::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMemoryInputStream::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -272,7 +272,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxMemoryInputStream::base_GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxMemoryInputStream::base_GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxMemoryInputStream::GetLength();
 		lua_pushnumber(L,lret);
@@ -291,7 +291,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxMemoryInputStream::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxMemoryInputStream::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxMemoryInputStream::GetSize();
 		lua_pushnumber(L,lret);
@@ -310,7 +310,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMemoryInputStream::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -329,7 +329,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_IsSeekable() const");
+			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMemoryInputStream::IsSeekable();
 		lua_pushboolean(L,lret?1:0);
@@ -348,7 +348,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_CanRead() const");
+			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_CanRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMemoryInputStream::CanRead();
 		lua_pushboolean(L,lret?1:0);
@@ -367,7 +367,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_Eof() const");
+			luaL_error(L, "Invalid object in function call bool wxMemoryInputStream::base_Eof() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMemoryInputStream::Eof();
 		lua_pushboolean(L,lret?1:0);
@@ -386,7 +386,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxMemoryInputStream::base_LastRead() const");
+			luaL_error(L, "Invalid object in function call size_t wxMemoryInputStream::base_LastRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxMemoryInputStream::LastRead();
 		lua_pushnumber(L,lret);
@@ -405,7 +405,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char wxMemoryInputStream::base_Peek()");
+			luaL_error(L, "Invalid object in function call char wxMemoryInputStream::base_Peek(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		char lret = self->wxMemoryInputStream::Peek();
 		lua_pushnumber(L,lret);
@@ -426,7 +426,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream & wxMemoryInputStream::base_Read(void *, size_t)");
+			luaL_error(L, "Invalid object in function call wxInputStream & wxMemoryInputStream::base_Read(void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxInputStream* lret = &self->wxMemoryInputStream::Read(buffer, size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -451,7 +451,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxMemoryInputStream::base_SeekI(long long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxMemoryInputStream::base_SeekI(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxMemoryInputStream::SeekI(pos, mode);
 		lua_pushnumber(L,lret);
@@ -470,7 +470,7 @@ public:
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxMemoryInputStream::base_TellI() const");
+			luaL_error(L, "Invalid object in function call long long wxMemoryInputStream::base_TellI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxMemoryInputStream::TellI();
 		lua_pushnumber(L,lret);

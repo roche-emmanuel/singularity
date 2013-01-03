@@ -252,7 +252,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -271,7 +271,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -290,7 +290,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::play()");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::play(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->play();
 
@@ -308,7 +308,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::pause()");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::pause(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->pause();
 
@@ -326,7 +326,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::stop()");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::stop(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->stop();
 
@@ -344,7 +344,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AudioSink::playing() const");
+			luaL_error(L, "Invalid object in function call bool osg::AudioSink::playing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->playing();
 		lua_pushboolean(L,lret?1:0);
@@ -363,7 +363,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AudioSink::getDelay() const");
+			luaL_error(L, "Invalid object in function call double osg::AudioSink::getDelay() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getDelay();
 		lua_pushnumber(L,lret);
@@ -383,7 +383,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::setDelay(const double)");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::setDelay(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDelay(delay);
 
@@ -402,7 +402,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::setVolume(float)");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::setVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVolume(_arg1);
 
@@ -420,7 +420,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::AudioSink::getVolume() const");
+			luaL_error(L, "Invalid object in function call float osg::AudioSink::getVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getVolume();
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AudioSink::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::AudioSink::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->AudioSink::isSameKindAs(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -460,7 +460,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioSink::setName(name);
 
@@ -478,7 +478,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioSink::computeDataVariance();
 
@@ -497,7 +497,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioSink::setUserData(obj);
 
@@ -515,7 +515,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AudioSink::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::AudioSink::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->AudioSink::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -536,7 +536,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AudioSink::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::AudioSink::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->AudioSink::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,7 +569,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioSink::releaseGLObjects(_arg1);
 
@@ -587,7 +587,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->AudioSink::libraryName();
 		lua_pushstring(L,lret);
@@ -606,7 +606,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::AudioSink::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->AudioSink::className();
 		lua_pushstring(L,lret);
@@ -625,7 +625,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AudioSink::base_getDelay() const");
+			luaL_error(L, "Invalid object in function call double osg::AudioSink::base_getDelay() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->AudioSink::getDelay();
 		lua_pushnumber(L,lret);
@@ -645,7 +645,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setDelay(const double)");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setDelay(const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioSink::setDelay(delay);
 
@@ -664,7 +664,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setVolume(float)");
+			luaL_error(L, "Invalid object in function call void osg::AudioSink::base_setVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AudioSink::setVolume(_arg1);
 
@@ -682,7 +682,7 @@ public:
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::AudioSink::base_getVolume() const");
+			luaL_error(L, "Invalid object in function call float osg::AudioSink::base_getVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->AudioSink::getVolume();
 		lua_pushnumber(L,lret);

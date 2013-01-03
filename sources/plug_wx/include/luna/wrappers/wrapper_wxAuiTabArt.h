@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxAuiTabArt * wxAuiTabArt::Clone()
 	wxAuiTabArt * Clone() {
@@ -151,9 +156,6 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

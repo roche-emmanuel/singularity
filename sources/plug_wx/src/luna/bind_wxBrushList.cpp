@@ -78,7 +78,7 @@ public:
 		wxBrushList* self=Luna< wxList >::checkSubType< wxBrushList >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBrush * wxBrushList::FindOrCreateBrush(const wxColour &, wxBrushStyle)");
+			luaL_error(L, "Invalid object in function call wxBrush * wxBrushList::FindOrCreateBrush(const wxColour &, wxBrushStyle). Got : '%s'",typeid(Luna< wxList >::check(L,1)).name());
 		}
 		wxBrush * lret = self->FindOrCreateBrush(colour, style);
 		if(!lret) return 0; // Do not write NULL pointers.

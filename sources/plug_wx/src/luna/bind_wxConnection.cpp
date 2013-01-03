@@ -436,7 +436,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Advise(item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -457,7 +457,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const char *)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Advise(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -478,7 +478,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const wxString)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const wxString). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Advise(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -507,7 +507,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Disconnect()");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Disconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Disconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -531,7 +531,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Execute(data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -551,7 +551,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const char *)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Execute(data);
 		lua_pushboolean(L,lret?1:0);
@@ -571,7 +571,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const wxString)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const wxString). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Execute(data);
 		lua_pushboolean(L,lret?1:0);
@@ -605,7 +605,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnAdvise(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -624,7 +624,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::OnDisconnect()");
+			luaL_error(L, "Invalid object in function call bool wxConnection::OnDisconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnDisconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -645,7 +645,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::OnExec(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::OnExec(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnExec(topic, data);
 		lua_pushboolean(L,lret?1:0);
@@ -669,7 +669,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnPoke(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -692,7 +692,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxConnection::OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call const void * wxConnection::OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const void * lret = self->OnRequest(topic, item, &size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -715,7 +715,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::OnStartAdvise(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::OnStartAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnStartAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -736,7 +736,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::OnStopAdvise(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::OnStopAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->OnStopAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -761,7 +761,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Poke(item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -782,7 +782,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const char *)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Poke(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -803,7 +803,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const wxString)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const wxString). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Poke(item, data);
 		lua_pushboolean(L,lret?1:0);
@@ -837,7 +837,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxConnection::Request(const wxString &, size_t *, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call const void * wxConnection::Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const void * lret = self->Request(item, &size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -859,7 +859,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::StartAdvise(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::StartAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StartAdvise(item);
 		lua_pushboolean(L,lret?1:0);
@@ -879,7 +879,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::StopAdvise(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::StopAdvise(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StopAdvise(item);
 		lua_pushboolean(L,lret?1:0);
@@ -930,7 +930,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxConnection::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxConnection::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxConnection::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -956,7 +956,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxConnection::OnAdvise(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -975,7 +975,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnDisconnect()");
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnDisconnect(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxConnection::OnDisconnect();
 		lua_pushboolean(L,lret?1:0);
@@ -996,7 +996,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnExec(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnExec(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxConnection::OnExec(topic, data);
 		lua_pushboolean(L,lret?1:0);
@@ -1020,7 +1020,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxConnection::OnPoke(topic, item, data, size, format);
 		lua_pushboolean(L,lret?1:0);
@@ -1043,7 +1043,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * wxConnection::base_OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat)");
+			luaL_error(L, "Invalid object in function call const void * wxConnection::base_OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const void * lret = self->wxConnection::OnRequest(topic, item, &size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1066,7 +1066,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnStartAdvise(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnStartAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxConnection::OnStartAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);
@@ -1087,7 +1087,7 @@ public:
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnStopAdvise(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnStopAdvise(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxConnection::OnStopAdvise(topic, item);
 		lua_pushboolean(L,lret?1:0);

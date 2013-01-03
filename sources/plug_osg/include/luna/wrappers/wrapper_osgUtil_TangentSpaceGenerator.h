@@ -22,10 +22,12 @@ public:
 	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum) : osgUtil::TangentSpaceGenerator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::TangentSpaceGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgUtil::TangentSpaceGenerator::compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC)
@@ -92,7 +94,7 @@ public:
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet *, const osg::Array *, const osg::Array *, const osg::Array *, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::TangentSpaceGenerator::public_compute(osg::PrimitiveSet *, const osg::Array *, const osg::Array *, const osg::Array *, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_compute(pset, vx, nx, tx, iA, iB, iC);
 
@@ -112,7 +114,7 @@ public:
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -130,7 +132,7 @@ public:
 		wrapper_osgUtil_TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_TangentSpaceGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

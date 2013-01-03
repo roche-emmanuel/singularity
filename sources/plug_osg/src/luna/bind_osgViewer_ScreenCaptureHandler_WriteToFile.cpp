@@ -171,7 +171,7 @@ public:
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::setSavePolicy(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::setSavePolicy(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSavePolicy(savePolicy);
 
@@ -189,7 +189,7 @@ public:
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy osgViewer::ScreenCaptureHandler::WriteToFile::getSavePolicy() const");
+			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy osgViewer::ScreenCaptureHandler::WriteToFile::getSavePolicy() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy lret = self->getSavePolicy();
 		lua_pushnumber(L,lret);
@@ -216,7 +216,7 @@ public:
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image &, const unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image &, const unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(image, context_id);
 
@@ -236,10 +236,10 @@ void LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::_bind_dtor(osgV
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::className[] = "WriteToFile";
+const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::className[] = "ScreenCaptureHandler_WriteToFile";
 const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::fullName[] = "osgViewer::ScreenCaptureHandler::WriteToFile";
 const char LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::moduleName[] = "osgViewer";
-const char* LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::parents[] = {"osgViewer.CaptureOperation", 0};
+const char* LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::parents[] = {"osgViewer.ScreenCaptureHandler_CaptureOperation", 0};
 const int LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::hash = 53456537;
 const int LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::uniqueIDs[] = {50169651,0};
 

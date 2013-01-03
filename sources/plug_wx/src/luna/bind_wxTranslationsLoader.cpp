@@ -135,7 +135,7 @@ public:
 		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxTranslationsLoader >::check(L,1)).name());
 		}
 		wxMsgCatalog * lret = self->LoadCatalog(domain, lang);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -157,7 +157,7 @@ public:
 		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString &) const. Got : '%s'",typeid(Luna< wxTranslationsLoader >::check(L,1)).name());
 		}
 		wxArrayString stack_lret = self->GetAvailableTranslations(domain);
 		wxArrayString* lret = new wxArrayString(stack_lret);

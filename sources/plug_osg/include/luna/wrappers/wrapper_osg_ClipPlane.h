@@ -26,6 +26,11 @@ public:
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, double a, double b, double c, double d) : osg::ClipPlane(no, a, b, c, d), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClipPlane(cp, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -227,9 +232,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::StateAttribute::addParent(osg::StateSet * object)
 	void public_addParent(osg::StateSet * object) {
@@ -295,7 +297,7 @@ public:
 		wrapper_osg_ClipPlane* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ClipPlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_addParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(object);
 
@@ -314,7 +316,7 @@ public:
 		wrapper_osg_ClipPlane* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ClipPlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osg::StateAttribute::public_removeParent(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(object);
 
@@ -334,7 +336,7 @@ public:
 		wrapper_osg_ClipPlane* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ClipPlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -352,7 +354,7 @@ public:
 		wrapper_osg_ClipPlane* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ClipPlane >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

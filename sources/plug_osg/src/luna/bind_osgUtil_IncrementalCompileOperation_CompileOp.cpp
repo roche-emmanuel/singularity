@@ -93,7 +93,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::_bind_dtor(o
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::className[] = "CompileOp";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::className[] = "IncrementalCompileOperation_CompileOp";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileOp";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::parents[] = {"osg.Referenced", 0};

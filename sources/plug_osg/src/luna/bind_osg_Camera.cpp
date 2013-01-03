@@ -1217,7 +1217,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1243,7 +1243,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1265,7 +1265,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1284,7 +1284,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -1303,7 +1303,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -1327,7 +1327,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -1346,7 +1346,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setView(osg::View *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setView(osg::View *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setView(view);
 
@@ -1364,7 +1364,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::View * osg::Camera::getView()");
+			luaL_error(L, "Invalid object in function call osg::View * osg::Camera::getView(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::View * lret = self->getView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1385,7 +1385,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::View * osg::Camera::getView() const");
+			luaL_error(L, "Invalid object in function call const osg::View * osg::Camera::getView() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::View * lret = self->getView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1416,7 +1416,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setStats(osg::Stats *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setStats(osg::Stats *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStats(stats);
 
@@ -1434,7 +1434,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Stats * osg::Camera::getStats()");
+			luaL_error(L, "Invalid object in function call osg::Stats * osg::Camera::getStats(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Stats * lret = self->getStats();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1455,7 +1455,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Stats * osg::Camera::getStats() const");
+			luaL_error(L, "Invalid object in function call const osg::Stats * osg::Camera::getStats() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Stats * lret = self->getStats();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1486,7 +1486,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setAllowEventFocus(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setAllowEventFocus(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAllowEventFocus(focus);
 
@@ -1504,7 +1504,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::getAllowEventFocus() const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::getAllowEventFocus() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAllowEventFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1524,7 +1524,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setDisplaySettings(osg::DisplaySettings *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setDisplaySettings(osg::DisplaySettings *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDisplaySettings(ds);
 
@@ -1542,7 +1542,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DisplaySettings * osg::Camera::getDisplaySettings()");
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings * osg::Camera::getDisplaySettings(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DisplaySettings * lret = self->getDisplaySettings();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1563,7 +1563,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DisplaySettings * osg::Camera::getDisplaySettings() const");
+			luaL_error(L, "Invalid object in function call const osg::DisplaySettings * osg::Camera::getDisplaySettings() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DisplaySettings * lret = self->getDisplaySettings();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1594,7 +1594,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setClearMask(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setClearMask(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearMask(mask);
 
@@ -1612,7 +1612,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::getClearMask() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::getClearMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getClearMask();
 		lua_pushnumber(L,lret);
@@ -1636,7 +1636,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setClearColor(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setClearColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearColor(color);
 
@@ -1654,7 +1654,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::Camera::getClearColor() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::Camera::getClearColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getClearColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1680,7 +1680,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setClearAccum(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setClearAccum(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearAccum(color);
 
@@ -1698,7 +1698,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::Camera::getClearAccum() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::Camera::getClearAccum() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getClearAccum();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1720,7 +1720,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setClearDepth(double)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setClearDepth(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearDepth(depth);
 
@@ -1738,7 +1738,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Camera::getClearDepth() const");
+			luaL_error(L, "Invalid object in function call double osg::Camera::getClearDepth() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getClearDepth();
 		lua_pushnumber(L,lret);
@@ -1758,7 +1758,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setClearStencil(int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setClearStencil(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearStencil(stencil);
 
@@ -1776,7 +1776,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::getClearStencil() const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::getClearStencil() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getClearStencil();
 		lua_pushnumber(L,lret);
@@ -1796,7 +1796,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setColorMask(osg::ColorMask *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setColorMask(osg::ColorMask *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setColorMask(colorMask);
 
@@ -1818,7 +1818,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setColorMask(bool, bool, bool, bool)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setColorMask(bool, bool, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setColorMask(red, green, blue, alpha);
 
@@ -1845,7 +1845,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ColorMask * osg::Camera::getColorMask() const");
+			luaL_error(L, "Invalid object in function call const osg::ColorMask * osg::Camera::getColorMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ColorMask * lret = self->getColorMask();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1866,7 +1866,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ColorMask * osg::Camera::getColorMask()");
+			luaL_error(L, "Invalid object in function call osg::ColorMask * osg::Camera::getColorMask(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ColorMask * lret = self->getColorMask();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1897,7 +1897,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setViewport(osg::Viewport *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setViewport(osg::Viewport *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setViewport(viewport);
 
@@ -1919,7 +1919,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setViewport(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setViewport(int, int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setViewport(x, y, width, height);
 
@@ -1946,7 +1946,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Viewport * osg::Camera::getViewport() const");
+			luaL_error(L, "Invalid object in function call const osg::Viewport * osg::Camera::getViewport() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Viewport * lret = self->getViewport();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1967,7 +1967,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Viewport * osg::Camera::getViewport()");
+			luaL_error(L, "Invalid object in function call osg::Viewport * osg::Camera::getViewport(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Viewport * lret = self->getViewport();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1998,7 +1998,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setTransformOrder(osg::Camera::TransformOrder)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setTransformOrder(osg::Camera::TransformOrder). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTransformOrder(order);
 
@@ -2016,7 +2016,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::TransformOrder osg::Camera::getTransformOrder() const");
+			luaL_error(L, "Invalid object in function call osg::Camera::TransformOrder osg::Camera::getTransformOrder() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::TransformOrder lret = self->getTransformOrder();
 		lua_pushnumber(L,lret);
@@ -2036,7 +2036,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionResizePolicy(osg::Camera::ProjectionResizePolicy)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionResizePolicy(osg::Camera::ProjectionResizePolicy). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionResizePolicy(policy);
 
@@ -2054,7 +2054,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::ProjectionResizePolicy osg::Camera::getProjectionResizePolicy() const");
+			luaL_error(L, "Invalid object in function call osg::Camera::ProjectionResizePolicy osg::Camera::getProjectionResizePolicy() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::ProjectionResizePolicy lret = self->getProjectionResizePolicy();
 		lua_pushnumber(L,lret);
@@ -2078,7 +2078,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrix(const osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrix(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionMatrix(matrix);
 
@@ -2101,7 +2101,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionMatrix(matrix);
 
@@ -2134,7 +2134,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsOrtho(double, double, double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsOrtho(double, double, double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionMatrixAsOrtho(left, right, bottom, top, zNear, zFar);
 
@@ -2156,7 +2156,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsOrtho2D(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsOrtho2D(double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionMatrixAsOrtho2D(left, right, bottom, top);
 
@@ -2180,7 +2180,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsFrustum(double, double, double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsFrustum(double, double, double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionMatrixAsFrustum(left, right, bottom, top, zNear, zFar);
 
@@ -2202,7 +2202,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsPerspective(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setProjectionMatrixAsPerspective(double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar);
 
@@ -2220,7 +2220,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd & osg::Camera::getProjectionMatrix()");
+			luaL_error(L, "Invalid object in function call osg::Matrixd & osg::Camera::getProjectionMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getProjectionMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2241,7 +2241,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::Camera::getProjectionMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::Camera::getProjectionMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getProjectionMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2277,7 +2277,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::getProjectionMatrixAsOrtho(double &, double &, double &, double &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::getProjectionMatrixAsOrtho(double &, double &, double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getProjectionMatrixAsOrtho(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2302,7 +2302,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::getProjectionMatrixAsFrustum(double &, double &, double &, double &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::getProjectionMatrixAsFrustum(double &, double &, double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getProjectionMatrixAsFrustum(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2325,7 +2325,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::getProjectionMatrixAsPerspective(double &, double &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::getProjectionMatrixAsPerspective(double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -2349,7 +2349,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setViewMatrix(const osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setViewMatrix(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setViewMatrix(matrix);
 
@@ -2372,7 +2372,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setViewMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setViewMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setViewMatrix(matrix);
 
@@ -2399,7 +2399,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd & osg::Camera::getViewMatrix()");
+			luaL_error(L, "Invalid object in function call osg::Matrixd & osg::Camera::getViewMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getViewMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2420,7 +2420,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::Camera::getViewMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::Camera::getViewMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd* lret = &self->getViewMatrix();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2465,7 +2465,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setViewMatrixAsLookAt(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setViewMatrixAsLookAt(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setViewMatrixAsLookAt(eye, center, up);
 
@@ -2501,7 +2501,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::getViewMatrixAsLookAt(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &, double) const");
+			luaL_error(L, "Invalid object in function call void osg::Camera::getViewMatrixAsLookAt(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getViewMatrixAsLookAt(eye, center, up, lookDistance);
 
@@ -2537,7 +2537,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::getViewMatrixAsLookAt(osg::Vec3f &, osg::Vec3f &, osg::Vec3f &, float) const");
+			luaL_error(L, "Invalid object in function call void osg::Camera::getViewMatrixAsLookAt(osg::Vec3f &, osg::Vec3f &, osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getViewMatrixAsLookAt(eye, center, up, lookDistance);
 
@@ -2564,7 +2564,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::Camera::getInverseViewMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::Camera::getInverseViewMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getInverseViewMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -2590,7 +2590,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderOrder(osg::Camera::RenderOrder, int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderOrder(osg::Camera::RenderOrder, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderOrder(order, orderNum);
 
@@ -2608,7 +2608,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::RenderOrder osg::Camera::getRenderOrder() const");
+			luaL_error(L, "Invalid object in function call osg::Camera::RenderOrder osg::Camera::getRenderOrder() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::RenderOrder lret = self->getRenderOrder();
 		lua_pushnumber(L,lret);
@@ -2627,7 +2627,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::getRenderOrderNum() const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::getRenderOrderNum() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getRenderOrderNum();
 		lua_pushnumber(L,lret);
@@ -2646,7 +2646,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::isRenderToTextureCamera() const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::isRenderToTextureCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isRenderToTextureCamera();
 		lua_pushboolean(L,lret?1:0);
@@ -2666,7 +2666,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderTargetImplementation(osg::Camera::RenderTargetImplementation)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderTargetImplementation(osg::Camera::RenderTargetImplementation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderTargetImplementation(impl);
 
@@ -2686,7 +2686,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderTargetImplementation(osg::Camera::RenderTargetImplementation, osg::Camera::RenderTargetImplementation)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderTargetImplementation(osg::Camera::RenderTargetImplementation, osg::Camera::RenderTargetImplementation). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderTargetImplementation(impl, fallback);
 
@@ -2713,7 +2713,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::RenderTargetImplementation osg::Camera::getRenderTargetImplementation() const");
+			luaL_error(L, "Invalid object in function call osg::Camera::RenderTargetImplementation osg::Camera::getRenderTargetImplementation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::RenderTargetImplementation lret = self->getRenderTargetImplementation();
 		lua_pushnumber(L,lret);
@@ -2732,7 +2732,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::RenderTargetImplementation osg::Camera::getRenderTargetFallback() const");
+			luaL_error(L, "Invalid object in function call osg::Camera::RenderTargetImplementation osg::Camera::getRenderTargetFallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::RenderTargetImplementation lret = self->getRenderTargetFallback();
 		lua_pushnumber(L,lret);
@@ -2752,7 +2752,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setDrawBuffer(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setDrawBuffer(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDrawBuffer(buffer);
 
@@ -2770,7 +2770,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::getDrawBuffer() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::getDrawBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDrawBuffer();
 		lua_pushnumber(L,lret);
@@ -2790,7 +2790,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setReadBuffer(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setReadBuffer(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setReadBuffer(buffer);
 
@@ -2808,7 +2808,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::getReadBuffer() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Camera::getReadBuffer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getReadBuffer();
 		lua_pushnumber(L,lret);
@@ -2829,7 +2829,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::attach(osg::Camera::BufferComponent, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::attach(osg::Camera::BufferComponent, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->attach(buffer, internalFormat);
 
@@ -2856,7 +2856,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::attach(osg::Camera::BufferComponent, osg::Texture *, unsigned int, unsigned int, bool, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::attach(osg::Camera::BufferComponent, osg::Texture *, unsigned int, unsigned int, bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->attach(buffer, texture, level, face, mipMapGeneration, multisampleSamples, multisampleColorSamples);
 
@@ -2880,7 +2880,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::attach(osg::Camera::BufferComponent, osg::Image *, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::attach(osg::Camera::BufferComponent, osg::Image *, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->attach(buffer, image, multisampleSamples, multisampleColorSamples);
 
@@ -2909,7 +2909,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::detach(osg::Camera::BufferComponent)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::detach(osg::Camera::BufferComponent). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->detach(buffer);
 
@@ -2931,7 +2931,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setImplicitBufferAttachmentMask(int, int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setImplicitBufferAttachmentMask(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImplicitBufferAttachmentMask(renderMask, resolveMask);
 
@@ -2950,7 +2950,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setImplicitBufferAttachmentRenderMask(int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setImplicitBufferAttachmentRenderMask(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImplicitBufferAttachmentRenderMask(implicitBufferAttachmentRenderMask);
 
@@ -2969,7 +2969,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setImplicitBufferAttachmentResolveMask(int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setImplicitBufferAttachmentResolveMask(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setImplicitBufferAttachmentResolveMask(implicitBufferAttachmentResolveMask);
 
@@ -2990,7 +2990,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::getImplicitBufferAttachmentRenderMask(bool) const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::getImplicitBufferAttachmentRenderMask(bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getImplicitBufferAttachmentRenderMask(effectiveMask);
 		lua_pushnumber(L,lret);
@@ -3012,7 +3012,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Camera::getImplicitBufferAttachmentResolveMask(bool) const");
+			luaL_error(L, "Invalid object in function call int osg::Camera::getImplicitBufferAttachmentResolveMask(bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getImplicitBufferAttachmentResolveMask(effectiveMask);
 		lua_pushnumber(L,lret);
@@ -3032,7 +3032,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setGraphicsContext(osg::GraphicsContext *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setGraphicsContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setGraphicsContext(context);
 
@@ -3050,7 +3050,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::Camera::getGraphicsContext()");
+			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::Camera::getGraphicsContext(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::GraphicsContext * lret = self->getGraphicsContext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3071,7 +3071,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::GraphicsContext * osg::Camera::getGraphicsContext() const");
+			luaL_error(L, "Invalid object in function call const osg::GraphicsContext * osg::Camera::getGraphicsContext() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::GraphicsContext * lret = self->getGraphicsContext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3102,7 +3102,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderer(osg::GraphicsOperation *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderer(osg::GraphicsOperation *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderer(rc);
 
@@ -3120,7 +3120,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GraphicsOperation * osg::Camera::getRenderer()");
+			luaL_error(L, "Invalid object in function call osg::GraphicsOperation * osg::Camera::getRenderer(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::GraphicsOperation * lret = self->getRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3141,7 +3141,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::GraphicsOperation * osg::Camera::getRenderer() const");
+			luaL_error(L, "Invalid object in function call const osg::GraphicsOperation * osg::Camera::getRenderer() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::GraphicsOperation * lret = self->getRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3172,7 +3172,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderingCache(osg::Object *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setRenderingCache(osg::Object *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRenderingCache(rc);
 
@@ -3190,7 +3190,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::getRenderingCache()");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::getRenderingCache(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->getRenderingCache();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3211,7 +3211,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Object * osg::Camera::getRenderingCache() const");
+			luaL_error(L, "Invalid object in function call const osg::Object * osg::Camera::getRenderingCache() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Object * lret = self->getRenderingCache();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3242,7 +3242,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setInitialDrawCallback(osg::Camera::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setInitialDrawCallback(osg::Camera::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setInitialDrawCallback(cb);
 
@@ -3260,7 +3260,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getInitialDrawCallback()");
+			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getInitialDrawCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::DrawCallback * lret = self->getInitialDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3281,7 +3281,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getInitialDrawCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getInitialDrawCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Camera::DrawCallback * lret = self->getInitialDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3312,7 +3312,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setPreDrawCallback(osg::Camera::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setPreDrawCallback(osg::Camera::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPreDrawCallback(cb);
 
@@ -3330,7 +3330,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getPreDrawCallback()");
+			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getPreDrawCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::DrawCallback * lret = self->getPreDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3351,7 +3351,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getPreDrawCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getPreDrawCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Camera::DrawCallback * lret = self->getPreDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3382,7 +3382,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setPostDrawCallback(osg::Camera::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setPostDrawCallback(osg::Camera::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPostDrawCallback(cb);
 
@@ -3400,7 +3400,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getPostDrawCallback()");
+			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getPostDrawCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::DrawCallback * lret = self->getPostDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3421,7 +3421,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getPostDrawCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getPostDrawCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Camera::DrawCallback * lret = self->getPostDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3452,7 +3452,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setFinalDrawCallback(osg::Camera::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::setFinalDrawCallback(osg::Camera::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFinalDrawCallback(cb);
 
@@ -3470,7 +3470,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getFinalDrawCallback()");
+			luaL_error(L, "Invalid object in function call osg::Camera::DrawCallback * osg::Camera::getFinalDrawCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Camera::DrawCallback * lret = self->getFinalDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3491,7 +3491,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getFinalDrawCallback() const");
+			luaL_error(L, "Invalid object in function call const osg::Camera::DrawCallback * osg::Camera::getFinalDrawCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Camera::DrawCallback * lret = self->getFinalDrawCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3524,7 +3524,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Camera::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(_arg1);
 
@@ -3548,7 +3548,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->computeLocalToWorldMatrix(matrix, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -3573,7 +3573,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->computeWorldToLocalMatrix(matrix, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -3598,7 +3598,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::inheritCullSettings(const osg::CullSettings &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->inheritCullSettings(settings, inheritanceMask);
 
@@ -3617,7 +3617,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::setName(name);
 
@@ -3635,7 +3635,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::computeDataVariance();
 
@@ -3654,7 +3654,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::setUserData(obj);
 
@@ -3672,7 +3672,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Camera::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Camera::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Camera::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3693,7 +3693,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Camera::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Camera::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Camera::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3723,7 +3723,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Camera::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Camera::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->Camera::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3744,7 +3744,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Camera::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Camera::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->Camera::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3774,7 +3774,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Camera::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Camera::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->Camera::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3795,7 +3795,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Camera::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Camera::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->Camera::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3830,7 +3830,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::ascend(nv);
 
@@ -3848,7 +3848,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::Camera::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Camera::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->Camera::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3869,7 +3869,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::Camera::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Camera::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->Camera::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3904,7 +3904,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::traverse(_arg1);
 
@@ -3923,7 +3923,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -3944,7 +3944,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -3965,7 +3965,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -3986,7 +3986,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -4007,7 +4007,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -4026,7 +4026,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::Camera::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Camera::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->Camera::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4047,7 +4047,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Camera::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Camera::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->Camera::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4077,7 +4077,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::MatrixTransform * osg::Camera::base_asMatrixTransform()");
+			luaL_error(L, "Invalid object in function call osg::MatrixTransform * osg::Camera::base_asMatrixTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::MatrixTransform * lret = self->Camera::asMatrixTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4098,7 +4098,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::MatrixTransform * osg::Camera::base_asMatrixTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::MatrixTransform * osg::Camera::base_asMatrixTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::MatrixTransform * lret = self->Camera::asMatrixTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4128,7 +4128,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::Camera::base_asPositionAttitudeTransform()");
+			luaL_error(L, "Invalid object in function call osg::PositionAttitudeTransform * osg::Camera::base_asPositionAttitudeTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PositionAttitudeTransform * lret = self->Camera::asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4149,7 +4149,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::Camera::base_asPositionAttitudeTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::PositionAttitudeTransform * osg::Camera::base_asPositionAttitudeTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::PositionAttitudeTransform * lret = self->Camera::asPositionAttitudeTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4179,7 +4179,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Camera::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Camera::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->Camera::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -4201,7 +4201,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::setDefaults();
 
@@ -4219,7 +4219,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Camera::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4245,7 +4245,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Camera::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Camera::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -4267,7 +4267,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -4286,7 +4286,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Camera::className();
 		lua_pushstring(L,lret);
@@ -4305,7 +4305,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Camera::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Camera::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Camera::libraryName();
 		lua_pushstring(L,lret);
@@ -4329,7 +4329,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::accept(nv);
 
@@ -4350,7 +4350,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::releaseGLObjects(_arg1);
 
@@ -4374,7 +4374,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_computeLocalToWorldMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::computeLocalToWorldMatrix(matrix, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -4399,7 +4399,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Camera::base_computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Camera::base_computeWorldToLocalMatrix(osg::Matrixd &, osg::NodeVisitor *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Camera::computeWorldToLocalMatrix(matrix, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -4424,7 +4424,7 @@ public:
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::base_inheritCullSettings(const osg::CullSettings &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Camera::base_inheritCullSettings(const osg::CullSettings &, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Camera::inheritCullSettings(settings, inheritanceMask);
 
@@ -4433,6 +4433,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_osg_CullSettings(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_osg_CullSettings(lua_State *L) {
+		if (!_lg_typecheck_baseCast_osg_CullSettings(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_osg_CullSettings function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		osg::CullSettings* res = dynamic_cast<osg::CullSettings*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< osg::CullSettings >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -4567,6 +4593,7 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"base_inheritCullSettings", &luna_wrapper_osg_Camera::_bind_base_inheritCullSettings},
 	{"__eq", &luna_wrapper_osg_Camera::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Camera::_bind_getTable},
+	{"asCullSettings", &luna_wrapper_osg_Camera::_bind_baseCast_osg_CullSettings},
 	{0,0}
 };
 

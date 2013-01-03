@@ -161,7 +161,7 @@ public:
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::Walk(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxStackWalker::Walk(size_t, size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
 		}
 		self->Walk(skip, maxDepth);
 
@@ -182,7 +182,7 @@ public:
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::WalkFromException(size_t)");
+			luaL_error(L, "Invalid object in function call void wxStackWalker::WalkFromException(size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
 		}
 		self->WalkFromException(maxDepth);
 
@@ -204,7 +204,7 @@ public:
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::base_Walk(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxStackWalker::base_Walk(size_t, size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
 		}
 		self->wxStackWalker::Walk(skip, maxDepth);
 
@@ -225,7 +225,7 @@ public:
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::base_WalkFromException(size_t)");
+			luaL_error(L, "Invalid object in function call void wxStackWalker::base_WalkFromException(size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
 		}
 		self->wxStackWalker::WalkFromException(maxDepth);
 

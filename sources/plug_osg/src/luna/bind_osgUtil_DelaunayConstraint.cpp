@@ -374,7 +374,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::addtriangle(int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::addtriangle(int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addtriangle(i1, i2, i3);
 
@@ -392,7 +392,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DrawElementsUInt * osgUtil::DelaunayConstraint::getTriangles() const");
+			luaL_error(L, "Invalid object in function call const osg::DrawElementsUInt * osgUtil::DelaunayConstraint::getTriangles() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DrawElementsUInt * lret = self->getTriangles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -413,7 +413,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayConstraint::getTriangles()");
+			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayConstraint::getTriangles(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DrawElementsUInt * lret = self->getTriangles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -444,7 +444,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayConstraint::getPoints(const osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayConstraint::getPoints(const osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getPoints(points);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -465,7 +465,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayConstraint::makeDrawable()");
+			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayConstraint::makeDrawable(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DrawElementsUInt * lret = self->makeDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -487,7 +487,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::merge(osgUtil::DelaunayConstraint *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::merge(osgUtil::DelaunayConstraint *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->merge(dco);
 
@@ -506,7 +506,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::removeVerticesInside(const osgUtil::DelaunayConstraint *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::removeVerticesInside(const osgUtil::DelaunayConstraint *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeVerticesInside(dco);
 
@@ -529,7 +529,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::DelaunayConstraint::windingNumber(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::DelaunayConstraint::windingNumber(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->windingNumber(testpoint);
 		lua_pushnumber(L,lret);
@@ -553,7 +553,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::contains(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::contains(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->contains(testpoint);
 		lua_pushboolean(L,lret?1:0);
@@ -577,7 +577,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::outside(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::outside(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->outside(testpoint);
 		lua_pushboolean(L,lret?1:0);
@@ -596,7 +596,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::handleOverlaps()");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::handleOverlaps(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->handleOverlaps();
 
@@ -615,7 +615,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setName(name);
 
@@ -634,7 +634,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setUserData(obj);
 
@@ -652,7 +652,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::DelaunayConstraint::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgUtil::DelaunayConstraint::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->DelaunayConstraint::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -673,7 +673,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::DelaunayConstraint::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgUtil::DelaunayConstraint::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->DelaunayConstraint::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -703,7 +703,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::computeDataVariance();
 
@@ -721,7 +721,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgUtil::DelaunayConstraint::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgUtil::DelaunayConstraint::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingBoxd stack_lret = self->DelaunayConstraint::computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
@@ -744,7 +744,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setUpdateCallback(osg::Drawable::UpdateCallback *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setUpdateCallback(ac);
 
@@ -763,7 +763,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setEventCallback(osg::Drawable::EventCallback *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setEventCallback(ac);
 
@@ -782,7 +782,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setCullCallback(osg::Drawable::CullCallback *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setCullCallback(cc);
 
@@ -801,7 +801,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setDrawCallback(osg::Drawable::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setDrawCallback(dc);
 
@@ -819,7 +819,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::DelaunayConstraint::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::DelaunayConstraint::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DelaunayConstraint::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -845,7 +845,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::DelaunayConstraint::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgUtil::DelaunayConstraint::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DelaunayConstraint::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -867,7 +867,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DelaunayConstraint::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -886,7 +886,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DelaunayConstraint::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DelaunayConstraint::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DelaunayConstraint::libraryName();
 		lua_pushstring(L,lret);
@@ -905,7 +905,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::DelaunayConstraint::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::DelaunayConstraint::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DelaunayConstraint::className();
 		lua_pushstring(L,lret);
@@ -924,7 +924,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::DelaunayConstraint::base_asGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::DelaunayConstraint::base_asGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->DelaunayConstraint::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -945,7 +945,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geometry * osgUtil::DelaunayConstraint::base_asGeometry() const");
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osgUtil::DelaunayConstraint::base_asGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geometry * lret = self->DelaunayConstraint::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -976,7 +976,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setUseVertexBufferObjects(bool)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_setUseVertexBufferObjects(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::setUseVertexBufferObjects(flag);
 
@@ -994,7 +994,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_dirtyDisplayList()");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_dirtyDisplayList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::dirtyDisplayList();
 
@@ -1015,7 +1015,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::releaseGLObjects(state);
 
@@ -1033,7 +1033,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::DelaunayConstraint::base_getGLObjectSizeHint() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::DelaunayConstraint::base_getGLObjectSizeHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->DelaunayConstraint::getGLObjectSizeHint();
 		lua_pushnumber(L,lret);
@@ -1057,7 +1057,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_compileGLObjects(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::compileGLObjects(renderInfo);
 
@@ -1080,7 +1080,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayConstraint::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DelaunayConstraint::drawImplementation(renderInfo);
 
@@ -1103,7 +1103,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::base_contains(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::base_contains(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DelaunayConstraint::contains(testpoint);
 		lua_pushboolean(L,lret?1:0);
@@ -1127,7 +1127,7 @@ public:
 		osgUtil::DelaunayConstraint* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::base_outside(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayConstraint::base_outside(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DelaunayConstraint::outside(testpoint);
 		lua_pushboolean(L,lret?1:0);

@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_completed(lua_State *L) {
@@ -81,6 +88,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgGA::AnimationPathManipulator::AnimationCompletedCallback::AnimationCompletedCallback(lua_Table * data)
+	static osgGA::AnimationPathManipulator::AnimationCompletedCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::AnimationPathManipulator::AnimationCompletedCallback::AnimationCompletedCallback(lua_Table * data) function, expected prototype:\nosgGA::AnimationPathManipulator::AnimationCompletedCallback::AnimationCompletedCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
@@ -95,7 +113,7 @@ public:
 		osgGA::AnimationPathManipulator::AnimationCompletedCallback* self=Luna< osg::Referenced >::checkSubType< osgGA::AnimationPathManipulator::AnimationCompletedCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator *)");
+			luaL_error(L, "Invalid object in function call void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->completed(apm);
 
@@ -108,7 +126,7 @@ public:
 };
 
 osgGA::AnimationPathManipulator::AnimationCompletedCallback* LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
@@ -118,7 +136,7 @@ void LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::className[] = "AnimationCompletedCallback";
+const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::className[] = "AnimationPathManipulator_AnimationCompletedCallback";
 const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::fullName[] = "osgGA::AnimationPathManipulator::AnimationCompletedCallback";
 const char LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::moduleName[] = "osgGA";
 const char* LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::parents[] = {"osg.Referenced", 0};

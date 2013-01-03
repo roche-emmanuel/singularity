@@ -649,7 +649,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -668,7 +668,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setVertexProgramSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setVertexProgramSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertexProgramSupported(flag);
 
@@ -686,7 +686,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isVertexProgramSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isVertexProgramSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isVertexProgramSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -706,7 +706,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setSecondaryColorSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setSecondaryColorSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSecondaryColorSupported(flag);
 
@@ -724,7 +724,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isSecondaryColorSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isSecondaryColorSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSecondaryColorSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -744,7 +744,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setFogCoordSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setFogCoordSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFogCoordSupported(flag);
 
@@ -762,7 +762,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isFogCoordSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isFogCoordSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isFogCoordSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -782,7 +782,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setMultiTexSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setMultiTexSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMultiTexSupported(flag);
 
@@ -800,7 +800,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isMultiTexSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isMultiTexSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isMultiTexSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -820,7 +820,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setOcclusionQuerySupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setOcclusionQuerySupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setOcclusionQuerySupported(flag);
 
@@ -838,7 +838,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isOcclusionQuerySupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isOcclusionQuerySupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isOcclusionQuerySupported();
 		lua_pushboolean(L,lret?1:0);
@@ -858,7 +858,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setARBOcclusionQuerySupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setARBOcclusionQuerySupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setARBOcclusionQuerySupported(flag);
 
@@ -876,7 +876,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isARBOcclusionQuerySupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isARBOcclusionQuerySupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isARBOcclusionQuerySupported();
 		lua_pushboolean(L,lret?1:0);
@@ -896,7 +896,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setTimerQuerySupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setTimerQuerySupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTimerQuerySupported(flag);
 
@@ -914,7 +914,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isTimerQuerySupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isTimerQuerySupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isTimerQuerySupported();
 		lua_pushboolean(L,lret?1:0);
@@ -934,7 +934,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setARBTimerQuerySupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setARBTimerQuerySupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setARBTimerQuerySupported(flag);
 
@@ -952,7 +952,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isARBTimerQuerySupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isARBTimerQuerySupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isARBTimerQuerySupported();
 		lua_pushboolean(L,lret?1:0);
@@ -972,7 +972,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glSecondaryColor3ubv(const unsigned char *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glSecondaryColor3ubv(const unsigned char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glSecondaryColor3ubv(&coord);
 
@@ -991,7 +991,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glSecondaryColor3fv(const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glSecondaryColor3fv(const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glSecondaryColor3fv(&coord);
 
@@ -1010,7 +1010,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glFogCoordfv(const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glFogCoordfv(const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glFogCoordfv(&coord);
 
@@ -1030,7 +1030,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord1f(unsigned int, float) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord1f(unsigned int, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord1f(target, coord);
 
@@ -1050,7 +1050,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord2fv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord2fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord2fv(target, &coord);
 
@@ -1070,7 +1070,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord3fv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord3fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord3fv(target, &coord);
 
@@ -1090,7 +1090,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord4fv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord4fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord4fv(target, &coord);
 
@@ -1110,7 +1110,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord1d(unsigned int, double) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord1d(unsigned int, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord1d(target, coord);
 
@@ -1130,7 +1130,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord2dv(unsigned int, const double *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord2dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord2dv(target, &coord);
 
@@ -1150,7 +1150,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord3dv(unsigned int, const double *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord3dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord3dv(target, &coord);
 
@@ -1170,7 +1170,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord4dv(unsigned int, const double *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord4dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glMultiTexCoord4dv(target, &coord);
 
@@ -1190,7 +1190,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1s(unsigned int, short) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1s(unsigned int, short) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib1s(index, s);
 
@@ -1210,7 +1210,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1f(unsigned int, float) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1f(unsigned int, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib1f(index, f);
 
@@ -1230,7 +1230,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1d(unsigned int, double) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1d(unsigned int, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib1d(index, f);
 
@@ -1250,7 +1250,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib2fv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib2fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib2fv(index, &v);
 
@@ -1270,7 +1270,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib3fv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib3fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib3fv(index, &v);
 
@@ -1290,7 +1290,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4fv(unsigned int, const float *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib4fv(index, &v);
 
@@ -1310,7 +1310,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib2dv(unsigned int, const double *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib2dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib2dv(index, &v);
 
@@ -1330,7 +1330,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib3dv(unsigned int, const double *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib3dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib3dv(index, &v);
 
@@ -1350,7 +1350,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4dv(unsigned int, const double *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib4dv(index, &v);
 
@@ -1370,7 +1370,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4ubv(unsigned int, const unsigned char *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4ubv(unsigned int, const unsigned char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib4ubv(index, &v);
 
@@ -1390,7 +1390,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4Nubv(unsigned int, const unsigned char *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4Nubv(unsigned int, const unsigned char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glVertexAttrib4Nubv(index, &v);
 
@@ -1410,7 +1410,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenBuffers(int, unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenBuffers(int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGenBuffers(n, &buffers);
 
@@ -1430,7 +1430,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBindBuffer(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBindBuffer(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBindBuffer(target, buffer);
 
@@ -1452,7 +1452,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBufferData(unsigned int, int, const void *, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBufferData(unsigned int, int, const void *, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBufferData(target, size, data, usage);
 
@@ -1474,7 +1474,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBufferSubData(unsigned int, int, int, const void *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBufferSubData(unsigned int, int, int, const void *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBufferSubData(target, offset, size, data);
 
@@ -1494,7 +1494,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteBuffers(int, const unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteBuffers(int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glDeleteBuffers(n, &buffers);
 
@@ -1513,7 +1513,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsBuffer(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsBuffer(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned char lret = self->glIsBuffer(buffer);
 		lua_pushnumber(L,(int)lret);
@@ -1536,7 +1536,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetBufferSubData(unsigned int, int, int, void *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetBufferSubData(unsigned int, int, int, void *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetBufferSubData(target, offset, size, data);
 
@@ -1556,7 +1556,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * osg::Drawable::Extensions::glMapBuffer(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void * osg::Drawable::Extensions::glMapBuffer(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		void * lret = self->glMapBuffer(target, access);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1578,7 +1578,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glUnmapBuffer(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glUnmapBuffer(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned char lret = self->glUnmapBuffer(target);
 		lua_pushnumber(L,(int)lret);
@@ -1600,7 +1600,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetBufferParameteriv(unsigned int, unsigned int, int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetBufferParameteriv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetBufferParameteriv(target, pname, &params);
 
@@ -1620,7 +1620,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenOcclusionQueries(int, unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenOcclusionQueries(int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGenOcclusionQueries(n, &ids);
 
@@ -1640,7 +1640,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteOcclusionQueries(int, const unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteOcclusionQueries(int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glDeleteOcclusionQueries(n, &ids);
 
@@ -1659,7 +1659,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsOcclusionQuery(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsOcclusionQuery(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned char lret = self->glIsOcclusionQuery(id);
 		lua_pushnumber(L,(int)lret);
@@ -1679,7 +1679,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBeginOcclusionQuery(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBeginOcclusionQuery(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBeginOcclusionQuery(id);
 
@@ -1697,7 +1697,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glEndOcclusionQuery() const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glEndOcclusionQuery() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glEndOcclusionQuery();
 
@@ -1718,7 +1718,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetOcclusionQueryiv(unsigned int, unsigned int, int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetOcclusionQueryiv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetOcclusionQueryiv(id, pname, &params);
 
@@ -1739,7 +1739,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetOcclusionQueryuiv(unsigned int, unsigned int, unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetOcclusionQueryuiv(unsigned int, unsigned int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetOcclusionQueryuiv(id, pname, &params);
 
@@ -1760,7 +1760,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryiv(unsigned int, unsigned int, int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryiv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetQueryiv(target, pname, &params);
 
@@ -1780,7 +1780,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenQueries(int, unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenQueries(int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGenQueries(n, &ids);
 
@@ -1800,7 +1800,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBeginQuery(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBeginQuery(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glBeginQuery(target, id);
 
@@ -1819,7 +1819,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glEndQuery(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glEndQuery(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glEndQuery(target);
 
@@ -1839,7 +1839,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glQueryCounter(unsigned int, unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glQueryCounter(unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glQueryCounter(id, target);
 
@@ -1858,7 +1858,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsQuery(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsQuery(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned char lret = self->glIsQuery(id);
 		lua_pushnumber(L,(int)lret);
@@ -1879,7 +1879,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteQueries(int, const unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteQueries(int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glDeleteQueries(n, &ids);
 
@@ -1900,7 +1900,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectiv(unsigned int, unsigned int, int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectiv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetQueryObjectiv(id, pname, &params);
 
@@ -1921,7 +1921,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectuiv(unsigned int, unsigned int, unsigned int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectuiv(unsigned int, unsigned int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetQueryObjectuiv(id, pname, &params);
 
@@ -1942,7 +1942,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectui64v(unsigned int, unsigned int, unsigned long long int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectui64v(unsigned int, unsigned int, unsigned long long int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetQueryObjectui64v(id, pname, &params);
 
@@ -1962,7 +1962,7 @@ public:
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetInteger64v(unsigned int, long long int *) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetInteger64v(unsigned int, long long int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->glGetInteger64v(pname, &params);
 
@@ -1984,7 +1984,7 @@ void LunaTraits< osg::Drawable::Extensions >::_bind_dtor(osg::Drawable::Extensio
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Drawable::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Drawable::Extensions >::className[] = "Drawable_Extensions";
 const char LunaTraits< osg::Drawable::Extensions >::fullName[] = "osg::Drawable::Extensions";
 const char LunaTraits< osg::Drawable::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Drawable::Extensions >::parents[] = {"osg.Referenced", 0};

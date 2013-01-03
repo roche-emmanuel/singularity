@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_sortImplementation(lua_State *L) {
@@ -81,6 +88,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgUtil::RenderBin::SortCallback::SortCallback(lua_Table * data)
+	static osgUtil::RenderBin::SortCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::SortCallback::SortCallback(lua_Table * data) function, expected prototype:\nosgUtil::RenderBin::SortCallback::SortCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_RenderBin_SortCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
@@ -95,7 +113,7 @@ public:
 		osgUtil::RenderBin::SortCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::SortCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->sortImplementation(_arg1);
 
@@ -108,7 +126,7 @@ public:
 };
 
 osgUtil::RenderBin::SortCallback* LunaTraits< osgUtil::RenderBin::SortCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgUtil_RenderBin_SortCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
@@ -118,7 +136,7 @@ void LunaTraits< osgUtil::RenderBin::SortCallback >::_bind_dtor(osgUtil::RenderB
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::RenderBin::SortCallback >::className[] = "SortCallback";
+const char LunaTraits< osgUtil::RenderBin::SortCallback >::className[] = "RenderBin_SortCallback";
 const char LunaTraits< osgUtil::RenderBin::SortCallback >::fullName[] = "osgUtil::RenderBin::SortCallback";
 const char LunaTraits< osgUtil::RenderBin::SortCallback >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::RenderBin::SortCallback >::parents[] = {"osg.Referenced", 0};

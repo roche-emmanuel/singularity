@@ -93,7 +93,7 @@ public:
 		wxGDIObject* self=Luna< wxObject >::checkSubType< wxGDIObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGDIObject::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGDIObject::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGDIObject::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -294,7 +294,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Add(const wxDateSpan &) const");
+			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Add(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		wxDateSpan stack_lret = self->Add(other);
 		wxDateSpan* lret = new wxDateSpan(stack_lret);
@@ -321,7 +321,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Add(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Add(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->Add(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -351,7 +351,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateSpan::GetDays() const");
+			luaL_error(L, "Invalid object in function call int wxDateSpan::GetDays() const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		int lret = self->GetDays();
 		lua_pushnumber(L,lret);
@@ -370,7 +370,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateSpan::GetMonths() const");
+			luaL_error(L, "Invalid object in function call int wxDateSpan::GetMonths() const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		int lret = self->GetMonths();
 		lua_pushnumber(L,lret);
@@ -389,7 +389,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateSpan::GetTotalDays() const");
+			luaL_error(L, "Invalid object in function call int wxDateSpan::GetTotalDays() const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		int lret = self->GetTotalDays();
 		lua_pushnumber(L,lret);
@@ -408,7 +408,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateSpan::GetWeeks() const");
+			luaL_error(L, "Invalid object in function call int wxDateSpan::GetWeeks() const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		int lret = self->GetWeeks();
 		lua_pushnumber(L,lret);
@@ -427,7 +427,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateSpan::GetYears() const");
+			luaL_error(L, "Invalid object in function call int wxDateSpan::GetYears() const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		int lret = self->GetYears();
 		lua_pushnumber(L,lret);
@@ -447,7 +447,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Multiply(int) const");
+			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Multiply(int) const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		wxDateSpan stack_lret = self->Multiply(factor);
 		wxDateSpan* lret = new wxDateSpan(stack_lret);
@@ -470,7 +470,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Multiply(int)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Multiply(int). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->Multiply(factor);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -500,7 +500,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Neg()");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Neg(). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->Neg();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -521,7 +521,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Negate() const");
+			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Negate() const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		wxDateSpan stack_lret = self->Negate();
 		wxDateSpan* lret = new wxDateSpan(stack_lret);
@@ -544,7 +544,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetDays(int)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetDays(int). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->SetDays(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -566,7 +566,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetMonths(int)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetMonths(int). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->SetMonths(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -588,7 +588,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetWeeks(int)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetWeeks(int). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->SetWeeks(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -610,7 +610,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetYears(int)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::SetYears(int). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->SetYears(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -636,7 +636,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Subtract(const wxDateSpan &) const");
+			luaL_error(L, "Invalid object in function call wxDateSpan wxDateSpan::Subtract(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		wxDateSpan stack_lret = self->Subtract(other);
 		wxDateSpan* lret = new wxDateSpan(stack_lret);
@@ -663,7 +663,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Subtract(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::Subtract(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->Subtract(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -840,7 +840,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator+=(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator+=(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->operator+=(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -866,7 +866,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator-=(const wxDateSpan &)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator-=(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->operator-=(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -887,7 +887,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator-()");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator-(). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->operator-();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -909,7 +909,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator*=(int)");
+			luaL_error(L, "Invalid object in function call wxDateSpan & wxDateSpan::operator*=(int). Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		const wxDateSpan* lret = &self->operator*=(factor);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -935,7 +935,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateSpan::operator!=(const wxDateSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateSpan::operator!=(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -959,7 +959,7 @@ public:
 		wxDateSpan* self=(Luna< wxDateSpan >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateSpan::operator==(const wxDateSpan &) const");
+			luaL_error(L, "Invalid object in function call bool wxDateSpan::operator==(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateSpan >::check(L,1)).name());
 		}
 		bool lret = self->operator==(_arg1);
 		lua_pushboolean(L,lret?1:0);

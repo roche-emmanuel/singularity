@@ -396,7 +396,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet *) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateSet *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -416,7 +416,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute *) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::StateAttribute *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -436,7 +436,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable *) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Drawable *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -456,7 +456,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node *) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isOperationPermissibleForObject(object);
 		lua_pushboolean(L,lret?1:0);
@@ -486,7 +486,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BaseOptimizerVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -505,7 +505,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::BaseOptimizerVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BaseOptimizerVisitor::className();
 		lua_pushstring(L,lret);
@@ -524,7 +524,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::reset();
 
@@ -542,7 +542,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->BaseOptimizerVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -564,7 +564,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::BaseOptimizerVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->BaseOptimizerVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -592,7 +592,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->BaseOptimizerVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -617,7 +617,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->BaseOptimizerVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -642,7 +642,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::BaseOptimizerVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->BaseOptimizerVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -666,7 +666,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -689,7 +689,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -712,7 +712,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Billboard &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -735,7 +735,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Group &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -758,7 +758,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Projection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -781,7 +781,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CoordinateSystemNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -804,7 +804,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClipNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -827,7 +827,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::TexGenNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -850,7 +850,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LightSource &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -873,7 +873,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Transform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -896,7 +896,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -919,7 +919,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::CameraView &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -942,7 +942,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::MatrixTransform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -965,7 +965,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PositionAttitudeTransform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -988,7 +988,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Switch &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1011,7 +1011,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::Sequence &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1034,7 +1034,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::LOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1057,7 +1057,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::PagedLOD &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1080,7 +1080,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::ClearNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1103,7 +1103,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OccluderNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 
@@ -1126,7 +1126,7 @@ public:
 		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_apply(osg::OcclusionQueryNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BaseOptimizerVisitor::apply(node);
 

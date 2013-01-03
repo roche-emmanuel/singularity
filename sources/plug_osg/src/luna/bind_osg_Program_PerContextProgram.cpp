@@ -264,7 +264,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Program::PerContextProgram::getHandle() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Program::PerContextProgram::getHandle() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getHandle();
 		lua_pushnumber(L,lret);
@@ -283,7 +283,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::requestLink()");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::requestLink(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestLink();
 
@@ -306,7 +306,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::linkProgram(osg::State &)");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::linkProgram(osg::State &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->linkProgram(state);
 
@@ -324,7 +324,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::validateProgram()");
+			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::validateProgram(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->validateProgram();
 		lua_pushboolean(L,lret?1:0);
@@ -343,7 +343,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::needsLink() const");
+			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::needsLink() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->needsLink();
 		lua_pushboolean(L,lret?1:0);
@@ -362,7 +362,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::isLinked() const");
+			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::isLinked() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isLinked();
 		lua_pushboolean(L,lret?1:0);
@@ -382,7 +382,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::getInfoLog(std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::getInfoLog(std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getInfoLog(infoLog);
 		lua_pushboolean(L,lret?1:0);
@@ -401,7 +401,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::loadedBinary() const");
+			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::loadedBinary() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->loadedBinary();
 		lua_pushboolean(L,lret?1:0);
@@ -425,7 +425,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Program::ProgramBinary * osg::Program::PerContextProgram::compileProgramBinary(osg::State &)");
+			luaL_error(L, "Invalid object in function call osg::Program::ProgramBinary * osg::Program::PerContextProgram::compileProgramBinary(osg::State &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Program::ProgramBinary * lret = self->compileProgramBinary(state);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -446,7 +446,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::useProgram() const");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::useProgram() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->useProgram();
 
@@ -464,7 +464,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::resetAppliedUniforms() const");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::resetAppliedUniforms() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->resetAppliedUniforms();
 
@@ -487,7 +487,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::apply(const osg::Uniform &) const");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::apply(const osg::Uniform &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(uniform);
 
@@ -505,7 +505,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Program::ActiveUniformMap & osg::Program::PerContextProgram::getActiveUniforms() const");
+			luaL_error(L, "Invalid object in function call const osg::Program::ActiveUniformMap & osg::Program::PerContextProgram::getActiveUniforms() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Program::ActiveUniformMap* lret = &self->getActiveUniforms();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -526,7 +526,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Program::ActiveVarInfoMap & osg::Program::PerContextProgram::getActiveAttribs() const");
+			luaL_error(L, "Invalid object in function call const osg::Program::ActiveVarInfoMap & osg::Program::PerContextProgram::getActiveAttribs() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Program::ActiveVarInfoMap* lret = &self->getActiveAttribs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -548,7 +548,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getUniformLocation(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getUniformLocation(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getUniformLocation(uniformNameID);
 		lua_pushnumber(L,lret);
@@ -568,7 +568,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getUniformLocation(const std::string &) const");
+			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getUniformLocation(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getUniformLocation(uniformName);
 		lua_pushnumber(L,lret);
@@ -597,7 +597,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getAttribLocation(const std::string &) const");
+			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getAttribLocation(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getAttribLocation(name);
 		lua_pushnumber(L,lret);
@@ -617,7 +617,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::addShaderToAttach(osg::Shader *)");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::addShaderToAttach(osg::Shader *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addShaderToAttach(shader);
 
@@ -636,7 +636,7 @@ public:
 		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::addShaderToDetach(osg::Shader *)");
+			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::addShaderToDetach(osg::Shader *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addShaderToDetach(shader);
 
@@ -658,7 +658,7 @@ void LunaTraits< osg::Program::PerContextProgram >::_bind_dtor(osg::Program::Per
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Program::PerContextProgram >::className[] = "PerContextProgram";
+const char LunaTraits< osg::Program::PerContextProgram >::className[] = "Program_PerContextProgram";
 const char LunaTraits< osg::Program::PerContextProgram >::fullName[] = "osg::Program::PerContextProgram";
 const char LunaTraits< osg::Program::PerContextProgram >::moduleName[] = "osg";
 const char* LunaTraits< osg::Program::PerContextProgram >::parents[] = {"osg.Referenced", 0};

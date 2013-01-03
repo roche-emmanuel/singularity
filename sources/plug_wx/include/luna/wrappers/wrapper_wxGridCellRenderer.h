@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {
@@ -51,9 +56,6 @@ public:
 		return *(_obj.callFunction<wxSize*>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -275,7 +275,7 @@ public:
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSound::Create(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxSound::Create(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(fileName, isResource);
 		lua_pushboolean(L,lret?1:0);
@@ -294,7 +294,7 @@ public:
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSound::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxSound::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -316,7 +316,7 @@ public:
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSound::Play(unsigned int) const");
+			luaL_error(L, "Invalid object in function call bool wxSound::Play(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Play(flags);
 		lua_pushboolean(L,lret?1:0);
@@ -375,7 +375,7 @@ public:
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSound::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSound::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSound::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

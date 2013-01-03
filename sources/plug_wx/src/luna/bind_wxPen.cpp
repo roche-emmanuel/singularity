@@ -500,7 +500,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPenCap wxPen::GetCap() const");
+			luaL_error(L, "Invalid object in function call wxPenCap wxPen::GetCap() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPenCap lret = self->GetCap();
 		lua_pushnumber(L,lret);
@@ -519,7 +519,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxPen::GetColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxPen::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -541,7 +541,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPenJoin wxPen::GetJoin() const");
+			luaL_error(L, "Invalid object in function call wxPenJoin wxPen::GetJoin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPenJoin lret = self->GetJoin();
 		lua_pushnumber(L,lret);
@@ -560,7 +560,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap * wxPen::GetStipple() const");
+			luaL_error(L, "Invalid object in function call wxBitmap * wxPen::GetStipple() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap * lret = self->GetStipple();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -581,7 +581,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPenStyle wxPen::GetStyle() const");
+			luaL_error(L, "Invalid object in function call wxPenStyle wxPen::GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPenStyle lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -600,7 +600,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPen::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxPen::GetWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -619,7 +619,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPen::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxPen::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -638,7 +638,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPen::IsNonTransparent() const");
+			luaL_error(L, "Invalid object in function call bool wxPen::IsNonTransparent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsNonTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -657,7 +657,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPen::IsTransparent() const");
+			luaL_error(L, "Invalid object in function call bool wxPen::IsTransparent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -677,7 +677,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetCap(wxPenCap)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetCap(wxPenCap). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetCap(capStyle);
 
@@ -700,7 +700,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetColour(wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetColour(wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(colour);
 
@@ -721,7 +721,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetColour(unsigned char, unsigned char, unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(red, green, blue);
 
@@ -749,7 +749,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetJoin(wxPenJoin)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetJoin(wxPenJoin). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetJoin(join_style);
 
@@ -772,7 +772,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetStipple(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetStipple(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStipple(stipple);
 
@@ -791,7 +791,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetStyle(wxPenStyle)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetStyle(wxPenStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStyle(style);
 
@@ -810,7 +810,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxPen::SetWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetWidth(width);
 
@@ -828,7 +828,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPen::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPen::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPen::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -849,7 +849,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPenCap wxPen::base_GetCap() const");
+			luaL_error(L, "Invalid object in function call wxPenCap wxPen::base_GetCap() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPenCap lret = self->wxPen::GetCap();
 		lua_pushnumber(L,lret);
@@ -868,7 +868,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxPen::base_GetColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxPen::base_GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->wxPen::GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -890,7 +890,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPenJoin wxPen::base_GetJoin() const");
+			luaL_error(L, "Invalid object in function call wxPenJoin wxPen::base_GetJoin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPenJoin lret = self->wxPen::GetJoin();
 		lua_pushnumber(L,lret);
@@ -909,7 +909,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap * wxPen::base_GetStipple() const");
+			luaL_error(L, "Invalid object in function call wxBitmap * wxPen::base_GetStipple() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap * lret = self->wxPen::GetStipple();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -930,7 +930,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPenStyle wxPen::base_GetStyle() const");
+			luaL_error(L, "Invalid object in function call wxPenStyle wxPen::base_GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPenStyle lret = self->wxPen::GetStyle();
 		lua_pushnumber(L,lret);
@@ -949,7 +949,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPen::base_GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxPen::base_GetWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPen::GetWidth();
 		lua_pushnumber(L,lret);
@@ -968,7 +968,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPen::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxPen::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPen::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -988,7 +988,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetCap(wxPenCap)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetCap(wxPenCap). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetCap(capStyle);
 
@@ -1011,7 +1011,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetColour(wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetColour(wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetColour(colour);
 
@@ -1032,7 +1032,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetColour(unsigned char, unsigned char, unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetColour(red, green, blue);
 
@@ -1060,7 +1060,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetJoin(wxPenJoin)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetJoin(wxPenJoin). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetJoin(join_style);
 
@@ -1083,7 +1083,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetStipple(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetStipple(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetStipple(stipple);
 
@@ -1102,7 +1102,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetStyle(wxPenStyle)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetStyle(wxPenStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetStyle(style);
 
@@ -1121,7 +1121,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPen::base_SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxPen::base_SetWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPen::SetWidth(width);
 
@@ -1146,7 +1146,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPen::operator!=(const wxPen &) const");
+			luaL_error(L, "Invalid object in function call bool wxPen::operator!=(const wxPen &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(pen);
 		lua_pushboolean(L,lret?1:0);
@@ -1170,7 +1170,7 @@ public:
 		wxPen* self=Luna< wxObject >::checkSubType< wxPen >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPen::operator==(const wxPen &) const");
+			luaL_error(L, "Invalid object in function call bool wxPen::operator==(const wxPen &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator==(pen);
 		lua_pushboolean(L,lret?1:0);

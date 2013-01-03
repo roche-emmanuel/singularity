@@ -101,7 +101,7 @@ public:
 		wxTextCompleterSimple* self=Luna< wxTextCompleter >::checkSubType< wxTextCompleterSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextCompleterSimple::GetCompletions(const wxString &, wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxTextCompleterSimple::GetCompletions(const wxString &, wxArrayString &). Got : '%s'",typeid(Luna< wxTextCompleter >::check(L,1)).name());
 		}
 		self->GetCompletions(prefix, res);
 

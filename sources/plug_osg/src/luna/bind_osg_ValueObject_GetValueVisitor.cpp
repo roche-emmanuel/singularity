@@ -104,7 +104,7 @@ void LunaTraits< osg::ValueObject::GetValueVisitor >::_bind_dtor(osg::ValueObjec
 	delete obj;
 }
 
-const char LunaTraits< osg::ValueObject::GetValueVisitor >::className[] = "GetValueVisitor";
+const char LunaTraits< osg::ValueObject::GetValueVisitor >::className[] = "ValueObject_GetValueVisitor";
 const char LunaTraits< osg::ValueObject::GetValueVisitor >::fullName[] = "osg::ValueObject::GetValueVisitor";
 const char LunaTraits< osg::ValueObject::GetValueVisitor >::moduleName[] = "osg";
 const char* LunaTraits< osg::ValueObject::GetValueVisitor >::parents[] = {0};

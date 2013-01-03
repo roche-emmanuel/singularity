@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxConfigBase * wxAppTraits::CreateConfig()
 	wxConfigBase * CreateConfig() {
@@ -102,9 +107,45 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
+	// wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)
+	wxTimerImpl * CreateTimerImpl(wxTimer * arg1) {
+		THROW_IF(!_obj.pushFunction("CreateTimerImpl"),"No implementation for abstract function wxAppTraits::CreateTimerImpl");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<wxTimerImpl*>());
+	};
 
+	// void * wxAppTraits::BeforeChildWaitLoop()
+	void * BeforeChildWaitLoop() {
+		THROW_IF(!_obj.pushFunction("BeforeChildWaitLoop"),"No implementation for abstract function wxAppTraits::BeforeChildWaitLoop");
+		return (_obj.callFunction<void*>());
+	};
 
-	// Protected virtual methods:
+	// void wxAppTraits::AfterChildWaitLoop(void * arg1)
+	void AfterChildWaitLoop(void * arg1) {
+		THROW_IF(!_obj.pushFunction("AfterChildWaitLoop"),"No implementation for abstract function wxAppTraits::AfterChildWaitLoop");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<void>());
+	};
+
+	// bool wxAppTraits::DoMessageFromThreadWait()
+	bool DoMessageFromThreadWait() {
+		THROW_IF(!_obj.pushFunction("DoMessageFromThreadWait"),"No implementation for abstract function wxAppTraits::DoMessageFromThreadWait");
+		return (_obj.callFunction<bool>());
+	};
+
+	// bool wxAppTraits::CanUseStderr()
+	bool CanUseStderr() {
+		THROW_IF(!_obj.pushFunction("CanUseStderr"),"No implementation for abstract function wxAppTraits::CanUseStderr");
+		return (_obj.callFunction<bool>());
+	};
+
+	// bool wxAppTraits::WriteToStderr(const wxString & arg1)
+	bool WriteToStderr(const wxString & arg1) {
+		THROW_IF(!_obj.pushFunction("WriteToStderr"),"No implementation for abstract function wxAppTraits::WriteToStderr");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<bool>());
+	};
+
 
 	// Protected non-virtual methods:
 
@@ -115,6 +156,13 @@ public:
 	void register_protected_methods(lua_State* L) {
 	};
 
+
+public:
+// WXDWORD wxAppTraits::WaitForThread(WXHANDLE arg1, int arg2)
+WXDWORD WaitForThread(WXHANDLE, int) {
+	THROW_IF(true,"The function call WXDWORD wxAppTraits::WaitForThread(WXHANDLE, int) is not implemented in wrapper.");
+	return WXDWORD();
+};
 
 };
 

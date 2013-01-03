@@ -513,7 +513,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Plane &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(pl);
 
@@ -535,7 +535,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(double, double, double, double). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(a, b, c, d);
 
@@ -558,7 +558,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(vec);
 
@@ -581,7 +581,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4d &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec4d &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(vec);
 
@@ -605,7 +605,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, double)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, double). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(norm, d);
 
@@ -638,7 +638,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(v1, v2, v3);
 
@@ -666,7 +666,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::set(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->set(norm, point);
 
@@ -698,7 +698,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::flip()");
+			luaL_error(L, "Invalid object in function call void osg::Plane::flip(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->flip();
 
@@ -716,7 +716,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::makeUnitLength()");
+			luaL_error(L, "Invalid object in function call void osg::Plane::makeUnitLength(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->makeUnitLength();
 
@@ -734,7 +734,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::calculateUpperLowerBBCorners()");
+			luaL_error(L, "Invalid object in function call void osg::Plane::calculateUpperLowerBBCorners(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->calculateUpperLowerBBCorners();
 
@@ -752,7 +752,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::valid() const");
+			luaL_error(L, "Invalid object in function call bool osg::Plane::valid() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -771,7 +771,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::isNaN() const");
+			luaL_error(L, "Invalid object in function call bool osg::Plane::isNaN() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		bool lret = self->isNaN();
 		lua_pushboolean(L,lret?1:0);
@@ -790,7 +790,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double * osg::Plane::ptr()");
+			luaL_error(L, "Invalid object in function call double * osg::Plane::ptr(). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		double * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -809,7 +809,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const double * osg::Plane::ptr() const");
+			luaL_error(L, "Invalid object in function call const double * osg::Plane::ptr() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		const double * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -837,7 +837,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Plane::asVec4() const");
+			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Plane::asVec4() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		osg::Vec4d stack_lret = self->asVec4();
 		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
@@ -859,7 +859,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Plane::getNormal() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Plane::getNormal() const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		osg::Vec3d stack_lret = self->getNormal();
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -886,7 +886,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Plane::distance(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call float osg::Plane::distance(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		float lret = self->distance(v);
 		lua_pushnumber(L,lret);
@@ -910,7 +910,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Plane::distance(const osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call double osg::Plane::distance(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		double lret = self->distance(v);
 		lua_pushnumber(L,lret);
@@ -943,7 +943,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Plane::dotProductNormal(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call float osg::Plane::dotProductNormal(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		float lret = self->dotProductNormal(v);
 		lua_pushnumber(L,lret);
@@ -967,7 +967,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Plane::dotProductNormal(const osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call double osg::Plane::dotProductNormal(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		double lret = self->dotProductNormal(v);
 		lua_pushnumber(L,lret);
@@ -1000,7 +1000,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3f > &) const");
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3f > &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		int lret = self->intersect(vertices);
 		lua_pushnumber(L,lret);
@@ -1024,7 +1024,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3d > &) const");
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const std::vector< osg::Vec3d > &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		int lret = self->intersect(vertices);
 		lua_pushnumber(L,lret);
@@ -1048,7 +1048,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingSphered &) const");
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		int lret = self->intersect(bs);
 		lua_pushnumber(L,lret);
@@ -1072,7 +1072,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingBoxd &) const");
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		int lret = self->intersect(bb);
 		lua_pushnumber(L,lret);
@@ -1107,7 +1107,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::transform(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::transform(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->transform(matrix);
 
@@ -1130,7 +1130,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Plane::transformProvidingInverse(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Plane::transformProvidingInverse(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		self->transformProvidingInverse(matrix);
 
@@ -1155,7 +1155,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::operator==(const osg::Plane &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Plane::operator==(const osg::Plane &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		bool lret = self->operator==(plane);
 		lua_pushboolean(L,lret?1:0);
@@ -1179,7 +1179,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::operator!=(const osg::Plane &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Plane::operator!=(const osg::Plane &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(plane);
 		lua_pushboolean(L,lret?1:0);
@@ -1203,7 +1203,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Plane::operator<(const osg::Plane &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Plane::operator<(const osg::Plane &) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		bool lret = self->operator<(plane);
 		lua_pushboolean(L,lret?1:0);
@@ -1223,7 +1223,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Plane::operator[](unsigned int)");
+			luaL_error(L, "Invalid object in function call double & osg::Plane::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		double & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -1243,7 +1243,7 @@ public:
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Plane::operator[](unsigned int) const");
+			luaL_error(L, "Invalid object in function call double osg::Plane::operator[](unsigned int) const. Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
 		}
 		double lret = self->operator[](i);
 		lua_pushnumber(L,lret);

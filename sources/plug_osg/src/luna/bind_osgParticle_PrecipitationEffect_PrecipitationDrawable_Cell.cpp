@@ -111,7 +111,7 @@ public:
 		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell &) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell &) const. Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -132,7 +132,7 @@ void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >
 	delete obj;
 }
 
-const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::className[] = "Cell";
+const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::className[] = "PrecipitationEffect_PrecipitationDrawable_Cell";
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::fullName[] = "osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell";
 const char LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::moduleName[] = "osgParticle";
 const char* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::parents[] = {0};

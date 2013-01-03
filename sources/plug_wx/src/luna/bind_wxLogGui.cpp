@@ -143,7 +143,7 @@ public:
 		wxLogGui* self=Luna< wxLog >::checkSubType< wxLogGui >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogGui::Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogGui::Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->Flush();
 
@@ -161,7 +161,7 @@ public:
 		wxLogGui* self=Luna< wxLog >::checkSubType< wxLogGui >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogGui::base_Flush()");
+			luaL_error(L, "Invalid object in function call void wxLogGui::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
 		}
 		self->wxLogGui::Flush();
 

@@ -521,7 +521,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -547,7 +547,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,7 +569,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Box::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Box::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -588,7 +588,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Box::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Box::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -607,7 +607,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Box::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Box::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -631,7 +631,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -654,7 +654,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::Box::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -681,7 +681,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Box::valid() const");
+			luaL_error(L, "Invalid object in function call bool osg::Box::valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -710,7 +710,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::set(const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::set(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->set(center, halfLengths);
 
@@ -733,7 +733,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::setCenter(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::setCenter(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCenter(center);
 
@@ -751,7 +751,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Box::getCenter() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Box::getCenter() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getCenter();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -777,7 +777,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::setHalfLengths(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::setHalfLengths(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setHalfLengths(halfLengths);
 
@@ -795,7 +795,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Box::getHalfLengths() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Box::getHalfLengths() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getHalfLengths();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -821,7 +821,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::setRotation(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::setRotation(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRotation(quat);
 
@@ -839,7 +839,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat & osg::Box::getRotation() const");
+			luaL_error(L, "Invalid object in function call const osg::Quat & osg::Box::getRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->getRotation();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -860,7 +860,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osg::Box::computeRotationMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osg::Box::computeRotationMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->computeRotationMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -882,7 +882,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Box::zeroRotation() const");
+			luaL_error(L, "Invalid object in function call bool osg::Box::zeroRotation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->zeroRotation();
 		lua_pushboolean(L,lret?1:0);
@@ -902,7 +902,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Box::setName(name);
 
@@ -920,7 +920,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Box::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Box::computeDataVariance();
 
@@ -939,7 +939,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Box::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Box::setUserData(obj);
 
@@ -957,7 +957,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Box::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Box::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Box::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -978,7 +978,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Box::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Box::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Box::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1011,7 +1011,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Box::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Box::releaseGLObjects(_arg1);
 
@@ -1029,7 +1029,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Box::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1055,7 +1055,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Box::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Box::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1077,7 +1077,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Box::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Box::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Box::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1096,7 +1096,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Box::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Box::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Box::libraryName();
 		lua_pushstring(L,lret);
@@ -1115,7 +1115,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Box::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Box::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Box::className();
 		lua_pushstring(L,lret);
@@ -1139,7 +1139,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::base_accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Box::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Box::accept(_arg1);
 
@@ -1162,7 +1162,7 @@ public:
 		osg::Box* self=Luna< osg::Referenced >::checkSubType< osg::Box >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Box::base_accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::Box::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Box::accept(_arg1);
 

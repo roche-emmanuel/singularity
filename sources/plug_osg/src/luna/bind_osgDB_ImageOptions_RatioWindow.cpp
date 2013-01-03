@@ -105,7 +105,7 @@ public:
 		osgDB::ImageOptions::RatioWindow* self=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::set(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::RatioWindow::set(double, double, double, double). Got : '%s'",typeid(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1)).name());
 		}
 		self->set(x, y, w, h);
 
@@ -127,7 +127,7 @@ void LunaTraits< osgDB::ImageOptions::RatioWindow >::_bind_dtor(osgDB::ImageOpti
 	delete obj;
 }
 
-const char LunaTraits< osgDB::ImageOptions::RatioWindow >::className[] = "RatioWindow";
+const char LunaTraits< osgDB::ImageOptions::RatioWindow >::className[] = "ImageOptions_RatioWindow";
 const char LunaTraits< osgDB::ImageOptions::RatioWindow >::fullName[] = "osgDB::ImageOptions::RatioWindow";
 const char LunaTraits< osgDB::ImageOptions::RatioWindow >::moduleName[] = "osgDB";
 const char* LunaTraits< osgDB::ImageOptions::RatioWindow >::parents[] = {0};

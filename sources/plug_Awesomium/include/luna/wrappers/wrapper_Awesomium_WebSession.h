@@ -11,9 +11,22 @@
 class wrapper_Awesomium_WebSession : public Awesomium::WebSession, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_WebSession() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_Awesomium_WebSession(lua_State* L, lua_Table* dum) : Awesomium::WebSession(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// void Awesomium::WebSession::Release() const
 	void Release() const {
 		THROW_IF(!_obj.pushFunction("Release"),"No implementation for abstract function Awesomium::WebSession::Release");
@@ -63,6 +76,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

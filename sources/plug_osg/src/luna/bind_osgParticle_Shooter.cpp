@@ -234,7 +234,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -253,7 +253,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -273,7 +273,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Shooter::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Shooter::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -293,7 +293,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::shoot(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::shoot(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->shoot(P);
 
@@ -312,7 +312,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shooter::setName(name);
 
@@ -330,7 +330,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shooter::computeDataVariance();
 
@@ -349,7 +349,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shooter::setUserData(obj);
 
@@ -367,7 +367,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::Shooter::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::Shooter::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Shooter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -388,7 +388,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::Shooter::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::Shooter::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Shooter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,7 +421,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Shooter::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Shooter::releaseGLObjects(_arg1);
 
@@ -439,7 +439,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Shooter::libraryName();
 		lua_pushstring(L,lret);
@@ -458,7 +458,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Shooter::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Shooter::className();
 		lua_pushstring(L,lret);
@@ -478,7 +478,7 @@ public:
 		osgParticle::Shooter* self=Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Shooter::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Shooter::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Shooter::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);

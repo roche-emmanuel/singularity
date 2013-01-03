@@ -67,6 +67,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_assign(lua_State *L) {
@@ -97,6 +110,37 @@ public:
 
 
 	// Constructor binds:
+	// osg::AttributeDispatch::AttributeDispatch()
+	static osg::AttributeDispatch* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::AttributeDispatch::AttributeDispatch() function, expected prototype:\nosg::AttributeDispatch::AttributeDispatch()\nClass arguments details:\n");
+		}
+
+
+		return new osg::AttributeDispatch();
+	}
+
+	// osg::AttributeDispatch::AttributeDispatch(lua_Table * data)
+	static osg::AttributeDispatch* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::AttributeDispatch::AttributeDispatch(lua_Table * data) function, expected prototype:\nosg::AttributeDispatch::AttributeDispatch(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_AttributeDispatch(L,NULL);
+	}
+
+	// Overload binder for osg::AttributeDispatch::AttributeDispatch
+	static osg::AttributeDispatch* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function AttributeDispatch, cannot match any of the overloads for function AttributeDispatch:\n  AttributeDispatch()\n  AttributeDispatch(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)
@@ -112,7 +156,7 @@ public:
 		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::assign(const void *, const osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::assign(const void *, const osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->assign(_arg1, _arg2);
 
@@ -132,7 +176,7 @@ public:
 		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::base_assign(const void *, const osg::IndexArray *)");
+			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::base_assign(const void *, const osg::IndexArray *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AttributeDispatch::assign(_arg1, _arg2);
 
@@ -153,7 +197,7 @@ public:
 		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::operator()(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::operator()(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operator()(_arg1);
 
@@ -164,7 +208,7 @@ public:
 };
 
 osg::AttributeDispatch* LunaTraits< osg::AttributeDispatch >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_AttributeDispatch::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

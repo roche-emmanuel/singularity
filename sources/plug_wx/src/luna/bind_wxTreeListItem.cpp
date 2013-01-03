@@ -97,7 +97,7 @@ public:
 		wxTreeListItem* self=(Luna< wxTreeListItem >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTreeListItem::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxTreeListItem::IsOk() const. Got : '%s'",typeid(Luna< wxTreeListItem >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);

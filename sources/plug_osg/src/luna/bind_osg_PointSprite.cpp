@@ -431,7 +431,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -457,7 +457,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -479,7 +479,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -498,7 +498,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -517,7 +517,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -536,7 +536,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PointSprite::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PointSprite::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -560,7 +560,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PointSprite::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::PointSprite::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -584,7 +584,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -608,7 +608,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -627,7 +627,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -651,7 +651,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -670,7 +670,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::setCoordOriginMode(osg::PointSprite::CoordOriginMode)");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::setCoordOriginMode(osg::PointSprite::CoordOriginMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCoordOriginMode(mode);
 
@@ -688,7 +688,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PointSprite::CoordOriginMode osg::PointSprite::getCoordOriginMode() const");
+			luaL_error(L, "Invalid object in function call osg::PointSprite::CoordOriginMode osg::PointSprite::getCoordOriginMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PointSprite::CoordOriginMode lret = self->getCoordOriginMode();
 		lua_pushnumber(L,lret);
@@ -723,7 +723,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PointSprite::setName(name);
 
@@ -741,7 +741,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PointSprite::computeDataVariance();
 
@@ -760,7 +760,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PointSprite::setUserData(obj);
 
@@ -778,7 +778,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PointSprite::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PointSprite::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PointSprite::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -799,7 +799,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PointSprite::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PointSprite::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PointSprite::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -829,7 +829,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::PointSprite::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::PointSprite::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->PointSprite::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -850,7 +850,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::PointSprite::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::PointSprite::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->PointSprite::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -880,7 +880,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PointSprite::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PointSprite::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->PointSprite::getMember();
 		lua_pushnumber(L,lret);
@@ -904,7 +904,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PointSprite::compileGLObjects(_arg1);
 
@@ -925,7 +925,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PointSprite::releaseGLObjects(_arg1);
 
@@ -943,7 +943,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PointSprite::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -969,7 +969,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PointSprite::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PointSprite::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -991,7 +991,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PointSprite::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1010,7 +1010,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PointSprite::libraryName();
 		lua_pushstring(L,lret);
@@ -1029,7 +1029,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PointSprite::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PointSprite::className();
 		lua_pushstring(L,lret);
@@ -1048,7 +1048,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PointSprite::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::PointSprite::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->PointSprite::getType();
 		lua_pushnumber(L,lret);
@@ -1072,7 +1072,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::PointSprite::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::PointSprite::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->PointSprite::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1096,7 +1096,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PointSprite::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1120,7 +1120,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PointSprite::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1139,7 +1139,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::PointSprite::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PointSprite::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1163,7 +1163,7 @@ public:
 		osg::PointSprite* self=Luna< osg::Referenced >::checkSubType< osg::PointSprite >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PointSprite::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PointSprite::apply(_arg1);
 

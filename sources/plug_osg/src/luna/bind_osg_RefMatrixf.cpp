@@ -489,7 +489,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -515,7 +515,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -537,7 +537,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::RefMatrixf::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::RefMatrixf::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -556,7 +556,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -575,7 +575,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -595,7 +595,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RefMatrixf::setName(name);
 
@@ -613,7 +613,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RefMatrixf::computeDataVariance();
 
@@ -632,7 +632,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RefMatrixf::setUserData(obj);
 
@@ -650,7 +650,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::RefMatrixf::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::RefMatrixf::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->RefMatrixf::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -671,7 +671,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::RefMatrixf::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::RefMatrixf::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->RefMatrixf::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -704,7 +704,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::RefMatrixf::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RefMatrixf::releaseGLObjects(_arg1);
 
@@ -722,7 +722,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->RefMatrixf::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -748,7 +748,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::RefMatrixf::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->RefMatrixf::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -770,7 +770,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::RefMatrixf::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::RefMatrixf::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->RefMatrixf::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -789,7 +789,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->RefMatrixf::libraryName();
 		lua_pushstring(L,lret);
@@ -808,7 +808,7 @@ public:
 		osg::RefMatrixf* self=Luna< osg::Referenced >::checkSubType< osg::RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::RefMatrixf::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->RefMatrixf::className();
 		lua_pushstring(L,lret);
@@ -818,6 +818,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_osg_Matrixf(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_osg_Matrixf(lua_State *L) {
+		if (!_lg_typecheck_baseCast_osg_Matrixf(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_osg_Matrixf function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		osg::Matrixf* res = dynamic_cast<osg::Matrixf*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< osg::Matrixf >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -856,6 +882,7 @@ luna_RegType LunaTraits< osg::RefMatrixf >::methods[] = {
 	{"base_className", &luna_wrapper_osg_RefMatrixf::_bind_base_className},
 	{"__eq", &luna_wrapper_osg_RefMatrixf::_bind___eq},
 	{"getTable", &luna_wrapper_osg_RefMatrixf::_bind_getTable},
+	{"asMatrixf", &luna_wrapper_osg_RefMatrixf::_bind_baseCast_osg_Matrixf},
 	{0,0}
 };
 

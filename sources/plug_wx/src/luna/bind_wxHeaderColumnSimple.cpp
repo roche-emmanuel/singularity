@@ -469,7 +469,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetTitle(title);
 
@@ -487,7 +487,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderColumnSimple::GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxHeaderColumnSimple::GetTitle() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxString lret = self->GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -511,7 +511,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetBitmap(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetBitmap(bitmap);
 
@@ -529,7 +529,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumnSimple::GetBitmap() const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumnSimple::GetBitmap() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->GetBitmap();
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -552,7 +552,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetWidth(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetWidth(width);
 
@@ -570,7 +570,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetWidth() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -590,7 +590,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetMinWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetMinWidth(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetMinWidth(minWidth);
 
@@ -608,7 +608,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetMinWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetMinWidth() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->GetMinWidth();
 		lua_pushnumber(L,lret);
@@ -628,7 +628,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetAlignment(wxAlignment)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetAlignment(wxAlignment). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetAlignment(align);
 
@@ -646,7 +646,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumnSimple::GetAlignment() const");
+			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumnSimple::GetAlignment() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxAlignment lret = self->GetAlignment();
 		lua_pushnumber(L,lret);
@@ -666,7 +666,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetFlags(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetFlags(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -684,7 +684,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetFlags() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -703,7 +703,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::IsSortKey() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::IsSortKey() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsSortKey();
 		lua_pushboolean(L,lret?1:0);
@@ -723,7 +723,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetSortOrder(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetSortOrder(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->SetSortOrder(ascending);
 
@@ -741,7 +741,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::IsSortOrderAscending() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::IsSortOrderAscending() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->IsSortOrderAscending();
 		lua_pushboolean(L,lret?1:0);
@@ -760,7 +760,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsResizeable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsResizeable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumnSimple::IsResizeable();
 		lua_pushboolean(L,lret?1:0);
@@ -779,7 +779,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumnSimple::IsSortable();
 		lua_pushboolean(L,lret?1:0);
@@ -798,7 +798,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsReorderable() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsReorderable() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumnSimple::IsReorderable();
 		lua_pushboolean(L,lret?1:0);
@@ -817,7 +817,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsHidden() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsHidden() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumnSimple::IsHidden();
 		lua_pushboolean(L,lret?1:0);
@@ -837,7 +837,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetResizeable(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetResizeable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetResizeable(resizable);
 
@@ -856,7 +856,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetSortable(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetSortable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetSortable(sortable);
 
@@ -875,7 +875,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetReorderable(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetReorderable(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetReorderable(reorderable);
 
@@ -894,7 +894,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetHidden(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetHidden(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetHidden(hidden);
 
@@ -913,7 +913,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetTitle(title);
 
@@ -931,7 +931,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHeaderColumnSimple::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxHeaderColumnSimple::base_GetTitle() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxString lret = self->wxHeaderColumnSimple::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -955,7 +955,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetBitmap(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetBitmap(bitmap);
 
@@ -973,7 +973,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumnSimple::base_GetBitmap() const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumnSimple::base_GetBitmap() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->wxHeaderColumnSimple::GetBitmap();
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -996,7 +996,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetWidth(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetWidth(width);
 
@@ -1014,7 +1014,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetWidth() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderColumnSimple::GetWidth();
 		lua_pushnumber(L,lret);
@@ -1034,7 +1034,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetMinWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetMinWidth(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetMinWidth(minWidth);
 
@@ -1052,7 +1052,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetMinWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetMinWidth() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderColumnSimple::GetMinWidth();
 		lua_pushnumber(L,lret);
@@ -1072,7 +1072,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetAlignment(wxAlignment)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetAlignment(wxAlignment). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetAlignment(align);
 
@@ -1090,7 +1090,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumnSimple::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumnSimple::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		wxAlignment lret = self->wxHeaderColumnSimple::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -1110,7 +1110,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetFlags(int)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetFlags(int). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetFlags(flags);
 
@@ -1128,7 +1128,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetFlags() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		int lret = self->wxHeaderColumnSimple::GetFlags();
 		lua_pushnumber(L,lret);
@@ -1147,7 +1147,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortKey() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortKey() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumnSimple::IsSortKey();
 		lua_pushboolean(L,lret?1:0);
@@ -1167,7 +1167,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetSortOrder(bool)");
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetSortOrder(bool). Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		self->wxHeaderColumnSimple::SetSortOrder(ascending);
 
@@ -1185,7 +1185,7 @@ public:
 		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortOrderAscending() const");
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortOrderAscending() const. Got : '%s'",typeid(Luna< wxHeaderColumn >::check(L,1)).name());
 		}
 		bool lret = self->wxHeaderColumnSimple::IsSortOrderAscending();
 		lua_pushboolean(L,lret?1:0);

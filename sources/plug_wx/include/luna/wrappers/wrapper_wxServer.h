@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxConnectionBase * wxServer::OnAcceptConnection(const wxString & topic)
 	wxConnectionBase * OnAcceptConnection(const wxString & topic) {
@@ -32,9 +37,6 @@ public:
 		return wxServer::OnAcceptConnection(topic);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

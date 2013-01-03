@@ -545,7 +545,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -571,7 +571,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -593,7 +593,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -612,7 +612,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Geode::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Geode::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -631,7 +631,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Geode::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Geode::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -655,7 +655,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -673,7 +673,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Geode::asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Geode::asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -694,7 +694,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Geode::asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Geode::asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -725,7 +725,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::addDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::addDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addDrawable(drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -745,7 +745,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::removeDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::removeDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeDrawable(drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -768,7 +768,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::removeDrawables(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::removeDrawables(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeDrawables(i, numDrawablesToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -789,7 +789,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::replaceDrawable(osg::Drawable *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::replaceDrawable(osg::Drawable *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->replaceDrawable(origDraw, newDraw);
 		lua_pushboolean(L,lret?1:0);
@@ -810,7 +810,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::setDrawable(unsigned int, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::setDrawable(unsigned int, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setDrawable(i, drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -829,7 +829,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Geode::getNumDrawables() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Geode::getNumDrawables() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumDrawables();
 		lua_pushnumber(L,lret);
@@ -849,7 +849,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osg::Geode::getDrawable(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::Drawable * osg::Geode::getDrawable(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Drawable * lret = self->getDrawable(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -871,7 +871,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Drawable * osg::Geode::getDrawable(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Drawable * osg::Geode::getDrawable(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Drawable * lret = self->getDrawable(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -902,7 +902,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::containsDrawable(const osg::Drawable *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::containsDrawable(const osg::Drawable *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->containsDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -922,7 +922,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Geode::getDrawableIndex(const osg::Drawable *) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Geode::getDrawableIndex(const osg::Drawable *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDrawableIndex(drawable);
 		lua_pushnumber(L,lret);
@@ -941,7 +941,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode::DrawableList & osg::Geode::getDrawableList() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode::DrawableList & osg::Geode::getDrawableList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode::DrawableList* lret = &self->getDrawableList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -967,7 +967,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::compileDrawables(osg::RenderInfo &)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::compileDrawables(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compileDrawables(renderInfo);
 
@@ -985,7 +985,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osg::Geode::getBoundingBox() const");
+			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osg::Geode::getBoundingBox() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::BoundingBoxd* lret = &self->getBoundingBox();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1006,7 +1006,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Geode::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Geode::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1031,7 +1031,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Geode::releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->releaseGLObjects(_arg1);
 
@@ -1050,7 +1050,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::setName(name);
 
@@ -1068,7 +1068,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::computeDataVariance();
 
@@ -1087,7 +1087,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::setUserData(obj);
 
@@ -1105,7 +1105,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Geode::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Geode::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Geode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1126,7 +1126,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Geode::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Geode::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Geode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1156,7 +1156,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::Geode::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Geode::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->Geode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1177,7 +1177,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::Geode::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Geode::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->Geode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1207,7 +1207,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::Geode::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Geode::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->Geode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1228,7 +1228,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Geode::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Geode::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->Geode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1258,7 +1258,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Geode::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Geode::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->Geode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1279,7 +1279,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Geode::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Geode::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->Geode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1314,7 +1314,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::ascend(nv);
 
@@ -1337,7 +1337,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::traverse(_arg1);
 
@@ -1355,7 +1355,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Geode::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1381,7 +1381,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Geode::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Geode::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1403,7 +1403,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Geode::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1422,7 +1422,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Geode::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Geode::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Geode::className();
 		lua_pushstring(L,lret);
@@ -1441,7 +1441,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Geode::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Geode::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Geode::libraryName();
 		lua_pushstring(L,lret);
@@ -1465,7 +1465,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::accept(nv);
 
@@ -1483,7 +1483,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Geode::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Geode::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->Geode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1504,7 +1504,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Geode::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Geode::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->Geode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1535,7 +1535,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::base_addDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::base_addDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Geode::addDrawable(drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -1555,7 +1555,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::base_removeDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::base_removeDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Geode::removeDrawable(drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -1578,7 +1578,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::base_removeDrawables(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::base_removeDrawables(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Geode::removeDrawables(i, numDrawablesToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1599,7 +1599,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::base_replaceDrawable(osg::Drawable *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::base_replaceDrawable(osg::Drawable *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Geode::replaceDrawable(origDraw, newDraw);
 		lua_pushboolean(L,lret?1:0);
@@ -1620,7 +1620,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geode::base_setDrawable(unsigned int, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Geode::base_setDrawable(unsigned int, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Geode::setDrawable(i, drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -1639,7 +1639,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Geode::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Geode::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->Geode::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1664,7 +1664,7 @@ public:
 		osg::Geode* self=Luna< osg::Referenced >::checkSubType< osg::Geode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Geode::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Geode::releaseGLObjects(_arg1);
 

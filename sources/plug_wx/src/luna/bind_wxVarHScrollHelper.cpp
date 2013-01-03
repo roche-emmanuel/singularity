@@ -229,7 +229,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxVarHScrollHelper::GetColumnCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxVarHScrollHelper::GetColumnCount() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		size_t lret = self->GetColumnCount();
 		lua_pushnumber(L,lret);
@@ -248,7 +248,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxVarHScrollHelper::GetVisibleColumnsBegin() const");
+			luaL_error(L, "Invalid object in function call size_t wxVarHScrollHelper::GetVisibleColumnsBegin() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		size_t lret = self->GetVisibleColumnsBegin();
 		lua_pushnumber(L,lret);
@@ -267,7 +267,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxVarHScrollHelper::GetVisibleColumnsEnd() const");
+			luaL_error(L, "Invalid object in function call size_t wxVarHScrollHelper::GetVisibleColumnsEnd() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		size_t lret = self->GetVisibleColumnsEnd();
 		lua_pushnumber(L,lret);
@@ -287,7 +287,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::IsColumnVisible(size_t) const");
+			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::IsColumnVisible(size_t) const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->IsColumnVisible(column);
 		lua_pushboolean(L,lret?1:0);
@@ -307,7 +307,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::RefreshColumn(size_t)");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::RefreshColumn(size_t). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->RefreshColumn(column);
 
@@ -327,7 +327,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::RefreshColumns(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::RefreshColumns(size_t, size_t). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->RefreshColumns(from, to);
 
@@ -346,7 +346,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::ScrollColumnPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::ScrollColumnPages(int). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->ScrollColumnPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -366,7 +366,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::ScrollColumns(int)");
+			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::ScrollColumns(int). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->ScrollColumns(columns);
 		lua_pushboolean(L,lret?1:0);
@@ -386,7 +386,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::ScrollToColumn(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::ScrollToColumn(size_t). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->ScrollToColumn(column);
 		lua_pushboolean(L,lret?1:0);
@@ -406,7 +406,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::SetColumnCount(size_t)");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::SetColumnCount(size_t). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->SetColumnCount(columnCount);
 
@@ -424,7 +424,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxVarHScrollHelper::base_GetTargetWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxVarHScrollHelper::base_GetTargetWindow() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxVarHScrollHelper::GetTargetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -445,7 +445,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_RefreshAll()");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_RefreshAll(). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarHScrollHelper::RefreshAll();
 
@@ -464,7 +464,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_SetTargetWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_SetTargetWindow(wxWindow *). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarHScrollHelper::SetTargetWindow(target);
 
@@ -482,7 +482,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_UpdateScrollbar()");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_UpdateScrollbar(). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarHScrollHelper::UpdateScrollbar();
 
@@ -501,7 +501,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_RefreshColumn(size_t)");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_RefreshColumn(size_t). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarHScrollHelper::RefreshColumn(column);
 
@@ -521,7 +521,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_RefreshColumns(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxVarHScrollHelper::base_RefreshColumns(size_t, size_t). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarHScrollHelper::RefreshColumns(from, to);
 
@@ -540,7 +540,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::base_ScrollColumnPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::base_ScrollColumnPages(int). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->wxVarHScrollHelper::ScrollColumnPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -560,7 +560,7 @@ public:
 		wxVarHScrollHelper* self=Luna< wxVarScrollHelperBase >::checkSubType< wxVarHScrollHelper >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::base_ScrollColumns(int)");
+			luaL_error(L, "Invalid object in function call bool wxVarHScrollHelper::base_ScrollColumns(int). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->wxVarHScrollHelper::ScrollColumns(columns);
 		lua_pushboolean(L,lret?1:0);

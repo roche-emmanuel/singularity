@@ -153,7 +153,7 @@ public:
 		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::SatisfyConstraints(wxWindow *, int *)");
+			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::SatisfyConstraints(wxWindow *, int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SatisfyConstraints(win, &noChanges);
 		lua_pushboolean(L,lret?1:0);
@@ -172,7 +172,7 @@ public:
 		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::AreSatisfied() const");
+			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::AreSatisfied() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AreSatisfied();
 		lua_pushboolean(L,lret?1:0);
@@ -191,7 +191,7 @@ public:
 		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxLayoutConstraints::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxLayoutConstraints::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxLayoutConstraints::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

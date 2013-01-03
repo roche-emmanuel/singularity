@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_load(lua_State *L) {
@@ -90,6 +97,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::Texture2DArray::SubloadCallback::SubloadCallback(lua_Table * data)
+	static osg::Texture2DArray::SubloadCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::SubloadCallback::SubloadCallback(lua_Table * data) function, expected prototype:\nosg::Texture2DArray::SubloadCallback::SubloadCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Texture2DArray_SubloadCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
@@ -113,7 +131,7 @@ public:
 		osg::Texture2DArray::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->load(texture, state);
 
@@ -141,7 +159,7 @@ public:
 		osg::Texture2DArray::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->subload(texture, state);
 
@@ -154,7 +172,7 @@ public:
 };
 
 osg::Texture2DArray::SubloadCallback* LunaTraits< osg::Texture2DArray::SubloadCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_Texture2DArray_SubloadCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
@@ -165,7 +183,7 @@ void LunaTraits< osg::Texture2DArray::SubloadCallback >::_bind_dtor(osg::Texture
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Texture2DArray::SubloadCallback >::className[] = "SubloadCallback";
+const char LunaTraits< osg::Texture2DArray::SubloadCallback >::className[] = "Texture2DArray_SubloadCallback";
 const char LunaTraits< osg::Texture2DArray::SubloadCallback >::fullName[] = "osg::Texture2DArray::SubloadCallback";
 const char LunaTraits< osg::Texture2DArray::SubloadCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture2DArray::SubloadCallback >::parents[] = {"osg.Referenced", 0};

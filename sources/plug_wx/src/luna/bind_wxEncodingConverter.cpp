@@ -179,7 +179,7 @@ public:
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxEncodingConverter::Convert(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxString wxEncodingConverter::Convert(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->Convert(input);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -203,7 +203,7 @@ public:
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEncodingConverter::Init(wxFontEncoding, wxFontEncoding, int)");
+			luaL_error(L, "Invalid object in function call bool wxEncodingConverter::Init(wxFontEncoding, wxFontEncoding, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Init(input_enc, output_enc, method);
 		lua_pushboolean(L,lret?1:0);
@@ -275,7 +275,7 @@ public:
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxEncodingConverter::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEncodingConverter::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxEncodingConverter::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

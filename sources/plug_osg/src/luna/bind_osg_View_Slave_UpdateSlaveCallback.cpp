@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_updateSlave(lua_State *L) {
@@ -82,6 +89,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::View::Slave::UpdateSlaveCallback::UpdateSlaveCallback(lua_Table * data)
+	static osg::View::Slave::UpdateSlaveCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::View::Slave::UpdateSlaveCallback::UpdateSlaveCallback(lua_Table * data) function, expected prototype:\nosg::View::Slave::UpdateSlaveCallback::UpdateSlaveCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_View_Slave_UpdateSlaveCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)
@@ -105,7 +123,7 @@ public:
 		osg::View::Slave::UpdateSlaveCallback* self=Luna< osg::Referenced >::checkSubType< osg::View::Slave::UpdateSlaveCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View &, osg::View::Slave &)");
+			luaL_error(L, "Invalid object in function call void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View &, osg::View::Slave &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->updateSlave(view, slave);
 
@@ -118,7 +136,7 @@ public:
 };
 
 osg::View::Slave::UpdateSlaveCallback* LunaTraits< osg::View::Slave::UpdateSlaveCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_View_Slave_UpdateSlaveCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)
@@ -128,7 +146,7 @@ void LunaTraits< osg::View::Slave::UpdateSlaveCallback >::_bind_dtor(osg::View::
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::className[] = "UpdateSlaveCallback";
+const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::className[] = "View_Slave_UpdateSlaveCallback";
 const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::fullName[] = "osg::View::Slave::UpdateSlaveCallback";
 const char LunaTraits< osg::View::Slave::UpdateSlaveCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::View::Slave::UpdateSlaveCallback >::parents[] = {"osg.Referenced", 0};

@@ -133,7 +133,7 @@ public:
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog *)");
+			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog *). Got : '%s'",typeid(Luna< wxDialogLayoutAdapter >::check(L,1)).name());
 		}
 		bool lret = self->CanDoLayoutAdaptation(dialog);
 		lua_pushboolean(L,lret?1:0);
@@ -153,7 +153,7 @@ public:
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog *)");
+			luaL_error(L, "Invalid object in function call bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog *). Got : '%s'",typeid(Luna< wxDialogLayoutAdapter >::check(L,1)).name());
 		}
 		bool lret = self->DoLayoutAdaptation(dialog);
 		lua_pushboolean(L,lret?1:0);

@@ -119,7 +119,7 @@ public:
 		wxStringClientData* self=Luna< wxClientData >::checkSubType< wxStringClientData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxStringClientData::GetData() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxStringClientData::GetData() const. Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetData();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -139,7 +139,7 @@ public:
 		wxStringClientData* self=Luna< wxClientData >::checkSubType< wxStringClientData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStringClientData::SetData(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxStringClientData::SetData(const wxString &). Got : '%s'",typeid(Luna< wxClientData >::check(L,1)).name());
 		}
 		self->SetData(data);
 

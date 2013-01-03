@@ -1171,7 +1171,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::AddToolbarButtons(wxToolBar *, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::AddToolbarButtons(wxToolBar *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddToolbarButtons(toolBar, style);
 
@@ -1197,7 +1197,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::Create(wxWindow *, int, const wxString &, int, wxConfigBase *, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::Create(wxWindow *, int, const wxString &, int, wxConfigBase *, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, title, style, config, rootpath);
 		lua_pushboolean(L,lret?1:0);
@@ -1216,7 +1216,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpFrame::GetController() const");
+			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpFrame::GetController() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxHtmlHelpController * lret = self->GetController();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1238,7 +1238,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::SetController(wxHtmlHelpController *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::SetController(wxHtmlHelpController *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetController(controller);
 
@@ -1257,7 +1257,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::SetTitleFormat(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::SetTitleFormat(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTitleFormat(format);
 
@@ -1275,7 +1275,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpFrame::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpFrame::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlHelpFrame::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1296,7 +1296,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1315,7 +1315,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1334,7 +1334,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1353,7 +1353,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1373,7 +1373,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetCanFocus(canFocus);
 
@@ -1391,7 +1391,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetFocus();
 
@@ -1409,7 +1409,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetFocusFromKbd();
 
@@ -1428,7 +1428,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::AddChild(child);
 
@@ -1447,7 +1447,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::RemoveChild(child);
 
@@ -1466,7 +1466,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1489,7 +1489,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1508,7 +1508,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHtmlHelpFrame::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1528,7 +1528,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHtmlHelpFrame::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1548,7 +1548,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHtmlHelpFrame::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1568,7 +1568,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1588,7 +1588,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1608,7 +1608,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1632,7 +1632,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::ScrollWindow(dx, dy, rect);
 
@@ -1655,7 +1655,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetScrollPos(orientation, pos, refresh);
 
@@ -1680,7 +1680,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1703,7 +1703,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1730,7 +1730,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1752,7 +1752,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Fit();
 
@@ -1770,7 +1770,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::FitInside();
 
@@ -1788,7 +1788,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1810,7 +1810,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1832,7 +1832,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1854,7 +1854,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1876,7 +1876,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1898,7 +1898,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1920,7 +1920,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHtmlHelpFrame::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHtmlHelpFrame::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1945,7 +1945,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1967,7 +1967,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SendSizeEvent(flags);
 
@@ -1990,7 +1990,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetMaxClientSize(size);
 
@@ -2013,7 +2013,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetMinClientSize(size);
 
@@ -2031,7 +2031,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::ClearBackground();
 
@@ -2049,7 +2049,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHtmlHelpFrame::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHtmlHelpFrame::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxHtmlHelpFrame::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2068,7 +2068,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHtmlHelpFrame::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2087,7 +2087,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHtmlHelpFrame::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHtmlHelpFrame::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2106,7 +2106,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHtmlHelpFrame::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHtmlHelpFrame::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxHtmlHelpFrame::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2132,7 +2132,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Refresh(eraseBackground, rect);
 
@@ -2150,7 +2150,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Update();
 
@@ -2169,7 +2169,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2193,7 +2193,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2212,7 +2212,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2232,7 +2232,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetThemeEnabled(enable);
 
@@ -2250,7 +2250,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2270,7 +2270,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetNextHandler(handler);
 
@@ -2289,7 +2289,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetPreviousHandler(handler);
 
@@ -2307,7 +2307,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxHtmlHelpFrame::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxHtmlHelpFrame::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxHtmlHelpFrame::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2327,7 +2327,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetExtraStyle(exStyle);
 
@@ -2346,7 +2346,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetWindowStyleFlag(style);
 
@@ -2364,7 +2364,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Lower();
 
@@ -2382,7 +2382,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Raise();
 
@@ -2404,7 +2404,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2423,7 +2423,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2442,7 +2442,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2464,7 +2464,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2486,7 +2486,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2509,7 +2509,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2534,7 +2534,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHtmlHelpFrame::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2553,7 +2553,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxHtmlHelpFrame::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxHtmlHelpFrame::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxHtmlHelpFrame::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2579,7 +2579,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetValidator(validator);
 
@@ -2597,7 +2597,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2616,7 +2616,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2635,7 +2635,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2654,7 +2654,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHtmlHelpFrame::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2673,7 +2673,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHtmlHelpFrame::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHtmlHelpFrame::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxHtmlHelpFrame::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2692,7 +2692,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHtmlHelpFrame::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2712,7 +2712,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetLabel(label);
 
@@ -2731,7 +2731,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetLayoutDirection(dir);
 
@@ -2750,7 +2750,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetName(name);
 
@@ -2773,7 +2773,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetAcceleratorTable(accel);
 
@@ -2791,7 +2791,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2810,7 +2810,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxHtmlHelpFrame::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxHtmlHelpFrame::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxHtmlHelpFrame::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2832,7 +2832,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetDropTarget(target);
 
@@ -2851,7 +2851,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::DragAcceptFiles(accept);
 
@@ -2869,7 +2869,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2893,7 +2893,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2914,7 +2914,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::WarpPointer(x, y);
 
@@ -2937,7 +2937,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::DoUpdateWindowUI(event);
 
@@ -2955,7 +2955,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2974,7 +2974,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::InheritAttributes();
 
@@ -2992,7 +2992,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::InitDialog();
 
@@ -3010,7 +3010,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3029,7 +3029,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3051,7 +3051,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::MakeModal(modal);
 
@@ -3069,7 +3069,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::OnInternalIdle();
 
@@ -3090,7 +3090,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3110,7 +3110,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3132,7 +3132,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::UpdateWindowUI(flags);
 
@@ -3150,7 +3150,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -3172,7 +3172,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_EnableCloseButton(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3191,7 +3191,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpFrame::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHtmlHelpFrame::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3213,7 +3213,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Iconize(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Iconize(iconize);
 
@@ -3231,7 +3231,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsActive()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -3250,7 +3250,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsAlwaysMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3269,7 +3269,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsFullScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3288,7 +3288,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3307,7 +3307,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3326,7 +3326,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3348,7 +3348,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Maximize(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::Maximize(maximize);
 
@@ -3369,7 +3369,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_RequestUserAttention(int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::RequestUserAttention(flags);
 
@@ -3392,7 +3392,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetIcons(const wxIconBundle &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetIcons(icons);
 
@@ -3415,7 +3415,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetMaxSize(size);
 
@@ -3438,7 +3438,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetMinSize(size);
 
@@ -3464,7 +3464,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3499,7 +3499,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3527,7 +3527,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetTitle(title);
 
@@ -3546,7 +3546,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3565,7 +3565,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShouldPreventAppExit() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3585,7 +3585,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_OSXSetModified(bool)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::OSXSetModified(modified);
 
@@ -3603,7 +3603,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_OSXIsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3626,7 +3626,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShowFullScreen(bool, long)");
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpFrame::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHtmlHelpFrame::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3651,7 +3651,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStatusBar * wxHtmlHelpFrame::base_CreateStatusBar(int, long, int, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxStatusBar * wxHtmlHelpFrame::base_CreateStatusBar(int, long, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxStatusBar * lret = self->wxHtmlHelpFrame::CreateStatusBar(number, style, id, name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3677,7 +3677,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxToolBar * wxHtmlHelpFrame::base_CreateToolBar(long, int, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxToolBar * wxHtmlHelpFrame::base_CreateToolBar(long, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxToolBar * lret = self->wxHtmlHelpFrame::CreateToolBar(style, id, name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3698,7 +3698,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxHtmlHelpFrame::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxHtmlHelpFrame::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxHtmlHelpFrame::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -3720,7 +3720,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuBar * wxHtmlHelpFrame::base_GetMenuBar() const");
+			luaL_error(L, "Invalid object in function call wxMenuBar * wxHtmlHelpFrame::base_GetMenuBar() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuBar * lret = self->wxHtmlHelpFrame::GetMenuBar();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3741,7 +3741,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStatusBar * wxHtmlHelpFrame::base_GetStatusBar() const");
+			luaL_error(L, "Invalid object in function call wxStatusBar * wxHtmlHelpFrame::base_GetStatusBar() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxStatusBar * lret = self->wxHtmlHelpFrame::GetStatusBar();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3762,7 +3762,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxToolBar * wxHtmlHelpFrame::base_GetToolBar() const");
+			luaL_error(L, "Invalid object in function call wxToolBar * wxHtmlHelpFrame::base_GetToolBar() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxToolBar * lret = self->wxHtmlHelpFrame::GetToolBar();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3787,7 +3787,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStatusBar * wxHtmlHelpFrame::base_OnCreateStatusBar(int, long, int, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxStatusBar * wxHtmlHelpFrame::base_OnCreateStatusBar(int, long, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxStatusBar * lret = self->wxHtmlHelpFrame::OnCreateStatusBar(number, style, id, name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3811,7 +3811,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxToolBar * wxHtmlHelpFrame::base_OnCreateToolBar(long, int, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxToolBar * wxHtmlHelpFrame::base_OnCreateToolBar(long, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxToolBar * lret = self->wxHtmlHelpFrame::OnCreateToolBar(style, id, name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3833,7 +3833,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMenuBar(wxMenuBar *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetMenuBar(wxMenuBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetMenuBar(menuBar);
 
@@ -3852,7 +3852,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetStatusBar(wxStatusBar *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetStatusBar(wxStatusBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetStatusBar(statusBar);
 
@@ -3874,7 +3874,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetStatusText(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetStatusText(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetStatusText(text, number);
 
@@ -3894,7 +3894,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetStatusWidths(int, const int *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetStatusWidths(int, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetStatusWidths(n, &widths_field);
 
@@ -3913,7 +3913,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetToolBar(wxToolBar *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_SetToolBar(wxToolBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::SetToolBar(toolBar);
 
@@ -3933,7 +3933,7 @@ public:
 		wxHtmlHelpFrame* self=Luna< wxObject >::checkSubType< wxHtmlHelpFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_AddToolbarButtons(wxToolBar *, int)");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpFrame::base_AddToolbarButtons(wxToolBar *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHtmlHelpFrame::AddToolbarButtons(toolBar, style);
 

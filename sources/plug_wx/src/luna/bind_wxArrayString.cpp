@@ -252,7 +252,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxArrayString::Add(const wxString &, size_t)");
+			luaL_error(L, "Invalid object in function call size_t wxArrayString::Add(const wxString &, size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		size_t lret = self->Add(str, copies);
 		lua_pushnumber(L,lret);
@@ -272,7 +272,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Alloc(size_t)");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Alloc(size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Alloc(nCount);
 
@@ -290,7 +290,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Clear()");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Clear(). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -308,7 +308,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Empty()");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Empty(). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Empty();
 
@@ -326,7 +326,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxArrayString::GetCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxArrayString::GetCount() const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		size_t lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -350,7 +350,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxArrayString::Index(const wxString &, bool, bool) const");
+			luaL_error(L, "Invalid object in function call int wxArrayString::Index(const wxString &, bool, bool) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		int lret = self->Index(sz, bCase, bFromEnd);
 		lua_pushnumber(L,lret);
@@ -374,7 +374,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Insert(wxString, size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Insert(wxString, size_t, size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Insert(lItem, nIndex, copies);
 
@@ -392,7 +392,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxArrayString::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxArrayString::IsEmpty() const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -412,7 +412,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Item(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Item(size_t) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		wxString & lret = self->Item(nIndex);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -431,7 +431,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Last() const");
+			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Last() const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		wxString & lret = self->Last();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -451,7 +451,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Remove(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Remove(const wxString &). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Remove(sz);
 
@@ -473,7 +473,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::RemoveAt(size_t, size_t)");
+			luaL_error(L, "Invalid object in function call void wxArrayString::RemoveAt(size_t, size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->RemoveAt(nIndex, count);
 
@@ -491,7 +491,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Shrink()");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Shrink(). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Shrink();
 
@@ -512,7 +512,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Sort(bool)");
+			luaL_error(L, "Invalid object in function call void wxArrayString::Sort(bool). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		self->Sort(reverseOrder);
 
@@ -537,7 +537,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxArrayString::operator!=(const wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call bool wxArrayString::operator!=(const wxArrayString &) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(array);
 		lua_pushboolean(L,lret?1:0);
@@ -561,7 +561,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxArrayString::operator==(const wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call bool wxArrayString::operator==(const wxArrayString &) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		bool lret = self->operator==(array);
 		lua_pushboolean(L,lret?1:0);
@@ -581,7 +581,7 @@ public:
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxArrayString::operator[](size_t) const");
+			luaL_error(L, "Invalid object in function call wxString & wxArrayString::operator[](size_t) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
 		}
 		wxString & lret = self->operator[](nIndex);
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -152,7 +152,7 @@ public:
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats *, osg::State *, __int64)");
+			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats *, osg::State *, __int64). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->checkQuery(stats, state, startTick);
 
@@ -172,7 +172,7 @@ public:
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::beginQuery(unsigned int, osg::State *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::beginQuery(unsigned int, osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->beginQuery(frameNumber, state);
 
@@ -191,7 +191,7 @@ public:
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::endQuery(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::endQuery(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->endQuery(state);
 
@@ -215,7 +215,7 @@ public:
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::initialize(osg::State *, __int64)");
+			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::initialize(osg::State *, __int64). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->initialize(state, startTick);
 
@@ -239,7 +239,7 @@ public:
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::base_initialize(osg::State *, __int64)");
+			luaL_error(L, "Invalid object in function call void osgViewer::OpenGLQuerySupport::base_initialize(osg::State *, __int64). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->OpenGLQuerySupport::initialize(state, startTick);
 

@@ -224,7 +224,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::Commit()");
+			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::Commit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Commit();
 		lua_pushboolean(L,lret?1:0);
@@ -243,7 +243,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTempFileOutputStream::Discard()");
+			luaL_error(L, "Invalid object in function call void wxTempFileOutputStream::Discard(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Discard();
 
@@ -261,7 +261,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTempFileOutputStream::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTempFileOutputStream::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTempFileOutputStream::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -282,7 +282,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTempFileOutputStream::base_GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxTempFileOutputStream::base_GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxTempFileOutputStream::GetLength();
 		lua_pushnumber(L,lret);
@@ -301,7 +301,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTempFileOutputStream::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxTempFileOutputStream::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxTempFileOutputStream::GetSize();
 		lua_pushnumber(L,lret);
@@ -320,7 +320,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTempFileOutputStream::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -339,7 +339,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_IsSeekable() const");
+			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTempFileOutputStream::IsSeekable();
 		lua_pushboolean(L,lret?1:0);
@@ -358,7 +358,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTempFileOutputStream::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -377,7 +377,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTempFileOutputStream::base_LastWrite() const");
+			luaL_error(L, "Invalid object in function call size_t wxTempFileOutputStream::base_LastWrite() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxTempFileOutputStream::LastWrite();
 		lua_pushnumber(L,lret);
@@ -400,7 +400,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTempFileOutputStream::base_SeekO(long long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxTempFileOutputStream::base_SeekO(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxTempFileOutputStream::SeekO(pos, mode);
 		lua_pushnumber(L,lret);
@@ -419,7 +419,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTempFileOutputStream::base_TellO() const");
+			luaL_error(L, "Invalid object in function call long long wxTempFileOutputStream::base_TellO() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxTempFileOutputStream::TellO();
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOutputStream & wxTempFileOutputStream::base_Write(const void *, size_t)");
+			luaL_error(L, "Invalid object in function call wxOutputStream & wxTempFileOutputStream::base_Write(const void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxOutputStream* lret = &self->wxTempFileOutputStream::Write(buffer, size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -461,7 +461,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_Commit()");
+			luaL_error(L, "Invalid object in function call bool wxTempFileOutputStream::base_Commit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxTempFileOutputStream::Commit();
 		lua_pushboolean(L,lret?1:0);
@@ -480,7 +480,7 @@ public:
 		wxTempFileOutputStream* self=Luna< wxObject >::checkSubType< wxTempFileOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTempFileOutputStream::base_Discard()");
+			luaL_error(L, "Invalid object in function call void wxTempFileOutputStream::base_Discard(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxTempFileOutputStream::Discard();
 

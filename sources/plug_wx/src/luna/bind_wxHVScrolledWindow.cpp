@@ -810,7 +810,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::Create(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, pos, size, style, name);
 		lua_pushboolean(L,lret?1:0);
@@ -829,7 +829,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHVScrolledWindow::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHVScrolledWindow::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHVScrolledWindow::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -850,7 +850,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -869,7 +869,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -888,7 +888,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -908,7 +908,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetCanFocus(canFocus);
 
@@ -926,7 +926,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetFocusFromKbd();
 
@@ -945,7 +945,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::AddChild(child);
 
@@ -964,7 +964,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::RemoveChild(child);
 
@@ -983,7 +983,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1006,7 +1006,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1025,7 +1025,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHVScrolledWindow::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1045,7 +1045,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHVScrolledWindow::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1065,7 +1065,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHVScrolledWindow::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1085,7 +1085,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1105,7 +1105,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1125,7 +1125,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1149,7 +1149,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::ScrollWindow(dx, dy, rect);
 
@@ -1172,7 +1172,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetScrollPos(orientation, pos, refresh);
 
@@ -1197,7 +1197,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1220,7 +1220,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1247,7 +1247,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1269,7 +1269,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::Fit();
 
@@ -1287,7 +1287,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::FitInside();
 
@@ -1305,7 +1305,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1327,7 +1327,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1349,7 +1349,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1371,7 +1371,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1393,7 +1393,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1415,7 +1415,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1437,7 +1437,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxHVScrolledWindow::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxHVScrolledWindow::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1462,7 +1462,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1484,7 +1484,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SendSizeEvent(flags);
 
@@ -1507,7 +1507,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetMaxClientSize(size);
 
@@ -1530,7 +1530,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetMaxSize(size);
 
@@ -1553,7 +1553,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetMinClientSize(size);
 
@@ -1576,7 +1576,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetMinSize(size);
 
@@ -1611,7 +1611,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1637,7 +1637,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1664,7 +1664,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxHVScrolledWindow::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxHVScrolledWindow::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxHVScrolledWindow::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1686,7 +1686,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::ClearBackground();
 
@@ -1704,7 +1704,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHVScrolledWindow::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxHVScrolledWindow::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxHVScrolledWindow::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1723,7 +1723,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHVScrolledWindow::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1742,7 +1742,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxHVScrolledWindow::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxHVScrolledWindow::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1761,7 +1761,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHVScrolledWindow::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxHVScrolledWindow::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxHVScrolledWindow::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1787,7 +1787,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::Refresh(eraseBackground, rect);
 
@@ -1805,7 +1805,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::Update();
 
@@ -1824,7 +1824,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1848,7 +1848,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1867,7 +1867,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -1887,7 +1887,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetThemeEnabled(enable);
 
@@ -1905,7 +1905,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -1924,7 +1924,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -1944,7 +1944,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -1964,7 +1964,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetNextHandler(handler);
 
@@ -1983,7 +1983,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetPreviousHandler(handler);
 
@@ -2001,7 +2001,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxHVScrolledWindow::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxHVScrolledWindow::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxHVScrolledWindow::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2021,7 +2021,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetExtraStyle(exStyle);
 
@@ -2040,7 +2040,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetWindowStyleFlag(style);
 
@@ -2058,7 +2058,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::Lower();
 
@@ -2076,7 +2076,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::Raise();
 
@@ -2098,7 +2098,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2117,7 +2117,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2136,7 +2136,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2158,7 +2158,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2180,7 +2180,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2203,7 +2203,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2228,7 +2228,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHVScrolledWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxHVScrolledWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHVScrolledWindow::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2247,7 +2247,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxHVScrolledWindow::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxHVScrolledWindow::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxHVScrolledWindow::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2273,7 +2273,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetValidator(validator);
 
@@ -2291,7 +2291,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2310,7 +2310,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2329,7 +2329,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2348,7 +2348,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHVScrolledWindow::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxHVScrolledWindow::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHVScrolledWindow::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2367,7 +2367,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHVScrolledWindow::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxHVScrolledWindow::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxHVScrolledWindow::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2386,7 +2386,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHVScrolledWindow::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxHVScrolledWindow::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxHVScrolledWindow::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2406,7 +2406,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetLabel(label);
 
@@ -2425,7 +2425,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetLayoutDirection(dir);
 
@@ -2444,7 +2444,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetName(name);
 
@@ -2467,7 +2467,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetAcceleratorTable(accel);
 
@@ -2485,7 +2485,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2504,7 +2504,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxHVScrolledWindow::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxHVScrolledWindow::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxHVScrolledWindow::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2526,7 +2526,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetDropTarget(target);
 
@@ -2545,7 +2545,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::DragAcceptFiles(accept);
 
@@ -2563,7 +2563,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2587,7 +2587,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2608,7 +2608,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::WarpPointer(x, y);
 
@@ -2631,7 +2631,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::DoUpdateWindowUI(event);
 
@@ -2649,7 +2649,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2668,7 +2668,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::InheritAttributes();
 
@@ -2686,7 +2686,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2705,7 +2705,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2727,7 +2727,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::MakeModal(modal);
 
@@ -2745,7 +2745,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::OnInternalIdle();
 
@@ -2766,7 +2766,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2786,7 +2786,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2808,7 +2808,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::UpdateWindowUI(flags);
 
@@ -2826,7 +2826,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2845,7 +2845,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::InitDialog();
 
@@ -2863,7 +2863,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxHVScrolledWindow::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxHVScrolledWindow::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2882,7 +2882,7 @@ public:
 		wxHVScrolledWindow* self=Luna< wxObject >::checkSubType< wxHVScrolledWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxHVScrolledWindow::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxHVScrolledWindow::SetFocus();
 

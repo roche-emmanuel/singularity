@@ -23,10 +23,12 @@ public:
 	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum, osg::Vec3Array * points, osg::Vec3Array * normals = 0) : osgUtil::DelaunayTriangulator(points, normals), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum, const osgUtil::DelaunayTriangulator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::DelaunayTriangulator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// int osgUtil::DelaunayTriangulator::getindex(const osg::Vec3f & pt, const osg::Vec3Array * points)
@@ -87,7 +89,7 @@ public:
 		wrapper_osgUtil_DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::DelaunayTriangulator::public_getindex(const osg::Vec3f &, const osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call int osgUtil::DelaunayTriangulator::public_getindex(const osg::Vec3f &, const osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->public_getindex(pt, points);
 		lua_pushnumber(L,lret);
@@ -108,7 +110,7 @@ public:
 		wrapper_osgUtil_DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -126,7 +128,7 @@ public:
 		wrapper_osgUtil_DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

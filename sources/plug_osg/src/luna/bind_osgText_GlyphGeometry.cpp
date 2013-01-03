@@ -186,7 +186,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setup(const osgText::Glyph3D *, const osgText::Style *)");
+			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setup(const osgText::Glyph3D *, const osgText::Style *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setup(glyph, style);
 
@@ -205,7 +205,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::GlyphGeometry::match(const osgText::Style *) const");
+			luaL_error(L, "Invalid object in function call bool osgText::GlyphGeometry::match(const osgText::Style *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->match(style);
 		lua_pushboolean(L,lret?1:0);
@@ -224,7 +224,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osgText::GlyphGeometry::getGeode() const");
+			luaL_error(L, "Invalid object in function call osg::Geode * osgText::GlyphGeometry::getGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->getGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -245,7 +245,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::GlyphGeometry::getGeometry() const");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::GlyphGeometry::getGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->getGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -267,7 +267,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setVertexArray(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setVertexArray(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertexArray(va);
 
@@ -285,7 +285,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::GlyphGeometry::getVertexArray() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::GlyphGeometry::getVertexArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getVertexArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -307,7 +307,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setNormalArray(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setNormalArray(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNormalArray(na);
 
@@ -325,7 +325,7 @@ public:
 		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::GlyphGeometry::getNormalArray() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::GlyphGeometry::getNormalArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.

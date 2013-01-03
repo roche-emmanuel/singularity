@@ -24,6 +24,7 @@ local Vector = require "std.Vector"
 local IteratorHandler = require "bindings.IteratorHandler"
 local SectionHandler = require "bindings.SectionHandler"
 local MemberWriter = require "bindings.MemberWriter"
+local tm = require "bindings.TypeManager"
 
 local log = require "logger"
 
@@ -725,8 +726,11 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
  	-- force parsing of that type:
  	btype:parse()
  	local bclass = btype:getBase() -- we assume this is a class !!!
- 	if bclass.addFunction then
+ 	if bclass.isClass and bclass:isClass() then
  		bclass:addFunction(func);
+	else
+		tm:registerMappedTypeFunction(btype:getBaseName(),func)
+		btype:addFunction(func)
  	end
  	
     --local sig = func:getSignature(true)
@@ -1089,9 +1093,9 @@ function ReflectionGenerator.generate(options)
 	tc:setFromLuaConverter("osg::observer_ptr<",obsptrFromLua)
 	tc:setFromLuaConverter("wxString",wxStringFromLua)
 	
-	tc:setFromLuaConverter("std::string",stdStringFromLua)
-	tc:setFromLuaConverter("std::string &",stdStringFromLua)
-	tc:setFromLuaConverter("const std::string &",stdStringFromLua)
+	tc:setFromLuaConverter("std::string$",stdStringFromLua)
+	tc:setFromLuaConverter("std::string &$",stdStringFromLua)
+	tc:setFromLuaConverter("const std::string &$",stdStringFromLua)
 	
 	tc:setFromLuaConverter("std::wstring",stdWStringFromLua)
 	tc:setFromLuaConverter("std::wstring &",stdWStringFromLua)
@@ -1102,7 +1106,7 @@ function ReflectionGenerator.generate(options)
 	tc:setFromLuaConverter("WebString &",stdAWEStringFromLua)
 	tc:setFromLuaConverter("const WebString &",stdAWEStringFromLua)
 	
-	tc:setFromLuaConverter("string",stdStringFromLua)
+	tc:setFromLuaConverter("string$",stdStringFromLua)
 	tc:setFromLuaConverter("unsigned char",ucharFromLua)
 	tc:setFromLuaConverter("const wxChar *",wxcharFromLua)
 	
@@ -1213,6 +1217,12 @@ function ReflectionGenerator.generate(options)
 	rm:setLuaOpenName(options.luaOpenName)
 	rm:setDestFolder(options.destpath)
 	rm:setDataMap(datamap)
+	rm:setConfig(options.config or {})
+	
+	local tm = require "bindings.TypeManager"
+	for src,dest in pairs(options.mappedModules or {}) do
+		tm:setMappedModuleName(src,dest)
+    end
 	
     datamap:setModuleName(options.modName)
 	datamap:setLuaOpenName(options.luaOpenName)

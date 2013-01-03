@@ -22,6 +22,11 @@ public:
 	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) : osgUtil::CullVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) : osgUtil::CullVisitor(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
@@ -324,9 +329,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osgUtil::CullVisitor::handle_cull_callbacks_and_traverse(osg::Node & node)
 	void public_handle_cull_callbacks_and_traverse(osg::Node & node) {
@@ -436,7 +438,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_traverse(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_handle_cull_callbacks_and_traverse(node);
 
@@ -460,7 +462,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node &, osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::public_handle_cull_callbacks_and_accept(osg::Node &, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_handle_cull_callbacks_and_accept(node, acceptNode);
 
@@ -484,7 +486,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float)");
+			luaL_error(L, "Invalid object in function call osgUtil::RenderLeaf * osgUtil::CullVisitor::public_createOrReuseRenderLeaf(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::RenderLeaf * lret = self->public_createOrReuseRenderLeaf(drawable, projection, matrix, depth);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -507,7 +509,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -525,7 +527,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 
@@ -543,7 +545,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::CullSettings >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume()");
+			luaL_error(L, "Invalid object in function call void osg::CullStack::public_computeFrustumVolume(). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		self->public_computeFrustumVolume();
 
@@ -566,7 +568,7 @@ public:
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::CullSettings >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osg::CullStack::public_createOrReuseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
 		}
 		osg::RefMatrixd * lret = self->public_createOrReuseMatrix(value);
 		if(!lret) return 0; // Do not write NULL pointers.

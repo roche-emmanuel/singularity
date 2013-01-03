@@ -126,3 +126,13 @@ function test_protected_function_access()
 	log:info("Tests","Protection function access test done.")
 end
 
+function test_diamond_inheritance_handling()
+	log:info("Tests","Testing diamond inheritance support.")
+	local handler = osgGA.GUIEventHandler()
+	
+	assert_not_equal(nil,handler,"Invalid GUIEventHandler object.")
+	handler:setIgnoreHandledEventsMask(0)
+
+	log:info("Tests","Done testing iamond inheritance support.")
+end
+

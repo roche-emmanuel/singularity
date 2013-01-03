@@ -199,7 +199,7 @@ public:
 		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geometry::ArrayData::empty() const");
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::ArrayData::empty() const. Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -222,7 +222,7 @@ void LunaTraits< osg::Geometry::ArrayData >::_bind_dtor(osg::Geometry::ArrayData
 	delete obj;
 }
 
-const char LunaTraits< osg::Geometry::ArrayData >::className[] = "ArrayData";
+const char LunaTraits< osg::Geometry::ArrayData >::className[] = "Geometry_ArrayData";
 const char LunaTraits< osg::Geometry::ArrayData >::fullName[] = "osg::Geometry::ArrayData";
 const char LunaTraits< osg::Geometry::ArrayData >::moduleName[] = "osg";
 const char* LunaTraits< osg::Geometry::ArrayData >::parents[] = {0};

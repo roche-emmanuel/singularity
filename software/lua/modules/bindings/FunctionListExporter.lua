@@ -2,6 +2,7 @@ local Class = require("classBuilder"){name="FunctionListExporter",bases="base.Ob
 
 local rm = require "bindings.ReflectionManager"
 local im = require "bindings.IgnoreManager"
+local tm = require "bindings.TypeManager"
 
 local Set = require "std.Set"
 
@@ -10,9 +11,10 @@ function Class:writeFile()
 	local buf = require("io.BufferWriter")()
 
 	-- write the module name:
-	buf:writeLine("module=".. rm:getDefaultModuleName())
+	--buf:writeLine("module=".. rm:getDefaultModuleName())
 	
 	local writtenTypes = Set();
+	local currentModule = nil;
 	
 	local namespaces = rm:getNamespaces()
 	
@@ -30,6 +32,15 @@ function Class:writeFile()
 			
 			if classname and not im:ignore(classname,"function") and not v:isExternal()  then
 				self:debug0_v("Writing function export for ", v:getFullName())
+				local rns = v:getRootNamespace()
+				local modName = rns and rns:getName() or rm:getDefaultModuleName()
+				modName = tm:getMappedModule(modName)
+				
+				if currentModule ~= modName then
+					buf:writeLine("module=".. modName)					
+					currentModule = modName;
+				end
+				
 				buf:writeSubLine("${1}",classname)
 			else
 				self:notice("Ignoring function export for ", v:getFullName(), " (typename=",classname,")")

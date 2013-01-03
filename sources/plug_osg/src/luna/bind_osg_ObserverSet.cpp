@@ -188,7 +188,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ObserverSet::getObserverdObject()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ObserverSet::getObserverdObject(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->getObserverdObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -209,7 +209,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ObserverSet::getObserverdObject() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ObserverSet::getObserverdObject() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->getObserverdObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -239,7 +239,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ObserverSet::addRefLock()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ObserverSet::addRefLock(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->addRefLock();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -261,7 +261,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverSet::addObserver(osg::Observer *)");
+			luaL_error(L, "Invalid object in function call void osg::ObserverSet::addObserver(osg::Observer *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addObserver(observer);
 
@@ -280,7 +280,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverSet::removeObserver(osg::Observer *)");
+			luaL_error(L, "Invalid object in function call void osg::ObserverSet::removeObserver(osg::Observer *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeObserver(observer);
 
@@ -299,7 +299,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverSet::signalObjectDeleted(void *)");
+			luaL_error(L, "Invalid object in function call void osg::ObserverSet::signalObjectDeleted(void *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->signalObjectDeleted(ptr);
 
@@ -317,7 +317,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ObserverSet::Observers & osg::ObserverSet::getObservers()");
+			luaL_error(L, "Invalid object in function call osg::ObserverSet::Observers & osg::ObserverSet::getObservers(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ObserverSet::Observers* lret = &self->getObservers();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -338,7 +338,7 @@ public:
 		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ObserverSet::Observers & osg::ObserverSet::getObservers() const");
+			luaL_error(L, "Invalid object in function call const osg::ObserverSet::Observers & osg::ObserverSet::getObservers() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ObserverSet::Observers* lret = &self->getObservers();
 		if(!lret) return 0; // Do not write NULL pointers.

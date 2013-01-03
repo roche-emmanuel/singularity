@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxPGChoiceEntry(lua_State* L, lua_Table* dum) : wxPGChoiceEntry(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -31,9 +36,6 @@ public:
 		return wxPGChoiceEntry::GetClassInfo();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

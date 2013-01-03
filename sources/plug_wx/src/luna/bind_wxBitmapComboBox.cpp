@@ -92,40 +92,13 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=0 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<7 || luatop>9 ) return false;
-
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
-		if( (!(Luna< wxPoint >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
-		if( (!(Luna< wxSize >::check(L,5))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
-		if( (!(Luna< wxArrayString >::check(L,6))) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
-		if( luatop>7 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,8))) ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<8 || luatop>10 ) return false;
 
@@ -1210,58 +1183,9 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxBitmapComboBox::wxBitmapComboBox()
+	// wxBitmapComboBox::wxBitmapComboBox(lua_Table * data)
 	static wxBitmapComboBox* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmapComboBox::wxBitmapComboBox() function, expected prototype:\nwxBitmapComboBox::wxBitmapComboBox()\nClass arguments details:\n");
-		}
-
-
-		return new wxBitmapComboBox();
-	}
-
-	// wxBitmapComboBox::wxBitmapComboBox(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr)
-	static wxBitmapComboBox* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmapComboBox::wxBitmapComboBox(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr) function, expected prototype:\nwxBitmapComboBox::wxBitmapComboBox(wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=(int)lua_tointeger(L,2);
-		wxString value(lua_tostring(L,3),lua_objlen(L,3));
-		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,4));
-		if( !pos_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxBitmapComboBox::wxBitmapComboBox function");
-		}
-		const wxPoint & pos=*pos_ptr;
-		const wxSize* size_ptr=(Luna< wxSize >::check(L,5));
-		if( !size_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg size in wxBitmapComboBox::wxBitmapComboBox function");
-		}
-		const wxSize & size=*size_ptr;
-		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,6));
-		if( !choices_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxBitmapComboBox::wxBitmapComboBox function");
-		}
-		const wxArrayString & choices=*choices_ptr;
-		long style=(long)lua_tointeger(L,7);
-		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
-		if( luatop>7 && !validator_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxBitmapComboBox::wxBitmapComboBox function");
-		}
-		const wxValidator & validator=luatop>7 ? *validator_ptr : wxDefaultValidator;
-		wxString name(lua_tostring(L,9),lua_objlen(L,9));
-
-		return new wxBitmapComboBox(parent, id, value, pos, size, choices, style, validator, name);
-	}
-
-	// wxBitmapComboBox::wxBitmapComboBox(lua_Table * data)
-	static wxBitmapComboBox* _bind_ctor_overload_3(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmapComboBox::wxBitmapComboBox(lua_Table * data) function, expected prototype:\nwxBitmapComboBox::wxBitmapComboBox(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -1271,8 +1195,8 @@ public:
 	}
 
 	// wxBitmapComboBox::wxBitmapComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr)
-	static wxBitmapComboBox* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
+	static wxBitmapComboBox* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmapComboBox::wxBitmapComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr) function, expected prototype:\nwxBitmapComboBox::wxBitmapComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 7 ID = 59507769\narg 9 ID = 56813631\narg 10 ID = 88196105\n");
 		}
@@ -1312,10 +1236,8 @@ public:
 	static wxBitmapComboBox* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
-		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxBitmapComboBox, cannot match any of the overloads for function wxBitmapComboBox:\n  wxBitmapComboBox()\n  wxBitmapComboBox(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxBitmapComboBox(lua_Table *)\n  wxBitmapComboBox(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxBitmapComboBox, cannot match any of the overloads for function wxBitmapComboBox:\n  wxBitmapComboBox(lua_Table *)\n  wxBitmapComboBox(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -1340,7 +1262,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::Append(const wxString &, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::Append(const wxString &, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Append(item, bitmap);
 		lua_pushnumber(L,lret);
@@ -1366,7 +1288,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::Append(const wxString &, const wxBitmap &, void *)");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::Append(const wxString &, const wxBitmap &, void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Append(item, bitmap, clientData);
 		lua_pushnumber(L,lret);
@@ -1392,7 +1314,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::Append(const wxString &, const wxBitmap &, wxClientData *)");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::Append(const wxString &, const wxBitmap &, wxClientData *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->Append(item, bitmap, clientData);
 		lua_pushnumber(L,lret);
@@ -1448,7 +1370,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, value, pos, size, choices, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1467,7 +1389,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::GetBitmapSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::GetBitmapSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetBitmapSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1490,7 +1412,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxBitmapComboBox::GetItemBitmap(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxBitmapComboBox::GetItemBitmap(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->GetItemBitmap(n);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -1518,7 +1440,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::SetItemBitmap(unsigned int, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::SetItemBitmap(unsigned int, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetItemBitmap(n, bitmap);
 
@@ -1536,7 +1458,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapComboBox::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapComboBox::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxBitmapComboBox::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1557,7 +1479,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1576,7 +1498,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1595,7 +1517,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1614,7 +1536,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1634,7 +1556,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetCanFocus(canFocus);
 
@@ -1652,7 +1574,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetFocus();
 
@@ -1670,7 +1592,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetFocusFromKbd();
 
@@ -1689,7 +1611,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::AddChild(child);
 
@@ -1708,7 +1630,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::RemoveChild(child);
 
@@ -1727,7 +1649,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1750,7 +1672,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1769,7 +1691,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1789,7 +1711,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1809,7 +1731,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1829,7 +1751,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1849,7 +1771,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1869,7 +1791,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1893,7 +1815,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::ScrollWindow(dx, dy, rect);
 
@@ -1916,7 +1838,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetScrollPos(orientation, pos, refresh);
 
@@ -1941,7 +1863,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1964,7 +1886,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1991,7 +1913,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2013,7 +1935,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Fit();
 
@@ -2031,7 +1953,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::FitInside();
 
@@ -2049,7 +1971,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2071,7 +1993,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2093,7 +2015,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2115,7 +2037,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2137,7 +2059,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2159,7 +2081,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2181,7 +2103,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2206,7 +2128,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2228,7 +2150,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SendSizeEvent(flags);
 
@@ -2251,7 +2173,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetMaxClientSize(size);
 
@@ -2274,7 +2196,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetMaxSize(size);
 
@@ -2297,7 +2219,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetMinClientSize(size);
 
@@ -2320,7 +2242,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetMinSize(size);
 
@@ -2355,7 +2277,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2381,7 +2303,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2408,7 +2330,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxBitmapComboBox::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxBitmapComboBox::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxBitmapComboBox::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2430,7 +2352,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::ClearBackground();
 
@@ -2448,7 +2370,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxBitmapComboBox::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxBitmapComboBox::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxBitmapComboBox::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2467,7 +2389,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2486,7 +2408,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2505,7 +2427,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxBitmapComboBox::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxBitmapComboBox::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxBitmapComboBox::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2531,7 +2453,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Refresh(eraseBackground, rect);
 
@@ -2549,7 +2471,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Update();
 
@@ -2568,7 +2490,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2592,7 +2514,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2611,7 +2533,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2631,7 +2553,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetThemeEnabled(enable);
 
@@ -2649,7 +2571,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2668,7 +2590,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2688,7 +2610,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2708,7 +2630,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetNextHandler(handler);
 
@@ -2727,7 +2649,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetPreviousHandler(handler);
 
@@ -2745,7 +2667,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxBitmapComboBox::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxBitmapComboBox::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxBitmapComboBox::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2765,7 +2687,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetExtraStyle(exStyle);
 
@@ -2784,7 +2706,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetWindowStyleFlag(style);
 
@@ -2802,7 +2724,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Lower();
 
@@ -2820,7 +2742,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Raise();
 
@@ -2842,7 +2764,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2861,7 +2783,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2880,7 +2802,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2902,7 +2824,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2924,7 +2846,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2947,7 +2869,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2972,7 +2894,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2991,7 +2913,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxBitmapComboBox::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxBitmapComboBox::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxBitmapComboBox::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3017,7 +2939,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetValidator(validator);
 
@@ -3035,7 +2957,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3054,7 +2976,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3073,7 +2995,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3092,7 +3014,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxBitmapComboBox::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxBitmapComboBox::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxBitmapComboBox::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3111,7 +3033,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3131,7 +3053,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetLayoutDirection(dir);
 
@@ -3150,7 +3072,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetName(name);
 
@@ -3173,7 +3095,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetAcceleratorTable(accel);
 
@@ -3191,7 +3113,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3210,7 +3132,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxBitmapComboBox::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxBitmapComboBox::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxBitmapComboBox::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3232,7 +3154,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetDropTarget(target);
 
@@ -3251,7 +3173,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::DragAcceptFiles(accept);
 
@@ -3269,7 +3191,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3288,7 +3210,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3312,7 +3234,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3333,7 +3255,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::WarpPointer(x, y);
 
@@ -3356,7 +3278,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::DoUpdateWindowUI(event);
 
@@ -3374,7 +3296,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3393,7 +3315,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::InheritAttributes();
 
@@ -3411,7 +3333,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::InitDialog();
 
@@ -3429,7 +3351,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3448,7 +3370,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3470,7 +3392,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::MakeModal(modal);
 
@@ -3488,7 +3410,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::OnInternalIdle();
 
@@ -3509,7 +3431,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3529,7 +3451,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3551,7 +3473,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::UpdateWindowUI(flags);
 
@@ -3574,7 +3496,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Command(wxCommandEvent &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Command(event);
 
@@ -3592,7 +3514,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3612,7 +3534,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetLabel(label);
 
@@ -3631,7 +3553,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_AppendText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_AppendText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::AppendText(text);
 
@@ -3649,7 +3571,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanCopy() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanCopy() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::CanCopy();
 		lua_pushboolean(L,lret?1:0);
@@ -3668,7 +3590,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanCut() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanCut() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::CanCut();
 		lua_pushboolean(L,lret?1:0);
@@ -3687,7 +3609,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanPaste() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanPaste() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::CanPaste();
 		lua_pushboolean(L,lret?1:0);
@@ -3706,7 +3628,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanRedo() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -3725,7 +3647,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanUndo() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -3745,7 +3667,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_ChangeValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_ChangeValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::ChangeValue(value);
 
@@ -3763,7 +3685,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Clear()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Clear();
 
@@ -3781,7 +3703,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Copy()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Copy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Copy();
 
@@ -3799,7 +3721,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxBitmapComboBox::base_GetLastPosition() const");
+			luaL_error(L, "Invalid object in function call long wxBitmapComboBox::base_GetLastPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxBitmapComboBox::GetLastPosition();
 		lua_pushnumber(L,lret);
@@ -3820,7 +3742,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetRange(long, long) const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetRange(long, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetRange(from, to);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3839,7 +3761,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetValue() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3858,7 +3780,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsEditable() const");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_IsEditable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::IsEditable();
 		lua_pushboolean(L,lret?1:0);
@@ -3877,7 +3799,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Paste()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Paste(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Paste();
 
@@ -3895,7 +3817,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Redo()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Redo();
 
@@ -3915,7 +3837,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Remove(long, long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Remove(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Remove(from, to);
 
@@ -3936,7 +3858,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Replace(long, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Replace(long, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Replace(from, to, value);
 
@@ -3955,7 +3877,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetEditable(bool)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetEditable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetEditable(editable);
 
@@ -3974,7 +3896,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetInsertionPoint(long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetInsertionPoint(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetInsertionPoint(pos);
 
@@ -3992,7 +3914,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetInsertionPointEnd()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetInsertionPointEnd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetInsertionPointEnd();
 
@@ -4011,7 +3933,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMaxLength(unsigned long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetMaxLength(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetMaxLength(len);
 
@@ -4029,7 +3951,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SelectAll()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SelectAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SelectAll();
 
@@ -4048,7 +3970,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxBitmapComboBox::base_SetHint(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBitmapComboBox::SetHint(hint);
 		lua_pushboolean(L,lret?1:0);
@@ -4067,7 +3989,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetHint() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetHint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetHint();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4086,7 +4008,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Undo()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Undo();
 
@@ -4105,7 +4027,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_WriteText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_WriteText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::WriteText(text);
 
@@ -4123,7 +4045,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetCurrentSelection() const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetCurrentSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetCurrentSelection();
 		lua_pushnumber(L,lret);
@@ -4142,7 +4064,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxBitmapComboBox::base_GetInsertionPoint() const");
+			luaL_error(L, "Invalid object in function call long wxBitmapComboBox::base_GetInsertionPoint() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxBitmapComboBox::GetInsertionPoint();
 		lua_pushnumber(L,lret);
@@ -4163,7 +4085,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSelection(long, long)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSelection(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetSelection(from, to);
 
@@ -4182,7 +4104,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSelection(int)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetSelection(n);
 
@@ -4210,7 +4132,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetValue(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetValue(text);
 
@@ -4228,7 +4150,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Popup()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Popup(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Popup();
 
@@ -4246,7 +4168,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Dismiss()");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_Dismiss(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::Dismiss();
 
@@ -4264,7 +4186,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetSelection() const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::GetSelection();
 		lua_pushnumber(L,lret);
@@ -4285,7 +4207,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_GetSelection(long *, long *) const");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::GetSelection(&from, &to);
 
@@ -4316,7 +4238,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_FindString(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call int wxBitmapComboBox::base_FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxBitmapComboBox::FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -4336,7 +4258,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetString(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetString(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetString(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4355,7 +4277,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetStringSelection() const");
+			luaL_error(L, "Invalid object in function call wxString wxBitmapComboBox::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxBitmapComboBox::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4376,7 +4298,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetString(unsigned int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetString(unsigned int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetString(n, string);
 
@@ -4394,7 +4316,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxBitmapComboBox::base_GetCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxBitmapComboBox::base_GetCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxBitmapComboBox::GetCount();
 		lua_pushnumber(L,lret);
@@ -4413,7 +4335,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetBitmapSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxBitmapComboBox::base_GetBitmapSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxBitmapComboBox::GetBitmapSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -4436,7 +4358,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxBitmapComboBox::base_GetItemBitmap(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxBitmapComboBox::base_GetItemBitmap(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->wxBitmapComboBox::GetItemBitmap(n);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -4464,7 +4386,7 @@ public:
 		wxBitmapComboBox* self=Luna< wxObject >::checkSubType< wxBitmapComboBox >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetItemBitmap(unsigned int, const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxBitmapComboBox::base_SetItemBitmap(unsigned int, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBitmapComboBox::SetItemBitmap(n, bitmap);
 
@@ -4480,6 +4402,11 @@ wxBitmapComboBox* LunaTraits< wxBitmapComboBox >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxBitmapComboBox::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// void wxItemContainer::DoSetItemClientData(unsigned int arg1, void * arg2)
+	// void * wxItemContainer::DoGetItemClientData(unsigned int arg1) const
+	// void wxItemContainer::DoClear()
+	// void wxItemContainer::DoDeleteOneItem(unsigned int arg1)
+	// int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 }
 
 void LunaTraits< wxBitmapComboBox >::_bind_dtor(wxBitmapComboBox* obj) {

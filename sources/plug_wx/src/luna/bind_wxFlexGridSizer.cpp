@@ -523,7 +523,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::AddGrowableCol(size_t, int)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::AddGrowableCol(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddGrowableCol(idx, proportion);
 
@@ -545,7 +545,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::AddGrowableRow(size_t, int)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::AddGrowableRow(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddGrowableRow(idx, proportion);
 
@@ -563,7 +563,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFlexGridSizer::GetFlexibleDirection() const");
+			luaL_error(L, "Invalid object in function call int wxFlexGridSizer::GetFlexibleDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFlexibleDirection();
 		lua_pushnumber(L,lret);
@@ -582,7 +582,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFlexSizerGrowMode wxFlexGridSizer::GetNonFlexibleGrowMode() const");
+			luaL_error(L, "Invalid object in function call wxFlexSizerGrowMode wxFlexGridSizer::GetNonFlexibleGrowMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxFlexSizerGrowMode lret = self->GetNonFlexibleGrowMode();
 		lua_pushnumber(L,lret);
@@ -602,7 +602,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::IsColGrowable(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::IsColGrowable(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsColGrowable(idx);
 		lua_pushboolean(L,lret?1:0);
@@ -622,7 +622,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::IsRowGrowable(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::IsRowGrowable(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsRowGrowable(idx);
 		lua_pushboolean(L,lret?1:0);
@@ -642,7 +642,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::RemoveGrowableCol(size_t)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::RemoveGrowableCol(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RemoveGrowableCol(idx);
 
@@ -661,7 +661,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::RemoveGrowableRow(size_t)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::RemoveGrowableRow(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RemoveGrowableRow(idx);
 
@@ -680,7 +680,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::SetFlexibleDirection(int)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::SetFlexibleDirection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFlexibleDirection(direction);
 
@@ -699,7 +699,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::SetNonFlexibleGrowMode(wxFlexSizerGrowMode)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::SetNonFlexibleGrowMode(wxFlexSizerGrowMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetNonFlexibleGrowMode(mode);
 
@@ -717,7 +717,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::RecalcSizes()");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RecalcSizes();
 
@@ -735,7 +735,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFlexGridSizer::CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxFlexGridSizer::CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -757,7 +757,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFlexGridSizer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFlexGridSizer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFlexGridSizer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -779,7 +779,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerItem * wxFlexGridSizer::base_AddSpacer(int)");
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxFlexGridSizer::base_AddSpacer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSizerItem * lret = self->wxFlexGridSizer::AddSpacer(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -803,7 +803,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::base_Clear(bool)");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::base_Clear(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFlexGridSizer::Clear(delete_windows);
 
@@ -822,7 +822,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Detach(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Detach(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Detach(window);
 		lua_pushboolean(L,lret?1:0);
@@ -842,7 +842,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Detach(wxSizer *)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Detach(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Detach(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -862,7 +862,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Detach(int)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Detach(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Detach(index);
 		lua_pushboolean(L,lret?1:0);
@@ -894,7 +894,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -913,7 +913,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::base_Layout()");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFlexGridSizer::Layout();
 
@@ -932,7 +932,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Remove(wxSizer *)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Remove(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Remove(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -952,7 +952,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Remove(int)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Remove(index);
 		lua_pushboolean(L,lret?1:0);
@@ -985,7 +985,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Replace(wxWindow *, wxWindow *, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Replace(wxWindow *, wxWindow *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Replace(oldwin, newwin, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -1009,7 +1009,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Replace(wxSizer *, wxSizer *, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Replace(wxSizer *, wxSizer *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Replace(oldsz, newsz, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -1030,7 +1030,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Replace(size_t, wxSizerItem *)");
+			luaL_error(L, "Invalid object in function call bool wxFlexGridSizer::base_Replace(size_t, wxSizerItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFlexGridSizer::Replace(index, newitem);
 		lua_pushboolean(L,lret?1:0);
@@ -1059,7 +1059,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::base_RecalcSizes()");
+			luaL_error(L, "Invalid object in function call void wxFlexGridSizer::base_RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFlexGridSizer::RecalcSizes();
 
@@ -1077,7 +1077,7 @@ public:
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxFlexGridSizer::base_CalcMin()");
+			luaL_error(L, "Invalid object in function call wxSize wxFlexGridSizer::base_CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxFlexGridSizer::CalcMin();
 		wxSize* lret = new wxSize(stack_lret);

@@ -25,6 +25,11 @@ public:
 	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::RefMatrixf & other) : osg::RefMatrixf(other), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) : osg::RefMatrixf(a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -131,9 +136,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
@@ -176,7 +178,7 @@ public:
 		wrapper_osg_RefMatrixf* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -194,7 +196,7 @@ public:
 		wrapper_osg_RefMatrixf* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_RefMatrixf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

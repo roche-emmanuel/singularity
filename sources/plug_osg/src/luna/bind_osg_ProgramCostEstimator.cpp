@@ -158,7 +158,7 @@ public:
 		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ProgramCostEstimator::setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::ProgramCostEstimator::setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDefaults();
 
@@ -181,7 +181,7 @@ public:
 		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ProgramCostEstimator::calibrate(osg::RenderInfo &)");
+			luaL_error(L, "Invalid object in function call void osg::ProgramCostEstimator::calibrate(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->calibrate(renderInfo);
 
@@ -200,7 +200,7 @@ public:
 		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::ProgramCostEstimator::estimateCompileCost(const osg::Program *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::ProgramCostEstimator::estimateCompileCost(const osg::Program *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(program);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -223,7 +223,7 @@ public:
 		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::ProgramCostEstimator::estimateDrawCost(const osg::Program *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::ProgramCostEstimator::estimateDrawCost(const osg::Program *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(program);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);

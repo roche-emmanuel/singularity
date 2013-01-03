@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_VariableRateCounter(lua_State* L, lua_Table* dum) : osgParticle::VariableRateCounter(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_VariableRateCounter(lua_State* L, lua_Table* dum, const osgParticle::VariableRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::VariableRateCounter(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -129,9 +134,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
@@ -174,7 +176,7 @@ public:
 		wrapper_osgParticle_VariableRateCounter* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_VariableRateCounter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -192,7 +194,7 @@ public:
 		wrapper_osgParticle_VariableRateCounter* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_VariableRateCounter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

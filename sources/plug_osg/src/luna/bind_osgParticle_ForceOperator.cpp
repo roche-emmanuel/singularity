@@ -363,7 +363,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -389,7 +389,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -411,7 +411,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::ForceOperator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::ForceOperator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -430,7 +430,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -449,7 +449,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -468,7 +468,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::ForceOperator::getForce() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::ForceOperator::getForce() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getForce();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -494,7 +494,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::setForce(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::setForce(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setForce(f);
 
@@ -514,7 +514,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operate(P, dt);
 
@@ -533,7 +533,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::beginOperate(osgParticle::Program *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->beginOperate(prg);
 
@@ -552,7 +552,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::setName(name);
 
@@ -570,7 +570,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::computeDataVariance();
 
@@ -589,7 +589,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::setUserData(obj);
 
@@ -607,7 +607,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::ForceOperator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::ForceOperator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ForceOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -628,7 +628,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::ForceOperator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::ForceOperator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ForceOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -661,7 +661,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::releaseGLObjects(_arg1);
 
@@ -681,7 +681,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_operateParticles(osgParticle::ParticleSystem *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_operateParticles(osgParticle::ParticleSystem *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::operateParticles(ps, dt);
 
@@ -699,7 +699,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_endOperate()");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_endOperate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::endOperate();
 
@@ -717,7 +717,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ForceOperator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -743,7 +743,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::ForceOperator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ForceOperator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -765,7 +765,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::ForceOperator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::ForceOperator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ForceOperator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -784,7 +784,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ForceOperator::libraryName();
 		lua_pushstring(L,lret);
@@ -803,7 +803,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::ForceOperator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ForceOperator::className();
 		lua_pushstring(L,lret);
@@ -824,7 +824,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::operate(P, dt);
 
@@ -843,7 +843,7 @@ public:
 		osgParticle::ForceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::ForceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_beginOperate(osgParticle::Program *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ForceOperator::base_beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ForceOperator::beginOperate(prg);
 

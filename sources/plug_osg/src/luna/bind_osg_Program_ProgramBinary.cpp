@@ -345,7 +345,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -371,7 +371,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -393,7 +393,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::ProgramBinary::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Program::ProgramBinary::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -412,7 +412,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -431,7 +431,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -452,7 +452,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::assign(unsigned int, const unsigned char *)");
+			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::assign(unsigned int, const unsigned char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->assign(size, &data);
 
@@ -471,7 +471,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::setFormat(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::setFormat(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFormat(format);
 
@@ -489,7 +489,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Program::ProgramBinary::getFormat() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Program::ProgramBinary::getFormat() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFormat();
 		lua_pushnumber(L,lret);
@@ -508,7 +508,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Program::ProgramBinary::getSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Program::ProgramBinary::getSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getSize();
 		lua_pushnumber(L,lret);
@@ -527,7 +527,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * osg::Program::ProgramBinary::getData()");
+			luaL_error(L, "Invalid object in function call unsigned char * osg::Program::ProgramBinary::getData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned char * lret = self->getData();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -546,7 +546,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * osg::Program::ProgramBinary::getData() const");
+			luaL_error(L, "Invalid object in function call const unsigned char * osg::Program::ProgramBinary::getData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const unsigned char * lret = self->getData();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -575,7 +575,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ProgramBinary::setName(name);
 
@@ -593,7 +593,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ProgramBinary::computeDataVariance();
 
@@ -612,7 +612,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ProgramBinary::setUserData(obj);
 
@@ -630,7 +630,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Program::ProgramBinary::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Program::ProgramBinary::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ProgramBinary::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -651,7 +651,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Program::ProgramBinary::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Program::ProgramBinary::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ProgramBinary::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -684,7 +684,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Program::ProgramBinary::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ProgramBinary::releaseGLObjects(_arg1);
 
@@ -702,7 +702,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ProgramBinary::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -728,7 +728,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Program::ProgramBinary::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ProgramBinary::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -750,7 +750,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Program::ProgramBinary::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Program::ProgramBinary::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ProgramBinary::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -769,7 +769,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ProgramBinary::libraryName();
 		lua_pushstring(L,lret);
@@ -788,7 +788,7 @@ public:
 		osg::Program::ProgramBinary* self=Luna< osg::Referenced >::checkSubType< osg::Program::ProgramBinary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Program::ProgramBinary::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ProgramBinary::className();
 		lua_pushstring(L,lret);
@@ -811,7 +811,7 @@ void LunaTraits< osg::Program::ProgramBinary >::_bind_dtor(osg::Program::Program
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Program::ProgramBinary >::className[] = "ProgramBinary";
+const char LunaTraits< osg::Program::ProgramBinary >::className[] = "Program_ProgramBinary";
 const char LunaTraits< osg::Program::ProgramBinary >::fullName[] = "osg::Program::ProgramBinary";
 const char LunaTraits< osg::Program::ProgramBinary >::moduleName[] = "osg";
 const char* LunaTraits< osg::Program::ProgramBinary >::parents[] = {"osg.Object", 0};

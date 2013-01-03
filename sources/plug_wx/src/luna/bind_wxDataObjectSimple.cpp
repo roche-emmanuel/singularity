@@ -170,7 +170,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::GetDataHere(void *) const");
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -189,7 +189,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::GetDataSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetDataSize();
 		lua_pushnumber(L,lret);
@@ -208,7 +208,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDataFormat & wxDataObjectSimple::GetFormat() const");
+			luaL_error(L, "Invalid object in function call const wxDataFormat & wxDataObjectSimple::GetFormat() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		const wxDataFormat* lret = &self->GetFormat();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -231,7 +231,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::SetData(size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);
@@ -255,7 +255,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataObjectSimple::SetFormat(const wxDataFormat &)");
+			luaL_error(L, "Invalid object in function call void wxDataObjectSimple::SetFormat(const wxDataFormat &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->SetFormat(format);
 
@@ -274,7 +274,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_GetDataHere(void *) const");
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataObjectSimple::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -293,7 +293,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::base_GetDataSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxDataObjectSimple::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -314,7 +314,7 @@ public:
 		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_SetData(size_t, const void *)");
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataObjectSimple::SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);

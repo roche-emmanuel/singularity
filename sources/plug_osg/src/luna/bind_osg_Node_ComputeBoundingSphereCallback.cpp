@@ -314,7 +314,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -340,7 +340,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -362,7 +362,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Node::ComputeBoundingSphereCallback::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Node::ComputeBoundingSphereCallback::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -381,7 +381,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -400,7 +400,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -424,7 +424,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node &) const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound(_arg1);
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -447,7 +447,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundingSphereCallback::setName(name);
 
@@ -465,7 +465,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundingSphereCallback::computeDataVariance();
 
@@ -484,7 +484,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundingSphereCallback::setUserData(obj);
 
@@ -502,7 +502,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Node::ComputeBoundingSphereCallback::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Node::ComputeBoundingSphereCallback::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ComputeBoundingSphereCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -523,7 +523,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Node::ComputeBoundingSphereCallback::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Node::ComputeBoundingSphereCallback::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ComputeBoundingSphereCallback::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -556,7 +556,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Node::ComputeBoundingSphereCallback::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ComputeBoundingSphereCallback::releaseGLObjects(_arg1);
 
@@ -574,7 +574,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ComputeBoundingSphereCallback::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -600,7 +600,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Node::ComputeBoundingSphereCallback::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ComputeBoundingSphereCallback::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -622,7 +622,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Node::ComputeBoundingSphereCallback::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Node::ComputeBoundingSphereCallback::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ComputeBoundingSphereCallback::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -641,7 +641,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ComputeBoundingSphereCallback::libraryName();
 		lua_pushstring(L,lret);
@@ -660,7 +660,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Node::ComputeBoundingSphereCallback::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ComputeBoundingSphereCallback::className();
 		lua_pushstring(L,lret);
@@ -684,7 +684,7 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=Luna< osg::Referenced >::checkSubType< osg::Node::ComputeBoundingSphereCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::base_computeBound(const osg::Node &) const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::base_computeBound(const osg::Node &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->ComputeBoundingSphereCallback::computeBound(_arg1);
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -710,7 +710,7 @@ void LunaTraits< osg::Node::ComputeBoundingSphereCallback >::_bind_dtor(osg::Nod
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::className[] = "ComputeBoundingSphereCallback";
+const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::className[] = "Node_ComputeBoundingSphereCallback";
 const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::fullName[] = "osg::Node::ComputeBoundingSphereCallback";
 const char LunaTraits< osg::Node::ComputeBoundingSphereCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Node::ComputeBoundingSphereCallback >::parents[] = {"osg.Object", 0};

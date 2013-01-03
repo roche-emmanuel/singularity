@@ -80,6 +80,19 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnRequest(lua_State *L) {
@@ -101,6 +114,37 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// Awesomium::ResourceInterceptor::ResourceInterceptor()
+	static Awesomium::ResourceInterceptor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::ResourceInterceptor::ResourceInterceptor() function, expected prototype:\nAwesomium::ResourceInterceptor::ResourceInterceptor()\nClass arguments details:\n");
+		}
+
+
+		return new Awesomium::ResourceInterceptor();
+	}
+
+	// Awesomium::ResourceInterceptor::ResourceInterceptor(lua_Table * data)
+	static Awesomium::ResourceInterceptor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::ResourceInterceptor::ResourceInterceptor(lua_Table * data) function, expected prototype:\nAwesomium::ResourceInterceptor::ResourceInterceptor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_Awesomium_ResourceInterceptor(L,NULL);
+	}
+
+	// Overload binder for Awesomium::ResourceInterceptor::ResourceInterceptor
+	static Awesomium::ResourceInterceptor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ResourceInterceptor, cannot match any of the overloads for function ResourceInterceptor:\n  ResourceInterceptor()\n  ResourceInterceptor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
@@ -153,7 +197,7 @@ public:
 };
 
 Awesomium::ResourceInterceptor* LunaTraits< Awesomium::ResourceInterceptor >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_Awesomium_ResourceInterceptor::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }

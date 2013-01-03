@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxRichMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE) : wxRichMessageDialog(parent, message, caption, style), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// int wxRichMessageDialog::ShowModal()
 	int ShowModal() {
@@ -31,9 +36,6 @@ public:
 		return wxRichMessageDialog::ShowModal();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

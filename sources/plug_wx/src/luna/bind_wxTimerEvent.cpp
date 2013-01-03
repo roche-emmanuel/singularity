@@ -163,7 +163,7 @@ public:
 		wxTimerEvent* self=Luna< wxObject >::checkSubType< wxTimerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTimerEvent::GetInterval() const");
+			luaL_error(L, "Invalid object in function call int wxTimerEvent::GetInterval() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetInterval();
 		lua_pushnumber(L,lret);
@@ -182,7 +182,7 @@ public:
 		wxTimerEvent* self=Luna< wxObject >::checkSubType< wxTimerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimer & wxTimerEvent::GetTimer() const");
+			luaL_error(L, "Invalid object in function call wxTimer & wxTimerEvent::GetTimer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxTimer* lret = &self->GetTimer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -203,7 +203,7 @@ public:
 		wxTimerEvent* self=Luna< wxObject >::checkSubType< wxTimerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTimerEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTimerEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxTimerEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -224,7 +224,7 @@ public:
 		wxTimerEvent* self=Luna< wxObject >::checkSubType< wxTimerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxTimerEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxTimerEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxTimerEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

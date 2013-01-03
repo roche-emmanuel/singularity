@@ -1133,7 +1133,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::AddBookCtrl(wxSizer *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::AddBookCtrl(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->AddBookCtrl(sizer);
 
@@ -1168,7 +1168,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::Create(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(parent, id, title, pos, size, style, name);
 		lua_pushboolean(L,lret?1:0);
@@ -1187,7 +1187,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBookCtrlBase * wxPropertySheetDialog::CreateBookCtrl()");
+			luaL_error(L, "Invalid object in function call wxBookCtrlBase * wxPropertySheetDialog::CreateBookCtrl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBookCtrlBase * lret = self->CreateBookCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1211,7 +1211,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::CreateButtons(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::CreateButtons(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CreateButtons(flags);
 
@@ -1229,7 +1229,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBookCtrlBase * wxPropertySheetDialog::GetBookCtrl() const");
+			luaL_error(L, "Invalid object in function call wxBookCtrlBase * wxPropertySheetDialog::GetBookCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBookCtrlBase * lret = self->GetBookCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1250,7 +1250,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizer * wxPropertySheetDialog::GetInnerSizer() const");
+			luaL_error(L, "Invalid object in function call wxSizer * wxPropertySheetDialog::GetInnerSizer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSizer * lret = self->GetInnerSizer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1271,7 +1271,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxPropertySheetDialog::GetSheetStyle() const");
+			luaL_error(L, "Invalid object in function call long wxPropertySheetDialog::GetSheetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetSheetStyle();
 		lua_pushnumber(L,lret);
@@ -1293,7 +1293,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::LayoutDialog(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::LayoutDialog(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->LayoutDialog(centreFlags);
 
@@ -1312,7 +1312,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::SetBookCtrl(wxBookCtrlBase *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::SetBookCtrl(wxBookCtrlBase *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetBookCtrl(bookCtrl);
 
@@ -1331,7 +1331,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::SetSheetStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::SetSheetStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSheetStyle(style);
 
@@ -1349,7 +1349,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPropertySheetDialog::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPropertySheetDialog::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPropertySheetDialog::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1370,7 +1370,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1389,7 +1389,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1408,7 +1408,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1427,7 +1427,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1447,7 +1447,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetCanFocus(canFocus);
 
@@ -1465,7 +1465,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetFocus();
 
@@ -1483,7 +1483,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetFocusFromKbd();
 
@@ -1502,7 +1502,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::AddChild(child);
 
@@ -1521,7 +1521,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::RemoveChild(child);
 
@@ -1540,7 +1540,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1563,7 +1563,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1582,7 +1582,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPropertySheetDialog::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1602,7 +1602,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPropertySheetDialog::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1622,7 +1622,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPropertySheetDialog::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1642,7 +1642,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1662,7 +1662,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1682,7 +1682,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1706,7 +1706,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::ScrollWindow(dx, dy, rect);
 
@@ -1729,7 +1729,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetScrollPos(orientation, pos, refresh);
 
@@ -1754,7 +1754,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1777,7 +1777,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1804,7 +1804,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1826,7 +1826,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Fit();
 
@@ -1844,7 +1844,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::FitInside();
 
@@ -1862,7 +1862,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1884,7 +1884,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1906,7 +1906,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1928,7 +1928,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1950,7 +1950,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1972,7 +1972,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1994,7 +1994,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertySheetDialog::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPropertySheetDialog::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2019,7 +2019,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2041,7 +2041,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SendSizeEvent(flags);
 
@@ -2064,7 +2064,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetMaxClientSize(size);
 
@@ -2087,7 +2087,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetMinClientSize(size);
 
@@ -2105,7 +2105,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPropertySheetDialog::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxPropertySheetDialog::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxPropertySheetDialog::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2127,7 +2127,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::ClearBackground();
 
@@ -2145,7 +2145,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPropertySheetDialog::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPropertySheetDialog::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxPropertySheetDialog::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2164,7 +2164,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPropertySheetDialog::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2183,7 +2183,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPropertySheetDialog::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2202,7 +2202,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPropertySheetDialog::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPropertySheetDialog::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxPropertySheetDialog::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2228,7 +2228,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Refresh(eraseBackground, rect);
 
@@ -2246,7 +2246,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Update();
 
@@ -2265,7 +2265,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2289,7 +2289,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2308,7 +2308,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2328,7 +2328,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetThemeEnabled(enable);
 
@@ -2346,7 +2346,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2366,7 +2366,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetNextHandler(handler);
 
@@ -2385,7 +2385,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetPreviousHandler(handler);
 
@@ -2403,7 +2403,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxPropertySheetDialog::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxPropertySheetDialog::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxPropertySheetDialog::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2423,7 +2423,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetExtraStyle(exStyle);
 
@@ -2442,7 +2442,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetWindowStyleFlag(style);
 
@@ -2460,7 +2460,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Lower();
 
@@ -2478,7 +2478,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Raise();
 
@@ -2500,7 +2500,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2519,7 +2519,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2538,7 +2538,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2560,7 +2560,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2583,7 +2583,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2608,7 +2608,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPropertySheetDialog::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2627,7 +2627,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxPropertySheetDialog::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxPropertySheetDialog::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxPropertySheetDialog::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2653,7 +2653,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetValidator(validator);
 
@@ -2671,7 +2671,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2690,7 +2690,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2709,7 +2709,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2728,7 +2728,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPropertySheetDialog::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2747,7 +2747,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPropertySheetDialog::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPropertySheetDialog::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxPropertySheetDialog::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2766,7 +2766,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPropertySheetDialog::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2786,7 +2786,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetLabel(label);
 
@@ -2805,7 +2805,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetLayoutDirection(dir);
 
@@ -2824,7 +2824,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetName(name);
 
@@ -2847,7 +2847,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetAcceleratorTable(accel);
 
@@ -2865,7 +2865,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2884,7 +2884,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxPropertySheetDialog::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxPropertySheetDialog::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxPropertySheetDialog::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2906,7 +2906,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetDropTarget(target);
 
@@ -2925,7 +2925,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::DragAcceptFiles(accept);
 
@@ -2943,7 +2943,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2967,7 +2967,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2988,7 +2988,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::WarpPointer(x, y);
 
@@ -3011,7 +3011,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::DoUpdateWindowUI(event);
 
@@ -3029,7 +3029,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3048,7 +3048,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::InheritAttributes();
 
@@ -3066,7 +3066,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::InitDialog();
 
@@ -3084,7 +3084,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3103,7 +3103,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3125,7 +3125,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::MakeModal(modal);
 
@@ -3143,7 +3143,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::OnInternalIdle();
 
@@ -3164,7 +3164,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3184,7 +3184,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3206,7 +3206,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::UpdateWindowUI(flags);
 
@@ -3224,7 +3224,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -3246,7 +3246,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_EnableCloseButton(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3265,7 +3265,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetTitle() const");
+			luaL_error(L, "Invalid object in function call wxString wxPropertySheetDialog::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPropertySheetDialog::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3284,7 +3284,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsActive()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -3303,7 +3303,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsAlwaysMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3322,7 +3322,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsFullScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3341,7 +3341,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsMaximized() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3360,7 +3360,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3382,7 +3382,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Maximize(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Maximize(maximize);
 
@@ -3403,7 +3403,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_RequestUserAttention(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::RequestUserAttention(flags);
 
@@ -3426,7 +3426,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetMaxSize(size);
 
@@ -3449,7 +3449,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetMinSize(size);
 
@@ -3475,7 +3475,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3510,7 +3510,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3538,7 +3538,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetTitle(title);
 
@@ -3557,7 +3557,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3576,7 +3576,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShouldPreventAppExit() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3596,7 +3596,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_OSXSetModified(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::OSXSetModified(modified);
 
@@ -3614,7 +3614,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_OSXIsModified() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3637,7 +3637,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShowFullScreen(bool, long)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3656,7 +3656,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_CanDoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_CanDoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::CanDoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3675,7 +3675,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_DoLayoutAdaptation()");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_DoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::DoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3695,7 +3695,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_EndModal(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_EndModal(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::EndModal(retCode);
 
@@ -3713,7 +3713,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxPropertySheetDialog::base_GetContentWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxPropertySheetDialog::base_GetContentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxPropertySheetDialog::GetContentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3737,7 +3737,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Iconize(bool)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::Iconize(iconize);
 
@@ -3755,7 +3755,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsIconized() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3774,7 +3774,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsModal() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_IsModal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::IsModal();
 		lua_pushboolean(L,lret?1:0);
@@ -3798,7 +3798,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetIcons(const wxIconBundle &)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::SetIcons(icons);
 
@@ -3819,7 +3819,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPropertySheetDialog::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertySheetDialog::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3838,7 +3838,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_ShowModal()");
+			luaL_error(L, "Invalid object in function call int wxPropertySheetDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPropertySheetDialog::ShowModal();
 		lua_pushnumber(L,lret);
@@ -3858,7 +3858,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_AddBookCtrl(wxSizer *)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_AddBookCtrl(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::AddBookCtrl(sizer);
 
@@ -3876,7 +3876,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBookCtrlBase * wxPropertySheetDialog::base_CreateBookCtrl()");
+			luaL_error(L, "Invalid object in function call wxBookCtrlBase * wxPropertySheetDialog::base_CreateBookCtrl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBookCtrlBase * lret = self->wxPropertySheetDialog::CreateBookCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3900,7 +3900,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_CreateButtons(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_CreateButtons(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::CreateButtons(flags);
 
@@ -3921,7 +3921,7 @@ public:
 		wxPropertySheetDialog* self=Luna< wxObject >::checkSubType< wxPropertySheetDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_LayoutDialog(int)");
+			luaL_error(L, "Invalid object in function call void wxPropertySheetDialog::base_LayoutDialog(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertySheetDialog::LayoutDialog(centreFlags);
 

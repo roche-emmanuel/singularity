@@ -188,7 +188,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketInputStream::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketInputStream::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSocketInputStream::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -209,7 +209,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxSocketInputStream::base_GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxSocketInputStream::base_GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxSocketInputStream::GetLength();
 		lua_pushnumber(L,lret);
@@ -228,7 +228,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxSocketInputStream::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxSocketInputStream::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxSocketInputStream::GetSize();
 		lua_pushnumber(L,lret);
@@ -247,7 +247,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketInputStream::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -266,7 +266,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_IsSeekable() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketInputStream::IsSeekable();
 		lua_pushboolean(L,lret?1:0);
@@ -285,7 +285,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_CanRead() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_CanRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketInputStream::CanRead();
 		lua_pushboolean(L,lret?1:0);
@@ -304,7 +304,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_Eof() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketInputStream::base_Eof() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketInputStream::Eof();
 		lua_pushboolean(L,lret?1:0);
@@ -323,7 +323,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxSocketInputStream::base_LastRead() const");
+			luaL_error(L, "Invalid object in function call size_t wxSocketInputStream::base_LastRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxSocketInputStream::LastRead();
 		lua_pushnumber(L,lret);
@@ -342,7 +342,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char wxSocketInputStream::base_Peek()");
+			luaL_error(L, "Invalid object in function call char wxSocketInputStream::base_Peek(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		char lret = self->wxSocketInputStream::Peek();
 		lua_pushnumber(L,lret);
@@ -363,7 +363,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream & wxSocketInputStream::base_Read(void *, size_t)");
+			luaL_error(L, "Invalid object in function call wxInputStream & wxSocketInputStream::base_Read(void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxInputStream* lret = &self->wxSocketInputStream::Read(buffer, size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -388,7 +388,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxSocketInputStream::base_SeekI(long long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxSocketInputStream::base_SeekI(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxSocketInputStream::SeekI(pos, mode);
 		lua_pushnumber(L,lret);
@@ -407,7 +407,7 @@ public:
 		wxSocketInputStream* self=Luna< wxObject >::checkSubType< wxSocketInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxSocketInputStream::base_TellI() const");
+			luaL_error(L, "Invalid object in function call long long wxSocketInputStream::base_TellI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxSocketInputStream::TellI();
 		lua_pushnumber(L,lret);

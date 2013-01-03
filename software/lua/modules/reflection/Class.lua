@@ -8,6 +8,7 @@ local utils = require "utils"
 
 local tm = require "bindings.TypeManager"
 local im = require "bindings.IgnoreManager"
+local rm = require "bindings.ReflectionManager"
 local ItemSet = require "reflection.ItemSet"
 
 function Class:initialize(options)
@@ -18,6 +19,22 @@ end
 
 function Class:getMappedType()
 	return self.mappedType
+end
+
+function Class:getFullLuaName(withModule)
+	local result = ""
+	if self:getParent():isClass() then
+		result = self:getParent():getFullLuaName() .. "_"
+	end
+	
+	result = result .. self:getName()
+	
+	if withModule then
+		local mname = rm:getDefaultModuleName()
+		result = (self:getModule() or mname) .. "." .. result
+	end
+	
+	return result
 end
 
 function Class:setMappedType(type)
@@ -47,7 +64,7 @@ function Class:getAllAbsoluteBaseHashes()
 		table.insert(hashes,utils.getHash(tm:getAbsoluteBaseName(self)))
 	else
 	    for _,v in self:getAbsoluteBases():sequence() do
-	        table.insert(hashes,utils.getHash(v:getFullName()));
+	        table.insert(hashes,utils.getHash(tm:getAbsoluteBaseName(v)));
 	    end
     end
     return hashes
@@ -269,7 +286,11 @@ function Class:isVirtual()
 end
 
 function Class:getTypeName()
-	return self:getMappedType() and self:getMappedType():getName() or self:getFullName()
+	local mtype = self:getMappedType() and self:getMappedType():getName()
+	if mtype and self:isRecursivePublic() then
+		tm:registerMappedType(mtype)
+	end
+	return  mtype or self:getFullName()
 end
 
 function Class:isValidForWrapping()
@@ -290,6 +311,21 @@ end
 
 function Class:isExternal()
 	return self.externalModule or tm:getModule(self)
+end
+
+function Class:addDefaultConstructor()
+	local allcons = self:getFunctions{"Constructor"}
+	if allcons:empty() then
+		-- add default public constructor:
+		local func = Function()
+		func:setName(self:getName())
+		func:setArgsString("()")
+		func:setSection("public")
+		func:setConstness(false)
+		func:setStatic(false)
+	
+		self:addFunction(func)
+	end
 end
 
 function Class:addWrapperConstructors()

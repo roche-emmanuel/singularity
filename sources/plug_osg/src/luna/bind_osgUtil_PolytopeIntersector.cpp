@@ -387,7 +387,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::insertIntersection(const osgUtil::PolytopeIntersector::Intersection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->insertIntersection(intersection);
 
@@ -405,7 +405,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections()");
+			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersections & osgUtil::PolytopeIntersector::getIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgUtil::PolytopeIntersector::Intersections* lret = &self->getIntersections();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -426,7 +426,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection()");
+			luaL_error(L, "Invalid object in function call osgUtil::PolytopeIntersector::Intersection osgUtil::PolytopeIntersector::getFirstIntersection(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::PolytopeIntersector::Intersection stack_lret = self->getFirstIntersection();
 		osgUtil::PolytopeIntersector::Intersection* lret = new osgUtil::PolytopeIntersector::Intersection(stack_lret);
@@ -448,7 +448,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::PolytopeIntersector::getDimensionMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDimensionMask();
 		lua_pushnumber(L,lret);
@@ -468,7 +468,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setDimensionMask(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDimensionMask(dimensionMask);
 
@@ -486,7 +486,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const");
+			luaL_error(L, "Invalid object in function call const osg::Plane & osgUtil::PolytopeIntersector::getReferencePlane() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Plane* lret = &self->getReferencePlane();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -512,7 +512,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::setReferencePlane(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setReferencePlane(plane);
 
@@ -535,7 +535,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor &)");
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Intersector * lret = self->clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -561,7 +561,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::enter(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -580,7 +580,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->leave();
 
@@ -604,7 +604,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->intersect(iv, drawable);
 
@@ -622,7 +622,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -640,7 +640,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::containsIntersections()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->containsIntersections();
 		lua_pushboolean(L,lret?1:0);
@@ -664,7 +664,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor &)");
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PolytopeIntersector::base_clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Intersector * lret = self->PolytopeIntersector::clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -690,7 +690,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_enter(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PolytopeIntersector::enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -709,7 +709,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolytopeIntersector::leave();
 
@@ -733,7 +733,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolytopeIntersector::intersect(iv, drawable);
 
@@ -751,7 +751,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PolytopeIntersector::reset();
 
@@ -769,7 +769,7 @@ public:
 		osgUtil::PolytopeIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PolytopeIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_containsIntersections()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::base_containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PolytopeIntersector::containsIntersections();
 		lua_pushboolean(L,lret?1:0);

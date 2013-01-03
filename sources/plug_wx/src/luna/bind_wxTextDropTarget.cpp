@@ -156,7 +156,7 @@ public:
 		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::OnDrop(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::OnDrop(int, int). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		bool lret = self->OnDrop(x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -178,7 +178,7 @@ public:
 		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::OnDropText(int, int, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::OnDropText(int, int, const wxString &). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		bool lret = self->OnDropText(x, y, data);
 		lua_pushboolean(L,lret?1:0);
@@ -200,7 +200,7 @@ public:
 		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxTextDropTarget::base_OnDragOver(int, int, wxDragResult)");
+			luaL_error(L, "Invalid object in function call wxDragResult wxTextDropTarget::base_OnDragOver(int, int, wxDragResult). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		wxDragResult lret = self->wxTextDropTarget::OnDragOver(x, y, def);
 		lua_pushnumber(L,lret);
@@ -222,7 +222,7 @@ public:
 		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxTextDropTarget::base_OnEnter(int, int, wxDragResult)");
+			luaL_error(L, "Invalid object in function call wxDragResult wxTextDropTarget::base_OnEnter(int, int, wxDragResult). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		wxDragResult lret = self->wxTextDropTarget::OnEnter(x, y, def);
 		lua_pushnumber(L,lret);
@@ -241,7 +241,7 @@ public:
 		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextDropTarget::base_OnLeave()");
+			luaL_error(L, "Invalid object in function call void wxTextDropTarget::base_OnLeave(). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		self->wxTextDropTarget::OnLeave();
 
@@ -261,7 +261,7 @@ public:
 		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::base_OnDrop(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::base_OnDrop(int, int). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		bool lret = self->wxTextDropTarget::OnDrop(x, y);
 		lua_pushboolean(L,lret?1:0);

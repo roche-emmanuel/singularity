@@ -22,6 +22,11 @@ public:
 	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum) : osgGA::CameraManipulator(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum, const osgGA::CameraManipulator & mm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::CameraManipulator(mm, copyOp), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -331,9 +336,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// std::string osgGA::CameraManipulator::getManipulatorName() const
 	std::string public_getManipulatorName() const {
@@ -385,7 +387,7 @@ public:
 		wrapper_osgGA_CameraManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_CameraManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const");
+			luaL_error(L, "Invalid object in function call std::string osgGA::CameraManipulator::public_getManipulatorName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		std::string lret = self->public_getManipulatorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -406,7 +408,7 @@ public:
 		wrapper_osgGA_CameraManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_CameraManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -424,7 +426,7 @@ public:
 		wrapper_osgGA_CameraManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_CameraManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

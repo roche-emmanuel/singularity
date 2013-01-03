@@ -180,3 +180,4 @@ osgDB::OutputStream& endl(osgDB::OutputStream& os) {
 	os << std::endl;
 	return os;
 }
+

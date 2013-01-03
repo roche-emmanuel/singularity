@@ -105,7 +105,7 @@ public:
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PolytopeIntersector::Intersection::operator<(const osgUtil::PolytopeIntersector::Intersection &) const. Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -126,7 +126,7 @@ void LunaTraits< osgUtil::PolytopeIntersector::Intersection >::_bind_dtor(osgUti
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::className[] = "Intersection";
+const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::className[] = "PolytopeIntersector_Intersection";
 const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::fullName[] = "osgUtil::PolytopeIntersector::Intersection";
 const char LunaTraits< osgUtil::PolytopeIntersector::Intersection >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::PolytopeIntersector::Intersection >::parents[] = {0};

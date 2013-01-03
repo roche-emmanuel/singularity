@@ -223,7 +223,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::makeMesh(osg::Geometry &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::makeMesh(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->makeMesh(geom);
 
@@ -241,7 +241,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::makeMesh()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::makeMesh(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->makeMesh();
 
@@ -268,7 +268,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::IndexMeshVisitor::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IndexMeshVisitor::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->IndexMeshVisitor::libraryName();
 		lua_pushstring(L,lret);
@@ -287,7 +287,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgUtil::IndexMeshVisitor::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IndexMeshVisitor::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->IndexMeshVisitor::className();
 		lua_pushstring(L,lret);
@@ -306,7 +306,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IndexMeshVisitor::base_getEyePoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IndexMeshVisitor::base_getEyePoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->IndexMeshVisitor::getEyePoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -328,7 +328,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IndexMeshVisitor::base_getViewPoint() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IndexMeshVisitor::base_getViewPoint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->IndexMeshVisitor::getViewPoint();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -356,7 +356,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IndexMeshVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IndexMeshVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->IndexMeshVisitor::getDistanceToEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -381,7 +381,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IndexMeshVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IndexMeshVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->IndexMeshVisitor::getDistanceFromEyePoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -406,7 +406,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::IndexMeshVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+			luaL_error(L, "Invalid object in function call float osgUtil::IndexMeshVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->IndexMeshVisitor::getDistanceToViewPoint(_arg1, _arg2);
 		lua_pushnumber(L,lret);
@@ -425,7 +425,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IndexMeshVisitor::reset();
 
@@ -448,7 +448,7 @@ public:
 		osgUtil::IndexMeshVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IndexMeshVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::base_apply(osg::Geode &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IndexMeshVisitor::base_apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->IndexMeshVisitor::apply(geode);
 

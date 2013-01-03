@@ -23,10 +23,12 @@ public:
 	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::LineSegment & seg) : osg::LineSegment(seg), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::Vec3d & s, const osg::Vec3d & e) : osg::LineSegment(s, e), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// static bool osg::LineSegment::intersectAndClip(osg::Vec3d & s, osg::Vec3d & e, const osg::BoundingBoxd & bb)
@@ -97,7 +99,7 @@ public:
 		wrapper_osg_LineSegment* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static bool osg::LineSegment::public_intersectAndClip(osg::Vec3d &, osg::Vec3d &, const osg::BoundingBoxd &)");
+			luaL_error(L, "Invalid object in function call static bool osg::LineSegment::public_intersectAndClip(osg::Vec3d &, osg::Vec3d &, const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_intersectAndClip(s, e, bb);
 		lua_pushboolean(L,lret?1:0);
@@ -118,7 +120,7 @@ public:
 		wrapper_osg_LineSegment* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -136,7 +138,7 @@ public:
 		wrapper_osg_LineSegment* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

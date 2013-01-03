@@ -19,7 +19,9 @@ function TextCorrector:__init()
     obj._TRACE_ = "TextCorrector"
     obj:debug3("Created TextCorrector object.")
     
-    obj:addCorrector("filename","[:<>%s]","_")
+    obj:addCorrector("filename","%*","_ptr_")
+    obj:addCorrector("filename","&","_ref_")
+    obj:addCorrector("filename","[:<>%s%*,]","_")
     obj:addCorrector("filename","__+","_")
     obj:addCorrector("filename","^_+","")
     obj:addCorrector("filename","_+$","")

@@ -194,7 +194,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegEx::Compile(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call bool wxRegEx::Compile(const wxString &, int). Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		bool lret = self->Compile(pattern, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -218,7 +218,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegEx::GetMatch(size_t *, size_t *, size_t) const");
+			luaL_error(L, "Invalid object in function call bool wxRegEx::GetMatch(size_t *, size_t *, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		bool lret = self->GetMatch(&start, &len, index);
 		lua_pushboolean(L,lret?1:0);
@@ -241,7 +241,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRegEx::GetMatch(const wxString &, size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxRegEx::GetMatch(const wxString &, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		wxString lret = self->GetMatch(text, index);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -269,7 +269,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxRegEx::GetMatchCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxRegEx::GetMatchCount() const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		size_t lret = self->GetMatchCount();
 		lua_pushnumber(L,lret);
@@ -288,7 +288,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegEx::IsValid() const");
+			luaL_error(L, "Invalid object in function call bool wxRegEx::IsValid() const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -312,7 +312,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRegEx::Replace(wxString *, const wxString &, size_t) const");
+			luaL_error(L, "Invalid object in function call int wxRegEx::Replace(wxString *, const wxString &, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		int lret = self->Replace(&text, replacement, maxMatches);
 		lua_pushnumber(L,lret);
@@ -333,7 +333,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceAll(wxString *, const wxString &) const");
+			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceAll(wxString *, const wxString &) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		int lret = self->ReplaceAll(&text, replacement);
 		lua_pushnumber(L,lret);
@@ -354,7 +354,7 @@ public:
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceFirst(wxString *, const wxString &) const");
+			luaL_error(L, "Invalid object in function call int wxRegEx::ReplaceFirst(wxString *, const wxString &) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
 		int lret = self->ReplaceFirst(&text, replacement);
 		lua_pushnumber(L,lret);

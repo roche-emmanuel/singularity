@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxGridCellDateTimeRenderer(lua_State* L, lua_Table* dum, const wxString & outformat = wxDefaultDateTimeFormat, const wxString & informat = wxDefaultDateTimeFormat) : wxGridCellDateTimeRenderer(outformat, informat), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {
@@ -62,9 +67,6 @@ public:
 		return wxGridCellDateTimeRenderer::SetParameters(params);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

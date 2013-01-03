@@ -191,7 +191,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::EnumerateEncodings(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::EnumerateEncodings(const wxString &). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->EnumerateEncodings(font);
 		lua_pushboolean(L,lret?1:0);
@@ -214,7 +214,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding, bool). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->EnumerateFacenames(encoding, fixedWidthOnly);
 		lua_pushboolean(L,lret?1:0);
@@ -234,7 +234,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::OnFacename(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::OnFacename(const wxString &). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->OnFacename(font);
 		lua_pushboolean(L,lret?1:0);
@@ -255,7 +255,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::OnFontEncoding(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::OnFontEncoding(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->OnFontEncoding(font, encoding);
 		lua_pushboolean(L,lret?1:0);
@@ -333,7 +333,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_EnumerateEncodings(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_EnumerateEncodings(const wxString &). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->wxFontEnumerator::EnumerateEncodings(font);
 		lua_pushboolean(L,lret?1:0);
@@ -356,7 +356,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_EnumerateFacenames(wxFontEncoding, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_EnumerateFacenames(wxFontEncoding, bool). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->wxFontEnumerator::EnumerateFacenames(encoding, fixedWidthOnly);
 		lua_pushboolean(L,lret?1:0);
@@ -376,7 +376,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_OnFacename(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_OnFacename(const wxString &). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->wxFontEnumerator::OnFacename(font);
 		lua_pushboolean(L,lret?1:0);
@@ -397,7 +397,7 @@ public:
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_OnFontEncoding(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_OnFontEncoding(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxFontEnumerator >::check(L,1)).name());
 		}
 		bool lret = self->wxFontEnumerator::OnFontEncoding(font, encoding);
 		lua_pushboolean(L,lret?1:0);

@@ -410,7 +410,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::BoxPlacer::getXRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::BoxPlacer::getXRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getXRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,7 +436,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setXRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setXRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setXRange(r);
 
@@ -456,7 +456,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setXRange(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setXRange(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setXRange(r1, r2);
 
@@ -483,7 +483,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::BoxPlacer::getYRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::BoxPlacer::getYRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getYRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -509,7 +509,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setYRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setYRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setYRange(r);
 
@@ -529,7 +529,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setYRange(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setYRange(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setYRange(r1, r2);
 
@@ -556,7 +556,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::BoxPlacer::getZRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::BoxPlacer::getZRange() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getZRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -582,7 +582,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setZRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setZRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setZRange(r);
 
@@ -602,7 +602,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setZRange(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::setZRange(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setZRange(r1, r2);
 
@@ -629,7 +629,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -655,7 +655,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,7 +677,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::BoxPlacer::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::BoxPlacer::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -696,7 +696,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -715,7 +715,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -735,7 +735,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::place(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::place(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->place(P);
 
@@ -753,7 +753,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::BoxPlacer::volume() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::BoxPlacer::volume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->volume();
 		lua_pushnumber(L,lret);
@@ -772,7 +772,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::BoxPlacer::getControlPosition() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::BoxPlacer::getControlPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->getControlPosition();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -795,7 +795,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BoxPlacer::setName(name);
 
@@ -813,7 +813,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BoxPlacer::computeDataVariance();
 
@@ -832,7 +832,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BoxPlacer::setUserData(obj);
 
@@ -850,7 +850,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::BoxPlacer::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::BoxPlacer::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->BoxPlacer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -871,7 +871,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::BoxPlacer::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::BoxPlacer::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->BoxPlacer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -904,7 +904,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BoxPlacer::releaseGLObjects(_arg1);
 
@@ -922,7 +922,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->BoxPlacer::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -948,7 +948,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BoxPlacer::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->BoxPlacer::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -970,7 +970,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::BoxPlacer::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::BoxPlacer::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BoxPlacer::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -989,7 +989,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BoxPlacer::libraryName();
 		lua_pushstring(L,lret);
@@ -1008,7 +1008,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BoxPlacer::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BoxPlacer::className();
 		lua_pushstring(L,lret);
@@ -1028,7 +1028,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_place(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_place(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BoxPlacer::place(P);
 
@@ -1046,7 +1046,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::BoxPlacer::base_volume() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::BoxPlacer::base_volume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->BoxPlacer::volume();
 		lua_pushnumber(L,lret);
@@ -1065,7 +1065,7 @@ public:
 		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::BoxPlacer::base_getControlPosition() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::BoxPlacer::base_getControlPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->BoxPlacer::getControlPosition();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);

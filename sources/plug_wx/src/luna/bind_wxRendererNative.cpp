@@ -363,7 +363,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawCheckBox(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawCheckBox(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawCheckBox(win, dc, rect, flags);
 
@@ -395,7 +395,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawComboBoxDropButton(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawComboBoxDropButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawComboBoxDropButton(win, dc, rect, flags);
 
@@ -427,7 +427,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawDropArrow(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawDropArrow(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawDropArrow(win, dc, rect, flags);
 
@@ -459,7 +459,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawFocusRect(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawFocusRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawFocusRect(win, dc, rect, flags);
 
@@ -493,7 +493,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRendererNative::DrawHeaderButton(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *)");
+			luaL_error(L, "Invalid object in function call int wxRendererNative::DrawHeaderButton(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		int lret = self->DrawHeaderButton(win, dc, rect, flags, sortArrow, params);
 		lua_pushnumber(L,lret);
@@ -528,7 +528,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRendererNative::DrawHeaderButtonContents(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *)");
+			luaL_error(L, "Invalid object in function call int wxRendererNative::DrawHeaderButtonContents(wxWindow *, wxDC &, const wxRect &, int, wxHeaderSortIconType, wxHeaderButtonParams *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		int lret = self->DrawHeaderButtonContents(win, dc, rect, flags, sortArrow, params);
 		lua_pushnumber(L,lret);
@@ -561,7 +561,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawItemSelectionRect(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawItemSelectionRect(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawItemSelectionRect(win, dc, rect, flags);
 
@@ -593,7 +593,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawPushButton(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawPushButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawPushButton(win, dc, rect, flags);
 
@@ -625,7 +625,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawSplitterBorder(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawSplitterBorder(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawSplitterBorder(win, dc, rect, flags);
 
@@ -659,7 +659,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawSplitterSash(wxWindow *, wxDC &, const wxSize &, int, wxOrientation, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawSplitterSash(wxWindow *, wxDC &, const wxSize &, int, wxOrientation, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawSplitterSash(win, dc, size, position, orient, flags);
 
@@ -691,7 +691,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawTreeItemButton(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawTreeItemButton(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawTreeItemButton(win, dc, rect, flags);
 
@@ -723,7 +723,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawChoice(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawChoice(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawChoice(win, dc, rect, flags);
 
@@ -755,7 +755,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawComboBox(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawComboBox(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawComboBox(win, dc, rect, flags);
 
@@ -787,7 +787,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawTextCtrl(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawTextCtrl(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawTextCtrl(win, dc, rect, flags);
 
@@ -819,7 +819,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawRadioBitmap(wxWindow *, wxDC &, const wxRect &, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawRadioBitmap(wxWindow *, wxDC &, const wxRect &, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawRadioBitmap(win, dc, rect, flags);
 
@@ -852,7 +852,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawTitleBarBitmap(wxWindow *, wxDC &, const wxRect &, wxTitleBarButton, int)");
+			luaL_error(L, "Invalid object in function call void wxRendererNative::DrawTitleBarBitmap(wxWindow *, wxDC &, const wxRect &, wxTitleBarButton, int). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		self->DrawTitleBarBitmap(win, dc, rect, button, flags);
 
@@ -871,7 +871,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRendererNative::GetCheckBoxSize(wxWindow *)");
+			luaL_error(L, "Invalid object in function call wxSize wxRendererNative::GetCheckBoxSize(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetCheckBoxSize(win);
 		wxSize* lret = new wxSize(stack_lret);
@@ -894,7 +894,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRendererNative::GetHeaderButtonHeight(wxWindow *)");
+			luaL_error(L, "Invalid object in function call int wxRendererNative::GetHeaderButtonHeight(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		int lret = self->GetHeaderButtonHeight(win);
 		lua_pushnumber(L,lret);
@@ -914,7 +914,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRendererNative::GetHeaderButtonMargin(wxWindow *)");
+			luaL_error(L, "Invalid object in function call int wxRendererNative::GetHeaderButtonMargin(wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		int lret = self->GetHeaderButtonMargin(win);
 		lua_pushnumber(L,lret);
@@ -934,7 +934,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow *)");
+			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow *). Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		wxSplitterRenderParams stack_lret = self->GetSplitterParams(win);
 		wxSplitterRenderParams* lret = new wxSplitterRenderParams(stack_lret);
@@ -956,7 +956,7 @@ public:
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRendererVersion wxRendererNative::GetVersion() const");
+			luaL_error(L, "Invalid object in function call wxRendererVersion wxRendererNative::GetVersion() const. Got : '%s'",typeid(Luna< wxRendererNative >::check(L,1)).name());
 		}
 		wxRendererVersion stack_lret = self->GetVersion();
 		wxRendererVersion* lret = new wxRendererVersion(stack_lret);

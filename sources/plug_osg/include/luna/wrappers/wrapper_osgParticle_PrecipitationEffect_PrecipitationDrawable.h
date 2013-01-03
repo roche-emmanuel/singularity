@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable(lua_State* L, lua_Table* dum) : osgParticle::PrecipitationEffect::PrecipitationDrawable(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable(lua_State* L, lua_Table* dum, const osgParticle::PrecipitationEffect::PrecipitationDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::PrecipitationEffect::PrecipitationDrawable(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -243,9 +248,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
 	void public_setBound(const osg::BoundingBoxd & bb) const {
@@ -373,7 +375,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setBound(const osg::BoundingBoxd &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setBound(bb);
 
@@ -392,7 +394,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_addParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(node);
 
@@ -411,7 +413,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_removeParent(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(node);
 
@@ -430,7 +432,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -448,7 +450,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringUpdateTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringUpdateTraversal();
 		lua_pushnumber(L,lret);
@@ -468,7 +470,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -486,7 +488,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::public_getNumChildrenRequiringEventTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->public_getNumChildrenRequiringEventTraversal();
 		lua_pushnumber(L,lret);
@@ -507,7 +509,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -525,7 +527,7 @@ public:
 		wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

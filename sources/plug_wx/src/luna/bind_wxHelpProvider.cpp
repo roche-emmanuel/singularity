@@ -202,7 +202,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpProvider::AddHelp(wxWindow *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHelpProvider::AddHelp(wxWindow *, const wxString &). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->AddHelp(window, text);
 
@@ -222,7 +222,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpProvider::AddHelp(int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHelpProvider::AddHelp(int, const wxString &). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->AddHelp(id, text);
 
@@ -250,7 +250,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHelpProvider::GetHelp(const wxWindow *)");
+			luaL_error(L, "Invalid object in function call wxString wxHelpProvider::GetHelp(const wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		wxString lret = self->GetHelp(window);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -270,7 +270,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpProvider::RemoveHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHelpProvider::RemoveHelp(wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->RemoveHelp(window);
 
@@ -289,7 +289,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpProvider::ShowHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxHelpProvider::ShowHelp(wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		bool lret = self->ShowHelp(window);
 		lua_pushboolean(L,lret?1:0);
@@ -315,7 +315,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpProvider::ShowHelpAtPoint(wxWindow *, const wxPoint &, wxHelpEvent::Origin)");
+			luaL_error(L, "Invalid object in function call bool wxHelpProvider::ShowHelpAtPoint(wxWindow *, const wxPoint &, wxHelpEvent::Origin). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		bool lret = self->ShowHelpAtPoint(window, point, origin);
 		lua_pushboolean(L,lret?1:0);
@@ -369,7 +369,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpProvider::base_AddHelp(wxWindow *, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHelpProvider::base_AddHelp(wxWindow *, const wxString &). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->wxHelpProvider::AddHelp(window, text);
 
@@ -389,7 +389,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpProvider::base_AddHelp(int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxHelpProvider::base_AddHelp(int, const wxString &). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->wxHelpProvider::AddHelp(id, text);
 
@@ -417,7 +417,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpProvider::base_RemoveHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxHelpProvider::base_RemoveHelp(wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		self->wxHelpProvider::RemoveHelp(window);
 
@@ -436,7 +436,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpProvider::base_ShowHelp(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxHelpProvider::base_ShowHelp(wxWindow *). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpProvider::ShowHelp(window);
 		lua_pushboolean(L,lret?1:0);
@@ -462,7 +462,7 @@ public:
 		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpProvider::base_ShowHelpAtPoint(wxWindow *, const wxPoint &, wxHelpEvent::Origin)");
+			luaL_error(L, "Invalid object in function call bool wxHelpProvider::base_ShowHelpAtPoint(wxWindow *, const wxPoint &, wxHelpEvent::Origin). Got : '%s'",typeid(Luna< wxHelpProvider >::check(L,1)).name());
 		}
 		bool lret = self->wxHelpProvider::ShowHelpAtPoint(window, point, origin);
 		lua_pushboolean(L,lret?1:0);

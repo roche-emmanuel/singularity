@@ -356,7 +356,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -382,7 +382,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -404,7 +404,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Bevel::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgText::Bevel::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -423,7 +423,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -442,7 +442,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -462,7 +462,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::setBevelThickness(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::setBevelThickness(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBevelThickness(thickness);
 
@@ -480,7 +480,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgText::Bevel::getBevelThickness() const");
+			luaL_error(L, "Invalid object in function call float osgText::Bevel::getBevelThickness() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getBevelThickness();
 		lua_pushnumber(L,lret);
@@ -502,7 +502,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::flatBevel(float)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::flatBevel(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->flatBevel(width);
 
@@ -524,7 +524,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::roundedBevel(float, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::roundedBevel(float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->roundedBevel(width, numSteps);
 
@@ -546,7 +546,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::roundedBevel2(float, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::roundedBevel2(float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->roundedBevel2(width, numSteps);
 
@@ -569,7 +569,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::setVertices(const osgText::Bevel::Vertices &)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::setVertices(const osgText::Bevel::Vertices &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertices(vertices);
 
@@ -587,7 +587,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Bevel::Vertices & osgText::Bevel::getVertices()");
+			luaL_error(L, "Invalid object in function call osgText::Bevel::Vertices & osgText::Bevel::getVertices(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgText::Bevel::Vertices* lret = &self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -608,7 +608,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Bevel::Vertices & osgText::Bevel::getVertices() const");
+			luaL_error(L, "Invalid object in function call const osgText::Bevel::Vertices & osgText::Bevel::getVertices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgText::Bevel::Vertices* lret = &self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -643,7 +643,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::print(std::ostream &)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::print(std::ostream &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->print(fout);
 
@@ -662,7 +662,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Bevel::setName(name);
 
@@ -680,7 +680,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Bevel::computeDataVariance();
 
@@ -699,7 +699,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Bevel::setUserData(obj);
 
@@ -717,7 +717,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::Bevel::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgText::Bevel::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Bevel::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -738,7 +738,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::Bevel::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgText::Bevel::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Bevel::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -771,7 +771,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Bevel::releaseGLObjects(_arg1);
 
@@ -789,7 +789,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Bevel::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -815,7 +815,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgText::Bevel::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Bevel::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -837,7 +837,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Bevel::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgText::Bevel::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Bevel::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -856,7 +856,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Bevel::libraryName();
 		lua_pushstring(L,lret);
@@ -875,7 +875,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgText::Bevel::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Bevel::className();
 		lua_pushstring(L,lret);
@@ -901,7 +901,7 @@ public:
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgText::Bevel::operator==(const osgText::Bevel &) const");
+			luaL_error(L, "Invalid object in function call bool osgText::Bevel::operator==(const osgText::Bevel &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->operator==(rhs);
 		lua_pushboolean(L,lret?1:0);

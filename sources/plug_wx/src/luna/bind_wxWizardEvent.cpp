@@ -140,7 +140,7 @@ public:
 		wxWizardEvent* self=Luna< wxObject >::checkSubType< wxWizardEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxWizardEvent::GetDirection() const");
+			luaL_error(L, "Invalid object in function call bool wxWizardEvent::GetDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetDirection();
 		lua_pushboolean(L,lret?1:0);
@@ -159,7 +159,7 @@ public:
 		wxWizardEvent* self=Luna< wxObject >::checkSubType< wxWizardEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWizardPage * wxWizardEvent::GetPage() const");
+			luaL_error(L, "Invalid object in function call wxWizardPage * wxWizardEvent::GetPage() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWizardPage * lret = self->GetPage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -180,7 +180,7 @@ public:
 		wxWizardEvent* self=Luna< wxObject >::checkSubType< wxWizardEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxWizardEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxWizardEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxWizardEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -201,7 +201,7 @@ public:
 		wxWizardEvent* self=Luna< wxObject >::checkSubType< wxWizardEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxWizardEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxWizardEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxWizardEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

@@ -20,26 +20,8 @@ public:
 	};
 	
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxRichTextEvent::GetClassInfo();
-	};
-
-	// wxEventCategory wxEvent::GetEventCategory() const
-	wxEventCategory GetEventCategory() const {
-		if(_obj.pushFunction("GetEventCategory")) {
-			return (wxEventCategory)(_obj.callFunction<int>());
-		}
-
-		return wxRichTextEvent::GetEventCategory();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -62,6 +44,26 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxRichTextEvent::GetClassInfo();
+	};
+
+	// wxEventCategory wxEvent::GetEventCategory() const
+	wxEventCategory GetEventCategory() const {
+		if(_obj.pushFunction("GetEventCategory")) {
+			return (wxEventCategory)(_obj.callFunction<int>());
+		}
+
+		return wxRichTextEvent::GetEventCategory();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

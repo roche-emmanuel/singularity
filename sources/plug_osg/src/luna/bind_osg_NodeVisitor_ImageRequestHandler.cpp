@@ -129,7 +129,7 @@ public:
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const");
+			luaL_error(L, "Invalid object in function call double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getPreLoadTime();
 		lua_pushnumber(L,lret);
@@ -149,7 +149,7 @@ public:
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string &)");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Image * lret = self->readImageFile(fileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -175,7 +175,7 @@ public:
 		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *)");
+			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp);
 
@@ -200,7 +200,7 @@ void LunaTraits< osg::NodeVisitor::ImageRequestHandler >::_bind_dtor(osg::NodeVi
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::className[] = "ImageRequestHandler";
+const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::className[] = "NodeVisitor_ImageRequestHandler";
 const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::fullName[] = "osg::NodeVisitor::ImageRequestHandler";
 const char LunaTraits< osg::NodeVisitor::ImageRequestHandler >::moduleName[] = "osg";
 const char* LunaTraits< osg::NodeVisitor::ImageRequestHandler >::parents[] = {"osg.Referenced", 0};

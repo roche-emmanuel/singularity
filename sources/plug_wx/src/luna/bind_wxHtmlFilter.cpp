@@ -130,7 +130,7 @@ public:
 		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlFilter::CanRead(const wxFSFile &) const");
+			luaL_error(L, "Invalid object in function call bool wxHtmlFilter::CanRead(const wxFSFile &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanRead(file);
 		lua_pushboolean(L,lret?1:0);
@@ -154,7 +154,7 @@ public:
 		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlFilter::ReadFile(const wxFSFile &) const");
+			luaL_error(L, "Invalid object in function call wxString wxHtmlFilter::ReadFile(const wxFSFile &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->ReadFile(file);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -173,7 +173,7 @@ public:
 		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlFilter::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlFilter::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxHtmlFilter::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

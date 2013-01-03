@@ -435,7 +435,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -461,7 +461,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,7 +483,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::KdTree::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::KdTree::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -502,7 +502,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTree::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTree::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -521,7 +521,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTree::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTree::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -545,7 +545,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -568,7 +568,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(_arg1);
 
@@ -610,7 +610,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::KdTree::intersect(const osg::Vec3d &, const osg::Vec3d &, osg::KdTree::LineSegmentIntersections &) const");
+			luaL_error(L, "Invalid object in function call bool osg::KdTree::intersect(const osg::Vec3d &, const osg::Vec3d &, osg::KdTree::LineSegmentIntersections &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->intersect(start, end, intersections);
 		lua_pushboolean(L,lret?1:0);
@@ -634,7 +634,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::KdTree::addNode(const osg::KdTree::KdNode &)");
+			luaL_error(L, "Invalid object in function call int osg::KdTree::addNode(const osg::KdTree::KdNode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->addNode(node);
 		lua_pushnumber(L,lret);
@@ -654,7 +654,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::KdTree::KdNode & osg::KdTree::getNode(int)");
+			luaL_error(L, "Invalid object in function call osg::KdTree::KdNode & osg::KdTree::getNode(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::KdNode* lret = &self->getNode(nodeNum);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -676,7 +676,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::KdTree::KdNode & osg::KdTree::getNode(int) const");
+			luaL_error(L, "Invalid object in function call const osg::KdTree::KdNode & osg::KdTree::getNode(int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::KdNode* lret = &self->getNode(nodeNum);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -706,7 +706,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::KdTree::KdNodeList & osg::KdTree::getNodes()");
+			luaL_error(L, "Invalid object in function call osg::KdTree::KdNodeList & osg::KdTree::getNodes(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::KdNodeList* lret = &self->getNodes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -727,7 +727,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::KdTree::KdNodeList & osg::KdTree::getNodes() const");
+			luaL_error(L, "Invalid object in function call const osg::KdTree::KdNodeList & osg::KdTree::getNodes() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::KdNodeList* lret = &self->getNodes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -758,7 +758,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::setVertices(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::setVertices(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setVertices(vertices);
 
@@ -776,7 +776,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osg::KdTree::getVertices() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osg::KdTree::getVertices() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3Array * lret = self->getVertices();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -802,7 +802,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::addTriangle(const osg::KdTree::Triangle &)");
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::addTriangle(const osg::KdTree::Triangle &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->addTriangle(tri);
 		lua_pushnumber(L,lret);
@@ -822,7 +822,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::KdTree::Triangle & osg::KdTree::getTriangle(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::KdTree::Triangle & osg::KdTree::getTriangle(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::Triangle* lret = &self->getTriangle(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -844,7 +844,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::KdTree::Triangle & osg::KdTree::getTriangle(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::KdTree::Triangle & osg::KdTree::getTriangle(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::Triangle* lret = &self->getTriangle(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -874,7 +874,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::KdTree::TriangleList & osg::KdTree::getTriangles()");
+			luaL_error(L, "Invalid object in function call osg::KdTree::TriangleList & osg::KdTree::getTriangles(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::TriangleList* lret = &self->getTriangles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -895,7 +895,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::KdTree::TriangleList & osg::KdTree::getTriangles() const");
+			luaL_error(L, "Invalid object in function call const osg::KdTree::TriangleList & osg::KdTree::getTriangles() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::KdTree::TriangleList* lret = &self->getTriangles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -926,7 +926,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTree::setName(name);
 
@@ -944,7 +944,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTree::computeDataVariance();
 
@@ -963,7 +963,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTree::setUserData(obj);
 
@@ -981,7 +981,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::KdTree::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::KdTree::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->KdTree::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1002,7 +1002,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::KdTree::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::KdTree::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->KdTree::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1035,7 +1035,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTree::releaseGLObjects(_arg1);
 
@@ -1053,7 +1053,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->KdTree::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1079,7 +1079,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::KdTree::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->KdTree::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1101,7 +1101,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::KdTree::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::KdTree::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->KdTree::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1120,7 +1120,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTree::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTree::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->KdTree::libraryName();
 		lua_pushstring(L,lret);
@@ -1139,7 +1139,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::KdTree::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::KdTree::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->KdTree::className();
 		lua_pushstring(L,lret);
@@ -1163,7 +1163,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::base_accept(osg::ShapeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_accept(osg::ShapeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTree::accept(_arg1);
 
@@ -1186,7 +1186,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::KdTree::base_accept(osg::ConstShapeVisitor &) const");
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_accept(osg::ConstShapeVisitor &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->KdTree::accept(_arg1);
 
@@ -1228,7 +1228,7 @@ public:
 		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::KdTree::base_intersect(const osg::Vec3d &, const osg::Vec3d &, osg::KdTree::LineSegmentIntersections &) const");
+			luaL_error(L, "Invalid object in function call bool osg::KdTree::base_intersect(const osg::Vec3d &, const osg::Vec3d &, osg::KdTree::LineSegmentIntersections &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->KdTree::intersect(start, end, intersections);
 		lua_pushboolean(L,lret?1:0);

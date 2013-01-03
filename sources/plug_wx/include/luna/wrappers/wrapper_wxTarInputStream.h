@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxTarInputStream::CloseEntry()
 	bool CloseEntry() {
@@ -30,9 +35,6 @@ public:
 		return wxTarInputStream::CloseEntry();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

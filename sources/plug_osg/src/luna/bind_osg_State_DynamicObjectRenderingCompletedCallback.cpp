@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_completed(lua_State *L) {
@@ -81,6 +88,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::State::DynamicObjectRenderingCompletedCallback::DynamicObjectRenderingCompletedCallback(lua_Table * data)
+	static osg::State::DynamicObjectRenderingCompletedCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::State::DynamicObjectRenderingCompletedCallback::DynamicObjectRenderingCompletedCallback(lua_Table * data) function, expected prototype:\nosg::State::DynamicObjectRenderingCompletedCallback::DynamicObjectRenderingCompletedCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_State_DynamicObjectRenderingCompletedCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
@@ -95,7 +113,7 @@ public:
 		osg::State::DynamicObjectRenderingCompletedCallback* self=Luna< osg::Referenced >::checkSubType< osg::State::DynamicObjectRenderingCompletedCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State *)");
+			luaL_error(L, "Invalid object in function call void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->completed(_arg1);
 
@@ -108,7 +126,7 @@ public:
 };
 
 osg::State::DynamicObjectRenderingCompletedCallback* LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_State_DynamicObjectRenderingCompletedCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
@@ -118,7 +136,7 @@ void LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::_bind_dt
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::className[] = "DynamicObjectRenderingCompletedCallback";
+const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::className[] = "State_DynamicObjectRenderingCompletedCallback";
 const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::fullName[] = "osg::State::DynamicObjectRenderingCompletedCallback";
 const char LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::parents[] = {"osg.Referenced", 0};

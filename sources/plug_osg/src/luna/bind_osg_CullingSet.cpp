@@ -478,7 +478,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::set(const osg::CullingSet &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::set(const osg::CullingSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->set(cs);
 
@@ -511,7 +511,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::set(const osg::CullingSet &, const osg::Matrixd &, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::set(const osg::CullingSet &, const osg::Matrixd &, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->set(cs, matrix, pixelSizeVector);
 
@@ -539,7 +539,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::setCullingMask(int)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::setCullingMask(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCullingMask(mask);
 
@@ -557,7 +557,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::CullingSet::getCullingMask() const");
+			luaL_error(L, "Invalid object in function call int osg::CullingSet::getCullingMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getCullingMask();
 		lua_pushnumber(L,lret);
@@ -581,7 +581,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::setFrustum(osg::Polytope &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::setFrustum(osg::Polytope &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFrustum(cv);
 
@@ -599,7 +599,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Polytope & osg::CullingSet::getFrustum()");
+			luaL_error(L, "Invalid object in function call osg::Polytope & osg::CullingSet::getFrustum(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Polytope* lret = &self->getFrustum();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -620,7 +620,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Polytope & osg::CullingSet::getFrustum() const");
+			luaL_error(L, "Invalid object in function call const osg::Polytope & osg::CullingSet::getFrustum() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Polytope* lret = &self->getFrustum();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -656,7 +656,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::addStateFrustum(osg::StateSet *, osg::Polytope &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::addStateFrustum(osg::StateSet *, osg::Polytope &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addStateFrustum(stateset, polytope);
 
@@ -679,7 +679,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::getStateFrustumList(osg::CullingSet::StateFrustumList &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::getStateFrustumList(osg::CullingSet::StateFrustumList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getStateFrustumList(sfl);
 
@@ -697,7 +697,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CullingSet::StateFrustumList & osg::CullingSet::getStateFrustumList()");
+			luaL_error(L, "Invalid object in function call osg::CullingSet::StateFrustumList & osg::CullingSet::getStateFrustumList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::CullingSet::StateFrustumList* lret = &self->getStateFrustumList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -732,7 +732,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::addOccluder(osg::ShadowVolumeOccluder &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::addOccluder(osg::ShadowVolumeOccluder &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addOccluder(cv);
 
@@ -755,7 +755,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::setPixelSizeVector(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::setPixelSizeVector(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPixelSizeVector(v);
 
@@ -773,7 +773,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f & osg::CullingSet::getPixelSizeVector()");
+			luaL_error(L, "Invalid object in function call osg::Vec4f & osg::CullingSet::getPixelSizeVector(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getPixelSizeVector();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -794,7 +794,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::CullingSet::getPixelSizeVector() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::CullingSet::getPixelSizeVector() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getPixelSizeVector();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -825,7 +825,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::setSmallFeatureCullingPixelSize(float)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::setSmallFeatureCullingPixelSize(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSmallFeatureCullingPixelSize(value);
 
@@ -843,7 +843,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & osg::CullingSet::getSmallFeatureCullingPixelSize()");
+			luaL_error(L, "Invalid object in function call float & osg::CullingSet::getSmallFeatureCullingPixelSize(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float & lret = self->getSmallFeatureCullingPixelSize();
 		lua_pushnumber(L,lret);
@@ -862,7 +862,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullingSet::getSmallFeatureCullingPixelSize() const");
+			luaL_error(L, "Invalid object in function call float osg::CullingSet::getSmallFeatureCullingPixelSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getSmallFeatureCullingPixelSize();
 		lua_pushnumber(L,lret);
@@ -896,7 +896,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullingSet::pixelSize(const osg::Vec3f &, float) const");
+			luaL_error(L, "Invalid object in function call float osg::CullingSet::pixelSize(const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->pixelSize(v, radius);
 		lua_pushnumber(L,lret);
@@ -920,7 +920,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullingSet::pixelSize(const osg::BoundingSphered &) const");
+			luaL_error(L, "Invalid object in function call float osg::CullingSet::pixelSize(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->pixelSize(bs);
 		lua_pushnumber(L,lret);
@@ -954,7 +954,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullingSet::clampedPixelSize(const osg::Vec3f &, float) const");
+			luaL_error(L, "Invalid object in function call float osg::CullingSet::clampedPixelSize(const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->clampedPixelSize(v, radius);
 		lua_pushnumber(L,lret);
@@ -978,7 +978,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::CullingSet::clampedPixelSize(const osg::BoundingSphered &) const");
+			luaL_error(L, "Invalid object in function call float osg::CullingSet::clampedPixelSize(const osg::BoundingSphered &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->clampedPixelSize(bs);
 		lua_pushnumber(L,lret);
@@ -1011,7 +1011,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const std::vector< osg::Vec3f > &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const std::vector< osg::Vec3f > &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(vertices);
 		lua_pushboolean(L,lret?1:0);
@@ -1035,7 +1035,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const osg::BoundingBoxd &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const osg::BoundingBoxd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -1059,7 +1059,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const osg::BoundingSphered &)");
+			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCulled(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -1088,7 +1088,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::pushCurrentMask()");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::pushCurrentMask(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->pushCurrentMask();
 
@@ -1106,7 +1106,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::popCurrentMask()");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::popCurrentMask(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->popCurrentMask();
 
@@ -1129,7 +1129,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::disableAndPushOccludersCurrentMask(osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::disableAndPushOccludersCurrentMask(osg::NodePath &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->disableAndPushOccludersCurrentMask(nodePath);
 
@@ -1152,7 +1152,7 @@ public:
 		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CullingSet::popOccludersCurrentMask(osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::popOccludersCurrentMask(osg::NodePath &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->popOccludersCurrentMask(nodePath);
 

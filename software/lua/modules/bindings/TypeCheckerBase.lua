@@ -7,6 +7,7 @@ local TypeCheckerBase = oo.class{}
 
 local tc = require "bindings.TypeConverter"
 local utils = require "utils"
+local tm = require "bindings.TypeManager"
 
 TypeCheckerBase.CLASS_NAME = "bindings.TypeCheckerBase"
 
@@ -77,38 +78,43 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 				-- We may consider void as a base class:
 				local bhash = utils.getHash("void")
 				writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
-			elseif pt:isClass() then
+			else
 				-- get the class absolute parent hash:
-				local bhash = pt:getAbsoluteBaseHash()
-				local bfname = pt:getFirstAbsoluteBaseName()
-				log:info("Using hash ".. bhash .. " for type ".. pt:getBaseName())
-				if pt:isPointer() then
-					-- we can accept a pointer to be nil, but not a reference.
-					writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
-					if completeCheck then
-						-- use dynamic cast here:
-						if bfname==pt:getBaseName() then
-							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !(Luna< ${2} >::check(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName())
-						else
-							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !(Luna< ${2} >::checkSubType< ${4} >(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName()) --dynamic_cast< ${4}* >			
+				local bfname =  pt:isClass() and tm:getBaseTypeMapping(pt:getAbsoluteBaseFullName())
+				bfname = tm:getExternalBase(bfname or pt:getBaseName(true)) or bfname
+				--local bfname = pt:isClass() and pt:getFirstAbsoluteBaseName() or tm:getExternalBase(pt:getBaseName(true))
+				
+				if not bfname then
+					writer:writeLine("////////////////////////////////////////////////////////////////////")
+					writer:writeLine("// ERROR: Cannot decide the argument type for '".. pt:getName() .. "'")
+					writer:writeLine("////////////////////////////////////////////////////////////////////")
+					log:error("Unsupported type : ".. pt:getName().. " in type checker for function ".. func:getFullName()) --..". Type object:",pt)
+				else
+					local bhash = utils.getHash(bfname) --pt:getAbsoluteBaseHash()
+					log:info("Using hash ".. bhash .. " for type ".. pt:getBaseName())
+					if pt:isPointer() then
+						-- we can accept a pointer to be nil, but not a reference.
+						writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
+						if completeCheck then
+							-- use dynamic cast here:
+							if bfname==pt:getBaseName() then
+								writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !(Luna< ${2} >::check(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName())
+							else
+								writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !(Luna< ${2} >::checkSubType< ${4} >(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName()) --dynamic_cast< ${4}* >			
+							end
+						end
+					else
+						writer:writeSubLine("if( ${3}!Luna<void>::has_uniqueid(L,${1},${2}) ) return false;",index,bhash,defStr)				
+						if completeCheck then
+							-- use dynamic cast here:
+							if bfname==pt:getBaseName() then
+								writer:writeSubLine("if( ${3}(!(Luna< ${2} >::check(L,${1}))) ) return false;",index,bfname,defStr)
+							else
+								writer:writeSubLine("if( ${3}(!(Luna< ${2} >::checkSubType< ${4} >(L,${1}))) ) return false;",index,bfname,defStr,pt:getBaseName()) --dynamic_cast< ${4}* >
+							end						
 						end
 					end
-				else
-					writer:writeSubLine("if( ${3}!Luna<void>::has_uniqueid(L,${1},${2}) ) return false;",index,bhash,defStr)				
-					if completeCheck then
-						-- use dynamic cast here:
-						if bfname==pt:getBaseName() then
-							writer:writeSubLine("if( ${3}(!(Luna< ${2} >::check(L,${1}))) ) return false;",index,bfname,defStr)
-						else
-							writer:writeSubLine("if( ${3}(!(Luna< ${2} >::checkSubType< ${4} >(L,${1}))) ) return false;",index,bfname,defStr,pt:getBaseName()) --dynamic_cast< ${4}* >
-						end						
-					end
 				end
-			else
-				writer:writeLine("////////////////////////////////////////////////////////////////////")
-				writer:writeLine("// ERROR: Cannot decide the argument type for '".. pt:getName() .. "'")
-				writer:writeLine("////////////////////////////////////////////////////////////////////")
-				log:error("Unsupported type : ".. pt:getName().. " in type checker for function ".. func:getFullName()) --..". Type object:",pt)
 			end
 		end
 		

@@ -77,7 +77,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::TemplateValueObject< osg::Matrixd > >::Register(L);
 	Luna< std::vector< osg::Vec3d > >::Register(L);
 	Luna< std::vector< osg::StateSet const * > >::Register(L);
-	Luna< std::vector< std::pair< osg::StateAttribute const *, unsigned int > > >::Register(L);
 	Luna< osg::StateAttribute >::Register(L);
 	Luna< osg::AlphaFunc >::Register(L);
 	Luna< osg::AnimationPath >::Register(L);
@@ -307,7 +306,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::DrawElementsUShort >::Register(L);
 	Luna< osg::DrawElementsUInt >::Register(L);
 	Luna< osg::Program >::Register(L);
-	Luna< std::map< std::string, unsigned int > >::Register(L);
 	Luna< std::map< unsigned int, osg::Program::ActiveVarInfo > >::Register(L);
 	Luna< std::map< std::string, osg::Program::ActiveVarInfo > >::Register(L);
 	Luna< std::map< std::string, osg::Program::UniformBlockInfo > >::Register(L);
@@ -806,9 +804,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"osgDB");

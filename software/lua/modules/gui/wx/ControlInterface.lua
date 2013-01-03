@@ -14,7 +14,6 @@ end
 
 function Class:close()
 	self:debug("Closing ControlInterface...")
-	
 	require("gui.wx.BasicInterface").close(self)
 end
 
@@ -431,13 +430,26 @@ function Class:addOSGCtrl(options)
 	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
 	
 	options.intf = options.intf or self
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
+	
 	local canvas = require("gui.wx.OSGCanvas")(options)
 	local win = canvas:getWindow()
 	self:check(win,"Invalid OSG window object.")
 	
+	return self:addControl(win,options), canvas
+end
+
+function Class:addOutputPanel(options)
+	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
+	
+	options.intf = options.intf or self
 	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
 	options.prop = options.prop or 1
-	return self:addControl(win,options), canvas
+	
+	local panel = require("gui.wx.OutputPanel")(options)
+
+	return panel:getWindow(), panel
 end
 
 function Class:addTimePickerCtrl(options)

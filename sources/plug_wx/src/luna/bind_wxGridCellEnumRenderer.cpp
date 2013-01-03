@@ -125,7 +125,7 @@ public:
 		wxGridCellEnumRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellEnumRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		self->SetParameters(params);
 
@@ -144,7 +144,7 @@ public:
 		wxGridCellEnumRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellEnumRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::base_SetParameters(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxGridCellEnumRenderer::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		self->wxGridCellEnumRenderer::SetParameters(params);
 

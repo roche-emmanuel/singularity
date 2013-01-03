@@ -354,7 +354,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -380,7 +380,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -402,7 +402,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -421,7 +421,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -440,7 +440,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -460,7 +460,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::setDatabasePath(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::setDatabasePath(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDatabasePath(path);
 
@@ -478,7 +478,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::DatabaseRevisions::getDatabasePath() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::DatabaseRevisions::getDatabasePath() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getDatabasePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -498,7 +498,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision *)");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::addRevision(osgDB::DatabaseRevision *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addRevision(revision);
 
@@ -517,7 +517,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision *)");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::removeRevision(osgDB::DatabaseRevision *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeRevision(revision);
 
@@ -536,7 +536,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int)");
+			luaL_error(L, "Invalid object in function call osgDB::DatabaseRevision * osgDB::DatabaseRevisions::getDatabaseRevision(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::DatabaseRevision * lret = self->getDatabaseRevision(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -558,7 +558,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::isFileBlackListed(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isFileBlackListed(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -578,7 +578,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::removeFile(const std::string &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::removeFile(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeFile(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -598,7 +598,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DatabaseRevisions::setName(name);
 
@@ -616,7 +616,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DatabaseRevisions::computeDataVariance();
 
@@ -635,7 +635,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DatabaseRevisions::setUserData(obj);
 
@@ -653,7 +653,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::DatabaseRevisions::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::DatabaseRevisions::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->DatabaseRevisions::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -674,7 +674,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::DatabaseRevisions::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->DatabaseRevisions::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -707,7 +707,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgDB::DatabaseRevisions::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DatabaseRevisions::releaseGLObjects(_arg1);
 
@@ -725,7 +725,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DatabaseRevisions::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -751,7 +751,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::DatabaseRevisions::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DatabaseRevisions::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -773,7 +773,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabaseRevisions::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DatabaseRevisions::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -792,7 +792,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DatabaseRevisions::libraryName();
 		lua_pushstring(L,lret);
@@ -811,7 +811,7 @@ public:
 		osgDB::DatabaseRevisions* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabaseRevisions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabaseRevisions::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DatabaseRevisions::className();
 		lua_pushstring(L,lret);

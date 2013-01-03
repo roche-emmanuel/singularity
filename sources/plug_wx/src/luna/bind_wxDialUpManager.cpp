@@ -200,7 +200,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::CancelDialing()");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::CancelDialing(). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->CancelDialing();
 		lua_pushboolean(L,lret?1:0);
@@ -225,7 +225,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::Dial(const wxString &, const wxString &, const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::Dial(const wxString &, const wxString &, const wxString &, bool). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->Dial(nameOfISP, username, password, async);
 		lua_pushboolean(L,lret?1:0);
@@ -244,7 +244,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::DisableAutoCheckOnlineStatus()");
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::DisableAutoCheckOnlineStatus(). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		self->DisableAutoCheckOnlineStatus();
 
@@ -265,7 +265,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t)");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->EnableAutoCheckOnlineStatus(nSeconds);
 		lua_pushboolean(L,lret?1:0);
@@ -289,7 +289,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDialUpManager::GetISPNames(wxArrayString &) const");
+			luaL_error(L, "Invalid object in function call size_t wxDialUpManager::GetISPNames(wxArrayString &) const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		size_t lret = self->GetISPNames(names);
 		lua_pushnumber(L,lret);
@@ -308,7 +308,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::HangUp()");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::HangUp(). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->HangUp();
 		lua_pushboolean(L,lret?1:0);
@@ -327,7 +327,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsAlwaysOnline() const");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsAlwaysOnline() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->IsAlwaysOnline();
 		lua_pushboolean(L,lret?1:0);
@@ -346,7 +346,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsDialing() const");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsDialing() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->IsDialing();
 		lua_pushboolean(L,lret?1:0);
@@ -365,7 +365,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOk() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -384,7 +384,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOnline() const");
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOnline() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		bool lret = self->IsOnline();
 		lua_pushboolean(L,lret?1:0);
@@ -407,7 +407,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetConnectCommand(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetConnectCommand(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		self->SetConnectCommand(commandDial, commandHangup);
 
@@ -428,7 +428,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetOnlineStatus(bool)");
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetOnlineStatus(bool). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		self->SetOnlineStatus(isOnline);
 
@@ -450,7 +450,7 @@ public:
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetWellKnownHost(const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetWellKnownHost(const wxString &, int). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
 		}
 		self->SetWellKnownHost(hostname, portno);
 

@@ -48,12 +48,12 @@ function Class:writeFile()
 		end
 	end
 
-	-- self:info_v("Passed valid public operators...")
-
+	local absoluteBases = Set()
+	
 	if not external then
 		-- self:info_v("Testing virtual class...")
 		local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
-		local bname = tm:getBaseTypeMapping(bclass:getFullName())
+		local bname = tm:getExternalBase(bclass:getFullName()) or tm:getBaseTypeMapping(bclass:getFullName())
 		local hash = utils.getHash(bname)
 		
 		if isVirtual then 
@@ -144,10 +144,27 @@ function Class:writeFile()
 		buf:writeForAll(class:getValidPublicOperators(),writeBind,writeOverloadBind)
 		buf:newLine()
 	
+		-- Write the multi base converters if applicable:
+		local fbname = class:getFirstAbsoluteBase():getFullName()	
+		
+		if class:getNumBases() > 1 then
+			for _,base in class:getBases():sequence() do
+				if fbname ~= base:getFirstAbsoluteBase():getFullName() and base:isValidForWrapping() then
+					absoluteBases:push_back{base:getFirstAbsoluteBase():getFullName(),base:getFirstAbsoluteBase():getName()}
+				end
+			end
+		end
+
+		for _,val in absoluteBases:sequence() do
+			buf:writeLine(snippets:getBaseCasterCode(fbname,val[1]))
+		end
+		
 		buf:popIndent()
 		buf:writeLine("};")
 		buf:newLine()
 	
+
+		
 		-- implement the lunatraits constructor:
 		buf:writeSubLine("${1}* LunaTraits< ${1} >::_bind_ctor(lua_State *L) {",cname)
 		buf:pushIndent()
@@ -202,13 +219,15 @@ function Class:writeFile()
 	local parentList = ""
 	for k,v in class:getBases():sequence() do
 		if v:isValidForWrapping() then
-			parentList = parentList .. '"'.. (v:getModule() or mname) .. "." .. v:getName() .. '", '; --v:getFullName():gsub("::",".")
+			parentList = parentList .. '"'.. v:getFullLuaName(true) .. '", '; --v:getFullName():gsub("::",".")
 		end
 	end
 	
 	-- Write the lunatraits properties:
-	buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",cshortname));
-	buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',cname);
+	local tname = class:getMappedType() and class:getTypeName() or class:getFullLuaName()
+	
+	buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",tname));
+	buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',class:getTypeName());
 	buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname,class:getModule() or mname);
 	buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);
 	buf:writeSubLine('const int LunaTraits< ${1} >::hash = ${2};',cname,utils.getHash(class:getFullName()));
@@ -247,6 +266,11 @@ function Class:writeFile()
 			
 			if isVirtual then
 				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"getTable")			
+			end
+			
+			for _,val in absoluteBases:sequence() do
+				local wname2 = corr:correct("filename",val[1])
+				buf:writeSubLine('{"as${3}", &luna_wrapper_${1}::_bind_baseCast_${2}},',wname,wname2,val[2])
 			end
 			
 		buf:writeSubLine("{0,0}")

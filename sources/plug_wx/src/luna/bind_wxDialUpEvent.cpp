@@ -133,7 +133,7 @@ public:
 		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpEvent::IsConnectedEvent() const");
+			luaL_error(L, "Invalid object in function call bool wxDialUpEvent::IsConnectedEvent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsConnectedEvent();
 		lua_pushboolean(L,lret?1:0);
@@ -152,7 +152,7 @@ public:
 		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpEvent::IsOwnEvent() const");
+			luaL_error(L, "Invalid object in function call bool wxDialUpEvent::IsOwnEvent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOwnEvent();
 		lua_pushboolean(L,lret?1:0);
@@ -171,7 +171,7 @@ public:
 		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDialUpEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDialUpEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDialUpEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -192,7 +192,7 @@ public:
 		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxDialUpEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDialUpEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxDialUpEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

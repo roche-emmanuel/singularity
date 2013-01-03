@@ -78,7 +78,7 @@ void LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::_bind_dtor
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::className[] = "CompileList";
+const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::className[] = "IncrementalCompileOperation_CompileList";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::fullName[] = "osgUtil::IncrementalCompileOperation::CompileList";
 const char LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::IncrementalCompileOperation::CompileList >::parents[] = {0};

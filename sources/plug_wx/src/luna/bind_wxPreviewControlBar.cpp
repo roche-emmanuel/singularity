@@ -819,7 +819,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::CreateButtons()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::CreateButtons(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CreateButtons();
 
@@ -837,7 +837,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::GetZoomControl()");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::GetZoomControl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetZoomControl();
 		lua_pushnumber(L,lret);
@@ -857,7 +857,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::SetZoomControl(int)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::SetZoomControl(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetZoomControl(percent);
 
@@ -875,7 +875,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPreviewControlBar::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPreviewControlBar::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPreviewControlBar::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -896,7 +896,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -915,7 +915,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -934,7 +934,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -954,7 +954,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetCanFocus(canFocus);
 
@@ -972,7 +972,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetFocusFromKbd();
 
@@ -991,7 +991,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::AddChild(child);
 
@@ -1010,7 +1010,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::RemoveChild(child);
 
@@ -1029,7 +1029,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1052,7 +1052,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1071,7 +1071,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPreviewControlBar::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1091,7 +1091,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPreviewControlBar::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1111,7 +1111,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPreviewControlBar::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1131,7 +1131,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1151,7 +1151,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1171,7 +1171,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1195,7 +1195,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::ScrollWindow(dx, dy, rect);
 
@@ -1218,7 +1218,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetScrollPos(orientation, pos, refresh);
 
@@ -1243,7 +1243,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1266,7 +1266,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1293,7 +1293,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1315,7 +1315,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::Fit();
 
@@ -1333,7 +1333,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::FitInside();
 
@@ -1351,7 +1351,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1373,7 +1373,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1395,7 +1395,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1417,7 +1417,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1439,7 +1439,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1461,7 +1461,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1483,7 +1483,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxPreviewControlBar::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxPreviewControlBar::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1508,7 +1508,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1530,7 +1530,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SendSizeEvent(flags);
 
@@ -1553,7 +1553,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetMaxClientSize(size);
 
@@ -1576,7 +1576,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetMaxSize(size);
 
@@ -1599,7 +1599,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetMinClientSize(size);
 
@@ -1622,7 +1622,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetMinSize(size);
 
@@ -1657,7 +1657,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1683,7 +1683,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1710,7 +1710,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPreviewControlBar::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxPreviewControlBar::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxPreviewControlBar::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1732,7 +1732,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::ClearBackground();
 
@@ -1750,7 +1750,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPreviewControlBar::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPreviewControlBar::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxPreviewControlBar::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1769,7 +1769,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPreviewControlBar::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1788,7 +1788,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPreviewControlBar::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1807,7 +1807,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPreviewControlBar::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPreviewControlBar::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxPreviewControlBar::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1833,7 +1833,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::Refresh(eraseBackground, rect);
 
@@ -1851,7 +1851,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::Update();
 
@@ -1870,7 +1870,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1894,7 +1894,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1913,7 +1913,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -1933,7 +1933,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetThemeEnabled(enable);
 
@@ -1951,7 +1951,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -1970,7 +1970,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -1990,7 +1990,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2010,7 +2010,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetNextHandler(handler);
 
@@ -2029,7 +2029,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetPreviousHandler(handler);
 
@@ -2047,7 +2047,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxPreviewControlBar::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxPreviewControlBar::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxPreviewControlBar::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2067,7 +2067,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetExtraStyle(exStyle);
 
@@ -2086,7 +2086,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetWindowStyleFlag(style);
 
@@ -2104,7 +2104,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::Lower();
 
@@ -2122,7 +2122,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::Raise();
 
@@ -2144,7 +2144,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2163,7 +2163,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2182,7 +2182,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2204,7 +2204,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2226,7 +2226,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2249,7 +2249,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2274,7 +2274,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPreviewControlBar::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxPreviewControlBar::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPreviewControlBar::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2293,7 +2293,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxPreviewControlBar::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxPreviewControlBar::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxPreviewControlBar::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2319,7 +2319,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetValidator(validator);
 
@@ -2337,7 +2337,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2356,7 +2356,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2375,7 +2375,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2394,7 +2394,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPreviewControlBar::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxPreviewControlBar::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPreviewControlBar::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2413,7 +2413,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPreviewControlBar::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPreviewControlBar::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxPreviewControlBar::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2432,7 +2432,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPreviewControlBar::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxPreviewControlBar::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxPreviewControlBar::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2452,7 +2452,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetLabel(label);
 
@@ -2471,7 +2471,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetLayoutDirection(dir);
 
@@ -2490,7 +2490,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetName(name);
 
@@ -2513,7 +2513,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetAcceleratorTable(accel);
 
@@ -2531,7 +2531,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2550,7 +2550,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxPreviewControlBar::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxPreviewControlBar::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxPreviewControlBar::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2572,7 +2572,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetDropTarget(target);
 
@@ -2591,7 +2591,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::DragAcceptFiles(accept);
 
@@ -2609,7 +2609,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2633,7 +2633,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2654,7 +2654,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::WarpPointer(x, y);
 
@@ -2677,7 +2677,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::DoUpdateWindowUI(event);
 
@@ -2695,7 +2695,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2714,7 +2714,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::InheritAttributes();
 
@@ -2732,7 +2732,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2751,7 +2751,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2773,7 +2773,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::MakeModal(modal);
 
@@ -2791,7 +2791,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::OnInternalIdle();
 
@@ -2812,7 +2812,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2832,7 +2832,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2854,7 +2854,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::UpdateWindowUI(flags);
 
@@ -2872,7 +2872,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2891,7 +2891,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::InitDialog();
 
@@ -2909,7 +2909,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxPreviewControlBar::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPreviewControlBar::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2928,7 +2928,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetFocus();
 
@@ -2946,7 +2946,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_CreateButtons()");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_CreateButtons(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::CreateButtons();
 
@@ -2964,7 +2964,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetZoomControl()");
+			luaL_error(L, "Invalid object in function call int wxPreviewControlBar::base_GetZoomControl(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxPreviewControlBar::GetZoomControl();
 		lua_pushnumber(L,lret);
@@ -2984,7 +2984,7 @@ public:
 		wxPreviewControlBar* self=Luna< wxObject >::checkSubType< wxPreviewControlBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetZoomControl(int)");
+			luaL_error(L, "Invalid object in function call void wxPreviewControlBar::base_SetZoomControl(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPreviewControlBar::SetZoomControl(percent);
 

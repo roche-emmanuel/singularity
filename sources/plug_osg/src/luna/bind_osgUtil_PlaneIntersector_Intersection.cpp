@@ -105,7 +105,7 @@ public:
 		osgUtil::PlaneIntersector::Intersection* self=(Luna< osgUtil::PlaneIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::Intersection::operator<(const osgUtil::PlaneIntersector::Intersection &) const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::Intersection::operator<(const osgUtil::PlaneIntersector::Intersection &) const. Got : '%s'",typeid(Luna< osgUtil::PlaneIntersector::Intersection >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -126,7 +126,7 @@ void LunaTraits< osgUtil::PlaneIntersector::Intersection >::_bind_dtor(osgUtil::
 	delete obj;
 }
 
-const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::className[] = "Intersection";
+const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::className[] = "PlaneIntersector_Intersection";
 const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::fullName[] = "osgUtil::PlaneIntersector::Intersection";
 const char LunaTraits< osgUtil::PlaneIntersector::Intersection >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::PlaneIntersector::Intersection >::parents[] = {0};

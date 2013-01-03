@@ -130,7 +130,7 @@ public:
 		wxGridCellRenderer* self=(Luna< wxGridCellRenderer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellRenderer * wxGridCellRenderer::Clone() const");
+			luaL_error(L, "Invalid object in function call wxGridCellRenderer * wxGridCellRenderer::Clone() const. Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		wxGridCellRenderer * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -174,7 +174,7 @@ public:
 		wxGridCellRenderer* self=(Luna< wxGridCellRenderer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellRenderer::Draw(wxGrid &, wxGridCellAttr &, wxDC &, const wxRect &, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxGridCellRenderer::Draw(wxGrid &, wxGridCellAttr &, wxDC &, const wxRect &, int, int, bool). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		self->Draw(grid, attr, dc, rect, row, col, isSelected);
 
@@ -209,7 +209,7 @@ public:
 		wxGridCellRenderer* self=(Luna< wxGridCellRenderer >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxGridCellRenderer::GetBestSize(wxGrid &, wxGridCellAttr &, wxDC &, int, int)");
+			luaL_error(L, "Invalid object in function call wxSize wxGridCellRenderer::GetBestSize(wxGrid &, wxGridCellAttr &, wxDC &, int, int). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetBestSize(grid, attr, dc, row, col);
 		wxSize* lret = new wxSize(stack_lret);

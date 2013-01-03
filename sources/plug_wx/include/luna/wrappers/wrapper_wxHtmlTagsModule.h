@@ -20,6 +20,30 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlTagsModule::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlTagsModule::CloneRefData(data);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -53,28 +77,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxHtmlTagsModule::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxHtmlTagsModule::CloneRefData(data);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void wxModule::AddDependency(wxClassInfo * dep)
 	void public_AddDependency(wxClassInfo * dep) {
@@ -117,7 +119,7 @@ public:
 		wrapper_wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlTagsModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(wxClassInfo *)");
+			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(wxClassInfo *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_AddDependency(dep);
 
@@ -136,7 +138,7 @@ public:
 		wrapper_wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlTagsModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(const char *)");
+			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(const char *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_AddDependency(classname);
 

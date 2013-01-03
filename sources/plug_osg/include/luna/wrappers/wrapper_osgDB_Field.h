@@ -22,10 +22,12 @@ public:
 	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) : osgDB::Field(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) : osgDB::Field(field), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 
 	// Protected virtual methods:
+
+	// Public virtual methods:
 
 	// Protected non-virtual methods:
 	// void osgDB::Field::_init()
@@ -77,7 +79,7 @@ public:
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__init()");
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__init(). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
 		}
 		self->public__init();
 
@@ -95,7 +97,7 @@ public:
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__free()");
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__free(). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
 		}
 		self->public__free();
 
@@ -118,7 +120,7 @@ public:
 		wrapper_osgDB_Field* self=Luna< osgDB::Field >::checkSubType< wrapper_osgDB_Field >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::Field::public__copy(const osgDB::Field &)");
+			luaL_error(L, "Invalid object in function call void osgDB::Field::public__copy(const osgDB::Field &). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
 		}
 		self->public__copy(ic);
 

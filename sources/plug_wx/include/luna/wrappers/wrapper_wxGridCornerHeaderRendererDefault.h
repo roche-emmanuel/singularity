@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {
@@ -33,9 +38,6 @@ public:
 		return wxGridCornerHeaderRendererDefault::DrawBorder(grid, dc, rect);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

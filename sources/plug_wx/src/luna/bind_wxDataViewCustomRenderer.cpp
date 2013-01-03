@@ -249,7 +249,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewCustomRenderer::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewCustomRenderer::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -284,7 +284,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ActivateCell(cell, model, item, col, mouseEvent);
 		lua_pushboolean(L,lret?1:0);
@@ -303,7 +303,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const");
+			luaL_error(L, "Invalid object in function call const wxDataViewItemAttr & wxDataViewCustomRenderer::GetAttr() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxDataViewItemAttr* lret = &self->GetAttr();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -324,7 +324,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::HasEditorCtrl() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::HasEditorCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasEditorCtrl();
 		lua_pushboolean(L,lret?1:0);
@@ -360,7 +360,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LeftClick(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -386,7 +386,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::Render(wxRect, wxDC *, int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::Render(wxRect, wxDC *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Render(cell, dc, state);
 		lua_pushboolean(L,lret?1:0);
@@ -414,7 +414,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::RenderText(const wxString &, int, wxRect, wxDC *, int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::RenderText(const wxString &, int, wxRect, wxDC *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RenderText(text, xoffset, cell, dc, state);
 
@@ -449,7 +449,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->StartDrag(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -468,7 +468,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewCustomRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewCustomRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -489,7 +489,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewCustomRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewCustomRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewCustomRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -508,7 +508,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewCustomRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewCustomRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -528,7 +528,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewCustomRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewCustomRenderer::SetAlignment(align);
 
@@ -559,7 +559,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCustomRenderer::ActivateCell(cell, model, item, col, mouseEvent);
 		lua_pushboolean(L,lret?1:0);
@@ -578,7 +578,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_HasEditorCtrl() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_HasEditorCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCustomRenderer::HasEditorCtrl();
 		lua_pushboolean(L,lret?1:0);
@@ -614,7 +614,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCustomRenderer::LeftClick(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -650,7 +650,7 @@ public:
 		wxDataViewCustomRenderer* self=Luna< wxObject >::checkSubType< wxDataViewCustomRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewCustomRenderer::base_StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewCustomRenderer::StartDrag(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);

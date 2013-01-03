@@ -123,7 +123,7 @@ public:
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStopWatch::Pause()");
+			luaL_error(L, "Invalid object in function call void wxStopWatch::Pause(). Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
 		}
 		self->Pause();
 
@@ -141,7 +141,7 @@ public:
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStopWatch::Resume()");
+			luaL_error(L, "Invalid object in function call void wxStopWatch::Resume(). Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
 		}
 		self->Resume();
 
@@ -162,7 +162,7 @@ public:
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStopWatch::Start(long)");
+			luaL_error(L, "Invalid object in function call void wxStopWatch::Start(long). Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
 		}
 		self->Start(milliseconds);
 
@@ -180,7 +180,7 @@ public:
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxStopWatch::Time() const");
+			luaL_error(L, "Invalid object in function call long wxStopWatch::Time() const. Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
 		}
 		long lret = self->Time();
 		lua_pushnumber(L,lret);
@@ -199,7 +199,7 @@ public:
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLongLong wxStopWatch::TimeInMicro() const");
+			luaL_error(L, "Invalid object in function call wxLongLong wxStopWatch::TimeInMicro() const. Got : '%s'",typeid(Luna< wxStopWatch >::check(L,1)).name());
 		}
 		wxLongLong stack_lret = self->TimeInMicro();
 		wxLongLong* lret = new wxLongLong(stack_lret);

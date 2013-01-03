@@ -184,7 +184,7 @@ public:
 		wxAcceleratorTable* self=Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAcceleratorTable::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxAcceleratorTable::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -203,7 +203,7 @@ public:
 		wxAcceleratorTable* self=Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAcceleratorTable::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAcceleratorTable::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxAcceleratorTable::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

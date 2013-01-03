@@ -245,7 +245,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::SetDictionary(const char *, const size_t)");
+			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::SetDictionary(const char *, const size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetDictionary(data, datalen);
 		lua_pushboolean(L,lret?1:0);
@@ -278,7 +278,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxZlibInputStream::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxZlibInputStream::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxZlibInputStream::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,7 +299,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxZlibInputStream::base_GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxZlibInputStream::base_GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxZlibInputStream::GetLength();
 		lua_pushnumber(L,lret);
@@ -318,7 +318,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxZlibInputStream::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call size_t wxZlibInputStream::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxZlibInputStream::GetSize();
 		lua_pushnumber(L,lret);
@@ -337,7 +337,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxZlibInputStream::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -356,7 +356,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_IsSeekable() const");
+			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxZlibInputStream::IsSeekable();
 		lua_pushboolean(L,lret?1:0);
@@ -375,7 +375,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_CanRead() const");
+			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_CanRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxZlibInputStream::CanRead();
 		lua_pushboolean(L,lret?1:0);
@@ -394,7 +394,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_Eof() const");
+			luaL_error(L, "Invalid object in function call bool wxZlibInputStream::base_Eof() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxZlibInputStream::Eof();
 		lua_pushboolean(L,lret?1:0);
@@ -413,7 +413,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxZlibInputStream::base_LastRead() const");
+			luaL_error(L, "Invalid object in function call size_t wxZlibInputStream::base_LastRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxZlibInputStream::LastRead();
 		lua_pushnumber(L,lret);
@@ -432,7 +432,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char wxZlibInputStream::base_Peek()");
+			luaL_error(L, "Invalid object in function call char wxZlibInputStream::base_Peek(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		char lret = self->wxZlibInputStream::Peek();
 		lua_pushnumber(L,lret);
@@ -453,7 +453,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream & wxZlibInputStream::base_Read(void *, size_t)");
+			luaL_error(L, "Invalid object in function call wxInputStream & wxZlibInputStream::base_Read(void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxInputStream* lret = &self->wxZlibInputStream::Read(buffer, size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -478,7 +478,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxZlibInputStream::base_SeekI(long long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxZlibInputStream::base_SeekI(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxZlibInputStream::SeekI(pos, mode);
 		lua_pushnumber(L,lret);
@@ -497,7 +497,7 @@ public:
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxZlibInputStream::base_TellI() const");
+			luaL_error(L, "Invalid object in function call long long wxZlibInputStream::base_TellI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long long lret = self->wxZlibInputStream::TellI();
 		lua_pushnumber(L,lret);

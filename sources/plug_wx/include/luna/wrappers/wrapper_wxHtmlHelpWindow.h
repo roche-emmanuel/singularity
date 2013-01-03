@@ -22,6 +22,120 @@ public:
 	wrapper_wxHtmlHelpWindow(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpWindow(data), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxHtmlHelpWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) : wxHtmlHelpWindow(parent, wxWindowID, pos, size, style, helpStyle, data), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlHelpWindow::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlHelpWindow::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlHelpWindow::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlHelpWindow::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlHelpWindow::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxHtmlHelpWindow::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlHelpWindow::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlHelpWindow::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlHelpWindow::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlHelpWindow::AddPendingEvent(event);
+	};
+
+	// void wxHtmlHelpWindow::AddToolbarButtons(wxToolBar * toolBar, int style)
+	void AddToolbarButtons(wxToolBar * toolBar, int style) {
+		if(_obj.pushFunction("AddToolbarButtons")) {
+			_obj.pushArg(toolBar);
+			_obj.pushArg(style);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlHelpWindow::AddToolbarButtons(toolBar, style);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1001,118 +1115,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxHtmlHelpWindow::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxHtmlHelpWindow::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHtmlHelpWindow::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHtmlHelpWindow::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlHelpWindow::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxHtmlHelpWindow::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlHelpWindow::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxHtmlHelpWindow::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlHelpWindow::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlHelpWindow::AddPendingEvent(event);
-	};
-
-	// void wxHtmlHelpWindow::AddToolbarButtons(wxToolBar * toolBar, int style)
-	void AddToolbarButtons(wxToolBar * toolBar, int style) {
-		if(_obj.pushFunction("AddToolbarButtons")) {
-			_obj.pushArg(toolBar);
-			_obj.pushArg(style);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxHtmlHelpWindow::AddToolbarButtons(toolBar, style);
-	};
-
-public:
 	// Protected non-virtual methods:
 	// void wxHtmlHelpWindow::CreateSearch()
 	void public_CreateSearch() {
@@ -1162,7 +1164,7 @@ public:
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_CreateSearch();
 
@@ -1180,7 +1182,7 @@ public:
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_CreateContents();
 
@@ -1198,7 +1200,7 @@ public:
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex()");
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->public_CreateIndex();
 

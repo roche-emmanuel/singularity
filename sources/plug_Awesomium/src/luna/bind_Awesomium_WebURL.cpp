@@ -49,7 +49,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,3243885) ) return false;
-		if( (!dynamic_cast< Awesomium::WebURL* >(Luna< Awesomium::WebURL >::check(L,1))) ) return false;
+		if( (!(Luna< Awesomium::WebURL >::check(L,1))) ) return false;
 		return true;
 	}
 

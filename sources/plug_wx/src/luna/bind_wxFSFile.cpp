@@ -205,7 +205,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxFSFile::DetachStream()");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxFSFile::DetachStream(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->DetachStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -226,7 +226,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetAnchor() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetAnchor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetAnchor();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -245,7 +245,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetLocation() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetLocation() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetLocation();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -264,7 +264,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetMimeType() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetMimeType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetMimeType();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -283,7 +283,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxFSFile::GetModificationTime() const");
+			luaL_error(L, "Invalid object in function call wxDateTime wxFSFile::GetModificationTime() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDateTime stack_lret = self->GetModificationTime();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -305,7 +305,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream * wxFSFile::GetStream() const");
+			luaL_error(L, "Invalid object in function call wxInputStream * wxFSFile::GetStream() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxInputStream * lret = self->GetStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -326,7 +326,7 @@ public:
 		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFSFile::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFSFile::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFSFile::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

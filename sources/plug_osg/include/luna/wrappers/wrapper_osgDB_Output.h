@@ -22,6 +22,20 @@ public:
 	wrapper_osgDB_Output(lua_State* L, lua_Table* dum) : osgDB::Output(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgDB_Output(lua_State* L, lua_Table* dum, const char * name) : osgDB::Output(name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// void osgDB::Output::init()
+	void init() {
+		if(_obj.pushFunction("init")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Output::init();
+	};
+
+public:
 	// Public virtual methods:
 	// bool osgDB::Output::writeObject(const osg::Object & obj)
 	bool writeObject(const osg::Object & obj) {
@@ -101,18 +115,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// void osgDB::Output::init()
-	void init() {
-		if(_obj.pushFunction("init")) {
-			return (_obj.callFunction<void>());
-		}
-
-		return Output::init();
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

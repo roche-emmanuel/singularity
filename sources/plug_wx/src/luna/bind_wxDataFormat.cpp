@@ -142,7 +142,7 @@ public:
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataFormat::GetId() const");
+			luaL_error(L, "Invalid object in function call wxString wxDataFormat::GetId() const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
 		}
 		wxString lret = self->GetId();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -161,7 +161,7 @@ public:
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDataFormat::GetType() const");
+			luaL_error(L, "Invalid object in function call unsigned short wxDataFormat::GetType() const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
 		}
 		unsigned short lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -181,7 +181,7 @@ public:
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataFormat::SetId(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDataFormat::SetId(const wxString &). Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
 		}
 		self->SetId(format);
 
@@ -200,7 +200,7 @@ public:
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataFormat::SetType(unsigned short)");
+			luaL_error(L, "Invalid object in function call void wxDataFormat::SetType(unsigned short). Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
 		}
 		self->SetType(type);
 
@@ -221,7 +221,7 @@ public:
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator!=(unsigned short) const");
+			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator!=(unsigned short) const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(format);
 		lua_pushboolean(L,lret?1:0);
@@ -241,7 +241,7 @@ public:
 		wxDataFormat* self=(Luna< wxDataFormat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator==(unsigned short) const");
+			luaL_error(L, "Invalid object in function call bool wxDataFormat::operator==(unsigned short) const. Got : '%s'",typeid(Luna< wxDataFormat >::check(L,1)).name());
 		}
 		bool lret = self->operator==(format);
 		lua_pushboolean(L,lret?1:0);

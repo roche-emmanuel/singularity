@@ -122,7 +122,7 @@ public:
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::add(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::add(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
 		}
 		self->add(v);
 
@@ -145,7 +145,7 @@ public:
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList &)");
+			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList &). Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
 		}
 		self->setVertexList(vertexList);
 
@@ -163,7 +163,7 @@ public:
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList()");
+			luaL_error(L, "Invalid object in function call osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList(). Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
 		}
 		const osg::ConvexPlanarPolygon::VertexList* lret = &self->getVertexList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -184,7 +184,7 @@ public:
 		osg::ConvexPlanarPolygon* self=(Luna< osg::ConvexPlanarPolygon >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const");
+			luaL_error(L, "Invalid object in function call const osg::ConvexPlanarPolygon::VertexList & osg::ConvexPlanarPolygon::getVertexList() const. Got : '%s'",typeid(Luna< osg::ConvexPlanarPolygon >::check(L,1)).name());
 		}
 		const osg::ConvexPlanarPolygon::VertexList* lret = &self->getVertexList();
 		if(!lret) return 0; // Do not write NULL pointers.

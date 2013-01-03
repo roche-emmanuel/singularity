@@ -533,7 +533,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgParticle::Particle::Shape osgParticle::Particle::getShape() const");
+			luaL_error(L, "Invalid object in function call osgParticle::Particle::Shape osgParticle::Particle::getShape() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		osgParticle::Particle::Shape lret = self->getShape();
 		lua_pushnumber(L,lret);
@@ -553,7 +553,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setShape(osgParticle::Particle::Shape)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setShape(osgParticle::Particle::Shape). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setShape(s);
 
@@ -571,7 +571,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Particle::isAlive() const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Particle::isAlive() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		bool lret = self->isAlive();
 		lua_pushboolean(L,lret?1:0);
@@ -590,7 +590,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgParticle::Particle::getLifeTime() const");
+			luaL_error(L, "Invalid object in function call double osgParticle::Particle::getLifeTime() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		double lret = self->getLifeTime();
 		lua_pushnumber(L,lret);
@@ -609,7 +609,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgParticle::Particle::getAge() const");
+			luaL_error(L, "Invalid object in function call double osgParticle::Particle::getAge() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		double lret = self->getAge();
 		lua_pushnumber(L,lret);
@@ -628,7 +628,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::Particle::getSizeRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::Particle::getSizeRange() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getSizeRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -649,7 +649,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::Particle::getAlphaRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangef & osgParticle::Particle::getAlphaRange() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osgParticle::rangef* lret = &self->getAlphaRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -670,7 +670,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::rangev4 & osgParticle::Particle::getColorRange() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::rangev4 & osgParticle::Particle::getColorRange() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osgParticle::rangev4* lret = &self->getColorRange();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -691,7 +691,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::Interpolator * osgParticle::Particle::getSizeInterpolator() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::Interpolator * osgParticle::Particle::getSizeInterpolator() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osgParticle::Interpolator * lret = self->getSizeInterpolator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -712,7 +712,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::Interpolator * osgParticle::Particle::getAlphaInterpolator() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::Interpolator * osgParticle::Particle::getAlphaInterpolator() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osgParticle::Interpolator * lret = self->getAlphaInterpolator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -733,7 +733,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::Interpolator * osgParticle::Particle::getColorInterpolator() const");
+			luaL_error(L, "Invalid object in function call const osgParticle::Interpolator * osgParticle::Particle::getColorInterpolator() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osgParticle::Interpolator * lret = self->getColorInterpolator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -754,7 +754,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getRadius() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getRadius() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getRadius();
 		lua_pushnumber(L,lret);
@@ -773,7 +773,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getMass() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getMass() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getMass();
 		lua_pushnumber(L,lret);
@@ -792,7 +792,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getMassInv() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getMassInv() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getMassInv();
 		lua_pushnumber(L,lret);
@@ -811,7 +811,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getPosition() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getPosition() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -832,7 +832,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getVelocity() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getVelocity() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getVelocity();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -853,7 +853,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getPreviousPosition() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getPreviousPosition() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPreviousPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -874,7 +874,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getAngle() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getAngle() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getAngle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -895,7 +895,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getAngularVelocity() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getAngularVelocity() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getAngularVelocity();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -916,7 +916,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getPreviousAngle() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::Particle::getPreviousAngle() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPreviousAngle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -937,7 +937,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgParticle::Particle::getCurrentColor() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osgParticle::Particle::getCurrentColor() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getCurrentColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -958,7 +958,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getCurrentAlpha() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getCurrentAlpha() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getCurrentAlpha();
 		lua_pushnumber(L,lret);
@@ -977,7 +977,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getSTexCoord() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getSTexCoord() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getSTexCoord();
 		lua_pushnumber(L,lret);
@@ -996,7 +996,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getTTexCoord() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getTTexCoord() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getTTexCoord();
 		lua_pushnumber(L,lret);
@@ -1015,7 +1015,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getTileS() const");
+			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getTileS() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		int lret = self->getTileS();
 		lua_pushnumber(L,lret);
@@ -1034,7 +1034,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getTileT() const");
+			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getTileT() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		int lret = self->getTileT();
 		lua_pushnumber(L,lret);
@@ -1053,7 +1053,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getNumTiles() const");
+			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getNumTiles() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		int lret = self->getNumTiles();
 		lua_pushnumber(L,lret);
@@ -1072,7 +1072,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::kill()");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::kill(). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->kill();
 
@@ -1091,7 +1091,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setLifeTime(double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setLifeTime(double). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setLifeTime(t);
 
@@ -1114,7 +1114,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setSizeRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setSizeRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setSizeRange(r);
 
@@ -1137,7 +1137,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAlphaRange(const osgParticle::rangef &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAlphaRange(const osgParticle::rangef &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setAlphaRange(r);
 
@@ -1160,7 +1160,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setColorRange(const osgParticle::rangev4 &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setColorRange(const osgParticle::rangev4 &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setColorRange(r);
 
@@ -1179,7 +1179,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setSizeInterpolator(osgParticle::Interpolator *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setSizeInterpolator(osgParticle::Interpolator *). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setSizeInterpolator(ri);
 
@@ -1198,7 +1198,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAlphaInterpolator(osgParticle::Interpolator *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAlphaInterpolator(osgParticle::Interpolator *). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setAlphaInterpolator(ai);
 
@@ -1217,7 +1217,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setColorInterpolator(osgParticle::Interpolator *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setColorInterpolator(osgParticle::Interpolator *). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setColorInterpolator(ci);
 
@@ -1236,7 +1236,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setRadius(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setRadius(float). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setRadius(r);
 
@@ -1255,7 +1255,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setMass(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setMass(float). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setMass(m);
 
@@ -1278,7 +1278,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setPosition(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setPosition(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setPosition(p);
 
@@ -1301,7 +1301,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setVelocity(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setVelocity(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setVelocity(v);
 
@@ -1324,7 +1324,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::addVelocity(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::addVelocity(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->addVelocity(dv);
 
@@ -1347,7 +1347,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::transformPositionVelocity(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::transformPositionVelocity(const osg::Matrixd &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->transformPositionVelocity(xform);
 
@@ -1376,7 +1376,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::transformPositionVelocity(const osg::Matrixd &, const osg::Matrixd &, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::transformPositionVelocity(const osg::Matrixd &, const osg::Matrixd &, float). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->transformPositionVelocity(xform1, xform2, r);
 
@@ -1408,7 +1408,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAngle(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAngle(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setAngle(a);
 
@@ -1431,7 +1431,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAngularVelocity(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setAngularVelocity(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setAngularVelocity(v);
 
@@ -1454,7 +1454,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::addAngularVelocity(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::addAngularVelocity(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->addAngularVelocity(dv);
 
@@ -1477,7 +1477,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::transformAngleVelocity(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::transformAngleVelocity(const osg::Matrixd &). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->transformAngleVelocity(xform);
 
@@ -1497,7 +1497,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Particle::update(double, bool)");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Particle::update(double, bool). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		bool lret = self->update(dt, onlyTimeStamp);
 		lua_pushboolean(L,lret?1:0);
@@ -1517,7 +1517,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::beginRender(osg::GLBeginEndAdapter *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::beginRender(osg::GLBeginEndAdapter *) const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->beginRender(gl);
 
@@ -1554,7 +1554,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::render(osg::GLBeginEndAdapter *, const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::render(osg::GLBeginEndAdapter *, const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float) const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->render(gl, xpos, px, py, scale);
 
@@ -1587,7 +1587,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::render(osg::RenderInfo &, const osg::Vec3f &, const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::render(osg::RenderInfo &, const osg::Vec3f &, const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->render(renderInfo, xpos, xrot);
 
@@ -1615,7 +1615,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::endRender(osg::GLBeginEndAdapter *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::endRender(osg::GLBeginEndAdapter *) const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->endRender(gl);
 
@@ -1633,7 +1633,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getCurrentSize() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Particle::getCurrentSize() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		float lret = self->getCurrentSize();
 		lua_pushnumber(L,lret);
@@ -1656,7 +1656,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setTextureTileRange(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setTextureTileRange(int, int, int, int). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setTextureTileRange(sTile, tTile, startTile, endTile);
 
@@ -1679,7 +1679,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setTextureTile(int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setTextureTile(int, int, int). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setTextureTile(sTile, tTile, end);
 
@@ -1698,7 +1698,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setPreviousParticle(int)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setPreviousParticle(int). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setPreviousParticle(previous);
 
@@ -1716,7 +1716,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getPreviousParticle() const");
+			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getPreviousParticle() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		int lret = self->getPreviousParticle();
 		lua_pushnumber(L,lret);
@@ -1736,7 +1736,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setNextParticle(int)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setNextParticle(int). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setNextParticle(next);
 
@@ -1754,7 +1754,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getNextParticle() const");
+			luaL_error(L, "Invalid object in function call int osgParticle::Particle::getNextParticle() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		int lret = self->getNextParticle();
 		lua_pushnumber(L,lret);
@@ -1774,7 +1774,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setDepth(double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setDepth(double). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setDepth(d);
 
@@ -1792,7 +1792,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgParticle::Particle::getDepth() const");
+			luaL_error(L, "Invalid object in function call double osgParticle::Particle::getDepth() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		double lret = self->getDepth();
 		lua_pushnumber(L,lret);
@@ -1812,7 +1812,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setDrawable(d);
 
@@ -1830,7 +1830,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osgParticle::Particle::getDrawable() const");
+			luaL_error(L, "Invalid object in function call osg::Drawable * osgParticle::Particle::getDrawable() const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		osg::Drawable * lret = self->getDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1852,7 +1852,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setUpTexCoordsAsPartOfConnectedParticleSystem(osgParticle::ParticleSystem *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Particle::setUpTexCoordsAsPartOfConnectedParticleSystem(osgParticle::ParticleSystem *). Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		self->setUpTexCoordsAsPartOfConnectedParticleSystem(ps);
 
@@ -1877,7 +1877,7 @@ public:
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Particle::operator<(const osgParticle::Particle &) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Particle::operator<(const osgParticle::Particle &) const. Got : '%s'",typeid(Luna< osgParticle::Particle >::check(L,1)).name());
 		}
 		bool lret = self->operator<(P);
 		lua_pushboolean(L,lret?1:0);

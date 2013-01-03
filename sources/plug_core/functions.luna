@@ -3,5 +3,6 @@ doLog
 doLogV
 doTrace
 doTraceV
+module=osg
 osg::intrusive_ptr_add_ref
 osg::intrusive_ptr_release

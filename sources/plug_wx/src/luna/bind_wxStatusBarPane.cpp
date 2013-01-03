@@ -116,7 +116,7 @@ public:
 		wxStatusBarPane* self=(Luna< wxStatusBarPane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetWidth() const. Got : '%s'",typeid(Luna< wxStatusBarPane >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -135,7 +135,7 @@ public:
 		wxStatusBarPane* self=(Luna< wxStatusBarPane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetStyle() const");
+			luaL_error(L, "Invalid object in function call int wxStatusBarPane::GetStyle() const. Got : '%s'",typeid(Luna< wxStatusBarPane >::check(L,1)).name());
 		}
 		int lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -154,7 +154,7 @@ public:
 		wxStatusBarPane* self=(Luna< wxStatusBarPane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStatusBarPane::GetText() const");
+			luaL_error(L, "Invalid object in function call wxString wxStatusBarPane::GetText() const. Got : '%s'",typeid(Luna< wxStatusBarPane >::check(L,1)).name());
 		}
 		wxString lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());

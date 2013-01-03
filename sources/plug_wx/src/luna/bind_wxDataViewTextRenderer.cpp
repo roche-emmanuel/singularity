@@ -139,7 +139,7 @@ public:
 		wxDataViewTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewTextRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewTextRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewTextRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewTextRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -160,7 +160,7 @@ public:
 		wxDataViewTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewTextRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewTextRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewTextRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewTextRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -179,7 +179,7 @@ public:
 		wxDataViewTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewTextRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewTextRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewTextRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewTextRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -199,7 +199,7 @@ public:
 		wxDataViewTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewTextRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTextRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewTextRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewTextRenderer::SetAlignment(align);
 

@@ -345,7 +345,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setThreadSafeRefUnref(threadSafe);
 
@@ -363,7 +363,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Referenced::getThreadSafeRefUnref() const");
+			luaL_error(L, "Invalid object in function call bool osg::Referenced::getThreadSafeRefUnref() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getThreadSafeRefUnref();
 		lua_pushboolean(L,lret?1:0);
@@ -382,12 +382,12 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call OpenThreads::Mutex * osg::Referenced::getRefMutex() const");
+			luaL_error(L, "Invalid object in function call OpenThreads::Mutex * osg::Referenced::getRefMutex() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		OpenThreads::Mutex * lret = self->getRefMutex();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'OpenThreads::Mutex *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< OpenThreads::Mutex >::push(L,lret,false);
 
 		return 1;
 	}
@@ -403,7 +403,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Referenced::ref() const");
+			luaL_error(L, "Invalid object in function call int osg::Referenced::ref() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->ref();
 		lua_pushnumber(L,lret);
@@ -422,7 +422,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Referenced::unref() const");
+			luaL_error(L, "Invalid object in function call int osg::Referenced::unref() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->unref();
 		lua_pushnumber(L,lret);
@@ -441,7 +441,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Referenced::unref_nodelete() const");
+			luaL_error(L, "Invalid object in function call int osg::Referenced::unref_nodelete() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->unref_nodelete();
 		lua_pushnumber(L,lret);
@@ -460,7 +460,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Referenced::referenceCount() const");
+			luaL_error(L, "Invalid object in function call int osg::Referenced::referenceCount() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->referenceCount();
 		lua_pushnumber(L,lret);
@@ -479,7 +479,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ObserverSet * osg::Referenced::getObserverSet() const");
+			luaL_error(L, "Invalid object in function call osg::ObserverSet * osg::Referenced::getObserverSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ObserverSet * lret = self->getObserverSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -500,7 +500,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ObserverSet * osg::Referenced::getOrCreateObserverSet() const");
+			luaL_error(L, "Invalid object in function call osg::ObserverSet * osg::Referenced::getOrCreateObserverSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ObserverSet * lret = self->getOrCreateObserverSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -522,7 +522,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::addObserver(osg::Observer *) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::addObserver(osg::Observer *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addObserver(observer);
 
@@ -541,7 +541,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::removeObserver(osg::Observer *) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::removeObserver(osg::Observer *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeObserver(observer);
 
@@ -557,9 +557,9 @@ public:
 
 
 		OpenThreads::Mutex * lret = osg::Referenced::getGlobalReferencedMutex();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'OpenThreads::Mutex *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< OpenThreads::Mutex >::push(L,lret,false);
 
 		return 1;
 	}
@@ -634,7 +634,7 @@ public:
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Referenced::setThreadSafeRefUnref(threadSafe);
 

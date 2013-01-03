@@ -78,7 +78,7 @@ void LunaTraits< osg::GraphicsContext::ScreenIdentifier >::_bind_dtor(osg::Graph
 	delete obj;
 }
 
-const char LunaTraits< osg::GraphicsContext::ScreenIdentifier >::className[] = "ScreenIdentifier";
+const char LunaTraits< osg::GraphicsContext::ScreenIdentifier >::className[] = "GraphicsContext_ScreenIdentifier";
 const char LunaTraits< osg::GraphicsContext::ScreenIdentifier >::fullName[] = "osg::GraphicsContext::ScreenIdentifier";
 const char LunaTraits< osg::GraphicsContext::ScreenIdentifier >::moduleName[] = "osg";
 const char* LunaTraits< osg::GraphicsContext::ScreenIdentifier >::parents[] = {0};

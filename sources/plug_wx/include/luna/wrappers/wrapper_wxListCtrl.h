@@ -22,6 +22,162 @@ public:
 	wrapper_wxListCtrl(lua_State* L, lua_Table* dum) : wxListCtrl(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr) : wxListCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+protected:
+	// Protected virtual methods:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxListCtrl::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxListCtrl::CloneRefData(data);
+	};
+
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxListCtrl::TryBefore(event);
+	};
+
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxListCtrl::TryAfter(event);
+	};
+
+	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxListCtrl::DoCentre(direction);
+	};
+
+	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxListCtrl::DoGetBestSize();
+	};
+
+	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxListCtrl::SetInitialBestSize(size);
+	};
+
+	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxListCtrl::ProcessEvent(event);
+	};
+
+	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxListCtrl::QueueEvent(event);
+	};
+
+	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxListCtrl::AddPendingEvent(event);
+	};
+
+	// wxListItemAttr * wxListCtrl::OnGetItemAttr(long item) const
+	wxListItemAttr * OnGetItemAttr(long item) const {
+		if(_obj.pushFunction("OnGetItemAttr")) {
+			_obj.pushArg(item);
+			return (_obj.callFunction<wxListItemAttr*>());
+		}
+
+		return wxListCtrl::OnGetItemAttr(item);
+	};
+
+	// wxListItemAttr * wxListCtrl::OnGetItemColumnAttr(long item, long column) const
+	wxListItemAttr * OnGetItemColumnAttr(long item, long column) const {
+		if(_obj.pushFunction("OnGetItemColumnAttr")) {
+			_obj.pushArg(item);
+			_obj.pushArg(column);
+			return (_obj.callFunction<wxListItemAttr*>());
+		}
+
+		return wxListCtrl::OnGetItemColumnAttr(item, column);
+	};
+
+	// int wxListCtrl::OnGetItemColumnImage(long item, long column) const
+	int OnGetItemColumnImage(long item, long column) const {
+		if(_obj.pushFunction("OnGetItemColumnImage")) {
+			_obj.pushArg(item);
+			_obj.pushArg(column);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxListCtrl::OnGetItemColumnImage(item, column);
+	};
+
+	// int wxListCtrl::OnGetItemImage(long item) const
+	int OnGetItemImage(long item) const {
+		if(_obj.pushFunction("OnGetItemImage")) {
+			_obj.pushArg(item);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxListCtrl::OnGetItemImage(item);
+	};
+
+	// wxString wxListCtrl::OnGetItemText(long item, long column) const
+	wxString OnGetItemText(long item, long column) const {
+		if(_obj.pushFunction("OnGetItemText")) {
+			_obj.pushArg(item);
+			_obj.pushArg(column);
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxListCtrl::OnGetItemText(item, column);
+	};
+
+public:
 	// Public virtual methods:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1011,160 +1167,6 @@ public:
 	};
 
 
-protected:
-	// Protected virtual methods:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	wxObjectRefData * CreateRefData() const {
-		if(_obj.pushFunction("CreateRefData")) {
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxListCtrl::CreateRefData();
-	};
-
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxListCtrl::CloneRefData(data);
-	};
-
-	// bool wxEvtHandler::TryBefore(wxEvent & event)
-	bool TryBefore(wxEvent & event) {
-		if(_obj.pushFunction("TryBefore")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxListCtrl::TryBefore(event);
-	};
-
-	// bool wxEvtHandler::TryAfter(wxEvent & event)
-	bool TryAfter(wxEvent & event) {
-		if(_obj.pushFunction("TryAfter")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxListCtrl::TryAfter(event);
-	};
-
-	// void wxWindow::DoCentre(int direction)
-	void DoCentre(int direction) {
-		if(_obj.pushFunction("DoCentre")) {
-			_obj.pushArg(direction);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxListCtrl::DoCentre(direction);
-	};
-
-	// wxSize wxWindow::DoGetBestSize() const
-	wxSize DoGetBestSize() const {
-		if(_obj.pushFunction("DoGetBestSize")) {
-			return *(_obj.callFunction<wxSize*>());
-		}
-
-		return wxListCtrl::DoGetBestSize();
-	};
-
-	// void wxWindow::SetInitialBestSize(const wxSize & size)
-	void SetInitialBestSize(const wxSize & size) {
-		if(_obj.pushFunction("SetInitialBestSize")) {
-			_obj.pushArg(&size);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxListCtrl::SetInitialBestSize(size);
-	};
-
-	// bool wxWindow::ProcessEvent(wxEvent & event)
-	bool ProcessEvent(wxEvent & event) {
-		if(_obj.pushFunction("ProcessEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxListCtrl::ProcessEvent(event);
-	};
-
-	// void wxWindow::QueueEvent(wxEvent * event)
-	void QueueEvent(wxEvent * event) {
-		if(_obj.pushFunction("QueueEvent")) {
-			_obj.pushArg(event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxListCtrl::QueueEvent(event);
-	};
-
-	// void wxWindow::AddPendingEvent(const wxEvent & event)
-	void AddPendingEvent(const wxEvent & event) {
-		if(_obj.pushFunction("AddPendingEvent")) {
-			_obj.pushArg(&event);
-			return (_obj.callFunction<void>());
-		}
-
-		return wxListCtrl::AddPendingEvent(event);
-	};
-
-	// wxListItemAttr * wxListCtrl::OnGetItemAttr(long item) const
-	wxListItemAttr * OnGetItemAttr(long item) const {
-		if(_obj.pushFunction("OnGetItemAttr")) {
-			_obj.pushArg(item);
-			return (_obj.callFunction<wxListItemAttr*>());
-		}
-
-		return wxListCtrl::OnGetItemAttr(item);
-	};
-
-	// wxListItemAttr * wxListCtrl::OnGetItemColumnAttr(long item, long column) const
-	wxListItemAttr * OnGetItemColumnAttr(long item, long column) const {
-		if(_obj.pushFunction("OnGetItemColumnAttr")) {
-			_obj.pushArg(item);
-			_obj.pushArg(column);
-			return (_obj.callFunction<wxListItemAttr*>());
-		}
-
-		return wxListCtrl::OnGetItemColumnAttr(item, column);
-	};
-
-	// int wxListCtrl::OnGetItemColumnImage(long item, long column) const
-	int OnGetItemColumnImage(long item, long column) const {
-		if(_obj.pushFunction("OnGetItemColumnImage")) {
-			_obj.pushArg(item);
-			_obj.pushArg(column);
-			return (_obj.callFunction<int>());
-		}
-
-		return wxListCtrl::OnGetItemColumnImage(item, column);
-	};
-
-	// int wxListCtrl::OnGetItemImage(long item) const
-	int OnGetItemImage(long item) const {
-		if(_obj.pushFunction("OnGetItemImage")) {
-			_obj.pushArg(item);
-			return (_obj.callFunction<int>());
-		}
-
-		return wxListCtrl::OnGetItemImage(item);
-	};
-
-	// wxString wxListCtrl::OnGetItemText(long item, long column) const
-	wxString OnGetItemText(long item, long column) const {
-		if(_obj.pushFunction("OnGetItemText")) {
-			_obj.pushArg(item);
-			_obj.pushArg(column);
-			return *(_obj.callFunction<wxString*>());
-		}
-
-		return wxListCtrl::OnGetItemText(item, column);
-	};
-
-public:
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

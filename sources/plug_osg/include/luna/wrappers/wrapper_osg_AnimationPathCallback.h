@@ -24,6 +24,11 @@ public:
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) : osg::AnimationPathCallback(ap, timeOffset, timeMultiplier), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) : osg::AnimationPathCallback(pivot, axis, angularVelocity), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -159,9 +164,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
@@ -204,7 +206,7 @@ public:
 		wrapper_osg_AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_AnimationPathCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -222,7 +224,7 @@ public:
 		wrapper_osg_AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_AnimationPathCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

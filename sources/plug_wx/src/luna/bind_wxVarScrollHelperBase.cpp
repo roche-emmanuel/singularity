@@ -237,7 +237,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::CalcScrolledPosition(int) const");
+			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::CalcScrolledPosition(int) const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		int lret = self->CalcScrolledPosition(coord);
 		lua_pushnumber(L,lret);
@@ -257,7 +257,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::CalcUnscrolledPosition(int) const");
+			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::CalcUnscrolledPosition(int) const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		int lret = self->CalcUnscrolledPosition(coord);
 		lua_pushnumber(L,lret);
@@ -279,7 +279,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::EnablePhysicalScrolling(bool)");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::EnablePhysicalScrolling(bool). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->EnablePhysicalScrolling(scrolling);
 
@@ -297,7 +297,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::GetNonOrientationTargetSize() const");
+			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::GetNonOrientationTargetSize() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		int lret = self->GetNonOrientationTargetSize();
 		lua_pushnumber(L,lret);
@@ -316,7 +316,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOrientation wxVarScrollHelperBase::GetOrientation() const");
+			luaL_error(L, "Invalid object in function call wxOrientation wxVarScrollHelperBase::GetOrientation() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		wxOrientation lret = self->GetOrientation();
 		lua_pushnumber(L,lret);
@@ -335,7 +335,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::GetOrientationTargetSize() const");
+			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::GetOrientationTargetSize() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		int lret = self->GetOrientationTargetSize();
 		lua_pushnumber(L,lret);
@@ -354,7 +354,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxVarScrollHelperBase::GetTargetWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxVarScrollHelperBase::GetTargetWindow() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetTargetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,7 +375,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxVarScrollHelperBase::GetVisibleBegin() const");
+			luaL_error(L, "Invalid object in function call size_t wxVarScrollHelperBase::GetVisibleBegin() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		size_t lret = self->GetVisibleBegin();
 		lua_pushnumber(L,lret);
@@ -394,7 +394,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxVarScrollHelperBase::GetVisibleEnd() const");
+			luaL_error(L, "Invalid object in function call size_t wxVarScrollHelperBase::GetVisibleEnd() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		size_t lret = self->GetVisibleEnd();
 		lua_pushnumber(L,lret);
@@ -414,7 +414,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxVarScrollHelperBase::IsVisible(size_t) const");
+			luaL_error(L, "Invalid object in function call bool wxVarScrollHelperBase::IsVisible(size_t) const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		bool lret = self->IsVisible(unit);
 		lua_pushboolean(L,lret?1:0);
@@ -433,7 +433,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::RefreshAll()");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::RefreshAll(). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->RefreshAll();
 
@@ -452,7 +452,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::SetTargetWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::SetTargetWindow(wxWindow *). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->SetTargetWindow(target);
 
@@ -470,7 +470,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::UpdateScrollbar()");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::UpdateScrollbar(). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->UpdateScrollbar();
 
@@ -489,7 +489,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::VirtualHitTest(int) const");
+			luaL_error(L, "Invalid object in function call int wxVarScrollHelperBase::VirtualHitTest(int) const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		int lret = self->VirtualHitTest(coord);
 		lua_pushnumber(L,lret);
@@ -508,7 +508,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxVarScrollHelperBase::base_GetTargetWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxVarScrollHelperBase::base_GetTargetWindow() const. Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		wxWindow * lret = self->wxVarScrollHelperBase::GetTargetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -529,7 +529,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_RefreshAll()");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_RefreshAll(). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarScrollHelperBase::RefreshAll();
 
@@ -548,7 +548,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_SetTargetWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_SetTargetWindow(wxWindow *). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarScrollHelperBase::SetTargetWindow(target);
 
@@ -566,7 +566,7 @@ public:
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_UpdateScrollbar()");
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_UpdateScrollbar(). Got : '%s'",typeid(Luna< wxVarScrollHelperBase >::check(L,1)).name());
 		}
 		self->wxVarScrollHelperBase::UpdateScrollbar();
 

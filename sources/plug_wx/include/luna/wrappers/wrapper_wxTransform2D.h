@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	void Transform(wxPoint2DInt * pt) const {
@@ -95,9 +100,6 @@ public:
 		return wxTransform2D::InverseTransform(r);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

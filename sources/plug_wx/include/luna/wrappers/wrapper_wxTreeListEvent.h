@@ -20,23 +20,8 @@ public:
 	};
 	
 
-	// Public virtual methods:
-	// wxEvent * wxEvent::Clone() const
-	wxEvent * Clone() const {
-		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
-		return (_obj.callFunction<wxEvent*>());
-	};
 
-	// wxEventCategory wxEvent::GetEventCategory() const
-	wxEventCategory GetEventCategory() const {
-		if(_obj.pushFunction("GetEventCategory")) {
-			return (wxEventCategory)(_obj.callFunction<int>());
-		}
-
-		return wxTreeListEvent::GetEventCategory();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -59,6 +44,23 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxEvent * wxEvent::Clone() const
+	wxEvent * Clone() const {
+		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
+		return (_obj.callFunction<wxEvent*>());
+	};
+
+	// wxEventCategory wxEvent::GetEventCategory() const
+	wxEventCategory GetEventCategory() const {
+		if(_obj.pushFunction("GetEventCategory")) {
+			return (wxEventCategory)(_obj.callFunction<int>());
+		}
+
+		return wxTreeListEvent::GetEventCategory();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

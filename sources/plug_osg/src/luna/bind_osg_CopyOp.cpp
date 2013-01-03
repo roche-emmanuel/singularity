@@ -280,7 +280,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::CopyOp::setCopyFlags(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::CopyOp::setCopyFlags(unsigned int). Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		self->setCopyFlags(flags);
 
@@ -298,7 +298,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::CopyOp::getCopyFlags() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::CopyOp::getCopyFlags() const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		unsigned int lret = self->getCopyFlags();
 		lua_pushnumber(L,lret);
@@ -320,7 +320,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CopyOp::operator()(const osg::Referenced *) const");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::CopyOp::operator()(const osg::Referenced *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->operator()(ref);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -342,7 +342,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::CopyOp::operator()(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::CopyOp::operator()(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Object * lret = self->operator()(obj);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -364,7 +364,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osg::CopyOp::operator()(const osg::Node *) const");
+			luaL_error(L, "Invalid object in function call osg::Node * osg::CopyOp::operator()(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Node * lret = self->operator()(node);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -386,7 +386,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Drawable * osg::CopyOp::operator()(const osg::Drawable *) const");
+			luaL_error(L, "Invalid object in function call osg::Drawable * osg::CopyOp::operator()(const osg::Drawable *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Drawable * lret = self->operator()(drawable);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -408,7 +408,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osg::CopyOp::operator()(const osg::StateSet *) const");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osg::CopyOp::operator()(const osg::StateSet *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->operator()(stateset);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -430,7 +430,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute *) const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::StateAttribute * lret = self->operator()(attr);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -452,7 +452,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::CopyOp::operator()(const osg::Texture *) const");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::CopyOp::operator()(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->operator()(text);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -474,7 +474,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::CopyOp::operator()(const osg::Image *) const");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::CopyOp::operator()(const osg::Image *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Image * lret = self->operator()(image);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -496,7 +496,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Array * osg::CopyOp::operator()(const osg::Array *) const");
+			luaL_error(L, "Invalid object in function call osg::Array * osg::CopyOp::operator()(const osg::Array *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Array * lret = self->operator()(array);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -518,7 +518,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet *) const");
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::PrimitiveSet * lret = self->operator()(primitives);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -540,7 +540,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Shape * osg::CopyOp::operator()(const osg::Shape *) const");
+			luaL_error(L, "Invalid object in function call osg::Shape * osg::CopyOp::operator()(const osg::Shape *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Shape * lret = self->operator()(shape);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -562,7 +562,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Uniform * osg::CopyOp::operator()(const osg::Uniform *) const");
+			luaL_error(L, "Invalid object in function call osg::Uniform * osg::CopyOp::operator()(const osg::Uniform *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::Uniform * lret = self->operator()(shape);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -584,7 +584,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback *) const");
+			luaL_error(L, "Invalid object in function call osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::NodeCallback * lret = self->operator()(nodecallback);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -606,7 +606,7 @@ public:
 		osg::CopyOp* self=(Luna< osg::CopyOp >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback *) const");
+			luaL_error(L, "Invalid object in function call osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback *) const. Got : '%s'",typeid(Luna< osg::CopyOp >::check(L,1)).name());
 		}
 		osg::StateAttributeCallback * lret = self->operator()(stateattributecallback);
 		if(!lret) return 0; // Do not write NULL pointers.

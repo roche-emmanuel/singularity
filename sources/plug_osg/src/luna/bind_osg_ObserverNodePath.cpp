@@ -199,7 +199,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::setNodePathTo(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::setNodePathTo(osg::Node *). Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		self->setNodePathTo(node);
 
@@ -222,7 +222,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::setNodePath(const osg::RefNodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::setNodePath(const osg::RefNodePath &). Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		self->setNodePath(nodePath);
 
@@ -245,7 +245,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::setNodePath(const osg::NodePath &)");
+			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::setNodePath(const osg::NodePath &). Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		self->setNodePath(nodePath);
 
@@ -272,7 +272,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::clearNodePath()");
+			luaL_error(L, "Invalid object in function call void osg::ObserverNodePath::clearNodePath(). Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		self->clearNodePath();
 
@@ -295,7 +295,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ObserverNodePath::getRefNodePath(osg::RefNodePath &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ObserverNodePath::getRefNodePath(osg::RefNodePath &) const. Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		bool lret = self->getRefNodePath(refNodePath);
 		lua_pushboolean(L,lret?1:0);
@@ -319,7 +319,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ObserverNodePath::getNodePath(osg::NodePath &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ObserverNodePath::getNodePath(osg::NodePath &) const. Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		bool lret = self->getNodePath(nodePath);
 		lua_pushboolean(L,lret?1:0);
@@ -338,7 +338,7 @@ public:
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ObserverNodePath::empty() const");
+			luaL_error(L, "Invalid object in function call bool osg::ObserverNodePath::empty() const. Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);

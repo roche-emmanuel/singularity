@@ -19,6 +19,12 @@ public:
 		}
 	};
 	
+	wrapper_osgUtil_RenderBin_SortCallback(lua_State* L, lua_Table* dum) : osgUtil::RenderBin::SortCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
 
 	// Public virtual methods:
 	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
@@ -28,9 +34,6 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
@@ -74,7 +77,7 @@ public:
 		wrapper_osgUtil_RenderBin_SortCallback* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_RenderBin_SortCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -92,7 +95,7 @@ public:
 		wrapper_osgUtil_RenderBin_SortCallback* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_RenderBin_SortCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

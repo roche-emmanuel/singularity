@@ -261,7 +261,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPoint2DInt::GetFloor(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::GetFloor(int *, int *) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		self->GetFloor(&x, &y);
 
@@ -281,7 +281,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPoint2DInt::GetRounded(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::GetRounded(int *, int *) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		self->GetRounded(&x, &y);
 
@@ -299,7 +299,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetVectorLength() const");
+			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetVectorLength() const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		double lret = self->GetVectorLength();
 		lua_pushnumber(L,lret);
@@ -318,7 +318,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetVectorAngle() const");
+			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetVectorAngle() const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		double lret = self->GetVectorAngle();
 		lua_pushnumber(L,lret);
@@ -338,7 +338,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPoint2DInt::SetVectorLength(double)");
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::SetVectorLength(double). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		self->SetVectorLength(length);
 
@@ -357,7 +357,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPoint2DInt::SetVectorAngle(double)");
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::SetVectorAngle(double). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		self->SetVectorAngle(degrees);
 
@@ -375,7 +375,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPoint2DInt::Normalize()");
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::Normalize(). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		self->Normalize();
 
@@ -398,7 +398,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetDistance(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetDistance(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		double lret = self->GetDistance(pt);
 		lua_pushnumber(L,lret);
@@ -422,7 +422,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetDistanceSquare(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call double wxPoint2DInt::GetDistanceSquare(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		double lret = self->GetDistanceSquare(pt);
 		lua_pushnumber(L,lret);
@@ -446,7 +446,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPoint2DInt::GetDotProduct(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call int wxPoint2DInt::GetDotProduct(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		int lret = self->GetDotProduct(vec);
 		lua_pushnumber(L,lret);
@@ -470,7 +470,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPoint2DInt::GetCrossProduct(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call int wxPoint2DInt::GetCrossProduct(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		int lret = self->GetCrossProduct(vec);
 		lua_pushnumber(L,lret);
@@ -491,7 +491,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt wxPoint2DInt::operator-()");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxPoint2DInt::operator-(). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		wxPoint2DInt stack_lret = self->operator-();
 		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
@@ -518,7 +518,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt & wxPoint2DInt::operator+=(const wxPoint2DInt &)");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt & wxPoint2DInt::operator+=(const wxPoint2DInt &). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		const wxPoint2DInt* lret = &self->operator+=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -544,7 +544,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt & wxPoint2DInt::operator-=(const wxPoint2DInt &)");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt & wxPoint2DInt::operator-=(const wxPoint2DInt &). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		const wxPoint2DInt* lret = &self->operator-=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -570,7 +570,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPoint2DInt::operator==(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call bool wxPoint2DInt::operator==(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		bool lret = self->operator==(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -594,7 +594,7 @@ public:
 		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPoint2DInt::operator!=(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call bool wxPoint2DInt::operator!=(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(pt);
 		lua_pushboolean(L,lret?1:0);

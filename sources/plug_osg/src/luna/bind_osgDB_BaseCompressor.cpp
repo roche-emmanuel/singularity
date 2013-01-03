@@ -135,7 +135,7 @@ public:
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::BaseCompressor::setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::BaseCompressor::setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setName(name);
 
@@ -153,7 +153,7 @@ public:
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseCompressor::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::BaseCompressor::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -178,7 +178,7 @@ public:
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::compress(std::ostream &, const std::string &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::compress(std::ostream &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->compress(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -203,7 +203,7 @@ public:
 		osgDB::BaseCompressor* self=Luna< osg::Referenced >::checkSubType< osgDB::BaseCompressor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::decompress(std::istream &, std::string &)");
+			luaL_error(L, "Invalid object in function call bool osgDB::BaseCompressor::decompress(std::istream &, std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->decompress(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);

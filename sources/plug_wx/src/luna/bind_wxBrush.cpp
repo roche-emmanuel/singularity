@@ -426,7 +426,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxBrush::GetColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxBrush::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -448,7 +448,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::GetStipple() const");
+			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::GetStipple() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap * lret = self->GetStipple();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -469,7 +469,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::GetStyle() const");
+			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBrushStyle lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -488,7 +488,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsHatch() const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsHatch() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsHatch();
 		lua_pushboolean(L,lret?1:0);
@@ -507,7 +507,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -526,7 +526,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsNonTransparent() const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsNonTransparent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsNonTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -545,7 +545,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::IsTransparent() const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::IsTransparent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -569,7 +569,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(colour);
 
@@ -590,7 +590,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(unsigned char, unsigned char, unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetColour(red, green, blue);
 
@@ -622,7 +622,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetStipple(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxBrush::SetStipple(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStipple(bitmap);
 
@@ -641,7 +641,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::SetStyle(wxBrushStyle)");
+			luaL_error(L, "Invalid object in function call void wxBrush::SetStyle(wxBrushStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStyle(style);
 
@@ -659,7 +659,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBrush::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBrush::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxBrush::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -680,7 +680,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxBrush::base_GetColour() const");
+			luaL_error(L, "Invalid object in function call wxColour wxBrush::base_GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxColour stack_lret = self->wxBrush::GetColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -702,7 +702,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::base_GetStipple() const");
+			luaL_error(L, "Invalid object in function call wxBitmap * wxBrush::base_GetStipple() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap * lret = self->wxBrush::GetStipple();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -723,7 +723,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::base_GetStyle() const");
+			luaL_error(L, "Invalid object in function call wxBrushStyle wxBrush::base_GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBrushStyle lret = self->wxBrush::GetStyle();
 		lua_pushnumber(L,lret);
@@ -742,7 +742,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsHatch() const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsHatch() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBrush::IsHatch();
 		lua_pushboolean(L,lret?1:0);
@@ -761,7 +761,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxBrush::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -785,7 +785,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBrush::SetColour(colour);
 
@@ -806,7 +806,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(unsigned char, unsigned char, unsigned char)");
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetColour(unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBrush::SetColour(red, green, blue);
 
@@ -838,7 +838,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStipple(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStipple(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBrush::SetStipple(bitmap);
 
@@ -857,7 +857,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStyle(wxBrushStyle)");
+			luaL_error(L, "Invalid object in function call void wxBrush::base_SetStyle(wxBrushStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxBrush::SetStyle(style);
 
@@ -882,7 +882,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::operator!=(const wxBrush &) const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::operator!=(const wxBrush &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(brush);
 		lua_pushboolean(L,lret?1:0);
@@ -906,7 +906,7 @@ public:
 		wxBrush* self=Luna< wxObject >::checkSubType< wxBrush >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBrush::operator==(const wxBrush &) const");
+			luaL_error(L, "Invalid object in function call bool wxBrush::operator==(const wxBrush &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->operator==(brush);
 		lua_pushboolean(L,lret?1:0);

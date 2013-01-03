@@ -451,7 +451,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxConfigBase::GetPath() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxConfigBase::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -471,7 +471,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxConfigBase::SetPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxConfigBase::SetPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPath(strPath);
 
@@ -491,7 +491,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetFirstEntry(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetFirstEntry(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetFirstEntry(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -512,7 +512,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetFirstGroup(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetFirstGroup(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetFirstGroup(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -533,7 +533,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetNextEntry(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetNextEntry(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetNextEntry(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -554,7 +554,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetNextGroup(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::GetNextGroup(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetNextGroup(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -576,7 +576,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxConfigBase::GetNumberOfEntries(bool) const");
+			luaL_error(L, "Invalid object in function call size_t wxConfigBase::GetNumberOfEntries(bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetNumberOfEntries(bRecursive);
 		lua_pushnumber(L,lret);
@@ -598,7 +598,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxConfigBase::GetNumberOfGroups(bool) const");
+			luaL_error(L, "Invalid object in function call size_t wxConfigBase::GetNumberOfGroups(bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetNumberOfGroups(bRecursive);
 		lua_pushnumber(L,lret);
@@ -618,7 +618,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Exists(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Exists(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Exists(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -638,7 +638,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxConfigBase::GetEntryType(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxConfigBase::GetEntryType(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConfigBase::EntryType lret = self->GetEntryType(name);
 		lua_pushnumber(L,lret);
@@ -658,7 +658,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::HasEntry(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::HasEntry(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasEntry(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -678,7 +678,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::HasGroup(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::HasGroup(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasGroup(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -697,7 +697,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxConfigBase::GetAppName() const");
+			luaL_error(L, "Invalid object in function call wxString wxConfigBase::GetAppName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetAppName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -716,7 +716,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxConfigBase::GetVendorName() const");
+			luaL_error(L, "Invalid object in function call wxString wxConfigBase::GetVendorName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetVendorName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -738,7 +738,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Flush(bool)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Flush(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Flush(bCurrentOnly);
 		lua_pushboolean(L,lret?1:0);
@@ -759,7 +759,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, wxString *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &str);
 		lua_pushboolean(L,lret?1:0);
@@ -781,7 +781,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, wxString *, const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, wxString *, const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &str, defaultVal);
 		lua_pushboolean(L,lret?1:0);
@@ -802,7 +802,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString wxConfigBase::Read(const wxString &, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString wxConfigBase::Read(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString lret = self->Read(key, defaultVal);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -823,7 +823,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, long *) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &l);
 		lua_pushboolean(L,lret?1:0);
@@ -845,7 +845,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, long *, long) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, long *, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &l, defaultVal);
 		lua_pushboolean(L,lret?1:0);
@@ -866,7 +866,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, double *) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &d);
 		lua_pushboolean(L,lret?1:0);
@@ -888,7 +888,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, double *, double) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, double *, double) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &d, defaultVal);
 		lua_pushboolean(L,lret?1:0);
@@ -909,7 +909,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, float *) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, float *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &f);
 		lua_pushboolean(L,lret?1:0);
@@ -931,7 +931,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, float *, float) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, float *, float) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &f, defaultVal);
 		lua_pushboolean(L,lret?1:0);
@@ -952,7 +952,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, bool *) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, bool *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &b);
 		lua_pushboolean(L,lret?1:0);
@@ -974,7 +974,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, bool *, bool) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, bool *, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Read(key, &d, defaultVal);
 		lua_pushboolean(L,lret?1:0);
@@ -1013,7 +1013,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::ReadBool(const wxString &, bool) const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::ReadBool(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->ReadBool(key, defaultVal);
 		lua_pushboolean(L,lret?1:0);
@@ -1034,7 +1034,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxConfigBase::ReadDouble(const wxString &, double) const");
+			luaL_error(L, "Invalid object in function call double wxConfigBase::ReadDouble(const wxString &, double) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		double lret = self->ReadDouble(key, defaultVal);
 		lua_pushnumber(L,lret);
@@ -1055,7 +1055,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxConfigBase::ReadLong(const wxString &, long) const");
+			luaL_error(L, "Invalid object in function call long wxConfigBase::ReadLong(const wxString &, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->ReadLong(key, defaultVal);
 		lua_pushnumber(L,lret);
@@ -1076,7 +1076,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Write(key, value);
 		lua_pushboolean(L,lret?1:0);
@@ -1097,7 +1097,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, long)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Write(key, value);
 		lua_pushboolean(L,lret?1:0);
@@ -1118,7 +1118,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, double)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Write(key, value);
 		lua_pushboolean(L,lret?1:0);
@@ -1139,7 +1139,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::Write(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Write(key, value);
 		lua_pushboolean(L,lret?1:0);
@@ -1171,7 +1171,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::RenameEntry(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::RenameEntry(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RenameEntry(oldName, newName);
 		lua_pushboolean(L,lret?1:0);
@@ -1192,7 +1192,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::RenameGroup(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::RenameGroup(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RenameGroup(oldName, newName);
 		lua_pushboolean(L,lret?1:0);
@@ -1211,7 +1211,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::DeleteAll()");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::DeleteAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteAll();
 		lua_pushboolean(L,lret?1:0);
@@ -1234,7 +1234,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::DeleteEntry(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::DeleteEntry(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteEntry(key, bDeleteGroupIfEmpty);
 		lua_pushboolean(L,lret?1:0);
@@ -1254,7 +1254,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::DeleteGroup(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::DeleteGroup(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteGroup(key);
 		lua_pushboolean(L,lret?1:0);
@@ -1273,7 +1273,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::IsExpandingEnvVars() const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::IsExpandingEnvVars() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsExpandingEnvVars();
 		lua_pushboolean(L,lret?1:0);
@@ -1292,7 +1292,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxConfigBase::IsRecordingDefaults() const");
+			luaL_error(L, "Invalid object in function call bool wxConfigBase::IsRecordingDefaults() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsRecordingDefaults();
 		lua_pushboolean(L,lret?1:0);
@@ -1314,7 +1314,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxConfigBase::SetExpandEnvVars(bool)");
+			luaL_error(L, "Invalid object in function call void wxConfigBase::SetExpandEnvVars(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetExpandEnvVars(bDoIt);
 
@@ -1335,7 +1335,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxConfigBase::SetRecordDefaults(bool)");
+			luaL_error(L, "Invalid object in function call void wxConfigBase::SetRecordDefaults(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetRecordDefaults(bDoIt);
 
@@ -1418,7 +1418,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxConfigBase::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxConfigBase::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxConfigBase::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1440,7 +1440,7 @@ public:
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxConfigBase::base_GetEntryType(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxConfigBase::base_GetEntryType(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConfigBase::EntryType lret = self->wxConfigBase::GetEntryType(name);
 		lua_pushnumber(L,lret);

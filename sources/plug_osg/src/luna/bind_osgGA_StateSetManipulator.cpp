@@ -407,7 +407,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::StateSetManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::StateSetManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -427,7 +427,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setStateSet(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setStateSet(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStateSet(_arg1);
 
@@ -445,7 +445,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgGA::StateSetManipulator::getStateSet()");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgGA::StateSetManipulator::getStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -466,7 +466,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osgGA::StateSetManipulator::getStateSet() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osgGA::StateSetManipulator::getStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet * lret = self->getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -506,7 +506,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -530,7 +530,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -549,7 +549,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setMaximumNumOfTextureUnits(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setMaximumNumOfTextureUnits(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaximumNumOfTextureUnits(i);
 
@@ -567,7 +567,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgGA::StateSetManipulator::getMaximumNumOfTextureUnits() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgGA::StateSetManipulator::getMaximumNumOfTextureUnits() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getMaximumNumOfTextureUnits();
 		lua_pushnumber(L,lret);
@@ -587,7 +587,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setBackfaceEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setBackfaceEnabled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBackfaceEnabled(newbackface);
 
@@ -605,7 +605,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::getBackfaceEnabled() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::getBackfaceEnabled() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getBackfaceEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -625,7 +625,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setLightingEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setLightingEnabled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setLightingEnabled(newlighting);
 
@@ -643,7 +643,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::getLightingEnabled() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::getLightingEnabled() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getLightingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -663,7 +663,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setTextureEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setTextureEnabled(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTextureEnabled(newtexture);
 
@@ -681,7 +681,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::getTextureEnabled() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::getTextureEnabled() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getTextureEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -701,7 +701,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setPolygonMode(osg::PolygonMode::Mode)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setPolygonMode(osg::PolygonMode::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPolygonMode(newpolygonmode);
 
@@ -719,7 +719,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PolygonMode::Mode osgGA::StateSetManipulator::getPolygonMode() const");
+			luaL_error(L, "Invalid object in function call osg::PolygonMode::Mode osgGA::StateSetManipulator::getPolygonMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PolygonMode::Mode lret = self->getPolygonMode();
 		lua_pushnumber(L,lret);
@@ -738,7 +738,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::cyclePolygonMode()");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::cyclePolygonMode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->cyclePolygonMode();
 
@@ -757,7 +757,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventToggleBackfaceCulling(int)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventToggleBackfaceCulling(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventToggleBackfaceCulling(key);
 
@@ -775,7 +775,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventToggleBackfaceCulling() const");
+			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventToggleBackfaceCulling() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventToggleBackfaceCulling();
 		lua_pushnumber(L,lret);
@@ -795,7 +795,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventToggleLighting(int)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventToggleLighting(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventToggleLighting(key);
 
@@ -813,7 +813,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventToggleLighting() const");
+			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventToggleLighting() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventToggleLighting();
 		lua_pushnumber(L,lret);
@@ -833,7 +833,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventToggleTexturing(int)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventToggleTexturing(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventToggleTexturing(key);
 
@@ -851,7 +851,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventToggleTexturing() const");
+			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventToggleTexturing() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventToggleTexturing();
 		lua_pushnumber(L,lret);
@@ -871,7 +871,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventCyclePolygonMode(int)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::setKeyEventCyclePolygonMode(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventCyclePolygonMode(key);
 
@@ -889,7 +889,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventCyclePolygonMode() const");
+			luaL_error(L, "Invalid object in function call int osgGA::StateSetManipulator::getKeyEventCyclePolygonMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventCyclePolygonMode();
 		lua_pushnumber(L,lret);
@@ -909,7 +909,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::setName(name);
 
@@ -927,7 +927,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::computeDataVariance();
 
@@ -946,7 +946,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::setUserData(obj);
 
@@ -964,7 +964,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::StateSetManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::StateSetManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->StateSetManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -985,7 +985,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::StateSetManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::StateSetManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->StateSetManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1018,7 +1018,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::releaseGLObjects(_arg1);
 
@@ -1037,7 +1037,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StateSetManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1056,7 +1056,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::StateSetManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::StateSetManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StateSetManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1077,7 +1077,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::event(nv, drawable);
 
@@ -1095,7 +1095,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::StateSetManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::StateSetManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->StateSetManipulator::className();
 		lua_pushstring(L,lret);
@@ -1115,7 +1115,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_setStateSet(osg::StateSet *)");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_setStateSet(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::setStateSet(_arg1);
 
@@ -1133,7 +1133,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgGA::StateSetManipulator::base_getStateSet()");
+			luaL_error(L, "Invalid object in function call osg::StateSet * osgGA::StateSetManipulator::base_getStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateSet * lret = self->StateSetManipulator::getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1154,7 +1154,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateSet * osgGA::StateSetManipulator::base_getStateSet() const");
+			luaL_error(L, "Invalid object in function call const osg::StateSet * osgGA::StateSetManipulator::base_getStateSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::StateSet * lret = self->StateSetManipulator::getStateSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1194,7 +1194,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::StateSetManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->StateSetManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -1218,7 +1218,7 @@ public:
 		osgGA::StateSetManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StateSetManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::StateSetManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StateSetManipulator::getUsage(usage);
 

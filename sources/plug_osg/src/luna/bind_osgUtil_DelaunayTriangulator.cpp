@@ -328,7 +328,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setInputPointArray(points);
 
@@ -346,7 +346,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgUtil::DelaunayTriangulator::getInputPointArray() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgUtil::DelaunayTriangulator::getInputPointArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3Array * lret = self->getInputPointArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -367,7 +367,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayTriangulator::getInputPointArray()");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayTriangulator::getInputPointArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getInputPointArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -398,7 +398,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setOutputNormalArray(normals);
 
@@ -416,7 +416,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgUtil::DelaunayTriangulator::getOutputNormalArray() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgUtil::DelaunayTriangulator::getOutputNormalArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3Array * lret = self->getOutputNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -437,7 +437,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayTriangulator::getOutputNormalArray()");
+			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayTriangulator::getOutputNormalArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3Array * lret = self->getOutputNormalArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -468,7 +468,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::addInputConstraint(osgUtil::DelaunayConstraint *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::addInputConstraint(osgUtil::DelaunayConstraint *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addInputConstraint(dc);
 
@@ -486,7 +486,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayTriangulator::triangulate()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayTriangulator::triangulate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->triangulate();
 		lua_pushboolean(L,lret?1:0);
@@ -505,7 +505,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::DrawElementsUInt * osgUtil::DelaunayTriangulator::getTriangles() const");
+			luaL_error(L, "Invalid object in function call const osg::DrawElementsUInt * osgUtil::DelaunayTriangulator::getTriangles() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::DrawElementsUInt * lret = self->getTriangles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -526,7 +526,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayTriangulator::getTriangles()");
+			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayTriangulator::getTriangles(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::DrawElementsUInt * lret = self->getTriangles();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -557,7 +557,7 @@ public:
 		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::removeInternalTriangles(osgUtil::DelaunayConstraint *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::removeInternalTriangles(osgUtil::DelaunayConstraint *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeInternalTriangles(constraint);
 

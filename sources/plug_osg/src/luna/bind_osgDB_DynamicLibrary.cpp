@@ -136,7 +136,7 @@ public:
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -155,7 +155,7 @@ public:
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getFullName() const");
+			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getFullName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getFullName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -174,7 +174,7 @@ public:
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getHandle() const");
+			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getHandle() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		void * lret = self->getHandle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -196,7 +196,7 @@ public:
 		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getProcAddress(const std::string &)");
+			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getProcAddress(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		void * lret = self->getProcAddress(procName);
 		if(!lret) return 0; // Do not write NULL pointers.

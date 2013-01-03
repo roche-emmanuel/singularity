@@ -136,7 +136,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs()");
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		osgText::Text::GlyphQuads::Glyphs stack_lret = self->getGlyphs();
 		osgText::Text::GlyphQuads::Glyphs* lret = new osgText::Text::GlyphQuads::Glyphs(stack_lret);
@@ -158,7 +158,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const");
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::getGlyphs() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::Glyphs stack_lret = self->getGlyphs();
 		const osgText::Text::GlyphQuads::Glyphs* lret = new const osgText::Text::GlyphQuads::Glyphs(stack_lret);
@@ -189,7 +189,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords()");
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::Coords2* lret = &self->getCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -210,7 +210,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const");
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords2 & osgText::Text::GlyphQuads::getCoords() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::Coords2* lret = &self->getCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -241,7 +241,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int)");
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::Coords3* lret = &self->getTransformedCoords(contexID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -263,7 +263,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::Coords3 & osgText::Text::GlyphQuads::getTransformedCoords(unsigned int) const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::Coords3* lret = &self->getTransformedCoords(contexID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,7 +293,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords()");
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::TexCoords* lret = &self->getTexCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -314,7 +314,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const");
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::TexCoords & osgText::Text::GlyphQuads::getTexCoords() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::TexCoords* lret = &self->getTexCoords();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -344,7 +344,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers()");
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::LineNumbers* lret = &self->getLineNumbers();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -365,7 +365,7 @@ public:
 		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const");
+			luaL_error(L, "Invalid object in function call const osgText::Text::GlyphQuads::LineNumbers & osgText::Text::GlyphQuads::getLineNumbers() const. Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
 		}
 		const osgText::Text::GlyphQuads::LineNumbers* lret = &self->getLineNumbers();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -399,7 +399,7 @@ void LunaTraits< osgText::Text::GlyphQuads >::_bind_dtor(osgText::Text::GlyphQua
 	delete obj;
 }
 
-const char LunaTraits< osgText::Text::GlyphQuads >::className[] = "GlyphQuads";
+const char LunaTraits< osgText::Text::GlyphQuads >::className[] = "Text_GlyphQuads";
 const char LunaTraits< osgText::Text::GlyphQuads >::fullName[] = "osgText::Text::GlyphQuads";
 const char LunaTraits< osgText::Text::GlyphQuads >::moduleName[] = "osgText";
 const char* LunaTraits< osgText::Text::GlyphQuads >::parents[] = {0};

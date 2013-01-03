@@ -551,7 +551,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -577,7 +577,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -599,7 +599,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -618,7 +618,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -637,7 +637,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -661,7 +661,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -680,7 +680,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setMode(osg::Billboard::Mode)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setMode(osg::Billboard::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(mode);
 
@@ -698,7 +698,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Billboard::Mode osg::Billboard::getMode() const");
+			luaL_error(L, "Invalid object in function call osg::Billboard::Mode osg::Billboard::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Billboard::Mode lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -722,7 +722,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setAxis(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setAxis(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAxis(axis);
 
@@ -740,7 +740,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getAxis() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getAxis() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getAxis();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -766,7 +766,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setNormal(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setNormal(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNormal(normal);
 
@@ -784,7 +784,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getNormal() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getNormal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getNormal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -811,7 +811,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setPosition(unsigned int, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setPosition(unsigned int, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPosition(i, pos);
 
@@ -830,7 +830,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getPosition(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osg::Billboard::getPosition(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getPosition(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -856,7 +856,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::setPositionList(osg::Billboard::PositionList &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::setPositionList(osg::Billboard::PositionList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPositionList(pl);
 
@@ -874,7 +874,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Billboard::PositionList & osg::Billboard::getPositionList()");
+			luaL_error(L, "Invalid object in function call osg::Billboard::PositionList & osg::Billboard::getPositionList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Billboard::PositionList* lret = &self->getPositionList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -895,7 +895,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Billboard::PositionList & osg::Billboard::getPositionList() const");
+			luaL_error(L, "Invalid object in function call const osg::Billboard::PositionList & osg::Billboard::getPositionList() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Billboard::PositionList* lret = &self->getPositionList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -926,7 +926,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -951,7 +951,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::addDrawable(osg::Drawable *, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addDrawable(gset, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -980,7 +980,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::removeDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::removeDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -1014,7 +1014,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::computeMatrix(osg::Matrixd &, const osg::Vec3f &, const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::computeMatrix(osg::Matrixd &, const osg::Vec3f &, const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->computeMatrix(modelview, eye_local, pos_local);
 		lua_pushboolean(L,lret?1:0);
@@ -1033,7 +1033,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1056,7 +1056,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::setName(name);
 
@@ -1074,7 +1074,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::computeDataVariance();
 
@@ -1093,7 +1093,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::setUserData(obj);
 
@@ -1111,7 +1111,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Billboard::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Billboard::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Billboard::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1132,7 +1132,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Billboard::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Billboard::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Billboard::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1162,7 +1162,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::Billboard::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Billboard::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->Billboard::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1183,7 +1183,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::Billboard::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Billboard::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->Billboard::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1213,7 +1213,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::Billboard::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Billboard::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->Billboard::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1234,7 +1234,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Billboard::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Billboard::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->Billboard::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1264,7 +1264,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::Billboard::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Billboard::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->Billboard::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1285,7 +1285,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Billboard::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Billboard::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->Billboard::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1320,7 +1320,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::ascend(nv);
 
@@ -1343,7 +1343,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::traverse(_arg1);
 
@@ -1361,7 +1361,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::Billboard::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Billboard::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->Billboard::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1382,7 +1382,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Billboard::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Billboard::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->Billboard::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1416,7 +1416,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawables(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawables(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::removeDrawables(i, numDrawablesToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1437,7 +1437,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_replaceDrawable(osg::Drawable *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_replaceDrawable(osg::Drawable *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::replaceDrawable(origDraw, newDraw);
 		lua_pushboolean(L,lret?1:0);
@@ -1458,7 +1458,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_setDrawable(unsigned int, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_setDrawable(unsigned int, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::setDrawable(i, drawable);
 		lua_pushboolean(L,lret?1:0);
@@ -1480,7 +1480,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::releaseGLObjects(_arg1);
 
@@ -1498,7 +1498,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Billboard::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1524,7 +1524,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Billboard::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Billboard::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1546,7 +1546,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1565,7 +1565,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Billboard::className();
 		lua_pushstring(L,lret);
@@ -1584,7 +1584,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Billboard::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Billboard::libraryName();
 		lua_pushstring(L,lret);
@@ -1608,7 +1608,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Billboard::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Billboard::accept(nv);
 
@@ -1627,7 +1627,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::addDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -1652,7 +1652,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_addDrawable(osg::Drawable *, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::addDrawable(gset, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -1681,7 +1681,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawable(osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call bool osg::Billboard::base_removeDrawable(osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Billboard::removeDrawable(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -1700,7 +1700,7 @@ public:
 		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Billboard::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->Billboard::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);

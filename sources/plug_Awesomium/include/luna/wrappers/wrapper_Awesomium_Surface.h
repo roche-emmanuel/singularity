@@ -11,9 +11,22 @@
 class wrapper_Awesomium_Surface : public Awesomium::Surface, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_Surface() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_Awesomium_Surface(lua_State* L, lua_Table* dum) : Awesomium::Surface(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// void Awesomium::Surface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	void Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) {
 		THROW_IF(!_obj.pushFunction("Paint"),"No implementation for abstract function Awesomium::Surface::Paint");
@@ -34,6 +47,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

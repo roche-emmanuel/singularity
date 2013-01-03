@@ -216,7 +216,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPosition::GetCol() const");
+			luaL_error(L, "Invalid object in function call int wxPosition::GetCol() const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -235,7 +235,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPosition::GetColumn() const");
+			luaL_error(L, "Invalid object in function call int wxPosition::GetColumn() const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		int lret = self->GetColumn();
 		lua_pushnumber(L,lret);
@@ -254,7 +254,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPosition::GetRow() const");
+			luaL_error(L, "Invalid object in function call int wxPosition::GetRow() const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -274,7 +274,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPosition::SetCol(int)");
+			luaL_error(L, "Invalid object in function call void wxPosition::SetCol(int). Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		self->SetCol(column);
 
@@ -293,7 +293,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPosition::SetColumn(int)");
+			luaL_error(L, "Invalid object in function call void wxPosition::SetColumn(int). Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		self->SetColumn(column);
 
@@ -312,7 +312,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPosition::SetRow(int)");
+			luaL_error(L, "Invalid object in function call void wxPosition::SetRow(int). Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		self->SetRow(row);
 
@@ -337,7 +337,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPosition::operator==(const wxPosition &) const");
+			luaL_error(L, "Invalid object in function call bool wxPosition::operator==(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		bool lret = self->operator==(p);
 		lua_pushboolean(L,lret?1:0);
@@ -361,7 +361,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPosition::operator!=(const wxPosition &) const");
+			luaL_error(L, "Invalid object in function call bool wxPosition::operator!=(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(p);
 		lua_pushboolean(L,lret?1:0);
@@ -385,7 +385,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxPosition &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator+=(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -411,7 +411,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator+=(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -446,7 +446,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxPosition &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator-=(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -472,7 +472,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator-=(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -507,7 +507,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxPosition &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator+(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -533,7 +533,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator+(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,7 +568,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxPosition &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator-(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -594,7 +594,7 @@ public:
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
 		}
 		const wxPosition* lret = &self->operator-(s);
 		if(!lret) return 0; // Do not write NULL pointers.

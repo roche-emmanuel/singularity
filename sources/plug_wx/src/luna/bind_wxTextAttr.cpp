@@ -813,7 +813,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::Apply(const wxTextAttr &, const wxTextAttr *)");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::Apply(const wxTextAttr &, const wxTextAttr *). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->Apply(style, compareWith);
 		lua_pushboolean(L,lret?1:0);
@@ -837,7 +837,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::Merge(const wxTextAttr &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::Merge(const wxTextAttr &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->Merge(overlay);
 
@@ -891,7 +891,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTextAttrAlignment wxTextAttr::GetAlignment() const");
+			luaL_error(L, "Invalid object in function call wxTextAttrAlignment wxTextAttr::GetAlignment() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		wxTextAttrAlignment lret = self->GetAlignment();
 		lua_pushnumber(L,lret);
@@ -910,7 +910,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxTextAttr::GetBackgroundColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxTextAttr::GetBackgroundColour() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetBackgroundColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -931,7 +931,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetBulletFont() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetBulletFont() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetBulletFont();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -950,7 +950,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetBulletName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetBulletName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetBulletName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -969,7 +969,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetBulletNumber() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetBulletNumber() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetBulletNumber();
 		lua_pushnumber(L,lret);
@@ -988,7 +988,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetBulletStyle() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetBulletStyle() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetBulletStyle();
 		lua_pushnumber(L,lret);
@@ -1007,7 +1007,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetBulletText() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetBulletText() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetBulletText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1026,7 +1026,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetCharacterStyleName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetCharacterStyleName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetCharacterStyleName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1045,7 +1045,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextAttr::GetFlags() const");
+			luaL_error(L, "Invalid object in function call long wxTextAttr::GetFlags() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		long lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -1064,7 +1064,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxTextAttr::GetFont() const");
+			luaL_error(L, "Invalid object in function call wxFont wxTextAttr::GetFont() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		wxFont stack_lret = self->GetFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -1094,7 +1094,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::GetFontAttributes(const wxFont &, int)");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::GetFontAttributes(const wxFont &, int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->GetFontAttributes(font, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -1113,7 +1113,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontEncoding wxTextAttr::GetFontEncoding() const");
+			luaL_error(L, "Invalid object in function call wxFontEncoding wxTextAttr::GetFontEncoding() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		wxFontEncoding lret = self->GetFontEncoding();
 		lua_pushnumber(L,lret);
@@ -1132,7 +1132,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetFontFaceName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetFontFaceName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetFontFaceName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1151,7 +1151,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontFamily wxTextAttr::GetFontFamily() const");
+			luaL_error(L, "Invalid object in function call wxFontFamily wxTextAttr::GetFontFamily() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		wxFontFamily lret = self->GetFontFamily();
 		lua_pushnumber(L,lret);
@@ -1170,7 +1170,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetFontSize() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetFontSize() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetFontSize();
 		lua_pushnumber(L,lret);
@@ -1189,7 +1189,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontStyle wxTextAttr::GetFontStyle() const");
+			luaL_error(L, "Invalid object in function call wxFontStyle wxTextAttr::GetFontStyle() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		wxFontStyle lret = self->GetFontStyle();
 		lua_pushnumber(L,lret);
@@ -1208,7 +1208,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::GetFontUnderlined() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::GetFontUnderlined() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->GetFontUnderlined();
 		lua_pushboolean(L,lret?1:0);
@@ -1227,7 +1227,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontWeight wxTextAttr::GetFontWeight() const");
+			luaL_error(L, "Invalid object in function call wxFontWeight wxTextAttr::GetFontWeight() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		wxFontWeight lret = self->GetFontWeight();
 		lua_pushnumber(L,lret);
@@ -1246,7 +1246,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextAttr::GetLeftIndent() const");
+			luaL_error(L, "Invalid object in function call long wxTextAttr::GetLeftIndent() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		long lret = self->GetLeftIndent();
 		lua_pushnumber(L,lret);
@@ -1265,7 +1265,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextAttr::GetLeftSubIndent() const");
+			luaL_error(L, "Invalid object in function call long wxTextAttr::GetLeftSubIndent() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		long lret = self->GetLeftSubIndent();
 		lua_pushnumber(L,lret);
@@ -1284,7 +1284,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetLineSpacing() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetLineSpacing() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetLineSpacing();
 		lua_pushnumber(L,lret);
@@ -1303,7 +1303,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetListStyleName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetListStyleName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetListStyleName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1322,7 +1322,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetOutlineLevel() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetOutlineLevel() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetOutlineLevel();
 		lua_pushnumber(L,lret);
@@ -1341,7 +1341,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetParagraphSpacingAfter() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetParagraphSpacingAfter() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetParagraphSpacingAfter();
 		lua_pushnumber(L,lret);
@@ -1360,7 +1360,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetParagraphSpacingBefore() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetParagraphSpacingBefore() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetParagraphSpacingBefore();
 		lua_pushnumber(L,lret);
@@ -1379,7 +1379,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetParagraphStyleName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetParagraphStyleName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetParagraphStyleName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1398,7 +1398,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTextAttr::GetRightIndent() const");
+			luaL_error(L, "Invalid object in function call long wxTextAttr::GetRightIndent() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		long lret = self->GetRightIndent();
 		lua_pushnumber(L,lret);
@@ -1417,7 +1417,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxArrayInt & wxTextAttr::GetTabs() const");
+			luaL_error(L, "Invalid object in function call const wxArrayInt & wxTextAttr::GetTabs() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxArrayInt* lret = &self->GetTabs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1438,7 +1438,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxTextAttr::GetTextColour() const");
+			luaL_error(L, "Invalid object in function call const wxColour & wxTextAttr::GetTextColour() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxColour* lret = &self->GetTextColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1459,7 +1459,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetTextEffectFlags() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetTextEffectFlags() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetTextEffectFlags();
 		lua_pushnumber(L,lret);
@@ -1478,7 +1478,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttr::GetTextEffects() const");
+			luaL_error(L, "Invalid object in function call int wxTextAttr::GetTextEffects() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		int lret = self->GetTextEffects();
 		lua_pushnumber(L,lret);
@@ -1497,7 +1497,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetURL() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTextAttr::GetURL() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1516,7 +1516,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasAlignment() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasAlignment() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasAlignment();
 		lua_pushboolean(L,lret?1:0);
@@ -1535,7 +1535,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBackgroundColour() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBackgroundColour() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBackgroundColour();
 		lua_pushboolean(L,lret?1:0);
@@ -1554,7 +1554,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletName() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBulletName();
 		lua_pushboolean(L,lret?1:0);
@@ -1573,7 +1573,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletNumber() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletNumber() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBulletNumber();
 		lua_pushboolean(L,lret?1:0);
@@ -1592,7 +1592,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletStyle() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletStyle() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBulletStyle();
 		lua_pushboolean(L,lret?1:0);
@@ -1611,7 +1611,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletText() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasBulletText() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasBulletText();
 		lua_pushboolean(L,lret?1:0);
@@ -1630,7 +1630,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasCharacterStyleName() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasCharacterStyleName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasCharacterStyleName();
 		lua_pushboolean(L,lret?1:0);
@@ -1650,7 +1650,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFlag(long) const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFlag(long) const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFlag(flag);
 		lua_pushboolean(L,lret?1:0);
@@ -1669,7 +1669,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFont() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFont() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFont();
 		lua_pushboolean(L,lret?1:0);
@@ -1688,7 +1688,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontEncoding() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontEncoding() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontEncoding();
 		lua_pushboolean(L,lret?1:0);
@@ -1707,7 +1707,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontFaceName() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontFaceName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontFaceName();
 		lua_pushboolean(L,lret?1:0);
@@ -1726,7 +1726,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontFamily() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontFamily() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontFamily();
 		lua_pushboolean(L,lret?1:0);
@@ -1745,7 +1745,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontItalic() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontItalic() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontItalic();
 		lua_pushboolean(L,lret?1:0);
@@ -1764,7 +1764,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontSize() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontSize() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontSize();
 		lua_pushboolean(L,lret?1:0);
@@ -1783,7 +1783,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontUnderlined() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontUnderlined() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontUnderlined();
 		lua_pushboolean(L,lret?1:0);
@@ -1802,7 +1802,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontWeight() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasFontWeight() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasFontWeight();
 		lua_pushboolean(L,lret?1:0);
@@ -1821,7 +1821,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasLeftIndent() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasLeftIndent() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasLeftIndent();
 		lua_pushboolean(L,lret?1:0);
@@ -1840,7 +1840,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasLineSpacing() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasLineSpacing() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasLineSpacing();
 		lua_pushboolean(L,lret?1:0);
@@ -1859,7 +1859,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasListStyleName() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasListStyleName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasListStyleName();
 		lua_pushboolean(L,lret?1:0);
@@ -1878,7 +1878,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasOutlineLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasOutlineLevel() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasOutlineLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -1897,7 +1897,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasPageBreak() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasPageBreak() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasPageBreak();
 		lua_pushboolean(L,lret?1:0);
@@ -1916,7 +1916,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasParagraphSpacingAfter() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasParagraphSpacingAfter() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasParagraphSpacingAfter();
 		lua_pushboolean(L,lret?1:0);
@@ -1935,7 +1935,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasParagraphSpacingBefore() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasParagraphSpacingBefore() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasParagraphSpacingBefore();
 		lua_pushboolean(L,lret?1:0);
@@ -1954,7 +1954,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasParagraphStyleName() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasParagraphStyleName() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasParagraphStyleName();
 		lua_pushboolean(L,lret?1:0);
@@ -1973,7 +1973,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasRightIndent() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasRightIndent() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasRightIndent();
 		lua_pushboolean(L,lret?1:0);
@@ -1992,7 +1992,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasTabs() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasTabs() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasTabs();
 		lua_pushboolean(L,lret?1:0);
@@ -2011,7 +2011,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasTextColour() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasTextColour() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasTextColour();
 		lua_pushboolean(L,lret?1:0);
@@ -2030,7 +2030,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasTextEffects() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasTextEffects() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasTextEffects();
 		lua_pushboolean(L,lret?1:0);
@@ -2049,7 +2049,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasURL() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::HasURL() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->HasURL();
 		lua_pushboolean(L,lret?1:0);
@@ -2068,7 +2068,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::IsCharacterStyle() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::IsCharacterStyle() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->IsCharacterStyle();
 		lua_pushboolean(L,lret?1:0);
@@ -2087,7 +2087,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::IsDefault() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::IsDefault() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->IsDefault();
 		lua_pushboolean(L,lret?1:0);
@@ -2106,7 +2106,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextAttr::IsParagraphStyle() const");
+			luaL_error(L, "Invalid object in function call bool wxTextAttr::IsParagraphStyle() const. Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		bool lret = self->IsParagraphStyle();
 		lua_pushboolean(L,lret?1:0);
@@ -2126,7 +2126,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetAlignment(wxTextAttrAlignment)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetAlignment(wxTextAttrAlignment). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetAlignment(alignment);
 
@@ -2149,7 +2149,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBackgroundColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetBackgroundColour(colBack);
 
@@ -2168,7 +2168,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletFont(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletFont(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetBulletFont(font);
 
@@ -2187,7 +2187,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletName(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetBulletName(name);
 
@@ -2206,7 +2206,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletNumber(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletNumber(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetBulletNumber(n);
 
@@ -2225,7 +2225,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletStyle(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletStyle(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetBulletStyle(style);
 
@@ -2244,7 +2244,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetBulletText(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetBulletText(text);
 
@@ -2263,7 +2263,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetCharacterStyleName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetCharacterStyleName(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetCharacterStyleName(name);
 
@@ -2282,7 +2282,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFlags(long)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFlags(long). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -2308,7 +2308,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFont(const wxFont &, int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFont(const wxFont &, int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFont(font, flags);
 
@@ -2327,7 +2327,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontEncoding(wxFontEncoding)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontEncoding(wxFontEncoding). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontEncoding(encoding);
 
@@ -2346,7 +2346,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontFaceName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontFaceName(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontFaceName(faceName);
 
@@ -2365,7 +2365,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontFamily(wxFontFamily)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontFamily(wxFontFamily). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontFamily(family);
 
@@ -2384,7 +2384,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontSize(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontSize(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontSize(pointSize);
 
@@ -2403,7 +2403,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontStyle(wxFontStyle)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontStyle(wxFontStyle). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontStyle(fontStyle);
 
@@ -2422,7 +2422,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontUnderlined(bool)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontUnderlined(bool). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontUnderlined(underlined);
 
@@ -2441,7 +2441,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontWeight(wxFontWeight)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetFontWeight(wxFontWeight). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetFontWeight(fontWeight);
 
@@ -2463,7 +2463,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetLeftIndent(int, int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetLeftIndent(int, int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetLeftIndent(indent, subIndent);
 
@@ -2482,7 +2482,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetLineSpacing(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetLineSpacing(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetLineSpacing(spacing);
 
@@ -2501,7 +2501,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetListStyleName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetListStyleName(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetListStyleName(name);
 
@@ -2520,7 +2520,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetOutlineLevel(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetOutlineLevel(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetOutlineLevel(level);
 
@@ -2541,7 +2541,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetPageBreak(bool)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetPageBreak(bool). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetPageBreak(pageBreak);
 
@@ -2560,7 +2560,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetParagraphSpacingAfter(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetParagraphSpacingAfter(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetParagraphSpacingAfter(spacing);
 
@@ -2579,7 +2579,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetParagraphSpacingBefore(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetParagraphSpacingBefore(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetParagraphSpacingBefore(spacing);
 
@@ -2598,7 +2598,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetParagraphStyleName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetParagraphStyleName(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetParagraphStyleName(name);
 
@@ -2617,7 +2617,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetRightIndent(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetRightIndent(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetRightIndent(indent);
 
@@ -2640,7 +2640,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTabs(const wxArrayInt &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTabs(const wxArrayInt &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetTabs(tabs);
 
@@ -2663,7 +2663,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTextColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetTextColour(colText);
 
@@ -2682,7 +2682,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTextEffectFlags(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTextEffectFlags(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetTextEffectFlags(flags);
 
@@ -2701,7 +2701,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTextEffects(int)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetTextEffects(int). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetTextEffects(effects);
 
@@ -2720,7 +2720,7 @@ public:
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttr::SetURL(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxTextAttr::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
 		}
 		self->SetURL(url);
 

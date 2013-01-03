@@ -551,7 +551,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::reset(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -570,7 +570,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setType(osgUtil::Statistics::StatsType). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setType(t);
 
@@ -590,7 +590,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -610,7 +610,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -630,7 +630,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -650,7 +650,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3d *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec3d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -670,7 +670,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2d *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec2d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -690,7 +690,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4d *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setVertexArray(unsigned int, const osg::Vec4d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setVertexArray(count, vertices);
 
@@ -724,7 +724,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawArrays(unsigned int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawArrays(unsigned int, int, int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->drawArrays(mode, first, count);
 
@@ -745,7 +745,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned char *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned char *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->drawElements(mode, count, &indices);
 
@@ -766,7 +766,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned short *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned short *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->drawElements(mode, count, &indices);
 
@@ -787,7 +787,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned int *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned int *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->drawElements(mode, count, &indices);
 
@@ -816,7 +816,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::begin(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::begin(unsigned int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->begin(mode);
 
@@ -834,7 +834,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex();
 
@@ -855,7 +855,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex(x, y, z);
 
@@ -878,7 +878,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex(vert);
 
@@ -901,7 +901,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec2f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex(vert);
 
@@ -924,7 +924,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(const osg::Vec4f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex(vert);
 
@@ -944,7 +944,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex(x, y);
 
@@ -966,7 +966,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::vertex(float, float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->vertex(x, y, z, w);
 
@@ -998,7 +998,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::end()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::end(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->end();
 
@@ -1016,7 +1016,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addDrawable()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addDrawable(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addDrawable();
 
@@ -1034,7 +1034,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addFastDrawable()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addFastDrawable(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addFastDrawable();
 
@@ -1052,7 +1052,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addMatrix()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addMatrix(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addMatrix();
 
@@ -1071,7 +1071,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addLight(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addLight(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addLight(np);
 
@@ -1090,7 +1090,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addImpostor(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addImpostor(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addImpostor(np);
 
@@ -1108,7 +1108,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::getBins()");
+			luaL_error(L, "Invalid object in function call int osgUtil::Statistics::getBins(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		int lret = self->getBins();
 		lua_pushnumber(L,lret);
@@ -1128,7 +1128,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setDepth(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setDepth(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setDepth(d);
 
@@ -1147,7 +1147,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addBins(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addBins(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addBins(np);
 
@@ -1166,7 +1166,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setBinNo(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::setBinNo(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->setBinNo(n);
 
@@ -1185,7 +1185,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addStateGraphs(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addStateGraphs(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addStateGraphs(n);
 
@@ -1204,7 +1204,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addOrderedLeaves(int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::addOrderedLeaves(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->addOrderedLeaves(n);
 
@@ -1227,7 +1227,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::add(const osgUtil::Statistics &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::add(const osgUtil::Statistics &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->add(stats);
 
@@ -1247,7 +1247,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -1267,7 +1267,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -1287,7 +1287,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4f *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4f *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -1307,7 +1307,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3d *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -1327,7 +1327,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2d *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -1347,7 +1347,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4d *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4d *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::setVertexArray(count, vertices);
 
@@ -1381,7 +1381,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawArrays(unsigned int, int, int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawArrays(unsigned int, int, int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::drawArrays(mode, first, count);
 
@@ -1402,7 +1402,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned char *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned char *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::drawElements(mode, count, &indices);
 
@@ -1423,7 +1423,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned short *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned short *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::drawElements(mode, count, &indices);
 
@@ -1444,7 +1444,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned int *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned int *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::drawElements(mode, count, &indices);
 
@@ -1473,7 +1473,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_begin(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_begin(unsigned int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::begin(mode);
 
@@ -1494,7 +1494,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::vertex(x, y, z);
 
@@ -1517,7 +1517,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::vertex(vert);
 
@@ -1540,7 +1540,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec2f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec2f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::vertex(vert);
 
@@ -1563,7 +1563,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec4f &). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::vertex(vert);
 
@@ -1583,7 +1583,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::vertex(x, y);
 
@@ -1605,7 +1605,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float, float). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::vertex(x, y, z, w);
 
@@ -1636,7 +1636,7 @@ public:
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_end()");
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_end(). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
 		self->Statistics::end();
 

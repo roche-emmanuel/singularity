@@ -29,7 +29,7 @@ function Class:setName(name)
 		-- this name contains a namespace, we should discard it:
 		self._name = name:match("::([%a%d_]+)$")
 		if not self._name then
-			self._name = name:match("::([%a%d_<>%s:,]+)$")
+			self._name = name:match("::([%a%d_<>%*%s:,]+)$")
 			self:debug2("Performed extended match on name '", name,"', result is: '", self._name,"'")
 		end
 		
@@ -130,6 +130,10 @@ end
 
 function Class:isPublic()
 	return self._section == Class.SECTION_PUBLIC
+end
+
+function Class:isRecursivePublic()
+	 return self:isPublic() and (not self:getParent() or self:getParent():isRecursivePublic())
 end
 
 function Class:isProtected()

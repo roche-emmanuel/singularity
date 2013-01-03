@@ -485,7 +485,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -511,7 +511,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -533,7 +533,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -552,7 +552,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -571,7 +571,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -595,7 +595,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::setColor(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::setColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setColor(color);
 
@@ -613,7 +613,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::ShapeDrawable::getColor() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::ShapeDrawable::getColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -635,7 +635,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::setTessellationHints(osg::TessellationHints *)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::setTessellationHints(osg::TessellationHints *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTessellationHints(hints);
 
@@ -653,7 +653,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::TessellationHints * osg::ShapeDrawable::getTessellationHints()");
+			luaL_error(L, "Invalid object in function call osg::TessellationHints * osg::ShapeDrawable::getTessellationHints(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::TessellationHints * lret = self->getTessellationHints();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -674,7 +674,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::TessellationHints * osg::ShapeDrawable::getTessellationHints() const");
+			luaL_error(L, "Invalid object in function call const osg::TessellationHints * osg::ShapeDrawable::getTessellationHints() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::TessellationHints * lret = self->getTessellationHints();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -709,7 +709,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->drawImplementation(renderInfo);
 
@@ -727,7 +727,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::ShapeDrawable::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::ShapeDrawable::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingBoxd stack_lret = self->computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
@@ -750,7 +750,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setName(name);
 
@@ -769,7 +769,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setUserData(obj);
 
@@ -787,7 +787,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ShapeDrawable::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ShapeDrawable::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ShapeDrawable::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -808,7 +808,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ShapeDrawable::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ShapeDrawable::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ShapeDrawable::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -838,7 +838,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osg::ShapeDrawable::base_asGeometry()");
+			luaL_error(L, "Invalid object in function call osg::Geometry * osg::ShapeDrawable::base_asGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geometry * lret = self->ShapeDrawable::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -859,7 +859,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::ShapeDrawable::base_asGeometry() const");
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::ShapeDrawable::base_asGeometry() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geometry * lret = self->ShapeDrawable::asGeometry();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -889,7 +889,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::computeDataVariance();
 
@@ -908,7 +908,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setUseVertexBufferObjects(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setUseVertexBufferObjects(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setUseVertexBufferObjects(flag);
 
@@ -926,7 +926,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_dirtyDisplayList()");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_dirtyDisplayList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::dirtyDisplayList();
 
@@ -944,7 +944,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ShapeDrawable::base_getGLObjectSizeHint() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ShapeDrawable::base_getGLObjectSizeHint() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->ShapeDrawable::getGLObjectSizeHint();
 		lua_pushnumber(L,lret);
@@ -968,7 +968,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_compileGLObjects(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_compileGLObjects(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::compileGLObjects(renderInfo);
 
@@ -989,7 +989,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::releaseGLObjects(state);
 
@@ -1008,7 +1008,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setUpdateCallback(osg::Drawable::UpdateCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setUpdateCallback(osg::Drawable::UpdateCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setUpdateCallback(ac);
 
@@ -1027,7 +1027,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setEventCallback(osg::Drawable::EventCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setEventCallback(osg::Drawable::EventCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setEventCallback(ac);
 
@@ -1046,7 +1046,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setCullCallback(osg::Drawable::CullCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setCullCallback(osg::Drawable::CullCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setCullCallback(cc);
 
@@ -1065,7 +1065,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setDrawCallback(osg::Drawable::DrawCallback *)");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_setDrawCallback(osg::Drawable::DrawCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::setDrawCallback(dc);
 
@@ -1083,7 +1083,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ShapeDrawable::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1109,7 +1109,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShapeDrawable::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ShapeDrawable::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1131,7 +1131,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ShapeDrawable::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1150,7 +1150,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ShapeDrawable::libraryName();
 		lua_pushstring(L,lret);
@@ -1169,7 +1169,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShapeDrawable::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ShapeDrawable::className();
 		lua_pushstring(L,lret);
@@ -1193,7 +1193,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_drawImplementation(osg::RenderInfo &) const");
+			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShapeDrawable::drawImplementation(renderInfo);
 
@@ -1211,7 +1211,7 @@ public:
 		osg::ShapeDrawable* self=Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::ShapeDrawable::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::ShapeDrawable::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingBoxd stack_lret = self->ShapeDrawable::computeBound();
 		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);

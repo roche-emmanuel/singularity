@@ -382,7 +382,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -408,7 +408,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -430,7 +430,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PixelDataBufferObject::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PixelDataBufferObject::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -449,7 +449,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -468,7 +468,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -488,7 +488,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::setDataSize(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::setDataSize(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDataSize(size);
 
@@ -506,7 +506,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PixelDataBufferObject::getDataSize() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PixelDataBufferObject::getDataSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDataSize();
 		lua_pushnumber(L,lret);
@@ -530,7 +530,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::compileBuffer(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::compileBuffer(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->compileBuffer(state);
 
@@ -553,7 +553,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::bindBufferInReadMode(osg::State &)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::bindBufferInReadMode(osg::State &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->bindBufferInReadMode(state);
 
@@ -576,7 +576,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::bindBufferInWriteMode(osg::State &)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::bindBufferInWriteMode(osg::State &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->bindBufferInWriteMode(state);
 
@@ -595,7 +595,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::unbindBuffer(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::unbindBuffer(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->unbindBuffer(contextID);
 
@@ -614,7 +614,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::PixelDataBufferObject::Mode osg::PixelDataBufferObject::getMode(unsigned int) const");
+			luaL_error(L, "Invalid object in function call osg::PixelDataBufferObject::Mode osg::PixelDataBufferObject::getMode(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::PixelDataBufferObject::Mode lret = self->getMode(contextID);
 		lua_pushnumber(L,lret);
@@ -634,7 +634,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::setName(name);
 
@@ -652,7 +652,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::computeDataVariance();
 
@@ -671,7 +671,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::setUserData(obj);
 
@@ -689,7 +689,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PixelDataBufferObject::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PixelDataBufferObject::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PixelDataBufferObject::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -710,7 +710,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PixelDataBufferObject::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PixelDataBufferObject::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PixelDataBufferObject::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -743,7 +743,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::releaseGLObjects(state);
 
@@ -761,7 +761,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PixelDataBufferObject::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -787,7 +787,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PixelDataBufferObject::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PixelDataBufferObject::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -809,7 +809,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PixelDataBufferObject::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PixelDataBufferObject::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PixelDataBufferObject::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -828,7 +828,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PixelDataBufferObject::libraryName();
 		lua_pushstring(L,lret);
@@ -847,7 +847,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PixelDataBufferObject::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PixelDataBufferObject::className();
 		lua_pushstring(L,lret);
@@ -871,7 +871,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_compileBuffer(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_compileBuffer(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::compileBuffer(state);
 
@@ -894,7 +894,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_bindBufferInReadMode(osg::State &)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_bindBufferInReadMode(osg::State &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::bindBufferInReadMode(state);
 
@@ -917,7 +917,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_bindBufferInWriteMode(osg::State &)");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_bindBufferInWriteMode(osg::State &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::bindBufferInWriteMode(state);
 
@@ -936,7 +936,7 @@ public:
 		osg::PixelDataBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::PixelDataBufferObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_unbindBuffer(unsigned int) const");
+			luaL_error(L, "Invalid object in function call void osg::PixelDataBufferObject::base_unbindBuffer(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PixelDataBufferObject::unbindBuffer(contextID);
 

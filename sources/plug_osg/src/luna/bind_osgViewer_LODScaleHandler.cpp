@@ -268,7 +268,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::setKeyEventIncreaseLODScale(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::setKeyEventIncreaseLODScale(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventIncreaseLODScale(key);
 
@@ -286,7 +286,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::LODScaleHandler::getKeyEventIncreaseLODScale() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::LODScaleHandler::getKeyEventIncreaseLODScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventIncreaseLODScale();
 		lua_pushnumber(L,lret);
@@ -306,7 +306,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::setKeyEventDecreaseLODScale(int)");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::setKeyEventDecreaseLODScale(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setKeyEventDecreaseLODScale(key);
 
@@ -324,7 +324,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osgViewer::LODScaleHandler::getKeyEventDecreaseLODScale() const");
+			luaL_error(L, "Invalid object in function call int osgViewer::LODScaleHandler::getKeyEventDecreaseLODScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getKeyEventDecreaseLODScale();
 		lua_pushnumber(L,lret);
@@ -353,7 +353,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -377,7 +377,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -396,7 +396,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LODScaleHandler::setName(name);
 
@@ -414,7 +414,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LODScaleHandler::computeDataVariance();
 
@@ -433,7 +433,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LODScaleHandler::setUserData(obj);
 
@@ -451,7 +451,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::LODScaleHandler::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgViewer::LODScaleHandler::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->LODScaleHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -472,7 +472,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::LODScaleHandler::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgViewer::LODScaleHandler::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->LODScaleHandler::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -505,7 +505,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LODScaleHandler::releaseGLObjects(_arg1);
 
@@ -523,7 +523,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::LODScaleHandler::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::LODScaleHandler::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->LODScaleHandler::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -549,7 +549,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::LODScaleHandler::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgViewer::LODScaleHandler::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->LODScaleHandler::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -571,7 +571,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::LODScaleHandler::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgViewer::LODScaleHandler::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->LODScaleHandler::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -590,7 +590,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::LODScaleHandler::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::LODScaleHandler::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->LODScaleHandler::libraryName();
 		lua_pushstring(L,lret);
@@ -609,7 +609,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgViewer::LODScaleHandler::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgViewer::LODScaleHandler::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->LODScaleHandler::className();
 		lua_pushstring(L,lret);
@@ -630,7 +630,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LODScaleHandler::event(nv, drawable);
 
@@ -658,7 +658,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::LODScaleHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::LODScaleHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->LODScaleHandler::handle(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
@@ -682,7 +682,7 @@ public:
 		osgViewer::LODScaleHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::LODScaleHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgViewer::LODScaleHandler::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->LODScaleHandler::getUsage(usage);
 

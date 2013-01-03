@@ -413,7 +413,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIcon::CopyFromBitmap(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call void wxIcon::CopyFromBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->CopyFromBitmap(bmp);
 
@@ -431,7 +431,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIcon::GetDepth() const");
+			luaL_error(L, "Invalid object in function call int wxIcon::GetDepth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetDepth();
 		lua_pushnumber(L,lret);
@@ -450,7 +450,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIcon::GetHeight() const");
+			luaL_error(L, "Invalid object in function call int wxIcon::GetHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -469,7 +469,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIcon::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxIcon::GetWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -488,7 +488,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIcon::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxIcon::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -513,7 +513,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIcon::LoadFile(const wxString &, wxBitmapType, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxIcon::LoadFile(const wxString &, wxBitmapType, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LoadFile(name, type, desiredWidth, desiredHeight);
 		lua_pushboolean(L,lret?1:0);
@@ -533,7 +533,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIcon::SetDepth(int)");
+			luaL_error(L, "Invalid object in function call void wxIcon::SetDepth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDepth(depth);
 
@@ -552,7 +552,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIcon::SetHeight(int)");
+			luaL_error(L, "Invalid object in function call void wxIcon::SetHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHeight(height);
 
@@ -571,7 +571,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIcon::SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxIcon::SetWidth(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetWidth(width);
 
@@ -589,7 +589,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIcon::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIcon::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxIcon::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -610,7 +610,7 @@ public:
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIcon::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxIcon::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxIcon::IsOk();
 		lua_pushboolean(L,lret?1:0);

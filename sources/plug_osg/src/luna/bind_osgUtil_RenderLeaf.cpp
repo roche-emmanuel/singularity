@@ -210,7 +210,7 @@ public:
 		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::set(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::set(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->set(drawable, projection, modelview, depth, traversalNumber);
 
@@ -228,7 +228,7 @@ public:
 		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -252,7 +252,7 @@ public:
 		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::render(osg::RenderInfo &, osgUtil::RenderLeaf *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::render(osg::RenderInfo &, osgUtil::RenderLeaf *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->render(renderInfo, previous);
 
@@ -270,7 +270,7 @@ public:
 		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Drawable * osgUtil::RenderLeaf::getDrawable() const");
+			luaL_error(L, "Invalid object in function call const osg::Drawable * osgUtil::RenderLeaf::getDrawable() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Drawable * lret = self->getDrawable();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,7 +297,7 @@ public:
 		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::base_render(osg::RenderInfo &, osgUtil::RenderLeaf *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::base_render(osg::RenderInfo &, osgUtil::RenderLeaf *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->RenderLeaf::render(renderInfo, previous);
 

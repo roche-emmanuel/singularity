@@ -303,7 +303,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAnimation::GetDelay(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int wxAnimation::GetDelay(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetDelay(i);
 		lua_pushnumber(L,lret);
@@ -323,7 +323,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImage wxAnimation::GetFrame(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxImage wxAnimation::GetFrame(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxImage stack_lret = self->GetFrame(i);
 		wxImage* lret = new wxImage(stack_lret);
@@ -345,7 +345,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::GetFrameCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::GetFrameCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetFrameCount();
 		lua_pushnumber(L,lret);
@@ -364,7 +364,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAnimation::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAnimation::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -386,7 +386,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxAnimation::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -413,7 +413,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::Load(wxInputStream &, wxAnimationType)");
+			luaL_error(L, "Invalid object in function call bool wxAnimation::Load(wxInputStream &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Load(stream, type);
 		lua_pushboolean(L,lret?1:0);
@@ -436,7 +436,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::LoadFile(const wxString &, wxAnimationType)");
+			luaL_error(L, "Invalid object in function call bool wxAnimation::LoadFile(const wxString &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LoadFile(name, type);
 		lua_pushboolean(L,lret?1:0);
@@ -455,7 +455,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAnimation::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAnimation::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxAnimation::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -477,7 +477,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAnimation::base_GetDelay(unsigned int) const");
+			luaL_error(L, "Invalid object in function call int wxAnimation::base_GetDelay(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxAnimation::GetDelay(i);
 		lua_pushnumber(L,lret);
@@ -497,7 +497,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImage wxAnimation::base_GetFrame(unsigned int) const");
+			luaL_error(L, "Invalid object in function call wxImage wxAnimation::base_GetFrame(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxImage stack_lret = self->wxAnimation::GetFrame(i);
 		wxImage* lret = new wxImage(stack_lret);
@@ -519,7 +519,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::base_GetFrameCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::base_GetFrameCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->wxAnimation::GetFrameCount();
 		lua_pushnumber(L,lret);
@@ -538,7 +538,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAnimation::base_GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxAnimation::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxAnimation::GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -560,7 +560,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::base_IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxAnimation::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAnimation::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -587,7 +587,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::base_Load(wxInputStream &, wxAnimationType)");
+			luaL_error(L, "Invalid object in function call bool wxAnimation::base_Load(wxInputStream &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAnimation::Load(stream, type);
 		lua_pushboolean(L,lret?1:0);
@@ -610,7 +610,7 @@ public:
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::base_LoadFile(const wxString &, wxAnimationType)");
+			luaL_error(L, "Invalid object in function call bool wxAnimation::base_LoadFile(const wxString &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxAnimation::LoadFile(name, type);
 		lua_pushboolean(L,lret?1:0);

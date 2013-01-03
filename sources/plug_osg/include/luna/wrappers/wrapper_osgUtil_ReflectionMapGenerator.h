@@ -22,8 +22,8 @@ public:
 	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::ReflectionMapGenerator(texture_size), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::ReflectionMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::ReflectionMapGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
 
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// osg::Vec4f osgUtil::ReflectionMapGenerator::compute_color(const osg::Vec3f & R) const
@@ -37,6 +37,8 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+
 	// Protected non-virtual methods:
 	// void osgUtil::CubeMapGenerator::set_pixel(int index, int c, int r, const osg::Vec4f & color)
 	void public_set_pixel(int index, int c, int r, const osg::Vec4f & color) {
@@ -112,7 +114,7 @@ public:
 		wrapper_osgUtil_ReflectionMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ReflectionMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::public_set_pixel(int, int, int, const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::public_set_pixel(int, int, int, const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_set_pixel(index, c, r, color);
 
@@ -135,7 +137,7 @@ public:
 		wrapper_osgUtil_ReflectionMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ReflectionMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call static osg::Vec4f osgUtil::CubeMapGenerator::public_vector_to_color(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4f stack_lret = self->public_vector_to_color(vec);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -159,7 +161,7 @@ public:
 		wrapper_osgUtil_ReflectionMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ReflectionMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -177,7 +179,7 @@ public:
 		wrapper_osgUtil_ReflectionMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_ReflectionMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

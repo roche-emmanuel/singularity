@@ -364,7 +364,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::insertIntersection(const osgUtil::PlaneIntersector::Intersection &)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::insertIntersection(const osgUtil::PlaneIntersector::Intersection &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->insertIntersection(intersection);
 
@@ -382,7 +382,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::PlaneIntersector::Intersections & osgUtil::PlaneIntersector::getIntersections()");
+			luaL_error(L, "Invalid object in function call osgUtil::PlaneIntersector::Intersections & osgUtil::PlaneIntersector::getIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgUtil::PlaneIntersector::Intersections* lret = &self->getIntersections();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -404,7 +404,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::setRecordHeightsAsAttributes(bool)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::setRecordHeightsAsAttributes(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRecordHeightsAsAttributes(flag);
 
@@ -422,7 +422,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::getRecordHeightsAsAttributes() const");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::getRecordHeightsAsAttributes() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getRecordHeightsAsAttributes();
 		lua_pushboolean(L,lret?1:0);
@@ -442,7 +442,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::setEllipsoidModel(osg::EllipsoidModel *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::setEllipsoidModel(osg::EllipsoidModel *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setEllipsoidModel(em);
 
@@ -460,7 +460,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::EllipsoidModel * osgUtil::PlaneIntersector::getEllipsoidModel() const");
+			luaL_error(L, "Invalid object in function call const osg::EllipsoidModel * osgUtil::PlaneIntersector::getEllipsoidModel() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::EllipsoidModel * lret = self->getEllipsoidModel();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -486,7 +486,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PlaneIntersector::clone(osgUtil::IntersectionVisitor &)");
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PlaneIntersector::clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Intersector * lret = self->clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -512,7 +512,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::enter(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -531,7 +531,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->leave();
 
@@ -555,7 +555,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->intersect(iv, drawable);
 
@@ -573,7 +573,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->reset();
 
@@ -591,7 +591,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::containsIntersections()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->containsIntersections();
 		lua_pushboolean(L,lret?1:0);
@@ -615,7 +615,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PlaneIntersector::base_clone(osgUtil::IntersectionVisitor &)");
+			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::PlaneIntersector::base_clone(osgUtil::IntersectionVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::Intersector * lret = self->PlaneIntersector::clone(iv);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -641,7 +641,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::base_enter(const osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::base_enter(const osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PlaneIntersector::enter(node);
 		lua_pushboolean(L,lret?1:0);
@@ -660,7 +660,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::base_leave()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::base_leave(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PlaneIntersector::leave();
 
@@ -684,7 +684,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::base_intersect(osgUtil::IntersectionVisitor &, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PlaneIntersector::intersect(iv, drawable);
 
@@ -702,7 +702,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::base_reset()");
+			luaL_error(L, "Invalid object in function call void osgUtil::PlaneIntersector::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PlaneIntersector::reset();
 
@@ -720,7 +720,7 @@ public:
 		osgUtil::PlaneIntersector* self=Luna< osg::Referenced >::checkSubType< osgUtil::PlaneIntersector >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::base_containsIntersections()");
+			luaL_error(L, "Invalid object in function call bool osgUtil::PlaneIntersector::base_containsIntersections(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PlaneIntersector::containsIntersections();
 		lua_pushboolean(L,lret?1:0);

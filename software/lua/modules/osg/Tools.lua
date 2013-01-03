@@ -1,5 +1,13 @@
 local Class = require("classBuilder"){name="Tools",bases="base.Object"};
 
+require "osg"
+require "osg.NotificationHandler"
+require "extensions.osg"
+local fs = require "base.FileSystem"
+
+-- osg.setNotifyLevel(osg.DEBUG_FP)
+osg.setNotifyLevel(osg.INFO)
+
 local default_quad_vs = [[
 varying vec2 coords;
 
@@ -8,11 +16,37 @@ void main() {
     coords = (gl_Vertex.xy+vec2(1.0,1.0))/2.0;
 }	
 ]]
+
+local transform_quad_vs = [[
+varying vec2 coords;
+
+void main() {
+    gl_Position = ftransform();
+    coords = gl_MultiTexCoord0.xy;
+}	
+]]
+
+local checker_fs = [[
+varying vec2 coords;
+
+void main()
+{
+	float squareSize = 0.05;
+    
+    float xnum = floor(coords.x/squareSize);
+	float ynum = floor(coords.y/squareSize);
+
+    //vec4 color = vec4(1.0,1.0,1.0,1.0);
+    vec3 tmp = vec3(mod(xnum+ynum,2.0) < 0.5 ? 0.95 : 0.7) ;
+    
+    gl_FragColor = vec4(tmp,1.0);
+}
+]]
 	
 -- Function used to load a model from a file.
 function Class:loadModel(filename)
 	self:checkString(filename,"Invalid model filename")
-	local node = osg.readNodeFile(filename)
+	local node = osgDB.readNodeFile(filename)
 	if not node then
 		self:warn("Cannot load model from file: ",filename)
 		return;
@@ -25,13 +59,18 @@ end
 
 function Class:loadImage(filename)
 	self:checkString(filename,"Invalid image filename")
-	local image = osg.readImageFile(filename)
+	local image = osgDB.readImageFile(filename)
 	if not image then
 		self:warn("Cannot load image from file: ",filename)
 		return;
 	end
 	
+	self:debug2_v("Successfully loaded image from file ", filename)
 	return image;
+end
+
+function Class:getImage(file)
+	return self:loadImage(fs:getRootPath(true) .. file)
 end
 
 -- Create a texture from an input image.
@@ -39,7 +78,10 @@ function Class:createTexture(options)
 	self:check(options.image,"Invalid image for texture creation.");
 	
 	-- we only support texture 2D for the moment.
-	local tex = osg.Texture2D(options.image);
+	--local tex = osg.Texture2D(options.image);
+	local tex = osg.TextureRectangle(options.image);
+	tex:setTextureSize(options.image:s(),options.image:t());
+	
 	tex:setWrap(osg.Texture.WRAP_S,osg.Texture.CLAMP_TO_EDGE);
     tex:setWrap(osg.Texture.WRAP_T,osg.Texture.CLAMP_TO_EDGE);
     tex:setWrap(osg.Texture.WRAP_R,osg.Texture.CLAMP_TO_EDGE);
@@ -79,7 +121,7 @@ void main() {
 	return prog
 end
 
-function Class:createTextureProgram(options)
+function Class:createTexture2DProgram(options)
 	options = options or {}
 	
 	local ss = options.stateSet;
@@ -106,6 +148,65 @@ void main() {
 	if ss then
 		ss:setAttributeAndModes(prog)
 		ss:getOrCreateUniform("tex",osg.Uniform.SAMPLER_2D):setInt(0);
+	end
+	
+	return prog
+end
+
+function Class:createTextureRectProgram(options)
+	options = options or {}
+	
+	local ss = options.stateSet;
+	
+	local prog = osg.Program();
+	
+	local vs = osg.Shader(osg.Shader.VERTEX);
+	vs:setShaderSource(default_quad_vs);
+	
+	local fs = osg.Shader(osg.Shader.FRAGMENT);	
+	fs:setShaderSource(([[
+uniform sampler2DRect tex;
+
+varying vec2 coords;
+
+void main() {
+    vec4 color = texture2DRect(tex,vec2(coords.x*%.1f,coords.y*%.1f));  
+    gl_FragColor = color;
+}
+	]]):format(options.texture:getTextureWidth(),options.texture:getTextureHeight()));
+	
+	--self:info("Texture width:",options.texture:getTextureWidth(),", texture height:",options.texture:getTextureHeight());
+	
+	prog:addShader(vs)
+	prog:addShader(fs)	
+	
+	if ss then
+		ss:setAttributeAndModes(prog)
+		ss:getOrCreateUniform("tex",osg.Uniform.INT):setInt(0);
+		--ss:getOrCreateUniform("sizes",osg.Uniform.FLOAT_VEC2):set(options.texture:getTextureWidth(),options.texture:getTextureHeight());
+	end
+	
+	return prog
+end
+
+function Class:createCheckerProgram(options)
+	options = options or {}
+	
+	local ss = options.stateSet;
+	
+	local prog = osg.Program();
+	
+	local vs = osg.Shader(osg.Shader.VERTEX);
+	vs:setShaderSource(options.withTransform and transform_quad_vs or default_quad_vs);
+	
+	local fs = osg.Shader(osg.Shader.FRAGMENT);	
+	fs:setShaderSource(checker_fs);
+		
+	prog:addShader(vs)
+	prog:addShader(fs)	
+	
+	if ss then
+		ss:setAttributeAndModes(prog)
 	end
 	
 	return prog
@@ -149,9 +250,77 @@ function Class:createScreenQuad(options)
 	if img then
 		local tex=self:createTexture{image=img}
 		ss:setTextureAttributeAndModes(0,tex);
-		self:createTextureProgram{stateSet=ss,texture=tex}
+		self:createTextureRectProgram{stateSet=ss,texture=tex}
+		--self:createTexture2DProgram{stateSet=ss,texture=tex}
 	else
 		self:createColorProgram{stateSet=ss}
+	end
+
+	return geode
+end
+
+-- Create a simple quad.
+-- available options:
+-- parent [optional] : parent node.
+-- image [optional] : image to be displayed.
+-- width
+-- height
+function Class:createQuad(options)
+	self:debug3("Creating quad.");
+	options = options or {}
+	
+	local center = options.center or osg.Vec3(0.0,0.0,-3.0)
+	local width = options.width or 100.0
+	local height = options.height or 100.0
+	
+	local geode = osg.Geode()
+	if options.parent then
+		options.parent:addChild(geode)
+	end
+	--geode:setCullingActive(false);
+	
+	local geom = osg.Geometry()
+	geode:addDrawable(geom);
+
+	local vertices = osg.Vec3Array();
+	geom:setVertexArray(vertices);
+
+	vertices:push_back(center + osg.Vec3(-width/2.0,-height/2.0,0.0))
+	vertices:push_back(center + osg.Vec3(width/2.0,-height/2.0,0.0))
+	vertices:push_back(center + osg.Vec3(-width/2.0,height/2.0,0.0))
+	vertices:push_back(center + osg.Vec3(width/2.0,height/2.0,0.0))
+		
+    local colors = osg.Vec4Array()
+    colors:push_back(osg.Vec4f(0.0,0.0,1.0,1.0));
+    geom:setColorArray(colors)
+    geom:setColorBinding(osg.Geometry.BIND_OVERALL)
+	
+    local normals = osg.Vec3Array();
+    normals:push_back(osg.Vec3(0.0,0.0,1.0));
+    geom:setNormalArray(normals);
+    geom:setNormalBinding(osg.Geometry.BIND_OVERALL);
+	
+    local coords = osg.Vec2Array();
+    coords:push_back(osg.Vec2(0.0,0.0));
+    coords:push_back(osg.Vec2(1.0,0.0));
+    coords:push_back(osg.Vec2(0.0,1.0));
+    coords:push_back(osg.Vec2(1.0,1.0));
+    geom:setTexCoordArray(0,coords);
+
+	geom:addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.TRIANGLE_STRIP,0,4));
+	
+	local ss = geode:getOrCreateStateSet()
+	
+	local img = options.image
+	
+	if img then
+		self:no_impl("No support for image texture on simple quad yet.")
+		--local tex=self:createTexture{image=img}
+		--ss:setTextureAttributeAndModes(0,tex);
+		--self:createTextureRectProgram{stateSet=ss,texture=tex}
+		--self:createTexture2DProgram{stateSet=ss,texture=tex}
+	else
+		self:createCheckerProgram{stateSet=ss,withTransform=true}
 	end
 
 	return geode

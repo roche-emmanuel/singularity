@@ -506,7 +506,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -532,7 +532,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -554,7 +554,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -573,7 +573,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -592,7 +592,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -611,7 +611,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMask::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMask::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -635,7 +635,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ColorMask::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ColorMask::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -658,7 +658,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::setMask(bool, bool, bool, bool)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::setMask(bool, bool, bool, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMask(red, green, blue, alpha);
 
@@ -677,7 +677,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::setRedMask(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::setRedMask(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRedMask(mask);
 
@@ -695,7 +695,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getRedMask() const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getRedMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getRedMask();
 		lua_pushboolean(L,lret?1:0);
@@ -715,7 +715,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::setGreenMask(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::setGreenMask(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setGreenMask(mask);
 
@@ -733,7 +733,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getGreenMask() const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getGreenMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getGreenMask();
 		lua_pushboolean(L,lret?1:0);
@@ -753,7 +753,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::setBlueMask(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::setBlueMask(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBlueMask(mask);
 
@@ -771,7 +771,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getBlueMask() const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getBlueMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getBlueMask();
 		lua_pushboolean(L,lret?1:0);
@@ -791,7 +791,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::setAlphaMask(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::setAlphaMask(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAlphaMask(mask);
 
@@ -809,7 +809,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getAlphaMask() const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::getAlphaMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAlphaMask();
 		lua_pushboolean(L,lret?1:0);
@@ -833,7 +833,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -852,7 +852,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMask::setName(name);
 
@@ -870,7 +870,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMask::computeDataVariance();
 
@@ -889,7 +889,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMask::setUserData(obj);
 
@@ -907,7 +907,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ColorMask::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ColorMask::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ColorMask::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -928,7 +928,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ColorMask::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ColorMask::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ColorMask::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -958,7 +958,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ColorMask::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ColorMask::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->ColorMask::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -979,7 +979,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ColorMask::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ColorMask::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->ColorMask::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1009,7 +1009,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ColorMask::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ColorMask::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->ColorMask::getMember();
 		lua_pushnumber(L,lret);
@@ -1028,7 +1028,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMask::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1052,7 +1052,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMask::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1076,7 +1076,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMask::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1100,7 +1100,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMask::compileGLObjects(_arg1);
 
@@ -1121,7 +1121,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMask::releaseGLObjects(_arg1);
 
@@ -1139,7 +1139,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ColorMask::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1165,7 +1165,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ColorMask::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ColorMask::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1187,7 +1187,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ColorMask::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ColorMask::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1206,7 +1206,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ColorMask::libraryName();
 		lua_pushstring(L,lret);
@@ -1225,7 +1225,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ColorMask::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ColorMask::className();
 		lua_pushstring(L,lret);
@@ -1244,7 +1244,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMask::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ColorMask::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->ColorMask::getType();
 		lua_pushnumber(L,lret);
@@ -1268,7 +1268,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ColorMask::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ColorMask::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->ColorMask::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1292,7 +1292,7 @@ public:
 		osg::ColorMask* self=Luna< osg::Referenced >::checkSubType< osg::ColorMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ColorMask::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ColorMask::apply(_arg1);
 

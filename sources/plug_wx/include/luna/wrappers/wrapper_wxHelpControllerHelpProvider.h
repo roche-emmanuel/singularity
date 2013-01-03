@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxHelpControllerHelpProvider(lua_State* L, lua_Table* dum, wxHelpController * hc = NULL) : wxHelpControllerHelpProvider(hc), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {
@@ -83,9 +88,6 @@ public:
 		return wxHelpControllerHelpProvider::ShowHelpAtPoint(window, point, origin);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

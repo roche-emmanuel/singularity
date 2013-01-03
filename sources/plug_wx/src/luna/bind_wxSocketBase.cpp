@@ -427,7 +427,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -446,7 +446,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::Error() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::Error() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Error();
 		lua_pushboolean(L,lret?1:0);
@@ -470,7 +470,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::GetLocal(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -494,7 +494,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::GetPeer(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -513,7 +513,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxSocketBase::GetTimeout() const");
+			luaL_error(L, "Invalid object in function call long wxSocketBase::GetTimeout() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetTimeout();
 		lua_pushnumber(L,lret);
@@ -532,7 +532,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsConnected() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsConnected() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsConnected();
 		lua_pushboolean(L,lret?1:0);
@@ -551,7 +551,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsData()");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsData();
 		lua_pushboolean(L,lret?1:0);
@@ -570,7 +570,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsDisconnected() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsDisconnected() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsDisconnected();
 		lua_pushboolean(L,lret?1:0);
@@ -589,7 +589,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -608,7 +608,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxSocketBase::LastCount() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxSocketBase::LastCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->LastCount();
 		lua_pushnumber(L,lret);
@@ -627,7 +627,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketError wxSocketBase::LastError() const");
+			luaL_error(L, "Invalid object in function call wxSocketError wxSocketBase::LastError() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSocketError lret = self->LastError();
 		lua_pushnumber(L,lret);
@@ -646,7 +646,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::RestoreState()");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::RestoreState(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RestoreState();
 
@@ -664,7 +664,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::SaveState()");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::SaveState(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SaveState();
 
@@ -682,7 +682,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::Close()");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Close();
 		lua_pushboolean(L,lret?1:0);
@@ -701,7 +701,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::ShutdownOutput()");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::ShutdownOutput(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->ShutdownOutput();
 
@@ -719,7 +719,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Discard()");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Discard(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->Discard();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -740,7 +740,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSocketBase::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxSocketBase::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -759,7 +759,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::InterruptWait()");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::InterruptWait(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->InterruptWait();
 
@@ -779,7 +779,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Peek(void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Peek(void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->Peek(buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -802,7 +802,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Read(void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Read(void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->Read(buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -825,7 +825,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::ReadMsg(void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::ReadMsg(void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->ReadMsg(buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -847,7 +847,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::SetFlags(int)");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::SetFlags(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -870,7 +870,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::SetLocal(const wxIPV4address &)");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SetLocal(local);
 		lua_pushboolean(L,lret?1:0);
@@ -890,7 +890,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::SetTimeout(long)");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::SetTimeout(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTimeout(seconds);
 
@@ -910,7 +910,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Unread(const void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Unread(const void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->Unread(buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -935,7 +935,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::Wait(long, long)");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::Wait(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Wait(seconds, millisecond);
 		lua_pushboolean(L,lret?1:0);
@@ -958,7 +958,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::WaitForLost(long, long)");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::WaitForLost(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->WaitForLost(seconds, millisecond);
 		lua_pushboolean(L,lret?1:0);
@@ -981,7 +981,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::WaitForRead(long, long)");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::WaitForRead(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->WaitForRead(seconds, millisecond);
 		lua_pushboolean(L,lret?1:0);
@@ -1004,7 +1004,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::WaitForWrite(long, long)");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::WaitForWrite(long, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->WaitForWrite(seconds, millisecond);
 		lua_pushboolean(L,lret?1:0);
@@ -1025,7 +1025,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Write(const void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::Write(const void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->Write(buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1048,7 +1048,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::WriteMsg(const void *, unsigned int)");
+			luaL_error(L, "Invalid object in function call wxSocketBase & wxSocketBase::WriteMsg(const void *, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxSocketBase* lret = &self->WriteMsg(buffer, nbytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1069,7 +1069,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxSocketBase::GetClientData() const");
+			luaL_error(L, "Invalid object in function call void * wxSocketBase::GetClientData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		void * lret = self->GetClientData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1091,7 +1091,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::Notify(bool)");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::Notify(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Notify(notify);
 
@@ -1110,7 +1110,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::SetClientData(void *)");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::SetClientData(void *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetClientData(data);
 
@@ -1136,7 +1136,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::SetEventHandler(wxEvtHandler &, int)");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::SetEventHandler(wxEvtHandler &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetEventHandler(handler, id);
 
@@ -1155,7 +1155,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSocketBase::SetNotify(wxSocketEventFlags)");
+			luaL_error(L, "Invalid object in function call void wxSocketBase::SetNotify(wxSocketEventFlags). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetNotify(flags);
 
@@ -1200,7 +1200,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketBase::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketBase::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSocketBase::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1226,7 +1226,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_GetLocal(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_GetLocal(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketBase::GetLocal(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -1250,7 +1250,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_GetPeer(wxSockAddress &) const");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_GetPeer(wxSockAddress &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketBase::GetPeer(addr);
 		lua_pushboolean(L,lret?1:0);
@@ -1269,7 +1269,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_Close()");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketBase::Close();
 		lua_pushboolean(L,lret?1:0);
@@ -1293,7 +1293,7 @@ public:
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_SetLocal(const wxIPV4address &)");
+			luaL_error(L, "Invalid object in function call bool wxSocketBase::base_SetLocal(const wxIPV4address &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxSocketBase::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);

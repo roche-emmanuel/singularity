@@ -11,9 +11,22 @@
 class wrapper_WebViewListener_Download : public WebViewListener::Download, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_WebViewListener_Download() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_WebViewListener_Download(lua_State* L, lua_Table* dum) : WebViewListener::Download(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// void WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)
 	void OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type) {
 		THROW_IF(!_obj.pushFunction("OnRequestDownload"),"No implementation for abstract function WebViewListener::Download::OnRequestDownload");
@@ -47,6 +60,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -18,17 +18,23 @@ const char LunaTraits< osg::Object >::moduleName[] = "osg";
 const int LunaTraits< osg::Object >::hash = 58481028;
 const int LunaTraits< osg::Object >::uniqueIDs[] = {50169651,0};
 
-const char LunaTraits< osgDB::FileList::FileNames >::className[] = "FileNames";
-const char LunaTraits< osgDB::FileList::FileNames >::fullName[] = "osgDB::FileList::FileNames";
+const char LunaTraits< osg::Program::AttribBindingList >::className[] = "std_map_std_string_unsigned_int";
+const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "std::map< std::string, unsigned int >";
+const char LunaTraits< osg::Program::AttribBindingList >::moduleName[] = "sgt";
+const int LunaTraits< osg::Program::AttribBindingList >::hash = 65712176;
+const int LunaTraits< osg::Program::AttribBindingList >::uniqueIDs[] = {72783721,0};
+
+const char LunaTraits< osgDB::FileList::FileNames >::className[] = "std_set_std_string";
+const char LunaTraits< std::set< std::string > >::fullName[] = "std::set< std::string >";
 const char LunaTraits< osgDB::FileList::FileNames >::moduleName[] = "sgt";
 const int LunaTraits< osgDB::FileList::FileNames >::hash = 18196832;
-const int LunaTraits< osgDB::FileList::FileNames >::uniqueIDs[] = {59964048,0};
+const int LunaTraits< osgDB::FileList::FileNames >::uniqueIDs[] = {74170402,0};
 
-const char LunaTraits< osgDB::IntLookup::StringToValue >::className[] = "StringToValue";
-const char LunaTraits< osgDB::IntLookup::StringToValue >::fullName[] = "osgDB::IntLookup::StringToValue";
+const char LunaTraits< osgDB::IntLookup::StringToValue >::className[] = "std_map_std_string_int";
+const char LunaTraits< std::map< std::string, int > >::fullName[] = "std::map< std::string, int >";
 const char LunaTraits< osgDB::IntLookup::StringToValue >::moduleName[] = "sgt";
 const int LunaTraits< osgDB::IntLookup::StringToValue >::hash = 34334607;
-const int LunaTraits< osgDB::IntLookup::StringToValue >::uniqueIDs[] = {65247664,0};
+const int LunaTraits< osgDB::IntLookup::StringToValue >::uniqueIDs[] = {27704170,0};
 
 const char LunaTraits< std::istream >::className[] = "istream";
 const char LunaTraits< std::istream >::fullName[] = "std::istream";
@@ -41,5 +47,11 @@ const char LunaTraits< std::ostream >::fullName[] = "std::ostream";
 const char LunaTraits< std::ostream >::moduleName[] = "std";
 const int LunaTraits< std::ostream >::hash = 2993706;
 const int LunaTraits< std::ostream >::uniqueIDs[] = {2993706,0};
+
+const char LunaTraits< osg::ref_ptr< osg::Referenced > >::className[] = "Referenced";
+const char LunaTraits< osg::ref_ptr< osg::Referenced > >::fullName[] = "osg::ref_ptr< osg::Referenced >";
+const char LunaTraits< osg::ref_ptr< osg::Referenced > >::moduleName[] = "sgt";
+const int LunaTraits< osg::ref_ptr< osg::Referenced > >::hash = 84922662;
+const int LunaTraits< osg::ref_ptr< osg::Referenced > >::uniqueIDs[] = {84922662,0};
 
 

@@ -302,7 +302,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -321,7 +321,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -341,7 +341,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Interpolator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Interpolator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -363,7 +363,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::Interpolator::interpolate(float, float, float) const");
+			luaL_error(L, "Invalid object in function call float osgParticle::Interpolator::interpolate(float, float, float) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->interpolate(t, y1, y2);
 		lua_pushnumber(L,lret);
@@ -393,7 +393,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec2f osgParticle::Interpolator::interpolate(float, const osg::Vec2f &, const osg::Vec2f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec2f osgParticle::Interpolator::interpolate(float, const osg::Vec2f &, const osg::Vec2f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec2f stack_lret = self->interpolate(t, y1, y2);
 		osg::Vec2f* lret = new osg::Vec2f(stack_lret);
@@ -426,7 +426,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::Interpolator::interpolate(float, const osg::Vec3f &, const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::Interpolator::interpolate(float, const osg::Vec3f &, const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->interpolate(t, y1, y2);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -459,7 +459,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f osgParticle::Interpolator::interpolate(float, const osg::Vec4f &, const osg::Vec4f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4f osgParticle::Interpolator::interpolate(float, const osg::Vec4f &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4f stack_lret = self->interpolate(t, y1, y2);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -493,7 +493,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Interpolator::setName(name);
 
@@ -511,7 +511,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Interpolator::computeDataVariance();
 
@@ -530,7 +530,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Interpolator::setUserData(obj);
 
@@ -548,7 +548,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::Interpolator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::Interpolator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Interpolator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,7 +569,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::Interpolator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::Interpolator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Interpolator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -602,7 +602,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::Interpolator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Interpolator::releaseGLObjects(_arg1);
 
@@ -620,7 +620,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Interpolator::libraryName();
 		lua_pushstring(L,lret);
@@ -639,7 +639,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::Interpolator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Interpolator::className();
 		lua_pushstring(L,lret);
@@ -659,7 +659,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::Interpolator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::Interpolator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Interpolator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -689,7 +689,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec2f osgParticle::Interpolator::base_interpolate(float, const osg::Vec2f &, const osg::Vec2f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec2f osgParticle::Interpolator::base_interpolate(float, const osg::Vec2f &, const osg::Vec2f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec2f stack_lret = self->Interpolator::interpolate(t, y1, y2);
 		osg::Vec2f* lret = new osg::Vec2f(stack_lret);
@@ -722,7 +722,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::Interpolator::base_interpolate(float, const osg::Vec3f &, const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::Interpolator::base_interpolate(float, const osg::Vec3f &, const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->Interpolator::interpolate(t, y1, y2);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -755,7 +755,7 @@ public:
 		osgParticle::Interpolator* self=Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f osgParticle::Interpolator::base_interpolate(float, const osg::Vec4f &, const osg::Vec4f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4f osgParticle::Interpolator::base_interpolate(float, const osg::Vec4f &, const osg::Vec4f &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec4f stack_lret = self->Interpolator::interpolate(t, y1, y2);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);

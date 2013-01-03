@@ -584,7 +584,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::SphericalManipulator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::SphericalManipulator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -608,7 +608,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByMatrix(matrix);
 
@@ -631,7 +631,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setByInverseMatrix(matrix);
 
@@ -649,7 +649,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -671,7 +671,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -693,7 +693,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::SphericalManipulator::getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::SphericalManipulator::getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -712,7 +712,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::SphericalManipulator::getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::SphericalManipulator::getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -732,7 +732,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNode(_arg1);
 
@@ -750,7 +750,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::SphericalManipulator::getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::SphericalManipulator::getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -771,7 +771,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::SphericalManipulator::getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::SphericalManipulator::getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -811,7 +811,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->home(ea, us);
 
@@ -830,7 +830,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->home(_arg1);
 
@@ -867,7 +867,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init(ea, us);
 
@@ -890,7 +890,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->zoomOn(bound);
 
@@ -918,7 +918,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -937,7 +937,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::computeHomePosition()");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::computeHomePosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->computeHomePosition();
 
@@ -967,7 +967,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered &, double &, double &, osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered &, double &, double &, osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->computeViewPosition(bound, scale, distance, center);
 
@@ -990,7 +990,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setCenter(const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setCenter(const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCenter(center);
 
@@ -1008,7 +1008,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3d & osgGA::SphericalManipulator::getCenter() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3d & osgGA::SphericalManipulator::getCenter() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3d* lret = &self->getCenter();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1030,7 +1030,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::setDistance(double)");
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::setDistance(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->setDistance(distance);
 		lua_pushboolean(L,lret?1:0);
@@ -1049,7 +1049,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getDistance() const");
+			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getDistance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getDistance();
 		lua_pushnumber(L,lret);
@@ -1068,7 +1068,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getHomeDistance() const");
+			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getHomeDistance() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getHomeDistance();
 		lua_pushnumber(L,lret);
@@ -1088,7 +1088,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setHeading(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setHeading(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setHeading(azimuth);
 
@@ -1106,7 +1106,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getHeading() const");
+			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getHeading() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getHeading();
 		lua_pushnumber(L,lret);
@@ -1126,7 +1126,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setElevation(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setElevation(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setElevation(elevation);
 
@@ -1144,7 +1144,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getElevtion() const");
+			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getElevtion() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getElevtion();
 		lua_pushnumber(L,lret);
@@ -1163,7 +1163,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getMinimumZoomScale() const");
+			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getMinimumZoomScale() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getMinimumZoomScale();
 		lua_pushnumber(L,lret);
@@ -1183,7 +1183,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setMinimumZoomScale(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setMinimumZoomScale(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMinimumZoomScale(minimumZoomScale);
 
@@ -1202,7 +1202,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setScroolWheelZoomDelta(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setScroolWheelZoomDelta(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setScroolWheelZoomDelta(zoomDelta);
 
@@ -1220,7 +1220,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getScroolWheelZoomDelta() const");
+			luaL_error(L, "Invalid object in function call double osgGA::SphericalManipulator::getScroolWheelZoomDelta() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getScroolWheelZoomDelta();
 		lua_pushnumber(L,lret);
@@ -1244,7 +1244,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
 
@@ -1262,7 +1262,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgGA::SphericalManipulator::RotationMode osgGA::SphericalManipulator::getRotationMode() const");
+			luaL_error(L, "Invalid object in function call osgGA::SphericalManipulator::RotationMode osgGA::SphericalManipulator::getRotationMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgGA::SphericalManipulator::RotationMode lret = self->getRotationMode();
 		lua_pushnumber(L,lret);
@@ -1282,7 +1282,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setRotationMode(osgGA::SphericalManipulator::RotationMode)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setRotationMode(osgGA::SphericalManipulator::RotationMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRotationMode(mode);
 
@@ -1300,7 +1300,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::getAllowThrow() const");
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::getAllowThrow() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getAllowThrow();
 		lua_pushboolean(L,lret?1:0);
@@ -1320,7 +1320,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setAllowThrow(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::setAllowThrow(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setAllowThrow(allowThrow);
 
@@ -1339,7 +1339,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setName(name);
 
@@ -1357,7 +1357,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::computeDataVariance();
 
@@ -1376,7 +1376,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setUserData(obj);
 
@@ -1394,7 +1394,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::SphericalManipulator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgGA::SphericalManipulator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->SphericalManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1415,7 +1415,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::SphericalManipulator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgGA::SphericalManipulator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->SphericalManipulator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1448,7 +1448,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::releaseGLObjects(_arg1);
 
@@ -1466,7 +1466,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::SphericalManipulator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::SphericalManipulator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->SphericalManipulator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1492,7 +1492,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgGA::SphericalManipulator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgGA::SphericalManipulator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->SphericalManipulator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1514,7 +1514,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->SphericalManipulator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1533,7 +1533,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::SphericalManipulator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::SphericalManipulator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->SphericalManipulator::libraryName();
 		lua_pushstring(L,lret);
@@ -1554,7 +1554,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_event(osg::NodeVisitor *, osg::Drawable *)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::event(nv, drawable);
 
@@ -1573,7 +1573,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setCoordinateFrameCallback(cb);
 
@@ -1609,7 +1609,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setHomePosition(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 
@@ -1642,7 +1642,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_getHomePosition(osg::Vec3d &, osg::Vec3d &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::getHomePosition(eye, center, up);
 
@@ -1661,7 +1661,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setAutoComputeHomePosition(bool)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setAutoComputeHomePosition(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setAutoComputeHomePosition(flag);
 
@@ -1679,7 +1679,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgGA::SphericalManipulator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgGA::SphericalManipulator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->SphericalManipulator::className();
 		lua_pushstring(L,lret);
@@ -1703,7 +1703,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setByMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setByMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setByMatrix(matrix);
 
@@ -1726,7 +1726,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setByInverseMatrix(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setByInverseMatrix(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setByInverseMatrix(matrix);
 
@@ -1744,7 +1744,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::base_getMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::base_getMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->SphericalManipulator::getMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1766,7 +1766,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::base_getInverseMatrix() const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::SphericalManipulator::base_getInverseMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->SphericalManipulator::getInverseMatrix();
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -1788,7 +1788,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::SphericalManipulator::base_getFusionDistanceMode() const");
+			luaL_error(L, "Invalid object in function call osgUtil::SceneView::FusionDistanceMode osgGA::SphericalManipulator::base_getFusionDistanceMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgUtil::SceneView::FusionDistanceMode lret = self->SphericalManipulator::getFusionDistanceMode();
 		lua_pushnumber(L,lret);
@@ -1807,7 +1807,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgGA::SphericalManipulator::base_getFusionDistanceValue() const");
+			luaL_error(L, "Invalid object in function call float osgGA::SphericalManipulator::base_getFusionDistanceValue() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->SphericalManipulator::getFusionDistanceValue();
 		lua_pushnumber(L,lret);
@@ -1827,7 +1827,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setNode(osg::Node *)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_setNode(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::setNode(_arg1);
 
@@ -1845,7 +1845,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::SphericalManipulator::base_getNode() const");
+			luaL_error(L, "Invalid object in function call const osg::Node * osgGA::SphericalManipulator::base_getNode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Node * lret = self->SphericalManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1866,7 +1866,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * osgGA::SphericalManipulator::base_getNode()");
+			luaL_error(L, "Invalid object in function call osg::Node * osgGA::SphericalManipulator::base_getNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Node * lret = self->SphericalManipulator::getNode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1906,7 +1906,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_home(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::home(ea, us);
 
@@ -1925,7 +1925,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_home(double)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_home(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::home(_arg1);
 
@@ -1962,7 +1962,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::init(ea, us);
 
@@ -1990,7 +1990,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &)");
+			luaL_error(L, "Invalid object in function call bool osgGA::SphericalManipulator::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->SphericalManipulator::handle(ea, us);
 		lua_pushboolean(L,lret?1:0);
@@ -2009,7 +2009,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_computeHomePosition()");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_computeHomePosition(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::computeHomePosition();
 
@@ -2032,7 +2032,7 @@ public:
 		osgGA::SphericalManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::SphericalManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_getUsage(osg::ApplicationUsage &) const");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::base_getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->SphericalManipulator::getUsage(usage);
 

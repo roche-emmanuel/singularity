@@ -368,7 +368,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddLongOption(const wxString &, const wxString &, wxCmdLineParamType, int)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddLongOption(const wxString &, const wxString &, wxCmdLineParamType, int). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->AddLongOption(lng, desc, type, flags);
 
@@ -391,7 +391,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddLongSwitch(const wxString &, const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddLongSwitch(const wxString &, const wxString &, int). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->AddLongSwitch(lng, desc, flags);
 
@@ -416,7 +416,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddOption(const wxString &, const wxString &, const wxString &, wxCmdLineParamType, int)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddOption(const wxString &, const wxString &, const wxString &, wxCmdLineParamType, int). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->AddOption(name, lng, desc, type, flags);
 
@@ -439,7 +439,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddParam(const wxString &, wxCmdLineParamType, int)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddParam(const wxString &, wxCmdLineParamType, int). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->AddParam(desc, type, flags);
 
@@ -463,7 +463,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddSwitch(const wxString &, const wxString &, const wxString &, int)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddSwitch(const wxString &, const wxString &, const wxString &, int). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->AddSwitch(name, lng, desc, flags);
 
@@ -482,7 +482,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddUsageText(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::AddUsageText(const wxString &). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->AddUsageText(text);
 
@@ -500,7 +500,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::AreLongOptionsEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::AreLongOptionsEnabled() const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		bool lret = self->AreLongOptionsEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -519,7 +519,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::DisableLongOptions()");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::DisableLongOptions(). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->DisableLongOptions();
 
@@ -540,7 +540,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::EnableLongOptions(bool)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::EnableLongOptions(bool). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->EnableLongOptions(enable);
 
@@ -559,7 +559,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		bool lret = self->Found(name);
 		lua_pushboolean(L,lret?1:0);
@@ -580,7 +580,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, wxString *) const");
+			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, wxString *) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		bool lret = self->Found(name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -601,7 +601,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, long *) const");
+			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, long *) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		bool lret = self->Found(name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -622,7 +622,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, double *) const");
+			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, double *) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		bool lret = self->Found(name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -643,7 +643,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, wxDateTime *) const");
+			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, wxDateTime *) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		bool lret = self->Found(name, value);
 		lua_pushboolean(L,lret?1:0);
@@ -675,7 +675,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCmdLineSwitchState wxCmdLineParser::FoundSwitch(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxCmdLineSwitchState wxCmdLineParser::FoundSwitch(const wxString &) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		wxCmdLineSwitchState lret = self->FoundSwitch(name);
 		lua_pushnumber(L,lret);
@@ -697,7 +697,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCmdLineParser::GetParam(size_t) const");
+			luaL_error(L, "Invalid object in function call wxString wxCmdLineParser::GetParam(size_t) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		wxString lret = self->GetParam(n);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -716,7 +716,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCmdLineParser::GetParamCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxCmdLineParser::GetParamCount() const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		size_t lret = self->GetParamCount();
 		lua_pushnumber(L,lret);
@@ -738,7 +738,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCmdLineParser::Parse(bool)");
+			luaL_error(L, "Invalid object in function call int wxCmdLineParser::Parse(bool). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		int lret = self->Parse(giveUsage);
 		lua_pushnumber(L,lret);
@@ -758,7 +758,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetCmdLine(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetCmdLine(const wxString &). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->SetCmdLine(cmdline);
 
@@ -777,7 +777,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetDesc(const wxCmdLineEntryDesc *)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetDesc(const wxCmdLineEntryDesc *). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->SetDesc(desc);
 
@@ -796,7 +796,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetLogo(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetLogo(const wxString &). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->SetLogo(logo);
 
@@ -815,7 +815,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetSwitchChars(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::SetSwitchChars(const wxString &). Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->SetSwitchChars(switchChars);
 
@@ -833,7 +833,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineParser::Usage() const");
+			luaL_error(L, "Invalid object in function call void wxCmdLineParser::Usage() const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		self->Usage();
 
@@ -851,7 +851,7 @@ public:
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCmdLineParser::GetUsageString() const");
+			luaL_error(L, "Invalid object in function call wxString wxCmdLineParser::GetUsageString() const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
 		wxString lret = self->GetUsageString();
 		lua_pushlstring(L,lret.data(),lret.size());

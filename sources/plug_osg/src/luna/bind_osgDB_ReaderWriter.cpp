@@ -921,7 +921,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -947,7 +947,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -969,7 +969,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -988,7 +988,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -1007,7 +1007,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -1026,7 +1026,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedProtocols() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedProtocols() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->supportedProtocols();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1047,7 +1047,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedExtensions() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedExtensions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->supportedExtensions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1068,7 +1068,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedOptions() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedOptions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->supportedOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1090,7 +1090,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::acceptsExtension(const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::acceptsExtension(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->acceptsExtension(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1109,7 +1109,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::Features osgDB::ReaderWriter::supportedFeatures() const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::Features osgDB::ReaderWriter::supportedFeatures() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::Features lret = self->supportedFeatures();
 		lua_pushnumber(L,lret);
@@ -1130,7 +1130,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::fileExists(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::fileExists(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->fileExists(filename, options);
 		lua_pushboolean(L,lret?1:0);
@@ -1155,7 +1155,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->openArchive(_arg1, _arg2, _arg3, _arg4);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1185,7 +1185,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->openArchive(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1220,7 +1220,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readObject(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1250,7 +1250,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readObject(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1285,7 +1285,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readImage(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1315,7 +1315,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readImage(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1350,7 +1350,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readHeightField(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1380,7 +1380,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readHeightField(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1415,7 +1415,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readNode(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1445,7 +1445,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readNode(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1480,7 +1480,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readShader(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1510,7 +1510,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readShader(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -1550,7 +1550,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeObject(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1585,7 +1585,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeObject(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1625,7 +1625,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeImage(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1660,7 +1660,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeImage(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1700,7 +1700,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeHeightField(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1735,7 +1735,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeHeightField(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1775,7 +1775,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeNode(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1810,7 +1810,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeNode(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1850,7 +1850,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeShader(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1885,7 +1885,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->writeShader(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -1918,7 +1918,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::supportsProtocol(const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::supportsProtocol(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->supportsProtocol(fmt, description);
 
@@ -1938,7 +1938,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::supportsExtension(const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::supportsExtension(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->supportsExtension(ext, description);
 
@@ -1958,7 +1958,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::supportsOption(const std::string &, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::supportsOption(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->supportsOption(opt, description);
 
@@ -1995,7 +1995,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ReaderWriter::setName(name);
 
@@ -2013,7 +2013,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ReaderWriter::computeDataVariance();
 
@@ -2032,7 +2032,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ReaderWriter::setUserData(obj);
 
@@ -2050,7 +2050,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::ReaderWriter::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgDB::ReaderWriter::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ReaderWriter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2071,7 +2071,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::ReaderWriter::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgDB::ReaderWriter::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ReaderWriter::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2104,7 +2104,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriter::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ReaderWriter::releaseGLObjects(_arg1);
 
@@ -2122,7 +2122,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ReaderWriter::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2148,7 +2148,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgDB::ReaderWriter::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ReaderWriter::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2170,7 +2170,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ReaderWriter::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2189,7 +2189,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ReaderWriter::libraryName();
 		lua_pushstring(L,lret);
@@ -2208,7 +2208,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgDB::ReaderWriter::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ReaderWriter::className();
 		lua_pushstring(L,lret);
@@ -2227,7 +2227,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::base_supportedProtocols() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::base_supportedProtocols() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->ReaderWriter::supportedProtocols();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2248,7 +2248,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::base_supportedExtensions() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::base_supportedExtensions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->ReaderWriter::supportedExtensions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2269,7 +2269,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::base_supportedOptions() const");
+			luaL_error(L, "Invalid object in function call const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::base_supportedOptions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->ReaderWriter::supportedOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2291,7 +2291,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_acceptsExtension(const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_acceptsExtension(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ReaderWriter::acceptsExtension(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -2310,7 +2310,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::Features osgDB::ReaderWriter::base_supportedFeatures() const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::Features osgDB::ReaderWriter::base_supportedFeatures() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::Features lret = self->ReaderWriter::supportedFeatures();
 		lua_pushnumber(L,lret);
@@ -2331,7 +2331,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_fileExists(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_fileExists(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ReaderWriter::fileExists(filename, options);
 		lua_pushboolean(L,lret?1:0);
@@ -2356,7 +2356,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::openArchive(_arg1, _arg2, _arg3, _arg4);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2386,7 +2386,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_openArchive(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_openArchive(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::openArchive(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2421,7 +2421,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readObject(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readObject(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readObject(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2451,7 +2451,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readObject(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readObject(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readObject(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2486,7 +2486,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readImage(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readImage(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readImage(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2516,7 +2516,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readImage(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readImage(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readImage(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2551,7 +2551,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readHeightField(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readHeightField(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readHeightField(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2581,7 +2581,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readHeightField(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readHeightField(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readHeightField(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2616,7 +2616,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readNode(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readNode(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readNode(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2646,7 +2646,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readNode(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readNode(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readNode(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2681,7 +2681,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readShader(const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readShader(const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readShader(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2711,7 +2711,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readShader(std::istream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::base_readShader(std::istream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->ReaderWriter::readShader(_arg1, _arg2);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -2751,7 +2751,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeObject(const osg::Object &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeObject(const osg::Object &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeObject(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -2786,7 +2786,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeObject(const osg::Object &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeObject(const osg::Object &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeObject(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -2826,7 +2826,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeImage(const osg::Image &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeImage(const osg::Image &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeImage(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -2861,7 +2861,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeImage(const osg::Image &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeImage(const osg::Image &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeImage(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -2901,7 +2901,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeHeightField(const osg::HeightField &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeHeightField(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -2936,7 +2936,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeHeightField(const osg::HeightField &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeHeightField(const osg::HeightField &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeHeightField(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -2976,7 +2976,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeNode(const osg::Node &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeNode(const osg::Node &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeNode(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -3011,7 +3011,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeNode(const osg::Node &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeNode(const osg::Node &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeNode(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -3051,7 +3051,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeShader(const osg::Shader &, const std::string &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeShader(const osg::Shader &, const std::string &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeShader(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);
@@ -3086,7 +3086,7 @@ public:
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeShader(const osg::Shader &, std::ostream &, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::base_writeShader(const osg::Shader &, std::ostream &, const osgDB::Options *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::ReaderWriter::WriteResult stack_lret = self->ReaderWriter::writeShader(_arg1, _arg2, _arg3);
 		osgDB::ReaderWriter::WriteResult* lret = new osgDB::ReaderWriter::WriteResult(stack_lret);

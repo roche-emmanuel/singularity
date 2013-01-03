@@ -123,7 +123,7 @@ public:
 		wxURLDataObject* self=Luna< wxDataObject >::checkSubType< wxURLDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxURLDataObject::GetURL() const");
+			luaL_error(L, "Invalid object in function call wxString wxURLDataObject::GetURL() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -143,7 +143,7 @@ public:
 		wxURLDataObject* self=Luna< wxDataObject >::checkSubType< wxURLDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxURLDataObject::SetURL(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxURLDataObject::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
 		}
 		self->SetURL(url);
 

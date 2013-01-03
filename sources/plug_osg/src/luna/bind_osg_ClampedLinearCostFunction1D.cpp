@@ -119,7 +119,7 @@ public:
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::set(double, double, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClampedLinearCostFunction1D::set(double, double, unsigned int). Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
 		}
 		self->set(cost0, dcost_di, min_input);
 
@@ -140,7 +140,7 @@ public:
 		osg::ClampedLinearCostFunction1D* self=(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::operator()(unsigned int) const");
+			luaL_error(L, "Invalid object in function call double osg::ClampedLinearCostFunction1D::operator()(unsigned int) const. Got : '%s'",typeid(Luna< osg::ClampedLinearCostFunction1D >::check(L,1)).name());
 		}
 		double lret = self->operator()(input);
 		lua_pushnumber(L,lret);

@@ -80,6 +80,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_OnUnresponsive(lua_State *L) {
@@ -109,6 +116,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// WebViewListener::Process::Process(lua_Table * data)
+	static WebViewListener::Process* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in WebViewListener::Process::Process(lua_Table * data) function, expected prototype:\nWebViewListener::Process::Process(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_WebViewListener_Process(L,NULL);
+	}
+
 
 	// Function binds:
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
@@ -175,7 +193,7 @@ public:
 };
 
 WebViewListener::Process* LunaTraits< WebViewListener::Process >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_WebViewListener_Process::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
@@ -189,7 +207,7 @@ void LunaTraits< WebViewListener::Process >::_bind_dtor(WebViewListener::Process
 
 const char LunaTraits< WebViewListener::Process >::className[] = "Process";
 const char LunaTraits< WebViewListener::Process >::fullName[] = "WebViewListener::Process";
-const char LunaTraits< WebViewListener::Process >::moduleName[] = "WebViewListener";
+const char LunaTraits< WebViewListener::Process >::moduleName[] = "Awesomium";
 const char* LunaTraits< WebViewListener::Process >::parents[] = {0};
 const int LunaTraits< WebViewListener::Process >::hash = 86671035;
 const int LunaTraits< WebViewListener::Process >::uniqueIDs[] = {86671035,0};

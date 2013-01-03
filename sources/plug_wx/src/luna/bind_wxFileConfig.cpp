@@ -382,7 +382,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileConfig::SetUmask(int)");
+			luaL_error(L, "Invalid object in function call void wxFileConfig::SetUmask(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetUmask(mode);
 
@@ -401,7 +401,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileConfig::SetPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileConfig::SetPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetPath(strPath);
 
@@ -419,7 +419,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFileConfig::GetPath() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxFileConfig::GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -440,7 +440,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetFirstGroup(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetFirstGroup(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetFirstGroup(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -461,7 +461,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetNextGroup(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetNextGroup(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetNextGroup(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -482,7 +482,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetFirstEntry(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetFirstEntry(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetFirstEntry(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -503,7 +503,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetNextEntry(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetNextEntry(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->GetNextEntry(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -525,7 +525,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileConfig::GetNumberOfEntries(bool) const");
+			luaL_error(L, "Invalid object in function call size_t wxFileConfig::GetNumberOfEntries(bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetNumberOfEntries(bRecursive);
 		lua_pushnumber(L,lret);
@@ -547,7 +547,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileConfig::GetNumberOfGroups(bool) const");
+			luaL_error(L, "Invalid object in function call size_t wxFileConfig::GetNumberOfGroups(bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetNumberOfGroups(bRecursive);
 		lua_pushnumber(L,lret);
@@ -567,7 +567,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::HasGroup(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::HasGroup(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasGroup(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -587,7 +587,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::HasEntry(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::HasEntry(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->HasEntry(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -609,7 +609,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::Flush(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::Flush(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Flush(bCurrentOnly);
 		lua_pushboolean(L,lret?1:0);
@@ -630,7 +630,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::RenameEntry(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::RenameEntry(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RenameEntry(oldName, newName);
 		lua_pushboolean(L,lret?1:0);
@@ -651,7 +651,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::RenameGroup(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::RenameGroup(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->RenameGroup(oldName, newName);
 		lua_pushboolean(L,lret?1:0);
@@ -674,7 +674,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteEntry(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteEntry(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteEntry(key, bDeleteGroupIfEmpty);
 		lua_pushboolean(L,lret?1:0);
@@ -694,7 +694,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteGroup(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteGroup(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteGroup(key);
 		lua_pushboolean(L,lret?1:0);
@@ -713,7 +713,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteAll()");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->DeleteAll();
 		lua_pushboolean(L,lret?1:0);
@@ -804,7 +804,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileConfig::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileConfig::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFileConfig::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -826,7 +826,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxFileConfig::base_GetEntryType(const wxString &) const");
+			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxFileConfig::base_GetEntryType(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxConfigBase::EntryType lret = self->wxFileConfig::GetEntryType(name);
 		lua_pushnumber(L,lret);
@@ -846,7 +846,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileConfig::base_SetPath(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFileConfig::base_SetPath(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxFileConfig::SetPath(strPath);
 
@@ -864,7 +864,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFileConfig::base_GetPath() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxFileConfig::base_GetPath() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->wxFileConfig::GetPath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -885,7 +885,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetFirstGroup(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetFirstGroup(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::GetFirstGroup(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -906,7 +906,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetNextGroup(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetNextGroup(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::GetNextGroup(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -927,7 +927,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetFirstEntry(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetFirstEntry(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::GetFirstEntry(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -948,7 +948,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetNextEntry(wxString &, long &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetNextEntry(wxString &, long &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::GetNextEntry(str, index);
 		lua_pushboolean(L,lret?1:0);
@@ -970,7 +970,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileConfig::base_GetNumberOfEntries(bool) const");
+			luaL_error(L, "Invalid object in function call size_t wxFileConfig::base_GetNumberOfEntries(bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxFileConfig::GetNumberOfEntries(bRecursive);
 		lua_pushnumber(L,lret);
@@ -992,7 +992,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileConfig::base_GetNumberOfGroups(bool) const");
+			luaL_error(L, "Invalid object in function call size_t wxFileConfig::base_GetNumberOfGroups(bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->wxFileConfig::GetNumberOfGroups(bRecursive);
 		lua_pushnumber(L,lret);
@@ -1012,7 +1012,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_HasGroup(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_HasGroup(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::HasGroup(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -1032,7 +1032,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_HasEntry(const wxString &) const");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_HasEntry(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::HasEntry(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -1054,7 +1054,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_Flush(bool)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_Flush(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::Flush(bCurrentOnly);
 		lua_pushboolean(L,lret?1:0);
@@ -1075,7 +1075,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_RenameEntry(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_RenameEntry(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::RenameEntry(oldName, newName);
 		lua_pushboolean(L,lret?1:0);
@@ -1096,7 +1096,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_RenameGroup(const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_RenameGroup(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::RenameGroup(oldName, newName);
 		lua_pushboolean(L,lret?1:0);
@@ -1119,7 +1119,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteEntry(const wxString &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteEntry(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::DeleteEntry(key, bDeleteGroupIfEmpty);
 		lua_pushboolean(L,lret?1:0);
@@ -1139,7 +1139,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteGroup(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteGroup(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::DeleteGroup(key);
 		lua_pushboolean(L,lret?1:0);
@@ -1158,7 +1158,7 @@ public:
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteAll()");
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxFileConfig::DeleteAll();
 		lua_pushboolean(L,lret?1:0);

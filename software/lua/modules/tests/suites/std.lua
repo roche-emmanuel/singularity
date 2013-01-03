@@ -193,3 +193,23 @@ function test_orderedmap_sequence()
     
     --assert_equal(4,count,"Invalid count")
 end
+
+function test_vector_erase()
+	local vec = Vector()
+	
+	vec:push_back(1)
+    vec:push_back(2)
+    vec:push_back(3)
+    vec:push_back(4)
+	
+	vec:erase(3)
+	
+	local count = 0;
+	for _,val in vec:sequence() do
+		count = count +1
+	end
+	
+	assert_equal(3,count,"Invalid vector count after erase.")	
+	
+	assert_equal(4,vec[3],"Invalid vector value at index 3.")	
+end

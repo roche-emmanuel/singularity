@@ -137,7 +137,7 @@ public:
 		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::KdTree::Triangle::operator<(const osg::KdTree::Triangle &) const");
+			luaL_error(L, "Invalid object in function call bool osg::KdTree::Triangle::operator<(const osg::KdTree::Triangle &) const. Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
 		}
 		bool lret = self->operator<(rhs);
 		lua_pushboolean(L,lret?1:0);
@@ -158,7 +158,7 @@ void LunaTraits< osg::KdTree::Triangle >::_bind_dtor(osg::KdTree::Triangle* obj)
 	delete obj;
 }
 
-const char LunaTraits< osg::KdTree::Triangle >::className[] = "Triangle";
+const char LunaTraits< osg::KdTree::Triangle >::className[] = "KdTree_Triangle";
 const char LunaTraits< osg::KdTree::Triangle >::fullName[] = "osg::KdTree::Triangle";
 const char LunaTraits< osg::KdTree::Triangle >::moduleName[] = "osg";
 const char* LunaTraits< osg::KdTree::Triangle >::parents[] = {0};

@@ -713,7 +713,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Quat::asVec4() const");
+			luaL_error(L, "Invalid object in function call osg::Vec4d osg::Quat::asVec4() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		osg::Vec4d stack_lret = self->asVec4();
 		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
@@ -735,7 +735,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Quat::asVec3() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Quat::asVec3() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		osg::Vec3d stack_lret = self->asVec3();
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -761,7 +761,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::set(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::set(double, double, double, double). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->set(x, y, z, w);
 
@@ -784,7 +784,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->set(v);
 
@@ -807,7 +807,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Vec4d &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Vec4d &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->set(v);
 
@@ -830,7 +830,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Matrixf &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->set(matrix);
 
@@ -853,7 +853,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Matrixd &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::set(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->set(matrix);
 
@@ -888,7 +888,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::get(osg::Matrixf &) const");
+			luaL_error(L, "Invalid object in function call void osg::Quat::get(osg::Matrixf &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->get(matrix);
 
@@ -911,7 +911,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::get(osg::Matrixd &) const");
+			luaL_error(L, "Invalid object in function call void osg::Quat::get(osg::Matrixd &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->get(matrix);
 
@@ -938,7 +938,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Quat::x()");
+			luaL_error(L, "Invalid object in function call double & osg::Quat::x(). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double & lret = self->x();
 		lua_pushnumber(L,lret);
@@ -957,7 +957,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::x() const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::x() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->x();
 		lua_pushnumber(L,lret);
@@ -985,7 +985,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Quat::y()");
+			luaL_error(L, "Invalid object in function call double & osg::Quat::y(). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double & lret = self->y();
 		lua_pushnumber(L,lret);
@@ -1004,7 +1004,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::y() const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::y() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->y();
 		lua_pushnumber(L,lret);
@@ -1032,7 +1032,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Quat::z()");
+			luaL_error(L, "Invalid object in function call double & osg::Quat::z(). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double & lret = self->z();
 		lua_pushnumber(L,lret);
@@ -1051,7 +1051,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::z() const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::z() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->z();
 		lua_pushnumber(L,lret);
@@ -1079,7 +1079,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Quat::w()");
+			luaL_error(L, "Invalid object in function call double & osg::Quat::w(). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double & lret = self->w();
 		lua_pushnumber(L,lret);
@@ -1098,7 +1098,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::w() const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::w() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->w();
 		lua_pushnumber(L,lret);
@@ -1126,7 +1126,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Quat::zeroRotation() const");
+			luaL_error(L, "Invalid object in function call bool osg::Quat::zeroRotation() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		bool lret = self->zeroRotation();
 		lua_pushboolean(L,lret?1:0);
@@ -1145,7 +1145,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::length() const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::length() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->length();
 		lua_pushnumber(L,lret);
@@ -1164,7 +1164,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::length2() const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::length2() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->length2();
 		lua_pushnumber(L,lret);
@@ -1183,7 +1183,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat osg::Quat::conj() const");
+			luaL_error(L, "Invalid object in function call osg::Quat osg::Quat::conj() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		osg::Quat stack_lret = self->conj();
 		osg::Quat* lret = new osg::Quat(stack_lret);
@@ -1205,7 +1205,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::inverse() const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::inverse() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->inverse();
 		const osg::Quat* lret = new const osg::Quat(stack_lret);
@@ -1231,7 +1231,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, double, double, double). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(angle, x, y, z);
 
@@ -1255,7 +1255,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(angle, vec);
 
@@ -1279,7 +1279,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(angle, vec);
 
@@ -1315,7 +1315,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3f &, double, const osg::Vec3f &, double, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3f &, double, const osg::Vec3f &, double, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(angle1, axis1, angle2, axis2, angle3, axis3);
 
@@ -1351,7 +1351,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3d &, double, const osg::Vec3d &, double, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(double, const osg::Vec3d &, double, const osg::Vec3d &, double, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(angle1, axis1, angle2, axis2, angle3, axis3);
 
@@ -1379,7 +1379,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(vec1, vec2);
 
@@ -1407,7 +1407,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate(vec1, vec2);
 
@@ -1449,7 +1449,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate_original(const osg::Vec3d &, const osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::makeRotate_original(const osg::Vec3d &, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->makeRotate_original(vec1, vec2);
 
@@ -1471,7 +1471,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::getRotate(double &, double &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call void osg::Quat::getRotate(double &, double &, double &, double &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->getRotate(angle, x, y, z);
 
@@ -1495,7 +1495,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::getRotate(double &, osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call void osg::Quat::getRotate(double &, osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->getRotate(angle, vec);
 
@@ -1519,7 +1519,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::getRotate(double &, osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call void osg::Quat::getRotate(double &, osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->getRotate(angle, vec);
 
@@ -1558,7 +1558,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Quat::slerp(double, const osg::Quat &, const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call void osg::Quat::slerp(double, const osg::Quat &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		self->slerp(t, from, to);
 
@@ -1583,7 +1583,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Quat::operator==(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Quat::operator==(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		bool lret = self->operator==(v);
 		lua_pushboolean(L,lret?1:0);
@@ -1607,7 +1607,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Quat::operator!=(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Quat::operator!=(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(v);
 		lua_pushboolean(L,lret?1:0);
@@ -1631,7 +1631,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Quat::operator<(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Quat::operator<(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		bool lret = self->operator<(v);
 		lua_pushboolean(L,lret?1:0);
@@ -1651,7 +1651,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Quat::operator[](int)");
+			luaL_error(L, "Invalid object in function call double & osg::Quat::operator[](int). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -1671,7 +1671,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Quat::operator[](int) const");
+			luaL_error(L, "Invalid object in function call double osg::Quat::operator[](int) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		double lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -1700,7 +1700,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator*(double) const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator*(double) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->operator*(rhs);
 		const osg::Quat* lret = new const osg::Quat(stack_lret);
@@ -1727,7 +1727,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator*(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator*(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->operator*(rhs);
 		const osg::Quat* lret = new const osg::Quat(stack_lret);
@@ -1754,7 +1754,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Quat::operator*(const osg::Vec3f &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::Quat::operator*(const osg::Vec3f &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->operator*(v);
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -1781,7 +1781,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Quat::operator*(const osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::Quat::operator*(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		osg::Vec3d stack_lret = self->operator*(v);
 		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
@@ -1815,7 +1815,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator*=(double)");
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator*=(double). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->operator*=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1841,7 +1841,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator*=(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator*=(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->operator*=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1872,7 +1872,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat osg::Quat::operator/(double) const");
+			luaL_error(L, "Invalid object in function call osg::Quat osg::Quat::operator/(double) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		osg::Quat stack_lret = self->operator/(rhs);
 		osg::Quat* lret = new osg::Quat(stack_lret);
@@ -1899,7 +1899,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator/(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator/(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->operator/(denom);
 		const osg::Quat* lret = new const osg::Quat(stack_lret);
@@ -1931,7 +1931,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator/=(double)");
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator/=(double). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->operator/=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1957,7 +1957,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator/=(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator/=(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->operator/=(denom);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1992,7 +1992,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator+(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator+(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->operator+(rhs);
 		const osg::Quat* lret = new const osg::Quat(stack_lret);
@@ -2019,7 +2019,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator+=(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator+=(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->operator+=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2045,7 +2045,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator-(const osg::Quat &) const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator-(const osg::Quat &) const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->operator-(rhs);
 		const osg::Quat* lret = new const osg::Quat(stack_lret);
@@ -2072,7 +2072,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator-=(const osg::Quat &)");
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator-=(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat* lret = &self->operator-=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2093,7 +2093,7 @@ public:
 		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator-() const");
+			luaL_error(L, "Invalid object in function call const osg::Quat osg::Quat::operator-() const. Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
 		}
 		const osg::Quat stack_lret = self->operator-();
 		const osg::Quat* lret = new const osg::Quat(stack_lret);

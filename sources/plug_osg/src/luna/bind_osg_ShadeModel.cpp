@@ -414,7 +414,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -440,7 +440,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -462,7 +462,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -481,7 +481,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -500,7 +500,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -519,7 +519,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ShadeModel::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ShadeModel::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -543,7 +543,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ShadeModel::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ShadeModel::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -563,7 +563,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::setMode(osg::ShadeModel::Mode)");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::setMode(osg::ShadeModel::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(mode);
 
@@ -581,7 +581,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ShadeModel::Mode osg::ShadeModel::getMode() const");
+			luaL_error(L, "Invalid object in function call osg::ShadeModel::Mode osg::ShadeModel::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ShadeModel::Mode lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -605,7 +605,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -624,7 +624,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShadeModel::setName(name);
 
@@ -642,7 +642,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShadeModel::computeDataVariance();
 
@@ -661,7 +661,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShadeModel::setUserData(obj);
 
@@ -679,7 +679,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ShadeModel::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ShadeModel::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ShadeModel::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -700,7 +700,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ShadeModel::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ShadeModel::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ShadeModel::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -730,7 +730,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::ShadeModel::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ShadeModel::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->ShadeModel::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -751,7 +751,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ShadeModel::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::ShadeModel::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->ShadeModel::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -781,7 +781,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ShadeModel::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ShadeModel::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->ShadeModel::getMember();
 		lua_pushnumber(L,lret);
@@ -800,7 +800,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ShadeModel::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -824,7 +824,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ShadeModel::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -848,7 +848,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ShadeModel::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -872,7 +872,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShadeModel::compileGLObjects(_arg1);
 
@@ -893,7 +893,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShadeModel::releaseGLObjects(_arg1);
 
@@ -911,7 +911,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ShadeModel::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -937,7 +937,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ShadeModel::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ShadeModel::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -959,7 +959,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ShadeModel::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ShadeModel::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -978,7 +978,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ShadeModel::libraryName();
 		lua_pushstring(L,lret);
@@ -997,7 +997,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ShadeModel::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ShadeModel::className();
 		lua_pushstring(L,lret);
@@ -1016,7 +1016,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ShadeModel::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::ShadeModel::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->ShadeModel::getType();
 		lua_pushnumber(L,lret);
@@ -1040,7 +1040,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::ShadeModel::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::ShadeModel::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->ShadeModel::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1064,7 +1064,7 @@ public:
 		osg::ShadeModel* self=Luna< osg::Referenced >::checkSubType< osg::ShadeModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::ShadeModel::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ShadeModel::apply(_arg1);
 

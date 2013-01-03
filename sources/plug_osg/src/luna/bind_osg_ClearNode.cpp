@@ -466,7 +466,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -492,7 +492,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -514,7 +514,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -533,7 +533,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -552,7 +552,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -576,7 +576,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -595,7 +595,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::setRequiresClear(bool)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::setRequiresClear(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setRequiresClear(requiresClear);
 
@@ -613,7 +613,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::getRequiresClear() const");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::getRequiresClear() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getRequiresClear();
 		lua_pushboolean(L,lret?1:0);
@@ -637,7 +637,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::setClearColor(const osg::Vec4f &)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::setClearColor(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearColor(color);
 
@@ -655,7 +655,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::ClearNode::getClearColor() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::ClearNode::getClearColor() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec4f* lret = &self->getClearColor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -677,7 +677,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::setClearMask(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::setClearMask(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setClearMask(mask);
 
@@ -695,7 +695,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ClearNode::getClearMask() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::ClearNode::getClearMask() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getClearMask();
 		lua_pushnumber(L,lret);
@@ -715,7 +715,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::setName(name);
 
@@ -733,7 +733,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::computeDataVariance();
 
@@ -752,7 +752,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::setUserData(obj);
 
@@ -770,7 +770,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClearNode::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ClearNode::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->ClearNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -791,7 +791,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClearNode::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ClearNode::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->ClearNode::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -821,7 +821,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::ClearNode::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::ClearNode::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->ClearNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -842,7 +842,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::ClearNode::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::ClearNode::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->ClearNode::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -872,7 +872,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::ClearNode::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::ClearNode::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->ClearNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -893,7 +893,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::ClearNode::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::ClearNode::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->ClearNode::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -923,7 +923,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::ClearNode::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::ClearNode::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->ClearNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -944,7 +944,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::ClearNode::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::ClearNode::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->ClearNode::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -979,7 +979,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::ascend(nv);
 
@@ -997,7 +997,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::ClearNode::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::ClearNode::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->ClearNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1018,7 +1018,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::ClearNode::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::ClearNode::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->ClearNode::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1053,7 +1053,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::traverse(_arg1);
 
@@ -1072,7 +1072,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClearNode::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1093,7 +1093,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClearNode::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1114,7 +1114,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClearNode::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -1135,7 +1135,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClearNode::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1156,7 +1156,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClearNode::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1178,7 +1178,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::releaseGLObjects(_arg1);
 
@@ -1196,7 +1196,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::ClearNode::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::ClearNode::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->ClearNode::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1218,7 +1218,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ClearNode::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1244,7 +1244,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::ClearNode::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->ClearNode::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1266,7 +1266,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::ClearNode::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->ClearNode::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1285,7 +1285,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ClearNode::className();
 		lua_pushstring(L,lret);
@@ -1304,7 +1304,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::ClearNode::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->ClearNode::libraryName();
 		lua_pushstring(L,lret);
@@ -1328,7 +1328,7 @@ public:
 		osg::ClearNode* self=Luna< osg::Referenced >::checkSubType< osg::ClearNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::ClearNode::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ClearNode::accept(nv);
 

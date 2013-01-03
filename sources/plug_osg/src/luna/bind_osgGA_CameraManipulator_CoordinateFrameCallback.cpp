@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_getCoordinateFrame(lua_State *L) {
@@ -81,6 +88,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgGA::CameraManipulator::CoordinateFrameCallback::CoordinateFrameCallback(lua_Table * data)
+	static osgGA::CameraManipulator::CoordinateFrameCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::CameraManipulator::CoordinateFrameCallback::CoordinateFrameCallback(lua_Table * data) function, expected prototype:\nosgGA::CameraManipulator::CoordinateFrameCallback::CoordinateFrameCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgGA_CameraManipulator_CoordinateFrameCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
@@ -99,7 +117,7 @@ public:
 		osgGA::CameraManipulator::CoordinateFrameCallback* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator::CoordinateFrameCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d &) const");
+			luaL_error(L, "Invalid object in function call osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Matrixd stack_lret = self->getCoordinateFrame(position);
 		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
@@ -116,7 +134,7 @@ public:
 };
 
 osgGA::CameraManipulator::CoordinateFrameCallback* LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgGA_CameraManipulator_CoordinateFrameCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
@@ -126,7 +144,7 @@ void LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::_bind_dtor
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::className[] = "CoordinateFrameCallback";
+const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::className[] = "CameraManipulator_CoordinateFrameCallback";
 const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::fullName[] = "osgGA::CameraManipulator::CoordinateFrameCallback";
 const char LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::moduleName[] = "osgGA";
 const char* LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::parents[] = {"osg.Referenced", 0};

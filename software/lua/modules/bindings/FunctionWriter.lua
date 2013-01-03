@@ -44,145 +44,137 @@ function Class:writeForAll(list,handler,finalHandler)
 	end
 end
 
+function Class:writeArgTypeError(pt)
+	self:writeLine("////////////////////////////////////////////////////////////////////")
+	self:writeLine("// ERROR: Cannot decide the argument type for '".. pt:getName() .. "' baseTypeName is '".. pt:getBaseName(true).."'")
+	self:writeLine("////////////////////////////////////////////////////////////////////")
+	self:error("Unsupported type : ".. pt:getName() .." in retrieveArguments() for function ".. self._funcName) --..". Type object:",pt)
+end
+
+function Class:writeArgument(v,k)
+	local pt = v:getType()
+	
+	pt:parse() -- ensure the type fields are value.
+	
+	local bname = pt:getBaseName()
+	local typename = pt:getName()
+	
+	local converter = tc:getFromLuaConverter(typename) or tc:getFromLuaConverter(bname)
+	
+	local argname = v:getName()
+	if not argname or argname == "" then
+		argname = "_arg"..k
+	end
+	
+	if typename=="unsigned" and argname=="int" then
+		typename ="unsigned int"
+		bname = "unsigned int"
+		argname = "_arg"..k
+	end
+	
+	local isPointer = false
+	local isConst = pt:isConst()
+	
+	local index = k+self._indexOffset
+	
+	local defStrPre = self._defaultOffset and ((k-1)<self._defaultOffset and "" or "luatop>"..(index-1).." ? ") or ""
+	local defStrAnd = self._defaultOffset and ((k-1)<self._defaultOffset and "" or "luatop>"..(index-1).." && ") or ""
+	local constPre = isConst and "const " or "";
+
+	local defStrPost = self._defaultOffset and ((k-1)<self._defaultOffset and "" or " : "..(pt:isClass() and pt:isPointer() and "("..constPre..bname.."*)" or "").. v:getDefaultValue():getName()) or ""
+	local defStrPostNull = self._defaultOffset and ((k-1)<self._defaultOffset and "" or " : NULL") or ""
+	
+	if converter then
+		isPointer = converter(self,index,pt,argname)
+	elseif v:isLuaState() then
+		isPointer = true;
+		argname = "L";
+	elseif pt:isLuaFunction() or pt:isLuaTable() or pt:isLuaAny() then
+		-- check if we have a lua function or table reference.
+		isPointer = true;
+		argname = "NULL"
+	elseif pt:isInteger() then
+		-- check if we have a number:int _arg1=(int)lua_tonumber(L,2);
+		self:writeSubLine("${3} ${1}=${4}(${3})lua_tointeger(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
+	elseif pt:isNumber() then
+		-- check if we have a number:int _arg1=(int)lua_tonumber(L,2);
+		self:writeSubLine("${3} ${1}=${4}(${3})lua_tonumber(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
+	elseif pt:isBoolean() then
+		self:writeSubLine("${3} ${1}=${4}(${3})(lua_toboolean(L,${2})==1)${5};",argname,index,bname,defStrPre,defStrPost)
+	elseif pt:isString() then
+		self:writeSubLine("${3} ${1}=${4}(${3})lua_tostring(L,${2})${5};",argname,index,typename,defStrPre,defStrPost)
+		isPointer=true
+	elseif pt:isVoid() and pt:isPointer() then
+		-- We may consider void as a base class:
+		--local bhash = utils.getHash("void")
+		self:writeSubLine("void* ${1}=${3}(Luna< void >::check(L,${2}))${4};",argname,index,defStrPre,defStrPost)
+		isPointer=true			
+	else
+		
+		-- get the class absolute parent hash:
+		local fbname =  pt:isClass() and tm:getBaseTypeMapping(pt:getAbsoluteBaseFullName())
+		fbname = tm:getExternalBase(fbname or pt:getBaseName(true)) or fbname
+		
+		if not fbname then
+			self:writeArgTypeError(pt)
+		else
+			isPointer = pt:isPointer()
+			local strPost = isPointer and defStrPost or defStrPostNull
+			local strPtr = isPointer and "" or "_ptr"
+			
+			local syntax = bname == fbname and "${7}${3}* ${1}${8}=${5}(Luna< ${4} >::check(L,${2}))${6};"
+				or "${7}${3}* ${1}${8}=${5}(Luna< ${4} >::checkSubType< ${3} >(L,${2}))${6};"
+			
+			self:writeSubLine(syntax,argname,index,bname,fbname,defStrPre,strPost,constPre,strPtr)
+
+			if not isPointer then
+				self:writeSubLine("if( ${2}!${1}_ptr ) {",argname,defStrAnd)
+				self:pushIndent()
+				self:writeSubLine('luaL_error(L, "Dereferencing NULL pointer for arg ${1} in ${2} function");',argname,self._funcName)
+				self:popIndent()
+				self:writeLine("}")
+				self:writeSubLine("${2} ${1}=${3}*${1}_ptr${4};",argname,typename,defStrPre,defStrPost,constPre)
+			end
+		end
+	end
+	
+	-- for each argument we have to check what is the except type modifier:
+	-- "regular" arguments are on the stack by default
+	-- "class" arguments are on the heap.
+	-- we check the isPointer variable for precise results.
+	if isPointer and not pt:isPointer() then
+		argname = "*"..argname
+	elseif not isPointer and pt:isPointer() then
+		argname = "&"..argname
+	end
+	
+	if argname == "*NULL" or argname == "&NULL" then
+		self:error("Invalid dereference of automatic NULL pointer in retrieveArguments() for function ".. self._funcName) --..". Type object:",pt)			
+	end
+	
+	table.insert(self._args,argname)
+end
+
 function Class:retrieveArguments(func)
 	-- retrieve all the arguments:
-	local offset = (func:isGlobal() or func:isConstructor() or func:isStatic() or func:isExtension()) and 0 or 1
+	self._indexOffset = (func:isGlobal() or func:isConstructor() or func:isStatic() or func:isExtension()) and 0 or 1
+	self._defaultOffset = func:getDefaultOffset()
+	self._funcName = func:getFullName()
 	
-	local defaultOffset = func:getDefaultOffset()
+	self._args = {}
 	
-	local args = {}
-	
-	if(defaultOffset) then
+	if(self._defaultOffset) then
 		self:writeLine("int luatop = lua_gettop(L);")
 		self:newLine()		
 	end
 	
 	for k,v in func:getParameters():sequence() do
-		local pt = v:getType()
-		
-		pt:parse() -- ensure the type fields are value.
-		
-		local bname = pt:getBaseName()
-		local typename = pt:getName()
-		
-		local converter = tc:getFromLuaConverter(typename) or tc:getFromLuaConverter(bname)
-		
-		local argname = v:getName()
-		if not argname or argname == "" then
-			argname = "_arg"..k
-		end
-		
-		if typename=="unsigned" and argname=="int" then
-			typename ="unsigned int"
-			bname = "unsigned int"
-			argname = "_arg"..k
-		end
-		
-		local isPointer = false
-		local isConst = pt:isConst()
-		
-		local index = k+offset
-		local defStrPre = defaultOffset and ((k-1)<defaultOffset and "" or "luatop>"..(index-1).." ? ") or ""
-		local defStrAnd = defaultOffset and ((k-1)<defaultOffset and "" or "luatop>"..(index-1).." && ") or ""
-		local constPre = isConst and "const " or "";
-
-		local defStrPost = defaultOffset and ((k-1)<defaultOffset and "" or " : "..(pt:isClass() and pt:isPointer() and "("..constPre..bname.."*)" or "").. v:getDefaultValue():getName()) or ""
-		local defStrPostNull = defaultOffset and ((k-1)<defaultOffset and "" or " : NULL") or ""
-		
-		if converter then
-			isPointer = converter(self,index,pt,argname)
-		elseif v:isLuaState() then
-			isPointer = true;
-			argname = "L";
-		elseif pt:isLuaFunction() or pt:isLuaTable() or pt:isLuaAny() then
-			-- check if we have a lua function or table reference.
-			isPointer = true;
-			argname = "NULL"
-		elseif pt:isInteger() then
-			-- check if we have a number:int _arg1=(int)lua_tonumber(L,2);
-			self:writeSubLine("${3} ${1}=${4}(${3})lua_tointeger(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
-		elseif pt:isNumber() then
-			-- check if we have a number:int _arg1=(int)lua_tonumber(L,2);
-			self:writeSubLine("${3} ${1}=${4}(${3})lua_tonumber(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
-		elseif pt:isBoolean() then
-			self:writeSubLine("${3} ${1}=${4}(${3})(lua_toboolean(L,${2})==1)${5};",argname,index,bname,defStrPre,defStrPost)
-		elseif pt:isString() then
-			self:writeSubLine("${3} ${1}=${4}(${3})lua_tostring(L,${2})${5};",argname,index,typename,defStrPre,defStrPost)
-			isPointer=true
-		elseif pt:isVoid() and pt:isPointer() then
-			-- We may consider void as a base class:
-			--local bhash = utils.getHash("void")
-			self:writeSubLine("void* ${1}=${3}(Luna< void >::check(L,${2}))${4};",argname,index,defStrPre,defStrPost)
-			isPointer=true			
-		elseif pt:isClass() then
-			-- get the class absolute parent hash:
-			local fbname = tm:getBaseTypeMapping(pt:getAbsoluteBaseFullName())
-			--local isUnsafe = im:ignore(fbname,"converter")
-			--local casttype = isUnsafe and "static" or "dynamic"
-			
-			if pt:isPointer() then
-				-- we just retrieve the pointer here:
-				if bname == fbname then
-					self:writeSubLine("${7}${3}* ${1}=${5}(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre)				
-				else
-					-- need to dynamic cast:
-					self:writeSubLine("${7}${3}* ${1}=${5}(Luna< ${4} >::checkSubType< ${3} >(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre)
-					--if isUnsafe then
-					--	self:writeSubLine("${7}${3}* ${1}=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)					
-					--else
-					--	self:writeSubLine("${7}${3}* ${1}=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)
-					--end
-				end
-				
-				isPointer=true			
-			else
-				-- we retrieve the pointer but then try to dereference if if valid, and output an error otherwise:
-				if bname == fbname then
-					self:writeSubLine("${7}${3}* ${1}_ptr=${5}(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre)
-				
-				else
-					self:writeSubLine("${7}${3}* ${1}_ptr=${5}(Luna< ${4} >::checkSubType< ${3} >(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre)
-				
-					--if isUnsafe then
-					--	self:writeSubLine("${7}${3}* ${1}_ptr=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
-					--else
-					--	self:writeSubLine("${7}${3}* ${1}_ptr=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
-					--end
-				end
-				self:writeSubLine("if( ${2}!${1}_ptr ) {",argname,defStrAnd)
-				self:pushIndent()
-				self:writeSubLine('luaL_error(L, "Dereferencing NULL pointer for arg ${1} in ${2} function");',argname,func:getFullName())
-				self:popIndent()
-				self:writeLine("}")
-				--self:writeSubLine("${2}& ${1}=${3}*${1}_ptr${4};",argname,bname,defStrPre,defStrPost)
-				self:writeSubLine("${2} ${1}=${3}*${1}_ptr${4};",argname,typename,defStrPre,defStrPost,constPre)
-			end
-		else
-			self:writeLine("////////////////////////////////////////////////////////////////////")
-			self:writeLine("// ERROR: Cannot decide the argument type for '".. typename .. "' baseTypeName is '".. pt:getBaseName(true).."'")
-			self:writeLine("////////////////////////////////////////////////////////////////////")
-			self:error("Unsupported type : ".. typename .." in retrieveArguments() for function ".. func:getFullName()) --..". Type object:",pt)
-		end
-		
-		-- for each argument we have to check what is the except type modifier:
-		-- "regular" arguments are on the stack by default
-		-- "class" arguments are on the heap.
-		-- we check the isPointer variable for precise results.
-		if isPointer and not pt:isPointer() then
-			argname = "*"..argname
-		elseif not isPointer and pt:isPointer() then
-			argname = "&"..argname
-		end
-		
-		if argname == "*NULL" or argname == "&NULL" then
-			self:error("Invalid dereference of automatic NULL pointer in retrieveArguments() for function ".. func:getFullName()) --..". Type object:",pt)			
-		end
-		
-		table.insert(args,argname)
+		self:writeArgument(v,k)
 	end
+	
 	self:newLine()
 	
-	return table.concat(args,", ")
+	return table.concat(self._args,", ")
 end
 
 function Class:writeFunctionCall(cname,func,args)
@@ -225,6 +217,7 @@ function Class:writeFunctionCall(cname,func,args)
 		end
 		
 		bname = tm:getBaseTypeMapping(bname)
+		bname = tm:getExternalBase(bname) or bname
 		
 		-- the function is a class method, retrieve the object:
 		if cname == bname then
@@ -237,7 +230,7 @@ function Class:writeFunctionCall(cname,func,args)
 		self:writeLine("if(!self) {")
 		self:pushIndent()
 		self:writeSubLine('luna_printStack(L);')
-		self:writeSubLine('luaL_error(L, "Invalid object in function call ${1}");',func:getPrototype(false,true,true))
+		self:writeSubLine('luaL_error(L, "Invalid object in function call ${1}. Got : \'%s\'",typeid(Luna< ${2} >::check(L,1)).name());',func:getPrototype(false,true,true),bname)
 		self:popIndent()
 		self:writeLine("}")
 	end
@@ -260,7 +253,7 @@ function Class:writeFunctionCall(cname,func,args)
 		-- we cannot use a pointer to temporary memory so if the result is on the stack we need to create
 		-- the corresponding heap ressource and use a copy constructor.
 		-- if there is a converter, it is responsible for performing the proper convertion.
-		if not rt:isPointer() and rt:isClass() and not converter then
+		if not rt:isPointer() and not rt:isInteger() and not rt:isString() and not rt:isNumber() and not rt:isBoolean() and not converter then  -- rt:isClass()
 			if rt:isReference() then
 				self:writeSubLine("const ${1}* ${4} = &${5}${2}(${3});",rt:getBaseName(),fname,args,argname,prefix);		
 			else
@@ -295,17 +288,24 @@ function Class:writeFunctionCall(cname,func,args)
 		else
 			result_count = 0
 		end			
-	elseif rt:isClass() then
+	else	
+		if not rt:isClass() then
+			tm:registerMappedType(rt:getBaseName(true))
+		end
+		
+		tm:getExternalBase(rt:getBaseName(true))
+	
 		-- get the class absolute parent hash:
 		self:writeSubLine("if(!${1}) return 0; // Do not write NULL pointers.",argname)
 		self:newLine()
 		
 		self:writeSubLine('Luna< ${1} >::push(L,${2},${3});',rname,argname,force_gc and "true" or "false")			
-	else
+		
+	--[[else
 		self:writeLine("////////////////////////////////////////////////////////////////////")
 		self:writeLine("// ERROR: Cannot decide the argument type for '".. rt:getName() .. "'")
 		self:writeLine("////////////////////////////////////////////////////////////////////")
-		self:error("Unsupported type : ".. rt:getName().. " in functionCall for function ".. func:getFullName())
+		self:error("Unsupported type : ".. rt:getName().. " in functionCall for function ".. func:getFullName())]]
 	end	
 	self:newLine()
 	

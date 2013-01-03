@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgUtil_PickVisitor(lua_State* L, lua_Table* dum, const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my) : osgUtil::PickVisitor(viewport, proj, view, mx, my), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
@@ -120,9 +125,6 @@ public:
 		return PickVisitor::apply(camera);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 	// bool osgUtil::IntersectVisitor::intersect(osg::Drawable & gset)
@@ -228,7 +230,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectVisitor::public_intersect(osg::Drawable &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectVisitor::public_intersect(osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_intersect(gset);
 		lua_pushboolean(L,lret?1:0);
@@ -249,7 +251,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::public_pushMatrix(osg::RefMatrixd *, osg::Transform::ReferenceFrame)");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::public_pushMatrix(osg::RefMatrixd *, osg::Transform::ReferenceFrame). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_pushMatrix(matrix, rf);
 
@@ -267,7 +269,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::public_popMatrix()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::public_popMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_popMatrix();
 
@@ -290,7 +292,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectVisitor::public_enterNode(osg::Node &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectVisitor::public_enterNode(osg::Node &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_enterNode(node);
 		lua_pushboolean(L,lret?1:0);
@@ -309,7 +311,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::public_leaveNode()");
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectVisitor::public_leaveNode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_leaveNode();
 
@@ -329,7 +331,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -347,7 +349,7 @@ public:
 		wrapper_osgUtil_PickVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_PickVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

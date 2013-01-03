@@ -709,7 +709,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -735,7 +735,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -757,7 +757,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -776,7 +776,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -795,7 +795,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -819,7 +819,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->accept(nv);
 
@@ -842,7 +842,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->traverse(_arg1);
 
@@ -861,7 +861,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -883,7 +883,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::addChild(osg::Node *, float, float)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::addChild(osg::Node *, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addChild(child, min, max);
 		lua_pushboolean(L,lret?1:0);
@@ -910,7 +910,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::addChild(osg::Node *, float, float, const std::string &, float, float)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::addChild(osg::Node *, float, float, const std::string &, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->addChild(child, min, max, filename, priorityOffset, priorityScale);
 		lua_pushboolean(L,lret?1:0);
@@ -943,7 +943,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -963,7 +963,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setDatabaseOptions(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setDatabaseOptions(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDatabaseOptions(options);
 
@@ -981,7 +981,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PagedLOD::getDatabaseOptions()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PagedLOD::getDatabaseOptions(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->getDatabaseOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1002,7 +1002,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PagedLOD::getDatabaseOptions() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PagedLOD::getDatabaseOptions() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->getDatabaseOptions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1033,7 +1033,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setDatabasePath(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setDatabasePath(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDatabasePath(path);
 
@@ -1051,7 +1051,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::PagedLOD::getDatabasePath() const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::PagedLOD::getDatabasePath() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getDatabasePath();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1072,7 +1072,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setFileName(unsigned int, const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setFileName(unsigned int, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFileName(childNo, filename);
 
@@ -1091,7 +1091,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const std::string & osg::PagedLOD::getFileName(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const std::string & osg::PagedLOD::getFileName(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const std::string & lret = self->getFileName(childNo);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1110,7 +1110,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumFileNames() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumFileNames() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumFileNames();
 		lua_pushnumber(L,lret);
@@ -1131,7 +1131,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setPriorityOffset(unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setPriorityOffset(unsigned int, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPriorityOffset(childNo, priorityOffset);
 
@@ -1150,7 +1150,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::PagedLOD::getPriorityOffset(unsigned int) const");
+			luaL_error(L, "Invalid object in function call float osg::PagedLOD::getPriorityOffset(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getPriorityOffset(childNo);
 		lua_pushnumber(L,lret);
@@ -1169,7 +1169,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumPriorityOffsets() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumPriorityOffsets() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumPriorityOffsets();
 		lua_pushnumber(L,lret);
@@ -1190,7 +1190,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setPriorityScale(unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setPriorityScale(unsigned int, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPriorityScale(childNo, priorityScale);
 
@@ -1209,7 +1209,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::PagedLOD::getPriorityScale(unsigned int) const");
+			luaL_error(L, "Invalid object in function call float osg::PagedLOD::getPriorityScale(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getPriorityScale(childNo);
 		lua_pushnumber(L,lret);
@@ -1228,7 +1228,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumPriorityScales() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumPriorityScales() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumPriorityScales();
 		lua_pushnumber(L,lret);
@@ -1249,7 +1249,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setTimeStamp(unsigned int, double)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setTimeStamp(unsigned int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTimeStamp(childNo, timeStamp);
 
@@ -1268,7 +1268,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::PagedLOD::getTimeStamp(unsigned int) const");
+			luaL_error(L, "Invalid object in function call double osg::PagedLOD::getTimeStamp(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getTimeStamp(childNo);
 		lua_pushnumber(L,lret);
@@ -1287,7 +1287,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumTimeStamps() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumTimeStamps() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumTimeStamps();
 		lua_pushnumber(L,lret);
@@ -1308,7 +1308,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setFrameNumber(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setFrameNumber(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFrameNumber(childNo, frameNumber);
 
@@ -1327,7 +1327,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getFrameNumber(unsigned int) const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getFrameNumber(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFrameNumber(childNo);
 		lua_pushnumber(L,lret);
@@ -1346,7 +1346,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumFrameNumbers() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumFrameNumbers() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumFrameNumbers();
 		lua_pushnumber(L,lret);
@@ -1366,7 +1366,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Referenced > & osg::PagedLOD::getDatabaseRequest(unsigned int)");
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Referenced > & osg::PagedLOD::getDatabaseRequest(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ref_ptr< osg::Referenced > & lret = self->getDatabaseRequest(childNo);
 		Luna< osg::Referenced >::push(L,lret.get(),false);
@@ -1386,7 +1386,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ref_ptr< osg::Referenced > & osg::PagedLOD::getDatabaseRequest(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osg::ref_ptr< osg::Referenced > & osg::PagedLOD::getDatabaseRequest(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::ref_ptr< osg::Referenced > & lret = self->getDatabaseRequest(childNo);
 		Luna< osg::Referenced >::push(L,lret.get(),false);
@@ -1415,7 +1415,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setFrameNumberOfLastTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setFrameNumberOfLastTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFrameNumberOfLastTraversal(frameNumber);
 
@@ -1433,7 +1433,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getFrameNumberOfLastTraversal() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getFrameNumberOfLastTraversal() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getFrameNumberOfLastTraversal();
 		lua_pushnumber(L,lret);
@@ -1453,7 +1453,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setNumChildrenThatCannotBeExpired(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setNumChildrenThatCannotBeExpired(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setNumChildrenThatCannotBeExpired(num);
 
@@ -1471,7 +1471,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumChildrenThatCannotBeExpired() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumChildrenThatCannotBeExpired() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumChildrenThatCannotBeExpired();
 		lua_pushnumber(L,lret);
@@ -1491,7 +1491,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setDisableExternalChildrenPaging(bool)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setDisableExternalChildrenPaging(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDisableExternalChildrenPaging(flag);
 
@@ -1509,7 +1509,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::getDisableExternalChildrenPaging() const");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::getDisableExternalChildrenPaging() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getDisableExternalChildrenPaging();
 		lua_pushboolean(L,lret?1:0);
@@ -1535,7 +1535,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::removeExpiredChildren(double, unsigned int, osg::NodeList &)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::removeExpiredChildren(double, unsigned int, osg::NodeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->removeExpiredChildren(expiryTime, expiryFrame, removedChildren);
 		lua_pushboolean(L,lret?1:0);
@@ -1555,7 +1555,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::setName(name);
 
@@ -1573,7 +1573,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::computeDataVariance();
 
@@ -1592,7 +1592,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::setUserData(obj);
 
@@ -1610,7 +1610,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PagedLOD::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::PagedLOD::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->PagedLOD::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1631,7 +1631,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PagedLOD::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::PagedLOD::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->PagedLOD::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1661,7 +1661,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * osg::PagedLOD::base_asTransform()");
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::PagedLOD::base_asTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Transform * lret = self->PagedLOD::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1682,7 +1682,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * osg::PagedLOD::base_asTransform() const");
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::PagedLOD::base_asTransform() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Transform * lret = self->PagedLOD::asTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1712,7 +1712,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Switch * osg::PagedLOD::base_asSwitch()");
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::PagedLOD::base_asSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Switch * lret = self->PagedLOD::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1733,7 +1733,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Switch * osg::PagedLOD::base_asSwitch() const");
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::PagedLOD::base_asSwitch() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Switch * lret = self->PagedLOD::asSwitch();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1763,7 +1763,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geode * osg::PagedLOD::base_asGeode()");
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::PagedLOD::base_asGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Geode * lret = self->PagedLOD::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1784,7 +1784,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Geode * osg::PagedLOD::base_asGeode() const");
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::PagedLOD::base_asGeode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Geode * lret = self->PagedLOD::asGeode();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1819,7 +1819,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_ascend(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_ascend(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::ascend(nv);
 
@@ -1837,7 +1837,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Group * osg::PagedLOD::base_asGroup()");
+			luaL_error(L, "Invalid object in function call osg::Group * osg::PagedLOD::base_asGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Group * lret = self->PagedLOD::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1858,7 +1858,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Group * osg::PagedLOD::base_asGroup() const");
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::PagedLOD::base_asGroup() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Group * lret = self->PagedLOD::asGroup();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1890,7 +1890,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_insertChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_insertChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::insertChild(index, child);
 		lua_pushboolean(L,lret?1:0);
@@ -1911,7 +1911,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_replaceChild(osg::Node *, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_replaceChild(osg::Node *, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::replaceChild(origChild, newChild);
 		lua_pushboolean(L,lret?1:0);
@@ -1932,7 +1932,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_setChild(unsigned int, osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_setChild(unsigned int, osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::setChild(i, node);
 		lua_pushboolean(L,lret?1:0);
@@ -1954,7 +1954,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::releaseGLObjects(_arg1);
 
@@ -1972,7 +1972,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::PagedLOD::base_computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::PagedLOD::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BoundingSphered stack_lret = self->PagedLOD::computeBound();
 		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
@@ -1994,7 +1994,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PagedLOD::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2020,7 +2020,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::PagedLOD::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->PagedLOD::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2042,7 +2042,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -2061,7 +2061,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PagedLOD::className();
 		lua_pushstring(L,lret);
@@ -2080,7 +2080,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::PagedLOD::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->PagedLOD::libraryName();
 		lua_pushstring(L,lret);
@@ -2104,7 +2104,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_accept(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_accept(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::accept(nv);
 
@@ -2127,7 +2127,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_traverse(osg::NodeVisitor &)");
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::base_traverse(osg::NodeVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->PagedLOD::traverse(_arg1);
 
@@ -2146,7 +2146,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_addChild(osg::Node *)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_addChild(osg::Node *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::addChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -2168,7 +2168,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_addChild(osg::Node *, float, float)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_addChild(osg::Node *, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::addChild(child, min, max);
 		lua_pushboolean(L,lret?1:0);
@@ -2195,7 +2195,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_addChild(osg::Node *, float, float, const std::string &, float, float)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_addChild(osg::Node *, float, float, const std::string &, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::addChild(child, min, max, filename, priorityOffset, priorityScale);
 		lua_pushboolean(L,lret?1:0);
@@ -2228,7 +2228,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_removeChildren(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_removeChildren(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
@@ -2254,7 +2254,7 @@ public:
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_removeExpiredChildren(double, unsigned int, osg::NodeList &)");
+			luaL_error(L, "Invalid object in function call bool osg::PagedLOD::base_removeExpiredChildren(double, unsigned int, osg::NodeList &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->PagedLOD::removeExpiredChildren(expiryTime, expiryFrame, removedChildren);
 		lua_pushboolean(L,lret?1:0);

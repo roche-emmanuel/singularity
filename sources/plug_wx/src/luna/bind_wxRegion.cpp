@@ -757,7 +757,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRegion::Clear()");
+			luaL_error(L, "Invalid object in function call void wxRegion::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -777,7 +777,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(int, int) const");
+			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRegionContain lret = self->Contains(x, y);
 		lua_pushnumber(L,lret);
@@ -801,7 +801,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(const wxPoint &) const");
+			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(const wxPoint &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRegionContain lret = self->Contains(pt);
 		lua_pushnumber(L,lret);
@@ -824,7 +824,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(int, int, int, int) const");
+			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(int, int, int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRegionContain lret = self->Contains(x, y, width, height);
 		lua_pushnumber(L,lret);
@@ -848,7 +848,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(const wxRect &) const");
+			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(const wxRect &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRegionContain lret = self->Contains(rect);
 		lua_pushnumber(L,lret);
@@ -878,7 +878,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxRegion::ConvertToBitmap() const");
+			luaL_error(L, "Invalid object in function call wxBitmap wxRegion::ConvertToBitmap() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->ConvertToBitmap();
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -904,7 +904,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRegion::GetBox(int &, int &, int &, int &) const");
+			luaL_error(L, "Invalid object in function call void wxRegion::GetBox(int &, int &, int &, int &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->GetBox(x, y, width, height);
 
@@ -922,7 +922,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxRegion::GetBox() const");
+			luaL_error(L, "Invalid object in function call wxRect wxRegion::GetBox() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetBox();
 		wxRect* lret = new wxRect(stack_lret);
@@ -957,7 +957,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Intersect(x, y, width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -981,7 +981,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(const wxRect &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Intersect(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1005,7 +1005,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(const wxRegion &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(const wxRegion &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Intersect(region);
 		lua_pushboolean(L,lret?1:0);
@@ -1034,7 +1034,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxRegion::IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -1058,7 +1058,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::IsEqual(const wxRegion &) const");
+			luaL_error(L, "Invalid object in function call bool wxRegion::IsEqual(const wxRegion &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsEqual(region);
 		lua_pushboolean(L,lret?1:0);
@@ -1079,7 +1079,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Offset(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Offset(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Offset(x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -1103,7 +1103,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Offset(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Offset(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Offset(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -1136,7 +1136,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Subtract(const wxRect &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Subtract(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Subtract(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1160,7 +1160,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Subtract(const wxRegion &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Subtract(const wxRegion &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Subtract(region);
 		lua_pushboolean(L,lret?1:0);
@@ -1192,7 +1192,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Union(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Union(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Union(x, y, width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -1216,7 +1216,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxRect &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Union(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1240,7 +1240,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxRegion &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxRegion &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Union(region);
 		lua_pushboolean(L,lret?1:0);
@@ -1264,7 +1264,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Union(bmp);
 		lua_pushboolean(L,lret?1:0);
@@ -1296,7 +1296,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxBitmap &, const wxColour &, int)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxBitmap &, const wxColour &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Union(bmp, transColour, tolerance);
 		lua_pushboolean(L,lret?1:0);
@@ -1331,7 +1331,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(int, int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Xor(x, y, width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -1355,7 +1355,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(const wxRect &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Xor(rect);
 		lua_pushboolean(L,lret?1:0);
@@ -1379,7 +1379,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(const wxRegion &)");
+			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(const wxRegion &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Xor(region);
 		lua_pushboolean(L,lret?1:0);
@@ -1408,7 +1408,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRegion::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRegion::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxRegion::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1429,7 +1429,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRegion::base_Clear()");
+			luaL_error(L, "Invalid object in function call void wxRegion::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxRegion::Clear();
 
@@ -1447,7 +1447,7 @@ public:
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRegion::base_IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool wxRegion::base_IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxRegion::IsEmpty();
 		lua_pushboolean(L,lret?1:0);

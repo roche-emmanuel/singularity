@@ -156,7 +156,7 @@ public:
 		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::OnDrop(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::OnDrop(int, int). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		bool lret = self->OnDrop(x, y);
 		lua_pushboolean(L,lret?1:0);
@@ -182,7 +182,7 @@ public:
 		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::OnDropFiles(int, int, const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::OnDropFiles(int, int, const wxArrayString &). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		bool lret = self->OnDropFiles(x, y, filenames);
 		lua_pushboolean(L,lret?1:0);
@@ -204,7 +204,7 @@ public:
 		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxFileDropTarget::base_OnDragOver(int, int, wxDragResult)");
+			luaL_error(L, "Invalid object in function call wxDragResult wxFileDropTarget::base_OnDragOver(int, int, wxDragResult). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		wxDragResult lret = self->wxFileDropTarget::OnDragOver(x, y, def);
 		lua_pushnumber(L,lret);
@@ -226,7 +226,7 @@ public:
 		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDragResult wxFileDropTarget::base_OnEnter(int, int, wxDragResult)");
+			luaL_error(L, "Invalid object in function call wxDragResult wxFileDropTarget::base_OnEnter(int, int, wxDragResult). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		wxDragResult lret = self->wxFileDropTarget::OnEnter(x, y, def);
 		lua_pushnumber(L,lret);
@@ -245,7 +245,7 @@ public:
 		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileDropTarget::base_OnLeave()");
+			luaL_error(L, "Invalid object in function call void wxFileDropTarget::base_OnLeave(). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		self->wxFileDropTarget::OnLeave();
 
@@ -265,7 +265,7 @@ public:
 		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::base_OnDrop(int, int)");
+			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::base_OnDrop(int, int). Got : '%s'",typeid(Luna< wxDropTarget >::check(L,1)).name());
 		}
 		bool lret = self->wxFileDropTarget::OnDrop(x, y);
 		lua_pushboolean(L,lret?1:0);

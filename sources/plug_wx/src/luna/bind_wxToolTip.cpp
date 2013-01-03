@@ -195,7 +195,7 @@ public:
 		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxToolTip::GetTip() const");
+			luaL_error(L, "Invalid object in function call wxString wxToolTip::GetTip() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetTip();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -214,7 +214,7 @@ public:
 		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxToolTip::GetWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxToolTip::GetWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -236,7 +236,7 @@ public:
 		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxToolTip::SetTip(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxToolTip::SetTip(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTip(tip);
 
@@ -324,7 +324,7 @@ public:
 		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxToolTip::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxToolTip::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxToolTip::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

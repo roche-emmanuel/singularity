@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_drawImplementation(lua_State *L) {
@@ -83,6 +90,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgUtil::RenderBin::DrawCallback::DrawCallback(lua_Table * data)
+	static osgUtil::RenderBin::DrawCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderBin::DrawCallback::DrawCallback(lua_Table * data) function, expected prototype:\nosgUtil::RenderBin::DrawCallback::DrawCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_RenderBin_DrawCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -103,7 +121,7 @@ public:
 		osgUtil::RenderBin::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::DrawCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin *, osg::RenderInfo &, osgUtil::RenderLeaf *&)");
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin *, osg::RenderInfo &, osgUtil::RenderLeaf *&). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->drawImplementation(bin, renderInfo, previous);
 
@@ -116,7 +134,7 @@ public:
 };
 
 osgUtil::RenderBin::DrawCallback* LunaTraits< osgUtil::RenderBin::DrawCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgUtil_RenderBin_DrawCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -126,7 +144,7 @@ void LunaTraits< osgUtil::RenderBin::DrawCallback >::_bind_dtor(osgUtil::RenderB
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgUtil::RenderBin::DrawCallback >::className[] = "DrawCallback";
+const char LunaTraits< osgUtil::RenderBin::DrawCallback >::className[] = "RenderBin_DrawCallback";
 const char LunaTraits< osgUtil::RenderBin::DrawCallback >::fullName[] = "osgUtil::RenderBin::DrawCallback";
 const char LunaTraits< osgUtil::RenderBin::DrawCallback >::moduleName[] = "osgUtil";
 const char* LunaTraits< osgUtil::RenderBin::DrawCallback >::parents[] = {"osg.Referenced", 0};

@@ -111,7 +111,7 @@ public:
 		wxHtmlRenderingInfo* self=(Luna< wxHtmlRenderingInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlRenderingInfo::SetStyle(wxHtmlRenderingStyle *)");
+			luaL_error(L, "Invalid object in function call void wxHtmlRenderingInfo::SetStyle(wxHtmlRenderingStyle *). Got : '%s'",typeid(Luna< wxHtmlRenderingInfo >::check(L,1)).name());
 		}
 		self->SetStyle(style);
 
@@ -129,7 +129,7 @@ public:
 		wxHtmlRenderingInfo* self=(Luna< wxHtmlRenderingInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlRenderingStyle & wxHtmlRenderingInfo::GetStyle()");
+			luaL_error(L, "Invalid object in function call wxHtmlRenderingStyle & wxHtmlRenderingInfo::GetStyle(). Got : '%s'",typeid(Luna< wxHtmlRenderingInfo >::check(L,1)).name());
 		}
 		const wxHtmlRenderingStyle* lret = &self->GetStyle();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -150,7 +150,7 @@ public:
 		wxHtmlRenderingInfo* self=(Luna< wxHtmlRenderingInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlRenderingState & wxHtmlRenderingInfo::GetState()");
+			luaL_error(L, "Invalid object in function call wxHtmlRenderingState & wxHtmlRenderingInfo::GetState(). Got : '%s'",typeid(Luna< wxHtmlRenderingInfo >::check(L,1)).name());
 		}
 		wxHtmlRenderingState & lret = self->GetState();
 		////////////////////////////////////////////////////////////////////

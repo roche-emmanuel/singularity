@@ -143,7 +143,7 @@ public:
 		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::set(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::set(unsigned int). Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
 		}
 		self->set(e);
 
@@ -161,7 +161,7 @@ public:
 		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::get() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::get() const. Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
 		}
 		unsigned int lret = self->get();
 		lua_pushnumber(L,lret);

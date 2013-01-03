@@ -212,7 +212,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxDataViewRenderer::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewRenderer::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -241,7 +241,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewRenderer::Render(wxRect, wxDC *, int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewRenderer::Render(wxRect, wxDC *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Render(_arg1, _arg2, _arg3);
 		lua_pushboolean(L,lret?1:0);
@@ -263,7 +263,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode)");
+			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->EnableEllipsize(mode);
 
@@ -281,7 +281,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::DisableEllipsize()");
+			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::DisableEllipsize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->DisableEllipsize();
 
@@ -299,7 +299,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewRenderer::GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewRenderer::GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetAlignment();
 		lua_pushnumber(L,lret);
@@ -318,7 +318,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEllipsizeMode wxDataViewRenderer::GetEllipsizeMode() const");
+			luaL_error(L, "Invalid object in function call wxEllipsizeMode wxDataViewRenderer::GetEllipsizeMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEllipsizeMode lret = self->GetEllipsizeMode();
 		lua_pushnumber(L,lret);
@@ -337,7 +337,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewRenderer::GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewRenderer::GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->GetMode();
 		lua_pushnumber(L,lret);
@@ -356,7 +356,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewRenderer::GetOwner() const");
+			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewRenderer::GetOwner() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewColumn * lret = self->GetOwner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -377,7 +377,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewRenderer::GetVariantType() const");
+			luaL_error(L, "Invalid object in function call wxString wxDataViewRenderer::GetVariantType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetVariantType();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -397,7 +397,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAlignment(align);
 
@@ -416,7 +416,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::SetOwner(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::SetOwner(wxDataViewColumn *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetOwner(owner);
 
@@ -434,7 +434,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -455,7 +455,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -474,7 +474,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -494,7 +494,7 @@ public:
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewRenderer::SetAlignment(align);
 

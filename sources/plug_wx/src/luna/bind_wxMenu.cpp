@@ -717,7 +717,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(int, const wxString &, const wxString &, wxItemKind)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(int, const wxString &, const wxString &, wxItemKind). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Append(id, item, helpString, kind);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -744,7 +744,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(int, const wxString &, wxMenu *, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(int, const wxString &, wxMenu *, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Append(id, item, subMenu, helpString);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -766,7 +766,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(wxMenuItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Append(menuItem);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -802,7 +802,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendCheckItem(int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendCheckItem(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->AppendCheckItem(id, item, help);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -828,7 +828,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendRadioItem(int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendRadioItem(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->AppendRadioItem(id, item, help);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -849,7 +849,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendSeparator()");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendSeparator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->AppendSeparator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -875,7 +875,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendSubMenu(wxMenu *, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendSubMenu(wxMenu *, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->AppendSubMenu(submenu, text, help);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -896,7 +896,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::Break()");
+			luaL_error(L, "Invalid object in function call void wxMenu::Break(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Break();
 
@@ -916,7 +916,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::Check(int, bool)");
+			luaL_error(L, "Invalid object in function call void wxMenu::Check(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Check(id, check);
 
@@ -935,7 +935,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::Delete(int)");
+			luaL_error(L, "Invalid object in function call bool wxMenu::Delete(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Delete(id);
 		lua_pushboolean(L,lret?1:0);
@@ -955,7 +955,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::Delete(wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call bool wxMenu::Delete(wxMenuItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Delete(item);
 		lua_pushboolean(L,lret?1:0);
@@ -984,7 +984,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::Destroy(int)");
+			luaL_error(L, "Invalid object in function call bool wxMenu::Destroy(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Destroy(id);
 		lua_pushboolean(L,lret?1:0);
@@ -1004,7 +1004,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::Destroy(wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call bool wxMenu::Destroy(wxMenuItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Destroy(item);
 		lua_pushboolean(L,lret?1:0);
@@ -1034,7 +1034,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::Enable(int, bool)");
+			luaL_error(L, "Invalid object in function call void wxMenu::Enable(int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Enable(id, enable);
 
@@ -1056,7 +1056,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindChildItem(int, size_t *) const");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindChildItem(int, size_t *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->FindChildItem(id, &pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1078,7 +1078,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMenu::FindItem(const wxString &) const");
+			luaL_error(L, "Invalid object in function call int wxMenu::FindItem(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->FindItem(itemString);
 		lua_pushnumber(L,lret);
@@ -1098,7 +1098,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindItemByPosition(size_t) const");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindItemByPosition(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->FindItemByPosition(position);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1120,7 +1120,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMenu::GetHelpString(int) const");
+			luaL_error(L, "Invalid object in function call wxString wxMenu::GetHelpString(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetHelpString(id);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1140,7 +1140,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMenu::GetLabel(int) const");
+			luaL_error(L, "Invalid object in function call wxString wxMenu::GetLabel(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetLabel(id);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1160,7 +1160,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMenu::GetLabelText(int) const");
+			luaL_error(L, "Invalid object in function call wxString wxMenu::GetLabelText(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetLabelText(id);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1179,7 +1179,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxMenu::GetMenuItemCount() const");
+			luaL_error(L, "Invalid object in function call size_t wxMenu::GetMenuItemCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		size_t lret = self->GetMenuItemCount();
 		lua_pushnumber(L,lret);
@@ -1198,7 +1198,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItemList & wxMenu::GetMenuItems() const");
+			luaL_error(L, "Invalid object in function call wxMenuItemList & wxMenu::GetMenuItems() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItemList & lret = self->GetMenuItems();
 		////////////////////////////////////////////////////////////////////
@@ -1219,7 +1219,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxMenuItemList & wxMenu::GetMenuItems() const");
+			luaL_error(L, "Invalid object in function call const wxMenuItemList & wxMenu::GetMenuItems() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxMenuItemList & lret = self->GetMenuItems();
 		////////////////////////////////////////////////////////////////////
@@ -1249,7 +1249,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxMenu::GetTitle() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxMenu::GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1270,7 +1270,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Insert(size_t, wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Insert(size_t, wxMenuItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Insert(pos, menuItem);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1298,7 +1298,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Insert(size_t, int, const wxString &, const wxString &, wxItemKind)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Insert(size_t, int, const wxString &, const wxString &, wxItemKind). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Insert(pos, id, item, helpString, kind);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1334,7 +1334,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertCheckItem(size_t, int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertCheckItem(size_t, int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->InsertCheckItem(pos, id, item, helpString);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1361,7 +1361,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertRadioItem(size_t, int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertRadioItem(size_t, int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->InsertRadioItem(pos, id, item, helpString);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1383,7 +1383,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertSeparator(size_t)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertSeparator(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->InsertSeparator(pos);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1405,7 +1405,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::IsChecked(int) const");
+			luaL_error(L, "Invalid object in function call bool wxMenu::IsChecked(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsChecked(id);
 		lua_pushboolean(L,lret?1:0);
@@ -1425,7 +1425,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::IsEnabled(int) const");
+			luaL_error(L, "Invalid object in function call bool wxMenu::IsEnabled(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsEnabled(id);
 		lua_pushboolean(L,lret?1:0);
@@ -1445,7 +1445,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Prepend(wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Prepend(wxMenuItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Prepend(item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1472,7 +1472,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Prepend(int, const wxString &, const wxString &, wxItemKind)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Prepend(int, const wxString &, const wxString &, wxItemKind). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Prepend(id, item, helpString, kind);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1507,7 +1507,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependCheckItem(int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependCheckItem(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->PrependCheckItem(id, item, helpString);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1533,7 +1533,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependRadioItem(int, const wxString &, const wxString &)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependRadioItem(int, const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->PrependRadioItem(id, item, helpString);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1554,7 +1554,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependSeparator()");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependSeparator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->PrependSeparator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1576,7 +1576,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Remove(int)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Remove(id);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1598,7 +1598,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Remove(wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Remove(wxMenuItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->Remove(item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1630,7 +1630,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::SetHelpString(int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMenu::SetHelpString(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetHelpString(id, helpString);
 
@@ -1650,7 +1650,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::SetLabel(int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMenu::SetLabel(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetLabel(id, label);
 
@@ -1669,7 +1669,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMenu::SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetTitle(title);
 
@@ -1690,7 +1690,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::UpdateUI(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::UpdateUI(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->UpdateUI(source);
 
@@ -1709,7 +1709,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::SetInvokingWindow(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::SetInvokingWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetInvokingWindow(win);
 
@@ -1727,7 +1727,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxMenu::GetInvokingWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxMenu::GetInvokingWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetInvokingWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1748,7 +1748,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxMenu::GetWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxMenu::GetWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1769,7 +1769,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxMenu::GetStyle() const");
+			luaL_error(L, "Invalid object in function call long wxMenu::GetStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetStyle();
 		lua_pushnumber(L,lret);
@@ -1789,7 +1789,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::SetParent(wxMenu *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::SetParent(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetParent(parent);
 
@@ -1807,7 +1807,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenu * wxMenu::GetParent() const");
+			luaL_error(L, "Invalid object in function call wxMenu * wxMenu::GetParent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMenu * lret = self->GetParent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1829,7 +1829,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::Attach(wxMenuBar *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::Attach(wxMenuBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Attach(menubar);
 
@@ -1847,7 +1847,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::Detach()");
+			luaL_error(L, "Invalid object in function call void wxMenu::Detach(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Detach();
 
@@ -1865,7 +1865,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::IsAttached() const");
+			luaL_error(L, "Invalid object in function call bool wxMenu::IsAttached() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsAttached();
 		lua_pushboolean(L,lret?1:0);
@@ -1884,7 +1884,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMenu::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMenu::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMenu::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1906,7 +1906,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::QueueEvent(event);
 
@@ -1929,7 +1929,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::AddPendingEvent(event);
 
@@ -1952,7 +1952,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMenu::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxMenu::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMenu::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -1972,7 +1972,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::SetNextHandler(handler);
 
@@ -1991,7 +1991,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::SetPreviousHandler(handler);
 
@@ -2009,7 +2009,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_Break()");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_Break(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::Break();
 
@@ -2028,7 +2028,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMenu::base_FindItem(const wxString &) const");
+			luaL_error(L, "Invalid object in function call int wxMenu::base_FindItem(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxMenu::FindItem(itemString);
 		lua_pushnumber(L,lret);
@@ -2048,7 +2048,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMenu::base_GetHelpString(int) const");
+			luaL_error(L, "Invalid object in function call wxString wxMenu::base_GetHelpString(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxMenu::GetHelpString(id);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2069,7 +2069,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_SetHelpString(int, const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetHelpString(int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::SetHelpString(id, helpString);
 
@@ -2088,7 +2088,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_SetTitle(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::SetTitle(title);
 
@@ -2107,7 +2107,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_Attach(wxMenuBar *)");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_Attach(wxMenuBar *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::Attach(menubar);
 
@@ -2125,7 +2125,7 @@ public:
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMenu::base_Detach()");
+			luaL_error(L, "Invalid object in function call void wxMenu::base_Detach(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMenu::Detach();
 

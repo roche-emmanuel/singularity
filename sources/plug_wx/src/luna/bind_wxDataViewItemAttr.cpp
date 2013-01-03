@@ -113,7 +113,7 @@ public:
 		wxDataViewItemAttr* self=(Luna< wxDataViewItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetBold(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetBold(bool). Got : '%s'",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name());
 		}
 		self->SetBold(set);
 
@@ -136,7 +136,7 @@ public:
 		wxDataViewItemAttr* self=(Luna< wxDataViewItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetColour(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name());
 		}
 		self->SetColour(colour);
 
@@ -155,7 +155,7 @@ public:
 		wxDataViewItemAttr* self=(Luna< wxDataViewItemAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetItalic(bool)");
+			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetItalic(bool). Got : '%s'",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name());
 		}
 		self->SetItalic(set);
 

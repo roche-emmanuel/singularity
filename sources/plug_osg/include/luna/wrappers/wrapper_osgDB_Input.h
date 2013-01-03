@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_Input(lua_State* L, lua_Table* dum) : osgDB::Input(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgDB::FieldReaderIterator::eof() const
 	bool eof() const {
@@ -175,9 +180,6 @@ public:
 		return Input::registerUniqueIDForObject(uniqueID, obj);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

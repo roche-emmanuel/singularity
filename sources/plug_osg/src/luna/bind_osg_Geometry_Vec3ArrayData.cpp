@@ -199,7 +199,7 @@ public:
 		osg::Geometry::Vec3ArrayData* self=(Luna< osg::Geometry::Vec3ArrayData >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geometry::Vec3ArrayData::empty() const");
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::Vec3ArrayData::empty() const. Got : '%s'",typeid(Luna< osg::Geometry::Vec3ArrayData >::check(L,1)).name());
 		}
 		bool lret = self->empty();
 		lua_pushboolean(L,lret?1:0);
@@ -222,7 +222,7 @@ void LunaTraits< osg::Geometry::Vec3ArrayData >::_bind_dtor(osg::Geometry::Vec3A
 	delete obj;
 }
 
-const char LunaTraits< osg::Geometry::Vec3ArrayData >::className[] = "Vec3ArrayData";
+const char LunaTraits< osg::Geometry::Vec3ArrayData >::className[] = "Geometry_Vec3ArrayData";
 const char LunaTraits< osg::Geometry::Vec3ArrayData >::fullName[] = "osg::Geometry::Vec3ArrayData";
 const char LunaTraits< osg::Geometry::Vec3ArrayData >::moduleName[] = "osg";
 const char* LunaTraits< osg::Geometry::Vec3ArrayData >::parents[] = {0};

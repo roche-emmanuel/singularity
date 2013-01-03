@@ -238,7 +238,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHandler::CanRead(wxInputStream &)");
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::CanRead(wxInputStream &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanRead(stream);
 		lua_pushboolean(L,lret?1:0);
@@ -258,7 +258,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHandler::CanRead(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::CanRead(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CanRead(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -286,7 +286,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetExtension() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetExtension() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetExtension();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -305,7 +305,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxArrayString & wxImageHandler::GetAltExtensions() const");
+			luaL_error(L, "Invalid object in function call const wxArrayString & wxImageHandler::GetAltExtensions() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxArrayString* lret = &self->GetAltExtensions();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -331,7 +331,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxImageHandler::GetImageCount(wxInputStream &)");
+			luaL_error(L, "Invalid object in function call int wxImageHandler::GetImageCount(wxInputStream &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetImageCount(stream);
 		lua_pushnumber(L,lret);
@@ -350,7 +350,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetMimeType() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetMimeType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetMimeType();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -369,7 +369,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetName() const");
+			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -388,7 +388,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmapType wxImageHandler::GetType() const");
+			luaL_error(L, "Invalid object in function call wxBitmapType wxImageHandler::GetType() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmapType lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -417,7 +417,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHandler::LoadFile(wxImage *, wxInputStream &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::LoadFile(wxImage *, wxInputStream &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LoadFile(image, stream, verbose, index);
 		lua_pushboolean(L,lret?1:0);
@@ -445,7 +445,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHandler::SaveFile(wxImage *, wxOutputStream &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::SaveFile(wxImage *, wxOutputStream &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->SaveFile(image, stream, verbose);
 		lua_pushboolean(L,lret?1:0);
@@ -465,7 +465,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImageHandler::SetExtension(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxImageHandler::SetExtension(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetExtension(extension);
 
@@ -488,7 +488,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImageHandler::SetAltExtensions(const wxArrayString &)");
+			luaL_error(L, "Invalid object in function call void wxImageHandler::SetAltExtensions(const wxArrayString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetAltExtensions(extensions);
 
@@ -507,7 +507,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImageHandler::SetMimeType(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxImageHandler::SetMimeType(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetMimeType(mimetype);
 
@@ -526,7 +526,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImageHandler::SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxImageHandler::SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetName(name);
 
@@ -544,7 +544,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageHandler::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxImageHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -575,7 +575,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHandler::base_LoadFile(wxImage *, wxInputStream &, bool, int)");
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::base_LoadFile(wxImage *, wxInputStream &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxImageHandler::LoadFile(image, stream, verbose, index);
 		lua_pushboolean(L,lret?1:0);
@@ -603,7 +603,7 @@ public:
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHandler::base_SaveFile(wxImage *, wxOutputStream &, bool)");
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::base_SaveFile(wxImage *, wxOutputStream &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxImageHandler::SaveFile(image, stream, verbose);
 		lua_pushboolean(L,lret?1:0);

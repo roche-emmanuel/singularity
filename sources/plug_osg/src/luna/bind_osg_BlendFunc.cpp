@@ -608,7 +608,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -634,7 +634,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -656,7 +656,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -675,7 +675,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -694,7 +694,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -713,7 +713,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::BlendFunc::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::BlendFunc::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -737,7 +737,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::BlendFunc::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::BlendFunc::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -761,7 +761,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -782,7 +782,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setFunction(unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setFunction(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunction(source, destination);
 
@@ -804,7 +804,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setFunction(unsigned int, unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setFunction(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFunction(source_rgb, destination_rgb, source_alpha, destination_alpha);
 
@@ -832,7 +832,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setSource(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setSource(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSource(source);
 
@@ -850,7 +850,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getSource() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getSource() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getSource();
 		lua_pushnumber(L,lret);
@@ -870,7 +870,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setSourceRGB(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setSourceRGB(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSourceRGB(source);
 
@@ -888,7 +888,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getSourceRGB() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getSourceRGB() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getSourceRGB();
 		lua_pushnumber(L,lret);
@@ -908,7 +908,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setSourceAlpha(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setSourceAlpha(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSourceAlpha(source);
 
@@ -926,7 +926,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getSourceAlpha() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getSourceAlpha() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getSourceAlpha();
 		lua_pushnumber(L,lret);
@@ -946,7 +946,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setDestination(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setDestination(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDestination(destination);
 
@@ -964,7 +964,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getDestination() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getDestination() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDestination();
 		lua_pushnumber(L,lret);
@@ -984,7 +984,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setDestinationRGB(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setDestinationRGB(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDestinationRGB(destination);
 
@@ -1002,7 +1002,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getDestinationRGB() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getDestinationRGB() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDestinationRGB();
 		lua_pushnumber(L,lret);
@@ -1022,7 +1022,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setDestinationAlpha(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::setDestinationAlpha(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDestinationAlpha(destination);
 
@@ -1040,7 +1040,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getDestinationAlpha() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::getDestinationAlpha() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getDestinationAlpha();
 		lua_pushnumber(L,lret);
@@ -1064,7 +1064,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -1116,7 +1116,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlendFunc::setName(name);
 
@@ -1134,7 +1134,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlendFunc::computeDataVariance();
 
@@ -1153,7 +1153,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlendFunc::setUserData(obj);
 
@@ -1171,7 +1171,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::BlendFunc::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::BlendFunc::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->BlendFunc::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1192,7 +1192,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::BlendFunc::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::BlendFunc::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->BlendFunc::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1222,7 +1222,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::BlendFunc::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::BlendFunc::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->BlendFunc::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1243,7 +1243,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::BlendFunc::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::BlendFunc::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->BlendFunc::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1273,7 +1273,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendFunc::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->BlendFunc::getMember();
 		lua_pushnumber(L,lret);
@@ -1292,7 +1292,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BlendFunc::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1316,7 +1316,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BlendFunc::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1340,7 +1340,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlendFunc::compileGLObjects(_arg1);
 
@@ -1361,7 +1361,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlendFunc::releaseGLObjects(_arg1);
 
@@ -1379,7 +1379,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->BlendFunc::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1405,7 +1405,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendFunc::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->BlendFunc::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1427,7 +1427,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BlendFunc::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1446,7 +1446,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BlendFunc::libraryName();
 		lua_pushstring(L,lret);
@@ -1465,7 +1465,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::BlendFunc::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BlendFunc::className();
 		lua_pushstring(L,lret);
@@ -1484,7 +1484,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::BlendFunc::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::BlendFunc::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->BlendFunc::getType();
 		lua_pushnumber(L,lret);
@@ -1508,7 +1508,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::BlendFunc::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::BlendFunc::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->BlendFunc::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1532,7 +1532,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BlendFunc::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1556,7 +1556,7 @@ public:
 		osg::BlendFunc* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::BlendFunc::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BlendFunc::apply(_arg1);
 

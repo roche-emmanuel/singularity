@@ -186,7 +186,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetFindString()");
+			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetFindString(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetFindString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -205,7 +205,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFindReplaceData::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxFindReplaceData::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -224,7 +224,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetReplaceString()");
+			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetReplaceString(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxString & lret = self->GetReplaceString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -244,7 +244,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFindString(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFindString(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFindString(str);
 
@@ -263,7 +263,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFlags(unsigned int)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -282,7 +282,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetReplaceString(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetReplaceString(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetReplaceString(str);
 
@@ -300,7 +300,7 @@ public:
 		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceData::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxFindReplaceData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

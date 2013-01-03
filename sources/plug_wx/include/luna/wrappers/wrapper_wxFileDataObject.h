@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxFileDataObject(lua_State* L, lua_Table* dum) : wxFileDataObject(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	void GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const {
@@ -74,9 +79,6 @@ public:
 		return wxFileDataObject::SetData(len, buf);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

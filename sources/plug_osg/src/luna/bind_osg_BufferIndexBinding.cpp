@@ -262,7 +262,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getMember();
 		lua_pushnumber(L,lret);
@@ -281,7 +281,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getTarget() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getTarget() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getTarget();
 		lua_pushnumber(L,lret);
@@ -300,7 +300,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getIndex() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getIndex() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getIndex();
 		lua_pushnumber(L,lret);
@@ -320,7 +320,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::setBufferObject(osg::BufferObject *)");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::setBufferObject(osg::BufferObject *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setBufferObject(bo);
 
@@ -338,7 +338,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BufferObject * osg::BufferIndexBinding::getBufferObject() const");
+			luaL_error(L, "Invalid object in function call osg::BufferObject * osg::BufferIndexBinding::getBufferObject() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::BufferObject * lret = self->getBufferObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -360,7 +360,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::setOffset(int)");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::setOffset(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setOffset(offset);
 
@@ -378,7 +378,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::BufferIndexBinding::getOffset() const");
+			luaL_error(L, "Invalid object in function call int osg::BufferIndexBinding::getOffset() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getOffset();
 		lua_pushnumber(L,lret);
@@ -398,7 +398,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::setSize(int)");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::setSize(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setSize(size);
 
@@ -416,7 +416,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::BufferIndexBinding::getSize() const");
+			luaL_error(L, "Invalid object in function call int osg::BufferIndexBinding::getSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->getSize();
 		lua_pushnumber(L,lret);
@@ -440,7 +440,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -459,7 +459,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BufferIndexBinding::setName(name);
 
@@ -477,7 +477,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BufferIndexBinding::computeDataVariance();
 
@@ -496,7 +496,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BufferIndexBinding::setUserData(obj);
 
@@ -514,7 +514,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::BufferIndexBinding::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::BufferIndexBinding::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->BufferIndexBinding::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -535,7 +535,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::BufferIndexBinding::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::BufferIndexBinding::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->BufferIndexBinding::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -566,7 +566,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BufferIndexBinding::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -585,7 +585,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::BufferIndexBinding::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::BufferIndexBinding::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BufferIndexBinding::libraryName();
 		lua_pushstring(L,lret);
@@ -604,7 +604,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::BufferIndexBinding::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::BufferIndexBinding::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BufferIndexBinding::className();
 		lua_pushstring(L,lret);
@@ -623,7 +623,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::BufferIndexBinding::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::BufferIndexBinding::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->BufferIndexBinding::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -644,7 +644,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::BufferIndexBinding::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::BufferIndexBinding::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->BufferIndexBinding::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -674,7 +674,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BufferIndexBinding::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -698,7 +698,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BufferIndexBinding::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -722,7 +722,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::BufferIndexBinding::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BufferIndexBinding::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -746,7 +746,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BufferIndexBinding::compileGLObjects(_arg1);
 
@@ -767,7 +767,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BufferIndexBinding::releaseGLObjects(_arg1);
 
@@ -785,7 +785,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->BufferIndexBinding::getMember();
 		lua_pushnumber(L,lret);
@@ -809,7 +809,7 @@ public:
 		osg::BufferIndexBinding* self=Luna< osg::Referenced >::checkSubType< osg::BufferIndexBinding >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::BufferIndexBinding::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BufferIndexBinding::apply(_arg1);
 

@@ -520,7 +520,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -546,7 +546,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,7 +568,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Viewport::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Viewport::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -587,7 +587,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Viewport::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Viewport::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -606,7 +606,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Viewport::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Viewport::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -625,7 +625,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Viewport::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Viewport::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -649,7 +649,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Viewport::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::Viewport::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -672,7 +672,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::setViewport(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::setViewport(double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setViewport(x, y, width, height);
 
@@ -690,7 +690,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Viewport::x()");
+			luaL_error(L, "Invalid object in function call double & osg::Viewport::x(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double & lret = self->x();
 		lua_pushnumber(L,lret);
@@ -709,7 +709,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Viewport::x() const");
+			luaL_error(L, "Invalid object in function call double osg::Viewport::x() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->x();
 		lua_pushnumber(L,lret);
@@ -737,7 +737,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Viewport::y()");
+			luaL_error(L, "Invalid object in function call double & osg::Viewport::y(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double & lret = self->y();
 		lua_pushnumber(L,lret);
@@ -756,7 +756,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Viewport::y() const");
+			luaL_error(L, "Invalid object in function call double osg::Viewport::y() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->y();
 		lua_pushnumber(L,lret);
@@ -784,7 +784,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Viewport::width()");
+			luaL_error(L, "Invalid object in function call double & osg::Viewport::width(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double & lret = self->width();
 		lua_pushnumber(L,lret);
@@ -803,7 +803,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Viewport::width() const");
+			luaL_error(L, "Invalid object in function call double osg::Viewport::width() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->width();
 		lua_pushnumber(L,lret);
@@ -831,7 +831,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double & osg::Viewport::height()");
+			luaL_error(L, "Invalid object in function call double & osg::Viewport::height(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double & lret = self->height();
 		lua_pushnumber(L,lret);
@@ -850,7 +850,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Viewport::height() const");
+			luaL_error(L, "Invalid object in function call double osg::Viewport::height() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->height();
 		lua_pushnumber(L,lret);
@@ -878,7 +878,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Viewport::valid() const");
+			luaL_error(L, "Invalid object in function call bool osg::Viewport::valid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->valid();
 		lua_pushboolean(L,lret?1:0);
@@ -897,7 +897,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Viewport::aspectRatio() const");
+			luaL_error(L, "Invalid object in function call double osg::Viewport::aspectRatio() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->aspectRatio();
 		lua_pushnumber(L,lret);
@@ -916,7 +916,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Matrixd osg::Viewport::computeWindowMatrix() const");
+			luaL_error(L, "Invalid object in function call const osg::Matrixd osg::Viewport::computeWindowMatrix() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Matrixd stack_lret = self->computeWindowMatrix();
 		const osg::Matrixd* lret = new const osg::Matrixd(stack_lret);
@@ -943,7 +943,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -962,7 +962,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Viewport::setName(name);
 
@@ -980,7 +980,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Viewport::computeDataVariance();
 
@@ -999,7 +999,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Viewport::setUserData(obj);
 
@@ -1017,7 +1017,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Viewport::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Viewport::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->Viewport::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1038,7 +1038,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Viewport::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Viewport::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->Viewport::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1068,7 +1068,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::Viewport::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::Viewport::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->Viewport::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1089,7 +1089,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Viewport::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::Viewport::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->Viewport::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1119,7 +1119,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Viewport::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::Viewport::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->Viewport::getMember();
 		lua_pushnumber(L,lret);
@@ -1138,7 +1138,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Viewport::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -1162,7 +1162,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Viewport::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1186,7 +1186,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Viewport::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -1210,7 +1210,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Viewport::compileGLObjects(_arg1);
 
@@ -1231,7 +1231,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Viewport::releaseGLObjects(_arg1);
 
@@ -1249,7 +1249,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Viewport::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1275,7 +1275,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Viewport::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->Viewport::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1297,7 +1297,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::Viewport::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->Viewport::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1316,7 +1316,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Viewport::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Viewport::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Viewport::libraryName();
 		lua_pushstring(L,lret);
@@ -1335,7 +1335,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::Viewport::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::Viewport::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->Viewport::className();
 		lua_pushstring(L,lret);
@@ -1354,7 +1354,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Viewport::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::Viewport::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->Viewport::getType();
 		lua_pushnumber(L,lret);
@@ -1378,7 +1378,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Viewport::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::Viewport::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->Viewport::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1402,7 +1402,7 @@ public:
 		osg::Viewport* self=Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Viewport::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Viewport::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->Viewport::apply(_arg1);
 

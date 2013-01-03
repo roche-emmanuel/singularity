@@ -847,7 +847,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::CreateClient(wxMDIParentFrame *, long)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::CreateClient(wxMDIParentFrame *, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->CreateClient(parent, style);
 		lua_pushboolean(L,lret?1:0);
@@ -866,7 +866,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMDIClientWindow::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMDIClientWindow::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMDIClientWindow::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -887,7 +887,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_AcceptsFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -906,7 +906,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_AcceptsFocusFromKeyboard() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -925,7 +925,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_AcceptsFocusRecursively() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -944,7 +944,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HasFocus() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -964,7 +964,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetCanFocus(bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetCanFocus(canFocus);
 
@@ -982,7 +982,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetFocus()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetFocus();
 
@@ -1000,7 +1000,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetFocusFromKbd()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetFocusFromKbd();
 
@@ -1019,7 +1019,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_AddChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::AddChild(child);
 
@@ -1038,7 +1038,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_RemoveChild(wxWindow *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::RemoveChild(child);
 
@@ -1057,7 +1057,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Reparent(wxWindow *)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1080,7 +1080,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_AlwaysShowScrollbars(bool, bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1099,7 +1099,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetScrollPos(int) const");
+			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxMDIClientWindow::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1119,7 +1119,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetScrollRange(int) const");
+			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxMDIClientWindow::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1139,7 +1139,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetScrollThumb(int) const");
+			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxMDIClientWindow::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1159,7 +1159,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsScrollbarAlwaysShown(int) const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1179,7 +1179,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ScrollLines(int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1199,7 +1199,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ScrollPages(int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1223,7 +1223,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_ScrollWindow(int, int, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::ScrollWindow(dx, dy, rect);
 
@@ -1246,7 +1246,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetScrollPos(int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetScrollPos(orientation, pos, refresh);
 
@@ -1271,7 +1271,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetScrollbar(int, int, int, int, bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1294,7 +1294,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_ClientToWindowSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1321,7 +1321,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_WindowToClientSize(const wxSize &) const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1343,7 +1343,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Fit()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::Fit();
 
@@ -1361,7 +1361,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_FitInside()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::FitInside();
 
@@ -1379,7 +1379,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetEffectiveMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1401,7 +1401,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMaxClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1423,7 +1423,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMaxSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1445,7 +1445,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMinClientSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1467,7 +1467,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMinSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1489,7 +1489,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetBestVirtualSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1511,7 +1511,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetWindowBorderSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxMDIClientWindow::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->wxMDIClientWindow::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1536,7 +1536,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_InformFirstDirection(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1558,7 +1558,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SendSizeEvent(int)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SendSizeEvent(flags);
 
@@ -1581,7 +1581,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMaxClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetMaxClientSize(size);
 
@@ -1604,7 +1604,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMaxSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetMaxSize(size);
 
@@ -1627,7 +1627,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMinClientSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetMinClientSize(size);
 
@@ -1650,7 +1650,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMinSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetMinSize(size);
 
@@ -1685,7 +1685,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetSizeHints(minSize, maxSize, incSize);
 
@@ -1711,7 +1711,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetSizeHints(int, int, int, int, int, int)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -1738,7 +1738,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxMDIClientWindow::base_GetClientAreaOrigin() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxMDIClientWindow::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->wxMDIClientWindow::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1760,7 +1760,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_ClearBackground()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::ClearBackground();
 
@@ -1778,7 +1778,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxMDIClientWindow::base_GetBackgroundStyle() const");
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxMDIClientWindow::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBackgroundStyle lret = self->wxMDIClientWindow::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1797,7 +1797,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetCharHeight() const");
+			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxMDIClientWindow::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1816,7 +1816,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetCharWidth() const");
+			luaL_error(L, "Invalid object in function call int wxMDIClientWindow::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxMDIClientWindow::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1835,7 +1835,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxMDIClientWindow::base_GetDefaultAttributes() const");
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxMDIClientWindow::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxVisualAttributes stack_lret = self->wxMDIClientWindow::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1861,7 +1861,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Refresh(bool, const wxRect *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::Refresh(eraseBackground, rect);
 
@@ -1879,7 +1879,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Update()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::Update();
 
@@ -1898,7 +1898,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetBackgroundStyle(wxBackgroundStyle)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1922,7 +1922,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetFont(const wxFont &)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1941,7 +1941,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ShouldInheritColours() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -1961,7 +1961,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetThemeEnabled(bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetThemeEnabled(enable);
 
@@ -1979,7 +1979,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_GetThemeEnabled() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -1998,7 +1998,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_CanSetTransparent()");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2018,7 +2018,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetTransparent(unsigned char)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2038,7 +2038,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetNextHandler(handler);
 
@@ -2057,7 +2057,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetPreviousHandler(handler);
 
@@ -2075,7 +2075,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxMDIClientWindow::base_GetWindowStyleFlag() const");
+			luaL_error(L, "Invalid object in function call long wxMDIClientWindow::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->wxMDIClientWindow::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2095,7 +2095,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetExtraStyle(long)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetExtraStyle(exStyle);
 
@@ -2114,7 +2114,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetWindowStyleFlag(long)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetWindowStyleFlag(style);
 
@@ -2132,7 +2132,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Lower()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::Lower();
 
@@ -2150,7 +2150,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Raise()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::Raise();
 
@@ -2172,7 +2172,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HideWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2191,7 +2191,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsShown() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2210,7 +2210,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsShownOnScreen() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2232,7 +2232,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Enable(bool)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2254,7 +2254,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2277,7 +2277,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ShowWithEffect(wxShowEffect, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2302,7 +2302,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMDIClientWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+			luaL_error(L, "Invalid object in function call wxString wxMDIClientWindow::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxMDIClientWindow::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2321,7 +2321,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxMDIClientWindow::base_GetValidator()");
+			luaL_error(L, "Invalid object in function call wxValidator * wxMDIClientWindow::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxValidator * lret = self->wxMDIClientWindow::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2347,7 +2347,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetValidator(const wxValidator &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetValidator(validator);
 
@@ -2365,7 +2365,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_TransferDataFromWindow()");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2384,7 +2384,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_TransferDataToWindow()");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2403,7 +2403,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Validate()");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2422,7 +2422,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMDIClientWindow::base_GetLabel() const");
+			luaL_error(L, "Invalid object in function call wxString wxMDIClientWindow::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxMDIClientWindow::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2441,7 +2441,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxMDIClientWindow::base_GetLayoutDirection() const");
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxMDIClientWindow::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxLayoutDirection lret = self->wxMDIClientWindow::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2460,7 +2460,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMDIClientWindow::base_GetName() const");
+			luaL_error(L, "Invalid object in function call wxString wxMDIClientWindow::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxMDIClientWindow::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2480,7 +2480,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetLabel(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetLabel(label);
 
@@ -2499,7 +2499,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetLayoutDirection(wxLayoutDirection)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetLayoutDirection(dir);
 
@@ -2518,7 +2518,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetName(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetName(name);
 
@@ -2541,7 +2541,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetAcceleratorTable(accel);
 
@@ -2559,7 +2559,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Destroy()");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2578,7 +2578,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxMDIClientWindow::base_GetDropTarget() const");
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxMDIClientWindow::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDropTarget * lret = self->wxMDIClientWindow::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2600,7 +2600,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetDropTarget(wxDropTarget *)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::SetDropTarget(target);
 
@@ -2619,7 +2619,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_DragAcceptFiles(bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::DragAcceptFiles(accept);
 
@@ -2637,7 +2637,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Layout()");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2656,7 +2656,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HasCapture() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2680,7 +2680,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetCursor(const wxCursor &)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2701,7 +2701,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_WarpPointer(int, int)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::WarpPointer(x, y);
 
@@ -2724,7 +2724,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::DoUpdateWindowUI(event);
 
@@ -2742,7 +2742,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HasMultiplePages() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2761,7 +2761,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_InheritAttributes()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::InheritAttributes();
 
@@ -2779,7 +2779,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_InitDialog()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::InitDialog();
 
@@ -2797,7 +2797,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsRetained() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2816,7 +2816,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsTopLevel() const");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2838,7 +2838,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_MakeModal(bool)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::MakeModal(modal);
 
@@ -2856,7 +2856,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_OnInternalIdle()");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::OnInternalIdle();
 
@@ -2877,7 +2877,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_RegisterHotKey(int, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2897,7 +2897,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_UnregisterHotKey(int)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2919,7 +2919,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_UpdateWindowUI(long)");
+			luaL_error(L, "Invalid object in function call void wxMDIClientWindow::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxMDIClientWindow::UpdateWindowUI(flags);
 
@@ -2941,7 +2941,7 @@ public:
 		wxMDIClientWindow* self=Luna< wxObject >::checkSubType< wxMDIClientWindow >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_CreateClient(wxMDIParentFrame *, long)");
+			luaL_error(L, "Invalid object in function call bool wxMDIClientWindow::base_CreateClient(wxMDIParentFrame *, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxMDIClientWindow::CreateClient(parent, style);
 		lua_pushboolean(L,lret?1:0);

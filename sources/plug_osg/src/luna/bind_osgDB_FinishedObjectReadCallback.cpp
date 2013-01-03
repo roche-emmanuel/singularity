@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_objectRead(lua_State *L) {
@@ -82,6 +89,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osgDB::FinishedObjectReadCallback::FinishedObjectReadCallback(lua_Table * data)
+	static osgDB::FinishedObjectReadCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FinishedObjectReadCallback::FinishedObjectReadCallback(lua_Table * data) function, expected prototype:\nosgDB::FinishedObjectReadCallback::FinishedObjectReadCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_FinishedObjectReadCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
@@ -105,7 +123,7 @@ public:
 		osgDB::FinishedObjectReadCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FinishedObjectReadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream &, osg::Object &)");
+			luaL_error(L, "Invalid object in function call void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream &, osg::Object &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->objectRead(is, obj);
 
@@ -118,7 +136,7 @@ public:
 };
 
 osgDB::FinishedObjectReadCallback* LunaTraits< osgDB::FinishedObjectReadCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osgDB_FinishedObjectReadCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)

@@ -145,7 +145,7 @@ public:
 		osgDB::ImageOptions::TexCoordRange* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions::TexCoordRange >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::TexCoordRange::set(double, double, double, double)");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::TexCoordRange::set(double, double, double, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->set(x, y, w, h);
 
@@ -167,7 +167,7 @@ void LunaTraits< osgDB::ImageOptions::TexCoordRange >::_bind_dtor(osgDB::ImageOp
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::className[] = "TexCoordRange";
+const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::className[] = "ImageOptions_TexCoordRange";
 const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::fullName[] = "osgDB::ImageOptions::TexCoordRange";
 const char LunaTraits< osgDB::ImageOptions::TexCoordRange >::moduleName[] = "osgDB";
 const char* LunaTraits< osgDB::ImageOptions::TexCoordRange >::parents[] = {"osg.Referenced", 0};

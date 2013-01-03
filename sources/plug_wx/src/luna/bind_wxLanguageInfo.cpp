@@ -86,7 +86,7 @@ public:
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::GetLCID() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxLanguageInfo::GetLCID() const. Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
 		}
 		unsigned int lret = self->GetLCID();
 		lua_pushnumber(L,lret);
@@ -105,7 +105,7 @@ public:
 		wxLanguageInfo* self=(Luna< wxLanguageInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::GetLocaleName() const");
+			luaL_error(L, "Invalid object in function call wxString wxLanguageInfo::GetLocaleName() const. Got : '%s'",typeid(Luna< wxLanguageInfo >::check(L,1)).name());
 		}
 		wxString lret = self->GetLocaleName();
 		lua_pushlstring(L,lret.data(),lret.size());

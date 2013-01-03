@@ -257,7 +257,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxPoint &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->DecBy(pt);
 
@@ -280,7 +280,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->DecBy(size);
 
@@ -300,7 +300,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int, int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->DecBy(dx, dy);
 
@@ -319,7 +319,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int)");
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->DecBy(d);
 
@@ -353,7 +353,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecTo(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSize::DecTo(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->DecTo(size);
 
@@ -371,7 +371,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSize::GetHeight() const");
+			luaL_error(L, "Invalid object in function call int wxSize::GetHeight() const. Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -390,7 +390,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSize::GetWidth() const");
+			luaL_error(L, "Invalid object in function call int wxSize::GetWidth() const. Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -414,7 +414,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxPoint &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->IncBy(pt);
 
@@ -437,7 +437,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->IncBy(size);
 
@@ -457,7 +457,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int, int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->IncBy(dx, dy);
 
@@ -476,7 +476,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int)");
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->IncBy(d);
 
@@ -510,7 +510,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncTo(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSize::IncTo(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->IncTo(size);
 
@@ -528,7 +528,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSize::IsFullySpecified() const");
+			luaL_error(L, "Invalid object in function call bool wxSize::IsFullySpecified() const. Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		bool lret = self->IsFullySpecified();
 		lua_pushboolean(L,lret?1:0);
@@ -549,7 +549,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize & wxSize::Scale(float, float)");
+			luaL_error(L, "Invalid object in function call wxSize & wxSize::Scale(float, float). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		const wxSize* lret = &self->Scale(xscale, yscale);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -572,7 +572,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::Set(int, int)");
+			luaL_error(L, "Invalid object in function call void wxSize::Set(int, int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->Set(width, height);
 
@@ -595,7 +595,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::SetDefaults(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxSize::SetDefaults(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->SetDefaults(sizeDefault);
 
@@ -614,7 +614,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::SetHeight(int)");
+			luaL_error(L, "Invalid object in function call void wxSize::SetHeight(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->SetHeight(height);
 
@@ -633,7 +633,7 @@ public:
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::SetWidth(int)");
+			luaL_error(L, "Invalid object in function call void wxSize::SetWidth(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
 		}
 		self->SetWidth(width);
 

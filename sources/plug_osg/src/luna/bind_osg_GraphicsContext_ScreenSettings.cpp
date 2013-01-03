@@ -132,7 +132,7 @@ void LunaTraits< osg::GraphicsContext::ScreenSettings >::_bind_dtor(osg::Graphic
 	delete obj;
 }
 
-const char LunaTraits< osg::GraphicsContext::ScreenSettings >::className[] = "ScreenSettings";
+const char LunaTraits< osg::GraphicsContext::ScreenSettings >::className[] = "GraphicsContext_ScreenSettings";
 const char LunaTraits< osg::GraphicsContext::ScreenSettings >::fullName[] = "osg::GraphicsContext::ScreenSettings";
 const char LunaTraits< osg::GraphicsContext::ScreenSettings >::moduleName[] = "osg";
 const char* LunaTraits< osg::GraphicsContext::ScreenSettings >::parents[] = {0};

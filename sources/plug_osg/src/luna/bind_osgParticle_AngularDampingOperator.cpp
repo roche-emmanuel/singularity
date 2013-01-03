@@ -424,7 +424,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -450,7 +450,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -472,7 +472,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::AngularDampingOperator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::AngularDampingOperator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -491,7 +491,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -510,7 +510,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -532,7 +532,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setDamping(float, float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setDamping(float, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDamping(x, y, z);
 
@@ -555,7 +555,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setDamping(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setDamping(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDamping(damping);
 
@@ -574,7 +574,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setDamping(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setDamping(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDamping(x);
 
@@ -605,7 +605,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::getDamping(float &, float &, float &) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::getDamping(float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getDamping(x, y, z);
 
@@ -623,7 +623,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::AngularDampingOperator::getDamping() const");
+			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgParticle::AngularDampingOperator::getDamping() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Vec3f* lret = &self->getDamping();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -655,7 +655,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setCutoff(float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setCutoff(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCutoff(low, high);
 
@@ -674,7 +674,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setCutoffLow(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setCutoffLow(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCutoffLow(low);
 
@@ -693,7 +693,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setCutoffHigh(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::setCutoffHigh(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCutoffHigh(low);
 
@@ -713,7 +713,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::getCutoff(float &, float &) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::getCutoff(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getCutoff(low, high);
 
@@ -731,7 +731,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::AngularDampingOperator::getCutoffLow() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::AngularDampingOperator::getCutoffLow() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getCutoffLow();
 		lua_pushnumber(L,lret);
@@ -750,7 +750,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::AngularDampingOperator::getCutoffHigh() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::AngularDampingOperator::getCutoffHigh() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getCutoffHigh();
 		lua_pushnumber(L,lret);
@@ -771,7 +771,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operate(P, dt);
 
@@ -790,7 +790,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::setName(name);
 
@@ -808,7 +808,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::computeDataVariance();
 
@@ -827,7 +827,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::setUserData(obj);
 
@@ -845,7 +845,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::AngularDampingOperator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::AngularDampingOperator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->AngularDampingOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -866,7 +866,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::AngularDampingOperator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::AngularDampingOperator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->AngularDampingOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -899,7 +899,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::releaseGLObjects(_arg1);
 
@@ -919,7 +919,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_operateParticles(osgParticle::ParticleSystem *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_operateParticles(osgParticle::ParticleSystem *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::operateParticles(ps, dt);
 
@@ -938,7 +938,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_beginOperate(osgParticle::Program *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::beginOperate(_arg1);
 
@@ -956,7 +956,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_endOperate()");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_endOperate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::endOperate();
 
@@ -974,7 +974,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->AngularDampingOperator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1000,7 +1000,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::AngularDampingOperator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->AngularDampingOperator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1022,7 +1022,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::AngularDampingOperator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::AngularDampingOperator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->AngularDampingOperator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1041,7 +1041,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->AngularDampingOperator::libraryName();
 		lua_pushstring(L,lret);
@@ -1060,7 +1060,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::AngularDampingOperator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->AngularDampingOperator::className();
 		lua_pushstring(L,lret);
@@ -1081,7 +1081,7 @@ public:
 		osgParticle::AngularDampingOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::AngularDampingOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::AngularDampingOperator::base_operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->AngularDampingOperator::operate(P, dt);
 

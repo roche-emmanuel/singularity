@@ -394,7 +394,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCaret::Create(wxWindow *, int, int)");
+			luaL_error(L, "Invalid object in function call bool wxCaret::Create(wxWindow *, int, int). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		bool lret = self->Create(window, width, height);
 		lua_pushboolean(L,lret?1:0);
@@ -419,7 +419,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCaret::Create(wxWindow *, const wxSize &)");
+			luaL_error(L, "Invalid object in function call bool wxCaret::Create(wxWindow *, const wxSize &). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		bool lret = self->Create(window, size);
 		lua_pushboolean(L,lret?1:0);
@@ -449,7 +449,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::GetPosition(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxCaret::GetPosition(int *, int *) const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->GetPosition(&x, &y);
 
@@ -467,7 +467,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxCaret::GetPosition() const");
+			luaL_error(L, "Invalid object in function call wxPoint wxCaret::GetPosition() const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -500,7 +500,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::GetSize(int *, int *) const");
+			luaL_error(L, "Invalid object in function call void wxCaret::GetSize(int *, int *) const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->GetSize(&width, &height);
 
@@ -518,7 +518,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxCaret::GetSize() const");
+			luaL_error(L, "Invalid object in function call wxSize wxCaret::GetSize() const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -549,7 +549,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxCaret::GetWindow() const");
+			luaL_error(L, "Invalid object in function call wxWindow * wxCaret::GetWindow() const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		wxWindow * lret = self->GetWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -570,7 +570,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::Hide()");
+			luaL_error(L, "Invalid object in function call void wxCaret::Hide(). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->Hide();
 
@@ -588,7 +588,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCaret::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxCaret::IsOk() const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -607,7 +607,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCaret::IsVisible() const");
+			luaL_error(L, "Invalid object in function call bool wxCaret::IsVisible() const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		bool lret = self->IsVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -628,7 +628,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::Move(int, int)");
+			luaL_error(L, "Invalid object in function call void wxCaret::Move(int, int). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->Move(x, y);
 
@@ -651,7 +651,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::Move(const wxPoint &)");
+			luaL_error(L, "Invalid object in function call void wxCaret::Move(const wxPoint &). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->Move(pt);
 
@@ -680,7 +680,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::SetSize(int, int)");
+			luaL_error(L, "Invalid object in function call void wxCaret::SetSize(int, int). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->SetSize(width, height);
 
@@ -703,7 +703,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::SetSize(const wxSize &)");
+			luaL_error(L, "Invalid object in function call void wxCaret::SetSize(const wxSize &). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->SetSize(size);
 
@@ -733,7 +733,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::Show(bool)");
+			luaL_error(L, "Invalid object in function call void wxCaret::Show(bool). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->Show(show);
 
@@ -779,7 +779,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::base_Hide()");
+			luaL_error(L, "Invalid object in function call void wxCaret::base_Hide(). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->wxCaret::Hide();
 
@@ -800,7 +800,7 @@ public:
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCaret::base_Show(bool)");
+			luaL_error(L, "Invalid object in function call void wxCaret::base_Show(bool). Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
 		self->wxCaret::Show(show);
 

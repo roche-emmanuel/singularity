@@ -22,6 +22,11 @@ public:
 	wrapper_osgParticle_ParticleSystemUpdater(lua_State* L, lua_Table* dum) : osgParticle::ParticleSystemUpdater(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osgParticle_ParticleSystemUpdater(lua_State* L, lua_Table* dum, const osgParticle::ParticleSystemUpdater & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ParticleSystemUpdater(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -292,9 +297,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::Node::addParent(osg::Group * node)
 	void public_addParent(osg::Group * node) {
@@ -408,7 +410,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::public_addParent(osg::Group *)");
+			luaL_error(L, "Invalid object in function call void osg::Node::public_addParent(osg::Group *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_addParent(node);
 
@@ -427,7 +429,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::public_removeParent(osg::Group *)");
+			luaL_error(L, "Invalid object in function call void osg::Node::public_removeParent(osg::Group *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_removeParent(node);
 
@@ -446,7 +448,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenRequiringUpdateTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenRequiringUpdateTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenRequiringUpdateTraversal(num);
 
@@ -465,7 +467,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenRequiringEventTraversal(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenRequiringEventTraversal(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenRequiringEventTraversal(num);
 
@@ -484,7 +486,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenWithCullingDisabled(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenWithCullingDisabled(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenWithCullingDisabled(num);
 
@@ -503,7 +505,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenWithOccluderNodes(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Node::public_setNumChildrenWithOccluderNodes(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setNumChildrenWithOccluderNodes(num);
 
@@ -523,7 +525,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -541,7 +543,7 @@ public:
 		wrapper_osgParticle_ParticleSystemUpdater* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystemUpdater >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

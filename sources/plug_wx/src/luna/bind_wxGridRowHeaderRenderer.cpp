@@ -119,7 +119,7 @@ public:
 		wxGridRowHeaderRenderer* self=Luna< wxGridCornerHeaderRenderer >::checkSubType< wxGridRowHeaderRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid &, wxDC &, const wxString &, const wxRect &, int, int, int) const");
+			luaL_error(L, "Invalid object in function call void wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid &, wxDC &, const wxString &, const wxRect &, int, int, int) const. Got : '%s'",typeid(Luna< wxGridCornerHeaderRenderer >::check(L,1)).name());
 		}
 		self->wxGridRowHeaderRenderer::DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
 

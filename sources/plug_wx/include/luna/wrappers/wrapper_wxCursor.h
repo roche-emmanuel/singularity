@@ -25,26 +25,8 @@ public:
 	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxImage & image) : wxCursor(image), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxCursor & cursor) : wxCursor(cursor), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxCursor::GetClassInfo();
-	};
-
-	// bool wxCursor::IsOk() const
-	bool IsOk() const {
-		if(_obj.pushFunction("IsOk")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxCursor::IsOk();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -67,6 +49,26 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxCursor::GetClassInfo();
+	};
+
+	// bool wxCursor::IsOk() const
+	bool IsOk() const {
+		if(_obj.pushFunction("IsOk")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxCursor::IsOk();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:

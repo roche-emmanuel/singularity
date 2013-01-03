@@ -180,7 +180,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewSpinRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewSpinRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewSpinRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -201,7 +201,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewSpinRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewSpinRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewSpinRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -220,7 +220,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewSpinRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewSpinRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewSpinRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -240,7 +240,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewSpinRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewSpinRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewSpinRenderer::SetAlignment(align);
 
@@ -271,7 +271,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_ActivateCell(const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int, const wxMouseEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewSpinRenderer::ActivateCell(cell, model, item, col, mouseEvent);
 		lua_pushboolean(L,lret?1:0);
@@ -290,7 +290,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_HasEditorCtrl() const");
+			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_HasEditorCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewSpinRenderer::HasEditorCtrl();
 		lua_pushboolean(L,lret?1:0);
@@ -326,7 +326,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_LeftClick(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewSpinRenderer::LeftClick(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -362,7 +362,7 @@ public:
 		wxDataViewSpinRenderer* self=Luna< wxObject >::checkSubType< wxDataViewSpinRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewSpinRenderer::base_StartDrag(const wxPoint &, const wxRect &, wxDataViewModel *, const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDataViewSpinRenderer::StartDrag(cursor, cell, model, item, col);
 		lua_pushboolean(L,lret?1:0);

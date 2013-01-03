@@ -125,7 +125,7 @@ void LunaTraits< osg::KdTree::KdNode >::_bind_dtor(osg::KdTree::KdNode* obj) {
 	delete obj;
 }
 
-const char LunaTraits< osg::KdTree::KdNode >::className[] = "KdNode";
+const char LunaTraits< osg::KdTree::KdNode >::className[] = "KdTree_KdNode";
 const char LunaTraits< osg::KdTree::KdNode >::fullName[] = "osg::KdTree::KdNode";
 const char LunaTraits< osg::KdTree::KdNode >::moduleName[] = "osg";
 const char* LunaTraits< osg::KdTree::KdNode >::parents[] = {0};

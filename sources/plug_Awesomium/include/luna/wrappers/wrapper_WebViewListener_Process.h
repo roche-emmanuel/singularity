@@ -11,9 +11,22 @@
 class wrapper_WebViewListener_Process : public WebViewListener::Process, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_WebViewListener_Process() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_WebViewListener_Process(lua_State* L, lua_Table* dum) : WebViewListener::Process(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
 	void OnUnresponsive(Awesomium::WebView * caller) {
 		THROW_IF(!_obj.pushFunction("OnUnresponsive"),"No implementation for abstract function WebViewListener::Process::OnUnresponsive");
@@ -37,6 +50,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

@@ -23,6 +23,11 @@ public:
 	wrapper_wxLocale(lua_State* L, lua_Table* dum, int language, int flags = ::wxLOCALE_LOAD_DEFAULT) : wxLocale(language, flags), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxLocale(lua_State* L, lua_Table* dum, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true) : wxLocale(name, shortName, locale, bLoadDefault), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// const wxString & wxLocale::GetString(const wxString & origString, const wxString & domain = wxEmptyString) const
 	const wxString & GetString(const wxString & origString, const wxString & domain = wxEmptyString) const {
@@ -48,9 +53,6 @@ public:
 		return wxLocale::GetString(origString, origString2, n, domain);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

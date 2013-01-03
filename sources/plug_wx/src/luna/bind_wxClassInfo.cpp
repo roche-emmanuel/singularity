@@ -124,7 +124,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxClassInfo::CreateObject() const");
+			luaL_error(L, "Invalid object in function call wxObject * wxClassInfo::CreateObject() const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		wxObject * lret = self->CreateObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -145,7 +145,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetBaseClassName1() const");
+			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetBaseClassName1() const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		const wxChar * lret = self->GetBaseClassName1();
 		wxString lret_str(lret);
@@ -165,7 +165,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetBaseClassName2() const");
+			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetBaseClassName2() const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		const wxChar * lret = self->GetBaseClassName2();
 		wxString lret_str(lret);
@@ -185,7 +185,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetClassName() const");
+			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetClassName() const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		const wxChar * lret = self->GetClassName();
 		wxString lret_str(lret);
@@ -205,7 +205,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxClassInfo::GetSize() const");
+			luaL_error(L, "Invalid object in function call int wxClassInfo::GetSize() const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		int lret = self->GetSize();
 		lua_pushnumber(L,lret);
@@ -224,7 +224,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClassInfo::IsDynamic() const");
+			luaL_error(L, "Invalid object in function call bool wxClassInfo::IsDynamic() const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsDynamic();
 		lua_pushboolean(L,lret?1:0);
@@ -244,7 +244,7 @@ public:
 		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClassInfo::IsKindOf(const wxClassInfo *) const");
+			luaL_error(L, "Invalid object in function call bool wxClassInfo::IsKindOf(const wxClassInfo *) const. Got : '%s'",typeid(Luna< wxClassInfo >::check(L,1)).name());
 		}
 		bool lret = self->IsKindOf(info);
 		lua_pushboolean(L,lret?1:0);

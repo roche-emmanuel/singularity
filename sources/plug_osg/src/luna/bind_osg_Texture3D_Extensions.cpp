@@ -194,7 +194,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setupGLExtensions(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setupGLExtensions(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setupGLExtensions(contextID);
 
@@ -213,7 +213,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setTexture3DSupported(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setTexture3DSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTexture3DSupported(flag);
 
@@ -231,7 +231,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isTexture3DSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isTexture3DSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isTexture3DSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -251,7 +251,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setTexture3DFast(bool)");
+			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setTexture3DFast(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setTexture3DFast(flag);
 
@@ -269,7 +269,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isTexture3DFast() const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isTexture3DFast() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isTexture3DFast();
 		lua_pushboolean(L,lret?1:0);
@@ -289,7 +289,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setMaxTexture3DSize(int)");
+			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setMaxTexture3DSize(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMaxTexture3DSize(maxsize);
 
@@ -307,7 +307,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Texture3D::Extensions::maxTexture3DSize() const");
+			luaL_error(L, "Invalid object in function call int osg::Texture3D::Extensions::maxTexture3DSize() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->maxTexture3DSize();
 		lua_pushnumber(L,lret);
@@ -326,7 +326,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isCompressedTexImage3DSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isCompressedTexImage3DSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCompressedTexImage3DSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -345,7 +345,7 @@ public:
 		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isCompressedTexSubImage3DSupported() const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isCompressedTexSubImage3DSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isCompressedTexSubImage3DSupported();
 		lua_pushboolean(L,lret?1:0);
@@ -368,7 +368,7 @@ void LunaTraits< osg::Texture3D::Extensions >::_bind_dtor(osg::Texture3D::Extens
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Texture3D::Extensions >::className[] = "Extensions";
+const char LunaTraits< osg::Texture3D::Extensions >::className[] = "Texture3D_Extensions";
 const char LunaTraits< osg::Texture3D::Extensions >::fullName[] = "osg::Texture3D::Extensions";
 const char LunaTraits< osg::Texture3D::Extensions >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture3D::Extensions >::parents[] = {"osg.Referenced", 0};

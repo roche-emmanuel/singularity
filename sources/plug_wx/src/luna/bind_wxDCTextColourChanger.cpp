@@ -150,7 +150,7 @@ public:
 		wxDCTextColourChanger* self=(Luna< wxDCTextColourChanger >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDCTextColourChanger::Set(const wxColour &)");
+			luaL_error(L, "Invalid object in function call void wxDCTextColourChanger::Set(const wxColour &). Got : '%s'",typeid(Luna< wxDCTextColourChanger >::check(L,1)).name());
 		}
 		self->Set(col);
 

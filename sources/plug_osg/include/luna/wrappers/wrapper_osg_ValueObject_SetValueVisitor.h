@@ -19,6 +19,12 @@ public:
 		}
 	};
 	
+	wrapper_osg_ValueObject_SetValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueObject::SetValueVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
+
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
 
 	// Public virtual methods:
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
@@ -221,9 +227,6 @@ public:
 		return SetValueVisitor::apply(value);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

@@ -236,7 +236,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrix3::set(const osg::Matrix3 &)");
+			luaL_error(L, "Invalid object in function call void osg::Matrix3::set(const osg::Matrix3 &). Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		self->set(rhs);
 
@@ -263,7 +263,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrix3::set(float, float, float, float, float, float, float, float, float)");
+			luaL_error(L, "Invalid object in function call void osg::Matrix3::set(float, float, float, float, float, float, float, float, float). Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		self->set(a00, a01, a02, a10, a11, a12, a20, a21, a22);
 
@@ -290,7 +290,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float * osg::Matrix3::ptr()");
+			luaL_error(L, "Invalid object in function call float * osg::Matrix3::ptr(). Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		float * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -309,7 +309,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float * osg::Matrix3::ptr() const");
+			luaL_error(L, "Invalid object in function call const float * osg::Matrix3::ptr() const. Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		const float * lret = self->ptr();
 		lua_pushnumber(L,*lret);
@@ -337,7 +337,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Matrix3::makeIdentity()");
+			luaL_error(L, "Invalid object in function call void osg::Matrix3::makeIdentity(). Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		self->makeIdentity();
 
@@ -359,7 +359,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & osg::Matrix3::operator()(int, int)");
+			luaL_error(L, "Invalid object in function call float & osg::Matrix3::operator()(int, int). Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		float & lret = self->operator()(row, col);
 		lua_pushnumber(L,lret);
@@ -380,7 +380,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Matrix3::operator()(int, int) const");
+			luaL_error(L, "Invalid object in function call float osg::Matrix3::operator()(int, int) const. Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		float lret = self->operator()(row, col);
 		lua_pushnumber(L,lret);
@@ -409,7 +409,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float & osg::Matrix3::operator[](int)");
+			luaL_error(L, "Invalid object in function call float & osg::Matrix3::operator[](int). Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		float & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -429,7 +429,7 @@ public:
 		osg::Matrix3* self=(Luna< osg::Matrix3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osg::Matrix3::operator[](int) const");
+			luaL_error(L, "Invalid object in function call float osg::Matrix3::operator[](int) const. Got : '%s'",typeid(Luna< osg::Matrix3 >::check(L,1)).name());
 		}
 		float lret = self->operator[](i);
 		lua_pushnumber(L,lret);

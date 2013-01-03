@@ -142,7 +142,7 @@ public:
 		wxSashEvent* self=Luna< wxObject >::checkSubType< wxSashEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect wxSashEvent::GetDragRect() const");
+			luaL_error(L, "Invalid object in function call wxRect wxSashEvent::GetDragRect() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRect stack_lret = self->GetDragRect();
 		wxRect* lret = new wxRect(stack_lret);
@@ -164,7 +164,7 @@ public:
 		wxSashEvent* self=Luna< wxObject >::checkSubType< wxSashEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSashDragStatus wxSashEvent::GetDragStatus() const");
+			luaL_error(L, "Invalid object in function call wxSashDragStatus wxSashEvent::GetDragStatus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSashDragStatus lret = self->GetDragStatus();
 		lua_pushnumber(L,lret);
@@ -183,7 +183,7 @@ public:
 		wxSashEvent* self=Luna< wxObject >::checkSubType< wxSashEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSashEdgePosition wxSashEvent::GetEdge() const");
+			luaL_error(L, "Invalid object in function call wxSashEdgePosition wxSashEvent::GetEdge() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSashEdgePosition lret = self->GetEdge();
 		lua_pushnumber(L,lret);
@@ -202,7 +202,7 @@ public:
 		wxSashEvent* self=Luna< wxObject >::checkSubType< wxSashEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxSashEvent::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSashEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxSashEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -223,7 +223,7 @@ public:
 		wxSashEvent* self=Luna< wxObject >::checkSubType< wxSashEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxSashEvent::base_GetEventCategory() const");
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSashEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxEventCategory lret = self->wxSashEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

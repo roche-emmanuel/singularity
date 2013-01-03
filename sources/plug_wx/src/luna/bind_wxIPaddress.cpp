@@ -150,7 +150,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIPaddress::AnyAddress()");
+			luaL_error(L, "Invalid object in function call bool wxIPaddress::AnyAddress(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->AnyAddress();
 		lua_pushboolean(L,lret?1:0);
@@ -170,7 +170,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIPaddress::Hostname(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxIPaddress::Hostname(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Hostname(hostname);
 		lua_pushboolean(L,lret?1:0);
@@ -189,7 +189,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxIPaddress::Hostname() const");
+			luaL_error(L, "Invalid object in function call wxString wxIPaddress::Hostname() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->Hostname();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -217,7 +217,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxIPaddress::IPAddress() const");
+			luaL_error(L, "Invalid object in function call wxString wxIPaddress::IPAddress() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->IPAddress();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -236,7 +236,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIPaddress::IsLocalHost() const");
+			luaL_error(L, "Invalid object in function call bool wxIPaddress::IsLocalHost() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsLocalHost();
 		lua_pushboolean(L,lret?1:0);
@@ -255,7 +255,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIPaddress::LocalHost()");
+			luaL_error(L, "Invalid object in function call bool wxIPaddress::LocalHost(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->LocalHost();
 		lua_pushboolean(L,lret?1:0);
@@ -275,7 +275,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIPaddress::Service(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxIPaddress::Service(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Service(service);
 		lua_pushboolean(L,lret?1:0);
@@ -295,7 +295,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIPaddress::Service(unsigned short)");
+			luaL_error(L, "Invalid object in function call bool wxIPaddress::Service(unsigned short). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Service(service);
 		lua_pushboolean(L,lret?1:0);
@@ -314,7 +314,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxIPaddress::Service() const");
+			luaL_error(L, "Invalid object in function call unsigned short wxIPaddress::Service() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		unsigned short lret = self->Service();
 		lua_pushnumber(L,lret);
@@ -343,7 +343,7 @@ public:
 		wxIPaddress* self=Luna< wxObject >::checkSubType< wxIPaddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIPaddress::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIPaddress::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxIPaddress::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -182,7 +182,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAcceleratorEntry::GetCommand() const");
+			luaL_error(L, "Invalid object in function call int wxAcceleratorEntry::GetCommand() const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		int lret = self->GetCommand();
 		lua_pushnumber(L,lret);
@@ -201,7 +201,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAcceleratorEntry::GetFlags() const");
+			luaL_error(L, "Invalid object in function call int wxAcceleratorEntry::GetFlags() const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -220,7 +220,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAcceleratorEntry::GetKeyCode() const");
+			luaL_error(L, "Invalid object in function call int wxAcceleratorEntry::GetKeyCode() const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		int lret = self->GetKeyCode();
 		lua_pushnumber(L,lret);
@@ -239,7 +239,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenuItem * wxAcceleratorEntry::GetMenuItem() const");
+			luaL_error(L, "Invalid object in function call wxMenuItem * wxAcceleratorEntry::GetMenuItem() const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		wxMenuItem * lret = self->GetMenuItem();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,7 +266,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAcceleratorEntry::Set(int, int, int, wxMenuItem *)");
+			luaL_error(L, "Invalid object in function call void wxAcceleratorEntry::Set(int, int, int, wxMenuItem *). Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		self->Set(flags, keyCode, cmd, item);
 
@@ -284,7 +284,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::IsOk() const");
+			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::IsOk() const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -303,7 +303,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAcceleratorEntry::ToString() const");
+			luaL_error(L, "Invalid object in function call wxString wxAcceleratorEntry::ToString() const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -323,7 +323,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::FromString(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::FromString(const wxString &). Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		bool lret = self->FromString(str);
 		lua_pushboolean(L,lret?1:0);
@@ -349,7 +349,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::operator==(const wxAcceleratorEntry &) const");
+			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::operator==(const wxAcceleratorEntry &) const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		bool lret = self->operator==(entry);
 		lua_pushboolean(L,lret?1:0);
@@ -373,7 +373,7 @@ public:
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::operator!=(const wxAcceleratorEntry &) const");
+			luaL_error(L, "Invalid object in function call bool wxAcceleratorEntry::operator!=(const wxAcceleratorEntry &) const. Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(entry);
 		lua_pushboolean(L,lret?1:0);

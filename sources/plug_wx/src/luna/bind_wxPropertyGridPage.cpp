@@ -287,7 +287,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::Clear()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -305,7 +305,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPropertyGridPage::FitColumns()");
+			luaL_error(L, "Invalid object in function call wxSize wxPropertyGridPage::FitColumns(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSize stack_lret = self->FitColumns();
 		wxSize* lret = new wxSize(stack_lret);
@@ -327,7 +327,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertyGridPage::GetIndex() const");
+			luaL_error(L, "Invalid object in function call int wxPropertyGridPage::GetIndex() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetIndex();
 		lua_pushnumber(L,lret);
@@ -346,7 +346,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridPage::GetRoot() const");
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridPage::GetRoot() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPGProperty * lret = self->GetRoot();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -370,7 +370,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertyGridPage::GetSplitterPosition(int) const");
+			luaL_error(L, "Invalid object in function call int wxPropertyGridPage::GetSplitterPosition(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetSplitterPosition(col);
 		lua_pushnumber(L,lret);
@@ -389,7 +389,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertyGridPage::GetToolId() const");
+			luaL_error(L, "Invalid object in function call int wxPropertyGridPage::GetToolId() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->GetToolId();
 		lua_pushnumber(L,lret);
@@ -408,7 +408,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::Init()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::Init(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->Init();
 
@@ -426,7 +426,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridPage::IsHandlingAllEvents() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridPage::IsHandlingAllEvents() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsHandlingAllEvents();
 		lua_pushboolean(L,lret?1:0);
@@ -445,7 +445,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::OnShow()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::OnShow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->OnShow();
 
@@ -464,7 +464,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::RefreshProperty(wxPGProperty *)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::RefreshProperty(wxPGProperty *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->RefreshProperty(p);
 
@@ -486,7 +486,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::SetSplitterPosition(int, int)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::SetSplitterPosition(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetSplitterPosition(splitterPos, col);
 
@@ -504,7 +504,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPropertyGridPage::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPropertyGridPage::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxPropertyGridPage::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -526,7 +526,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_QueueEvent(wxEvent *)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::QueueEvent(event);
 
@@ -549,7 +549,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_AddPendingEvent(const wxEvent &)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::AddPendingEvent(event);
 
@@ -572,7 +572,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridPage::base_ProcessEvent(wxEvent &)");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridPage::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertyGridPage::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -592,7 +592,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_SetNextHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::SetNextHandler(handler);
 
@@ -611,7 +611,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_SetPreviousHandler(wxEvtHandler *)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::SetPreviousHandler(handler);
 
@@ -629,7 +629,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_Clear()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::Clear();
 
@@ -647,7 +647,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_Init()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_Init(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::Init();
 
@@ -665,7 +665,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridPage::base_IsHandlingAllEvents() const");
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridPage::base_IsHandlingAllEvents() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxPropertyGridPage::IsHandlingAllEvents();
 		lua_pushboolean(L,lret?1:0);
@@ -684,7 +684,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_OnShow()");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_OnShow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::OnShow();
 
@@ -703,7 +703,7 @@ public:
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_RefreshProperty(wxPGProperty *)");
+			luaL_error(L, "Invalid object in function call void wxPropertyGridPage::base_RefreshProperty(wxPGProperty *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxPropertyGridPage::RefreshProperty(p);
 
@@ -712,6 +712,32 @@ public:
 
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_wxPropertyGridInterface(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_wxPropertyGridInterface(lua_State *L) {
+		if (!_lg_typecheck_baseCast_wxPropertyGridInterface(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_wxPropertyGridInterface function, expected prototype:\nbaseCast()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		wxPropertyGridInterface* res = dynamic_cast<wxPropertyGridInterface*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< wxPropertyGridInterface >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -757,6 +783,7 @@ luna_RegType LunaTraits< wxPropertyGridPage >::methods[] = {
 	{"base_RefreshProperty", &luna_wrapper_wxPropertyGridPage::_bind_base_RefreshProperty},
 	{"__eq", &luna_wrapper_wxPropertyGridPage::_bind___eq},
 	{"getTable", &luna_wrapper_wxPropertyGridPage::_bind_getTable},
+	{"aswxPropertyGridInterface", &luna_wrapper_wxPropertyGridPage::_bind_baseCast_wxPropertyGridInterface},
 	{0,0}
 };
 

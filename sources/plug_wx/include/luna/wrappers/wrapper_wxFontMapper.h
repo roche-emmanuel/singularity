@@ -21,6 +21,11 @@ public:
 	
 	wrapper_wxFontMapper(lua_State* L, lua_Table* dum) : wxFontMapper(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true)
 	wxFontEncoding CharsetToEncoding(const wxString & charset, bool interactive = true) {
@@ -44,9 +49,6 @@ public:
 		return wxFontMapper::IsEncodingAvailable(encoding, facename);
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

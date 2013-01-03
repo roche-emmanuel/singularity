@@ -141,7 +141,7 @@ public:
 		wxDataViewProgressRenderer* self=Luna< wxObject >::checkSubType< wxDataViewProgressRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewProgressRenderer::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewProgressRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDataViewProgressRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -162,7 +162,7 @@ public:
 		wxDataViewProgressRenderer* self=Luna< wxObject >::checkSubType< wxDataViewProgressRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewProgressRenderer::base_GetAlignment() const");
+			luaL_error(L, "Invalid object in function call int wxDataViewProgressRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		int lret = self->wxDataViewProgressRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -181,7 +181,7 @@ public:
 		wxDataViewProgressRenderer* self=Luna< wxObject >::checkSubType< wxDataViewProgressRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewProgressRenderer::base_GetMode() const");
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewProgressRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDataViewCellMode lret = self->wxDataViewProgressRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -201,7 +201,7 @@ public:
 		wxDataViewProgressRenderer* self=Luna< wxObject >::checkSubType< wxDataViewProgressRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewProgressRenderer::base_SetAlignment(int)");
+			luaL_error(L, "Invalid object in function call void wxDataViewProgressRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->wxDataViewProgressRenderer::SetAlignment(align);
 

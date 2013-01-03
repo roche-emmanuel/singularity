@@ -375,7 +375,7 @@ function Class:isOverloaded()
 	-- find the overloads in the parent holder:
 	self._overloads = Set();
 	
-	local protection = self:isPublic() and "Public" or "Protected"
+	local protection = (self:isPublic() and "Public") or (self:isProtected() and "Protected") or "Private"
 	
 	--local list = self:isConstructor() and self:getParent():getValidPublicConstructors() 
 	--	or self:isOperator() and self:getParent():getValidPublicOperators()

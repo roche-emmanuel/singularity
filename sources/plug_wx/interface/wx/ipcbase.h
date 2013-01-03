@@ -50,6 +50,15 @@ enum wxIPCFormat
 class wxConnectionBase: public wxObject
 {
 public:
-
+	virtual const void *Request(const wxString &,size_t *,wxIPCFormat) = 0;
+	
+	virtual bool StartAdvise(const wxString &) = 0;
+	virtual bool StopAdvise(const wxString &) = 0;
+	virtual bool Disconnect(void) = 0;
+	
+protected:
+	virtual bool DoExecute(const void *,size_t,wxIPCFormat) = 0;
+	virtual bool DoPoke(const wxString &,const void *,size_t,wxIPCFormat) = 0;
+	virtual bool DoAdvise(const wxString &,const void *,size_t,wxIPCFormat) = 0;
 };
 

@@ -239,7 +239,7 @@ public:
 		wxGCDC* self=Luna< wxObject >::checkSubType< wxGCDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGCDC::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGCDC::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxGCDC::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

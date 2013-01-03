@@ -456,7 +456,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -482,7 +482,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -504,7 +504,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::DomainOperator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::DomainOperator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -523,7 +523,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -542,7 +542,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -566,7 +566,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addPointDomain(const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addPointDomain(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addPointDomain(p);
 
@@ -594,7 +594,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addLineSegmentDomain(const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addLineSegmentDomain(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addLineSegmentDomain(v1, v2);
 
@@ -627,7 +627,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addTriangleDomain(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addTriangleDomain(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addTriangleDomain(v1, v2, v3);
 
@@ -660,7 +660,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addRectangleDomain(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addRectangleDomain(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addRectangleDomain(corner, w, h);
 
@@ -683,7 +683,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addPlaneDomain(const osg::Plane &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addPlaneDomain(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addPlaneDomain(plane);
 
@@ -707,7 +707,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addSphereDomain(const osg::Vec3f &, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addSphereDomain(const osg::Vec3f &, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addSphereDomain(c, r);
 
@@ -735,7 +735,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addBoxDomain(const osg::Vec3f &, const osg::Vec3f &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addBoxDomain(const osg::Vec3f &, const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addBoxDomain(min, max);
 
@@ -767,7 +767,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addDiskDomain(const osg::Vec3f &, const osg::Vec3f &, float, float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addDiskDomain(const osg::Vec3f &, const osg::Vec3f &, float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addDiskDomain(c, n, r1, r2);
 
@@ -790,7 +790,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addDomain(const osgParticle::DomainOperator::Domain &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::addDomain(const osgParticle::DomainOperator::Domain &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addDomain(domain);
 
@@ -809,7 +809,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::DomainOperator::Domain & osgParticle::DomainOperator::getDomain(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osgParticle::DomainOperator::Domain & osgParticle::DomainOperator::getDomain(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::DomainOperator::Domain* lret = &self->getDomain(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -831,7 +831,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::removeDomain(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::removeDomain(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeDomain(i);
 
@@ -849,7 +849,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::removeAllDomains()");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::removeAllDomains(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeAllDomains();
 
@@ -867,7 +867,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgParticle::DomainOperator::getNumDomains() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgParticle::DomainOperator::getNumDomains() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumDomains();
 		lua_pushnumber(L,lret);
@@ -888,7 +888,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->operate(P, dt);
 
@@ -907,7 +907,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::beginOperate(osgParticle::Program *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->beginOperate(prg);
 
@@ -925,7 +925,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::endOperate()");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::endOperate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->endOperate();
 
@@ -944,7 +944,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::setName(name);
 
@@ -962,7 +962,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::computeDataVariance();
 
@@ -981,7 +981,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::setUserData(obj);
 
@@ -999,7 +999,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::DomainOperator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::DomainOperator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->DomainOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1020,7 +1020,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::DomainOperator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::DomainOperator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->DomainOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1053,7 +1053,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::releaseGLObjects(_arg1);
 
@@ -1073,7 +1073,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_operateParticles(osgParticle::ParticleSystem *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_operateParticles(osgParticle::ParticleSystem *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::operateParticles(ps, dt);
 
@@ -1091,7 +1091,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DomainOperator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1117,7 +1117,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::DomainOperator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->DomainOperator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1139,7 +1139,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::DomainOperator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::DomainOperator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DomainOperator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1158,7 +1158,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DomainOperator::libraryName();
 		lua_pushstring(L,lret);
@@ -1177,7 +1177,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::DomainOperator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->DomainOperator::className();
 		lua_pushstring(L,lret);
@@ -1198,7 +1198,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::operate(P, dt);
 
@@ -1217,7 +1217,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_beginOperate(osgParticle::Program *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::beginOperate(prg);
 
@@ -1235,7 +1235,7 @@ public:
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_endOperate()");
+			luaL_error(L, "Invalid object in function call void osgParticle::DomainOperator::base_endOperate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->DomainOperator::endOperate();
 

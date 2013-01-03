@@ -11,9 +11,22 @@
 class wrapper_Awesomium_UploadElement : public Awesomium::UploadElement, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_UploadElement() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_Awesomium_UploadElement(lua_State* L, lua_Table* dum) : Awesomium::UploadElement(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// bool Awesomium::UploadElement::IsFilePath() const
 	bool IsFilePath() const {
 		THROW_IF(!_obj.pushFunction("IsFilePath"),"No implementation for abstract function Awesomium::UploadElement::IsFilePath");
@@ -35,7 +48,7 @@ public:
 	// const unsigned char * Awesomium::UploadElement::bytes() const
 	const unsigned char * bytes() const {
 		THROW_IF(!_obj.pushFunction("bytes"),"No implementation for abstract function Awesomium::UploadElement::bytes");
-		return (_obj.callFunction<unsigned char*>());
+		return (unsigned char*)(_obj.callFunction<void*>());
 	};
 
 	// Awesomium::WebString Awesomium::UploadElement::file_path() const
@@ -45,6 +58,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

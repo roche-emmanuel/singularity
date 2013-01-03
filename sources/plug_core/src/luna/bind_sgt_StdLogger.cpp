@@ -178,7 +178,7 @@ public:
 		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::StdLogger::output(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->output(level, trace, msg);
 
@@ -197,7 +197,7 @@ public:
 		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_setThreadSafeRefUnref(bool)");
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StdLogger::setThreadSafeRefUnref(threadSafe);
 
@@ -218,7 +218,7 @@ public:
 		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_process(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_process(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StdLogger::process(level, trace, msg);
 
@@ -239,7 +239,7 @@ public:
 		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_output(int, std::string, std::string)");
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_output(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->StdLogger::output(level, trace, msg);
 

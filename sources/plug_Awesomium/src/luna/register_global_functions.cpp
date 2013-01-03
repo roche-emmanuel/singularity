@@ -158,11 +158,13 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
+	luna_pushModule(L,"Awesomium");
 	lua_pushcfunction(L, _bind_CopyBuffers); lua_setfield(L,-2,"CopyBuffers");
 	lua_pushcfunction(L, _bind_WriteDataPak); lua_setfield(L,-2,"WriteDataPak");
 	lua_pushcfunction(L, _bind_ToString); lua_setfield(L,-2,"ToString");
 	lua_pushcfunction(L, _bind_ToWebString); lua_setfield(L,-2,"ToWebString");
 	lua_pushcfunction(L, _bind_WSLit); lua_setfield(L,-2,"WSLit");
+	luna_popModule(L);
 }
 
 #ifdef __cplusplus

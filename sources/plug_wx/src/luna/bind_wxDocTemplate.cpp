@@ -383,7 +383,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDocument * wxDocTemplate::CreateDocument(const wxString &, long)");
+			luaL_error(L, "Invalid object in function call wxDocument * wxDocTemplate::CreateDocument(const wxString &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDocument * lret = self->CreateDocument(path, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -408,7 +408,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxView * wxDocTemplate::CreateView(wxDocument *, long)");
+			luaL_error(L, "Invalid object in function call wxView * wxDocTemplate::CreateView(wxDocument *, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxView * lret = self->CreateView(doc, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -430,7 +430,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDocTemplate::FileMatchesTemplate(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDocTemplate::FileMatchesTemplate(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->FileMatchesTemplate(path);
 		lua_pushboolean(L,lret?1:0);
@@ -449,7 +449,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDefaultExtension() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDefaultExtension() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDefaultExtension();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -468,7 +468,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDescription() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDescription() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDescription();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -487,7 +487,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDirectory() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDirectory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDirectory();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -506,7 +506,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocTemplate::GetDocClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocTemplate::GetDocClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->GetDocClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -527,7 +527,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDocManager * wxDocTemplate::GetDocumentManager() const");
+			luaL_error(L, "Invalid object in function call wxDocManager * wxDocTemplate::GetDocumentManager() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDocManager * lret = self->GetDocumentManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -548,7 +548,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDocumentName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetDocumentName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetDocumentName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -567,7 +567,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetFileFilter() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetFileFilter() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetFileFilter();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -586,7 +586,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxDocTemplate::GetFlags() const");
+			luaL_error(L, "Invalid object in function call long wxDocTemplate::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		long lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -605,7 +605,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocTemplate::GetViewClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocTemplate::GetViewClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->GetViewClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -626,7 +626,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetViewName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::GetViewName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->GetViewName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -650,7 +650,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDocTemplate::InitDocument(wxDocument *, const wxString &, long)");
+			luaL_error(L, "Invalid object in function call bool wxDocTemplate::InitDocument(wxDocument *, const wxString &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->InitDocument(doc, path, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -669,7 +669,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDocTemplate::IsVisible() const");
+			luaL_error(L, "Invalid object in function call bool wxDocTemplate::IsVisible() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->IsVisible();
 		lua_pushboolean(L,lret?1:0);
@@ -689,7 +689,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDefaultExtension(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDefaultExtension(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDefaultExtension(ext);
 
@@ -708,7 +708,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDescription(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDescription(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDescription(descr);
 
@@ -727,7 +727,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDirectory(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDirectory(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDirectory(dir);
 
@@ -746,7 +746,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDocumentManager(wxDocManager *)");
+			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetDocumentManager(wxDocManager *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetDocumentManager(manager);
 
@@ -765,7 +765,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetFileFilter(const wxString &)");
+			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetFileFilter(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFileFilter(filter);
 
@@ -784,7 +784,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetFlags(long)");
+			luaL_error(L, "Invalid object in function call void wxDocTemplate::SetFlags(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetFlags(flags);
 
@@ -802,7 +802,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocTemplate::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocTemplate::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxDocTemplate::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -827,7 +827,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDocument * wxDocTemplate::base_CreateDocument(const wxString &, long)");
+			luaL_error(L, "Invalid object in function call wxDocument * wxDocTemplate::base_CreateDocument(const wxString &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDocument * lret = self->wxDocTemplate::CreateDocument(path, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -852,7 +852,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxView * wxDocTemplate::base_CreateView(wxDocument *, long)");
+			luaL_error(L, "Invalid object in function call wxView * wxDocTemplate::base_CreateView(wxDocument *, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxView * lret = self->wxDocTemplate::CreateView(doc, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -874,7 +874,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDocTemplate::base_FileMatchesTemplate(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxDocTemplate::base_FileMatchesTemplate(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDocTemplate::FileMatchesTemplate(path);
 		lua_pushboolean(L,lret?1:0);
@@ -893,7 +893,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::base_GetDocumentName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::base_GetDocumentName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxDocTemplate::GetDocumentName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -912,7 +912,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::base_GetViewName() const");
+			luaL_error(L, "Invalid object in function call wxString wxDocTemplate::base_GetViewName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxString lret = self->wxDocTemplate::GetViewName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -936,7 +936,7 @@ public:
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDocTemplate::base_InitDocument(wxDocument *, const wxString &, long)");
+			luaL_error(L, "Invalid object in function call bool wxDocTemplate::base_InitDocument(wxDocument *, const wxString &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->wxDocTemplate::InitDocument(doc, path, flags);
 		lua_pushboolean(L,lret?1:0);

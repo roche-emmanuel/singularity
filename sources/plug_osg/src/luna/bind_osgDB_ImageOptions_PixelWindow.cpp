@@ -105,7 +105,7 @@ public:
 		osgDB::ImageOptions::PixelWindow* self=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::set(unsigned int, unsigned int, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::PixelWindow::set(unsigned int, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osgDB::ImageOptions::PixelWindow >::check(L,1)).name());
 		}
 		self->set(x, y, w, h);
 
@@ -127,7 +127,7 @@ void LunaTraits< osgDB::ImageOptions::PixelWindow >::_bind_dtor(osgDB::ImageOpti
 	delete obj;
 }
 
-const char LunaTraits< osgDB::ImageOptions::PixelWindow >::className[] = "PixelWindow";
+const char LunaTraits< osgDB::ImageOptions::PixelWindow >::className[] = "ImageOptions_PixelWindow";
 const char LunaTraits< osgDB::ImageOptions::PixelWindow >::fullName[] = "osgDB::ImageOptions::PixelWindow";
 const char LunaTraits< osgDB::ImageOptions::PixelWindow >::moduleName[] = "osgDB";
 const char* LunaTraits< osgDB::ImageOptions::PixelWindow >::parents[] = {0};

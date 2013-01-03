@@ -341,7 +341,7 @@ public:
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, int)");
+			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(bitmap, index);
 		lua_pushboolean(L,lret?1:0);
@@ -365,7 +365,7 @@ public:
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &)");
+			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -394,7 +394,7 @@ public:
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, const wxColour &)");
+			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		bool lret = self->Create(bitmap, colour);
 		lua_pushboolean(L,lret?1:0);
@@ -423,7 +423,7 @@ public:
 		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMask::base_GetClassInfo() const");
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMask::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxClassInfo * lret = self->wxMask::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

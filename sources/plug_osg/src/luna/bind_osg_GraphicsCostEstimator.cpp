@@ -208,7 +208,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::setDefaults()");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::setDefaults(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setDefaults();
 
@@ -231,7 +231,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo &)");
+			luaL_error(L, "Invalid object in function call void osg::GraphicsCostEstimator::calibrate(osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->calibrate(renderInfo);
 
@@ -250,7 +250,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Geometry *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(geometry);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -273,7 +273,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(texture);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -296,7 +296,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Program *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(program);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -319,7 +319,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateCompileCost(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateCompileCost(node);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -353,7 +353,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Geometry *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(geometry);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -376,7 +376,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Texture *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(texture);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -399,7 +399,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Program *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(program);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);
@@ -422,7 +422,7 @@ public:
 		osg::GraphicsCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node *) const");
+			luaL_error(L, "Invalid object in function call osg::CostPair osg::GraphicsCostEstimator::estimateDrawCost(const osg::Node *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::CostPair stack_lret = self->estimateDrawCost(node);
 		osg::CostPair* lret = new osg::CostPair(stack_lret);

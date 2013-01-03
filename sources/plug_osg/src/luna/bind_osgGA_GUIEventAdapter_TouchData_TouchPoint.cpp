@@ -131,7 +131,7 @@ void LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::_bind_dtor(osg
 	delete obj;
 }
 
-const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::className[] = "TouchPoint";
+const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::className[] = "GUIEventAdapter_TouchData_TouchPoint";
 const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::fullName[] = "osgGA::GUIEventAdapter::TouchData::TouchPoint";
 const char LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::moduleName[] = "osgGA";
 const char* LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::parents[] = {0};

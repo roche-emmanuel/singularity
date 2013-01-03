@@ -151,7 +151,7 @@ public:
 		wxTimerRunner* self=(Luna< wxTimerRunner >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTimerRunner::Start(int, bool)");
+			luaL_error(L, "Invalid object in function call void wxTimerRunner::Start(int, bool). Got : '%s'",typeid(Luna< wxTimerRunner >::check(L,1)).name());
 		}
 		self->Start(milli, oneShot);
 

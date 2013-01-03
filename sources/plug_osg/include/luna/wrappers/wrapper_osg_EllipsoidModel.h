@@ -22,6 +22,11 @@ public:
 	wrapper_osg_EllipsoidModel(lua_State* L, lua_Table* dum, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) : osg::EllipsoidModel(radiusEquator, radiusPolar), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_osg_EllipsoidModel(lua_State* L, lua_Table* dum, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::EllipsoidModel(et, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -128,9 +133,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::EllipsoidModel::computeCoefficients()
 	void public_computeCoefficients() {
@@ -182,7 +184,7 @@ public:
 		wrapper_osg_EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_EllipsoidModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::public_computeCoefficients()");
+			luaL_error(L, "Invalid object in function call void osg::EllipsoidModel::public_computeCoefficients(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeCoefficients();
 
@@ -202,7 +204,7 @@ public:
 		wrapper_osg_EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_EllipsoidModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -220,7 +222,7 @@ public:
 		wrapper_osg_EllipsoidModel* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_EllipsoidModel >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

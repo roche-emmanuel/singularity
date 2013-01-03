@@ -67,6 +67,13 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_textureObjectValid(lua_State *L) {
@@ -122,6 +129,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// osg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data)
+	static osg::Texture2D::SubloadCallback* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data) function, expected prototype:\nosg::Texture2D::SubloadCallback::SubloadCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Texture2D_SubloadCallback(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
@@ -145,7 +163,7 @@ public:
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->textureObjectValid(texture, state);
 		lua_pushboolean(L,lret?1:0);
@@ -174,7 +192,7 @@ public:
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture::TextureObject * lret = self->generateTextureObject(texture, state);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -205,7 +223,7 @@ public:
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::load(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::load(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->load(texture, state);
 
@@ -233,7 +251,7 @@ public:
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->subload(texture, state);
 
@@ -261,7 +279,7 @@ public:
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::Texture2D::SubloadCallback::base_textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->SubloadCallback::textureObjectValid(texture, state);
 		lua_pushboolean(L,lret?1:0);
@@ -290,7 +308,7 @@ public:
 		osg::Texture2D::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2D::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::base_generateTextureObject(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture::TextureObject * lret = self->SubloadCallback::generateTextureObject(texture, state);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -306,7 +324,7 @@ public:
 };
 
 osg::Texture2D::SubloadCallback* LunaTraits< osg::Texture2D::SubloadCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_osg_Texture2D_SubloadCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const
@@ -317,7 +335,7 @@ void LunaTraits< osg::Texture2D::SubloadCallback >::_bind_dtor(osg::Texture2D::S
 	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
-const char LunaTraits< osg::Texture2D::SubloadCallback >::className[] = "SubloadCallback";
+const char LunaTraits< osg::Texture2D::SubloadCallback >::className[] = "Texture2D_SubloadCallback";
 const char LunaTraits< osg::Texture2D::SubloadCallback >::fullName[] = "osg::Texture2D::SubloadCallback";
 const char LunaTraits< osg::Texture2D::SubloadCallback >::moduleName[] = "osg";
 const char* LunaTraits< osg::Texture2D::SubloadCallback >::parents[] = {"osg.Referenced", 0};

@@ -386,7 +386,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -412,7 +412,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -434,7 +434,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::CompositePlacer::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::CompositePlacer::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -453,7 +453,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -472,7 +472,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -493,7 +493,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::setPlacer(unsigned int, osgParticle::Placer *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::setPlacer(unsigned int, osgParticle::Placer *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setPlacer(i, p);
 
@@ -512,7 +512,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::addPlacer(osgParticle::Placer *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::addPlacer(osgParticle::Placer *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addPlacer(p);
 
@@ -531,7 +531,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::removePlacer(unsigned int)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::removePlacer(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removePlacer(i);
 
@@ -550,7 +550,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgParticle::Placer * osgParticle::CompositePlacer::getPlacer(unsigned int)");
+			luaL_error(L, "Invalid object in function call osgParticle::Placer * osgParticle::CompositePlacer::getPlacer(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgParticle::Placer * lret = self->getPlacer(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -572,7 +572,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgParticle::Placer * osgParticle::CompositePlacer::getPlacer(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const osgParticle::Placer * osgParticle::CompositePlacer::getPlacer(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osgParticle::Placer * lret = self->getPlacer(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -602,7 +602,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osgParticle::CompositePlacer::getNumPlacers() const");
+			luaL_error(L, "Invalid object in function call unsigned int osgParticle::CompositePlacer::getNumPlacers() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->getNumPlacers();
 		lua_pushnumber(L,lret);
@@ -622,7 +622,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::place(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::place(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->place(P);
 
@@ -640,7 +640,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::CompositePlacer::volume() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::CompositePlacer::volume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->volume();
 		lua_pushnumber(L,lret);
@@ -659,7 +659,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::CompositePlacer::getControlPosition() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::CompositePlacer::getControlPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->getControlPosition();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
@@ -682,7 +682,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositePlacer::setName(name);
 
@@ -700,7 +700,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositePlacer::computeDataVariance();
 
@@ -719,7 +719,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositePlacer::setUserData(obj);
 
@@ -737,7 +737,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::CompositePlacer::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::CompositePlacer::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->CompositePlacer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -758,7 +758,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::CompositePlacer::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::CompositePlacer::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->CompositePlacer::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -791,7 +791,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositePlacer::releaseGLObjects(_arg1);
 
@@ -809,7 +809,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->CompositePlacer::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -835,7 +835,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::CompositePlacer::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->CompositePlacer::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -857,7 +857,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::CompositePlacer::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::CompositePlacer::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->CompositePlacer::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -876,7 +876,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CompositePlacer::libraryName();
 		lua_pushstring(L,lret);
@@ -895,7 +895,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::CompositePlacer::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->CompositePlacer::className();
 		lua_pushstring(L,lret);
@@ -915,7 +915,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_place(osgParticle::Particle *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::CompositePlacer::base_place(osgParticle::Particle *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->CompositePlacer::place(P);
 
@@ -933,7 +933,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::CompositePlacer::base_volume() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::CompositePlacer::base_volume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->CompositePlacer::volume();
 		lua_pushnumber(L,lret);
@@ -952,7 +952,7 @@ public:
 		osgParticle::CompositePlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::CompositePlacer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::CompositePlacer::base_getControlPosition() const");
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgParticle::CompositePlacer::base_getControlPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Vec3f stack_lret = self->CompositePlacer::getControlPosition();
 		osg::Vec3f* lret = new osg::Vec3f(stack_lret);

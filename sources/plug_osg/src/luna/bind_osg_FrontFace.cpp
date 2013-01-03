@@ -414,7 +414,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -440,7 +440,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -462,7 +462,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrontFace::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::FrontFace::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -481,7 +481,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -500,7 +500,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -519,7 +519,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FrontFace::getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FrontFace::getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->getType();
 		lua_pushnumber(L,lret);
@@ -543,7 +543,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::FrontFace::compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::FrontFace::compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->compare(sa);
 		lua_pushnumber(L,lret);
@@ -563,7 +563,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::setMode(osg::FrontFace::Mode)");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::setMode(osg::FrontFace::Mode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setMode(mode);
 
@@ -581,7 +581,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::FrontFace::Mode osg::FrontFace::getMode() const");
+			luaL_error(L, "Invalid object in function call osg::FrontFace::Mode osg::FrontFace::getMode() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::FrontFace::Mode lret = self->getMode();
 		lua_pushnumber(L,lret);
@@ -605,7 +605,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(_arg1);
 
@@ -624,7 +624,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FrontFace::setName(name);
 
@@ -642,7 +642,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FrontFace::computeDataVariance();
 
@@ -661,7 +661,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FrontFace::setUserData(obj);
 
@@ -679,7 +679,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osg::FrontFace::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::FrontFace::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->FrontFace::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -700,7 +700,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::FrontFace::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::FrontFace::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->FrontFace::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -730,7 +730,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::FrontFace::base_asTexture()");
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::FrontFace::base_asTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Texture * lret = self->FrontFace::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -751,7 +751,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FrontFace::base_asTexture() const");
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::FrontFace::base_asTexture() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Texture * lret = self->FrontFace::asTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -781,7 +781,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::FrontFace::base_getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::FrontFace::base_getMember() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		unsigned int lret = self->FrontFace::getMember();
 		lua_pushnumber(L,lret);
@@ -800,7 +800,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_isTextureAttribute() const");
+			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_isTextureAttribute() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->FrontFace::isTextureAttribute();
 		lua_pushboolean(L,lret?1:0);
@@ -824,7 +824,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_getModeUsage(osg::StateAttribute::ModeUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->FrontFace::getModeUsage(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -848,7 +848,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_checkValidityOfAssociatedModes(osg::State &) const");
+			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_checkValidityOfAssociatedModes(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->FrontFace::checkValidityOfAssociatedModes(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -872,7 +872,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_compileGLObjects(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_compileGLObjects(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FrontFace::compileGLObjects(_arg1);
 
@@ -893,7 +893,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FrontFace::releaseGLObjects(_arg1);
 
@@ -911,7 +911,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->FrontFace::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -937,7 +937,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osg::FrontFace::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->FrontFace::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -959,7 +959,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osg::FrontFace::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->FrontFace::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -978,7 +978,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->FrontFace::libraryName();
 		lua_pushstring(L,lret);
@@ -997,7 +997,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osg::FrontFace::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->FrontFace::className();
 		lua_pushstring(L,lret);
@@ -1016,7 +1016,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FrontFace::base_getType() const");
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::FrontFace::base_getType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::StateAttribute::Type lret = self->FrontFace::getType();
 		lua_pushnumber(L,lret);
@@ -1040,7 +1040,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::FrontFace::base_compare(const osg::StateAttribute &) const");
+			luaL_error(L, "Invalid object in function call int osg::FrontFace::base_compare(const osg::StateAttribute &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		int lret = self->FrontFace::compare(sa);
 		lua_pushnumber(L,lret);
@@ -1064,7 +1064,7 @@ public:
 		osg::FrontFace* self=Luna< osg::Referenced >::checkSubType< osg::FrontFace >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_apply(osg::State &) const");
+			luaL_error(L, "Invalid object in function call void osg::FrontFace::base_apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->FrontFace::apply(_arg1);
 

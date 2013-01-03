@@ -21,6 +21,11 @@ public:
 	
 	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) : osgDB::FileCache(path), luna_wrapper_base(L) { register_protected_methods(L); };
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool osgDB::FileCache::isFileAppropriateForFileCache(const std::string & originalFileName) const
 	bool isFileAppropriateForFileCache(const std::string & originalFileName) const {
@@ -169,9 +174,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// osgDB::FileList * osgDB::FileCache::readFileList(const std::string & originalFileName) const
 	osgDB::FileList * public_readFileList(const std::string & originalFileName) const {
@@ -237,7 +239,7 @@ public:
 		wrapper_osgDB_FileCache* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_FileCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::FileList * osgDB::FileCache::public_readFileList(const std::string &) const");
+			luaL_error(L, "Invalid object in function call osgDB::FileList * osgDB::FileCache::public_readFileList(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgDB::FileList * lret = self->public_readFileList(originalFileName);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -259,7 +261,7 @@ public:
 		wrapper_osgDB_FileCache* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_FileCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgDB::FileCache::public_removeFileFromBlackListed(const std::string &) const");
+			luaL_error(L, "Invalid object in function call bool osgDB::FileCache::public_removeFileFromBlackListed(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->public_removeFileFromBlackListed(originalFileName);
 		lua_pushboolean(L,lret?1:0);
@@ -280,7 +282,7 @@ public:
 		wrapper_osgDB_FileCache* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_FileCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -298,7 +300,7 @@ public:
 		wrapper_osgDB_FileCache* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_FileCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

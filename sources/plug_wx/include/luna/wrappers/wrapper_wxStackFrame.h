@@ -20,6 +20,11 @@ public:
 	};
 	
 
+
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
 	// Public virtual methods:
 	// bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
 	bool GetParam(size_t n, wxString * type, wxString * name, wxString * value) const {
@@ -43,9 +48,6 @@ public:
 		return wxStackFrame::GetParamCount();
 	};
 
-
-
-	// Protected virtual methods:
 
 	// Protected non-virtual methods:
 

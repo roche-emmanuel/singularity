@@ -188,7 +188,7 @@ public:
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension &, int) const");
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension &, int) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
 		}
 		int lret = self->GetPixels(dim, direction);
 		lua_pushnumber(L,lret);
@@ -212,7 +212,7 @@ public:
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension &) const");
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension &) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
 		}
 		int lret = self->GetTenthsMM(dim);
 		lua_pushnumber(L,lret);
@@ -232,7 +232,7 @@ public:
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int) const");
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
 		}
 		int lret = self->ConvertTenthsMMToPixels(units);
 		lua_pushnumber(L,lret);
@@ -252,7 +252,7 @@ public:
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int) const");
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
 		}
 		int lret = self->ConvertPixelsToTenthsMM(pixels);
 		lua_pushnumber(L,lret);

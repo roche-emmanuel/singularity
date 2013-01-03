@@ -13,9 +13,17 @@ wx.wxDefaultValidator = wx.wxValidator();
 wx.wxDefaultDateTime = wx.wxDateTime()
 wx.wxNullFont = wx.wxFont()
 
+wx.wxBLACK = wx.wxColour(0,0,0)
+wx.wxWHITE = wx.wxColour(255,255,255)
+wx.wxRED = wx.wxColour(255,0,0)
+wx.wxGREEN = wx.wxColour(0,255,0)
+wx.wxDARK_GREEN = wx.wxColour(0,255,100)
+wx.wxBLUE = wx.wxColour(0,0,255)
+wx.wxORANGE = wx.wxColour(255,128,0)
+wx.wxPURPLE = wx.wxColour(255,0,255)
 
-wx.wxBLACK_PEN = wx.wxPen(wx.wxColour(0,0,0))
-wx.wxTRANSPARENT_PEN = wx.wxPen(wx.wxColour(255,255,255),1,wx.wxPENSTYLE_TRANSPARENT)
+wx.wxBLACK_PEN = wx.wxPen(wx.wxBLACK)
+wx.wxTRANSPARENT_PEN = wx.wxPen(wx.wxWHITE,1,wx.wxPENSTYLE_TRANSPARENT)
 
-wx.wxTRANSPARENT_BRUSH = wx.wxBrush(wx.wxColour(255,255,255),wx.wxBRUSHSTYLE_TRANSPARENT)
+wx.wxTRANSPARENT_BRUSH = wx.wxBrush(wx.wxWHITE,wx.wxBRUSHSTYLE_TRANSPARENT)
 

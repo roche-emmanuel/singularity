@@ -21,6 +21,24 @@ public:
 	
 	wrapper_osg_AudioSink(lua_State* L, lua_Table* dum) : osg::AudioSink(), luna_wrapper_base(L) { register_protected_methods(L); };
 
+private:
+	// Private virtual methods:
+	// osg::AudioSink * osg::AudioSink::cloneType() const
+	osg::AudioSink * cloneType() const {
+		THROW_IF(!_obj.pushFunction("cloneType"),"No implementation for abstract function osg::AudioSink::cloneType");
+		return (_obj.callFunction<osg::AudioSink*>());
+	};
+
+	// osg::AudioSink * osg::AudioSink::clone(const osg::CopyOp & arg1) const
+	osg::AudioSink * clone(const osg::CopyOp & arg1) const {
+		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function osg::AudioSink::clone");
+		_obj.pushArg(&arg1);
+		return (_obj.callFunction<osg::AudioSink*>());
+	};
+
+
+	// Protected virtual methods:
+public:
 	// Public virtual methods:
 	// bool osg::Object::isSameKindAs(const osg::Object * arg1) const
 	bool isSameKindAs(const osg::Object * arg1) const {
@@ -170,9 +188,6 @@ public:
 	};
 
 
-
-	// Protected virtual methods:
-
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
@@ -215,7 +230,7 @@ public:
 		wrapper_osg_AudioSink* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_signalObserversAndDelete(bool, bool) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_signalObserversAndDelete(signalDelete, doDelete);
 
@@ -233,7 +248,7 @@ public:
 		wrapper_osg_AudioSink* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_AudioSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const");
+			luaL_error(L, "Invalid object in function call void osg::Referenced::public_deleteUsingDeleteHandler() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_deleteUsingDeleteHandler();
 

@@ -169,7 +169,7 @@ public:
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View &, unsigned int, double &, double &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View &, unsigned int, double &, double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
@@ -196,7 +196,7 @@ public:
 		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View &, unsigned int, double &, double &)");
+			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View &, unsigned int, double &, double &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);

@@ -213,7 +213,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTransform2D::Transform(wxPoint2DInt *) const");
+			luaL_error(L, "Invalid object in function call void wxTransform2D::Transform(wxPoint2DInt *) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		self->Transform(pt);
 
@@ -232,7 +232,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTransform2D::Transform(wxRect2DInt *) const");
+			luaL_error(L, "Invalid object in function call void wxTransform2D::Transform(wxRect2DInt *) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		self->Transform(r);
 
@@ -255,7 +255,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::Transform(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::Transform(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxPoint2DInt stack_lret = self->Transform(pt);
 		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
@@ -282,7 +282,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::Transform(const wxRect2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::Transform(const wxRect2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxRect2DInt stack_lret = self->Transform(r);
 		wxRect2DInt* lret = new wxRect2DInt(stack_lret);
@@ -316,7 +316,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTransform2D::InverseTransform(wxPoint2DInt *) const");
+			luaL_error(L, "Invalid object in function call void wxTransform2D::InverseTransform(wxPoint2DInt *) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		self->InverseTransform(pt);
 
@@ -335,7 +335,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTransform2D::InverseTransform(wxRect2DInt *) const");
+			luaL_error(L, "Invalid object in function call void wxTransform2D::InverseTransform(wxRect2DInt *) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		self->InverseTransform(r);
 
@@ -358,7 +358,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::InverseTransform(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::InverseTransform(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxPoint2DInt stack_lret = self->InverseTransform(pt);
 		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
@@ -385,7 +385,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::InverseTransform(const wxRect2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::InverseTransform(const wxRect2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxRect2DInt stack_lret = self->InverseTransform(r);
 		wxRect2DInt* lret = new wxRect2DInt(stack_lret);
@@ -419,7 +419,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTransform2D::base_Transform(wxRect2DInt *) const");
+			luaL_error(L, "Invalid object in function call void wxTransform2D::base_Transform(wxRect2DInt *) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		self->wxTransform2D::Transform(r);
 
@@ -442,7 +442,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::base_Transform(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::base_Transform(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxPoint2DInt stack_lret = self->wxTransform2D::Transform(pt);
 		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
@@ -469,7 +469,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::base_Transform(const wxRect2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::base_Transform(const wxRect2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxRect2DInt stack_lret = self->wxTransform2D::Transform(r);
 		wxRect2DInt* lret = new wxRect2DInt(stack_lret);
@@ -502,7 +502,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTransform2D::base_InverseTransform(wxRect2DInt *) const");
+			luaL_error(L, "Invalid object in function call void wxTransform2D::base_InverseTransform(wxRect2DInt *) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		self->wxTransform2D::InverseTransform(r);
 
@@ -525,7 +525,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::base_InverseTransform(const wxPoint2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::base_InverseTransform(const wxPoint2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxPoint2DInt stack_lret = self->wxTransform2D::InverseTransform(pt);
 		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
@@ -552,7 +552,7 @@ public:
 		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::base_InverseTransform(const wxRect2DInt &) const");
+			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::base_InverseTransform(const wxRect2DInt &) const. Got : '%s'",typeid(Luna< wxTransform2D >::check(L,1)).name());
 		}
 		wxRect2DInt stack_lret = self->wxTransform2D::InverseTransform(r);
 		wxRect2DInt* lret = new wxRect2DInt(stack_lret);

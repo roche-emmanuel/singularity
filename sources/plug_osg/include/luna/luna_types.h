@@ -362,7 +362,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE >* obj);
-	typedef osg::ByteArray parent_t;
+	typedef osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > parent_t;
 	typedef osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > base_t;
 	static luna_ConverterType converters[];
 };
@@ -380,7 +380,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT >* obj);
-	typedef osg::ShortArray parent_t;
+	typedef osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > parent_t;
 	typedef osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -398,7 +398,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 >* obj);
-	typedef osg::IntArray parent_t;
+	typedef osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > parent_t;
 	typedef osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > base_t;
 	static luna_ConverterType converters[];
 };
@@ -416,7 +416,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE >* obj);
-	typedef osg::UByteArray parent_t;
+	typedef osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > parent_t;
 	typedef osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > base_t;
 	static luna_ConverterType converters[];
 };
@@ -434,7 +434,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT >* obj);
-	typedef osg::UShortArray parent_t;
+	typedef osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > parent_t;
 	typedef osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -452,7 +452,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 >* obj);
-	typedef osg::UIntArray parent_t;
+	typedef osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > parent_t;
 	typedef osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > base_t;
 	static luna_ConverterType converters[];
 };
@@ -470,7 +470,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT >* obj);
-	typedef osg::FloatArray parent_t;
+	typedef osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > parent_t;
 	typedef osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -488,7 +488,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE >* obj);
-	typedef osg::Vec4ubArray parent_t;
+	typedef osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > parent_t;
 	typedef osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > base_t;
 	static luna_ConverterType converters[];
 };
@@ -506,7 +506,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT >* obj);
-	typedef osg::Vec2sArray parent_t;
+	typedef osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > parent_t;
 	typedef osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -524,7 +524,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT >* obj);
-	typedef osg::Vec3sArray parent_t;
+	typedef osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > parent_t;
 	typedef osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -542,7 +542,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >* obj);
-	typedef osg::Vec4sArray parent_t;
+	typedef osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > parent_t;
 	typedef osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -560,7 +560,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE >* obj);
-	typedef osg::Vec2bArray parent_t;
+	typedef osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > parent_t;
 	typedef osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > base_t;
 	static luna_ConverterType converters[];
 };
@@ -578,7 +578,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE >* obj);
-	typedef osg::Vec3bArray parent_t;
+	typedef osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > parent_t;
 	typedef osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > base_t;
 	static luna_ConverterType converters[];
 };
@@ -596,7 +596,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE >* obj);
-	typedef osg::Vec4bArray parent_t;
+	typedef osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > parent_t;
 	typedef osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > base_t;
 	static luna_ConverterType converters[];
 };
@@ -614,7 +614,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A >* obj);
-	typedef osg::DoubleArray parent_t;
+	typedef osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > parent_t;
 	typedef osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > base_t;
 	static luna_ConverterType converters[];
 };
@@ -632,7 +632,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A >* obj);
-	typedef osg::Vec2dArray parent_t;
+	typedef osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > parent_t;
 	typedef osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > base_t;
 	static luna_ConverterType converters[];
 };
@@ -650,7 +650,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A >* obj);
-	typedef osg::Vec3dArray parent_t;
+	typedef osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > parent_t;
 	typedef osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > base_t;
 	static luna_ConverterType converters[];
 };
@@ -668,7 +668,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A >* obj);
-	typedef osg::Vec4dArray parent_t;
+	typedef osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > parent_t;
 	typedef osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > base_t;
 	static luna_ConverterType converters[];
 };
@@ -686,7 +686,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT >* obj);
-	typedef osg::MatrixfArray parent_t;
+	typedef osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > parent_t;
 	typedef osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > base_t;
 	static luna_ConverterType converters[];
 };
@@ -704,7 +704,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::BoundingBoxImpl< osg::Vec3f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::BoundingBoxImpl< osg::Vec3f >* obj);
-	typedef osg::BoundingBoxf parent_t;
+	typedef osg::BoundingBoxImpl< osg::Vec3f > parent_t;
 	typedef osg::BoundingBoxImpl< osg::Vec3f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -722,7 +722,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::BoundingBoxImpl< osg::Vec3d >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::BoundingBoxImpl< osg::Vec3d >* obj);
-	typedef osg::BoundingBoxd parent_t;
+	typedef osg::BoundingBoxImpl< osg::Vec3d > parent_t;
 	typedef osg::BoundingBoxImpl< osg::Vec3d > base_t;
 	static luna_ConverterType converters[];
 };
@@ -740,7 +740,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::BoundingSphereImpl< osg::Vec3f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::BoundingSphereImpl< osg::Vec3f >* obj);
-	typedef osg::BoundingSpheref parent_t;
+	typedef osg::BoundingSphereImpl< osg::Vec3f > parent_t;
 	typedef osg::BoundingSphereImpl< osg::Vec3f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -758,7 +758,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::BoundingSphereImpl< osg::Vec3d >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::BoundingSphereImpl< osg::Vec3d >* obj);
-	typedef osg::BoundingSphered parent_t;
+	typedef osg::BoundingSphereImpl< osg::Vec3d > parent_t;
 	typedef osg::BoundingSphereImpl< osg::Vec3d > base_t;
 	static luna_ConverterType converters[];
 };
@@ -776,7 +776,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osg::GLBufferObject > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osg::GLBufferObject > >* obj);
-	typedef osg::GLBufferObjectList parent_t;
+	typedef std::list< osg::ref_ptr< osg::GLBufferObject > > parent_t;
 	typedef std::list< osg::ref_ptr< osg::GLBufferObject > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -794,7 +794,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< double, double >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< double, double >* obj);
-	typedef osg::CostPair parent_t;
+	typedef std::pair< double, double > parent_t;
 	typedef std::pair< double, double > base_t;
 	static luna_ConverterType converters[];
 };
@@ -812,7 +812,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::Node > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::Node > >* obj);
-	typedef osg::NodeList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::Node > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::Node > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -830,7 +830,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::Image > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::Image > >* obj);
-	typedef osg::ImageList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::Image > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::Image > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -848,7 +848,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Node * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Node * >* obj);
-	typedef osg::NodePath parent_t;
+	typedef std::vector< osg::Node * > parent_t;
 	typedef std::vector< osg::Node * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -866,7 +866,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::NodePath >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::NodePath >* obj);
-	typedef osg::NodePathList parent_t;
+	typedef std::vector< osg::NodePath > parent_t;
 	typedef std::vector< osg::NodePath > base_t;
 	static luna_ConverterType converters[];
 };
@@ -884,7 +884,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Matrixd >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Matrixd >* obj);
-	typedef osg::MatrixList parent_t;
+	typedef std::vector< osg::Matrixd > parent_t;
 	typedef std::vector< osg::Matrixd > base_t;
 	static luna_ConverterType converters[];
 };
@@ -902,7 +902,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::MixinVector< int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::MixinVector< int >* obj);
-	typedef osg::VectorGLsizei parent_t;
+	typedef osg::MixinVector< int > parent_t;
 	typedef osg::MixinVector< int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -920,7 +920,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::MixinVector< unsigned char >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::MixinVector< unsigned char >* obj);
-	typedef osg::VectorGLubyte parent_t;
+	typedef osg::MixinVector< unsigned char > parent_t;
 	typedef osg::MixinVector< unsigned char > base_t;
 	static luna_ConverterType converters[];
 };
@@ -938,7 +938,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::MixinVector< unsigned short >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::MixinVector< unsigned short >* obj);
-	typedef osg::VectorGLushort parent_t;
+	typedef osg::MixinVector< unsigned short > parent_t;
 	typedef osg::MixinVector< unsigned short > base_t;
 	static luna_ConverterType converters[];
 };
@@ -956,7 +956,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::MixinVector< unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::MixinVector< unsigned int >* obj);
-	typedef osg::VectorGLuint parent_t;
+	typedef osg::MixinVector< unsigned int > parent_t;
 	typedef osg::MixinVector< unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -974,7 +974,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ShaderComponent * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ShaderComponent * >* obj);
-	typedef osg::ShaderComponents parent_t;
+	typedef std::vector< osg::ShaderComponent * > parent_t;
 	typedef std::vector< osg::ShaderComponent * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -992,7 +992,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ShadowVolumeOccluder >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ShadowVolumeOccluder >* obj);
-	typedef osg::ShadowVolumeOccluderList parent_t;
+	typedef std::vector< osg::ShadowVolumeOccluder > parent_t;
 	typedef std::vector< osg::ShadowVolumeOccluder > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1010,7 +1010,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< std::string >* obj);
-	typedef osg::StringValueObject parent_t;
+	typedef osg::TemplateValueObject< std::string > parent_t;
 	typedef osg::TemplateValueObject< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1028,7 +1028,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< bool >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< bool >* obj);
-	typedef osg::BoolValueObject parent_t;
+	typedef osg::TemplateValueObject< bool > parent_t;
 	typedef osg::TemplateValueObject< bool > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1046,7 +1046,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< char >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< char >* obj);
-	typedef osg::CharValueObject parent_t;
+	typedef osg::TemplateValueObject< char > parent_t;
 	typedef osg::TemplateValueObject< char > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1064,7 +1064,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< unsigned char >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< unsigned char >* obj);
-	typedef osg::UCharValueObject parent_t;
+	typedef osg::TemplateValueObject< unsigned char > parent_t;
 	typedef osg::TemplateValueObject< unsigned char > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1082,7 +1082,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< short >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< short >* obj);
-	typedef osg::ShortValueObject parent_t;
+	typedef osg::TemplateValueObject< short > parent_t;
 	typedef osg::TemplateValueObject< short > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1100,7 +1100,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< unsigned short >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< unsigned short >* obj);
-	typedef osg::UShortValueObject parent_t;
+	typedef osg::TemplateValueObject< unsigned short > parent_t;
 	typedef osg::TemplateValueObject< unsigned short > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1118,7 +1118,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< int >* obj);
-	typedef osg::IntValueObject parent_t;
+	typedef osg::TemplateValueObject< int > parent_t;
 	typedef osg::TemplateValueObject< int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1136,7 +1136,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< unsigned int >* obj);
-	typedef osg::UIntValueObject parent_t;
+	typedef osg::TemplateValueObject< unsigned int > parent_t;
 	typedef osg::TemplateValueObject< unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1154,7 +1154,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< float >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< float >* obj);
-	typedef osg::FloatValueObject parent_t;
+	typedef osg::TemplateValueObject< float > parent_t;
 	typedef osg::TemplateValueObject< float > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1172,7 +1172,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< double >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< double >* obj);
-	typedef osg::DoubleValueObject parent_t;
+	typedef osg::TemplateValueObject< double > parent_t;
 	typedef osg::TemplateValueObject< double > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1190,7 +1190,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Vec2f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Vec2f >* obj);
-	typedef osg::Vec2fValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Vec2f > parent_t;
 	typedef osg::TemplateValueObject< osg::Vec2f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1208,7 +1208,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Vec3f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Vec3f >* obj);
-	typedef osg::Vec3fValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Vec3f > parent_t;
 	typedef osg::TemplateValueObject< osg::Vec3f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1226,7 +1226,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Vec4f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Vec4f >* obj);
-	typedef osg::Vec4fValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Vec4f > parent_t;
 	typedef osg::TemplateValueObject< osg::Vec4f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1244,7 +1244,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Vec2d >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Vec2d >* obj);
-	typedef osg::Vec2dValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Vec2d > parent_t;
 	typedef osg::TemplateValueObject< osg::Vec2d > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1262,7 +1262,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Vec3d >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Vec3d >* obj);
-	typedef osg::Vec3dValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Vec3d > parent_t;
 	typedef osg::TemplateValueObject< osg::Vec3d > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1280,7 +1280,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Vec4d >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Vec4d >* obj);
-	typedef osg::Vec4dValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Vec4d > parent_t;
 	typedef osg::TemplateValueObject< osg::Vec4d > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1298,7 +1298,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Quat >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Quat >* obj);
-	typedef osg::QuatValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Quat > parent_t;
 	typedef osg::TemplateValueObject< osg::Quat > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1316,7 +1316,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Plane >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Plane >* obj);
-	typedef osg::PlaneValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Plane > parent_t;
 	typedef osg::TemplateValueObject< osg::Plane > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1334,7 +1334,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Matrixf >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Matrixf >* obj);
-	typedef osg::MatrixfValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Matrixf > parent_t;
 	typedef osg::TemplateValueObject< osg::Matrixf > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1352,7 +1352,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::TemplateValueObject< osg::Matrixd >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::TemplateValueObject< osg::Matrixd >* obj);
-	typedef osg::MatrixdValueObject parent_t;
+	typedef osg::TemplateValueObject< osg::Matrixd > parent_t;
 	typedef osg::TemplateValueObject< osg::Matrixd > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1370,7 +1370,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Vec3d >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Vec3d >* obj);
-	typedef osg::Vec3dList parent_t;
+	typedef std::vector< osg::Vec3d > parent_t;
 	typedef std::vector< osg::Vec3d > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1388,26 +1388,8 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::StateSet const * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::StateSet const * >* obj);
-	typedef osg::StateSetList parent_t;
+	typedef std::vector< osg::StateSet const * > parent_t;
 	typedef std::vector< osg::StateSet const * > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::vector< std::pair< osg::StateAttribute const *, unsigned int > > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< std::pair< osg::StateAttribute const *, unsigned int > >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< std::pair< osg::StateAttribute const *, unsigned int > >* obj);
-	typedef osg::StateAttributeUIntPairList parent_t;
-	typedef std::vector< std::pair< osg::StateAttribute const *, unsigned int > > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1514,7 +1496,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< double, osg::AnimationPath::ControlPoint >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< double, osg::AnimationPath::ControlPoint >* obj);
-	typedef osg::AnimationPath::TimeControlPointMap parent_t;
+	typedef std::map< double, osg::AnimationPath::ControlPoint > parent_t;
 	typedef std::map< double, osg::AnimationPath::ControlPoint > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1604,7 +1586,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, std::string >* obj);
-	typedef osg::ApplicationUsage::UsageMap parent_t;
+	typedef std::map< std::string, std::string > parent_t;
 	typedef std::map< std::string, std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -1658,7 +1640,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osg::ArgumentParser::ErrorSeverity >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osg::ArgumentParser::ErrorSeverity >* obj);
-	typedef osg::ArgumentParser::ErrorMessageMap parent_t;
+	typedef std::map< std::string, osg::ArgumentParser::ErrorSeverity > parent_t;
 	typedef std::map< std::string, osg::ArgumentParser::ErrorSeverity > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2000,7 +1982,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Vec3f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Vec3f >* obj);
-	typedef osg::Billboard::PositionList parent_t;
+	typedef std::vector< osg::Vec3f > parent_t;
 	typedef std::vector< osg::Vec3f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2450,7 +2432,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >* obj);
-	typedef osg::Camera::BufferAttachmentMap parent_t;
+	typedef std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > parent_t;
 	typedef std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2594,7 +2576,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::ClipPlane > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::ClipPlane > >* obj);
-	typedef osg::ClipNode::ClipPlaneList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::ClipPlane > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::ClipPlane > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2720,7 +2702,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::ShadowVolumeOccluder >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::ShadowVolumeOccluder >* obj);
-	typedef osg::CollectOccludersVisitor::ShadowVolumeOccluderSet parent_t;
+	typedef std::set< osg::ShadowVolumeOccluder > parent_t;
 	typedef std::set< osg::ShadowVolumeOccluder > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2810,7 +2792,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ConvexPlanarPolygon >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ConvexPlanarPolygon >* obj);
-	typedef osg::ConvexPlanarOccluder::HoleList parent_t;
+	typedef std::vector< osg::ConvexPlanarPolygon > parent_t;
 	typedef std::vector< osg::ConvexPlanarPolygon > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2936,7 +2918,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >* obj);
-	typedef osg::CullingSet::StateFrustumPair parent_t;
+	typedef std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > parent_t;
 	typedef std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2954,7 +2936,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::CullingSet::StateFrustumPair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::CullingSet::StateFrustumPair >* obj);
-	typedef osg::CullingSet::StateFrustumList parent_t;
+	typedef std::vector< osg::CullingSet::StateFrustumPair > parent_t;
 	typedef std::vector< osg::CullingSet::StateFrustumPair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -2990,7 +2972,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::CullingSet >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::CullingSet >* obj);
-	typedef osg::CullStack::CullingStack parent_t;
+	typedef std::vector< osg::CullingSet > parent_t;
 	typedef std::vector< osg::CullingSet > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3026,7 +3008,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< unsigned int, const osg::Referenced * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< unsigned int, const osg::Referenced * >* obj);
-	typedef osg::DeleteHandler::FrameNumberObjectPair parent_t;
+	typedef std::pair< unsigned int, const osg::Referenced * > parent_t;
 	typedef std::pair< unsigned int, const osg::Referenced * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3044,7 +3026,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::DeleteHandler::FrameNumberObjectPair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::DeleteHandler::FrameNumberObjectPair >* obj);
-	typedef osg::DeleteHandler::ObjectsToDeleteList parent_t;
+	typedef std::list< osg::DeleteHandler::FrameNumberObjectPair > parent_t;
 	typedef std::list< osg::DeleteHandler::FrameNumberObjectPair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3260,7 +3242,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osg::Vec4f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osg::Vec4f >* obj);
-	typedef osg::FragmentProgram::LocalParamList parent_t;
+	typedef std::map< unsigned int, osg::Vec4f > parent_t;
 	typedef std::map< unsigned int, osg::Vec4f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3278,7 +3260,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osg::Matrixd >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osg::Matrixd >* obj);
-	typedef osg::FragmentProgram::MatrixList parent_t;
+	typedef std::map< unsigned int, osg::Matrixd > parent_t;
 	typedef std::map< unsigned int, osg::Matrixd > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3386,7 +3368,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment >* obj);
-	typedef osg::FrameBufferObject::AttachmentMap parent_t;
+	typedef std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment > parent_t;
 	typedef std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3404,7 +3386,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< unsigned int >* obj);
-	typedef osg::FrameBufferObject::MultipleRenderingTargets parent_t;
+	typedef std::vector< unsigned int > parent_t;
 	typedef std::vector< unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3458,7 +3440,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::Drawable > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::Drawable > >* obj);
-	typedef osg::Geode::DrawableList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::Drawable > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::Drawable > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3494,7 +3476,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Geometry::ArrayData >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Geometry::ArrayData >* obj);
-	typedef osg::Geometry::ArrayDataList parent_t;
+	typedef std::vector< osg::Geometry::ArrayData > parent_t;
 	typedef std::vector< osg::Geometry::ArrayData > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3512,7 +3494,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::PrimitiveSet > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::PrimitiveSet > >* obj);
-	typedef osg::Geometry::PrimitiveSetList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::PrimitiveSet > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::PrimitiveSet > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3530,7 +3512,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Array * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Array * >* obj);
-	typedef osg::Geometry::ArrayList parent_t;
+	typedef std::vector< osg::Array * > parent_t;
 	typedef std::vector< osg::Array * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3548,7 +3530,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::DrawElements * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::DrawElements * >* obj);
-	typedef osg::Geometry::DrawElementsList parent_t;
+	typedef std::vector< osg::DrawElements * > parent_t;
 	typedef std::vector< osg::DrawElements * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3674,7 +3656,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::GraphicsContext::ScreenSettings >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::GraphicsContext::ScreenSettings >* obj);
-	typedef osg::GraphicsContext::ScreenSettingsList parent_t;
+	typedef std::vector< osg::GraphicsContext::ScreenSettings > parent_t;
 	typedef std::vector< osg::GraphicsContext::ScreenSettings > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3692,7 +3674,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::GraphicsContext * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::GraphicsContext * >* obj);
-	typedef osg::GraphicsContext::GraphicsContexts parent_t;
+	typedef std::vector< osg::GraphicsContext * > parent_t;
 	typedef std::vector< osg::GraphicsContext * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3710,7 +3692,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osg::Operation > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osg::Operation > >* obj);
-	typedef osg::GraphicsContext::GraphicsOperationQueue parent_t;
+	typedef std::list< osg::ref_ptr< osg::Operation > > parent_t;
 	typedef std::list< osg::ref_ptr< osg::Operation > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -3728,7 +3710,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::Camera * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::Camera * >* obj);
-	typedef osg::GraphicsContext::Cameras parent_t;
+	typedef std::list< osg::Camera * > parent_t;
 	typedef std::list< osg::Camera * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4286,7 +4268,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< std::string >* obj);
-	typedef osg::ImageSequence::FileNames parent_t;
+	typedef std::vector< std::string > parent_t;
 	typedef std::vector< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4304,7 +4286,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::AudioStream > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::AudioStream > >* obj);
-	typedef osg::ImageStream::AudioStreams parent_t;
+	typedef std::vector< osg::ref_ptr< osg::AudioStream > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::AudioStream > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4358,7 +4340,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::KdTree::LineSegmentIntersection >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::KdTree::LineSegmentIntersection >* obj);
-	typedef osg::KdTree::LineSegmentIntersections parent_t;
+	typedef std::vector< osg::KdTree::LineSegmentIntersection > parent_t;
 	typedef std::vector< osg::KdTree::LineSegmentIntersection > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4376,7 +4358,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::KdTree::KdNode >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::KdTree::KdNode >* obj);
-	typedef osg::KdTree::KdNodeList parent_t;
+	typedef std::vector< osg::KdTree::KdNode > parent_t;
 	typedef std::vector< osg::KdTree::KdNode > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4394,7 +4376,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::KdTree::Triangle >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::KdTree::Triangle >* obj);
-	typedef osg::KdTree::TriangleList parent_t;
+	typedef std::vector< osg::KdTree::Triangle > parent_t;
 	typedef std::vector< osg::KdTree::Triangle > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4466,7 +4448,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< double >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< double >* obj);
-	typedef osg::KdTree::LineSegmentIntersection::RatioList parent_t;
+	typedef std::vector< double > parent_t;
 	typedef std::vector< double > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4646,7 +4628,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< float, float >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< float, float >* obj);
-	typedef osg::LOD::MinMaxPair parent_t;
+	typedef std::pair< float, float > parent_t;
 	typedef std::pair< float, float > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4664,7 +4646,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::LOD::MinMaxPair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::LOD::MinMaxPair >* obj);
-	typedef osg::LOD::RangeList parent_t;
+	typedef std::vector< osg::LOD::MinMaxPair > parent_t;
 	typedef std::vector< osg::LOD::MinMaxPair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -4844,7 +4826,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Group * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Group * >* obj);
-	typedef osg::Node::ParentList parent_t;
+	typedef std::vector< osg::Group * > parent_t;
 	typedef std::vector< osg::Group * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5024,7 +5006,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::Observer * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::Observer * >* obj);
-	typedef osg::ObserverSet::Observers parent_t;
+	typedef std::set< osg::Observer * > parent_t;
 	typedef std::set< osg::Observer * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5168,7 +5150,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::OperationThread * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::OperationThread * >* obj);
-	typedef osg::OperationQueue::OperationThreads parent_t;
+	typedef std::set< osg::OperationThread * > parent_t;
 	typedef std::set< osg::OperationThread * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5204,7 +5186,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::PagedLOD::PerRangeData >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::PagedLOD::PerRangeData >* obj);
-	typedef osg::PagedLOD::PerRangeDataList parent_t;
+	typedef std::vector< osg::PagedLOD::PerRangeData > parent_t;
 	typedef std::vector< osg::PagedLOD::PerRangeData > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5384,7 +5366,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Plane >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Plane >* obj);
-	typedef osg::Polytope::PlaneList parent_t;
+	typedef std::vector< osg::Plane > parent_t;
 	typedef std::vector< osg::Plane > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5402,7 +5384,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::fast_back_stack< unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::fast_back_stack< unsigned int >* obj);
-	typedef osg::Polytope::MaskStack parent_t;
+	typedef osg::fast_back_stack< unsigned int > parent_t;
 	typedef osg::fast_back_stack< unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5582,7 +5564,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef osg::Program::AttribBindingList parent_t;
+	typedef std::map< std::string, unsigned int > parent_t;
 	typedef std::map< std::string, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5600,7 +5582,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osg::Program::ActiveVarInfo >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osg::Program::ActiveVarInfo >* obj);
-	typedef osg::Program::ActiveUniformMap parent_t;
+	typedef std::map< unsigned int, osg::Program::ActiveVarInfo > parent_t;
 	typedef std::map< unsigned int, osg::Program::ActiveVarInfo > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5618,7 +5600,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osg::Program::ActiveVarInfo >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osg::Program::ActiveVarInfo >* obj);
-	typedef osg::Program::ActiveVarInfoMap parent_t;
+	typedef std::map< std::string, osg::Program::ActiveVarInfo > parent_t;
 	typedef std::map< std::string, osg::Program::ActiveVarInfo > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5636,7 +5618,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osg::Program::UniformBlockInfo >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osg::Program::UniformBlockInfo >* obj);
-	typedef osg::Program::UniformBlockMap parent_t;
+	typedef std::map< std::string, osg::Program::UniformBlockInfo > parent_t;
 	typedef std::map< std::string, osg::Program::UniformBlockInfo > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5888,7 +5870,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::multimap< float, std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::multimap< float, std::string >* obj);
-	typedef osg::Shader::CodeInjectionMap parent_t;
+	typedef std::multimap< float, std::string > parent_t;
 	typedef std::multimap< float, std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -5978,7 +5960,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< const osg::Shader * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< const osg::Shader * >* obj);
-	typedef osg::ShaderComposer::Shaders parent_t;
+	typedef std::vector< const osg::Shader * > parent_t;
 	typedef std::vector< const osg::Shader * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6014,7 +5996,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Polytope >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Polytope >* obj);
-	typedef osg::ShadowVolumeOccluder::HoleList parent_t;
+	typedef std::vector< osg::Polytope > parent_t;
 	typedef std::vector< osg::Polytope > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6230,7 +6212,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< float >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< float >* obj);
-	typedef osg::HeightField::HeightList parent_t;
+	typedef std::vector< float > parent_t;
 	typedef std::vector< float > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6266,7 +6248,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::Shape > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::Shape > >* obj);
-	typedef osg::CompositeShape::ChildList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::Shape > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::Shape > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6356,7 +6338,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< osg::StateAttribute::Type, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< osg::StateAttribute::Type, unsigned int >* obj);
-	typedef osg::StateAttribute::TypeMemberPair parent_t;
+	typedef std::pair< osg::StateAttribute::Type, unsigned int > parent_t;
 	typedef std::pair< osg::StateAttribute::Type, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6374,7 +6356,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::StateSet * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::StateSet * >* obj);
-	typedef osg::StateAttribute::ParentList parent_t;
+	typedef std::vector< osg::StateSet * > parent_t;
 	typedef std::vector< osg::StateSet * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6428,7 +6410,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Object * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Object * >* obj);
-	typedef osg::StateSet::ParentList parent_t;
+	typedef std::vector< osg::Object * > parent_t;
 	typedef std::vector< osg::Object * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6446,7 +6428,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, unsigned int >* obj);
-	typedef osg::StateSet::ModeList parent_t;
+	typedef std::map< unsigned int, unsigned int > parent_t;
 	typedef std::map< unsigned int, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6464,7 +6446,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int >* obj);
-	typedef osg::StateSet::RefAttributePair parent_t;
+	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > parent_t;
 	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6482,7 +6464,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair >* obj);
-	typedef osg::StateSet::AttributeList parent_t;
+	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > parent_t;
 	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6500,7 +6482,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::StateSet::ModeList >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::StateSet::ModeList >* obj);
-	typedef osg::StateSet::TextureModeList parent_t;
+	typedef std::vector< osg::StateSet::ModeList > parent_t;
 	typedef std::vector< osg::StateSet::ModeList > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6518,7 +6500,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::StateSet::AttributeList >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::StateSet::AttributeList >* obj);
-	typedef osg::StateSet::TextureAttributeList parent_t;
+	typedef std::vector< osg::StateSet::AttributeList > parent_t;
 	typedef std::vector< osg::StateSet::AttributeList > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6536,7 +6518,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< osg::ref_ptr< osg::Uniform >, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< osg::ref_ptr< osg::Uniform >, unsigned int >* obj);
-	typedef osg::StateSet::RefUniformPair parent_t;
+	typedef std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > parent_t;
 	typedef std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6554,7 +6536,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osg::StateSet::RefUniformPair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osg::StateSet::RefUniformPair >* obj);
-	typedef osg::StateSet::UniformList parent_t;
+	typedef std::map< std::string, osg::StateSet::RefUniformPair > parent_t;
 	typedef std::map< std::string, osg::StateSet::RefUniformPair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6608,7 +6590,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, double >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, double >* obj);
-	typedef osg::Stats::AttributeMap parent_t;
+	typedef std::map< std::string, double > parent_t;
 	typedef std::map< std::string, double > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6626,7 +6608,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Stats::AttributeMap >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Stats::AttributeMap >* obj);
-	typedef osg::Stats::AttributeMapList parent_t;
+	typedef std::vector< osg::Stats::AttributeMap > parent_t;
 	typedef std::vector< osg::Stats::AttributeMap > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6644,7 +6626,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, bool >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, bool >* obj);
-	typedef osg::Stats::CollectMap parent_t;
+	typedef std::map< std::string, bool > parent_t;
 	typedef std::map< std::string, bool > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6752,7 +6734,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< bool >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< bool >* obj);
-	typedef osg::Switch::ValueList parent_t;
+	typedef std::vector< bool > parent_t;
 	typedef std::vector< bool > base_t;
 	static luna_ConverterType converters[];
 };
@@ -6896,7 +6878,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osg::Texture::TextureObject > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osg::Texture::TextureObject > >* obj);
-	typedef osg::Texture::TextureObjectList parent_t;
+	typedef std::list< osg::ref_ptr< osg::Texture::TextureObject > > parent_t;
 	typedef std::list< osg::ref_ptr< osg::Texture::TextureObject > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -7364,7 +7346,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< float, osg::Vec4f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< float, osg::Vec4f >* obj);
-	typedef osg::TransferFunction1D::ColorMap parent_t;
+	typedef std::map< float, osg::Vec4f > parent_t;
 	typedef std::map< float, osg::Vec4f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8300,7 +8282,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::deque< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::deque< std::string >* obj);
-	typedef osgDB::FilePathList parent_t;
+	typedef std::deque< std::string > parent_t;
 	typedef std::deque< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8318,7 +8300,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< std::string >* obj);
-	typedef osgDB::FileNameList parent_t;
+	typedef std::list< std::string > parent_t;
 	typedef std::list< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8336,7 +8318,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > >* obj);
-	typedef osgDB::ReaderWriterInfoList parent_t;
+	typedef std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > parent_t;
 	typedef std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8534,7 +8516,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< std::string >* obj);
-	typedef osgDB::FileList::FileNames parent_t;
+	typedef std::set< std::string > parent_t;
 	typedef std::set< std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8588,7 +8570,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgDB::DatabaseRevision > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::DatabaseRevision > >* obj);
-	typedef osgDB::DatabaseRevisions::DatabaseRevisionList parent_t;
+	typedef std::vector< osg::ref_ptr< osgDB::DatabaseRevision > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgDB::DatabaseRevision > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8750,7 +8732,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* obj);
-	typedef osgDB::ExternalFileWriter::ObjectsSet parent_t;
+	typedef std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > parent_t;
 	typedef std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > base_t;
 	static luna_ConverterType converters[];
 };
@@ -8804,7 +8786,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* obj);
-	typedef osgDB::FileCache::DatabaseRevisionsList parent_t;
+	typedef std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > parent_t;
 	typedef std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9110,7 +9092,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osg::ref_ptr< osg::Array > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osg::ref_ptr< osg::Array > >* obj);
-	typedef osgDB::InputStream::ArrayMap parent_t;
+	typedef std::map< unsigned int, osg::ref_ptr< osg::Array > > parent_t;
 	typedef std::map< unsigned int, osg::ref_ptr< osg::Array > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9128,7 +9110,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osg::ref_ptr< osg::Object > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osg::ref_ptr< osg::Object > >* obj);
-	typedef osgDB::InputStream::IdentifierMap parent_t;
+	typedef std::map< unsigned int, osg::ref_ptr< osg::Object > > parent_t;
 	typedef std::map< unsigned int, osg::ref_ptr< osg::Object > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9200,7 +9182,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgDB::BaseSerializer > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::BaseSerializer > >* obj);
-	typedef osgDB::ObjectWrapper::SerializerList parent_t;
+	typedef std::vector< osg::ref_ptr< osgDB::BaseSerializer > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgDB::BaseSerializer > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9218,7 +9200,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* obj);
-	typedef osgDB::ObjectWrapper::FinishedObjectReadCallbackList parent_t;
+	typedef std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9254,7 +9236,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > >* obj);
-	typedef osgDB::ObjectWrapperManager::WrapperMap parent_t;
+	typedef std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > parent_t;
 	typedef std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9272,7 +9254,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >* obj);
-	typedef osgDB::ObjectWrapperManager::CompressorMap parent_t;
+	typedef std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > parent_t;
 	typedef std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9290,7 +9272,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, osgDB::IntLookup >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, osgDB::IntLookup >* obj);
-	typedef osgDB::ObjectWrapperManager::IntLookupMap parent_t;
+	typedef std::map< std::string, osgDB::IntLookup > parent_t;
 	typedef std::map< std::string, osgDB::IntLookup > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9398,7 +9380,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< const osg::Array *, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< const osg::Array *, unsigned int >* obj);
-	typedef osgDB::OutputStream::ArrayMap parent_t;
+	typedef std::map< const osg::Array *, unsigned int > parent_t;
 	typedef std::map< const osg::Array *, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9416,7 +9398,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< const osg::Object *, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< const osg::Object *, unsigned int >* obj);
-	typedef osgDB::OutputStream::ObjectMap parent_t;
+	typedef std::map< const osg::Object *, unsigned int > parent_t;
 	typedef std::map< const osg::Object *, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9542,7 +9524,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgDB::ReaderWriter > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::ReaderWriter > >* obj);
-	typedef osgDB::Registry::ReaderWriterList parent_t;
+	typedef std::vector< osg::ref_ptr< osgDB::ReaderWriter > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgDB::ReaderWriter > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9560,7 +9542,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgDB::ImageProcessor > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::ImageProcessor > >* obj);
-	typedef osgDB::Registry::ImageProcessorList parent_t;
+	typedef std::vector< osg::ref_ptr< osgDB::ImageProcessor > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgDB::ImageProcessor > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9614,7 +9596,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< std::string, int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< std::string, int >* obj);
-	typedef osgDB::IntLookup::StringToValue parent_t;
+	typedef std::map< std::string, int > parent_t;
 	typedef std::map< std::string, int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9632,7 +9614,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< int, std::string >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< int, std::string >* obj);
-	typedef osgDB::IntLookup::ValueToString parent_t;
+	typedef std::map< int, std::string > parent_t;
 	typedef std::map< int, std::string > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9758,7 +9740,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgDB::XmlNode > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::XmlNode > >* obj);
-	typedef osgDB::XmlNode::Children parent_t;
+	typedef std::vector< osg::ref_ptr< osgDB::XmlNode > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgDB::XmlNode > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9920,7 +9902,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osg::CameraView > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::CameraView > >* obj);
-	typedef osgGA::CameraViewSwitchManipulator::CameraViewList parent_t;
+	typedef std::vector< osg::ref_ptr< osg::CameraView > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::CameraView > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -9974,7 +9956,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >* obj);
-	typedef osgGA::EventQueue::Events parent_t;
+	typedef std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > parent_t;
 	typedef std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10118,7 +10100,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* obj);
-	typedef osgGA::GUIEventAdapter::TouchData::TouchSet parent_t;
+	typedef std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > parent_t;
 	typedef std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10190,7 +10172,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* obj);
-	typedef osgGA::KeySwitchMatrixManipulator::NamedManipulator parent_t;
+	typedef std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > parent_t;
 	typedef std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10208,7 +10190,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* obj);
-	typedef osgGA::KeySwitchMatrixManipulator::KeyManipMap parent_t;
+	typedef std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > parent_t;
 	typedef std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10370,7 +10352,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osgParticle::range< float >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osgParticle::range< float >* obj);
-	typedef osgParticle::rangef parent_t;
+	typedef osgParticle::range< float > parent_t;
 	typedef osgParticle::range< float > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10388,7 +10370,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osgParticle::range< osg::Vec2f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osgParticle::range< osg::Vec2f >* obj);
-	typedef osgParticle::rangev2 parent_t;
+	typedef osgParticle::range< osg::Vec2f > parent_t;
 	typedef osgParticle::range< osg::Vec2f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10406,7 +10388,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osgParticle::range< osg::Vec3f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osgParticle::range< osg::Vec3f >* obj);
-	typedef osgParticle::rangev3 parent_t;
+	typedef osgParticle::range< osg::Vec3f > parent_t;
 	typedef osgParticle::range< osg::Vec3f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -10424,7 +10406,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osgParticle::range< osg::Vec4f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osgParticle::range< osg::Vec4f >* obj);
-	typedef osgParticle::rangev4 parent_t;
+	typedef osgParticle::range< osg::Vec4f > parent_t;
 	typedef osgParticle::range< osg::Vec4f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11054,7 +11036,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static OpenThreads::ScopedLock< OpenThreads::Mutex >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj);
-	typedef osgParticle::ParticleSystem::ScopedReadLock parent_t;
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > parent_t;
 	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11144,7 +11126,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >* obj);
-	typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap parent_t;
+	typedef std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > parent_t;
 	typedef std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11360,7 +11342,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< unsigned int, unsigned int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< unsigned int, unsigned int >* obj);
-	typedef osgText::FontResolution parent_t;
+	typedef std::pair< unsigned int, unsigned int > parent_t;
 	typedef std::pair< unsigned int, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11450,7 +11432,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgText::GlyphTexture > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgText::GlyphTexture > >* obj);
-	typedef osgText::Font::GlyphTextureList parent_t;
+	typedef std::vector< osg::ref_ptr< osgText::GlyphTexture > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgText::GlyphTexture > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11594,7 +11576,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Vec2f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Vec2f >* obj);
-	typedef osgText::Bevel::Vertices parent_t;
+	typedef std::vector< osg::Vec2f > parent_t;
 	typedef std::vector< osg::Vec2f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11630,7 +11612,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* obj);
-	typedef osgText::Text::TextureGlyphQuadMap parent_t;
+	typedef std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > parent_t;
 	typedef std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11666,7 +11648,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgText::Glyph * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgText::Glyph * >* obj);
-	typedef osgText::Text::GlyphQuads::Glyphs parent_t;
+	typedef std::vector< osgText::Glyph * > parent_t;
 	typedef std::vector< osgText::Glyph * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11684,7 +11666,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Vec4f >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Vec4f >* obj);
-	typedef osgText::Text::GlyphQuads::ColorCoords parent_t;
+	typedef std::vector< osg::Vec4f > parent_t;
 	typedef std::vector< osg::Vec4f > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11792,7 +11774,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > >* obj);
-	typedef osgUtil::DelaunayTriangulator::linelist parent_t;
+	typedef std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11918,7 +11900,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osg::UIntArray > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osg::UIntArray > >* obj);
-	typedef osgUtil::EdgeCollector::IndexArrayList parent_t;
+	typedef std::list< osg::ref_ptr< osg::UIntArray > > parent_t;
 	typedef std::list< osg::ref_ptr< osg::UIntArray > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11936,7 +11918,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less >* obj);
-	typedef osgUtil::EdgeCollector::EdgeSet parent_t;
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > parent_t;
 	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11954,7 +11936,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > >* obj);
-	typedef osgUtil::EdgeCollector::EdgeList parent_t;
+	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11972,7 +11954,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* obj);
-	typedef osgUtil::EdgeCollector::EdgeloopList parent_t;
+	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > parent_t;
 	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -11990,7 +11972,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less >* obj);
-	typedef osgUtil::EdgeCollector::PointSet parent_t;
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > parent_t;
 	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12008,7 +11990,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >* obj);
-	typedef osgUtil::EdgeCollector::PointList parent_t;
+	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12026,7 +12008,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* obj);
-	typedef osgUtil::EdgeCollector::TriangleList parent_t;
+	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > parent_t;
 	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12044,7 +12026,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* obj);
-	typedef osgUtil::EdgeCollector::TriangleSet parent_t;
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > parent_t;
 	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12062,7 +12044,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >* obj);
-	typedef osgUtil::EdgeCollector::TriangleMap parent_t;
+	typedef std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > parent_t;
 	typedef std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12242,7 +12224,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::Drawable * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::Drawable * >* obj);
-	typedef osgUtil::StateToCompile::DrawableSet parent_t;
+	typedef std::set< osg::Drawable * > parent_t;
 	typedef std::set< osg::Drawable * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12260,7 +12242,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::StateSet * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::StateSet * >* obj);
-	typedef osgUtil::StateToCompile::StateSetSet parent_t;
+	typedef std::set< osg::StateSet * > parent_t;
 	typedef std::set< osg::StateSet * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12278,7 +12260,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::Texture * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::Texture * >* obj);
-	typedef osgUtil::StateToCompile::TextureSet parent_t;
+	typedef std::set< osg::Texture * > parent_t;
 	typedef std::set< osg::Texture * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12296,7 +12278,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::Program * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::Program * >* obj);
-	typedef osgUtil::StateToCompile::ProgramSet parent_t;
+	typedef std::set< osg::Program * > parent_t;
 	typedef std::set< osg::Program * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12332,7 +12314,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::GraphicsContext * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::GraphicsContext * >* obj);
-	typedef osgUtil::IncrementalCompileOperation::ContextSet parent_t;
+	typedef std::set< osg::GraphicsContext * > parent_t;
 	typedef std::set< osg::GraphicsContext * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12350,7 +12332,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >* obj);
-	typedef osgUtil::IncrementalCompileOperation::CompileSets parent_t;
+	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > parent_t;
 	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12458,7 +12440,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > >* obj);
-	typedef osgUtil::IncrementalCompileOperation::CompileList::CompileOps parent_t;
+	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > parent_t;
 	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12512,7 +12494,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* obj);
-	typedef osgUtil::IncrementalCompileOperation::CompileSet::CompileMap parent_t;
+	typedef std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > parent_t;
 	typedef std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12584,7 +12566,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgUtil::Intersector > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::Intersector > >* obj);
-	typedef osgUtil::IntersectorGroup::Intersectors parent_t;
+	typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12656,7 +12638,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< int >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< int >* obj);
-	typedef osgUtil::Hit::VecIndexList parent_t;
+	typedef std::vector< int > parent_t;
 	typedef std::vector< int > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12728,7 +12710,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::multiset< osgUtil::LineSegmentIntersector::Intersection >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::multiset< osgUtil::LineSegmentIntersector::Intersection >* obj);
-	typedef osgUtil::LineSegmentIntersector::Intersections parent_t;
+	typedef std::multiset< osgUtil::LineSegmentIntersector::Intersection > parent_t;
 	typedef std::multiset< osgUtil::LineSegmentIntersector::Intersection > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12800,7 +12782,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::Geometry * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::Geometry * >* obj);
-	typedef osgUtil::GeometryCollector::GeometryList parent_t;
+	typedef std::set< osg::Geometry * > parent_t;
 	typedef std::set< osg::Geometry * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -12962,7 +12944,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgUtil::PlaneIntersector::Intersection >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgUtil::PlaneIntersector::Intersection >* obj);
-	typedef osgUtil::PlaneIntersector::Intersections parent_t;
+	typedef std::vector< osgUtil::PlaneIntersector::Intersection > parent_t;
 	typedef std::vector< osgUtil::PlaneIntersector::Intersection > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13016,7 +12998,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osgUtil::PolytopeIntersector::Intersection >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osgUtil::PolytopeIntersector::Intersection >* obj);
-	typedef osgUtil::PolytopeIntersector::Intersections parent_t;
+	typedef std::set< osgUtil::PolytopeIntersector::Intersection > parent_t;
 	typedef std::set< osgUtil::PolytopeIntersector::Intersection > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13070,7 +13052,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > >* obj);
-	typedef osgUtil::PositionalStateContainer::AttrMatrixPair parent_t;
+	typedef std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > parent_t;
 	typedef std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13088,7 +13070,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >* obj);
-	typedef osgUtil::PositionalStateContainer::AttrMatrixList parent_t;
+	typedef std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > parent_t;
 	typedef std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13106,7 +13088,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* obj);
-	typedef osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap parent_t;
+	typedef std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > parent_t;
 	typedef std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13178,7 +13160,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgUtil::RenderLeaf * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgUtil::RenderLeaf * >* obj);
-	typedef osgUtil::RenderBin::RenderLeafList parent_t;
+	typedef std::vector< osgUtil::RenderLeaf * > parent_t;
 	typedef std::vector< osgUtil::RenderLeaf * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13196,7 +13178,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgUtil::StateGraph * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgUtil::StateGraph * >* obj);
-	typedef osgUtil::RenderBin::StateGraphList parent_t;
+	typedef std::vector< osgUtil::StateGraph * > parent_t;
 	typedef std::vector< osgUtil::StateGraph * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13214,7 +13196,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< int, osg::ref_ptr< osgUtil::RenderBin > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< int, osg::ref_ptr< osgUtil::RenderBin > >* obj);
-	typedef osgUtil::RenderBin::RenderBinList parent_t;
+	typedef std::map< int, osg::ref_ptr< osgUtil::RenderBin > > parent_t;
 	typedef std::map< int, osg::ref_ptr< osgUtil::RenderBin > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13394,7 +13376,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< int, osg::ref_ptr< osg::StateSet > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< int, osg::ref_ptr< osg::StateSet > >* obj);
-	typedef osgUtil::ShaderGenCache::StateSetMap parent_t;
+	typedef std::map< int, osg::ref_ptr< osg::StateSet > > parent_t;
 	typedef std::map< int, osg::ref_ptr< osg::StateSet > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13502,7 +13484,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >* obj);
-	typedef osgUtil::StateGraph::ChildList parent_t;
+	typedef std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > parent_t;
 	typedef std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13520,7 +13502,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::ref_ptr< osgUtil::RenderLeaf > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::RenderLeaf > >* obj);
-	typedef osgUtil::StateGraph::LeafList parent_t;
+	typedef std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > parent_t;
 	typedef std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13556,7 +13538,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::map< unsigned int, osgUtil::Statistics::PrimitivePair >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::map< unsigned int, osgUtil::Statistics::PrimitivePair >* obj);
-	typedef osgUtil::Statistics::PrimitiveValueMap parent_t;
+	typedef std::map< unsigned int, osgUtil::Statistics::PrimitivePair > parent_t;
 	typedef std::map< unsigned int, osgUtil::Statistics::PrimitivePair > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13592,7 +13574,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::set< osg::Node * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::set< osg::Node * >* obj);
-	typedef osgUtil::StatsVisitor::NodeSet parent_t;
+	typedef std::set< osg::Node * > parent_t;
 	typedef std::set< osg::Node * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13754,7 +13736,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osgViewer::View * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osgViewer::View * >* obj);
-	typedef osgViewer::GraphicsWindow::Views parent_t;
+	typedef std::list< osgViewer::View * > parent_t;
 	typedef std::list< osgViewer::View * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13898,7 +13880,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::list< osg::ref_ptr< osgGA::GUIEventHandler > >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::list< osg::ref_ptr< osgGA::GUIEventHandler > >* obj);
-	typedef osgViewer::View::EventHandlers parent_t;
+	typedef std::list< osg::ref_ptr< osgGA::GUIEventHandler > > parent_t;
 	typedef std::list< osg::ref_ptr< osgGA::GUIEventHandler > > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13934,7 +13916,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::Camera * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::Camera * >* obj);
-	typedef osgViewer::ViewerBase::Cameras parent_t;
+	typedef std::vector< osg::Camera * > parent_t;
 	typedef std::vector< osg::Camera * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13952,7 +13934,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgViewer::GraphicsWindow * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgViewer::GraphicsWindow * >* obj);
-	typedef osgViewer::ViewerBase::Windows parent_t;
+	typedef std::vector< osgViewer::GraphicsWindow * > parent_t;
 	typedef std::vector< osgViewer::GraphicsWindow * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13970,7 +13952,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< OpenThreads::Thread * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< OpenThreads::Thread * >* obj);
-	typedef osgViewer::ViewerBase::Threads parent_t;
+	typedef std::vector< OpenThreads::Thread * > parent_t;
 	typedef std::vector< OpenThreads::Thread * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13988,7 +13970,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osg::OperationThread * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osg::OperationThread * >* obj);
-	typedef osgViewer::ViewerBase::OperationThreads parent_t;
+	typedef std::vector< osg::OperationThread * > parent_t;
 	typedef std::vector< osg::OperationThread * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -14006,7 +13988,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgViewer::Scene * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgViewer::Scene * >* obj);
-	typedef osgViewer::ViewerBase::Scenes parent_t;
+	typedef std::vector< osgViewer::Scene * > parent_t;
 	typedef std::vector< osgViewer::Scene * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -14024,7 +14006,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static std::vector< osgViewer::View * >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(std::vector< osgViewer::View * >* obj);
-	typedef osgViewer::ViewerBase::Views parent_t;
+	typedef std::vector< osgViewer::View * > parent_t;
 	typedef std::vector< osgViewer::View * > base_t;
 	static luna_ConverterType converters[];
 };
@@ -14262,6 +14244,7 @@ public:
 	typedef std::ostream base_t;
 	static luna_ConverterType converters[];
 };
+
 
 
 template<>
@@ -17012,6 +16995,1413 @@ template<>
 class LunaType< 2993706 > {
 public:
 	typedef std::ostream type;
+	
+};
+
+template<>
+class LunaType< 46527738 > {
+public:
+	typedef osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 72312551 > {
+public:
+	typedef osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 77568465 > {
+public:
+	typedef osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > type;
+	
+};
+
+template<>
+class LunaType< 76345736 > {
+public:
+	typedef osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 59968751 > {
+public:
+	typedef osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 14674410 > {
+public:
+	typedef osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > type;
+	
+};
+
+template<>
+class LunaType< 66705573 > {
+public:
+	typedef osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > type;
+	
+};
+
+template<>
+class LunaType< 40646071 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 38996958 > {
+public:
+	typedef osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 16762640 > {
+public:
+	typedef osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 18397997 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > type;
+	
+};
+
+template<>
+class LunaType< 66655983 > {
+public:
+	typedef osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 49027762 > {
+public:
+	typedef osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 75159211 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > type;
+	
+};
+
+template<>
+class LunaType< 14704447 > {
+public:
+	typedef osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 88202160 > {
+public:
+	typedef osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 18847939 > {
+public:
+	typedef osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 21777619 > {
+public:
+	typedef osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > type;
+	
+};
+
+template<>
+class LunaType< 76760649 > {
+public:
+	typedef osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > type;
+	
+};
+
+template<>
+class LunaType< 41229192 > {
+public:
+	typedef osg::BoundingBoxImpl< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 41227270 > {
+public:
+	typedef osg::BoundingBoxImpl< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 65872657 > {
+public:
+	typedef osg::BoundingSphereImpl< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 65870735 > {
+public:
+	typedef osg::BoundingSphereImpl< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 13747477 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::GLBufferObject > > type;
+	
+};
+
+template<>
+class LunaType< 95974838 > {
+public:
+	typedef std::pair< double, double > type;
+	
+};
+
+template<>
+class LunaType< 88937738 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Node > > type;
+	
+};
+
+template<>
+class LunaType< 35913554 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Image > > type;
+	
+};
+
+template<>
+class LunaType< 83725871 > {
+public:
+	typedef std::vector< osg::Node * > type;
+	
+};
+
+template<>
+class LunaType< 88076696 > {
+public:
+	typedef std::vector< osg::NodePath > type;
+	
+};
+
+template<>
+class LunaType< 70215012 > {
+public:
+	typedef std::vector< osg::Matrixd > type;
+	
+};
+
+template<>
+class LunaType< 49500314 > {
+public:
+	typedef osg::MixinVector< int > type;
+	
+};
+
+template<>
+class LunaType< 78221228 > {
+public:
+	typedef osg::MixinVector< unsigned char > type;
+	
+};
+
+template<>
+class LunaType< 37920625 > {
+public:
+	typedef osg::MixinVector< unsigned short > type;
+	
+};
+
+template<>
+class LunaType< 24387920 > {
+public:
+	typedef osg::MixinVector< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 17530095 > {
+public:
+	typedef std::vector< osg::ShaderComponent * > type;
+	
+};
+
+template<>
+class LunaType< 75920513 > {
+public:
+	typedef std::vector< osg::ShadowVolumeOccluder > type;
+	
+};
+
+template<>
+class LunaType< 80514588 > {
+public:
+	typedef osg::TemplateValueObject< std::string > type;
+	
+};
+
+template<>
+class LunaType< 18260122 > {
+public:
+	typedef osg::TemplateValueObject< bool > type;
+	
+};
+
+template<>
+class LunaType< 40013318 > {
+public:
+	typedef osg::TemplateValueObject< char > type;
+	
+};
+
+template<>
+class LunaType< 53494760 > {
+public:
+	typedef osg::TemplateValueObject< unsigned char > type;
+	
+};
+
+template<>
+class LunaType< 53475946 > {
+public:
+	typedef osg::TemplateValueObject< short > type;
+	
+};
+
+template<>
+class LunaType< 71399125 > {
+public:
+	typedef osg::TemplateValueObject< unsigned short > type;
+	
+};
+
+template<>
+class LunaType< 45736059 > {
+public:
+	typedef osg::TemplateValueObject< int > type;
+	
+};
+
+template<>
+class LunaType< 84880641 > {
+public:
+	typedef osg::TemplateValueObject< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 29941919 > {
+public:
+	typedef osg::TemplateValueObject< float > type;
+	
+};
+
+template<>
+class LunaType< 38023804 > {
+public:
+	typedef osg::TemplateValueObject< double > type;
+	
+};
+
+template<>
+class LunaType< 85635457 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec2f > type;
+	
+};
+
+template<>
+class LunaType< 85665248 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 85695039 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 85633535 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec2d > type;
+	
+};
+
+template<>
+class LunaType< 85663326 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 85693117 > {
+public:
+	typedef osg::TemplateValueObject< osg::Vec4d > type;
+	
+};
+
+template<>
+class LunaType< 45362523 > {
+public:
+	typedef osg::TemplateValueObject< osg::Quat > type;
+	
+};
+
+template<>
+class LunaType< 60958792 > {
+public:
+	typedef osg::TemplateValueObject< osg::Plane > type;
+	
+};
+
+template<>
+class LunaType< 54002088 > {
+public:
+	typedef osg::TemplateValueObject< osg::Matrixf > type;
+	
+};
+
+template<>
+class LunaType< 54000166 > {
+public:
+	typedef osg::TemplateValueObject< osg::Matrixd > type;
+	
+};
+
+template<>
+class LunaType< 30218166 > {
+public:
+	typedef std::vector< osg::Vec3d > type;
+	
+};
+
+template<>
+class LunaType< 21911421 > {
+public:
+	typedef std::vector< osg::StateSet const * > type;
+	
+};
+
+template<>
+class LunaType< 75051431 > {
+public:
+	typedef std::map< double, osg::AnimationPath::ControlPoint > type;
+	
+};
+
+template<>
+class LunaType< 29293820 > {
+public:
+	typedef std::map< std::string, std::string > type;
+	
+};
+
+template<>
+class LunaType< 56481134 > {
+public:
+	typedef std::map< std::string, osg::ArgumentParser::ErrorSeverity > type;
+	
+};
+
+template<>
+class LunaType< 30220088 > {
+public:
+	typedef std::vector< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 51751322 > {
+public:
+	typedef std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > type;
+	
+};
+
+template<>
+class LunaType< 53517213 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::ClipPlane > > type;
+	
+};
+
+template<>
+class LunaType< 28893306 > {
+public:
+	typedef std::set< osg::ShadowVolumeOccluder > type;
+	
+};
+
+template<>
+class LunaType< 35991211 > {
+public:
+	typedef std::vector< osg::ConvexPlanarPolygon > type;
+	
+};
+
+template<>
+class LunaType< 88384434 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > type;
+	
+};
+
+template<>
+class LunaType< 42640190 > {
+public:
+	typedef std::vector< osg::CullingSet::StateFrustumPair > type;
+	
+};
+
+template<>
+class LunaType< 3779006 > {
+public:
+	typedef std::vector< osg::CullingSet > type;
+	
+};
+
+template<>
+class LunaType< 62448773 > {
+public:
+	typedef std::pair< unsigned int, const osg::Referenced * > type;
+	
+};
+
+template<>
+class LunaType< 79657515 > {
+public:
+	typedef std::list< osg::DeleteHandler::FrameNumberObjectPair > type;
+	
+};
+
+template<>
+class LunaType< 83621066 > {
+public:
+	typedef std::map< unsigned int, osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 60758143 > {
+public:
+	typedef std::map< unsigned int, osg::Matrixd > type;
+	
+};
+
+template<>
+class LunaType< 33736258 > {
+public:
+	typedef std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment > type;
+	
+};
+
+template<>
+class LunaType< 27834872 > {
+public:
+	typedef std::vector< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 68126022 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Drawable > > type;
+	
+};
+
+template<>
+class LunaType< 40737742 > {
+public:
+	typedef std::vector< osg::Geometry::ArrayData > type;
+	
+};
+
+template<>
+class LunaType< 41652406 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::PrimitiveSet > > type;
+	
+};
+
+template<>
+class LunaType< 44000933 > {
+public:
+	typedef std::vector< osg::Array * > type;
+	
+};
+
+template<>
+class LunaType< 66006148 > {
+public:
+	typedef std::vector< osg::DrawElements * > type;
+	
+};
+
+template<>
+class LunaType< 51480349 > {
+public:
+	typedef std::vector< osg::GraphicsContext::ScreenSettings > type;
+	
+};
+
+template<>
+class LunaType< 81169401 > {
+public:
+	typedef std::vector< osg::GraphicsContext * > type;
+	
+};
+
+template<>
+class LunaType< 67665559 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::Operation > > type;
+	
+};
+
+template<>
+class LunaType< 29668977 > {
+public:
+	typedef std::list< osg::Camera * > type;
+	
+};
+
+template<>
+class LunaType< 95416160 > {
+public:
+	typedef std::vector< std::string > type;
+	
+};
+
+template<>
+class LunaType< 64675596 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::AudioStream > > type;
+	
+};
+
+template<>
+class LunaType< 63704215 > {
+public:
+	typedef std::vector< osg::KdTree::LineSegmentIntersection > type;
+	
+};
+
+template<>
+class LunaType< 11129999 > {
+public:
+	typedef std::vector< osg::KdTree::KdNode > type;
+	
+};
+
+template<>
+class LunaType< 95925804 > {
+public:
+	typedef std::vector< osg::KdTree::Triangle > type;
+	
+};
+
+template<>
+class LunaType< 4564820 > {
+public:
+	typedef std::vector< double > type;
+	
+};
+
+template<>
+class LunaType< 3653432 > {
+public:
+	typedef std::pair< float, float > type;
+	
+};
+
+template<>
+class LunaType< 15056692 > {
+public:
+	typedef std::vector< osg::LOD::MinMaxPair > type;
+	
+};
+
+template<>
+class LunaType< 91690910 > {
+public:
+	typedef std::vector< osg::Group * > type;
+	
+};
+
+template<>
+class LunaType< 32905741 > {
+public:
+	typedef std::set< osg::Observer * > type;
+	
+};
+
+template<>
+class LunaType< 97507829 > {
+public:
+	typedef std::set< osg::OperationThread * > type;
+	
+};
+
+template<>
+class LunaType< 912958 > {
+public:
+	typedef std::vector< osg::PagedLOD::PerRangeData > type;
+	
+};
+
+template<>
+class LunaType< 5512969 > {
+public:
+	typedef std::vector< osg::Plane > type;
+	
+};
+
+template<>
+class LunaType< 4254188 > {
+public:
+	typedef osg::fast_back_stack< unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 35507604 > {
+public:
+	typedef std::map< unsigned int, osg::Program::ActiveVarInfo > type;
+	
+};
+
+template<>
+class LunaType< 32685379 > {
+public:
+	typedef std::map< std::string, osg::Program::ActiveVarInfo > type;
+	
+};
+
+template<>
+class LunaType< 8358127 > {
+public:
+	typedef std::map< std::string, osg::Program::UniformBlockInfo > type;
+	
+};
+
+template<>
+class LunaType< 49716686 > {
+public:
+	typedef std::multimap< float, std::string > type;
+	
+};
+
+template<>
+class LunaType< 97623200 > {
+public:
+	typedef std::vector< const osg::Shader * > type;
+	
+};
+
+template<>
+class LunaType< 14490510 > {
+public:
+	typedef std::vector< osg::Polytope > type;
+	
+};
+
+template<>
+class LunaType< 77249888 > {
+public:
+	typedef std::vector< float > type;
+	
+};
+
+template<>
+class LunaType< 37696109 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::Shape > > type;
+	
+};
+
+template<>
+class LunaType< 60202548 > {
+public:
+	typedef std::pair< osg::StateAttribute::Type, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 63753525 > {
+public:
+	typedef std::vector< osg::StateSet * > type;
+	
+};
+
+template<>
+class LunaType< 57488909 > {
+public:
+	typedef std::vector< osg::Object * > type;
+	
+};
+
+template<>
+class LunaType< 50375310 > {
+public:
+	typedef std::map< unsigned int, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 36696863 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 94158825 > {
+public:
+	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
+	
+};
+
+template<>
+class LunaType< 68848182 > {
+public:
+	typedef std::vector< osg::StateSet::ModeList > type;
+	
+};
+
+template<>
+class LunaType< 27505286 > {
+public:
+	typedef std::vector< osg::StateSet::AttributeList > type;
+	
+};
+
+template<>
+class LunaType< 61531030 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 97138515 > {
+public:
+	typedef std::map< std::string, osg::StateSet::RefUniformPair > type;
+	
+};
+
+template<>
+class LunaType< 50211746 > {
+public:
+	typedef std::map< std::string, double > type;
+	
+};
+
+template<>
+class LunaType< 12653154 > {
+public:
+	typedef std::vector< osg::Stats::AttributeMap > type;
+	
+};
+
+template<>
+class LunaType< 59271773 > {
+public:
+	typedef std::map< std::string, bool > type;
+	
+};
+
+template<>
+class LunaType< 61721661 > {
+public:
+	typedef std::vector< bool > type;
+	
+};
+
+template<>
+class LunaType< 56376547 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::Texture::TextureObject > > type;
+	
+};
+
+template<>
+class LunaType< 55588956 > {
+public:
+	typedef std::map< float, osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 79889541 > {
+public:
+	typedef std::deque< std::string > type;
+	
+};
+
+template<>
+class LunaType< 69347293 > {
+public:
+	typedef std::list< std::string > type;
+	
+};
+
+template<>
+class LunaType< 14972349 > {
+public:
+	typedef std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > type;
+	
+};
+
+template<>
+class LunaType< 79134225 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::DatabaseRevision > > type;
+	
+};
+
+template<>
+class LunaType< 49100922 > {
+public:
+	typedef std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > type;
+	
+};
+
+template<>
+class LunaType< 87953072 > {
+public:
+	typedef std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > type;
+	
+};
+
+template<>
+class LunaType< 14435376 > {
+public:
+	typedef std::map< unsigned int, osg::ref_ptr< osg::Array > > type;
+	
+};
+
+template<>
+class LunaType< 22678240 > {
+public:
+	typedef std::map< unsigned int, osg::ref_ptr< osg::Object > > type;
+	
+};
+
+template<>
+class LunaType< 81767982 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::BaseSerializer > > type;
+	
+};
+
+template<>
+class LunaType< 18642457 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > type;
+	
+};
+
+template<>
+class LunaType< 75452281 > {
+public:
+	typedef std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > type;
+	
+};
+
+template<>
+class LunaType< 45885100 > {
+public:
+	typedef std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > type;
+	
+};
+
+template<>
+class LunaType< 78063648 > {
+public:
+	typedef std::map< std::string, osgDB::IntLookup > type;
+	
+};
+
+template<>
+class LunaType< 70617331 > {
+public:
+	typedef std::map< const osg::Array *, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 66769651 > {
+public:
+	typedef std::map< const osg::Object *, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 16674959 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::ReaderWriter > > type;
+	
+};
+
+template<>
+class LunaType< 34672077 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::ImageProcessor > > type;
+	
+};
+
+template<>
+class LunaType< 16309392 > {
+public:
+	typedef std::map< int, std::string > type;
+	
+};
+
+template<>
+class LunaType< 42497827 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgDB::XmlNode > > type;
+	
+};
+
+template<>
+class LunaType< 54803080 > {
+public:
+	typedef std::vector< osg::ref_ptr< osg::CameraView > > type;
+	
+};
+
+template<>
+class LunaType< 1490680 > {
+public:
+	typedef std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > type;
+	
+};
+
+template<>
+class LunaType< 7273346 > {
+public:
+	typedef std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > type;
+	
+};
+
+template<>
+class LunaType< 95430599 > {
+public:
+	typedef std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > type;
+	
+};
+
+template<>
+class LunaType< 83573716 > {
+public:
+	typedef std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > type;
+	
+};
+
+template<>
+class LunaType< 42175463 > {
+public:
+	typedef osgParticle::range< float > type;
+	
+};
+
+template<>
+class LunaType< 67760540 > {
+public:
+	typedef osgParticle::range< osg::Vec2f > type;
+	
+};
+
+template<>
+class LunaType< 67790331 > {
+public:
+	typedef osgParticle::range< osg::Vec3f > type;
+	
+};
+
+template<>
+class LunaType< 67820122 > {
+public:
+	typedef osgParticle::range< osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 84875541 > {
+public:
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
+	
+};
+
+template<>
+class LunaType< 98510513 > {
+public:
+	typedef std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > type;
+	
+};
+
+template<>
+class LunaType< 52265949 > {
+public:
+	typedef std::pair< unsigned int, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 41678074 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgText::GlyphTexture > > type;
+	
+};
+
+template<>
+class LunaType< 30190297 > {
+public:
+	typedef std::vector< osg::Vec2f > type;
+	
+};
+
+template<>
+class LunaType< 99215215 > {
+public:
+	typedef std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > type;
+	
+};
+
+template<>
+class LunaType< 57567263 > {
+public:
+	typedef std::vector< osgText::Glyph * > type;
+	
+};
+
+template<>
+class LunaType< 30249879 > {
+public:
+	typedef std::vector< osg::Vec4f > type;
+	
+};
+
+template<>
+class LunaType< 90059382 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > type;
+	
+};
+
+template<>
+class LunaType< 91716752 > {
+public:
+	typedef std::list< osg::ref_ptr< osg::UIntArray > > type;
+	
+};
+
+template<>
+class LunaType< 17405453 > {
+public:
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > type;
+	
+};
+
+template<>
+class LunaType< 57514973 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > type;
+	
+};
+
+template<>
+class LunaType< 83036857 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > type;
+	
+};
+
+template<>
+class LunaType< 14213870 > {
+public:
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > type;
+	
+};
+
+template<>
+class LunaType< 26981281 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > type;
+	
+};
+
+template<>
+class LunaType< 17460986 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > type;
+	
+};
+
+template<>
+class LunaType< 71050428 > {
+public:
+	typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > type;
+	
+};
+
+template<>
+class LunaType< 18974895 > {
+public:
+	typedef std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > type;
+	
+};
+
+template<>
+class LunaType< 76374875 > {
+public:
+	typedef std::set< osg::Drawable * > type;
+	
+};
+
+template<>
+class LunaType< 97002577 > {
+public:
+	typedef std::set< osg::StateSet * > type;
+	
+};
+
+template<>
+class LunaType< 55546203 > {
+public:
+	typedef std::set< osg::Texture * > type;
+	
+};
+
+template<>
+class LunaType< 89238351 > {
+public:
+	typedef std::set< osg::Program * > type;
+	
+};
+
+template<>
+class LunaType< 37168712 > {
+public:
+	typedef std::set< osg::GraphicsContext * > type;
+	
+};
+
+template<>
+class LunaType< 19762195 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > type;
+	
+};
+
+template<>
+class LunaType< 51869738 > {
+public:
+	typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > type;
+	
+};
+
+template<>
+class LunaType< 4029618 > {
+public:
+	typedef std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > type;
+	
+};
+
+template<>
+class LunaType< 65377831 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > type;
+	
+};
+
+template<>
+class LunaType< 92299338 > {
+public:
+	typedef std::vector< int > type;
+	
+};
+
+template<>
+class LunaType< 9645394 > {
+public:
+	typedef std::multiset< osgUtil::LineSegmentIntersector::Intersection > type;
+	
+};
+
+template<>
+class LunaType< 32154383 > {
+public:
+	typedef std::set< osg::Geometry * > type;
+	
+};
+
+template<>
+class LunaType< 22531800 > {
+public:
+	typedef std::vector< osgUtil::PlaneIntersector::Intersection > type;
+	
+};
+
+template<>
+class LunaType< 94863276 > {
+public:
+	typedef std::set< osgUtil::PolytopeIntersector::Intersection > type;
+	
+};
+
+template<>
+class LunaType< 59166565 > {
+public:
+	typedef std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > type;
+	
+};
+
+template<>
+class LunaType< 94794184 > {
+public:
+	typedef std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > type;
+	
+};
+
+template<>
+class LunaType< 88896285 > {
+public:
+	typedef std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > type;
+	
+};
+
+template<>
+class LunaType< 19090615 > {
+public:
+	typedef std::vector< osgUtil::RenderLeaf * > type;
+	
+};
+
+template<>
+class LunaType< 53124285 > {
+public:
+	typedef std::vector< osgUtil::StateGraph * > type;
+	
+};
+
+template<>
+class LunaType< 85481090 > {
+public:
+	typedef std::map< int, osg::ref_ptr< osgUtil::RenderBin > > type;
+	
+};
+
+template<>
+class LunaType< 83064258 > {
+public:
+	typedef std::map< int, osg::ref_ptr< osg::StateSet > > type;
+	
+};
+
+template<>
+class LunaType< 4476781 > {
+public:
+	typedef std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > type;
+	
+};
+
+template<>
+class LunaType< 49937795 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > type;
+	
+};
+
+template<>
+class LunaType< 14759504 > {
+public:
+	typedef std::map< unsigned int, osgUtil::Statistics::PrimitivePair > type;
+	
+};
+
+template<>
+class LunaType< 73927809 > {
+public:
+	typedef std::set< osg::Node * > type;
+	
+};
+
+template<>
+class LunaType< 70560566 > {
+public:
+	typedef std::list< osgViewer::View * > type;
+	
+};
+
+template<>
+class LunaType< 69446139 > {
+public:
+	typedef std::list< osg::ref_ptr< osgGA::GUIEventHandler > > type;
+	
+};
+
+template<>
+class LunaType< 26989213 > {
+public:
+	typedef std::vector< osg::Camera * > type;
+	
+};
+
+template<>
+class LunaType< 20911347 > {
+public:
+	typedef std::vector< osgViewer::GraphicsWindow * > type;
+	
+};
+
+template<>
+class LunaType< 9185441 > {
+public:
+	typedef std::vector< OpenThreads::Thread * > type;
+	
+};
+
+template<>
+class LunaType< 51846713 > {
+public:
+	typedef std::vector< osg::OperationThread * > type;
+	
+};
+
+template<>
+class LunaType< 36779322 > {
+public:
+	typedef std::vector< osgViewer::Scene * > type;
+	
+};
+
+template<>
+class LunaType< 21902908 > {
+public:
+	typedef std::vector< osgViewer::View * > type;
 	
 };
 

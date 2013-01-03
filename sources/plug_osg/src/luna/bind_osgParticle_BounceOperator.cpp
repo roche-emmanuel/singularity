@@ -374,7 +374,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -400,7 +400,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -422,7 +422,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::BounceOperator::isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::BounceOperator::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -441,7 +441,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -460,7 +460,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -480,7 +480,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::setFriction(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::setFriction(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setFriction(f);
 
@@ -498,7 +498,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::BounceOperator::getFriction() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::BounceOperator::getFriction() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getFriction();
 		lua_pushnumber(L,lret);
@@ -518,7 +518,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::setResilience(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::setResilience(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setResilience(r);
 
@@ -536,7 +536,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::BounceOperator::getResilience() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::BounceOperator::getResilience() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getResilience();
 		lua_pushnumber(L,lret);
@@ -556,7 +556,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::setCutoff(float)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::setCutoff(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCutoff(v);
 
@@ -574,7 +574,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgParticle::BounceOperator::getCutoff() const");
+			luaL_error(L, "Invalid object in function call float osgParticle::BounceOperator::getCutoff() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		float lret = self->getCutoff();
 		lua_pushnumber(L,lret);
@@ -594,7 +594,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_setName(const std::string &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_setName(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::setName(name);
 
@@ -612,7 +612,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_computeDataVariance()");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_computeDataVariance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::computeDataVariance();
 
@@ -631,7 +631,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_setUserData(osg::Referenced *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_setUserData(osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::setUserData(obj);
 
@@ -649,7 +649,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::BounceOperator::base_getUserData()");
+			luaL_error(L, "Invalid object in function call osg::Referenced * osgParticle::BounceOperator::base_getUserData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Referenced * lret = self->BounceOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -670,7 +670,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::BounceOperator::base_getUserData() const");
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osgParticle::BounceOperator::base_getUserData() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const osg::Referenced * lret = self->BounceOperator::getUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -703,7 +703,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_releaseGLObjects(osg::State *) const");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::releaseGLObjects(_arg1);
 
@@ -723,7 +723,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_operateParticles(osgParticle::ParticleSystem *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_operateParticles(osgParticle::ParticleSystem *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::operateParticles(ps, dt);
 
@@ -743,7 +743,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_operate(osgParticle::Particle *, double)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_operate(osgParticle::Particle *, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::operate(P, dt);
 
@@ -762,7 +762,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_beginOperate(osgParticle::Program *)");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_beginOperate(osgParticle::Program *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::beginOperate(prg);
 
@@ -780,7 +780,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_endOperate()");
+			luaL_error(L, "Invalid object in function call void osgParticle::BounceOperator::base_endOperate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->BounceOperator::endOperate();
 
@@ -798,7 +798,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::base_cloneType() const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->BounceOperator::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -824,7 +824,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::base_clone(const osg::CopyOp &) const");
+			luaL_error(L, "Invalid object in function call osg::Object * osgParticle::BounceOperator::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::Object * lret = self->BounceOperator::clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -846,7 +846,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgParticle::BounceOperator::base_isSameKindAs(const osg::Object *) const");
+			luaL_error(L, "Invalid object in function call bool osgParticle::BounceOperator::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->BounceOperator::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -865,7 +865,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::base_libraryName() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BounceOperator::libraryName();
 		lua_pushstring(L,lret);
@@ -884,7 +884,7 @@ public:
 		osgParticle::BounceOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::BounceOperator >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::base_className() const");
+			luaL_error(L, "Invalid object in function call const char * osgParticle::BounceOperator::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		const char * lret = self->BounceOperator::className();
 		lua_pushstring(L,lret);

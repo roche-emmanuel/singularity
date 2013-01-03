@@ -11,9 +11,22 @@
 class wrapper_Awesomium_WebCore : public Awesomium::WebCore, public luna_wrapper_base {
 
 public:
+		
+
+	~wrapper_Awesomium_WebCore() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
 	
+	wrapper_Awesomium_WebCore(lua_State* L, lua_Table* dum) : Awesomium::WebCore(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
+	// Private virtual methods:
+
+	// Protected virtual methods:
+
+	// Public virtual methods:
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	Awesomium::WebSession * CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) {
 		THROW_IF(!_obj.pushFunction("CreateWebSession"),"No implementation for abstract function Awesomium::WebCore::CreateWebSession");
@@ -71,6 +84,14 @@ public:
 	};
 
 
+	// Protected non-virtual methods:
+
+	// Protected non-virtual checkers:
+
+	// Protected non-virtual function binds:
+
+	void register_protected_methods(lua_State* L) {
+	};
 
 
 };

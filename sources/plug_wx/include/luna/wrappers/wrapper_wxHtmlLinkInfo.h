@@ -22,17 +22,8 @@ public:
 	wrapper_wxHtmlLinkInfo(lua_State* L, lua_Table* dum) : wxHtmlLinkInfo(), luna_wrapper_base(L) { register_protected_methods(L); };
 	wrapper_wxHtmlLinkInfo(lua_State* L, lua_Table* dum, const wxString & href, const wxString & target = wxEmptyString) : wxHtmlLinkInfo(href, target), luna_wrapper_base(L) { register_protected_methods(L); };
 
-	// Public virtual methods:
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
 
-		return wxHtmlLinkInfo::GetClassInfo();
-	};
-
-
+	// Private virtual methods:
 protected:
 	// Protected virtual methods:
 	// wxObjectRefData * wxObject::CreateRefData() const
@@ -55,6 +46,17 @@ protected:
 	};
 
 public:
+	// Public virtual methods:
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxHtmlLinkInfo::GetClassInfo();
+	};
+
+
 	// Protected non-virtual methods:
 
 	// Protected non-virtual checkers:
