@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxZipEntry() {
+		logDEBUG3("Calling delete function for wrapper wxZipEntry");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

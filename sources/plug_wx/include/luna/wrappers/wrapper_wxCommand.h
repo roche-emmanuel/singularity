@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCommand() {
+		logDEBUG3("Calling delete function for wrapper wxCommand");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

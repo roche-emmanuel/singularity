@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_ReflectionMapGenerator() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_ReflectionMapGenerator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

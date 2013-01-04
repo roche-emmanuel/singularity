@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_EventQueue() {
+		logDEBUG3("Calling delete function for wrapper osgGA_EventQueue");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

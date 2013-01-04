@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_Font_FontImplementation() {
+		logDEBUG3("Calling delete function for wrapper osgText_Font_FontImplementation");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

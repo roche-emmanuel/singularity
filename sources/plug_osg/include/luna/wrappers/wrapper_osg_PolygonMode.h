@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_PolygonMode() {
+		logDEBUG3("Calling delete function for wrapper osg_PolygonMode");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

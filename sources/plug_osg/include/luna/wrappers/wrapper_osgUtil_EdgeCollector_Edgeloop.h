@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_EdgeCollector_Edgeloop() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_EdgeCollector_Edgeloop");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

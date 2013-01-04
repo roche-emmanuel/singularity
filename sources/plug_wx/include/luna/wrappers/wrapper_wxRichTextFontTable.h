@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextFontTable() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextFontTable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

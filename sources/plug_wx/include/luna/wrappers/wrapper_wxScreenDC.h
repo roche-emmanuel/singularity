@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxScreenDC() {
+		logDEBUG3("Calling delete function for wrapper wxScreenDC");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ShadeModel() {
+		logDEBUG3("Calling delete function for wrapper osg_ShadeModel");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

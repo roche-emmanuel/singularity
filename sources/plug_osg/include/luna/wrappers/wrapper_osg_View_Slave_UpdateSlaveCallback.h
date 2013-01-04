@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_View_Slave_UpdateSlaveCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_View_Slave_UpdateSlaveCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

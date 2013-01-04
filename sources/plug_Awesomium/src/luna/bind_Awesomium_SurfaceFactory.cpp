@@ -137,7 +137,7 @@ public:
 		Awesomium::SurfaceFactory* self=(Luna< Awesomium::SurfaceFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::SurfaceFactory::CreateSurface(Awesomium::WebView *, int, int)");
+			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::SurfaceFactory::CreateSurface(Awesomium::WebView *, int, int). Got : '%s'",typeid(Luna< Awesomium::SurfaceFactory >::check(L,1)).name());
 		}
 		Awesomium::Surface * lret = self->CreateSurface(view, width, height);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,7 +159,7 @@ public:
 		Awesomium::SurfaceFactory* self=(Luna< Awesomium::SurfaceFactory >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::SurfaceFactory::DestroySurface(Awesomium::Surface *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::SurfaceFactory::DestroySurface(Awesomium::Surface *). Got : '%s'",typeid(Luna< Awesomium::SurfaceFactory >::check(L,1)).name());
 		}
 		self->DestroySurface(surface);
 

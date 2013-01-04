@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxThreadHelper() {
+		logDEBUG3("Calling delete function for wrapper wxThreadHelper");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

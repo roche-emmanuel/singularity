@@ -216,7 +216,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::IsValid() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::IsValid() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -235,7 +235,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::IsEmpty() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -254,7 +254,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::spec() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::spec() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->spec();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -276,7 +276,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::scheme() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::scheme() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->scheme();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -298,7 +298,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::username() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::username() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->username();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -320,7 +320,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::password() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::password() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->password();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -342,7 +342,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::host() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::host() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->host();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -364,7 +364,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::port() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::port() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->port();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -386,7 +386,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::path() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::path() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->path();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -408,7 +408,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::query() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::query() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->query();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -430,7 +430,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::anchor() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::anchor() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->anchor();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -452,7 +452,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::filename() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::filename() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->filename();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -481,7 +481,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::operator==(const Awesomium::WebURL &) const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::operator==(const Awesomium::WebURL &) const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		bool lret = self->operator==(other);
 		lua_pushboolean(L,lret?1:0);
@@ -505,7 +505,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::operator!=(const Awesomium::WebURL &) const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::operator!=(const Awesomium::WebURL &) const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		bool lret = self->operator!=(other);
 		lua_pushboolean(L,lret?1:0);
@@ -529,7 +529,7 @@ public:
 		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::operator<(const Awesomium::WebURL &) const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebURL::operator<(const Awesomium::WebURL &) const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
 		bool lret = self->operator<(other);
 		lua_pushboolean(L,lret?1:0);

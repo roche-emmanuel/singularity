@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSearchCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxSearchCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

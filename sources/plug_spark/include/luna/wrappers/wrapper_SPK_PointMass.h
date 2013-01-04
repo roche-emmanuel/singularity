@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_PointMass() {
+		logDEBUG3("Calling delete function for wrapper SPK_PointMass");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

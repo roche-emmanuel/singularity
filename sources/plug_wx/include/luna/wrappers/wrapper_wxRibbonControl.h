@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRibbonControl() {
+		logDEBUG3("Calling delete function for wrapper wxRibbonControl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

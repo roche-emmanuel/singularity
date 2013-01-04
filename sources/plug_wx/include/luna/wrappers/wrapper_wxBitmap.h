@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxBitmap() {
+		logDEBUG3("Calling delete function for wrapper wxBitmap");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

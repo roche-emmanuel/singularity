@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_ToggleSyncToVBlankHandler() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_ToggleSyncToVBlankHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

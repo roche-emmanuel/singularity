@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ClipPlane() {
+		logDEBUG3("Calling delete function for wrapper osg_ClipPlane");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

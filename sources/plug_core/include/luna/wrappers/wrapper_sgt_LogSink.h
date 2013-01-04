@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgt_LogSink() {
+		logDEBUG3("Calling delete function for wrapper sgt_LogSink");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

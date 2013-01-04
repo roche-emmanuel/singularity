@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TexGenNode() {
+		logDEBUG3("Calling delete function for wrapper osg_TexGenNode");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

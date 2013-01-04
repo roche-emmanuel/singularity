@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_EdgeCollector_Triangle() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_EdgeCollector_Triangle");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

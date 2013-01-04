@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHeaderColumnSimple() {
+		logDEBUG3("Calling delete function for wrapper wxHeaderColumnSimple");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

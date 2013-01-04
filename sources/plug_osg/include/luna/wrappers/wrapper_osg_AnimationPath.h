@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_AnimationPath() {
+		logDEBUG3("Calling delete function for wrapper osg_AnimationPath");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

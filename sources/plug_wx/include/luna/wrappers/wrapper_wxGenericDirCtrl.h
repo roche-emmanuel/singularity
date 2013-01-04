@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGenericDirCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxGenericDirCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

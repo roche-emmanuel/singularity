@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDialUpEvent() {
+		logDEBUG3("Calling delete function for wrapper wxDialUpEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

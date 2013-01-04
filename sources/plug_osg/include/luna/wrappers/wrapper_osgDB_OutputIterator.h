@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_OutputIterator() {
+		logDEBUG3("Calling delete function for wrapper osgDB_OutputIterator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ValueObject_SetValueVisitor() {
+		logDEBUG3("Calling delete function for wrapper osg_ValueObject_SetValueVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

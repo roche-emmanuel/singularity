@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_BaseSerializer() {
+		logDEBUG3("Calling delete function for wrapper osgDB_BaseSerializer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTipProvider() {
+		logDEBUG3("Calling delete function for wrapper wxTipProvider");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

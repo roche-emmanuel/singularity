@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_ScreenCaptureHandler_WriteToFile() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_ScreenCaptureHandler_WriteToFile");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

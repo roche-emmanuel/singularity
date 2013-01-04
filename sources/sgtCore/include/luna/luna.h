@@ -132,7 +132,8 @@ struct luna_container<osg::Referenced> {
 	static inline void release(container_type& cont) {
 		if(cont.valid()) {
 			//std::cout << "Current ref count = " << cont.get()->referenceCount() << std::endl;
-			cont.release();		
+			//cont.release();		
+			cont = NULL;		
 		}
 		else {
 			//std::cout << "Pointer is invalid." << std::endl;		
@@ -539,10 +540,10 @@ template <typename T> class Luna {
 			//ud->pT = NULL;
 			//luna_container<ParentType>::set(ud->pT,NULL);
 			luna_container<ParentType>::release(ud->pT);
-			//std::cout << "Deleting object of type " << T_interface::className << std::endl;
+			//logDEBUG("Deleting object of type " << T_interface::className);
 		}
 		else {
-			//std::cout << "Releasing object of type " << T_interface::className << std::endl;
+			//logDEBUG("Releasing object of type " << T_interface::className);
 			luna_container<ParentType>::release(ud->pT);
 		}
 

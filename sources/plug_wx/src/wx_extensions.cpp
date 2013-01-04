@@ -9,14 +9,17 @@ int GetY(wxPoint* point) {
 }
 
 bool disconnect(wxEvtHandler* handler, int eventType) {
+	logDEBUG3("Calling Disconnect with etype="<<eventType);
 	return handler->Disconnect((wxEventType)eventType);
 }
 
 bool disconnect(wxEvtHandler* handler, int id, int eventType) {
+	logDEBUG3("Calling Disconnect with id=" << id << ", etype="<<eventType);
 	return handler->Disconnect(id, (wxEventType)eventType);
 }
 
 bool disconnect(wxEvtHandler* handler, int id, int id2, int eventType) {
+	logDEBUG3("Calling Disconnect with id=" << id << ", id2=" << id2 << ", etype="<<eventType);
 	return handler->Disconnect(id, id2, (wxEventType)eventType);
 }
 

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CullingSet() {
+		logDEBUG3("Calling delete function for wrapper osg_CullingSet");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

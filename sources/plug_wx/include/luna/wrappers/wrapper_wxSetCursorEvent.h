@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSetCursorEvent() {
+		logDEBUG3("Calling delete function for wrapper wxSetCursorEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

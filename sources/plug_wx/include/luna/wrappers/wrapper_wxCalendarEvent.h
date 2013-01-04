@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCalendarEvent() {
+		logDEBUG3("Calling delete function for wrapper wxCalendarEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

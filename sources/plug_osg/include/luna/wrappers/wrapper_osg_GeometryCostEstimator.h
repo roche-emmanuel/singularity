@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GeometryCostEstimator() {
+		logDEBUG3("Calling delete function for wrapper osg_GeometryCostEstimator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

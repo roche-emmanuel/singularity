@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMetafileDC() {
+		logDEBUG3("Calling delete function for wrapper wxMetafileDC");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_MatrixTransform() {
+		logDEBUG3("Calling delete function for wrapper osg_MatrixTransform");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

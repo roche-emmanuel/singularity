@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxBitmapToggleButton() {
+		logDEBUG3("Calling delete function for wrapper wxBitmapToggleButton");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

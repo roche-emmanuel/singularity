@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextFileHandler() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextFileHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

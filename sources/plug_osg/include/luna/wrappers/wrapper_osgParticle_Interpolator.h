@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_Interpolator() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_Interpolator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

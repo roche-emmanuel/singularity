@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFileDropTarget() {
+		logDEBUG3("Calling delete function for wrapper wxFileDropTarget");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

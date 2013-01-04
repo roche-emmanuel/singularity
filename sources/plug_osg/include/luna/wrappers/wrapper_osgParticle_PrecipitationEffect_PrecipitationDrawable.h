@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_PrecipitationEffect_PrecipitationDrawable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFileSystemWatcherEvent() {
+		logDEBUG3("Calling delete function for wrapper wxFileSystemWatcherEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

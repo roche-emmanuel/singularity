@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPGChoiceEntry() {
+		logDEBUG3("Calling delete function for wrapper wxPGChoiceEntry");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

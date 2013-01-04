@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFileTranslationsLoader() {
+		logDEBUG3("Calling delete function for wrapper wxFileTranslationsLoader");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

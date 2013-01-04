@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GL2Extensions() {
+		logDEBUG3("Calling delete function for wrapper osg_GL2Extensions");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

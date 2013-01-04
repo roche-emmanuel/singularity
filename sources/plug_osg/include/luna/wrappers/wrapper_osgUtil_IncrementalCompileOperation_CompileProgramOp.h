@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_IncrementalCompileOperation_CompileProgramOp() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_IncrementalCompileOperation_CompileProgramOp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

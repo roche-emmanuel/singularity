@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ShaderComponent() {
+		logDEBUG3("Calling delete function for wrapper osg_ShaderComponent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

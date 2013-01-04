@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ClampColor_Extensions() {
+		logDEBUG3("Calling delete function for wrapper osg_ClampColor_Extensions");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

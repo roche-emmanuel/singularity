@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_ImageProcessor() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ImageProcessor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

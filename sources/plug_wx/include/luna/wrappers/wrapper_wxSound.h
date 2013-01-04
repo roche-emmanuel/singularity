@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSound() {
+		logDEBUG3("Calling delete function for wrapper wxSound");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

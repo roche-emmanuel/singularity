@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TextureRectangle() {
+		logDEBUG3("Calling delete function for wrapper osg_TextureRectangle");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

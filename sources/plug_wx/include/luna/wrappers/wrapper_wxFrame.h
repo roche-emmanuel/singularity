@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFrame() {
+		logDEBUG3("Calling delete function for wrapper wxFrame");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

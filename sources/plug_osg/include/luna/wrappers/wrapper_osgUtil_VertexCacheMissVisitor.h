@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_VertexCacheMissVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_VertexCacheMissVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

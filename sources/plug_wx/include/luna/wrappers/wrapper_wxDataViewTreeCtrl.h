@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewTreeCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewTreeCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

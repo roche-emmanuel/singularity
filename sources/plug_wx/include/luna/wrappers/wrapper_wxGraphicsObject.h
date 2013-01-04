@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGraphicsObject() {
+		logDEBUG3("Calling delete function for wrapper wxGraphicsObject");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

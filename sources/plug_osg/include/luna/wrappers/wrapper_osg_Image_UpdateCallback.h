@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Image_UpdateCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_Image_UpdateCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

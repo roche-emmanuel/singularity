@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_LightSource() {
+		logDEBUG3("Calling delete function for wrapper osg_LightSource");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

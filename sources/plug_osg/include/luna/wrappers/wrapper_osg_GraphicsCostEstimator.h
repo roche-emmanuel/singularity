@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GraphicsCostEstimator() {
+		logDEBUG3("Calling delete function for wrapper osg_GraphicsCostEstimator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

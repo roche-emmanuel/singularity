@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPaletteChangedEvent() {
+		logDEBUG3("Calling delete function for wrapper wxPaletteChangedEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

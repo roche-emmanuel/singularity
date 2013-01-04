@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CullSettings_ClampProjectionMatrixCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_CullSettings_ClampProjectionMatrixCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

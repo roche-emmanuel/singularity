@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSockAddress() {
+		logDEBUG3("Calling delete function for wrapper wxSockAddress");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

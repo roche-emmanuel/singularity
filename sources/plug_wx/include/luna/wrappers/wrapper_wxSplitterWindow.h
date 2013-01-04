@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSplitterWindow() {
+		logDEBUG3("Calling delete function for wrapper wxSplitterWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

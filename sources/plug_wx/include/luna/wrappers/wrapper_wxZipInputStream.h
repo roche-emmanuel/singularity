@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxZipInputStream() {
+		logDEBUG3("Calling delete function for wrapper wxZipInputStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_DrawElementsUByte() {
+		logDEBUG3("Calling delete function for wrapper osg_DrawElementsUByte");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

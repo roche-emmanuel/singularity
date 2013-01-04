@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_TriStripVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_TriStripVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

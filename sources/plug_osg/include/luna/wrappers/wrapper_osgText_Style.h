@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_Style() {
+		logDEBUG3("Calling delete function for wrapper osgText_Style");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

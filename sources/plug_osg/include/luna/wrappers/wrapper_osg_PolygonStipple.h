@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_PolygonStipple() {
+		logDEBUG3("Calling delete function for wrapper osg_PolygonStipple");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

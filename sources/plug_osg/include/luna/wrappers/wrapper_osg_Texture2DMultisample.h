@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Texture2DMultisample() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture2DMultisample");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

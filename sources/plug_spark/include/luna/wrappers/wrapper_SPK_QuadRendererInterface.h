@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_QuadRendererInterface() {
+		logDEBUG3("Calling delete function for wrapper SPK_QuadRendererInterface");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

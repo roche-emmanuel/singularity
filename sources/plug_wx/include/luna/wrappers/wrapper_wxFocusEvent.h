@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFocusEvent() {
+		logDEBUG3("Calling delete function for wrapper wxFocusEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

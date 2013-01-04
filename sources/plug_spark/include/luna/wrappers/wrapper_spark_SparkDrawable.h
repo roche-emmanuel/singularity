@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_spark_SparkDrawable() {
+		logDEBUG3("Calling delete function for wrapper spark_SparkDrawable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLayoutConstraints() {
+		logDEBUG3("Calling delete function for wrapper wxLayoutConstraints");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

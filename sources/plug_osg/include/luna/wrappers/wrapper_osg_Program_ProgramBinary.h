@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Program_ProgramBinary() {
+		logDEBUG3("Calling delete function for wrapper osg_Program_ProgramBinary");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

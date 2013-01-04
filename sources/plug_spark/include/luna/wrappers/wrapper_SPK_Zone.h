@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Zone() {
+		logDEBUG3("Calling delete function for wrapper SPK_Zone");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_OpenGLQuerySupport() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_OpenGLQuerySupport");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

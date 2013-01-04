@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_SurfaceFactory() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_SurfaceFactory");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

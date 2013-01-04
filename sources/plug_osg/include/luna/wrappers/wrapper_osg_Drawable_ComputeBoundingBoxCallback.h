@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Drawable_ComputeBoundingBoxCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_Drawable_ComputeBoundingBoxCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

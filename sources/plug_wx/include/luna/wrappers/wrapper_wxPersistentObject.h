@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPersistentObject() {
+		logDEBUG3("Calling delete function for wrapper wxPersistentObject");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

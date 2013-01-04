@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_SmokeTrailEffect() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_SmokeTrailEffect");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSocketClient() {
+		logDEBUG3("Calling delete function for wrapper wxSocketClient");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

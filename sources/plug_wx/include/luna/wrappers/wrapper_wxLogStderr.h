@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLogStderr() {
+		logDEBUG3("Calling delete function for wrapper wxLogStderr");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

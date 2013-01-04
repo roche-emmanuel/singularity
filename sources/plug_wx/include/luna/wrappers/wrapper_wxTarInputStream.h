@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTarInputStream() {
+		logDEBUG3("Calling delete function for wrapper wxTarInputStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

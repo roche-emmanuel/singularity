@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTreebook() {
+		logDEBUG3("Calling delete function for wrapper wxTreebook");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

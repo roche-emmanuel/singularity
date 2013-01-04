@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTextDropTarget() {
+		logDEBUG3("Calling delete function for wrapper wxTextDropTarget");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

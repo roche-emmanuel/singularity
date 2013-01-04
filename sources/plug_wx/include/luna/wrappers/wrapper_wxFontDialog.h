@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFontDialog() {
+		logDEBUG3("Calling delete function for wrapper wxFontDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

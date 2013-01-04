@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_Tessellator() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_Tessellator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

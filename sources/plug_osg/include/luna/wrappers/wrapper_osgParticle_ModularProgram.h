@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_ModularProgram() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_ModularProgram");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

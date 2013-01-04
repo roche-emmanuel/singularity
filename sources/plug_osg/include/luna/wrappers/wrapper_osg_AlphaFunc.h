@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_AlphaFunc() {
+		logDEBUG3("Calling delete function for wrapper osg_AlphaFunc");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

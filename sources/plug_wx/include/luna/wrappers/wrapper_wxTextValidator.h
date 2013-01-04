@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTextValidator() {
+		logDEBUG3("Calling delete function for wrapper wxTextValidator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

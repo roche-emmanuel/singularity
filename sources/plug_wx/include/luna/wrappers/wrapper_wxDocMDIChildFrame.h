@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDocMDIChildFrame() {
+		logDEBUG3("Calling delete function for wrapper wxDocMDIChildFrame");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

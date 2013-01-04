@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFindReplaceDialog() {
+		logDEBUG3("Calling delete function for wrapper wxFindReplaceDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

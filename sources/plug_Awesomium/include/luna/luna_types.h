@@ -814,7 +814,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::Image* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::Image* obj);
-	typedef osg::Image parent_t;
+	typedef osg::Referenced parent_t;
 	typedef osg::Image base_t;
 	static luna_ConverterType converters[];
 };
@@ -832,7 +832,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::Texture2D* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::Texture2D* obj);
-	typedef osg::Texture2D parent_t;
+	typedef osg::Referenced parent_t;
 	typedef osg::Texture2D base_t;
 	static luna_ConverterType converters[];
 };
@@ -850,7 +850,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::State* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::State* obj);
-	typedef osg::State parent_t;
+	typedef osg::Referenced parent_t;
 	typedef osg::State base_t;
 	static luna_ConverterType converters[];
 };

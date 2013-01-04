@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ClipNode() {
+		logDEBUG3("Calling delete function for wrapper osg_ClipNode");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

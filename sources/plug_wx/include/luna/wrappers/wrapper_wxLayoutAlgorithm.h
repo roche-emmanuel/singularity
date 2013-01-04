@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLayoutAlgorithm() {
+		logDEBUG3("Calling delete function for wrapper wxLayoutAlgorithm");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxComboCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxComboCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

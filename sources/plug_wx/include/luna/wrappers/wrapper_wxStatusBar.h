@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStatusBar() {
+		logDEBUG3("Calling delete function for wrapper wxStatusBar");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

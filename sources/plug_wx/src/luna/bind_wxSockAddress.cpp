@@ -162,9 +162,9 @@ public:
 			luaL_error(L, "Invalid object in function call const sockaddr * wxSockAddress::GetAddressData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const sockaddr * lret = self->GetAddressData();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const sockaddr *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< sockaddr >::push(L,lret,false);
 
 		return 1;
 	}

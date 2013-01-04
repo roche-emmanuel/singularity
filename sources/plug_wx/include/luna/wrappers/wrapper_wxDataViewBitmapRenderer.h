@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewBitmapRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewBitmapRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

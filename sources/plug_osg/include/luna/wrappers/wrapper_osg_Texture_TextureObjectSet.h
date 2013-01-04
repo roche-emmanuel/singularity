@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Texture_TextureObjectSet() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture_TextureObjectSet");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

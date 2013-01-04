@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgt_TimeProvider() {
+		logDEBUG3("Calling delete function for wrapper sgt_TimeProvider");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTopLevelWindow() {
+		logDEBUG3("Calling delete function for wrapper wxTopLevelWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

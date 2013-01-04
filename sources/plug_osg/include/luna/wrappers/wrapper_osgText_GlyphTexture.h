@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_GlyphTexture() {
+		logDEBUG3("Calling delete function for wrapper osgText_GlyphTexture");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextStyleOrganiserDialog() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextStyleOrganiserDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

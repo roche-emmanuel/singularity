@@ -1,0 +1,5 @@
+module=atb
+CTwEnumVal => CTwEnumVal
+CTwStructMember => CTwStructMember
+module=vlc
+vlc::VLCImageStream => osg::ImageStream

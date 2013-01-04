@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSymbolPickerDialog() {
+		logDEBUG3("Calling delete function for wrapper wxSymbolPickerDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

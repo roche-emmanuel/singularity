@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CollectOccludersVisitor() {
+		logDEBUG3("Calling delete function for wrapper osg_CollectOccludersVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

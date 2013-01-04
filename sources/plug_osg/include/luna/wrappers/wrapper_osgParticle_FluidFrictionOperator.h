@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_FluidFrictionOperator() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_FluidFrictionOperator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

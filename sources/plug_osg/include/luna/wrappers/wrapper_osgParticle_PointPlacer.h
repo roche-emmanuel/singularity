@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_PointPlacer() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_PointPlacer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

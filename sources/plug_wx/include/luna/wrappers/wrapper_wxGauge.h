@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGauge() {
+		logDEBUG3("Calling delete function for wrapper wxGauge");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

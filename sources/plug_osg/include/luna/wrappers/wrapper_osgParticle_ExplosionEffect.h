@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_ExplosionEffect() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_ExplosionEffect");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

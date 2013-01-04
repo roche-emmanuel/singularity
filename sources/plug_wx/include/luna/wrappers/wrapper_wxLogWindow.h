@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLogWindow() {
+		logDEBUG3("Calling delete function for wrapper wxLogWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

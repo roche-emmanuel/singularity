@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_EllipsoidModel() {
+		logDEBUG3("Calling delete function for wrapper osg_EllipsoidModel");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

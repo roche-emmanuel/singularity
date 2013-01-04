@@ -478,9 +478,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxTimerImpl * lret = self->CreateTimerImpl(_arg1);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxTimerImpl *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTimerImpl >::push(L,lret,false);
 
 		return 1;
 	}

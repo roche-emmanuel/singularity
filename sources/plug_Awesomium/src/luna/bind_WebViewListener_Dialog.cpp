@@ -140,7 +140,7 @@ public:
 		WebViewListener::Dialog* self=(Luna< WebViewListener::Dialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView *, const Awesomium::WebFileChooserInfo &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView *, const Awesomium::WebFileChooserInfo &). Got : '%s'",typeid(Luna< WebViewListener::Dialog >::check(L,1)).name());
 		}
 		self->OnShowFileChooser(caller, chooser_info);
 
@@ -164,7 +164,7 @@ public:
 		WebViewListener::Dialog* self=(Luna< WebViewListener::Dialog >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView *, const Awesomium::WebLoginDialogInfo &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView *, const Awesomium::WebLoginDialogInfo &). Got : '%s'",typeid(Luna< WebViewListener::Dialog >::check(L,1)).name());
 		}
 		self->OnShowLoginDialog(caller, dialog_info);
 

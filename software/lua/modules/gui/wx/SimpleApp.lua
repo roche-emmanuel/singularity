@@ -37,7 +37,7 @@ function Class:initialize(options)
     self._frame:connect(wx.wxID_ANY,wx.wxEVT_CLOSE_WINDOW,function(event)
 		self:getEventManager():fireEvent(Event.APP_CLOSING)
 		self:debug("Destroying mainframe."); 
-		self._frame:Destroy(); 
+		self._frame:Destroy();
 	end)
 	
     --[[self._frame:connect(wx.wxID_ANY,wx.wxEVT_IDLE,function(event)

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_LineSegment() {
+		logDEBUG3("Calling delete function for wrapper osg_LineSegment");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

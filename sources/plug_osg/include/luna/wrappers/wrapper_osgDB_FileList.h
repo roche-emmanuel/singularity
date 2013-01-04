@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_FileList() {
+		logDEBUG3("Calling delete function for wrapper osgDB_FileList");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

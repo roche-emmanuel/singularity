@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Transformable() {
+		logDEBUG3("Calling delete function for wrapper SPK_Transformable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

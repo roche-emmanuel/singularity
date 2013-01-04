@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGraphicsBitmap() {
+		logDEBUG3("Calling delete function for wrapper wxGraphicsBitmap");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

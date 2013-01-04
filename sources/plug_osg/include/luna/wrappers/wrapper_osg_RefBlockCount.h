@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_RefBlockCount() {
+		logDEBUG3("Calling delete function for wrapper osg_RefBlockCount");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

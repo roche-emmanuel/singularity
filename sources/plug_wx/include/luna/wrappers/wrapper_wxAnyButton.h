@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAnyButton() {
+		logDEBUG3("Calling delete function for wrapper wxAnyButton");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

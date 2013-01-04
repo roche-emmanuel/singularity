@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDatagramSocket() {
+		logDEBUG3("Calling delete function for wrapper wxDatagramSocket");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

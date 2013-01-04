@@ -1200,10 +1200,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItemList & wxMenu::GetMenuItems() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		wxMenuItemList & lret = self->GetMenuItems();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxMenuItemList &'
-		////////////////////////////////////////////////////////////////////
+		const wxMenuItemList* lret = &self->GetMenuItems();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxMenuItemList >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1221,10 +1221,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxMenuItemList & wxMenu::GetMenuItems() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const wxMenuItemList & lret = self->GetMenuItems();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxMenuItemList &'
-		////////////////////////////////////////////////////////////////////
+		const wxMenuItemList* lret = &self->GetMenuItems();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxMenuItemList >::push(L,lret,false);
 
 		return 1;
 	}

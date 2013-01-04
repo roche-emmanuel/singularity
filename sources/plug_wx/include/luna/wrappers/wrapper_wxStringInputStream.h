@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStringInputStream() {
+		logDEBUG3("Calling delete function for wrapper wxStringInputStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

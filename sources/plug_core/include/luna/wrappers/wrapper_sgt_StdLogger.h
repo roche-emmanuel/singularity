@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgt_StdLogger() {
+		logDEBUG3("Calling delete function for wrapper sgt_StdLogger");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

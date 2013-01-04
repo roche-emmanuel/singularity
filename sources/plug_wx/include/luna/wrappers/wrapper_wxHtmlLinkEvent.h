@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlLinkEvent() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlLinkEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

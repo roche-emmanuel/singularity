@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ClusterCullingCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_ClusterCullingCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxWindowModalDialogEvent() {
+		logDEBUG3("Calling delete function for wrapper wxWindowModalDialogEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

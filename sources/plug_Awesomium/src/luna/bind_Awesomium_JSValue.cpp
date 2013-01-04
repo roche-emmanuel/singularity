@@ -369,7 +369,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsBoolean() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsBoolean() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsBoolean();
 		lua_pushboolean(L,lret?1:0);
@@ -388,7 +388,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsInteger() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsInteger() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsInteger();
 		lua_pushboolean(L,lret?1:0);
@@ -407,7 +407,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsDouble() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsDouble() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsDouble();
 		lua_pushboolean(L,lret?1:0);
@@ -426,7 +426,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNumber() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNumber() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsNumber();
 		lua_pushboolean(L,lret?1:0);
@@ -445,7 +445,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsString() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsString() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsString();
 		lua_pushboolean(L,lret?1:0);
@@ -464,7 +464,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsArray() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsArray() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsArray();
 		lua_pushboolean(L,lret?1:0);
@@ -483,7 +483,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsObject() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsObject() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsObject();
 		lua_pushboolean(L,lret?1:0);
@@ -502,7 +502,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNull() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNull() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsNull();
 		lua_pushboolean(L,lret?1:0);
@@ -521,7 +521,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsUndefined() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsUndefined() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->IsUndefined();
 		lua_pushboolean(L,lret?1:0);
@@ -540,7 +540,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSValue::ToString() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSValue::ToString() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->ToString();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -562,7 +562,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::JSValue::ToInteger() const");
+			luaL_error(L, "Invalid object in function call int Awesomium::JSValue::ToInteger() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		int lret = self->ToInteger();
 		lua_pushnumber(L,lret);
@@ -581,7 +581,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double Awesomium::JSValue::ToDouble() const");
+			luaL_error(L, "Invalid object in function call double Awesomium::JSValue::ToDouble() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		double lret = self->ToDouble();
 		lua_pushnumber(L,lret);
@@ -600,7 +600,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::ToBoolean() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::ToBoolean() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		bool lret = self->ToBoolean();
 		lua_pushboolean(L,lret?1:0);
@@ -619,7 +619,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSArray & Awesomium::JSValue::ToArray()");
+			luaL_error(L, "Invalid object in function call Awesomium::JSArray & Awesomium::JSValue::ToArray(). Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		const Awesomium::JSArray* lret = &self->ToArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -640,7 +640,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::JSArray & Awesomium::JSValue::ToArray() const");
+			luaL_error(L, "Invalid object in function call const Awesomium::JSArray & Awesomium::JSValue::ToArray() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		const Awesomium::JSArray* lret = &self->ToArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -670,7 +670,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSObject & Awesomium::JSValue::ToObject()");
+			luaL_error(L, "Invalid object in function call Awesomium::JSObject & Awesomium::JSValue::ToObject(). Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		const Awesomium::JSObject* lret = &self->ToObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -691,7 +691,7 @@ public:
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::JSObject & Awesomium::JSValue::ToObject() const");
+			luaL_error(L, "Invalid object in function call const Awesomium::JSObject & Awesomium::JSValue::ToObject() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
 		const Awesomium::JSObject* lret = &self->ToObject();
 		if(!lret) return 0; // Do not write NULL pointers.

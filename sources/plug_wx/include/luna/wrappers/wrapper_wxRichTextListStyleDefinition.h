@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextListStyleDefinition() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextListStyleDefinition");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

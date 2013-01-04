@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_spark_SparkDrawable_SortParticlesOperator() {
+		logDEBUG3("Calling delete function for wrapper spark_SparkDrawable_SortParticlesOperator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

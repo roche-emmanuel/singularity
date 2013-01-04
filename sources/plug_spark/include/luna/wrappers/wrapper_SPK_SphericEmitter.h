@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_SphericEmitter() {
+		logDEBUG3("Calling delete function for wrapper SPK_SphericEmitter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

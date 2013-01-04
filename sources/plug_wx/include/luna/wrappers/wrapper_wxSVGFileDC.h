@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSVGFileDC() {
+		logDEBUG3("Calling delete function for wrapper wxSVGFileDC");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

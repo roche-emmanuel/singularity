@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxQuantize() {
+		logDEBUG3("Calling delete function for wrapper wxQuantize");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

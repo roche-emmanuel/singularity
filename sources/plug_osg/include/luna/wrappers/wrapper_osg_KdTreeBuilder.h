@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_KdTreeBuilder() {
+		logDEBUG3("Calling delete function for wrapper osg_KdTreeBuilder");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Cylinder() {
+		logDEBUG3("Calling delete function for wrapper osg_Cylinder");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

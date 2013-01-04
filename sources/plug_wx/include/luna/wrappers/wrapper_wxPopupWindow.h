@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPopupWindow() {
+		logDEBUG3("Calling delete function for wrapper wxPopupWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

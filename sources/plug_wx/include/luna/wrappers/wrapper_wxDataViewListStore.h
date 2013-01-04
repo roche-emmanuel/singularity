@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewListStore() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewListStore");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

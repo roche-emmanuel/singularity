@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Modifier() {
+		logDEBUG3("Calling delete function for wrapper SPK_Modifier");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

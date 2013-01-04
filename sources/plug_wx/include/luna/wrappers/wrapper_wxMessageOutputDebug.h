@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMessageOutputDebug() {
+		logDEBUG3("Calling delete function for wrapper wxMessageOutputDebug");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

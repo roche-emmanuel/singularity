@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDocManager() {
+		logDEBUG3("Calling delete function for wrapper wxDocManager");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

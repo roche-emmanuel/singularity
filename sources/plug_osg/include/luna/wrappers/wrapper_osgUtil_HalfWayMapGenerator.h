@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_HalfWayMapGenerator() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_HalfWayMapGenerator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

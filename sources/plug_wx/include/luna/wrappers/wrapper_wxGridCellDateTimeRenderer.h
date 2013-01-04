@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridCellDateTimeRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellDateTimeRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

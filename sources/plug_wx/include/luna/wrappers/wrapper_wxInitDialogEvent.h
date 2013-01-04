@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxInitDialogEvent() {
+		logDEBUG3("Calling delete function for wrapper wxInitDialogEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

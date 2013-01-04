@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgt_Referenced() {
+		logDEBUG3("Calling delete function for wrapper sgt_Referenced");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

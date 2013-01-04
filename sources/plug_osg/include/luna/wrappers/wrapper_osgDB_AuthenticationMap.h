@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_AuthenticationMap() {
+		logDEBUG3("Calling delete function for wrapper osgDB_AuthenticationMap");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

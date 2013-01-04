@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GLBufferObject_Extensions() {
+		logDEBUG3("Calling delete function for wrapper osg_GLBufferObject_Extensions");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

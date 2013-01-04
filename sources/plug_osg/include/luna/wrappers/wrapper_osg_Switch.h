@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Switch() {
+		logDEBUG3("Calling delete function for wrapper osg_Switch");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

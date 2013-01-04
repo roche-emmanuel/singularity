@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxColourPickerEvent() {
+		logDEBUG3("Calling delete function for wrapper wxColourPickerEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

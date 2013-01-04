@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxContextHelpButton() {
+		logDEBUG3("Calling delete function for wrapper wxContextHelpButton");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

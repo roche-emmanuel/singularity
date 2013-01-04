@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFileDialog() {
+		logDEBUG3("Calling delete function for wrapper wxFileDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRibbonGallery() {
+		logDEBUG3("Calling delete function for wrapper wxRibbonGallery");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

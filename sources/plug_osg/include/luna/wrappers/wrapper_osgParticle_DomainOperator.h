@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_DomainOperator() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_DomainOperator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

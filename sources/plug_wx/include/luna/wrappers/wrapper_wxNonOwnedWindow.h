@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxNonOwnedWindow() {
+		logDEBUG3("Calling delete function for wrapper wxNonOwnedWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

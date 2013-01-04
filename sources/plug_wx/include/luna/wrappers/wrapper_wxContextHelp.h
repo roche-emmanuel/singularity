@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxContextHelp() {
+		logDEBUG3("Calling delete function for wrapper wxContextHelp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

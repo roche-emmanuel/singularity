@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_AABox() {
+		logDEBUG3("Calling delete function for wrapper SPK_AABox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

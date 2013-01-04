@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxControlWithItems() {
+		logDEBUG3("Calling delete function for wrapper wxControlWithItems");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

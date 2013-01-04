@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_NodeVisitor_DatabaseRequestHandler() {
+		logDEBUG3("Calling delete function for wrapper osg_NodeVisitor_DatabaseRequestHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_BitmapSurface() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_BitmapSurface");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

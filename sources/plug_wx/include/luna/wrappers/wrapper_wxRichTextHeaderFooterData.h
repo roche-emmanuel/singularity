@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextHeaderFooterData() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextHeaderFooterData");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

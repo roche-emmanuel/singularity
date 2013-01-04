@@ -45,7 +45,7 @@ end
 
 function Class:disconnectHandlers()
 	for _,connection in self._connectedHandlers:sequence() do
-		--self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
+		self:debug3("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
 		connection.ctrl:disconnect(connection.id,connection.id,connection.eventType)
 	end
 end

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_EndOfDynamicDrawBlock() {
+		logDEBUG3("Calling delete function for wrapper osg_EndOfDynamicDrawBlock");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

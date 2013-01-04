@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTextCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxTextCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

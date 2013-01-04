@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ShaderBinary() {
+		logDEBUG3("Calling delete function for wrapper osg_ShaderBinary");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

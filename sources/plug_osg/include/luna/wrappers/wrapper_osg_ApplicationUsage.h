@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ApplicationUsage() {
+		logDEBUG3("Calling delete function for wrapper osg_ApplicationUsage");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

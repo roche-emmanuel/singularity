@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSettableHeaderColumn() {
+		logDEBUG3("Calling delete function for wrapper wxSettableHeaderColumn");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_FluidProgram() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_FluidProgram");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_DynamicLibrary() {
+		logDEBUG3("Calling delete function for wrapper osgDB_DynamicLibrary");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

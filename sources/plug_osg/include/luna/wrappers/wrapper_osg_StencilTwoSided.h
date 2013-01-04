@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_StencilTwoSided() {
+		logDEBUG3("Calling delete function for wrapper osg_StencilTwoSided");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

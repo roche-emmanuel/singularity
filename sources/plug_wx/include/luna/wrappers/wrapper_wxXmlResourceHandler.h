@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxXmlResourceHandler() {
+		logDEBUG3("Calling delete function for wrapper wxXmlResourceHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

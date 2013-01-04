@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxConnectionBase() {
+		logDEBUG3("Calling delete function for wrapper wxConnectionBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

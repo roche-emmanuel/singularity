@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Texture3D_Extensions() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture3D_Extensions");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

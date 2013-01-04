@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPersistenceManager() {
+		logDEBUG3("Calling delete function for wrapper wxPersistenceManager");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

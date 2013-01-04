@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_DrawElementsUShort() {
+		logDEBUG3("Calling delete function for wrapper osg_DrawElementsUShort");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

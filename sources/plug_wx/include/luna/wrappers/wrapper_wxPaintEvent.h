@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPaintEvent() {
+		logDEBUG3("Calling delete function for wrapper wxPaintEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

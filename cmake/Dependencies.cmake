@@ -94,6 +94,10 @@ SET(VLC_INC_DIR 	${DEP_VLC}/include)
 SET(VLC_LIB_DIR 	${DEP_VLC}/lib)
 SET(VLC_LIBS 		libvlc libvlccore)
 
+SET(ATB_INC_DIR 	${DEP_ATB}/include)
+SET(ATB_LIB_DIR 	${DEP_ATB}/lib)
+SET(ATB_LIBS 		AntTweakBar.lib)
+
 # SET(WXWEBKIT_INC_DIR 	${DEP_WXWEBKIT}/Source/WebKit/wx)
 # SET(WXWEBKIT_LIB_DIR 	${DEP_WXWEBKIT}/WebKitBuild/Release)
 # SET(WXWEBKIT_LIBS 		wxwebkit.lib)

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_PickVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_PickVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

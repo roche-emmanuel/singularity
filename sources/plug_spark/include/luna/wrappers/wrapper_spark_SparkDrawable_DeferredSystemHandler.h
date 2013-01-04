@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_spark_SparkDrawable_DeferredSystemHandler() {
+		logDEBUG3("Calling delete function for wrapper spark_SparkDrawable_DeferredSystemHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

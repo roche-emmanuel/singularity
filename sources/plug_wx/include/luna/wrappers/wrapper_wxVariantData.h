@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxVariantData() {
+		logDEBUG3("Calling delete function for wrapper wxVariantData");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

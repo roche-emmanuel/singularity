@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxScrollEvent() {
+		logDEBUG3("Calling delete function for wrapper wxScrollEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

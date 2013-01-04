@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSlider() {
+		logDEBUG3("Calling delete function for wrapper wxSlider");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

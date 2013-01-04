@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Texture1D_SubloadCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture1D_SubloadCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

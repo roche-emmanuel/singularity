@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMediaEvent() {
+		logDEBUG3("Calling delete function for wrapper wxMediaEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

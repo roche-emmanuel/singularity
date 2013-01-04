@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_Input() {
+		logDEBUG3("Calling delete function for wrapper osgDB_Input");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

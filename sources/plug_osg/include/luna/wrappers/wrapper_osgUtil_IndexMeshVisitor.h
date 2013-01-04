@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_IndexMeshVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_IndexMeshVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

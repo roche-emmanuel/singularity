@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextTable() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextTable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

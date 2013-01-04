@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_GL_GLRenderer() {
+		logDEBUG3("Calling delete function for wrapper GL_GLRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

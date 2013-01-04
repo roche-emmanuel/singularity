@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_WebCore() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_WebCore");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

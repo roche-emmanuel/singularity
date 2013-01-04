@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_FadeText() {
+		logDEBUG3("Calling delete function for wrapper osgText_FadeText");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSizeEvent() {
+		logDEBUG3("Calling delete function for wrapper wxSizeEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

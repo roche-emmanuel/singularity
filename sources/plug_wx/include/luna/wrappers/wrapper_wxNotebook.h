@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxNotebook() {
+		logDEBUG3("Calling delete function for wrapper wxNotebook");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

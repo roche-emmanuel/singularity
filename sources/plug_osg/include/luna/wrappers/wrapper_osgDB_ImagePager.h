@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_ImagePager() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ImagePager");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

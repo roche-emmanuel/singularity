@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSpinCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxSpinCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

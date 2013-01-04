@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_ReaderWriter() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ReaderWriter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

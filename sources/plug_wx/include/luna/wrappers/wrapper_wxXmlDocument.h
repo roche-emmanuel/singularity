@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxXmlDocument() {
+		logDEBUG3("Calling delete function for wrapper wxXmlDocument");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

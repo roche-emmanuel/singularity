@@ -149,7 +149,7 @@ public:
 		Awesomium::Surface* self=(Luna< Awesomium::Surface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::Surface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::Surface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
 		}
 		self->Paint(&src_buffer, src_row_span, src_rect, dest_rect);
 
@@ -174,7 +174,7 @@ public:
 		Awesomium::Surface* self=(Luna< Awesomium::Surface >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::Surface::Scroll(int, int, const Awesomium::Rect &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::Surface::Scroll(int, int, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
 		}
 		self->Scroll(dx, dy, clip_rect);
 

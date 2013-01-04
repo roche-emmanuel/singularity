@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_BlockAndFlushOperation() {
+		logDEBUG3("Calling delete function for wrapper osg_BlockAndFlushOperation");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

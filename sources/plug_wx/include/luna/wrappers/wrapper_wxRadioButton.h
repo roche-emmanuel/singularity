@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRadioButton() {
+		logDEBUG3("Calling delete function for wrapper wxRadioButton");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

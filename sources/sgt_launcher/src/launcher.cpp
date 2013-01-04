@@ -150,8 +150,7 @@ void setupLogging(std::string logFile) {
 }
 
 // The entry point of the complete application:
-//#ifdef SGT_WINDOWS
-#ifdef WIN32
+#ifdef SGT_WINDOWS
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
 #else
 int main(int argc, char *argv[]) {
@@ -169,7 +168,7 @@ int main(int argc, char *argv[]) {
 		p.add("script", -1);
 
 		po::variables_map vm;
-#ifdef WIN32
+#ifdef SGT_WINDOWS
 		std::vector<std::string> args = po::split_winmain(lpCmdLine);
 		po::store(po::command_line_parser(args).options(desc).positional(p).run(), vm);
 #else
@@ -247,6 +246,7 @@ int main(int argc, char *argv[]) {
 		lua_close(L);
 		
 		// exit the program
+		std::cout << "(cout) Exiting." << std::endl;
 		logDEBUG0_V("Exiting.");
 	}
 	CATCH("in main entry point.");

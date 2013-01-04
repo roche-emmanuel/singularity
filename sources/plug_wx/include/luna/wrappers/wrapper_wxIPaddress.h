@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxIPaddress() {
+		logDEBUG3("Calling delete function for wrapper wxIPaddress");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlHelpFrame() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlHelpFrame");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -334,10 +334,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid *, wxPGProperty *, const wxPoint &, const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		wxPGWindowList lret = self->CreateControls(propgrid, property, pos, size);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxPGWindowList'
-		////////////////////////////////////////////////////////////////////
+		wxPGWindowList stack_lret = self->CreateControls(propgrid, property, pos, size);
+		wxPGWindowList* lret = new wxPGWindowList(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGWindowList >::push(L,lret,true);
 
 		return 1;
 	}

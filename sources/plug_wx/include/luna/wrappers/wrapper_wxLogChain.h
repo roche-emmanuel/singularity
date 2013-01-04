@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLogChain() {
+		logDEBUG3("Calling delete function for wrapper wxLogChain");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

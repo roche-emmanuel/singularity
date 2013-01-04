@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlListBox() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlListBox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

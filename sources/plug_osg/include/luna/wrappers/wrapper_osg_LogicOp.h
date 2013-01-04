@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_LogicOp() {
+		logDEBUG3("Calling delete function for wrapper osg_LogicOp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

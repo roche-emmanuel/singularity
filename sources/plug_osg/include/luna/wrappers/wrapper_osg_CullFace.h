@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CullFace() {
+		logDEBUG3("Calling delete function for wrapper osg_CullFace");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

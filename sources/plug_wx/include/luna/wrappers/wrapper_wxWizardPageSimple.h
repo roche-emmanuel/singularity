@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxWizardPageSimple() {
+		logDEBUG3("Calling delete function for wrapper wxWizardPageSimple");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

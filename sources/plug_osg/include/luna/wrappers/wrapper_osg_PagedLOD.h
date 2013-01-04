@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_PagedLOD() {
+		logDEBUG3("Calling delete function for wrapper osg_PagedLOD");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

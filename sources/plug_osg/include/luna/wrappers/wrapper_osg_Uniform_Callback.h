@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Uniform_Callback() {
+		logDEBUG3("Calling delete function for wrapper osg_Uniform_Callback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

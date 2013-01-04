@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGraphicsFont() {
+		logDEBUG3("Calling delete function for wrapper wxGraphicsFont");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

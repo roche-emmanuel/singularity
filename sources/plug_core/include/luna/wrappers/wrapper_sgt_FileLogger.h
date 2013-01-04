@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgt_FileLogger() {
+		logDEBUG3("Calling delete function for wrapper sgt_FileLogger");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

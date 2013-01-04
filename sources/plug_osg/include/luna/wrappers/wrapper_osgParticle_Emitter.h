@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_Emitter() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_Emitter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

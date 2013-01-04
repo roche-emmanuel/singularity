@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStackFrame() {
+		logDEBUG3("Calling delete function for wrapper wxStackFrame");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

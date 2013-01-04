@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMenuBar() {
+		logDEBUG3("Calling delete function for wrapper wxMenuBar");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

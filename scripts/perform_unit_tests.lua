@@ -15,4 +15,7 @@ core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
 require "unittests"
 
+local sm = require "serialization.SerializationManager"
+sm:uninitialize()
+
 log:notice "Script execution done."

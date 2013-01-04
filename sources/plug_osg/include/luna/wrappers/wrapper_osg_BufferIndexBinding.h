@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_BufferIndexBinding() {
+		logDEBUG3("Calling delete function for wrapper osg_BufferIndexBinding");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

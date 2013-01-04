@@ -185,7 +185,7 @@ public:
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebMenuItemArray::size() const");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebMenuItemArray::size() const. Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -205,7 +205,7 @@ public:
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int)");
+			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
 		}
 		const Awesomium::WebMenuItem* lret = &self->At(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -227,7 +227,7 @@ public:
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
 		}
 		const Awesomium::WebMenuItem* lret = &self->At(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -262,7 +262,7 @@ public:
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem &). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
 		}
 		self->Push(item);
 
@@ -283,7 +283,7 @@ public:
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int)");
+			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
 		}
 		const Awesomium::WebMenuItem* lret = &self->operator[](idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -305,7 +305,7 @@ public:
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int) const");
+			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
 		}
 		const Awesomium::WebMenuItem* lret = &self->operator[](idx);
 		if(!lret) return 0; // Do not write NULL pointers.

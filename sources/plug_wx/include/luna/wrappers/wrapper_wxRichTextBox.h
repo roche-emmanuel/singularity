@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextBox() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextBox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

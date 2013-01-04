@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_WebViewListener_Menu() {
+		logDEBUG3("Calling delete function for wrapper WebViewListener_Menu");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGDIObject() {
+		logDEBUG3("Calling delete function for wrapper wxGDIObject");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

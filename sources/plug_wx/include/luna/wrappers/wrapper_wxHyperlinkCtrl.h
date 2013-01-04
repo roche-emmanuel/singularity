@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHyperlinkCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxHyperlinkCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

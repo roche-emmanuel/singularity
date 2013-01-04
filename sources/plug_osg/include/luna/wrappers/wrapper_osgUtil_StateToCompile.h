@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_StateToCompile() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_StateToCompile");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

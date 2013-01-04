@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_SmoothingVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_SmoothingVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

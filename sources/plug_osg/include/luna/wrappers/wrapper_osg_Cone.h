@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Cone() {
+		logDEBUG3("Calling delete function for wrapper osg_Cone");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

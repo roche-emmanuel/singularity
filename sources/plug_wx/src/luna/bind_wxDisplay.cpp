@@ -263,10 +263,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxArrayVideoModes wxDisplay::GetModes(const wxVideoMode &) const. Got : '%s'",typeid(Luna< wxDisplay >::check(L,1)).name());
 		}
-		wxArrayVideoModes lret = self->GetModes(mode);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxArrayVideoModes'
-		////////////////////////////////////////////////////////////////////
+		wxArrayVideoModes stack_lret = self->GetModes(mode);
+		wxArrayVideoModes* lret = new wxArrayVideoModes(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxArrayVideoModes >::push(L,lret,true);
 
 		return 1;
 	}

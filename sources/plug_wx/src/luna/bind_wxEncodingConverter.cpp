@@ -220,10 +220,11 @@ public:
 
 		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
 
-		wxFontEncodingArray lret = wxEncodingConverter::GetAllEquivalents(enc);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxFontEncodingArray'
-		////////////////////////////////////////////////////////////////////
+		wxFontEncodingArray stack_lret = wxEncodingConverter::GetAllEquivalents(enc);
+		wxFontEncodingArray* lret = new wxFontEncodingArray(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFontEncodingArray >::push(L,lret,true);
 
 		return 1;
 	}
@@ -240,10 +241,11 @@ public:
 		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
 		int platform=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPLATFORM_CURRENT;
 
-		wxFontEncodingArray lret = wxEncodingConverter::GetPlatformEquivalents(enc, platform);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxFontEncodingArray'
-		////////////////////////////////////////////////////////////////////
+		wxFontEncodingArray stack_lret = wxEncodingConverter::GetPlatformEquivalents(enc, platform);
+		wxFontEncodingArray* lret = new wxFontEncodingArray(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFontEncodingArray >::push(L,lret,true);
 
 		return 1;
 	}

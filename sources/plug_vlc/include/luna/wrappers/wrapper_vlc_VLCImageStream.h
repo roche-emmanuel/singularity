@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_vlc_VLCImageStream() {
+		logDEBUG3("Calling delete function for wrapper vlc_VLCImageStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

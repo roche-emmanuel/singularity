@@ -352,10 +352,11 @@ public:
 		}
 
 
-		wxDynamicLibraryDetailsArray lret = wxDynamicLibrary::ListLoaded();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxDynamicLibraryDetailsArray'
-		////////////////////////////////////////////////////////////////////
+		wxDynamicLibraryDetailsArray stack_lret = wxDynamicLibrary::ListLoaded();
+		wxDynamicLibraryDetailsArray* lret = new wxDynamicLibraryDetailsArray(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDynamicLibraryDetailsArray >::push(L,lret,true);
 
 		return 1;
 	}

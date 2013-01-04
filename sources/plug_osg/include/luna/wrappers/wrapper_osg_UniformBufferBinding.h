@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_UniformBufferBinding() {
+		logDEBUG3("Calling delete function for wrapper osg_UniformBufferBinding");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

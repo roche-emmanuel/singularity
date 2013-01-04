@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMessageOutputBest() {
+		logDEBUG3("Calling delete function for wrapper wxMessageOutputBest");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

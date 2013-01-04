@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_ReadFileCallback() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ReadFileCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

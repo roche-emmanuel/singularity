@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_DisplayRequirementsVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_DisplayRequirementsVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

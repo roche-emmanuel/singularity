@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_StateAttributeCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_StateAttributeCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

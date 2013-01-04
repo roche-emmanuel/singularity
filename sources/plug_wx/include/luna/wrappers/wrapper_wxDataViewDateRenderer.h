@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewDateRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewDateRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

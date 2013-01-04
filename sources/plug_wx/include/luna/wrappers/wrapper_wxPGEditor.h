@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPGEditor() {
+		logDEBUG3("Calling delete function for wrapper wxPGEditor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

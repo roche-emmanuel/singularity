@@ -148,7 +148,7 @@ public:
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsFilePath() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsFilePath() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
 		}
 		bool lret = self->IsFilePath();
 		lua_pushboolean(L,lret?1:0);
@@ -167,7 +167,7 @@ public:
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsBytes() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsBytes() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
 		}
 		bool lret = self->IsBytes();
 		lua_pushboolean(L,lret?1:0);
@@ -186,7 +186,7 @@ public:
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::UploadElement::num_bytes() const");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::UploadElement::num_bytes() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
 		}
 		unsigned int lret = self->num_bytes();
 		lua_pushnumber(L,lret);
@@ -205,7 +205,7 @@ public:
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::UploadElement::bytes() const");
+			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::UploadElement::bytes() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
 		}
 		const unsigned char * lret = self->bytes();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -224,7 +224,7 @@ public:
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::UploadElement::file_path() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::UploadElement::file_path() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->file_path();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlParser() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlParser");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

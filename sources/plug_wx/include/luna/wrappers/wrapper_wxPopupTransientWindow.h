@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPopupTransientWindow() {
+		logDEBUG3("Calling delete function for wrapper wxPopupTransientWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTreeListEvent() {
+		logDEBUG3("Calling delete function for wrapper wxTreeListEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

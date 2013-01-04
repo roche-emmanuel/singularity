@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxListCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxListCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_TextBase() {
+		logDEBUG3("Calling delete function for wrapper osgText_TextBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

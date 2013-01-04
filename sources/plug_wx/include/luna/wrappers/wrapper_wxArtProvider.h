@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxArtProvider() {
+		logDEBUG3("Calling delete function for wrapper wxArtProvider");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

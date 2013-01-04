@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_PlaneIntersector() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_PlaneIntersector");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTextCompleterSimple() {
+		logDEBUG3("Calling delete function for wrapper wxTextCompleterSimple");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_LODScaleHandler() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_LODScaleHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

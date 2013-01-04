@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAuiTabArt() {
+		logDEBUG3("Calling delete function for wrapper wxAuiTabArt");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

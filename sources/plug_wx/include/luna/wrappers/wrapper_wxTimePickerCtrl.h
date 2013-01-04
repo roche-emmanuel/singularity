@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTimePickerCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxTimePickerCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

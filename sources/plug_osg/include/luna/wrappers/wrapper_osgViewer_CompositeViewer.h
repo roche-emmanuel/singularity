@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_CompositeViewer() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_CompositeViewer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

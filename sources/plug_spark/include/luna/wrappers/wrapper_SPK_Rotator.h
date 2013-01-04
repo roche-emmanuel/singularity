@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Rotator() {
+		logDEBUG3("Calling delete function for wrapper SPK_Rotator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

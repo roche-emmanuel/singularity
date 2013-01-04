@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ImageSequence() {
+		logDEBUG3("Calling delete function for wrapper osg_ImageSequence");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

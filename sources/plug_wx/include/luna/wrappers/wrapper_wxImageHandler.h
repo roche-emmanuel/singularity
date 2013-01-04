@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxImageHandler() {
+		logDEBUG3("Calling delete function for wrapper wxImageHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

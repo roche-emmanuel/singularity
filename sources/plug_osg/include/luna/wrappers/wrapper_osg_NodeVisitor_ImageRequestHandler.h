@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_NodeVisitor_ImageRequestHandler() {
+		logDEBUG3("Calling delete function for wrapper osg_NodeVisitor_ImageRequestHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

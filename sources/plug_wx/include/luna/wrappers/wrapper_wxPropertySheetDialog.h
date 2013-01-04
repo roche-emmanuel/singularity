@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPropertySheetDialog() {
+		logDEBUG3("Calling delete function for wrapper wxPropertySheetDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

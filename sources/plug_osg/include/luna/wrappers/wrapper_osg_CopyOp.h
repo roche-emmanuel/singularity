@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CopyOp() {
+		logDEBUG3("Calling delete function for wrapper osg_CopyOp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

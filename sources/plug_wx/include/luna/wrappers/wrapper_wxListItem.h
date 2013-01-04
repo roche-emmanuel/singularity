@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxListItem() {
+		logDEBUG3("Calling delete function for wrapper wxListItem");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

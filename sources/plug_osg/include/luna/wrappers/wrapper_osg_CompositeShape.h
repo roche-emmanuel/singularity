@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CompositeShape() {
+		logDEBUG3("Calling delete function for wrapper osg_CompositeShape");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

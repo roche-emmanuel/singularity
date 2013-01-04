@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFTP() {
+		logDEBUG3("Calling delete function for wrapper wxFTP");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

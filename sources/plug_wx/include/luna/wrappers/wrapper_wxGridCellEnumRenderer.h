@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridCellEnumRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellEnumRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

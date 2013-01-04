@@ -40,32 +40,22 @@ public:
         stream->_status = INVALID;
     }
     
-    VLCImageStream( )
-    :   osg::ImageStream()
-    {
-		logINFO("Building VLCImageStream...");
-		
+    VLCImageStream() : osg::ImageStream()
+    {		
 		_vlcMedia = NULL;
 		
-		// libvlc_clearerr();
-		
-		logINFO("Calling libvlc_new()...");
 		const char* vlc_args[] = {
-			"--ignore-config",      // don't use VLC's config
-			"--data-path="VLC_PLUGIN_PATH
+			 "--ignore-config", // don't use VLC's config
 		};
-		//_vlc = libvlc_new( sizeof(vlc_args)/sizeof(vlc_args[0]), vlc_args );
-		_vlc = libvlc_new( 0, NULL );
-		//const char* msg = libvlc_errmsg();
 		
-		//THROW_IF(!msg,"Got error message from lbvlc_new(): " << msg);
-		
+		_vlc = libvlc_new( sizeof(vlc_args)/sizeof(vlc_args[0]), vlc_args );
 		THROW_IF(!_vlc,"Invalid _vlc object.");
 		
-        _vlcPlayer = libvlc_media_player_new( _vlc );
-        THROW_IF(!_vlcPlayer,"Invalid _vlcPlayer object.");
-		
-        libvlc_event_attach( libvlc_media_player_event_manager(_vlcPlayer), libvlc_MediaPlayerStopped, &VLCImageStream::videoEndFunc, this );
+		_vlcPlayer = libvlc_media_player_new(_vlc);
+		CHECK(_vlcPlayer,"Invalid _vlcPlayer object.");
+
+		libvlc_event_attach( libvlc_media_player_event_manager(_vlcPlayer), libvlc_MediaPlayerStopped, &VLCImageStream::videoEndFunc, this );
+
         _status = INVALID;
 		
 		logINFO("VLCImageStream created.");
@@ -91,14 +81,22 @@ public:
     void open( const std::string& file, bool needPlay=true, unsigned int w=512, unsigned int h=512 )
     {
         _vlcMedia = libvlc_media_new_path( _vlc, file.c_str() );
-		CHECK(!_vlcMedia,"Invalid _vlcMedia object.");
-		
+		CHECK(_vlcMedia,"Invalid _vlcMedia object.");
+	
+        // _vlcPlayer = libvlc_media_player_new_from_media( _vlcMedia );
+        // CHECK(_vlcPlayer,"Invalid _vlcPlayer object.");
+	
         libvlc_media_player_set_media( _vlcPlayer, _vlcMedia );
+		libvlc_media_release(_vlcMedia);
+		_vlcMedia = NULL;
+		
         libvlc_video_set_callbacks( _vlcPlayer, &VLCImageStream::lockFunc, &VLCImageStream::unlockFunc, &VLCImageStream::displayFunc, this );
-        libvlc_video_set_format( _vlcPlayer, "RGBA", w, h, w*4 );
-        
+		libvlc_video_set_format( _vlcPlayer, "RGBA", w, h, w*4 );
+
         allocateImage( w, h, 1, GL_RGBA, GL_UNSIGNED_BYTE );
+		
         if ( needPlay ) play();
+		
     }
     
     virtual void play()
@@ -144,17 +142,19 @@ public:
     virtual void setVolume( float vol ) { libvlc_audio_set_volume(_vlcPlayer, (int)vol); }
     virtual float getVolume() const { return (int)libvlc_audio_get_volume(_vlcPlayer); }
     
-protected:
     virtual ~VLCImageStream()
     {
+		logINFO("Destroying VLCImageStream");
         if ( _status!=INVALID )
         {
             libvlc_media_player_stop( _vlcPlayer );
             libvlc_media_player_release( _vlcPlayer );
         }
         libvlc_release( _vlc );
+		logINFO("VLCImageStream destroyed.");
     }
     
+protected:	
     libvlc_instance_t* _vlc;
     libvlc_media_t* _vlcMedia;
     libvlc_media_player_t* _vlcPlayer;

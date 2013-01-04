@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Plane() {
+		logDEBUG3("Calling delete function for wrapper SPK_Plane");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

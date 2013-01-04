@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxBookCtrlBase() {
+		logDEBUG3("Calling delete function for wrapper wxBookCtrlBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

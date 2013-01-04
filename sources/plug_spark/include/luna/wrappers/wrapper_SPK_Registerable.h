@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Registerable() {
+		logDEBUG3("Calling delete function for wrapper SPK_Registerable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

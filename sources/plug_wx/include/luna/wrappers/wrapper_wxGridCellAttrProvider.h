@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridCellAttrProvider() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellAttrProvider");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

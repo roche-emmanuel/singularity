@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_WindowSizeHandler() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_WindowSizeHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

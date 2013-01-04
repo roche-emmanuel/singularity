@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_IncrementalCompileOperation_CompileTextureOp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPropertyGridInterface() {
+		logDEBUG3("Calling delete function for wrapper wxPropertyGridInterface");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

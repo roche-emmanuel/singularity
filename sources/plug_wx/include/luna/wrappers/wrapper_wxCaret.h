@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCaret() {
+		logDEBUG3("Calling delete function for wrapper wxCaret");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

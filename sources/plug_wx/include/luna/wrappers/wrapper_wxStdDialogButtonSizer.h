@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStdDialogButtonSizer() {
+		logDEBUG3("Calling delete function for wrapper wxStdDialogButtonSizer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSingleChoiceDialog() {
+		logDEBUG3("Calling delete function for wrapper wxSingleChoiceDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

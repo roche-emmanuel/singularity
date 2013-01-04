@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStaticBoxSizer() {
+		logDEBUG3("Calling delete function for wrapper wxStaticBoxSizer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

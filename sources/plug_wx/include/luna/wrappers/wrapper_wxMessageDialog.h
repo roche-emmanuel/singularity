@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMessageDialog() {
+		logDEBUG3("Calling delete function for wrapper wxMessageDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

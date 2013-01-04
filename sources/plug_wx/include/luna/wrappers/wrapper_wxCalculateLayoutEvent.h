@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCalculateLayoutEvent() {
+		logDEBUG3("Calling delete function for wrapper wxCalculateLayoutEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

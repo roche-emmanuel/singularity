@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlFilter() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlFilter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

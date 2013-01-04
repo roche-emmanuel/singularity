@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_DepthPartitionSettings() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_DepthPartitionSettings");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

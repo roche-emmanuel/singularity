@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_CameraManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_CameraManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

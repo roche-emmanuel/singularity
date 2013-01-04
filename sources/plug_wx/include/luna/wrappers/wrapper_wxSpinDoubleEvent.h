@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSpinDoubleEvent() {
+		logDEBUG3("Calling delete function for wrapper wxSpinDoubleEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

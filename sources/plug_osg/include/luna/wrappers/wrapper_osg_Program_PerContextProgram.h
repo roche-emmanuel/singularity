@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Program_PerContextProgram() {
+		logDEBUG3("Calling delete function for wrapper osg_Program_PerContextProgram");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

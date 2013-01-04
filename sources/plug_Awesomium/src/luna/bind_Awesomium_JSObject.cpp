@@ -224,7 +224,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSObject::remote_id() const");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSObject::remote_id() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		unsigned int lret = self->remote_id();
 		lua_pushnumber(L,lret);
@@ -243,7 +243,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::JSObject::ref_count() const");
+			luaL_error(L, "Invalid object in function call int Awesomium::JSObject::ref_count() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		int lret = self->ref_count();
 		lua_pushnumber(L,lret);
@@ -262,7 +262,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSObjectType Awesomium::JSObject::type() const");
+			luaL_error(L, "Invalid object in function call Awesomium::JSObjectType Awesomium::JSObject::type() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::JSObjectType lret = self->type();
 		lua_pushnumber(L,lret);
@@ -281,7 +281,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebView * Awesomium::JSObject::owner() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebView * Awesomium::JSObject::owner() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::WebView * lret = self->owner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,7 +302,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSArray Awesomium::JSObject::GetPropertyNames() const");
+			luaL_error(L, "Invalid object in function call Awesomium::JSArray Awesomium::JSObject::GetPropertyNames() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::JSArray stack_lret = self->GetPropertyNames();
 		Awesomium::JSArray* lret = new Awesomium::JSArray(stack_lret);
@@ -326,7 +326,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSObject::HasProperty(const Awesomium::WebString &) const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSObject::HasProperty(const Awesomium::WebString &) const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		bool lret = self->HasProperty(name);
 		lua_pushboolean(L,lret?1:0);
@@ -347,7 +347,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::JSObject::GetProperty(const Awesomium::WebString &) const");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::JSObject::GetProperty(const Awesomium::WebString &) const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::JSValue stack_lret = self->GetProperty(name);
 		Awesomium::JSValue* lret = new Awesomium::JSValue(stack_lret);
@@ -376,7 +376,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSObject::SetProperty(const Awesomium::WebString &, const Awesomium::JSValue &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSObject::SetProperty(const Awesomium::WebString &, const Awesomium::JSValue &). Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		self->SetProperty(name, value);
 
@@ -396,7 +396,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSObject::RemoveProperty(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSObject::RemoveProperty(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		self->RemoveProperty(name);
 
@@ -414,7 +414,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSArray Awesomium::JSObject::GetMethodNames() const");
+			luaL_error(L, "Invalid object in function call Awesomium::JSArray Awesomium::JSObject::GetMethodNames() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::JSArray stack_lret = self->GetMethodNames();
 		Awesomium::JSArray* lret = new Awesomium::JSArray(stack_lret);
@@ -438,7 +438,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSObject::HasMethod(const Awesomium::WebString &) const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSObject::HasMethod(const Awesomium::WebString &) const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		bool lret = self->HasMethod(name);
 		lua_pushboolean(L,lret?1:0);
@@ -464,7 +464,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::JSObject::Invoke(const Awesomium::WebString &, const Awesomium::JSArray &)");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::JSObject::Invoke(const Awesomium::WebString &, const Awesomium::JSArray &). Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::JSValue stack_lret = self->Invoke(name, args);
 		Awesomium::JSValue* lret = new Awesomium::JSValue(stack_lret);
@@ -486,7 +486,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSObject::ToString() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSObject::ToString() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->ToString();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -511,7 +511,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSObject::SetCustomMethod(const Awesomium::WebString &, bool)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSObject::SetCustomMethod(const Awesomium::WebString &, bool). Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		self->SetCustomMethod(name, has_return_value);
 
@@ -529,7 +529,7 @@ public:
 		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Error Awesomium::JSObject::last_error() const");
+			luaL_error(L, "Invalid object in function call Awesomium::Error Awesomium::JSObject::last_error() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
 		}
 		Awesomium::Error lret = self->last_error();
 		lua_pushnumber(L,lret);

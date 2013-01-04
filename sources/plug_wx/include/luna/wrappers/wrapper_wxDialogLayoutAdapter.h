@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDialogLayoutAdapter() {
+		logDEBUG3("Calling delete function for wrapper wxDialogLayoutAdapter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

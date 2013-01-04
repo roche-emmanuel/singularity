@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextImageBlock() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextImageBlock");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

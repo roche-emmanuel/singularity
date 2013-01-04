@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextFormattingDialogFactory() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextFormattingDialogFactory");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

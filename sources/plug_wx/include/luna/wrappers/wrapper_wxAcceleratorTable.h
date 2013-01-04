@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAcceleratorTable() {
+		logDEBUG3("Calling delete function for wrapper wxAcceleratorTable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

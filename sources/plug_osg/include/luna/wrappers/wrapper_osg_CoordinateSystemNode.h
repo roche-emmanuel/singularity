@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CoordinateSystemNode() {
+		logDEBUG3("Calling delete function for wrapper osg_CoordinateSystemNode");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

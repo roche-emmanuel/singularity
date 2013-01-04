@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxQueryNewPaletteEvent() {
+		logDEBUG3("Calling delete function for wrapper wxQueryNewPaletteEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

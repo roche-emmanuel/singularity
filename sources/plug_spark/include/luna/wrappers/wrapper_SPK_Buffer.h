@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Buffer() {
+		logDEBUG3("Calling delete function for wrapper SPK_Buffer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

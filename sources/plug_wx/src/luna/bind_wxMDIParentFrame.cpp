@@ -1390,9 +1390,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxMDIClientWindowBase * wxMDIParentFrame::GetClientWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxMDIClientWindowBase * lret = self->GetClientWindow();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxMDIClientWindowBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxMDIClientWindowBase >::push(L,lret,false);
 
 		return 1;
 	}

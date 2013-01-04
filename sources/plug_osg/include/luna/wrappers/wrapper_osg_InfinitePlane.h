@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_InfinitePlane() {
+		logDEBUG3("Calling delete function for wrapper osg_InfinitePlane");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Node_ComputeBoundingSphereCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_Node_ComputeBoundingSphereCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Material() {
+		logDEBUG3("Calling delete function for wrapper osg_Material");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

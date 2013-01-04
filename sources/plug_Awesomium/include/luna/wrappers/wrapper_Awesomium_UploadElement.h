@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_UploadElement() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_UploadElement");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

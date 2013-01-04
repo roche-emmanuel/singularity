@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxChoice() {
+		logDEBUG3("Calling delete function for wrapper wxChoice");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

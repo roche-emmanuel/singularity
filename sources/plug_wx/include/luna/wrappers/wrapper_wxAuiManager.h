@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAuiManager() {
+		logDEBUG3("Calling delete function for wrapper wxAuiManager");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

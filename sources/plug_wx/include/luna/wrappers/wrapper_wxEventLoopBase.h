@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxEventLoopBase() {
+		logDEBUG3("Calling delete function for wrapper wxEventLoopBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

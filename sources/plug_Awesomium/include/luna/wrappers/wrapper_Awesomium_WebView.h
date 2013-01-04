@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_WebView() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_WebView");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}
@@ -43,12 +44,6 @@ public:
 	int process_id() {
 		THROW_IF(!_obj.pushFunction("process_id"),"No implementation for abstract function Awesomium::WebView::process_id");
 		return (_obj.callFunction<int>());
-	};
-
-	// ProcessHandle Awesomium::WebView::process_handle()
-	ProcessHandle process_handle() {
-		THROW_IF(!_obj.pushFunction("process_handle"),"No implementation for abstract function Awesomium::WebView::process_handle");
-		return (_obj.callFunction<ProcessHandle>());
 	};
 
 	// void Awesomium::WebView::set_view_listener(WebViewListener::View * listener)
@@ -529,6 +524,13 @@ public:
 	void register_protected_methods(lua_State* L) {
 	};
 
+
+public:
+// ProcessHandle Awesomium::WebView::process_handle()
+ProcessHandle process_handle() {
+	THROW_IF(true,"The function call ProcessHandle Awesomium::WebView::process_handle() is not implemented in wrapper.");
+	return ProcessHandle();
+};
 
 public:
 // void Awesomium::WebView::set_parent_window(NativeWindow parent)

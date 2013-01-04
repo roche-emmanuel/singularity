@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTransform2D() {
+		logDEBUG3("Calling delete function for wrapper wxTransform2D");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

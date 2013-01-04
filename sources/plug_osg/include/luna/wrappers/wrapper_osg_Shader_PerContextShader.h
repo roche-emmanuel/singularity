@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Shader_PerContextShader() {
+		logDEBUG3("Calling delete function for wrapper osg_Shader_PerContextShader");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

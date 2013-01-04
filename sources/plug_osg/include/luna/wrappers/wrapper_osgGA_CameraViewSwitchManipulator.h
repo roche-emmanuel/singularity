@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_CameraViewSwitchManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_CameraViewSwitchManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

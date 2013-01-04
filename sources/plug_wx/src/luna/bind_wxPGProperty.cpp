@@ -1033,9 +1033,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxPGCellRenderer * wxPGProperty::GetCellRenderer(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPGCellRenderer * lret = self->GetCellRenderer(column);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxPGCellRenderer *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGCellRenderer >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1091,9 +1091,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxPGEditorDialogAdapter * wxPGProperty::GetEditorDialog() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPGEditorDialogAdapter * lret = self->GetEditorDialog();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxPGEditorDialogAdapter *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGEditorDialogAdapter >::push(L,lret,false);
 
 		return 1;
 	}

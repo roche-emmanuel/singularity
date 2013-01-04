@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_CullStack() {
+		logDEBUG3("Calling delete function for wrapper osg_CullStack");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

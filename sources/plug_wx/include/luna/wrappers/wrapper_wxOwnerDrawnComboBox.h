@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxOwnerDrawnComboBox() {
+		logDEBUG3("Calling delete function for wrapper wxOwnerDrawnComboBox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

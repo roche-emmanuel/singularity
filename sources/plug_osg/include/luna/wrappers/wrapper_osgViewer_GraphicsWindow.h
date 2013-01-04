@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgViewer_GraphicsWindow() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_GraphicsWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

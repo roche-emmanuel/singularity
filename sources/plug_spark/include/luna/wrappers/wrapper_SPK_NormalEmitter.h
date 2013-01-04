@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_NormalEmitter() {
+		logDEBUG3("Calling delete function for wrapper SPK_NormalEmitter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

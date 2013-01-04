@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_RenderBin_SortCallback() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_RenderBin_SortCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

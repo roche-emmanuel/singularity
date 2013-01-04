@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxClientDC() {
+		logDEBUG3("Calling delete function for wrapper wxClientDC");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

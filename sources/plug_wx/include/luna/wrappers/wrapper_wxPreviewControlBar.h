@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPreviewControlBar() {
+		logDEBUG3("Calling delete function for wrapper wxPreviewControlBar");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

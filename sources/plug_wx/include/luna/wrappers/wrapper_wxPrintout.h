@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPrintout() {
+		logDEBUG3("Calling delete function for wrapper wxPrintout");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

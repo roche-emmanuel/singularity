@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_DrawElementTypeSimplifierVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_DrawElementTypeSimplifierVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

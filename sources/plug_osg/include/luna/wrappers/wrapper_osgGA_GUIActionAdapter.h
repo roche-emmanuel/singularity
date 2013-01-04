@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_GUIActionAdapter() {
+		logDEBUG3("Calling delete function for wrapper osgGA_GUIActionAdapter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

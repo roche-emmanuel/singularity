@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFileDirPickerEvent() {
+		logDEBUG3("Calling delete function for wrapper wxFileDirPickerEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

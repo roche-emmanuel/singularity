@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSashWindow() {
+		logDEBUG3("Calling delete function for wrapper wxSashWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

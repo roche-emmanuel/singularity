@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxEvtHandler() {
+		logDEBUG3("Calling delete function for wrapper wxEvtHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

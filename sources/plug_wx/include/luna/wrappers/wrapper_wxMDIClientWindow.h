@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMDIClientWindow() {
+		logDEBUG3("Calling delete function for wrapper wxMDIClientWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

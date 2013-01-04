@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TexGen() {
+		logDEBUG3("Calling delete function for wrapper osg_TexGen");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

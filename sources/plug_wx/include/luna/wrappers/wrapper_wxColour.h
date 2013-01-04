@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxColour() {
+		logDEBUG3("Calling delete function for wrapper wxColour");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

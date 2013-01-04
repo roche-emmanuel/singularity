@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgt_AnyVector() {
+		logDEBUG3("Calling delete function for wrapper sgt_AnyVector");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

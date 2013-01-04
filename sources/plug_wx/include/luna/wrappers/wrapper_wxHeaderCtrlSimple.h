@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHeaderCtrlSimple() {
+		logDEBUG3("Calling delete function for wrapper wxHeaderCtrlSimple");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

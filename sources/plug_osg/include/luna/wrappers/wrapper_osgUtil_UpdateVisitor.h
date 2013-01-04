@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_UpdateVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_UpdateVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

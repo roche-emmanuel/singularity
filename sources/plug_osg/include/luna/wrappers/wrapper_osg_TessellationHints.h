@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TessellationHints() {
+		logDEBUG3("Calling delete function for wrapper osg_TessellationHints");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

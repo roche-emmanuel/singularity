@@ -1148,9 +1148,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxSplashScreenWindow * wxSplashScreen::GetSplashWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxSplashScreenWindow * lret = self->GetSplashWindow();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxSplashScreenWindow *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSplashScreenWindow >::push(L,lret,false);
 
 		return 1;
 	}

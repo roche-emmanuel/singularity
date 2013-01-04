@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ConvexHull() {
+		logDEBUG3("Calling delete function for wrapper osg_ConvexHull");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

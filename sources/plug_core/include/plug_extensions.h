@@ -19,4 +19,6 @@ int map_get(std::map< std::string, int >* data, const std::string& id);
 /** LUNA_CLASS_EXTENSION LUNA_RENAME get */
 unsigned int map_uint_get(std::map< std::string, unsigned int >* data, const std::string& id);
 
+void setEnv(const std::string& var, const std::string& value);
+
 #endif

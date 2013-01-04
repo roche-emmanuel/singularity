@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_GUIEventHandler() {
+		logDEBUG3("Calling delete function for wrapper osgGA_GUIEventHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

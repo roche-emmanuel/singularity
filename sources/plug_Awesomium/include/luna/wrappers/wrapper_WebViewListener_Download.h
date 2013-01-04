@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_WebViewListener_Download() {
+		logDEBUG3("Calling delete function for wrapper WebViewListener_Download");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

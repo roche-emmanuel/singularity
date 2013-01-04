@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridCellEnumEditor() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellEnumEditor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

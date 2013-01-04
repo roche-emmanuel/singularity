@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlTagHandler() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlTagHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

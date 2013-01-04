@@ -176,6 +176,7 @@ function Class:writeHeader()
 	buf:pushIndent()
 	
 	local str = [[~wrapper_${1}() {
+		logDEBUG3("Calling delete function for wrapper ${1}");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

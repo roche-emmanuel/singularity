@@ -131,7 +131,7 @@ public:
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::Rect::IsEmpty() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::Rect::IsEmpty() const. Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);

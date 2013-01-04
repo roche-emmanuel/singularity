@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Drawable() {
+		logDEBUG3("Calling delete function for wrapper osg_Drawable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

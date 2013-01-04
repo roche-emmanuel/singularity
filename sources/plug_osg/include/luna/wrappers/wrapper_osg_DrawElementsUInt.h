@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_DrawElementsUInt() {
+		logDEBUG3("Calling delete function for wrapper osg_DrawElementsUInt");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

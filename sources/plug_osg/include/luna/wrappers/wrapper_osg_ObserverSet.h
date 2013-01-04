@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ObserverSet() {
+		logDEBUG3("Calling delete function for wrapper osg_ObserverSet");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

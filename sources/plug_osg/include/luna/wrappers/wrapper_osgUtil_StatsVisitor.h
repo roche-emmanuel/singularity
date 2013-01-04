@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_StatsVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_StatsVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

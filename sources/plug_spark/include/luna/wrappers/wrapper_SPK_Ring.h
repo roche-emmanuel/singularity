@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_Ring() {
+		logDEBUG3("Calling delete function for wrapper SPK_Ring");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

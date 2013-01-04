@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_DrawArrays() {
+		logDEBUG3("Calling delete function for wrapper osg_DrawArrays");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGraphicsPath() {
+		logDEBUG3("Calling delete function for wrapper wxGraphicsPath");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

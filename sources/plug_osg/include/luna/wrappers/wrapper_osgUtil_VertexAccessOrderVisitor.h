@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_VertexAccessOrderVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_VertexAccessOrderVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

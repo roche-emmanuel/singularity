@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewIconText() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewIconText");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

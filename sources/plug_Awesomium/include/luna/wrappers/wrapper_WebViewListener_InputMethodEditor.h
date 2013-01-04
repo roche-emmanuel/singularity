@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_WebViewListener_InputMethodEditor() {
+		logDEBUG3("Calling delete function for wrapper WebViewListener_InputMethodEditor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

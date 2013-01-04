@@ -166,7 +166,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::Release() const");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::Release() const. Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		self->Release();
 
@@ -184,7 +184,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebSession::IsOnDisk() const");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebSession::IsOnDisk() const. Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		bool lret = self->IsOnDisk();
 		lua_pushboolean(L,lret?1:0);
@@ -203,7 +203,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebSession::data_path() const");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebSession::data_path() const. Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		Awesomium::WebString stack_lret = self->data_path();
 		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
@@ -225,7 +225,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebPreferences & Awesomium::WebSession::preferences() const");
+			luaL_error(L, "Invalid object in function call const Awesomium::WebPreferences & Awesomium::WebSession::preferences() const. Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		const Awesomium::WebPreferences* lret = &self->preferences();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -249,7 +249,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::AddDataSource(const Awesomium::WebString &, Awesomium::DataSource *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::AddDataSource(const Awesomium::WebString &, Awesomium::DataSource *). Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		self->AddDataSource(asset_host, source);
 
@@ -276,7 +276,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::SetCookie(const Awesomium::WebURL &, const Awesomium::WebString &, bool, bool)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::SetCookie(const Awesomium::WebURL &, const Awesomium::WebString &, bool, bool). Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		self->SetCookie(url, cookie_string, is_http_only, force_session_cookie);
 
@@ -294,7 +294,7 @@ public:
 		Awesomium::WebSession* self=(Luna< Awesomium::WebSession >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::ClearCookies()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebSession::ClearCookies(). Got : '%s'",typeid(Luna< Awesomium::WebSession >::check(L,1)).name());
 		}
 		self->ClearCookies();
 

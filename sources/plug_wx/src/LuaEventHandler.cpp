@@ -105,6 +105,8 @@ LuaEventHandler::LuaEventHandler()
 LuaEventHandler::~LuaEventHandler()
 {
     // Remove the reference to the Lua function that we call
+	logDEBUG4("Calling LuaEventHandler destructor with L=" << (const void*)m_state << ", ref="<< m_luafunc_ref);
+	
     if (m_state && m_luafunc_ref!=LUA_NOREF)
     {
 		wxluaR_unref(m_state,m_luafunc_ref,&wx_refs_key);

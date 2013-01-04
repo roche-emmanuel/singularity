@@ -43,17 +43,17 @@ function Class:create()
 	-- create a viewer:
 	self._viewer = osgViewer.Viewer()
 	self._viewer:setCameraManipulator(osgGA.TrackballManipulator())
-	
+
 	-- create graphicswindow:
 	self._gw = osgWX.GraphicsWindowWX(self._window,self._context) -- instance owned by lua	
-	
+
 	self._viewer:setSceneData(self._root);
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
 	--self._viewer:addEventHandler( osgViewer.StatsHandler() )	
 	--self._viewer:addEventHandler( osgViewer.WindowSizeHandler() )
-	
+		
 	-- connect the event handlers for the canvas:
 	self._intf:connectHandler(self._window,wx.wxEVT_SIZE,function(intf,event)
     	local size = event:GetSize()
@@ -64,10 +64,9 @@ function Class:create()
 		self._gw:getEventQueue():windowResize(0, 0, ww, hh);
         self._gw:resized(0,0,ww,hh);
 		self._viewer:getCamera():setViewport(0,0,ww,hh);
-		
-		--self._viewer:frame();
 	end)
 
+	
 	local mouseDownHandler = function(intf,event)
     	--self:info("Sending mouse down event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
 		self._gw:getEventQueue():mouseButtonPress(event:GetX(), event:GetY(), event:GetButton())
@@ -93,6 +92,7 @@ function Class:create()
 		self._gw:getEventQueue():mouseMotion(event:GetX(), event:GetY());
 		event:Skip();
 	end
+
 	
 	self._intf:connectHandler(self._window,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
 	self._intf:connectHandler(self._window,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
@@ -104,6 +104,11 @@ function Class:create()
 	self._intf:connectHandler(self._window,wx.wxEVT_MOTION,mouseMotionHandler)
 	
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
+	
+	self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
+		self:info("Removing graphics context from osg canvas.");
+		self._viewer:getCamera():setGraphicsContext(nil);
+	end}
 end
 
 function Class:onFrame()

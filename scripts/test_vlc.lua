@@ -19,6 +19,8 @@ core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
 local App = require "vlc.VLCTestApp"
 local app = App{profileFile="test_tuio_profile.log",file="tests/data/skinned.mp4"}
+-- local app = App{profileFile="test_tuio_profile.log",file="tests/data/dataset.avi"}
+-- local app = App{profileFile="test_tuio_profile.log",file="tests/data/zerobrane.mp4"}
 
 app:run()
 	

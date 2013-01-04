@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_LineStipple() {
+		logDEBUG3("Calling delete function for wrapper osg_LineStipple");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

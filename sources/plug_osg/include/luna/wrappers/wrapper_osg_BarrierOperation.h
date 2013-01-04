@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_BarrierOperation() {
+		logDEBUG3("Calling delete function for wrapper osg_BarrierOperation");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

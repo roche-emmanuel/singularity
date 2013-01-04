@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGLContext() {
+		logDEBUG3("Calling delete function for wrapper wxGLContext");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

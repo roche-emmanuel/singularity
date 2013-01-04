@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_ConnectedParticleSystem() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_ConnectedParticleSystem");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

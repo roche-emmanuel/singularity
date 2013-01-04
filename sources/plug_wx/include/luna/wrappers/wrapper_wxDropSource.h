@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDropSource() {
+		logDEBUG3("Calling delete function for wrapper wxDropSource");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

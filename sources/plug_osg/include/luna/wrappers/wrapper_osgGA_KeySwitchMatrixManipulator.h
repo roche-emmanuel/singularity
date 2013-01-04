@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_KeySwitchMatrixManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_KeySwitchMatrixManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

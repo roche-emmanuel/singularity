@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextPrintout() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextPrintout");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

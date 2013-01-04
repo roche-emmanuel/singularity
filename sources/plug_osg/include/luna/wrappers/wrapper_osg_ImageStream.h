@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ImageStream() {
+		logDEBUG3("Calling delete function for wrapper osg_ImageStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

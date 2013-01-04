@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_SegmentPlacer() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_SegmentPlacer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

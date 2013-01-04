@@ -940,9 +940,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxToolBarBase * wxToolbook::GetToolBar() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxToolBarBase * lret = self->GetToolBar();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxToolBarBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxToolBarBase >::push(L,lret,false);
 
 		return 1;
 	}

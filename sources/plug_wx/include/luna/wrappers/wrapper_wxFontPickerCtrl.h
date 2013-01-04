@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFontPickerCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxFontPickerCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

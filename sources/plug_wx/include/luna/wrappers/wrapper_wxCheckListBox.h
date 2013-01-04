@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCheckListBox() {
+		logDEBUG3("Calling delete function for wrapper wxCheckListBox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

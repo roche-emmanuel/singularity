@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxInfoBar() {
+		logDEBUG3("Calling delete function for wrapper wxInfoBar");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

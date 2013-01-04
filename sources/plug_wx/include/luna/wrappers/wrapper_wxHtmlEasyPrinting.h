@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlEasyPrinting() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlEasyPrinting");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxChoicebook() {
+		logDEBUG3("Calling delete function for wrapper wxChoicebook");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

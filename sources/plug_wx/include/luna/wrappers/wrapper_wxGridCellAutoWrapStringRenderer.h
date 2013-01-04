@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridCellAutoWrapStringRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellAutoWrapStringRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridColumnHeaderRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxGridColumnHeaderRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTimer() {
+		logDEBUG3("Calling delete function for wrapper wxTimer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

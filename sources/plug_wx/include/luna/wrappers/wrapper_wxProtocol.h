@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxProtocol() {
+		logDEBUG3("Calling delete function for wrapper wxProtocol");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_SharedStateManager() {
+		logDEBUG3("Calling delete function for wrapper osgDB_SharedStateManager");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

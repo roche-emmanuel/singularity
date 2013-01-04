@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_GLObjectsVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_GLObjectsVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

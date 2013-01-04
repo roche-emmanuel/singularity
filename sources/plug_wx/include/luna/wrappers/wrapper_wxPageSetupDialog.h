@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPageSetupDialog() {
+		logDEBUG3("Calling delete function for wrapper wxPageSetupDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

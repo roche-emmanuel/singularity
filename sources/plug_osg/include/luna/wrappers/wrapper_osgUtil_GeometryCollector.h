@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_GeometryCollector() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_GeometryCollector");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

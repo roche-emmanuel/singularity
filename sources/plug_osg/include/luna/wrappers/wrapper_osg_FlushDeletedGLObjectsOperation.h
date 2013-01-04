@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_FlushDeletedGLObjectsOperation() {
+		logDEBUG3("Calling delete function for wrapper osg_FlushDeletedGLObjectsOperation");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

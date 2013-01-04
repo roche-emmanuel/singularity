@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCountingOutputStream() {
+		logDEBUG3("Calling delete function for wrapper wxCountingOutputStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

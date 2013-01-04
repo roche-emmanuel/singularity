@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Light() {
+		logDEBUG3("Calling delete function for wrapper osg_Light");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

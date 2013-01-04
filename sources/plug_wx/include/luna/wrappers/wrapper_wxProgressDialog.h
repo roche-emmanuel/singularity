@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxProgressDialog() {
+		logDEBUG3("Calling delete function for wrapper wxProgressDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

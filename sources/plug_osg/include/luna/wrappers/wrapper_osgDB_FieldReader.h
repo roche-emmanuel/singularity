@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_FieldReader() {
+		logDEBUG3("Calling delete function for wrapper osgDB_FieldReader");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

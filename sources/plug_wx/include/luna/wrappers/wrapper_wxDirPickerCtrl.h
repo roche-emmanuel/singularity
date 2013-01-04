@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDirPickerCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxDirPickerCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

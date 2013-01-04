@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLogStream() {
+		logDEBUG3("Calling delete function for wrapper wxLogStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

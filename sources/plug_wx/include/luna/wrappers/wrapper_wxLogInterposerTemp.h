@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLogInterposerTemp() {
+		logDEBUG3("Calling delete function for wrapper wxLogInterposerTemp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

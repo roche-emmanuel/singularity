@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxItemContainerImmutable() {
+		logDEBUG3("Calling delete function for wrapper wxItemContainerImmutable");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

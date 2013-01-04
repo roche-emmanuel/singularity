@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxToggleButton() {
+		logDEBUG3("Calling delete function for wrapper wxToggleButton");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

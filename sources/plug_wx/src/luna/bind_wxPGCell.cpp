@@ -382,9 +382,9 @@ public:
 			luaL_error(L, "Invalid object in function call const wxPGCellData * wxPGCell::GetData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		const wxPGCellData * lret = self->GetData();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxPGCellData *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGCellData >::push(L,lret,false);
 
 		return 1;
 	}
@@ -403,9 +403,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxPGCellData * wxPGCell::GetData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxPGCellData * lret = self->GetData();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxPGCellData *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGCellData >::push(L,lret,false);
 
 		return 1;
 	}

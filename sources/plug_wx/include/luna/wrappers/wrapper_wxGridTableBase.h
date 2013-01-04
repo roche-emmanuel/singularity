@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridTableBase() {
+		logDEBUG3("Calling delete function for wrapper wxGridTableBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -140,7 +140,7 @@ public:
 		WebViewListener::Menu* self=(Luna< WebViewListener::Menu >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView *, const Awesomium::WebPopupMenuInfo &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView *, const Awesomium::WebPopupMenuInfo &). Got : '%s'",typeid(Luna< WebViewListener::Menu >::check(L,1)).name());
 		}
 		self->OnShowPopupMenu(caller, menu_info);
 
@@ -164,7 +164,7 @@ public:
 		WebViewListener::Menu* self=(Luna< WebViewListener::Menu >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Menu::OnShowContextMenu(Awesomium::WebView *, const Awesomium::WebContextMenuInfo &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Menu::OnShowContextMenu(Awesomium::WebView *, const Awesomium::WebContextMenuInfo &). Got : '%s'",typeid(Luna< WebViewListener::Menu >::check(L,1)).name());
 		}
 		self->OnShowContextMenu(caller, menu_info);
 

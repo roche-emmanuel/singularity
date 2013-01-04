@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_FlightManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_FlightManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

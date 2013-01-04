@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRearrangeList() {
+		logDEBUG3("Calling delete function for wrapper wxRearrangeList");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

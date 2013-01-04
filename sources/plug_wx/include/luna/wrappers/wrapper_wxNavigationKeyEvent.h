@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxNavigationKeyEvent() {
+		logDEBUG3("Calling delete function for wrapper wxNavigationKeyEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

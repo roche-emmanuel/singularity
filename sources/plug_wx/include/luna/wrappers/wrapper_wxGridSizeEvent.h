@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridSizeEvent() {
+		logDEBUG3("Calling delete function for wrapper wxGridSizeEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

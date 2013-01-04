@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_PrimitiveSet() {
+		logDEBUG3("Calling delete function for wrapper osg_PrimitiveSet");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

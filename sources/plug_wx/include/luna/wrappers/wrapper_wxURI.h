@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxURI() {
+		logDEBUG3("Calling delete function for wrapper wxURI");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

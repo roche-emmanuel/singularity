@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTarEntry() {
+		logDEBUG3("Calling delete function for wrapper wxTarEntry");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_StateAttribute_ModeUsage() {
+		logDEBUG3("Calling delete function for wrapper osg_StateAttribute_ModeUsage");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

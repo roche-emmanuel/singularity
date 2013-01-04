@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAuiNotebookEvent() {
+		logDEBUG3("Calling delete function for wrapper wxAuiNotebookEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

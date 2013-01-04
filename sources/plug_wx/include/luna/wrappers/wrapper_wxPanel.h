@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPanel() {
+		logDEBUG3("Calling delete function for wrapper wxPanel");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

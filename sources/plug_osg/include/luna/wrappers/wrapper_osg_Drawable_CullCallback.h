@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Drawable_CullCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_Drawable_CullCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

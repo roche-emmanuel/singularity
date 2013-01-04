@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_OrbitManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_OrbitManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

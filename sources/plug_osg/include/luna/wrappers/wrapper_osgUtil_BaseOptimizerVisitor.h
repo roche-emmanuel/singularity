@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_BaseOptimizerVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_BaseOptimizerVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

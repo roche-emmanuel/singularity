@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TexEnv() {
+		logDEBUG3("Calling delete function for wrapper osg_TexEnv");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

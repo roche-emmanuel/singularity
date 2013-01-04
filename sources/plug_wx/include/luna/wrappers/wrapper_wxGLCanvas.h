@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGLCanvas() {
+		logDEBUG3("Calling delete function for wrapper wxGLCanvas");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

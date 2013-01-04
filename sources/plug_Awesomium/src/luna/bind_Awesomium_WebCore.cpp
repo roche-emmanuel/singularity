@@ -251,7 +251,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString &, const Awesomium::WebPreferences &)");
+			luaL_error(L, "Invalid object in function call Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString &, const Awesomium::WebPreferences &). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		Awesomium::WebSession * lret = self->CreateWebSession(path, prefs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -278,7 +278,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebView * Awesomium::WebCore::CreateWebView(int, int, Awesomium::WebSession *, Awesomium::WebViewType)");
+			luaL_error(L, "Invalid object in function call Awesomium::WebView * Awesomium::WebCore::CreateWebView(int, int, Awesomium::WebSession *, Awesomium::WebViewType). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		Awesomium::WebView * lret = self->CreateWebView(width, height, session, type);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -300,7 +300,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory *). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		self->set_surface_factory(factory);
 
@@ -318,7 +318,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const");
+			luaL_error(L, "Invalid object in function call Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const. Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		Awesomium::SurfaceFactory * lret = self->surface_factory();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -340,7 +340,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor *). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		self->set_resource_interceptor(interceptor);
 
@@ -358,7 +358,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const");
+			luaL_error(L, "Invalid object in function call Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const. Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		Awesomium::ResourceInterceptor * lret = self->resource_interceptor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,7 +379,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::Update()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::Update(). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		self->Update();
 
@@ -397,7 +397,7 @@ public:
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * Awesomium::WebCore::version_string() const");
+			luaL_error(L, "Invalid object in function call const char * Awesomium::WebCore::version_string() const. Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
 		}
 		const char * lret = self->version_string();
 		lua_pushstring(L,lret);

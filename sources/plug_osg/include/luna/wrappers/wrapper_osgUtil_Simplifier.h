@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_Simplifier() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_Simplifier");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

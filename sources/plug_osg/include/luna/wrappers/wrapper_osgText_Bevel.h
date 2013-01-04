@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_Bevel() {
+		logDEBUG3("Calling delete function for wrapper osgText_Bevel");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

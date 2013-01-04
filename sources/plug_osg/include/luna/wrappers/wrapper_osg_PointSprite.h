@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_PointSprite() {
+		logDEBUG3("Calling delete function for wrapper osg_PointSprite");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

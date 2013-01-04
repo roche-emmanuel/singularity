@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_AudioSink() {
+		logDEBUG3("Calling delete function for wrapper osg_AudioSink");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

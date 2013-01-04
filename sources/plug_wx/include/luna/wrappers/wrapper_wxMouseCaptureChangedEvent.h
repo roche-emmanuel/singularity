@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMouseCaptureChangedEvent() {
+		logDEBUG3("Calling delete function for wrapper wxMouseCaptureChangedEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

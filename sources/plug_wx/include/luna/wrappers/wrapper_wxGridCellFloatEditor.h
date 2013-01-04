@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridCellFloatEditor() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellFloatEditor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

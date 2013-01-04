@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ConstArrayVisitor() {
+		logDEBUG3("Calling delete function for wrapper osg_ConstArrayVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_RenderLeaf() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_RenderLeaf");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

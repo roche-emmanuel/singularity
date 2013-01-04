@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxCommandLinkButton() {
+		logDEBUG3("Calling delete function for wrapper wxCommandLinkButton");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

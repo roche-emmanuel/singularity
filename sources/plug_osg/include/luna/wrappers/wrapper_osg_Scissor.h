@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Scissor() {
+		logDEBUG3("Calling delete function for wrapper osg_Scissor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

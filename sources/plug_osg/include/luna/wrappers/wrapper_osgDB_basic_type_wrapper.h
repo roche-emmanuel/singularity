@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_basic_type_wrapper() {
+		logDEBUG3("Calling delete function for wrapper osgDB_basic_type_wrapper");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

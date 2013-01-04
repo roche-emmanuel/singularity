@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAuiToolBar() {
+		logDEBUG3("Calling delete function for wrapper wxAuiToolBar");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

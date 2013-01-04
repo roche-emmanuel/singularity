@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_AudioStream() {
+		logDEBUG3("Calling delete function for wrapper osg_AudioStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

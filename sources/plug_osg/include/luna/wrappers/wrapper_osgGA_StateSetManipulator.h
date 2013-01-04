@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_StateSetManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_StateSetManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

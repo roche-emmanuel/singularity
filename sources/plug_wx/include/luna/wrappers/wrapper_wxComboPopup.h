@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxComboPopup() {
+		logDEBUG3("Calling delete function for wrapper wxComboPopup");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

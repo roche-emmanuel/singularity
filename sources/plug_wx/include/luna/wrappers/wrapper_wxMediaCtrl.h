@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMediaCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxMediaCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

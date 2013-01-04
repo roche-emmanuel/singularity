@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_sgtApp() {
+		logDEBUG3("Calling delete function for wrapper sgtApp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

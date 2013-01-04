@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_LinearForce() {
+		logDEBUG3("Calling delete function for wrapper SPK_LinearForce");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

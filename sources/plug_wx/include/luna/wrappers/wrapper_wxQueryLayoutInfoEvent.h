@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxQueryLayoutInfoEvent() {
+		logDEBUG3("Calling delete function for wrapper wxQueryLayoutInfoEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

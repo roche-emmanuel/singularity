@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_BufferObject() {
+		logDEBUG3("Calling delete function for wrapper osg_BufferObject");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

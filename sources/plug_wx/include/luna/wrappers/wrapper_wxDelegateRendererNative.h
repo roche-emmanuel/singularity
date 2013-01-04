@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDelegateRendererNative() {
+		logDEBUG3("Calling delete function for wrapper wxDelegateRendererNative");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

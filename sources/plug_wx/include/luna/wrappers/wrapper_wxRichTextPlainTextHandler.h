@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextPlainTextHandler() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextPlainTextHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_GL_GLPointRenderer() {
+		logDEBUG3("Calling delete function for wrapper GL_GLPointRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

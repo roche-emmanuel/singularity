@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFindReplaceData() {
+		logDEBUG3("Calling delete function for wrapper wxFindReplaceData");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

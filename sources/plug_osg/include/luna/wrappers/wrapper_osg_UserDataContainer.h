@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_UserDataContainer() {
+		logDEBUG3("Calling delete function for wrapper osg_UserDataContainer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

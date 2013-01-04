@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridEditorCreatedEvent() {
+		logDEBUG3("Calling delete function for wrapper wxGridEditorCreatedEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

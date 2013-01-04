@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_ForceOperator() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_ForceOperator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridHeaderLabelsRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxGridHeaderLabelsRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

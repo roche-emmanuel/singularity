@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPrintData() {
+		logDEBUG3("Calling delete function for wrapper wxPrintData");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

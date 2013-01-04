@@ -38,6 +38,7 @@ function Class:onAppClosing()
 		timer:Stop();
 		timer:release(); -- release the wrapper.
 	end
+	self._timers:clear();
 end
 
 -- Add a new timer using the provided options.

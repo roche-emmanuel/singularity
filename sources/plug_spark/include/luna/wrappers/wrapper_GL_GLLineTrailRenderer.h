@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_GL_GLLineTrailRenderer() {
+		logDEBUG3("Calling delete function for wrapper GL_GLLineTrailRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

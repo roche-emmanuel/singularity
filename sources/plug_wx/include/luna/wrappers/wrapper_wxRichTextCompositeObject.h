@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextCompositeObject() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextCompositeObject");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

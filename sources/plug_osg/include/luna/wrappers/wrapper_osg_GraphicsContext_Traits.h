@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GraphicsContext_Traits() {
+		logDEBUG3("Calling delete function for wrapper osg_GraphicsContext_Traits");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

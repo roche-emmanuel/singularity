@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_ConstantRateCounter() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_ConstantRateCounter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

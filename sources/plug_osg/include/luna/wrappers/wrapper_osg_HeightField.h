@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_HeightField() {
+		logDEBUG3("Calling delete function for wrapper osg_HeightField");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

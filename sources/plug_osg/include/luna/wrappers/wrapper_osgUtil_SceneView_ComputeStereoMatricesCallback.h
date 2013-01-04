@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_SceneView_ComputeStereoMatricesCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

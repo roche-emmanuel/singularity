@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Viewport() {
+		logDEBUG3("Calling delete function for wrapper osg_Viewport");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGridRowHeaderRendererDefault() {
+		logDEBUG3("Calling delete function for wrapper wxGridRowHeaderRendererDefault");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

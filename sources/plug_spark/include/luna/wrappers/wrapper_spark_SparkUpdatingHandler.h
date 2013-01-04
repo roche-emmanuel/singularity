@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_spark_SparkUpdatingHandler() {
+		logDEBUG3("Calling delete function for wrapper spark_SparkUpdatingHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -245,10 +245,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const wxHtmlBookRecArray & lret = self->GetBookRecArray();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxHtmlBookRecArray &'
-		////////////////////////////////////////////////////////////////////
+		const wxHtmlBookRecArray* lret = &self->GetBookRecArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlBookRecArray >::push(L,lret,false);
 
 		return 1;
 	}
@@ -266,10 +266,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const wxHtmlHelpDataItems & lret = self->GetContentsArray();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxHtmlHelpDataItems &'
-		////////////////////////////////////////////////////////////////////
+		const wxHtmlHelpDataItems* lret = &self->GetContentsArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlHelpDataItems >::push(L,lret,false);
 
 		return 1;
 	}
@@ -287,10 +287,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const wxHtmlHelpDataItems & lret = self->GetIndexArray();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxHtmlHelpDataItems &'
-		////////////////////////////////////////////////////////////////////
+		const wxHtmlHelpDataItems* lret = &self->GetIndexArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlHelpDataItems >::push(L,lret,false);
 
 		return 1;
 	}

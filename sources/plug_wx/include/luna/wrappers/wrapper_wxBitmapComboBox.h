@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxBitmapComboBox() {
+		logDEBUG3("Calling delete function for wrapper wxBitmapComboBox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

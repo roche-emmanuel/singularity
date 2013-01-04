@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlColourCell() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlColourCell");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

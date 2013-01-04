@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPickerBase() {
+		logDEBUG3("Calling delete function for wrapper wxPickerBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

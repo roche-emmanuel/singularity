@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxEncodingConverter() {
+		logDEBUG3("Calling delete function for wrapper wxEncodingConverter");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

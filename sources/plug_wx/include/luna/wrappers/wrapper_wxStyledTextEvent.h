@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStyledTextEvent() {
+		logDEBUG3("Calling delete function for wrapper wxStyledTextEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

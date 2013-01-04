@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGBSizerItem() {
+		logDEBUG3("Calling delete function for wrapper wxGBSizerItem");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

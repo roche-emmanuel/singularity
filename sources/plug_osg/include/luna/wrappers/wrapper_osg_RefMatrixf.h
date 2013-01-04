@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_RefMatrixf() {
+		logDEBUG3("Calling delete function for wrapper osg_RefMatrixf");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

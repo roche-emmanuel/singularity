@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLocale() {
+		logDEBUG3("Calling delete function for wrapper wxLocale");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

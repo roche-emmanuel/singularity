@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_CenteredPlacer() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_CenteredPlacer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

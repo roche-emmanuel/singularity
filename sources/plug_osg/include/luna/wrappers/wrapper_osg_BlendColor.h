@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_BlendColor() {
+		logDEBUG3("Calling delete function for wrapper osg_BlendColor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

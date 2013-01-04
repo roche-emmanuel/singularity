@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxEditableListBox() {
+		logDEBUG3("Calling delete function for wrapper wxEditableListBox");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

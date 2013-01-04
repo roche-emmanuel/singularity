@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GLBufferObjectManager() {
+		logDEBUG3("Calling delete function for wrapper osg_GLBufferObjectManager");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_JSMethodHandler() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_JSMethodHandler");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

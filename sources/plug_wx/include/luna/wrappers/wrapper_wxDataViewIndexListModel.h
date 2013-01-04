@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewIndexListModel() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewIndexListModel");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

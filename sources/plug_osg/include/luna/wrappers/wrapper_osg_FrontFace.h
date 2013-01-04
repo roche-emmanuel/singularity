@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_FrontFace() {
+		logDEBUG3("Calling delete function for wrapper osg_FrontFace");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

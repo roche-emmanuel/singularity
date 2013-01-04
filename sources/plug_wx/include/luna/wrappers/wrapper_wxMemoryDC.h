@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMemoryDC() {
+		logDEBUG3("Calling delete function for wrapper wxMemoryDC");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

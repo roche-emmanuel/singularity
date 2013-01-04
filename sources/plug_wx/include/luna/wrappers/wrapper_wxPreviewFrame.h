@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPreviewFrame() {
+		logDEBUG3("Calling delete function for wrapper wxPreviewFrame");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

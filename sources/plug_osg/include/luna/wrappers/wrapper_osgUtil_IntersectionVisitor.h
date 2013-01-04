@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_IntersectionVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_IntersectionVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

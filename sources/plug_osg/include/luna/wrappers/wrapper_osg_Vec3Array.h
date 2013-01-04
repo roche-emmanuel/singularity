@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Vec3Array() {
+		logDEBUG3("Calling delete function for wrapper osg_Vec3Array");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

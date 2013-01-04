@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxIconizeEvent() {
+		logDEBUG3("Calling delete function for wrapper wxIconizeEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

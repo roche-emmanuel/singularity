@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxSysColourChangedEvent() {
+		logDEBUG3("Calling delete function for wrapper wxSysColourChangedEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

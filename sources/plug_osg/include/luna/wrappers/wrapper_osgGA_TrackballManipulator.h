@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_TrackballManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_TrackballManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

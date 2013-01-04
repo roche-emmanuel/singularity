@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFFileOutputStream() {
+		logDEBUG3("Calling delete function for wrapper wxFFileOutputStream");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_DataPakSource() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_DataPakSource");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}
@@ -70,7 +71,7 @@ public:
 		wrapper_Awesomium_DataPakSource* self=Luna< Awesomium::DataSource >::checkSubType< wrapper_Awesomium_DataPakSource >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::public_set_session(Awesomium::WebSession *, int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::public_set_session(Awesomium::WebSession *, int). Got : '%s'",typeid(Luna< Awesomium::DataSource >::check(L,1)).name());
 		}
 		self->public_set_session(session, data_source_id);
 

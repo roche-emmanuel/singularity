@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_FragmentProgram() {
+		logDEBUG3("Calling delete function for wrapper osg_FragmentProgram");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

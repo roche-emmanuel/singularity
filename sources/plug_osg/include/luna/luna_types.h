@@ -17755,13 +17755,6 @@ public:
 };
 
 template<>
-class LunaType< 57488909 > {
-public:
-	typedef std::vector< osg::Object * > type;
-	
-};
-
-template<>
 class LunaType< 50375310 > {
 public:
 	typedef std::map< unsigned int, unsigned int > type;
@@ -17769,16 +17762,23 @@ public:
 };
 
 template<>
-class LunaType< 36696863 > {
+class LunaType< 94158825 > {
 public:
-	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
+	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
 	
 };
 
 template<>
-class LunaType< 94158825 > {
+class LunaType< 57488909 > {
 public:
-	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
+	typedef std::vector< osg::Object * > type;
+	
+};
+
+template<>
+class LunaType< 36696863 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
 	
 };
 

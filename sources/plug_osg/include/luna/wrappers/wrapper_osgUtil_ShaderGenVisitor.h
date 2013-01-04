@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_ShaderGenVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_ShaderGenVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

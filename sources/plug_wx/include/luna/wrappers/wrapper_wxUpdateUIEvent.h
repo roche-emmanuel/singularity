@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxUpdateUIEvent() {
+		logDEBUG3("Calling delete function for wrapper wxUpdateUIEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

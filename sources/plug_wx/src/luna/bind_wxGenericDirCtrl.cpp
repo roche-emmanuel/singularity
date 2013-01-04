@@ -1443,9 +1443,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxDirFilterListCtrl * wxGenericDirCtrl::GetFilterListCtrl() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxDirFilterListCtrl * lret = self->GetFilterListCtrl();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxDirFilterListCtrl *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDirFilterListCtrl >::push(L,lret,false);
 
 		return 1;
 	}

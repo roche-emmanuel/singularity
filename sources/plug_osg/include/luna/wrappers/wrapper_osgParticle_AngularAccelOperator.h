@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_AngularAccelOperator() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_AngularAccelOperator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

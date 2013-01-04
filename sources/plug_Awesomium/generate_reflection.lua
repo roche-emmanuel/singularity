@@ -37,7 +37,8 @@ ReflectionGenerator.generate{
 	},
 	ignoreFunctions={
 		"WebView::chooseMultipleFiles",
-		"NativeWindow"
+		"NativeWindow",
+		"ProcessHandle"
 	},
 	ignoreClasses={
 	},

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Billboard() {
+		logDEBUG3("Calling delete function for wrapper osg_Billboard");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

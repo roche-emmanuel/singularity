@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_DelaunayConstraint() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_DelaunayConstraint");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

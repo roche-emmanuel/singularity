@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="TUIOTestApp",bases="osg.OSGTestApp"};
+local Class = require("classBuilder"){name="VLCTestApp",bases="osg.OSGTestApp"};
 
 local vlc = require "vlc"
 local tools = require "osg.Tools"
@@ -10,30 +10,28 @@ function Class:initialize(options)
 	
 	local file = fs:getRootPath(true) .. options.file;
 	
-	--self:info("Creating test object...")
-	--local obj = vlc.Test();
-	--self:info("Test object created.")
+	-- wx.wxSetEnv("VLC_PLUGIN_PATH",fs:getRootPath(true) .. "bin/win32/vlcPlugins")
+	--sgt.setEnv("VLC_PLUGIN_PATH",fs:getRootPath(true) .. "bin/win32/vlcPlugins")
+			
+	file = file:gsub("/","\\")
 	
-	self:info("Trying to create image...")
 	local img = vlc.VLCImageStream();
-	self:info("Trying to load movie...")
+		
+	self:info("Loading movie from file: " .. file)
 	img:open(file);
+	--img:play();
 
-	--local geode = tools:createScreenQuad{image=img}
+	-- local geode = tools:createScreenQuad{image=tools:getImage("tests/data/wave.bmp")}
+	local geode = tools:createScreenQuad{image=img}
 	
 	self:info("Adding geode to scenegraph...")
 	self:getRoot():addChild(geode);
-	
-	--local mt = self:loadModel("tests/data/glider.osgt")
-	--self:createCube(1)
-	--self:createBase()
-	--self:applyCircleAnimation(mt, 4.0, 6.0)
+end
 
-	
-	--self:getViewer():addEventHandler( tuio.TUIOClientHandler(3333) );
-    --self:getViewer():setCameraManipulator( osgGA.MultiTouchTrackballManipulator() );
-	
-	--self:home()
+function Class:onStop()
+	self:info("Releasing OSG resources...")
+	self:getRoot():removeChildren(0,self:getRoot():getNumChildren())
+	self:info("OSG resources released.")
 end
 
 return Class -- return class instance.

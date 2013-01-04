@@ -156,7 +156,7 @@ public:
 		Awesomium::DataPakSource* self=Luna< Awesomium::DataSource >::checkSubType< Awesomium::DataPakSource >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::DataPakSource::OnRequest(int, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::DataPakSource::OnRequest(int, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::DataSource >::check(L,1)).name());
 		}
 		self->OnRequest(request_id, path);
 
@@ -177,7 +177,7 @@ public:
 		Awesomium::DataPakSource* self=Luna< Awesomium::DataSource >::checkSubType< Awesomium::DataPakSource >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::DataPakSource::base_OnRequest(int, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::DataPakSource::base_OnRequest(int, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::DataSource >::check(L,1)).name());
 		}
 		self->DataPakSource::OnRequest(request_id, path);
 

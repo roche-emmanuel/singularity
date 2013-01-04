@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxEraseEvent() {
+		logDEBUG3("Calling delete function for wrapper wxEraseEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

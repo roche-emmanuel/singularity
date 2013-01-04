@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_XmlNode() {
+		logDEBUG3("Calling delete function for wrapper osgDB_XmlNode");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

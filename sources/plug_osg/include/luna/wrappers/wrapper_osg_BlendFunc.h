@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_BlendFunc() {
+		logDEBUG3("Calling delete function for wrapper osg_BlendFunc");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

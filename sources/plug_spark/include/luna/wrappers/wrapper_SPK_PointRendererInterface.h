@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_SPK_PointRendererInterface() {
+		logDEBUG3("Calling delete function for wrapper SPK_PointRendererInterface");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

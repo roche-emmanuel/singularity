@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_ConvexPlanarOccluder() {
+		logDEBUG3("Calling delete function for wrapper osg_ConvexPlanarOccluder");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

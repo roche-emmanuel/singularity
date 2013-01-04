@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_AnimationPathManipulator() {
+		logDEBUG3("Calling delete function for wrapper osgGA_AnimationPathManipulator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

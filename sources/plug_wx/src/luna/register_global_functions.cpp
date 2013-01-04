@@ -3412,10 +3412,11 @@ static int _bind_wxGetFreeMemory(lua_State *L) {
 	}
 
 
-	wxMemorySize lret = wxGetFreeMemory();
-	////////////////////////////////////////////////////////////////////
-	// ERROR: Cannot decide the argument type for 'wxMemorySize'
-	////////////////////////////////////////////////////////////////////
+	wxMemorySize stack_lret = wxGetFreeMemory();
+	wxMemorySize* lret = new wxMemorySize(stack_lret);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< wxMemorySize >::push(L,lret,true);
 
 	return 1;
 }

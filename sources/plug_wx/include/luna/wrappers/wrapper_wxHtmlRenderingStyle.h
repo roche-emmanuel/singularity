@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlRenderingStyle() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlRenderingStyle");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

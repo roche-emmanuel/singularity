@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxAnimation() {
+		logDEBUG3("Calling delete function for wrapper wxAnimation");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

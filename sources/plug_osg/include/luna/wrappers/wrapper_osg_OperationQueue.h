@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_OperationQueue() {
+		logDEBUG3("Calling delete function for wrapper osg_OperationQueue");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlWidgetCell() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlWidgetCell");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

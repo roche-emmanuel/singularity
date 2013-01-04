@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDragImage() {
+		logDEBUG3("Calling delete function for wrapper wxDragImage");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

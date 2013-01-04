@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_Intersector() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_Intersector");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

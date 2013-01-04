@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFileConfig() {
+		logDEBUG3("Calling delete function for wrapper wxFileConfig");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTextDataObject() {
+		logDEBUG3("Calling delete function for wrapper wxTextDataObject");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

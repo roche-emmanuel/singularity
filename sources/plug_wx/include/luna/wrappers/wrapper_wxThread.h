@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxThread() {
+		logDEBUG3("Calling delete function for wrapper wxThread");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

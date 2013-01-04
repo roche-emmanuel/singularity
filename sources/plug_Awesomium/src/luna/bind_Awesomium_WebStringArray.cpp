@@ -185,7 +185,7 @@ public:
 		Awesomium::WebStringArray* self=(Luna< Awesomium::WebStringArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebStringArray::size() const");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebStringArray::size() const. Got : '%s'",typeid(Luna< Awesomium::WebStringArray >::check(L,1)).name());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -205,7 +205,7 @@ public:
 		Awesomium::WebStringArray* self=(Luna< Awesomium::WebStringArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebStringArray::At(unsigned int)");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebStringArray::At(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebStringArray >::check(L,1)).name());
 		}
 		Awesomium::WebString & lret = self->At(idx);
 		std::string lret_str = Awesomium::ToString(lret);
@@ -226,7 +226,7 @@ public:
 		Awesomium::WebStringArray* self=(Luna< Awesomium::WebStringArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebString & Awesomium::WebStringArray::At(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const Awesomium::WebString & Awesomium::WebStringArray::At(unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebStringArray >::check(L,1)).name());
 		}
 		const Awesomium::WebString & lret = self->At(idx);
 		std::string lret_str = Awesomium::ToString(lret);
@@ -257,7 +257,7 @@ public:
 		Awesomium::WebStringArray* self=(Luna< Awesomium::WebStringArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebStringArray::Push(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebStringArray::Push(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebStringArray >::check(L,1)).name());
 		}
 		self->Push(item);
 
@@ -278,7 +278,7 @@ public:
 		Awesomium::WebStringArray* self=(Luna< Awesomium::WebStringArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebStringArray::operator[](unsigned int)");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebStringArray::operator[](unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebStringArray >::check(L,1)).name());
 		}
 		Awesomium::WebString & lret = self->operator[](idx);
 		std::string lret_str = Awesomium::ToString(lret);
@@ -299,7 +299,7 @@ public:
 		Awesomium::WebStringArray* self=(Luna< Awesomium::WebStringArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebString & Awesomium::WebStringArray::operator[](unsigned int) const");
+			luaL_error(L, "Invalid object in function call const Awesomium::WebString & Awesomium::WebStringArray::operator[](unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebStringArray >::check(L,1)).name());
 		}
 		const Awesomium::WebString & lret = self->operator[](idx);
 		std::string lret_str = Awesomium::ToString(lret);

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewSpinRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewSpinRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

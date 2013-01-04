@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxRichTextParagraphStyleDefinition() {
+		logDEBUG3("Calling delete function for wrapper wxRichTextParagraphStyleDefinition");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

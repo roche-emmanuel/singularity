@@ -181,7 +181,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeTitle(Awesomium::WebView *, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeTitle(Awesomium::WebView *, const Awesomium::WebString &). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnChangeTitle(caller, title);
 
@@ -205,7 +205,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeAddressBar(Awesomium::WebView *, const Awesomium::WebURL &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeAddressBar(Awesomium::WebView *, const Awesomium::WebURL &). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnChangeAddressBar(caller, url);
 
@@ -226,7 +226,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeTooltip(Awesomium::WebView *, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeTooltip(Awesomium::WebView *, const Awesomium::WebString &). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnChangeTooltip(caller, tooltip);
 
@@ -250,7 +250,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeTargetURL(Awesomium::WebView *, const Awesomium::WebURL &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeTargetURL(Awesomium::WebView *, const Awesomium::WebURL &). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnChangeTargetURL(caller, url);
 
@@ -270,7 +270,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeCursor(Awesomium::WebView *, Awesomium::Cursor)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeCursor(Awesomium::WebView *, Awesomium::Cursor). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnChangeCursor(caller, cursor);
 
@@ -290,7 +290,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeFocus(Awesomium::WebView *, Awesomium::FocusedElementType)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnChangeFocus(Awesomium::WebView *, Awesomium::FocusedElementType). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnChangeFocus(caller, focused_type);
 
@@ -326,7 +326,7 @@ public:
 		WebViewListener::View* self=(Luna< WebViewListener::View >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnShowCreatedWebView(Awesomium::WebView *, Awesomium::WebView *, const Awesomium::WebURL &, const Awesomium::WebURL &, const Awesomium::Rect &, bool)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::View::OnShowCreatedWebView(Awesomium::WebView *, Awesomium::WebView *, const Awesomium::WebURL &, const Awesomium::WebURL &, const Awesomium::Rect &, bool). Got : '%s'",typeid(Luna< WebViewListener::View >::check(L,1)).name());
 		}
 		self->OnShowCreatedWebView(caller, new_view, opener_url, target_url, initial_pos, is_popup);
 

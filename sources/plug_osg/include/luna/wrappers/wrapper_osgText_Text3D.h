@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgText_Text3D() {
+		logDEBUG3("Calling delete function for wrapper osgText_Text3D");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

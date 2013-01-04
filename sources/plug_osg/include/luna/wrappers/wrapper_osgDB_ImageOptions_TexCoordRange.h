@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgDB_ImageOptions_TexCoordRange() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ImageOptions_TexCoordRange");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

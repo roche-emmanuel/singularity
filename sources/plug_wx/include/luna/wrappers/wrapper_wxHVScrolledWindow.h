@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHVScrolledWindow() {
+		logDEBUG3("Calling delete function for wrapper wxHVScrolledWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

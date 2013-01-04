@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgGA_GUIEventAdapter_TouchData() {
+		logDEBUG3("Calling delete function for wrapper osgGA_GUIEventAdapter_TouchData");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Transform() {
+		logDEBUG3("Calling delete function for wrapper osg_Transform");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

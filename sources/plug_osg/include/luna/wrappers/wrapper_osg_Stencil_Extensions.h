@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Stencil_Extensions() {
+		logDEBUG3("Calling delete function for wrapper osg_Stencil_Extensions");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

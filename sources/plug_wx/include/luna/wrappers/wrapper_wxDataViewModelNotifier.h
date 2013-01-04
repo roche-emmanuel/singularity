@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewModelNotifier() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewModelNotifier");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

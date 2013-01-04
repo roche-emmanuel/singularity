@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Texture2D() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture2D");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

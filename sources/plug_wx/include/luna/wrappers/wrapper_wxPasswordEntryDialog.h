@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPasswordEntryDialog() {
+		logDEBUG3("Calling delete function for wrapper wxPasswordEntryDialog");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

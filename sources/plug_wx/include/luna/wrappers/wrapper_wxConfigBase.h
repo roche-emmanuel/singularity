@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxConfigBase() {
+		logDEBUG3("Calling delete function for wrapper wxConfigBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

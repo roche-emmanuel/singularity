@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_FrameStamp() {
+		logDEBUG3("Calling delete function for wrapper osg_FrameStamp");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

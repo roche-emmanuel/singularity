@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxGenericValidator() {
+		logDEBUG3("Calling delete function for wrapper wxGenericValidator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

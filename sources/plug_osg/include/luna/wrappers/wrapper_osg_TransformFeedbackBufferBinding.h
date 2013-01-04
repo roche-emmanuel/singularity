@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TransformFeedbackBufferBinding() {
+		logDEBUG3("Calling delete function for wrapper osg_TransformFeedbackBufferBinding");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFontMapper() {
+		logDEBUG3("Calling delete function for wrapper wxFontMapper");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

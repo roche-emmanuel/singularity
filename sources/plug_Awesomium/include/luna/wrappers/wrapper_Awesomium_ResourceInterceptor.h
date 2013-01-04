@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_Awesomium_ResourceInterceptor() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_ResourceInterceptor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

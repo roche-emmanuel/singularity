@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMDIParentFrame() {
+		logDEBUG3("Calling delete function for wrapper wxMDIParentFrame");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

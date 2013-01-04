@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_CompositePlacer() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_CompositePlacer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

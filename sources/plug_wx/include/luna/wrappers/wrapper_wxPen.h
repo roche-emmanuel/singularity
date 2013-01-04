@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxPen() {
+		logDEBUG3("Calling delete function for wrapper wxPen");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

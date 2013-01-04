@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_Shape() {
+		logDEBUG3("Calling delete function for wrapper osg_Shape");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

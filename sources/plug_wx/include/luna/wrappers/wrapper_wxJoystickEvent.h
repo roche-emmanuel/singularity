@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxJoystickEvent() {
+		logDEBUG3("Calling delete function for wrapper wxJoystickEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxMask() {
+		logDEBUG3("Calling delete function for wrapper wxMask");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

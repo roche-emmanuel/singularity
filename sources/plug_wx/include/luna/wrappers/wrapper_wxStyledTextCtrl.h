@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxStyledTextCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxStyledTextCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

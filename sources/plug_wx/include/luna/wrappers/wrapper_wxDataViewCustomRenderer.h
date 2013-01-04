@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxDataViewCustomRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewCustomRenderer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

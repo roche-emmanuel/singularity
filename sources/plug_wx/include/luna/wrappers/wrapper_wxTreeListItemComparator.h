@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxTreeListItemComparator() {
+		logDEBUG3("Calling delete function for wrapper wxTreeListItemComparator");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxHtmlCellEvent() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlCellEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

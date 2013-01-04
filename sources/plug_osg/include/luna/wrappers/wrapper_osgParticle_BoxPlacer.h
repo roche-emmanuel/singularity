@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgParticle_BoxPlacer() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_BoxPlacer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

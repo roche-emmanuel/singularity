@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxBannerWindow() {
+		logDEBUG3("Calling delete function for wrapper wxBannerWindow");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

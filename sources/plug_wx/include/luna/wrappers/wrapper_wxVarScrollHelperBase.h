@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxVarScrollHelperBase() {
+		logDEBUG3("Calling delete function for wrapper wxVarScrollHelperBase");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

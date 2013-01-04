@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxFilePickerCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxFilePickerCtrl");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

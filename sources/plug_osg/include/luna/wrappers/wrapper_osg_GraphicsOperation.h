@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_GraphicsOperation() {
+		logDEBUG3("Calling delete function for wrapper osg_GraphicsOperation");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

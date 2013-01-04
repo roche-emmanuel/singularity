@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_spark_GroupCustomUpdate() {
+		logDEBUG3("Calling delete function for wrapper spark_GroupCustomUpdate");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}
@@ -30,7 +31,7 @@ public:
 	// bool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const
 	bool operator()(SPK::Particle & particle, float deltaTime) const {
 		if(_obj.pushFunction("op_call")) {
-			_obj.pushArg(particle);
+			_obj.pushArg(&particle);
 			_obj.pushArg(deltaTime);
 			return (_obj.callFunction<bool>());
 		}

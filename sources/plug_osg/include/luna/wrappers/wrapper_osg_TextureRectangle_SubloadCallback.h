@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_TextureRectangle_SubloadCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_TextureRectangle_SubloadCallback");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

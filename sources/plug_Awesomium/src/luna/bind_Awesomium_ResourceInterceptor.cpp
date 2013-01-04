@@ -159,7 +159,7 @@ public:
 		Awesomium::ResourceInterceptor* self=(Luna< Awesomium::ResourceInterceptor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest *)");
+			luaL_error(L, "Invalid object in function call Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest *). Got : '%s'",typeid(Luna< Awesomium::ResourceInterceptor >::check(L,1)).name());
 		}
 		Awesomium::ResourceResponse * lret = self->OnRequest(request);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -181,7 +181,7 @@ public:
 		Awesomium::ResourceInterceptor* self=(Luna< Awesomium::ResourceInterceptor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::base_OnRequest(Awesomium::ResourceRequest *)");
+			luaL_error(L, "Invalid object in function call Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::base_OnRequest(Awesomium::ResourceRequest *). Got : '%s'",typeid(Luna< Awesomium::ResourceInterceptor >::check(L,1)).name());
 		}
 		Awesomium::ResourceResponse * lret = self->ResourceInterceptor::OnRequest(request);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -2970,10 +2970,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindowList & wxWindow::GetChildren(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		wxWindowList & lret = self->GetChildren();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxWindowList &'
-		////////////////////////////////////////////////////////////////////
+		const wxWindowList* lret = &self->GetChildren();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxWindowList >::push(L,lret,false);
 
 		return 1;
 	}
@@ -2991,10 +2991,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxWindowList & wxWindow::GetChildren() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const wxWindowList & lret = self->GetChildren();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxWindowList &'
-		////////////////////////////////////////////////////////////////////
+		const wxWindowList* lret = &self->GetChildren();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxWindowList >::push(L,lret,false);
 
 		return 1;
 	}
@@ -7853,10 +7853,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call WXWidget wxWindow::GetHandle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		WXWidget lret = self->GetHandle();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'WXWidget'
-		////////////////////////////////////////////////////////////////////
+		WXWidget stack_lret = self->GetHandle();
+		WXWidget* lret = new WXWidget(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< WXWidget >::push(L,lret,true);
 
 		return 1;
 	}

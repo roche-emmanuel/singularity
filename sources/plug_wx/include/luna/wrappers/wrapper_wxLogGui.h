@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxLogGui() {
+		logDEBUG3("Calling delete function for wrapper wxLogGui");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

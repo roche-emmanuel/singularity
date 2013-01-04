@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_wxContextMenuEvent() {
+		logDEBUG3("Calling delete function for wrapper wxContextMenuEvent");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

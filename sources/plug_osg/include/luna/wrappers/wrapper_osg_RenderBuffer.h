@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osg_RenderBuffer() {
+		logDEBUG3("Calling delete function for wrapper osg_RenderBuffer");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}

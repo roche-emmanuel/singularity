@@ -130,12 +130,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_argv(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_getApplicationName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -744,27 +738,6 @@ public:
 		}
 		int & lret = self->argc();
 		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// char ** osg::ArgumentParser::argv()
-	static int _bind_argv(lua_State *L) {
-		if (!_lg_typecheck_argv(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in char ** osg::ArgumentParser::argv() function, expected prototype:\nchar ** osg::ArgumentParser::argv()\nClass arguments details:\n");
-		}
-
-
-		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char ** osg::ArgumentParser::argv(). Got : '%s'",typeid(Luna< osg::ArgumentParser >::check(L,1)).name());
-		}
-		char ** lret = self->argv();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'char **'
-		////////////////////////////////////////////////////////////////////
 
 		return 1;
 	}
@@ -1813,7 +1786,6 @@ luna_RegType LunaTraits< osg::ArgumentParser >::methods[] = {
 	{"setApplicationUsage", &luna_wrapper_osg_ArgumentParser::_bind_setApplicationUsage},
 	{"getApplicationUsage", &luna_wrapper_osg_ArgumentParser::_bind_getApplicationUsage},
 	{"argc", &luna_wrapper_osg_ArgumentParser::_bind_argc},
-	{"argv", &luna_wrapper_osg_ArgumentParser::_bind_argv},
 	{"getApplicationName", &luna_wrapper_osg_ArgumentParser::_bind_getApplicationName},
 	{"find", &luna_wrapper_osg_ArgumentParser::_bind_find},
 	{"containsOptions", &luna_wrapper_osg_ArgumentParser::_bind_containsOptions},

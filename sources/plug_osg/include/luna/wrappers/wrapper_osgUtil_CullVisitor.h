@@ -14,6 +14,7 @@ public:
 		
 
 	~wrapper_osgUtil_CullVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_CullVisitor");
 		if(_obj.pushFunction("delete")) {
 			_obj.callFunction<void>();
 		}
