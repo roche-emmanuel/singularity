@@ -14,3 +14,10 @@ typedef double GLdouble;
 typedef double GLclampd;
 typedef void GLvoid;
 
+namespace osg {
+
+class Referenced {
+
+};
+
+};

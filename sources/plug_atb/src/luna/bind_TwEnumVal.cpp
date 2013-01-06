@@ -1,24 +1,24 @@
 #include <plug_common.h>
 
-class luna_wrapper_CTwEnumVal {
+class luna_wrapper_TwEnumVal {
 public:
-	typedef Luna< CTwEnumVal > luna_t;
+	typedef Luna< TwEnumVal > luna_t;
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,19606721) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,42065624) ) return false;
 		return true;
 	}
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CTwEnumVal*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(TwEnumVal*)");
 		}
 
-		CTwEnumVal* rhs =(Luna< CTwEnumVal >::check(L,2));
-		CTwEnumVal* self=(Luna< CTwEnumVal >::check(L,1));
+		TwEnumVal* rhs =(Luna< TwEnumVal >::check(L,2));
+		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
@@ -42,14 +42,14 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		CTwEnumVal* self=(Luna< CTwEnumVal >::check(L,1));
+		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call dynCast(...)");
 		}
 		
-		static LunaConverterMap& converters = luna_getConverterMap("CTwEnumVal");
+		static LunaConverterMap& converters = luna_getConverterMap("TwEnumVal");
 		
-		return luna_dynamicCast(L,converters,"CTwEnumVal",name);
+		return luna_dynamicCast(L,converters,"TwEnumVal",name);
 	}
 
 
@@ -68,34 +68,34 @@ public:
 
 };
 
-CTwEnumVal* LunaTraits< CTwEnumVal >::_bind_ctor(lua_State *L) {
+TwEnumVal* LunaTraits< TwEnumVal >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 }
 
-void LunaTraits< CTwEnumVal >::_bind_dtor(CTwEnumVal* obj) {
+void LunaTraits< TwEnumVal >::_bind_dtor(TwEnumVal* obj) {
 	delete obj;
 }
 
-const char LunaTraits< CTwEnumVal >::className[] = "CTwEnumVal";
-const char LunaTraits< CTwEnumVal >::fullName[] = "CTwEnumVal";
-const char LunaTraits< CTwEnumVal >::moduleName[] = "atb";
-const char* LunaTraits< CTwEnumVal >::parents[] = {0};
-const int LunaTraits< CTwEnumVal >::hash = 19606721;
-const int LunaTraits< CTwEnumVal >::uniqueIDs[] = {19606721,0};
+const char LunaTraits< TwEnumVal >::className[] = "TwEnumVal";
+const char LunaTraits< TwEnumVal >::fullName[] = "TwEnumVal";
+const char LunaTraits< TwEnumVal >::moduleName[] = "atb";
+const char* LunaTraits< TwEnumVal >::parents[] = {0};
+const int LunaTraits< TwEnumVal >::hash = 42065624;
+const int LunaTraits< TwEnumVal >::uniqueIDs[] = {42065624,0};
 
-luna_RegType LunaTraits< CTwEnumVal >::methods[] = {
-	{"dynCast", &luna_wrapper_CTwEnumVal::_bind_dynCast},
-	{"__eq", &luna_wrapper_CTwEnumVal::_bind___eq},
+luna_RegType LunaTraits< TwEnumVal >::methods[] = {
+	{"dynCast", &luna_wrapper_TwEnumVal::_bind_dynCast},
+	{"__eq", &luna_wrapper_TwEnumVal::_bind___eq},
 	{0,0}
 };
 
-luna_ConverterType LunaTraits< CTwEnumVal >::converters[] = {
+luna_ConverterType LunaTraits< TwEnumVal >::converters[] = {
 	{0,0}
 };
 
-luna_RegEnumType LunaTraits< CTwEnumVal >::enumValues[] = {
+luna_RegEnumType LunaTraits< TwEnumVal >::enumValues[] = {
 	{0,0}
 };
 

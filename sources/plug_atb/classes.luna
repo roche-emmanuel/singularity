@@ -1,5 +1,5 @@
 module=atb
-CTwEnumVal => CTwEnumVal
-CTwStructMember => CTwStructMember
-module=vlc
-vlc::VLCImageStream => osg::ImageStream
+TwBar => TwBar
+TwEnumVal => TwEnumVal
+TwStructMember => TwStructMember
+atb::TwBoolCallback => osg::Referenced

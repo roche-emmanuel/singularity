@@ -18,11 +18,10 @@ int PLUG_EXPORT luaopen_atb(lua_State* L) {
 	luna_popModule(L);
 
 	luna_pushModule(L,"atb");
-	Luna< CTwEnumVal >::Register(L);
-	Luna< CTwStructMember >::Register(L);
-	luna_popModule(L);
-	luna_pushModule(L,"vlc");
-	Luna< vlc::VLCImageStream >::Register(L);
+	Luna< TwBar >::Register(L);
+	Luna< TwEnumVal >::Register(L);
+	Luna< TwStructMember >::Register(L);
+	Luna< atb::TwBoolCallback >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"atb");
@@ -36,7 +35,6 @@ int PLUG_EXPORT luaopen_atb(lua_State* L) {
 	register_global_functions(L);
 
 	luna_copyParents(L,"atb");
-	luna_copyParents(L,"vlc");
 
 	luna_pushModule(L,"atb");
 	return 1;

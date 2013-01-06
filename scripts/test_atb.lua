@@ -17,10 +17,8 @@ local core = require "core"
 
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
-local App = require "vlc.VLCTestApp"
-local app = App{profileFile="test_vlc_profile.log",file="tests/data/skinned.mp4"}
--- local app = App{profileFile="test_vlc_profile.log",file="tests/data/dataset.avi"}
--- local app = App{profileFile="test_vlc_profile.log",file="tests/data/zerobrane.mp4"}
+local App = require "osg.atb.TestApp"
+local app = App{profileFile="test_atb_profile.log"}
 
 app:run()
 	

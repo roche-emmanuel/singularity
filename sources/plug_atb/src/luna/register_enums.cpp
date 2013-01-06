@@ -7,9 +7,10 @@ extern "C" {
 #endif
 
 void register_enums(lua_State* L) {
-	lua_newtable(L); // enum ETwType
+	lua_newtable(L); // enum TwType
 
 	lua_pushnumber(L,::TW_TYPE_UNDEF); lua_setfield(L,-2,"TW_TYPE_UNDEF");
+	lua_pushnumber(L,::TW_TYPE_BOOLCPP); lua_setfield(L,-2,"TW_TYPE_BOOLCPP");
 	lua_pushnumber(L,::TW_TYPE_BOOL8); lua_setfield(L,-2,"TW_TYPE_BOOL8");
 	lua_pushnumber(L,::TW_TYPE_BOOL16); lua_setfield(L,-2,"TW_TYPE_BOOL16");
 	lua_pushnumber(L,::TW_TYPE_BOOL32); lua_setfield(L,-2,"TW_TYPE_BOOL32");
@@ -26,14 +27,16 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_TYPE_COLOR3F); lua_setfield(L,-2,"TW_TYPE_COLOR3F");
 	lua_pushnumber(L,::TW_TYPE_COLOR4F); lua_setfield(L,-2,"TW_TYPE_COLOR4F");
 	lua_pushnumber(L,::TW_TYPE_CDSTRING); lua_setfield(L,-2,"TW_TYPE_CDSTRING");
+	lua_pushnumber(L,::TW_TYPE_STDSTRING); lua_setfield(L,-2,"TW_TYPE_STDSTRING");
 	lua_pushnumber(L,::TW_TYPE_QUAT4F); lua_setfield(L,-2,"TW_TYPE_QUAT4F");
 	lua_pushnumber(L,::TW_TYPE_QUAT4D); lua_setfield(L,-2,"TW_TYPE_QUAT4D");
 	lua_pushnumber(L,::TW_TYPE_DIR3F); lua_setfield(L,-2,"TW_TYPE_DIR3F");
 	lua_pushnumber(L,::TW_TYPE_DIR3D); lua_setfield(L,-2,"TW_TYPE_DIR3D");
 
-	lua_setfield(L,-2,"ETwType");
+	lua_setfield(L,-2,"TwType");
 
 	lua_pushnumber(L,::TW_TYPE_UNDEF); lua_setfield(L,-2,"TW_TYPE_UNDEF");
+	lua_pushnumber(L,::TW_TYPE_BOOLCPP); lua_setfield(L,-2,"TW_TYPE_BOOLCPP");
 	lua_pushnumber(L,::TW_TYPE_BOOL8); lua_setfield(L,-2,"TW_TYPE_BOOL8");
 	lua_pushnumber(L,::TW_TYPE_BOOL16); lua_setfield(L,-2,"TW_TYPE_BOOL16");
 	lua_pushnumber(L,::TW_TYPE_BOOL32); lua_setfield(L,-2,"TW_TYPE_BOOL32");
@@ -50,20 +53,21 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_TYPE_COLOR3F); lua_setfield(L,-2,"TW_TYPE_COLOR3F");
 	lua_pushnumber(L,::TW_TYPE_COLOR4F); lua_setfield(L,-2,"TW_TYPE_COLOR4F");
 	lua_pushnumber(L,::TW_TYPE_CDSTRING); lua_setfield(L,-2,"TW_TYPE_CDSTRING");
+	lua_pushnumber(L,::TW_TYPE_STDSTRING); lua_setfield(L,-2,"TW_TYPE_STDSTRING");
 	lua_pushnumber(L,::TW_TYPE_QUAT4F); lua_setfield(L,-2,"TW_TYPE_QUAT4F");
 	lua_pushnumber(L,::TW_TYPE_QUAT4D); lua_setfield(L,-2,"TW_TYPE_QUAT4D");
 	lua_pushnumber(L,::TW_TYPE_DIR3F); lua_setfield(L,-2,"TW_TYPE_DIR3F");
 	lua_pushnumber(L,::TW_TYPE_DIR3D); lua_setfield(L,-2,"TW_TYPE_DIR3D");
 
 
-	lua_newtable(L); // enum ETwParamValueType
+	lua_newtable(L); // enum TwParamValueType
 
 	lua_pushnumber(L,::TW_PARAM_INT32); lua_setfield(L,-2,"TW_PARAM_INT32");
 	lua_pushnumber(L,::TW_PARAM_FLOAT); lua_setfield(L,-2,"TW_PARAM_FLOAT");
 	lua_pushnumber(L,::TW_PARAM_DOUBLE); lua_setfield(L,-2,"TW_PARAM_DOUBLE");
 	lua_pushnumber(L,::TW_PARAM_CSTRING); lua_setfield(L,-2,"TW_PARAM_CSTRING");
 
-	lua_setfield(L,-2,"ETwParamValueType");
+	lua_setfield(L,-2,"TwParamValueType");
 
 	lua_pushnumber(L,::TW_PARAM_INT32); lua_setfield(L,-2,"TW_PARAM_INT32");
 	lua_pushnumber(L,::TW_PARAM_FLOAT); lua_setfield(L,-2,"TW_PARAM_FLOAT");
@@ -71,7 +75,7 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_PARAM_CSTRING); lua_setfield(L,-2,"TW_PARAM_CSTRING");
 
 
-	lua_newtable(L); // enum ETwGraphAPI
+	lua_newtable(L); // enum TwGraphAPI
 
 	lua_pushnumber(L,::TW_OPENGL); lua_setfield(L,-2,"TW_OPENGL");
 	lua_pushnumber(L,::TW_DIRECT3D9); lua_setfield(L,-2,"TW_DIRECT3D9");
@@ -79,7 +83,7 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_DIRECT3D11); lua_setfield(L,-2,"TW_DIRECT3D11");
 	lua_pushnumber(L,::TW_OPENGL_CORE); lua_setfield(L,-2,"TW_OPENGL_CORE");
 
-	lua_setfield(L,-2,"ETwGraphAPI");
+	lua_setfield(L,-2,"TwGraphAPI");
 
 	lua_pushnumber(L,::TW_OPENGL); lua_setfield(L,-2,"TW_OPENGL");
 	lua_pushnumber(L,::TW_DIRECT3D9); lua_setfield(L,-2,"TW_DIRECT3D9");
@@ -88,7 +92,7 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_OPENGL_CORE); lua_setfield(L,-2,"TW_OPENGL_CORE");
 
 
-	lua_newtable(L); // enum ETwKeyModifier
+	lua_newtable(L); // enum TwKeyModifier
 
 	lua_pushnumber(L,::TW_KMOD_NONE); lua_setfield(L,-2,"TW_KMOD_NONE");
 	lua_pushnumber(L,::TW_KMOD_SHIFT); lua_setfield(L,-2,"TW_KMOD_SHIFT");
@@ -96,7 +100,7 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_KMOD_ALT); lua_setfield(L,-2,"TW_KMOD_ALT");
 	lua_pushnumber(L,::TW_KMOD_META); lua_setfield(L,-2,"TW_KMOD_META");
 
-	lua_setfield(L,-2,"ETwKeyModifier");
+	lua_setfield(L,-2,"TwKeyModifier");
 
 	lua_pushnumber(L,::TW_KMOD_NONE); lua_setfield(L,-2,"TW_KMOD_NONE");
 	lua_pushnumber(L,::TW_KMOD_SHIFT); lua_setfield(L,-2,"TW_KMOD_SHIFT");
@@ -105,7 +109,7 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_KMOD_META); lua_setfield(L,-2,"TW_KMOD_META");
 
 
-	lua_newtable(L); // enum EKeySpecial
+	lua_newtable(L); // enum TwKeySpecial
 
 	lua_pushnumber(L,::TW_KEY_BACKSPACE); lua_setfield(L,-2,"TW_KEY_BACKSPACE");
 	lua_pushnumber(L,::TW_KEY_TAB); lua_setfield(L,-2,"TW_KEY_TAB");
@@ -141,7 +145,7 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_KEY_F15); lua_setfield(L,-2,"TW_KEY_F15");
 	lua_pushnumber(L,::TW_KEY_LAST); lua_setfield(L,-2,"TW_KEY_LAST");
 
-	lua_setfield(L,-2,"EKeySpecial");
+	lua_setfield(L,-2,"TwKeySpecial");
 
 	lua_pushnumber(L,::TW_KEY_BACKSPACE); lua_setfield(L,-2,"TW_KEY_BACKSPACE");
 	lua_pushnumber(L,::TW_KEY_TAB); lua_setfield(L,-2,"TW_KEY_TAB");
@@ -178,24 +182,24 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::TW_KEY_LAST); lua_setfield(L,-2,"TW_KEY_LAST");
 
 
-	lua_newtable(L); // enum ETwMouseAction
+	lua_newtable(L); // enum TwMouseAction
 
 	lua_pushnumber(L,::TW_MOUSE_RELEASED); lua_setfield(L,-2,"TW_MOUSE_RELEASED");
 	lua_pushnumber(L,::TW_MOUSE_PRESSED); lua_setfield(L,-2,"TW_MOUSE_PRESSED");
 
-	lua_setfield(L,-2,"ETwMouseAction");
+	lua_setfield(L,-2,"TwMouseAction");
 
 	lua_pushnumber(L,::TW_MOUSE_RELEASED); lua_setfield(L,-2,"TW_MOUSE_RELEASED");
 	lua_pushnumber(L,::TW_MOUSE_PRESSED); lua_setfield(L,-2,"TW_MOUSE_PRESSED");
 
 
-	lua_newtable(L); // enum ETwMouseButtonID
+	lua_newtable(L); // enum TwMouseButtonID
 
 	lua_pushnumber(L,::TW_MOUSE_LEFT); lua_setfield(L,-2,"TW_MOUSE_LEFT");
 	lua_pushnumber(L,::TW_MOUSE_MIDDLE); lua_setfield(L,-2,"TW_MOUSE_MIDDLE");
 	lua_pushnumber(L,::TW_MOUSE_RIGHT); lua_setfield(L,-2,"TW_MOUSE_RIGHT");
 
-	lua_setfield(L,-2,"ETwMouseButtonID");
+	lua_setfield(L,-2,"TwMouseButtonID");
 
 	lua_pushnumber(L,::TW_MOUSE_LEFT); lua_setfield(L,-2,"TW_MOUSE_LEFT");
 	lua_pushnumber(L,::TW_MOUSE_MIDDLE); lua_setfield(L,-2,"TW_MOUSE_MIDDLE");

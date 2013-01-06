@@ -26,11 +26,9 @@ INSTALL(TARGETS ${TARGET_NAME}
 	RUNTIME DESTINATION ${TARGET_DIR}
 	LIBRARY DESTINATION ${TARGET_DIR})
 
-# step needed for the generation of the XML documentation:
-SET(INCLUDE_PATH ${SPICE_INC_DIR})
-
 SET(INTF_FILES)
-LIST(APPEND INTF_FILES "${ATB_INC_DIR}")
+# LIST(APPEND INTF_FILES "${ATB_INC_DIR}")
+ADD_FILES(INTF_FILES "../interface/AntTweakBar.h")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 

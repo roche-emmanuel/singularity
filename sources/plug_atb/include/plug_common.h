@@ -17,7 +17,7 @@
 
 #include <lua.hpp>
 
-#include <osg/Node>
+#include <AntTweakBar.h>
 
 #include "plug_extensions.h"
 
