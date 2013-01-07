@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osgText::Glyph3D::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Glyph3D::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

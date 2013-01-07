@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Tessellator::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgUtil::Tessellator::reduceArray(osg::Array * cold, const unsigned int nnu)

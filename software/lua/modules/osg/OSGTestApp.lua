@@ -11,7 +11,7 @@ function Class:initialize()
 
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	local ctrl, canvas = intf:addOSGCtrl{prop=2}
-	--intf:addOutputPanel{}
+	intf:addOutputPanel{}
 	intf:popParent(true)
 
 	self:getFrame():Layout()

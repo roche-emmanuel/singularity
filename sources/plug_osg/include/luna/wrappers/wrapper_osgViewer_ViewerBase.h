@@ -70,6 +70,16 @@ public:
 		return (_obj.callFunction<const char*>());
 	};
 
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ViewerBase::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -165,6 +175,52 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
+	void setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) {
+		if(_obj.pushFunction("setThreadingModel")) {
+			_obj.pushArg(threadingModel);
+			return (_obj.callFunction<void>());
+		}
+
+		return ViewerBase::setThreadingModel(threadingModel);
+	};
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel()
+	osgViewer::ViewerBase::ThreadingModel suggestBestThreadingModel() {
+		if(_obj.pushFunction("suggestBestThreadingModel")) {
+			return (osgViewer::ViewerBase::ThreadingModel)(_obj.callFunction<int>());
+		}
+
+		return ViewerBase::suggestBestThreadingModel();
+	};
+
+	// void osgViewer::ViewerBase::setUpThreading()
+	void setUpThreading() {
+		if(_obj.pushFunction("setUpThreading")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return ViewerBase::setUpThreading();
+	};
+
+	// void osgViewer::ViewerBase::stopThreading()
+	void stopThreading() {
+		if(_obj.pushFunction("stopThreading")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return ViewerBase::stopThreading();
+	};
+
+	// void osgViewer::ViewerBase::startThreading()
+	void startThreading() {
+		if(_obj.pushFunction("startThreading")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return ViewerBase::startThreading();
+	};
+
 	// int osgViewer::ViewerBase::run()
 	int run() {
 		if(_obj.pushFunction("run")) {
@@ -243,6 +299,22 @@ public:
 		}
 
 		return ViewerBase::getWindows(windows, onlyValid);
+	};
+
+	// void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+	void getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) {
+		THROW_IF(!_obj.pushFunction("getAllThreads"),"No implementation for abstract function osgViewer::ViewerBase::getAllThreads");
+		_obj.pushArg(&threads);
+		_obj.pushArg(onlyActive);
+		return (_obj.callFunction<void>());
+	};
+
+	// void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+	void getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) {
+		THROW_IF(!_obj.pushFunction("getOperationThreads"),"No implementation for abstract function osgViewer::ViewerBase::getOperationThreads");
+		_obj.pushArg(&threads);
+		_obj.pushArg(onlyActive);
+		return (_obj.callFunction<void>());
 	};
 
 	// void osgViewer::ViewerBase::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
@@ -453,18 +525,6 @@ public:
 		lua_pop(L, 1);
 	};
 
-
-public:
-// void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
-void getAllThreads(osgViewer::ViewerBase::Threads &, bool) {
-	THROW_IF(true,"The function call void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads &, bool) is not implemented in wrapper.");
-};
-
-public:
-// void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
-void getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool) {
-	THROW_IF(true,"The function call void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool) is not implemented in wrapper.");
-};
 
 };
 

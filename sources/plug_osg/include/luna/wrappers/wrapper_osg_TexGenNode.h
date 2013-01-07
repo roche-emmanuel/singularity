@@ -320,6 +320,16 @@ public:
 		return TexGenNode::accept(nv);
 	};
 
+	// void osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return TexGenNode::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Node::addParent(osg::Group * node)

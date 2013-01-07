@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return TouchData::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgGA::GUIEventAdapter::TouchData::addTouchPoint(unsigned int id, osgGA::GUIEventAdapter::TouchPhase phase, float x, float y, unsigned int tap_count)

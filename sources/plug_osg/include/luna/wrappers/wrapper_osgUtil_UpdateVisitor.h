@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return UpdateVisitor::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {

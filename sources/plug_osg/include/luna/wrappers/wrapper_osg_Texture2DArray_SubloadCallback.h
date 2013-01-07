@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return SubloadCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
 	void load(const osg::Texture2DArray & texture, osg::State & state) const {
 		THROW_IF(!_obj.pushFunction("load"),"No implementation for abstract function osg::Texture2DArray::SubloadCallback::load");

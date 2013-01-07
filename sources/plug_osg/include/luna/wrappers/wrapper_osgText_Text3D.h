@@ -268,6 +268,16 @@ public:
 		return Text3D::drawImplementation(renderInfo);
 	};
 
+	// void osgText::Text3D::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Text3D::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgText::Text3D::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

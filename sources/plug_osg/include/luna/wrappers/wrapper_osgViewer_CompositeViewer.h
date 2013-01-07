@@ -39,6 +39,16 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -94,6 +104,52 @@ public:
 		}
 
 		return CompositeViewer::releaseGLObjects(arg1);
+	};
+
+	// void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
+	void setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) {
+		if(_obj.pushFunction("setThreadingModel")) {
+			_obj.pushArg(threadingModel);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::setThreadingModel(threadingModel);
+	};
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel()
+	osgViewer::ViewerBase::ThreadingModel suggestBestThreadingModel() {
+		if(_obj.pushFunction("suggestBestThreadingModel")) {
+			return (osgViewer::ViewerBase::ThreadingModel)(_obj.callFunction<int>());
+		}
+
+		return CompositeViewer::suggestBestThreadingModel();
+	};
+
+	// void osgViewer::ViewerBase::setUpThreading()
+	void setUpThreading() {
+		if(_obj.pushFunction("setUpThreading")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::setUpThreading();
+	};
+
+	// void osgViewer::ViewerBase::stopThreading()
+	void stopThreading() {
+		if(_obj.pushFunction("stopThreading")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::stopThreading();
+	};
+
+	// void osgViewer::ViewerBase::startThreading()
+	void startThreading() {
+		if(_obj.pushFunction("startThreading")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::startThreading();
 	};
 
 	// void osgViewer::ViewerBase::frame(double simulationTime = DBL_MAX)
@@ -323,6 +379,28 @@ public:
 		}
 
 		return CompositeViewer::getContexts(contexts, onlyValid);
+	};
+
+	// void osgViewer::CompositeViewer::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+	void getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) {
+		if(_obj.pushFunction("getAllThreads")) {
+			_obj.pushArg(&threads);
+			_obj.pushArg(onlyActive);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::getAllThreads(threads, onlyActive);
+	};
+
+	// void osgViewer::CompositeViewer::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+	void getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) {
+		if(_obj.pushFunction("getOperationThreads")) {
+			_obj.pushArg(&threads);
+			_obj.pushArg(onlyActive);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::getOperationThreads(threads, onlyActive);
 	};
 
 	// void osgViewer::CompositeViewer::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)

@@ -225,6 +225,16 @@ public:
 		return CameraView::setChild(i, node);
 	};
 
+	// void osg::Group::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return CameraView::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

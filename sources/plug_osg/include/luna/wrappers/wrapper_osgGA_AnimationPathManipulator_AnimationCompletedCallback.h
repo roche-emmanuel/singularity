@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return AnimationCompletedCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
 	void completed(const osgGA::AnimationPathManipulator * apm) {
 		THROW_IF(!_obj.pushFunction("completed"),"No implementation for abstract function osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed");

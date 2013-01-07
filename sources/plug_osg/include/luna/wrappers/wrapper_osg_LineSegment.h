@@ -30,6 +30,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return LineSegment::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// static bool osg::LineSegment::intersectAndClip(osg::Vec3d & s, osg::Vec3d & e, const osg::BoundingBoxd & bb)

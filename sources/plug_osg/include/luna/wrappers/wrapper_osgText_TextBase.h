@@ -253,6 +253,16 @@ public:
 		return TextBase::setFont(fontfile);
 	};
 
+	// void osgText::TextBase::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return TextBase::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgText::TextBase::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

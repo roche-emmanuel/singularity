@@ -132,6 +132,16 @@ public:
 		return ParticleSystem::compileGLObjects(renderInfo);
 	};
 
+	// void osg::Drawable::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ParticleSystem::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

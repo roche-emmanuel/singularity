@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return SubloadCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
 	void load(const osg::TextureRectangle & arg1, osg::State & arg2) const {
 		THROW_IF(!_obj.pushFunction("load"),"No implementation for abstract function osg::TextureRectangle::SubloadCallback::load");

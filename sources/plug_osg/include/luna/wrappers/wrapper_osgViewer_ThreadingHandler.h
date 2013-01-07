@@ -20,6 +20,7 @@ public:
 		}
 	};
 	
+	wrapper_osgViewer_ThreadingHandler(lua_State* L, lua_Table* dum) : osgViewer::ThreadingHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
@@ -27,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ThreadingHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -151,6 +162,27 @@ public:
 		}
 
 		return ThreadingHandler::operator()(node, nv);
+	};
+
+	// void osgViewer::ThreadingHandler::getUsage(osg::ApplicationUsage & usage) const
+	void getUsage(osg::ApplicationUsage & usage) const {
+		if(_obj.pushFunction("getUsage")) {
+			_obj.pushArg(&usage);
+			return (_obj.callFunction<void>());
+		}
+
+		return ThreadingHandler::getUsage(usage);
+	};
+
+	// bool osgViewer::ThreadingHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
+	bool handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) {
+		if(_obj.pushFunction("handle")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(&arg2);
+			return (_obj.callFunction<bool>());
+		}
+
+		return ThreadingHandler::handle(arg1, arg2);
 	};
 
 

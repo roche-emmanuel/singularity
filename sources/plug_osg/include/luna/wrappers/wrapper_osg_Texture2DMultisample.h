@@ -39,6 +39,16 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture2DMultisample::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {

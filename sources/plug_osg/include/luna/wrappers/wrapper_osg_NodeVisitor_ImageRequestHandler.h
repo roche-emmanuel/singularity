@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageRequestHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const
 	double getPreLoadTime() const {
 		THROW_IF(!_obj.pushFunction("getPreLoadTime"),"No implementation for abstract function osg::NodeVisitor::ImageRequestHandler::getPreLoadTime");

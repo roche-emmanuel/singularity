@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return SubloadCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap & texture, osg::State & state) const
 	void load(const osg::TextureCubeMap & texture, osg::State & state) const {
 		THROW_IF(!_obj.pushFunction("load"),"No implementation for abstract function osg::TextureCubeMap::SubloadCallback::load");

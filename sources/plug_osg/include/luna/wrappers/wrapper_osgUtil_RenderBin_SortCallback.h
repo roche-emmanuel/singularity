@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return SortCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
 	void sortImplementation(osgUtil::RenderBin * arg1) {
 		THROW_IF(!_obj.pushFunction("sortImplementation"),"No implementation for abstract function osgUtil::RenderBin::SortCallback::sortImplementation");

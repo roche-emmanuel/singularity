@@ -322,6 +322,16 @@ public:
 		return GlyphTexture::apply(state);
 	};
 
+	// void osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return GlyphTexture::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// bool osg::Texture2D::textureObjectValid(osg::State & state) const

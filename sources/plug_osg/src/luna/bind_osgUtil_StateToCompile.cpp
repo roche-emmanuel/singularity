@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -127,6 +127,13 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		if( (!(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -407,6 +414,25 @@ public:
 		if (_lg_typecheck_apply_overload_5(L)) return _bind_apply_overload_5(L);
 
 		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Node &)\n  apply(osg::Geode &)\n  apply(osg::Drawable &)\n  apply(osg::StateSet &)\n  apply(osg::Texture &)\n");
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::StateToCompile::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->StateToCompile::setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -737,6 +763,7 @@ const int LunaTraits< osgUtil::StateToCompile >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgUtil::StateToCompile >::methods[] = {
 	{"empty", &luna_wrapper_osgUtil_StateToCompile::_bind_empty},
 	{"apply", &luna_wrapper_osgUtil_StateToCompile::_bind_apply},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_StateToCompile::_bind_base_setThreadSafeRefUnref},
 	{"base_libraryName", &luna_wrapper_osgUtil_StateToCompile::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgUtil_StateToCompile::_bind_base_className},
 	{"base_reset", &luna_wrapper_osgUtil_StateToCompile::_bind_base_reset},

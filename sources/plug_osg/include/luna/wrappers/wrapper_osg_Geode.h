@@ -287,6 +287,16 @@ public:
 		return Geode::computeBound();
 	};
 
+	// void osg::Geode::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Geode::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Geode::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

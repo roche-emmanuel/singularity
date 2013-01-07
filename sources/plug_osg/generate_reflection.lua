@@ -27,7 +27,7 @@ corr:addCorrector("type_name","(OSG_EXPORT )","")
 corr:addCorrector("type_name","(GL_APIENTRY%s*)","")
 
 local injector = require "bindings.CodeInjector"
-injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\nusing namespace osgParticle;\n")
+injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\nusing namespace osgParticle;\nusing namespace OpenThreads;\n")
 
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
@@ -96,7 +96,7 @@ ReflectionGenerator.generate{
 		"wstring",
 		"wchar_t",
 		"BEGIN_BRACKET",
-		"Thread",
+		--"Thread",
 
 		-- for osgViewer:
 		"GraphicsWindow::makeContextCurrentImplementation",
@@ -119,6 +119,9 @@ ReflectionGenerator.generate{
 		"AttributeStack",
 		"AttributeMap",
 		"ModeMap",
+		
+		"DatabaseThread",
+		"ImageThread",
 	},
 	ignoreWrappers={
 		"StateSetManipulator::clone",

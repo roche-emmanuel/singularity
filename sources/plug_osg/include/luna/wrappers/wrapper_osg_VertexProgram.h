@@ -29,6 +29,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return VertexProgram::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {

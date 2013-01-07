@@ -103,7 +103,7 @@ function Class:getBaseCasterCode(bname,dstBaseName)
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		${2}* res = dynamic_cast<${2}*>(self);
+		${2}* res = luna_caster<${1},${2}>::cast(self); // dynamic_cast<${2}*>(self);
 		if(!res)
 			return 0;
 			
@@ -160,7 +160,7 @@ function Class:getTableAccessCode(bname,hash)
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<${1},luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;

@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return OutputIterator::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::OutputIterator::isBinary() const
 	bool isBinary() const {
 		THROW_IF(!_obj.pushFunction("isBinary"),"No implementation for abstract function osgDB::OutputIterator::isBinary");

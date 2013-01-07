@@ -20,6 +20,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_BarrierOperation(lua_State* L, lua_Table* dum, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) : osg::BarrierOperation(numThreads, op, keep), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
@@ -27,6 +28,44 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return BarrierOperation::setThreadSafeRefUnref(threadSafe);
+	};
+
+	// void OpenThreads::Barrier::reset()
+	void reset() {
+		if(_obj.pushFunction("reset")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return BarrierOperation::reset();
+	};
+
+	// void OpenThreads::Barrier::block(unsigned int numThreads = 0)
+	void block(unsigned int numThreads = 0) {
+		if(_obj.pushFunction("block")) {
+			_obj.pushArg(numThreads);
+			return (_obj.callFunction<void>());
+		}
+
+		return BarrierOperation::block(numThreads);
+	};
+
+	// int OpenThreads::Barrier::numThreadsCurrentlyBlocked()
+	int numThreadsCurrentlyBlocked() {
+		if(_obj.pushFunction("numThreadsCurrentlyBlocked")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return BarrierOperation::numThreadsCurrentlyBlocked();
+	};
+
 	// void osg::BarrierOperation::release()
 	void release() {
 		if(_obj.pushFunction("release")) {

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -304,6 +304,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -421,6 +428,13 @@ public:
 	inline static bool _lg_typecheck_base_hasVertical(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1170,6 +1184,25 @@ public:
 		return 0;
 	}
 
+	// void osgText::Font::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Font::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::Font::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgText::Font* self=Luna< osg::Referenced >::checkSubType< osgText::Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Font::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgText::Font::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
@@ -1550,6 +1583,25 @@ public:
 		return 1;
 	}
 
+	// void osgText::Font::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Font::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::Font::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgText::Font* self=Luna< osg::Referenced >::checkSubType< osgText::Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Font::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Font::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgText::Font::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -1624,6 +1676,7 @@ luna_RegType LunaTraits< osgText::Font >::methods[] = {
 	{"getNumberCurveSamples", &luna_wrapper_osgText_Font::_bind_getNumberCurveSamples},
 	{"setImplementation", &luna_wrapper_osgText_Font::_bind_setImplementation},
 	{"getImplementation", &luna_wrapper_osgText_Font::_bind_getImplementation},
+	{"setThreadSafeRefUnref", &luna_wrapper_osgText_Font::_bind_setThreadSafeRefUnref},
 	{"releaseGLObjects", &luna_wrapper_osgText_Font::_bind_releaseGLObjects},
 	{"getGlyphTextureList", &luna_wrapper_osgText_Font::_bind_getGlyphTextureList},
 	{"getDefaultFont", &luna_wrapper_osgText_Font::_bind_getDefaultFont},
@@ -1641,6 +1694,7 @@ luna_RegType LunaTraits< osgText::Font >::methods[] = {
 	{"base_getGlyph", &luna_wrapper_osgText_Font::_bind_base_getGlyph},
 	{"base_getGlyph3D", &luna_wrapper_osgText_Font::_bind_base_getGlyph3D},
 	{"base_hasVertical", &luna_wrapper_osgText_Font::_bind_base_hasVertical},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_Font::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osgText_Font::_bind_base_releaseGLObjects},
 	{"__eq", &luna_wrapper_osgText_Font::_bind___eq},
 	{"getTable", &luna_wrapper_osgText_Font::_bind_getTable},

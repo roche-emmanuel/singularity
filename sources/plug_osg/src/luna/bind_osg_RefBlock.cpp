@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -65,6 +65,18 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_Block(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//osg::RefBlock* ptr= dynamic_cast< osg::RefBlock* >(Luna< OpenThreads::Block >::check(L,1));
+		osg::RefBlock* ptr= luna_caster< OpenThreads::Block, osg::RefBlock >::cast(Luna< OpenThreads::Block >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< osg::RefBlock >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -82,6 +94,13 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -120,8 +139,53 @@ public:
 
 
 	// Function binds:
+	// void osg::RefBlock::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::RefBlock::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::RefBlock::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::RefBlock* self=Luna< osg::Referenced >::checkSubType< osg::RefBlock >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::RefBlock::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->RefBlock::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
+
+	inline static bool _lg_typecheck_baseCast_OpenThreads_Block(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	static int _bind_baseCast_OpenThreads_Block(lua_State *L) {
+		if (!_lg_typecheck_baseCast_OpenThreads_Block(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in baseCast_OpenThreads_Block function, expected prototype:\nbaseCast()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call baseCast(...)");
+		}
+		
+		OpenThreads::Block* res = luna_caster<osg::Referenced,OpenThreads::Block>::cast(self); // dynamic_cast<OpenThreads::Block*>(self);
+		if(!res)
+			return 0;
+			
+		Luna< OpenThreads::Block >::push(L,res,false);
+		return 1;
+
+	}
 
 };
 
@@ -138,18 +202,21 @@ void LunaTraits< osg::RefBlock >::_bind_dtor(osg::RefBlock* obj) {
 const char LunaTraits< osg::RefBlock >::className[] = "RefBlock";
 const char LunaTraits< osg::RefBlock >::fullName[] = "osg::RefBlock";
 const char LunaTraits< osg::RefBlock >::moduleName[] = "osg";
-const char* LunaTraits< osg::RefBlock >::parents[] = {"osg.Referenced", 0};
+const char* LunaTraits< osg::RefBlock >::parents[] = {"osg.Referenced", "OpenThreads.Block", 0};
 const int LunaTraits< osg::RefBlock >::hash = 54031935;
-const int LunaTraits< osg::RefBlock >::uniqueIDs[] = {50169651,0};
+const int LunaTraits< osg::RefBlock >::uniqueIDs[] = {50169651, 92736679,0};
 
 luna_RegType LunaTraits< osg::RefBlock >::methods[] = {
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_RefBlock::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_RefBlock::_bind___eq},
 	{"getTable", &luna_wrapper_osg_RefBlock::_bind_getTable},
+	{"asBlock", &luna_wrapper_osg_RefBlock::_bind_baseCast_OpenThreads_Block},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< osg::RefBlock >::converters[] = {
 	{"osg::Referenced", &luna_wrapper_osg_RefBlock::_cast_from_Referenced},
+	{"OpenThreads::Block", &luna_wrapper_osg_RefBlock::_cast_from_Block},
 	{0,0}
 };
 

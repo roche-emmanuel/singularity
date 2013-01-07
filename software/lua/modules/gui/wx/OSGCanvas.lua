@@ -51,9 +51,11 @@ function Class:create()
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
-	--self._viewer:addEventHandler( osgViewer.StatsHandler() )	
-	--self._viewer:addEventHandler( osgViewer.WindowSizeHandler() )
-		
+	--self._viewer:setThreadingModel(osgViewer.ViewerBase.SingleThreaded);
+	
+	self._viewer:addEventHandler( osgViewer.StatsHandler() )	
+	self._viewer:addEventHandler( osgViewer.WindowSizeHandler() )
+	
 	-- connect the event handlers for the canvas:
 	self._intf:connectHandler(self._window,wx.wxEVT_SIZE,function(intf,event)
     	local size = event:GetSize()
@@ -65,43 +67,6 @@ function Class:create()
         self._gw:resized(0,0,ww,hh);
 		self._viewer:getCamera():setViewport(0,0,ww,hh);
 	end)
-
-	
-	local mouseDownHandler = function(intf,event)
-    	--self:info("Sending mouse down event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
-		self._gw:getEventQueue():mouseButtonPress(event:GetX(), event:GetY(), event:GetButton())
-		--self._viewer:getCamera():setClearColor(osg.Vec4f(0.0,1.0,0.0,1.0))
-		event:Skip();
-	end
-	
-	local mouseUpHandler = function(intf,event)
-    	--self:info("Sending mouse up event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
-		self._gw:getEventQueue():mouseButtonRelease(event:GetX(), event:GetY(), event:GetButton())
-		--self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
-		event:Skip();
-	end
-	
-	local mouseWheelHandler = function(intf,event)
-    	--self:info("Sending mouse wheel event: ",event:GetWheelRotation()>0.0 and "DOWN" or "UP")
-		self._gw:getEventQueue():mouseScroll(event:GetWheelRotation()>0.0 and osgGA.GUIEventAdapter.SCROLL_DOWN or osgGA.GUIEventAdapter.SCROLL_UP);
-		event:Skip();
-	end
-
-	local mouseMotionHandler = function(intf,event)
-    	--self:info("Sending mouse motion event: X=",event:GetX(),", Y=",event:GetY())
-		self._gw:getEventQueue():mouseMotion(event:GetX(), event:GetY());
-		event:Skip();
-	end
-
-	
-	self._intf:connectHandler(self._window,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_RIGHT_DOWN,mouseDownHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_LEFT_UP,mouseUpHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_MIDDLE_UP,mouseUpHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_RIGHT_UP,mouseUpHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_MOUSEWHEEL,mouseWheelHandler)
-	self._intf:connectHandler(self._window,wx.wxEVT_MOTION,mouseMotionHandler)
 	
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
 	
@@ -111,9 +76,64 @@ function Class:create()
 	end}
 end
 
+function Class:connectHandlers()
+	if self._initialized then
+		return
+	end
+	
+	local mouseDownHandler = function(intf,event)
+    	--self:info("Sending mouse down event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
+		self._gw:getEventQueue():mouseButtonPress(event:GetX(), event:GetY(), event:GetButton())
+		--self._viewer:getCamera():setClearColor(osg.Vec4f(0.0,1.0,0.0,1.0))
+		--self._viewer:eventTraversal()
+		event:Skip();
+	end
+	
+	local mouseUpHandler = function(intf,event)
+    	--self:info("Sending mouse up event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
+		self._gw:getEventQueue():mouseButtonRelease(event:GetX(), event:GetY(), event:GetButton())
+		--self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
+		--self._viewer:eventTraversal()
+		event:Skip();
+	end
+	
+	local mouseWheelHandler = function(intf,event)
+    	--self:info("Sending mouse wheel event: ",event:GetWheelRotation()>0.0 and "DOWN" or "UP")
+		self._gw:getEventQueue():mouseScroll(event:GetWheelRotation()>0.0 and osgGA.GUIEventAdapter.SCROLL_DOWN or osgGA.GUIEventAdapter.SCROLL_UP);
+		--self._viewer:eventTraversal()
+		event:Skip();
+	end
+
+	local mouseMotionHandler = function(intf,event)
+    	--self:info("Sending mouse motion event: X=",event:GetX(),", Y=",event:GetY())
+		self._gw:getEventQueue():mouseMotion(event:GetX(), event:GetY());
+		--self._viewer:eventTraversal()
+		event:Skip();
+	end
+
+	
+	local win = self._window
+	-- local win = self._parent
+	self._intf:connectHandler(win,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
+	self._intf:connectHandler(win,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
+	self._intf:connectHandler(win,wx.wxEVT_RIGHT_DOWN,mouseDownHandler)
+	self._intf:connectHandler(win,wx.wxEVT_LEFT_UP,mouseUpHandler)
+	self._intf:connectHandler(win,wx.wxEVT_MIDDLE_UP,mouseUpHandler)
+	self._intf:connectHandler(win,wx.wxEVT_RIGHT_UP,mouseUpHandler)
+	self._intf:connectHandler(win,wx.wxEVT_MOUSEWHEEL,mouseWheelHandler)
+	self._intf:connectHandler(win,wx.wxEVT_MOTION,mouseMotionHandler)
+end
+
 function Class:onFrame()
 	--self:info("Rendering frame...")
 	prof:start("OSG frame")
+	if not self._initialized then
+		-- Need to change the start tick for the event queue here:
+		self._gw:getEventQueue():setStartTick(osg.Timer.instance():tick());
+		self:connectHandlers()
+		self._initialized = true
+	end
+	
 	self._viewer:frame();
 	prof:stop()
 	--self:info("Done rendering frame.")

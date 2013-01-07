@@ -20,6 +20,7 @@ public:
 		}
 	};
 	
+	wrapper_osg_OperationThread(lua_State* L, lua_Table* dum) : osg::OperationThread(), luna_wrapper_base(L) { register_protected_methods(L); };
 
 
 	// Private virtual methods:
@@ -27,6 +28,43 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return OperationThread::setThreadSafeRefUnref(threadSafe);
+	};
+
+	// void OpenThreads::Thread::cancelCleanup()
+	void cancelCleanup() {
+		if(_obj.pushFunction("cancelCleanup")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return OperationThread::cancelCleanup();
+	};
+
+	// void osg::OperationThread::run()
+	void run() {
+		if(_obj.pushFunction("run")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return OperationThread::run();
+	};
+
+	// int osg::OperationThread::cancel()
+	int cancel() {
+		if(_obj.pushFunction("cancel")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return OperationThread::cancel();
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return CoordinateFrameCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
 	osg::Matrixd getCoordinateFrame(const osg::Vec3d & position) const {
 		THROW_IF(!_obj.pushFunction("getCoordinateFrame"),"No implementation for abstract function osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame");

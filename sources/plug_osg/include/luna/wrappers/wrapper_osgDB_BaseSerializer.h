@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return BaseSerializer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2)
 	bool read(osgDB::InputStream & arg1, osg::Object & arg2) {
 		THROW_IF(!_obj.pushFunction("read"),"No implementation for abstract function osgDB::BaseSerializer::read");

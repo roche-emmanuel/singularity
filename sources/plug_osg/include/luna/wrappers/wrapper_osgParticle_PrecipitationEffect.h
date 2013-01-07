@@ -186,6 +186,16 @@ public:
 		return PrecipitationEffect::computeBound();
 	};
 
+	// void osg::Node::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return PrecipitationEffect::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

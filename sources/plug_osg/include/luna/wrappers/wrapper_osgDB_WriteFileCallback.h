@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return WriteFileCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options) {
 		if(_obj.pushFunction("writeObject")) {

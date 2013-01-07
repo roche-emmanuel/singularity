@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return StandardNotifyHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::StandardNotifyHandler::notify(osg::NotifySeverity severity, const char * message)
 	void notify(osg::NotifySeverity severity, const char * message) {
 		if(_obj.pushFunction("notify")) {

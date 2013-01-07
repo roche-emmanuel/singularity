@@ -83,6 +83,16 @@ public:
 		return QueryGeometry::computeBound();
 	};
 
+	// void osg::Drawable::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return QueryGeometry::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
 	void setUpdateCallback(osg::Drawable::UpdateCallback * ac) {
 		if(_obj.pushFunction("setUpdateCallback")) {

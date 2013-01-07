@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -97,6 +97,13 @@ public:
 		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -200,6 +207,25 @@ public:
 		return 1;
 	}
 
+	// void osgDB::FindFileCallback::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::FindFileCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::FindFileCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::FindFileCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->FindFileCallback::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// std::string osgDB::FindFileCallback::base_findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
 	static int _bind_base_findDataFile(lua_State *L) {
 		if (!_lg_typecheck_base_findDataFile(L)) {
@@ -269,6 +295,7 @@ const int LunaTraits< osgDB::FindFileCallback >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgDB::FindFileCallback >::methods[] = {
 	{"findDataFile", &luna_wrapper_osgDB_FindFileCallback::_bind_findDataFile},
 	{"findLibraryFile", &luna_wrapper_osgDB_FindFileCallback::_bind_findLibraryFile},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_FindFileCallback::_bind_base_setThreadSafeRefUnref},
 	{"base_findDataFile", &luna_wrapper_osgDB_FindFileCallback::_bind_base_findDataFile},
 	{"base_findLibraryFile", &luna_wrapper_osgDB_FindFileCallback::_bind_base_findLibraryFile},
 	{"__eq", &luna_wrapper_osgDB_FindFileCallback::_bind___eq},

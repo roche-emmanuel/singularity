@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -100,6 +100,13 @@ public:
 	inline static bool _lg_typecheck_getSavePolicy(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -197,6 +204,25 @@ public:
 		return 1;
 	}
 
+	// void osgViewer::ScreenCaptureHandler::WriteToFile::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ScreenCaptureHandler::WriteToFile::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::ScreenCaptureHandler::WriteToFile::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->WriteToFile::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image & image, const unsigned int context_id)
@@ -246,6 +272,7 @@ const int LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::uniqueIDs[
 luna_RegType LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::methods[] = {
 	{"setSavePolicy", &luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind_setSavePolicy},
 	{"getSavePolicy", &luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind_getSavePolicy},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind_base_setThreadSafeRefUnref},
 	{"op_call", &luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind_op_call},
 	{"__eq", &luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind___eq},
 	{"getTable", &luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind_getTable},

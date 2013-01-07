@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return DepthPartitionSettings::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)
 	bool getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) {
 		if(_obj.pushFunction("getDepthRange")) {

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -559,6 +559,13 @@ public:
 	inline static bool _lg_typecheck_create(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -2264,6 +2271,25 @@ public:
 		return 1;
 	}
 
+	// void osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::CullVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::CullVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CullVisitor::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgUtil::CullVisitor::base_setDefaults()
 	static int _bind_base_setDefaults(lua_State *L) {
 		if (!_lg_typecheck_base_setDefaults(L)) {
@@ -3000,7 +3026,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		osg::CullSettings* res = dynamic_cast<osg::CullSettings*>(self);
+		osg::CullSettings* res = luna_caster<osg::Referenced,osg::CullSettings>::cast(self); // dynamic_cast<osg::CullSettings*>(self);
 		if(!res)
 			return 0;
 			
@@ -3070,6 +3096,7 @@ luna_RegType LunaTraits< osgUtil::CullVisitor >::methods[] = {
 	{"getRenderInfo", &luna_wrapper_osgUtil_CullVisitor::_bind_getRenderInfo},
 	{"prototype", &luna_wrapper_osgUtil_CullVisitor::_bind_prototype},
 	{"create", &luna_wrapper_osgUtil_CullVisitor::_bind_create},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_CullVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_setDefaults", &luna_wrapper_osgUtil_CullVisitor::_bind_base_setDefaults},
 	{"base_inheritCullSettings", &luna_wrapper_osgUtil_CullVisitor::_bind_base_inheritCullSettings},
 	{"base_libraryName", &luna_wrapper_osgUtil_CullVisitor::_bind_base_libraryName},

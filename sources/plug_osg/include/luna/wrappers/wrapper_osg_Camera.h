@@ -225,6 +225,16 @@ public:
 		return Camera::setChild(i, node);
 	};
 
+	// void osg::Group::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Camera::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Transform * osg::Transform::asTransform()
 	osg::Transform * asTransform() {
 		if(_obj.pushFunction("asTransform")) {

@@ -220,6 +220,16 @@ public:
 		return FadeText::setFont(fontfile);
 	};
 
+	// void osgText::Text::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return FadeText::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgText::Text::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

@@ -22,6 +22,7 @@
 #include <osg/Vec3d>
 #include <osg/RenderInfo>
 #include <osgDB/XmlParser>
+#include <OpenThreads/Block>
 
 #include "plug_extensions.h"
 
@@ -44,6 +45,19 @@ struct luna_caster<osgDB::XmlNode::ControlMap,dstType> {
 	};
 };
 
+template <typename dstType>
+struct luna_caster<OpenThreads::Block,dstType> {
+	static inline dstType* cast(OpenThreads::Block* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<OpenThreads::BlockCount,dstType> {
+	static inline dstType* cast(OpenThreads::BlockCount* ptr) {
+		return (dstType*)(ptr);
+	};
+};
 
 #endif
 

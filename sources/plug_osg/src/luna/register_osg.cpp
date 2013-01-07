@@ -19,6 +19,21 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 
 	luna_pushModule(L,"osg");
 	Luna< GLUtesselator >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"OpenThreads");
+	Luna< OpenThreads::Atomic >::Register(L);
+	Luna< OpenThreads::AtomicPtr >::Register(L);
+	Luna< OpenThreads::Barrier >::Register(L);
+	Luna< OpenThreads::Block >::Register(L);
+	Luna< OpenThreads::BlockCount >::Register(L);
+	Luna< OpenThreads::Condition >::Register(L);
+	Luna< OpenThreads::ReadWriteMutex >::Register(L);
+	Luna< OpenThreads::ScopedReadLock >::Register(L);
+	Luna< OpenThreads::ScopedWriteLock >::Register(L);
+	Luna< OpenThreads::ReentrantMutex >::Register(L);
+	Luna< OpenThreads::Thread >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"osg");
 	Luna< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::Register(L);
 	Luna< osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > >::Register(L);
 	Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::Register(L);
@@ -809,6 +824,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	register_global_functions(L);
 
 	luna_copyParents(L,"osg");
+	luna_copyParents(L,"OpenThreads");
 	luna_copyParents(L,"osgDB");
 	luna_copyParents(L,"osgGA");
 	luna_copyParents(L,"osgParticle");

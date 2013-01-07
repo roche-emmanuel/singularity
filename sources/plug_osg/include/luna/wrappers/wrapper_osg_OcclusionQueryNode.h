@@ -252,6 +252,16 @@ public:
 		return OcclusionQueryNode::setChild(i, node);
 	};
 
+	// void osg::Group::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return OcclusionQueryNode::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Object * osg::OcclusionQueryNode::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {

@@ -158,6 +158,16 @@ public:
 		return ParticleSystemUpdater::ascend(nv);
 	};
 
+	// void osg::Node::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ParticleSystemUpdater::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

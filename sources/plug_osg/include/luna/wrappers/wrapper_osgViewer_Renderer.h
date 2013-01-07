@@ -38,6 +38,16 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Renderer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgViewer::Renderer::cull()
 	void cull() {
 		if(_obj.pushFunction("cull")) {

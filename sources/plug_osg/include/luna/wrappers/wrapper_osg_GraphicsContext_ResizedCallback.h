@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ResizedCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height)
 	void resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height) {
 		THROW_IF(!_obj.pushFunction("resizedImplementation"),"No implementation for abstract function osg::GraphicsContext::ResizedCallback::resizedImplementation");

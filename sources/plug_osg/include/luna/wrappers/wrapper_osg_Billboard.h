@@ -201,6 +201,16 @@ public:
 		return Billboard::setDrawable(i, drawable);
 	};
 
+	// void osg::Geode::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Billboard::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Geode::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

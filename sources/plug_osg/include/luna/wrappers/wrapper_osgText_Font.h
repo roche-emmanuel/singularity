@@ -173,6 +173,16 @@ public:
 		return Font::hasVertical();
 	};
 
+	// void osgText::Font::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Font::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgText::Font::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

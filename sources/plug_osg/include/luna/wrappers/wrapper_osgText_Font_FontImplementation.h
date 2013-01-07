@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return FontImplementation::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// std::string osgText::Font::FontImplementation::getFileName() const
 	std::string getFileName() const {
 		THROW_IF(!_obj.pushFunction("getFileName"),"No implementation for abstract function osgText::Font::FontImplementation::getFileName");

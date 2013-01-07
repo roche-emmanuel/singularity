@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return BaseCompressor::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)
 	bool compress(std::ostream & arg1, const std::string & arg2) {
 		THROW_IF(!_obj.pushFunction("compress"),"No implementation for abstract function osgDB::BaseCompressor::compress");

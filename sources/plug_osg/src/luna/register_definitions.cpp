@@ -11,13 +11,16 @@
 #include <osg/ArgumentParser>
 #include <osg/Array>
 #include <osg/ArrayDispatchers>
+#include <OpenThreads/Atomic>
 #include <osg/AudioStream>
 #include <osgDB/AuthenticationMap>
 #include <osg/AutoTransform>
+#include <OpenThreads/Barrier>
 #include <osg/Billboard>
 #include <osg/BlendColor>
 #include <osg/BlendEquation>
 #include <osg/BlendFunc>
+#include <OpenThreads/Block>
 #include <osgParticle/BounceOperator>
 #include <osg/BoundingBox>
 #include <osg/BoundingSphere>
@@ -44,6 +47,8 @@
 #include <osgParticle/CompositePlacer>
 #include <osgViewer/CompositeViewer>
 #include <osg/ComputeBoundsVisitor>
+#include <OpenThreads/Condition>
+#include <OpenThreads/Config>
 #include <osg/Config>
 #include <osgParticle/ConnectedParticleSystem>
 #include <osgParticle/ConstantRateCounter>
@@ -91,6 +96,7 @@
 #include <osgText/Export>
 #include <osgUtil/Export>
 #include <osgViewer/Export>
+#include <OpenThreads/Exports>
 #include <osgDB/ExternalFileWriter>
 #include <osgText/FadeText>
 #include <osg/fast_back_stack>
@@ -174,6 +180,7 @@
 #include <osg/Multisample>
 #include <osgParticle/MultiSegmentPlacer>
 #include <osgGA/MultiTouchTrackballManipulator>
+#include <OpenThreads/Mutex>
 #include <osg/Node>
 #include <osg/NodeCallback>
 #include <osg/NodeTrackerCallback>
@@ -231,6 +238,8 @@
 #include <osgParticle/range>
 #include <osgDB/ReaderWriter>
 #include <osgDB/ReadFile>
+#include <OpenThreads/ReadWriteMutex>
+#include <OpenThreads/ReentrantMutex>
 #include <osg/ref_ptr>
 #include <osg/Referenced>
 #include <osgUtil/ReflectionMapGenerator>
@@ -245,6 +254,7 @@
 #include <osgUtil/SceneGraphBuilder>
 #include <osgUtil/SceneView>
 #include <osg/Scissor>
+#include <OpenThreads/ScopedLock>
 #include <osgParticle/SectorPlacer>
 #include <osgParticle/SegmentPlacer>
 #include <osg/Sequence>
@@ -301,6 +311,7 @@
 #include <osg/Texture3D>
 #include <osg/TextureCubeMap>
 #include <osg/TextureRectangle>
+#include <OpenThreads/Thread>
 #include <osg/Timer>
 #include <osgGA/TrackballManipulator>
 #include <osg/TransferFunction>
@@ -332,6 +343,7 @@
 #include <osg/Vec4f>
 #include <osg/Vec4s>
 #include <osg/Vec4ub>
+#include <OpenThreads/Version>
 #include <osg/Version>
 #include <osgDB/Version>
 #include <osgGA/Version>
@@ -1516,6 +1528,11 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_VEC4F); lua_setfield(L,-2,"OSG_VEC4F");
 	lua_pushnumber(L,OSG_VEC4S); lua_setfield(L,-2,"OSG_VEC4S");
 	lua_pushnumber(L,OSG_VEC4UB); lua_setfield(L,-2,"OSG_VEC4UB");
+	lua_pushnumber(L,OPENTHREADS_VERSION); lua_setfield(L,-2,"OPENTHREADS_VERSION");
+	lua_pushnumber(L,OPENTHREADS_MAJOR_VERSION); lua_setfield(L,-2,"OPENTHREADS_MAJOR_VERSION");
+	lua_pushnumber(L,OPENTHREADS_MINOR_VERSION); lua_setfield(L,-2,"OPENTHREADS_MINOR_VERSION");
+	lua_pushnumber(L,OPENTHREADS_PATCH_VERSION); lua_setfield(L,-2,"OPENTHREADS_PATCH_VERSION");
+	lua_pushnumber(L,OPENTHREADS_SOVERSION); lua_setfield(L,-2,"OPENTHREADS_SOVERSION");
 	lua_pushnumber(L,OSG_VERSION); lua_setfield(L,-2,"OSG_VERSION");
 	lua_pushnumber(L,OPENSCENEGRAPH_MAJOR_VERSION); lua_setfield(L,-2,"OPENSCENEGRAPH_MAJOR_VERSION");
 	lua_pushnumber(L,OPENSCENEGRAPH_MINOR_VERSION); lua_setfield(L,-2,"OPENSCENEGRAPH_MINOR_VERSION");

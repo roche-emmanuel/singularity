@@ -105,6 +105,16 @@ public:
 		return DefaultUserDataContainer::className();
 	};
 
+	// void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return DefaultUserDataContainer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::DefaultUserDataContainer::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {

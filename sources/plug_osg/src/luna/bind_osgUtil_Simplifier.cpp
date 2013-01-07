@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -226,6 +226,13 @@ public:
 		if( (!(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,12058436) ) return false;
 		if( (!(Luna< osgUtil::Simplifier::IndexList >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -772,6 +779,25 @@ public:
 		return 0;
 	}
 
+	// void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::Simplifier::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::Simplifier* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Simplifier::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgUtil::Simplifier::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
@@ -1033,6 +1059,7 @@ luna_RegType LunaTraits< osgUtil::Simplifier >::methods[] = {
 	{"continueSimplificationImplementation", &luna_wrapper_osgUtil_Simplifier::_bind_continueSimplificationImplementation},
 	{"apply", &luna_wrapper_osgUtil_Simplifier::_bind_apply},
 	{"simplify", &luna_wrapper_osgUtil_Simplifier::_bind_simplify},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_Simplifier::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osgUtil_Simplifier::_bind_base_reset},
 	{"base_getEyePoint", &luna_wrapper_osgUtil_Simplifier::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osgUtil_Simplifier::_bind_base_getViewPoint},

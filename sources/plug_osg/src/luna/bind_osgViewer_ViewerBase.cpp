@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -118,6 +118,49 @@ public:
 	}
 
 	inline static bool _lg_typecheck_realize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_suggestBestThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUpThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_areThreadsRunning(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_stopThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_startThreading(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -371,6 +414,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getAllThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11304538) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getOperationThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,32227808) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getScenes(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
@@ -429,6 +490,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -466,6 +534,37 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_suggestBestThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUpThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_stopThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_startThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -664,6 +763,136 @@ public:
 			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::realize(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->realize();
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
+	static int _bind_setThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_setThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) function, expected prototype:\nvoid osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)\nClass arguments details:\n");
+		}
+
+		osgViewer::ViewerBase::ThreadingModel threadingModel=(osgViewer::ViewerBase::ThreadingModel)lua_tointeger(L,2);
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadingModel(threadingModel);
+
+		return 0;
+	}
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::getThreadingModel() const
+	static int _bind_getThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_getThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::getThreadingModel() const function, expected prototype:\nosgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::getThreadingModel() const\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::getThreadingModel() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgViewer::ViewerBase::ThreadingModel lret = self->getThreadingModel();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel()
+	static int _bind_suggestBestThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_suggestBestThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel() function, expected prototype:\nosgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgViewer::ViewerBase::ThreadingModel lret = self->suggestBestThreadingModel();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgViewer::ViewerBase::setUpThreading()
+	static int _bind_setUpThreading(lua_State *L) {
+		if (!_lg_typecheck_setUpThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::setUpThreading() function, expected prototype:\nvoid osgViewer::ViewerBase::setUpThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::setUpThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setUpThreading();
+
+		return 0;
+	}
+
+	// bool osgViewer::ViewerBase::areThreadsRunning() const
+	static int _bind_areThreadsRunning(lua_State *L) {
+		if (!_lg_typecheck_areThreadsRunning(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgViewer::ViewerBase::areThreadsRunning() const function, expected prototype:\nbool osgViewer::ViewerBase::areThreadsRunning() const\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgViewer::ViewerBase::areThreadsRunning() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->areThreadsRunning();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osgViewer::ViewerBase::stopThreading()
+	static int _bind_stopThreading(lua_State *L) {
+		if (!_lg_typecheck_stopThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::stopThreading() function, expected prototype:\nvoid osgViewer::ViewerBase::stopThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::stopThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->stopThreading();
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::startThreading()
+	static int _bind_startThreading(lua_State *L) {
+		if (!_lg_typecheck_startThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::startThreading() function, expected prototype:\nvoid osgViewer::ViewerBase::startThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::startThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->startThreading();
 
 		return 0;
 	}
@@ -1434,6 +1663,58 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+	static int _bind_getAllThreads(lua_State *L) {
+		if (!_lg_typecheck_getAllThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) function, expected prototype:\nvoid osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)\nClass arguments details:\narg 1 ID = 11304538\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< osgViewer::ViewerBase::Threads >::check(L,2));
+		if( !threads_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::ViewerBase::getAllThreads function");
+		}
+		osgViewer::ViewerBase::Threads & threads=*threads_ptr;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->getAllThreads(threads, onlyActive);
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+	static int _bind_getOperationThreads(lua_State *L) {
+		if (!_lg_typecheck_getOperationThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) function, expected prototype:\nvoid osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)\nClass arguments details:\narg 1 ID = 32227808\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< osgViewer::ViewerBase::OperationThreads >::check(L,2));
+		if( !threads_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::ViewerBase::getOperationThreads function");
+		}
+		osgViewer::ViewerBase::OperationThreads & threads=*threads_ptr;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->getOperationThreads(threads, onlyActive);
+
+		return 0;
+	}
+
 	// void osgViewer::ViewerBase::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
 	static int _bind_getScenes(lua_State *L) {
 		if (!_lg_typecheck_getScenes(L)) {
@@ -1619,6 +1900,25 @@ public:
 		return 1;
 	}
 
+	// void osgViewer::ViewerBase::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::ViewerBase::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ViewerBase::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgViewer::ViewerBase::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -1743,6 +2043,98 @@ public:
 			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::base_releaseGLObjects(osg::State *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->ViewerBase::releaseGLObjects(_arg1);
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
+	static int _bind_base_setThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) function, expected prototype:\nvoid osgViewer::ViewerBase::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)\nClass arguments details:\n");
+		}
+
+		osgViewer::ViewerBase::ThreadingModel threadingModel=(osgViewer::ViewerBase::ThreadingModel)lua_tointeger(L,2);
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ViewerBase::setThreadingModel(threadingModel);
+
+		return 0;
+	}
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::base_suggestBestThreadingModel()
+	static int _bind_base_suggestBestThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_base_suggestBestThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::base_suggestBestThreadingModel() function, expected prototype:\nosgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::base_suggestBestThreadingModel()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::base_suggestBestThreadingModel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgViewer::ViewerBase::ThreadingModel lret = self->ViewerBase::suggestBestThreadingModel();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgViewer::ViewerBase::base_setUpThreading()
+	static int _bind_base_setUpThreading(lua_State *L) {
+		if (!_lg_typecheck_base_setUpThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::base_setUpThreading() function, expected prototype:\nvoid osgViewer::ViewerBase::base_setUpThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::base_setUpThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ViewerBase::setUpThreading();
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::base_stopThreading()
+	static int _bind_base_stopThreading(lua_State *L) {
+		if (!_lg_typecheck_base_stopThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::base_stopThreading() function, expected prototype:\nvoid osgViewer::ViewerBase::base_stopThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::base_stopThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ViewerBase::stopThreading();
+
+		return 0;
+	}
+
+	// void osgViewer::ViewerBase::base_startThreading()
+	static int _bind_base_startThreading(lua_State *L) {
+		if (!_lg_typecheck_base_startThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::base_startThreading() function, expected prototype:\nvoid osgViewer::ViewerBase::base_startThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::base_startThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ViewerBase::startThreading();
 
 		return 0;
 	}
@@ -1883,6 +2275,13 @@ luna_RegType LunaTraits< osgViewer::ViewerBase >::methods[] = {
 	{"readConfiguration", &luna_wrapper_osgViewer_ViewerBase::_bind_readConfiguration},
 	{"isRealized", &luna_wrapper_osgViewer_ViewerBase::_bind_isRealized},
 	{"realize", &luna_wrapper_osgViewer_ViewerBase::_bind_realize},
+	{"setThreadingModel", &luna_wrapper_osgViewer_ViewerBase::_bind_setThreadingModel},
+	{"getThreadingModel", &luna_wrapper_osgViewer_ViewerBase::_bind_getThreadingModel},
+	{"suggestBestThreadingModel", &luna_wrapper_osgViewer_ViewerBase::_bind_suggestBestThreadingModel},
+	{"setUpThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_setUpThreading},
+	{"areThreadsRunning", &luna_wrapper_osgViewer_ViewerBase::_bind_areThreadsRunning},
+	{"stopThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_stopThreading},
+	{"startThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_startThreading},
 	{"setEndBarrierPosition", &luna_wrapper_osgViewer_ViewerBase::_bind_setEndBarrierPosition},
 	{"getEndBarrierPosition", &luna_wrapper_osgViewer_ViewerBase::_bind_getEndBarrierPosition},
 	{"setDone", &luna_wrapper_osgViewer_ViewerBase::_bind_setDone},
@@ -1917,6 +2316,8 @@ luna_RegType LunaTraits< osgViewer::ViewerBase >::methods[] = {
 	{"getCameras", &luna_wrapper_osgViewer_ViewerBase::_bind_getCameras},
 	{"getContexts", &luna_wrapper_osgViewer_ViewerBase::_bind_getContexts},
 	{"getWindows", &luna_wrapper_osgViewer_ViewerBase::_bind_getWindows},
+	{"getAllThreads", &luna_wrapper_osgViewer_ViewerBase::_bind_getAllThreads},
+	{"getOperationThreads", &luna_wrapper_osgViewer_ViewerBase::_bind_getOperationThreads},
 	{"getScenes", &luna_wrapper_osgViewer_ViewerBase::_bind_getScenes},
 	{"getViews", &luna_wrapper_osgViewer_ViewerBase::_bind_getViews},
 	{"checkWindowStatus", &luna_wrapper_osgViewer_ViewerBase::_bind_checkWindowStatus},
@@ -1924,11 +2325,17 @@ luna_RegType LunaTraits< osgViewer::ViewerBase >::methods[] = {
 	{"getViewerFrameStamp", &luna_wrapper_osgViewer_ViewerBase::_bind_getViewerFrameStamp},
 	{"getUsage", &luna_wrapper_osgViewer_ViewerBase::_bind_getUsage},
 	{"base_isSameKindAs", &luna_wrapper_osgViewer_ViewerBase::_bind_base_isSameKindAs},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_ViewerBase::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgViewer_ViewerBase::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgViewer_ViewerBase::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgViewer_ViewerBase::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osgViewer_ViewerBase::_bind_base_getUserData},
 	{"base_releaseGLObjects", &luna_wrapper_osgViewer_ViewerBase::_bind_base_releaseGLObjects},
+	{"base_setThreadingModel", &luna_wrapper_osgViewer_ViewerBase::_bind_base_setThreadingModel},
+	{"base_suggestBestThreadingModel", &luna_wrapper_osgViewer_ViewerBase::_bind_base_suggestBestThreadingModel},
+	{"base_setUpThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_base_setUpThreading},
+	{"base_stopThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_base_stopThreading},
+	{"base_startThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_base_startThreading},
 	{"base_run", &luna_wrapper_osgViewer_ViewerBase::_bind_base_run},
 	{"base_frame", &luna_wrapper_osgViewer_ViewerBase::_bind_base_frame},
 	{"base_renderingTraversals", &luna_wrapper_osgViewer_ViewerBase::_bind_base_renderingTraversals},

@@ -310,6 +310,16 @@ public:
 		return LightSource::accept(nv);
 	};
 
+	// void osg::LightSource::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return LightSource::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::BoundingSphered osg::LightSource::computeBound() const
 	osg::BoundingSphered computeBound() const {
 		if(_obj.pushFunction("computeBound")) {

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -206,6 +206,13 @@ public:
 	inline static bool _lg_typecheck_getHeight(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -872,6 +879,25 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osgGA::DriveManipulator::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::DriveManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::DriveManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgGA::DriveManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::DriveManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::DriveManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->DriveManipulator::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osgGA::DriveManipulator::base_setName(const std::string & name)
@@ -1599,6 +1625,7 @@ luna_RegType LunaTraits< osgGA::DriveManipulator >::methods[] = {
 	{"getVelocity", &luna_wrapper_osgGA_DriveManipulator::_bind_getVelocity},
 	{"setHeight", &luna_wrapper_osgGA_DriveManipulator::_bind_setHeight},
 	{"getHeight", &luna_wrapper_osgGA_DriveManipulator::_bind_getHeight},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgGA_DriveManipulator::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgGA_DriveManipulator::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgGA_DriveManipulator::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgGA_DriveManipulator::_bind_base_setUserData},

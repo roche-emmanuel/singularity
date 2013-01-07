@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -1504,6 +1504,13 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
 		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -5320,6 +5327,25 @@ public:
 		return 0;
 	}
 
+	// void osg::Uniform::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Uniform::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Uniform::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Uniform::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::Uniform::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
@@ -5737,6 +5763,7 @@ luna_RegType LunaTraits< osg::Uniform >::methods[] = {
 	{"getInternalArrayType", &luna_wrapper_osg_Uniform::_bind_getInternalArrayType},
 	{"setInt", &luna_wrapper_osg_Uniform::_bind_setInt},
 	{"setFloat", &luna_wrapper_osg_Uniform::_bind_setFloat},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Uniform::_bind_base_setThreadSafeRefUnref},
 	{"base_computeDataVariance", &luna_wrapper_osg_Uniform::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Uniform::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Uniform::_bind_base_getUserData},

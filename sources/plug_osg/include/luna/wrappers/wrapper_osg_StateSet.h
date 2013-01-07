@@ -123,6 +123,16 @@ public:
 		return StateSet::computeDataVariance();
 	};
 
+	// void osg::StateSet::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return StateSet::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::StateSet::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

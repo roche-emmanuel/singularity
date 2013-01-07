@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ComputeStereoMatricesCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection(const osg::Matrixd & projection) const
 	osg::Matrixd computeLeftEyeProjection(const osg::Matrixd & projection) const {
 		THROW_IF(!_obj.pushFunction("computeLeftEyeProjection"),"No implementation for abstract function osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection");

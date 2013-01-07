@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return NotifyHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message)
 	void notify(osg::NotifySeverity severity, const char * message) {
 		THROW_IF(!_obj.pushFunction("notify"),"No implementation for abstract function osg::NotifyHandler::notify");

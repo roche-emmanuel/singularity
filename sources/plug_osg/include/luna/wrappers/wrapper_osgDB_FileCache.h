@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return FileCache::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::FileCache::isFileAppropriateForFileCache(const std::string & originalFileName) const
 	bool isFileAppropriateForFileCache(const std::string & originalFileName) const {
 		if(_obj.pushFunction("isFileAppropriateForFileCache")) {

@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return StatsHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
@@ -217,6 +227,11 @@ public:
 		return osgViewer::StatsHandler::setUpScene(viewer);
 	};
 
+	// void osgViewer::StatsHandler::updateThreadingModelText()
+	void public_updateThreadingModelText() {
+		return osgViewer::StatsHandler::updateThreadingModelText();
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -308,6 +323,12 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_updateThreadingModelText(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -565,6 +586,24 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::StatsHandler::public_updateThreadingModelText()
+	static int _bind_public_updateThreadingModelText(lua_State *L) {
+		if (!_lg_typecheck_public_updateThreadingModelText(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_updateThreadingModelText() function, expected prototype:\nvoid osgViewer::StatsHandler::public_updateThreadingModelText()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_updateThreadingModelText(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->public_updateThreadingModelText();
+
+		return 0;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -614,6 +653,7 @@ public:
 		{"protected_createTimeStatsLine",_bind_public_createTimeStatsLine},
 		{"protected_createCameraTimeStats",_bind_public_createCameraTimeStats},
 		{"protected_setUpScene",_bind_public_setUpScene},
+		{"protected_updateThreadingModelText",_bind_public_updateThreadingModelText},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

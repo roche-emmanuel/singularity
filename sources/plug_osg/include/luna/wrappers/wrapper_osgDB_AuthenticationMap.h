@@ -27,6 +27,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return AuthenticationMap::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgDB::AuthenticationMap::addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details)
 	void addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details) {
 		if(_obj.pushFunction("addAuthenticationDetails")) {

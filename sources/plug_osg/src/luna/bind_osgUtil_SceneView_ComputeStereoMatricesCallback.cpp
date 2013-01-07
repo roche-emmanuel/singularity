@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -101,6 +101,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -230,6 +237,25 @@ public:
 		return 1;
 	}
 
+	// void osgUtil::SceneView::ComputeStereoMatricesCallback::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::SceneView::ComputeStereoMatricesCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::SceneView::ComputeStereoMatricesCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::SceneView::ComputeStereoMatricesCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView::ComputeStereoMatricesCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::SceneView::ComputeStereoMatricesCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ComputeStereoMatricesCallback::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -261,6 +287,7 @@ luna_RegType LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::me
 	{"computeLeftEyeView", &luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback::_bind_computeLeftEyeView},
 	{"computeRightEyeProjection", &luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback::_bind_computeRightEyeProjection},
 	{"computeRightEyeView", &luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback::_bind_computeRightEyeView},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback::_bind_getTable},
 	{0,0}

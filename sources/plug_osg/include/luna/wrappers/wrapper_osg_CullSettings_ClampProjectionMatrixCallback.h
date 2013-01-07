@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ClampProjectionMatrixCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const {
 		THROW_IF(!_obj.pushFunction("clampProjectionMatrixImplementation"),"No implementation for abstract function osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation");

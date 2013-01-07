@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return FileLocationCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)
 	osgDB::FileLocationCallback::Location fileLocation(const std::string & filename, const osgDB::Options * options) {
 		THROW_IF(!_obj.pushFunction("fileLocation"),"No implementation for abstract function osgDB::FileLocationCallback::fileLocation");

@@ -29,6 +29,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return TangentSpaceGenerator::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgUtil::TangentSpaceGenerator::compute(osg::PrimitiveSet * pset, const osg::Array * vx, const osg::Array * nx, const osg::Array * tx, int iA, int iB, int iC)

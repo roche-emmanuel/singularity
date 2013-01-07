@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -715,6 +715,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_compileGLObjects(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -791,6 +798,13 @@ public:
 	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -2900,6 +2914,25 @@ public:
 		return 1;
 	}
 
+	// void osg::StateSet::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::StateSet::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::StateSet::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::StateSet::compileGLObjects(osg::State & state) const
 	static int _bind_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_compileGLObjects(L)) {
@@ -3156,6 +3189,25 @@ public:
 		return 0;
 	}
 
+	// void osg::StateSet::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::StateSet::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::StateSet::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::StateSet::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->StateSet::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::StateSet::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -3346,6 +3398,7 @@ luna_RegType LunaTraits< osg::StateSet >::methods[] = {
 	{"getNumChildrenRequiringEventTraversal", &luna_wrapper_osg_StateSet::_bind_getNumChildrenRequiringEventTraversal},
 	{"runEventCallbacks", &luna_wrapper_osg_StateSet::_bind_runEventCallbacks},
 	{"checkValidityOfAssociatedModes", &luna_wrapper_osg_StateSet::_bind_checkValidityOfAssociatedModes},
+	{"setThreadSafeRefUnref", &luna_wrapper_osg_StateSet::_bind_setThreadSafeRefUnref},
 	{"compileGLObjects", &luna_wrapper_osg_StateSet::_bind_compileGLObjects},
 	{"releaseGLObjects", &luna_wrapper_osg_StateSet::_bind_releaseGLObjects},
 	{"base_setName", &luna_wrapper_osg_StateSet::_bind_base_setName},
@@ -3357,6 +3410,7 @@ luna_RegType LunaTraits< osg::StateSet >::methods[] = {
 	{"base_libraryName", &luna_wrapper_osg_StateSet::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osg_StateSet::_bind_base_className},
 	{"base_computeDataVariance", &luna_wrapper_osg_StateSet::_bind_base_computeDataVariance},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_StateSet::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osg_StateSet::_bind_base_releaseGLObjects},
 	{"__lt", &luna_wrapper_osg_StateSet::_bind___lt},
 	{"__eq", &luna_wrapper_osg_StateSet::_bind___eq},

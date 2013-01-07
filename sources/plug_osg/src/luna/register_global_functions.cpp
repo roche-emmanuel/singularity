@@ -1,6 +1,7 @@
 #include <plug_common.h>
 
 #include <osg/GL>
+#include <OpenThreads/Version>
 #include <osg/Version>
 #include <osgDB/Version>
 #include <osgGA/Version>
@@ -8,6 +9,7 @@
 #include <osgText/Version>
 #include <osgUtil/Version>
 #include <osgViewer/Version>
+#include <OpenThreads/Thread>
 #include <osg/Endian>
 #include <osg/Geometry>
 #include <osg/GLExtensions>
@@ -67,6 +69,24 @@ inline static bool _lg_typecheck_glMultMatrix_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( lua_isnumber(L,1)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_OpenThreadsGetVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_OpenThreadsGetSOVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_OpenThreadsGetLibraryName(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
 	return true;
 }
 
@@ -234,6 +254,48 @@ static int _bind_glMultMatrix(lua_State *L) {
 
 	luaL_error(L, "error in function glMultMatrix, cannot match any of the overloads for function glMultMatrix:\n  glMultMatrix(const float *)\n  glMultMatrix(const double *)\n");
 	return 0;
+}
+
+// const char * OpenThreadsGetVersion()
+static int _bind_OpenThreadsGetVersion(lua_State *L) {
+	if (!_lg_typecheck_OpenThreadsGetVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetVersion() function, expected prototype:\nconst char * OpenThreadsGetVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = OpenThreadsGetVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * OpenThreadsGetSOVersion()
+static int _bind_OpenThreadsGetSOVersion(lua_State *L) {
+	if (!_lg_typecheck_OpenThreadsGetSOVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetSOVersion() function, expected prototype:\nconst char * OpenThreadsGetSOVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = OpenThreadsGetSOVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * OpenThreadsGetLibraryName()
+static int _bind_OpenThreadsGetLibraryName(lua_State *L) {
+	if (!_lg_typecheck_OpenThreadsGetLibraryName(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetLibraryName() function, expected prototype:\nconst char * OpenThreadsGetLibraryName()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = OpenThreadsGetLibraryName();
+	lua_pushstring(L,lret);
+
+	return 1;
 }
 
 // const char * osgGetVersion()
@@ -442,6 +504,52 @@ static int _bind_osgViewerGetLibraryName(lua_State *L) {
 
 	const char * lret = osgViewerGetLibraryName();
 	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+
+// Function checkers:
+inline static bool _lg_typecheck_GetNumberOfProcessors(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_SetProcessorAffinityOfCurrentThread(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	return true;
+}
+
+
+// Function binds:
+// int OpenThreads::GetNumberOfProcessors()
+static int _bind_GetNumberOfProcessors(lua_State *L) {
+	if (!_lg_typecheck_GetNumberOfProcessors(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in int OpenThreads::GetNumberOfProcessors() function, expected prototype:\nint OpenThreads::GetNumberOfProcessors()\nClass arguments details:\n");
+	}
+
+
+	int lret = GetNumberOfProcessors();
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
+// int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)
+static int _bind_SetProcessorAffinityOfCurrentThread(lua_State *L) {
+	if (!_lg_typecheck_SetProcessorAffinityOfCurrentThread(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum) function, expected prototype:\nint OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)\nClass arguments details:\n");
+	}
+
+	unsigned int cpunum=(unsigned int)lua_tointeger(L,1);
+
+	int lret = SetProcessorAffinityOfCurrentThread(cpunum);
+	lua_pushnumber(L,lret);
 
 	return 1;
 }
@@ -6168,6 +6276,9 @@ void register_global_functions(lua_State* L) {
 	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_glLoadMatrix); lua_setfield(L,-2,"glLoadMatrix");
 	lua_pushcfunction(L, _bind_glMultMatrix); lua_setfield(L,-2,"glMultMatrix");
+	lua_pushcfunction(L, _bind_OpenThreadsGetVersion); lua_setfield(L,-2,"OpenThreadsGetVersion");
+	lua_pushcfunction(L, _bind_OpenThreadsGetSOVersion); lua_setfield(L,-2,"OpenThreadsGetSOVersion");
+	lua_pushcfunction(L, _bind_OpenThreadsGetLibraryName); lua_setfield(L,-2,"OpenThreadsGetLibraryName");
 	lua_pushcfunction(L, _bind_osgGetVersion); lua_setfield(L,-2,"osgGetVersion");
 	lua_pushcfunction(L, _bind_osgGetSOVersion); lua_setfield(L,-2,"osgGetSOVersion");
 	lua_pushcfunction(L, _bind_osgGetLibraryName); lua_setfield(L,-2,"osgGetLibraryName");
@@ -6183,6 +6294,12 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_osgUtilGetLibraryName); lua_setfield(L,-2,"osgUtilGetLibraryName");
 	lua_pushcfunction(L, _bind_osgViewerGetVersion); lua_setfield(L,-2,"osgViewerGetVersion");
 	lua_pushcfunction(L, _bind_osgViewerGetLibraryName); lua_setfield(L,-2,"osgViewerGetLibraryName");
+	luna_popModule(L);
+	luna_pushModule(L,"OpenThreads");
+	lua_pushcfunction(L, _bind_GetNumberOfProcessors); lua_setfield(L,-2,"GetNumberOfProcessors");
+	lua_pushcfunction(L, _bind_SetProcessorAffinityOfCurrentThread); lua_setfield(L,-2,"SetProcessorAffinityOfCurrentThread");
+	luna_popModule(L);
+	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_getCpuByteOrder); lua_setfield(L,-2,"getCpuByteOrder");
 	lua_pushcfunction(L, _bind_swapBytes); lua_setfield(L,-2,"swapBytes");
 	lua_pushcfunction(L, _bind_swapBytes2); lua_setfield(L,-2,"swapBytes2");

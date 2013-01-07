@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -251,6 +251,13 @@ public:
 	inline static bool _lg_typecheck_removeOccludedOccluders(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -932,6 +939,25 @@ public:
 		return 0;
 	}
 
+	// void osg::CollectOccludersVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CollectOccludersVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::CollectOccludersVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::CollectOccludersVisitor* self=Luna< osg::Referenced >::checkSubType< osg::CollectOccludersVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CollectOccludersVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CollectOccludersVisitor::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// osg::Vec3f osg::CollectOccludersVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
@@ -1373,7 +1399,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		osg::CullSettings* res = dynamic_cast<osg::CullSettings*>(self);
+		osg::CullSettings* res = luna_caster<osg::Referenced,osg::CullSettings>::cast(self); // dynamic_cast<osg::CullSettings*>(self);
 		if(!res)
 			return 0;
 			
@@ -1419,6 +1445,7 @@ luna_RegType LunaTraits< osg::CollectOccludersVisitor >::methods[] = {
 	{"setCollectedOccluderSet", &luna_wrapper_osg_CollectOccludersVisitor::_bind_setCollectedOccluderSet},
 	{"getCollectedOccluderSet", &luna_wrapper_osg_CollectOccludersVisitor::_bind_getCollectedOccluderSet},
 	{"removeOccludedOccluders", &luna_wrapper_osg_CollectOccludersVisitor::_bind_removeOccludedOccluders},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_CollectOccludersVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_getEyePoint", &luna_wrapper_osg_CollectOccludersVisitor::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osg_CollectOccludersVisitor::_bind_base_getViewPoint},
 	{"base_setDefaults", &luna_wrapper_osg_CollectOccludersVisitor::_bind_base_setDefaults},

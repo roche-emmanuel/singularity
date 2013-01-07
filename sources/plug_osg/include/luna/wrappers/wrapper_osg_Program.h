@@ -208,6 +208,16 @@ public:
 		return Program::apply(state);
 	};
 
+	// void osg::Program::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Program::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Program::compileGLObjects(osg::State & state) const
 	void compileGLObjects(osg::State & state) const {
 		if(_obj.pushFunction("compileGLObjects")) {

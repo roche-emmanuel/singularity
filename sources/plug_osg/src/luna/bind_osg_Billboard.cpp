@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -373,6 +373,13 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1466,6 +1473,25 @@ public:
 		return 1;
 	}
 
+	// void osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Billboard::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Billboard::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Billboard::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::Billboard::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -1767,6 +1793,7 @@ luna_RegType LunaTraits< osg::Billboard >::methods[] = {
 	{"base_removeDrawables", &luna_wrapper_osg_Billboard::_bind_base_removeDrawables},
 	{"base_replaceDrawable", &luna_wrapper_osg_Billboard::_bind_base_replaceDrawable},
 	{"base_setDrawable", &luna_wrapper_osg_Billboard::_bind_base_setDrawable},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Billboard::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osg_Billboard::_bind_base_releaseGLObjects},
 	{"base_cloneType", &luna_wrapper_osg_Billboard::_bind_base_cloneType},
 	{"base_clone", &luna_wrapper_osg_Billboard::_bind_base_clone},

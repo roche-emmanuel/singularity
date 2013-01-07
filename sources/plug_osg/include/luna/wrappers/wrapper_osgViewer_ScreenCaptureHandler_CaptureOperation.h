@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return CaptureOperation::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image & image, const unsigned int context_id)
 	void operator()(const osg::Image & image, const unsigned int context_id) {
 		THROW_IF(!_obj.pushFunction("op_call"),"No implementation for abstract function osgViewer::ScreenCaptureHandler::CaptureOperation::operator()");

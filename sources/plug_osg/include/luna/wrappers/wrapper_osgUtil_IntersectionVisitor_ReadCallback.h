@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ReadCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string & filename)
 	osg::Node * readNodeFile(const std::string & filename) {
 		THROW_IF(!_obj.pushFunction("readNodeFile"),"No implementation for abstract function osgUtil::IntersectionVisitor::ReadCallback::readNodeFile");

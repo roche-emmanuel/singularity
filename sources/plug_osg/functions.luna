@@ -1,6 +1,9 @@
 module=osg
 glLoadMatrix
 glMultMatrix
+OpenThreadsGetVersion
+OpenThreadsGetSOVersion
+OpenThreadsGetLibraryName
 osgGetVersion
 osgGetSOVersion
 osgGetLibraryName
@@ -16,6 +19,10 @@ osgUtilGetVersion
 osgUtilGetLibraryName
 osgViewerGetVersion
 osgViewerGetLibraryName
+module=OpenThreads
+OpenThreads::GetNumberOfProcessors
+OpenThreads::SetProcessorAffinityOfCurrentThread
+module=osg
 osg::getCpuByteOrder
 osg::swapBytes
 osg::swapBytes2

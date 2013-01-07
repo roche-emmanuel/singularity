@@ -28,6 +28,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return EndOfDynamicDrawBlock::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::EndOfDynamicDrawBlock::completed(osg::State * state)
 	void completed(osg::State * state) {
 		if(_obj.pushFunction("completed")) {
