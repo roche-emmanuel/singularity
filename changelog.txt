@@ -34,4 +34,7 @@
 - Added ATB module initial implementation and working test (variable usage still missing.)
 - Fixed the lag issue with osgGA::EventQueue processing.
 - Added support for all ATB variables and button.
+- Fixed final freeze due to wx logsink looping.
+- Added support to find ATB window under mouse.
+- Separating ATB event handling from OSG default handling.
 

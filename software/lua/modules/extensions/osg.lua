@@ -18,6 +18,11 @@ osg.Vec4f.toColour = function(self)
 					   math.floor(self:w()*255.0))
 end
 
+-- Vec2d extensions:
+osg.Vec2d.__tostring = function(self)
+	return "("..self:x()..", "..self:y()..")"
+end
+
 -- Vec3d extensions:
 osg.Vec3d.__tostring = function(self)
 	return "("..self:x()..", "..self:y()..", "..self:z()..")"

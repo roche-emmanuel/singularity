@@ -231,4 +231,191 @@ void addVariable(TwBar* bar, const std::string& name, DirCallback* cb, const std
 /** LUNA_CLASS_EXTENSION  */
 void addButton(TwBar* bar, const std::string& name, ButtonCallback* cb, const std::string& def = "");
 
+
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setIntParam(TwBar* bar, const std::string& vname, const std::string& pname, sgt::Int32 val) {
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_INT32, 1, (const void *)&val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setIntParam2(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec2d vec) {
+	int val[2];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_INT32, 2, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setIntParam3(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec3d vec) {
+	int val[3];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	val[2] = vec.z();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_INT32, 3, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setFloatParam(TwBar* bar, const std::string& vname, const std::string& pname, float val) {
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 1, (const void *)&val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setFloatParam2(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec2f vec) {
+	float val[2];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 2, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setFloatParam3(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec3f vec) {
+	float val[3];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	val[2] = vec.z();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 3, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setFloatParam4(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec4f vec) {
+	float val[4];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	val[2] = vec.z();
+	val[3] = vec.w();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 4, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setDoubleParam(TwBar* bar, const std::string& vname, const std::string& pname, double val) {
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 1, (const void *)&val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setDoubleParam2(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec2d vec) {
+	double val[2];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 2, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setDoubleParam3(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec3d vec) {
+	double val[3];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	val[2] = vec.z();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 3, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setDoubleParam4(TwBar* bar, const std::string& vname, const std::string& pname, osg::Vec4d vec) {
+	double val[4];
+	val[0] = vec.x();
+	val[1] = vec.y();
+	val[2] = vec.z();
+	val[3] = vec.w();
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 4, (const void *)val);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline void setStringParam(TwBar* bar, const std::string& vname, const std::string& pname, const std::string& val) {
+	TwSetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_CSTRING, 1, (const void *)val.c_str());
+}
+
+
+
+/** LUNA_CLASS_EXTENSION  */
+inline int getIntParam(TwBar* bar, const std::string& vname, const std::string& pname) {
+	int val = 0;
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_INT32, 1, (void*)&val);
+	return val;
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec2d getIntParam2(TwBar* bar, const std::string& vname, const std::string& pname) {
+	int val[2];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_INT32, 2, (void*)val);
+	return osg::Vec2d(val[0],val[1]);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec3d getIntParam3(TwBar* bar, const std::string& vname, const std::string& pname) {
+	int val[3];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_INT32, 3, (void*)val);
+	return osg::Vec3d(val[0],val[1],val[2]);
+}
+
+
+
+/** LUNA_CLASS_EXTENSION  */
+inline float getFloatParam(TwBar* bar, const std::string& vname, const std::string& pname) {
+	float val = 0;
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 1, (void*)&val);
+	return val;
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec2f getFloatParam2(TwBar* bar, const std::string& vname, const std::string& pname) {
+	float val[2];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 2, (void*)val);
+	return osg::Vec2f(val[0],val[1]);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec3f getFloatParam3(TwBar* bar, const std::string& vname, const std::string& pname) {
+	float val[3];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 3, (void*)val);
+	return osg::Vec3f(val[0],val[1],val[2]);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec4f getFloatParam4(TwBar* bar, const std::string& vname, const std::string& pname) {
+	float val[4];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_FLOAT, 4, (void*)val);
+	return osg::Vec4f(val[0],val[1],val[2],val[3]);
+}
+
+
+
+/** LUNA_CLASS_EXTENSION  */
+inline double getDoubleParam(TwBar* bar, const std::string& vname, const std::string& pname) {
+	double val = 0;
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 1, (void*)&val);
+	return val;
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec2d getDoubleParam2(TwBar* bar, const std::string& vname, const std::string& pname) {
+	float val[2];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 2, (void*)val);
+	return osg::Vec2d(val[0],val[1]);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec3d getDoubleParam3(TwBar* bar, const std::string& vname, const std::string& pname) {
+	double val[3];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 3, (void*)val);
+	return osg::Vec3d(val[0],val[1],val[2]);
+}
+
+/** LUNA_CLASS_EXTENSION  */
+inline osg::Vec4f getDoubleParam4(TwBar* bar, const std::string& vname, const std::string& pname) {
+	double val[4];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_DOUBLE, 4, (void*)val);
+	return osg::Vec4d(val[0],val[1],val[2],val[3]);
+}
+
+
+
+/** LUNA_CLASS_EXTENSION  */
+inline std::string getStringParam(TwBar* bar, const std::string& vname, const std::string& pname, int maxsize=128) {
+	char* ptr = new char[maxsize];
+	TwGetParam(bar, vname=="" ? NULL : vname.c_str(), pname.c_str(), TW_PARAM_CSTRING, maxsize, (void*)ptr);
+	std::string val = ptr;
+	delete [] ptr;
+	return val;
+}
+
 #endif

@@ -25,6 +25,20 @@ function Class:initialize(options)
 			if requestedEvents[ea:getEventType()] then
 				self._events:push_back(ea);
 			end
+			
+			if (ea:getEventType()==osgGA.GUIEventAdapter.PUSH) then
+				local x = ea:getX();
+				local y = ea:getWindowHeight() - ea:getY();
+				
+				-- self:info("Checking position: x=",x,", y=",y)
+				self._currentWindow = self:getWindowUnderMouse(x,y)
+			end
+			
+			if (ea:getEventType()==osgGA.GUIEventAdapter.RELEASE) then
+				self._currentWindow = nil
+			end
+			
+			return self._currentWindow~=nil;
 		end
 	};
 	
@@ -53,8 +67,18 @@ end
 function Class:createWindow(wname)
 	local Window = require "osg.atb.Window"
 	local win = Window{name=wname}
-	self._windows:push_back(win)
+	self._windows:push_front(win)
 	return win;
+end
+
+function Class:getWindowUnderMouse(x,y)
+	-- check if there is a window under the given mouse location:
+	for _,win in self._windows:sequence() do
+		if (win:getRect():Contains(x,y)) then
+			--self:info("Found window!")
+			return win
+		end
+	end
 end
 
 function Class:handleEvents()

@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="ATBWindow",bases="base.Object"};
 
 require "osg"
+require "wx"
 local atb = require "atb"
 
 function Class:initialize(options)	
@@ -71,6 +72,22 @@ function Class:addButton(options)
 	self._cbs:push_back(cb)
 	
 	self._bar:addButton(options.name, cb, options.def or "");	
+end
+
+function Class:getPosition()
+	return self._bar:getIntParam2("","position");
+end
+
+function Class:getSize()
+	return self._bar:getIntParam2("","size");
+end
+
+function Class:getRect()
+	local pos = self:getPosition();
+	local size = self:getSize();
+	-- self:info("Pos=",pos,", size=",size)
+	
+	return wx.wxRect(pos:x(),pos:y(),size:x(),size:y())
 end
 
 return Class
