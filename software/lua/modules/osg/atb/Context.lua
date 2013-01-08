@@ -17,6 +17,7 @@ function Class:initialize(options)
 	
 	self._events = require("std.Vector")()
 	self._contextID = manager:getNewContextID();
+	self._windows = require("std.Set")()
 	
 	self._eventHandler = osgGA.GUIEventHandler{
 		handle = function(tt,ea,aa)
@@ -51,9 +52,10 @@ end
 
 function Class:createWindow(wname)
 	local Window = require "osg.atb.Window"
-	return Window{name=wname}
+	local win = Window{name=wname}
+	self._windows:push_back(win)
+	return win;
 end
-
 
 function Class:handleEvents()
 	for _,ea in self._events:sequence() do

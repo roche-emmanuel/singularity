@@ -237,6 +237,7 @@ int main(int argc, char *argv[]) {
 		logDEBUG0_V("Executing init script " << initScript << "...");
 		if(luaL_dofile(L, initScript.c_str()) != 0) {
 			logERROR("Error occurred in init script:\n" << lua_tostring(L,-1));
+			sgt::LogManager::instance().removeAllSinks(); // This is needed to prevent issues with
 			lua_close(L);
 			return 1;
 		}

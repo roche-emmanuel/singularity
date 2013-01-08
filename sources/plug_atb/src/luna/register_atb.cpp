@@ -18,10 +18,19 @@ int PLUG_EXPORT luaopen_atb(lua_State* L) {
 	luna_popModule(L);
 
 	luna_pushModule(L,"atb");
+	Luna< BasicVariableCallback >::Register(L);
+	Luna< BoolCallback >::Register(L);
+	Luna< ButtonCallback >::Register(L);
+	Luna< ColorCallback >::Register(L);
+	Luna< DirCallback >::Register(L);
+	Luna< DoubleCallback >::Register(L);
+	Luna< EnumCallback >::Register(L);
+	Luna< IntCallback >::Register(L);
+	Luna< QuatCallback >::Register(L);
+	Luna< StringCallback >::Register(L);
 	Luna< TwBar >::Register(L);
 	Luna< TwEnumVal >::Register(L);
 	Luna< TwStructMember >::Register(L);
-	Luna< atb::TwBoolCallback >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"atb");

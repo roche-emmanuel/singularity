@@ -21,3 +21,9 @@ class Referenced {
 };
 
 };
+
+namespace sgt {
+
+typedef int Int32;
+
+};

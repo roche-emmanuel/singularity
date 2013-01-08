@@ -7,6 +7,8 @@ function Class:initialize(options)
 	self:info("Initializing ATB.")
 	atb.TwInit( atb.TW_OPENGL, nil );
 	
+	atb.setupErrorHandler();
+	
 	self._contexts = require("std.Map")()
 	self._nextID = 0
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}

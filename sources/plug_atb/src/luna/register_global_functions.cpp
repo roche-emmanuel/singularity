@@ -1,6 +1,7 @@
 #include <plug_common.h>
 
 #include <AntTweakBar.h>
+#include <plug_extensions.h>
 
 // Function checkers:
 inline static bool _lg_typecheck_TwNewBar(lua_State *L) {
@@ -203,6 +204,18 @@ inline static bool _lg_typecheck_TwMouseWheel(lua_State *L) {
 }
 
 inline static bool _lg_typecheck_TwGetLastError(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_setupErrorHandler(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_setupStringCopy(lua_State *L) {
 	if( lua_gettop(L)!=0 ) return false;
 
 	return true;
@@ -657,6 +670,32 @@ static int _bind_TwGetLastError(lua_State *L) {
 	return 1;
 }
 
+// void setupErrorHandler()
+static int _bind_setupErrorHandler(lua_State *L) {
+	if (!_lg_typecheck_setupErrorHandler(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void setupErrorHandler() function, expected prototype:\nvoid setupErrorHandler()\nClass arguments details:\n");
+	}
+
+
+	setupErrorHandler();
+
+	return 0;
+}
+
+// void setupStringCopy()
+static int _bind_setupStringCopy(lua_State *L) {
+	if (!_lg_typecheck_setupStringCopy(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void setupStringCopy() function, expected prototype:\nvoid setupStringCopy()\nClass arguments details:\n");
+	}
+
+
+	setupStringCopy();
+
+	return 0;
+}
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -693,6 +732,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_TwMouseMotion); lua_setfield(L,-2,"TwMouseMotion");
 	lua_pushcfunction(L, _bind_TwMouseWheel); lua_setfield(L,-2,"TwMouseWheel");
 	lua_pushcfunction(L, _bind_TwGetLastError); lua_setfield(L,-2,"TwGetLastError");
+	lua_pushcfunction(L, _bind_setupErrorHandler); lua_setfield(L,-2,"setupErrorHandler");
+	lua_pushcfunction(L, _bind_setupStringCopy); lua_setfield(L,-2,"setupStringCopy");
 	luna_popModule(L);
 }
 

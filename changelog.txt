@@ -33,4 +33,5 @@
 - Added VLC module with working test.
 - Added ATB module initial implementation and working test (variable usage still missing.)
 - Fixed the lag issue with osgGA::EventQueue processing.
+- Added support for all ATB variables and button.
 

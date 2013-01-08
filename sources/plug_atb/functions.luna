@@ -28,3 +28,5 @@ TwMouseButton
 TwMouseMotion
 TwMouseWheel
 TwGetLastError
+setupErrorHandler
+setupStringCopy
