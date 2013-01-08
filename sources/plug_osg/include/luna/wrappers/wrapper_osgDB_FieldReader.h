@@ -38,6 +38,16 @@ public:
 		return FieldReader::eof();
 	};
 
+	// osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)
+	osgDB::FieldReader & operator=(const osgDB::FieldReader & ic) {
+		if(_obj.pushFunction("op_assign")) {
+			_obj.pushArg(&ic);
+			return *(_obj.callFunction<osgDB::FieldReader*>());
+		}
+
+		return FieldReader::operator=(ic);
+	};
+
 
 	// Protected non-virtual methods:
 

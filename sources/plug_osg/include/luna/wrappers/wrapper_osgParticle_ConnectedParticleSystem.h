@@ -301,6 +301,11 @@ public:
 
 
 	// Protected non-virtual methods:
+	// osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::operator=(const osgParticle::ConnectedParticleSystem & arg1)
+	osgParticle::ConnectedParticleSystem & public_op_assign(const osgParticle::ConnectedParticleSystem & arg1) {
+		return osgParticle::ConnectedParticleSystem::operator=(arg1);
+	};
+
 	// void osgParticle::ParticleSystem::update_bounds(const osg::Vec3f & p, float r)
 	void public_update_bounds(const osg::Vec3f & p, float r) {
 		return osgParticle::ParticleSystem::update_bounds(p, r);
@@ -363,6 +368,13 @@ public:
 
 
 	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_public_update_bounds(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -449,6 +461,32 @@ public:
 
 
 	// Protected non-virtual function binds:
+	// osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem & arg1) function, expected prototype:\nosgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgParticle::ConnectedParticleSystem* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::ConnectedParticleSystem >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgParticle::ConnectedParticleSystem::public_op_assign function");
+		}
+		const osgParticle::ConnectedParticleSystem & _arg1=*_arg1_ptr;
+
+		wrapper_osgParticle_ConnectedParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ConnectedParticleSystem >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::ConnectedParticleSystem* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::ConnectedParticleSystem >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r)
 	static int _bind_public_update_bounds(lua_State *L) {
 		if (!_lg_typecheck_public_update_bounds(L)) {
@@ -702,6 +740,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_update_bounds",_bind_public_update_bounds},
 		{"protected_single_pass_render",_bind_public_single_pass_render},
 		{"protected_render_vertex_array",_bind_public_render_vertex_array},

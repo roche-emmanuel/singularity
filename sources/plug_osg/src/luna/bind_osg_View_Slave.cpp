@@ -168,7 +168,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,94812983) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::View::Slave::Slave(bool useMastersSceneData = true)
@@ -367,6 +374,32 @@ public:
 
 
 	// Operator binds:
+	// osg::View::Slave & osg::View::Slave::operator=(const osg::View::Slave & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::View::Slave & osg::View::Slave::operator=(const osg::View::Slave & rhs) function, expected prototype:\nosg::View::Slave & osg::View::Slave::operator=(const osg::View::Slave & rhs)\nClass arguments details:\narg 1 ID = 94812983\n");
+		}
+
+		const osg::View::Slave* rhs_ptr=(Luna< osg::View::Slave >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::View::Slave::operator= function");
+		}
+		const osg::View::Slave & rhs=*rhs_ptr;
+
+		osg::View::Slave* self=(Luna< osg::View::Slave >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::View::Slave & osg::View::Slave::operator=(const osg::View::Slave &). Got : '%s'",typeid(Luna< osg::View::Slave >::check(L,1)).name());
+		}
+		const osg::View::Slave* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::View::Slave >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -391,6 +424,7 @@ luna_RegType LunaTraits< osg::View::Slave >::methods[] = {
 	{"updateSlave", &luna_wrapper_osg_View_Slave::_bind_updateSlave},
 	{"updateSlaveImplementation", &luna_wrapper_osg_View_Slave::_bind_updateSlaveImplementation},
 	{"base_updateSlaveImplementation", &luna_wrapper_osg_View_Slave::_bind_base_updateSlaveImplementation},
+	{"op_assign", &luna_wrapper_osg_View_Slave::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_View_Slave::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_View_Slave::_bind___eq},
 	{"getTable", &luna_wrapper_osg_View_Slave::_bind_getTable},

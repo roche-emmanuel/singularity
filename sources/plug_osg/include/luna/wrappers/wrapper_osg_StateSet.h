@@ -205,11 +205,6 @@ public:
 		return osg::StateSet::getAttribute(attributeList, type, member);
 	};
 
-	// const osg::StateAttribute * osg::StateSet::getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
-	const osg::StateAttribute * public_getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const {
-		return osg::StateSet::getAttribute(attributeList, type, member);
-	};
-
 	// const osg::StateSet::RefAttributePair * osg::StateSet::getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
 	const osg::StateSet::RefAttributePair * public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const {
 		return osg::StateSet::getAttributePair(attributeList, type, member);
@@ -223,6 +218,11 @@ public:
 	// void osg::StateSet::setNumChildrenRequiringEventTraversal(unsigned int num)
 	void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
 		return osg::StateSet::setNumChildrenRequiringEventTraversal(num);
+	};
+
+	// osg::StateSet & osg::StateSet::operator=(const osg::StateSet & arg1)
+	osg::StateSet & public_op_assign(const osg::StateSet & arg1) {
+		return osg::StateSet::operator=(arg1);
 	};
 
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
@@ -324,21 +324,10 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_getAttribute_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_getAttribute(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
-		if( (!(Luna< osg::StateSet::AttributeList >::check(L,2))) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_getAttribute_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=4 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
-		if( (!(Luna< osg::StateSet::AttributeList >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -364,6 +353,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -654,8 +650,8 @@ public:
 	}
 
 	// osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)
-	static int _bind_public_getAttribute_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_getAttribute_overload_1(L)) {
+	static int _bind_public_getAttribute(lua_State *L) {
+		if (!_lg_typecheck_public_getAttribute(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) function, expected prototype:\nosg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)\nClass arguments details:\narg 1 ID = 84373691\n");
 		}
@@ -679,43 +675,6 @@ public:
 		Luna< osg::StateAttribute >::push(L,lret,false);
 
 		return 1;
-	}
-
-	// const osg::StateAttribute * osg::StateSet::public_getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
-	static int _bind_public_getAttribute_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_getAttribute_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::StateAttribute * osg::StateSet::public_getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const function, expected prototype:\nconst osg::StateAttribute * osg::StateSet::public_getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const\nClass arguments details:\narg 1 ID = 84373691\n");
-		}
-
-		const osg::StateSet::AttributeList* attributeList_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
-		if( !attributeList_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg attributeList in osg::StateSet::public_getAttribute function");
-		}
-		const osg::StateSet::AttributeList & attributeList=*attributeList_ptr;
-		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
-		unsigned int member=(unsigned int)lua_tointeger(L,4);
-
-		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::StateSet::public_getAttribute(const osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		const osg::StateAttribute * lret = self->public_getAttribute(attributeList, type, member);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::StateAttribute >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::StateSet::public_getAttribute
-	static int _bind_public_getAttribute(lua_State *L) {
-		if (_lg_typecheck_public_getAttribute_overload_1(L)) return _bind_public_getAttribute_overload_1(L);
-		if (_lg_typecheck_public_getAttribute_overload_2(L)) return _bind_public_getAttribute_overload_2(L);
-
-		luaL_error(L, "error in function public_getAttribute, cannot match any of the overloads for function public_getAttribute:\n  public_getAttribute(osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int)\n  public_getAttribute(const osg::StateSet::AttributeList &, const osg::StateAttribute::Type, unsigned int)\n");
-		return 0;
 	}
 
 	// const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
@@ -784,6 +743,32 @@ public:
 		return 0;
 	}
 
+	// osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1) function, expected prototype:\nosg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::StateSet* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::StateSet::public_op_assign function");
+		}
+		const osg::StateSet & _arg1=*_arg1_ptr;
+
+		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::StateSet & osg::StateSet::public_op_assign(const osg::StateSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::StateSet* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::StateSet >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -837,10 +822,10 @@ public:
 		{"protected_getMode",_bind_public_getMode},
 		{"protected_setAttribute",_bind_public_setAttribute},
 		{"protected_getAttribute",_bind_public_getAttribute},
-		{"protected_getAttribute",_bind_public_getAttribute},
 		{"protected_getAttributePair",_bind_public_getAttributePair},
 		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
 		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

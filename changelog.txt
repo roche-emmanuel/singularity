@@ -37,4 +37,5 @@
 - Fixed final freeze due to wx logsink looping.
 - Added support to find ATB window under mouse.
 - Separating ATB event handling from OSG default handling.
+- Added support for assign operator (operator=)
 

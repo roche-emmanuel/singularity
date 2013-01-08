@@ -292,6 +292,11 @@ public:
 		return osgParticle::SinkOperator::kill(P, insideDomain);
 	};
 
+	// osgParticle::SinkOperator & osgParticle::SinkOperator::operator=(const osgParticle::SinkOperator & arg1)
+	osgParticle::SinkOperator & public_op_assign(const osgParticle::SinkOperator & arg1) {
+		return osgParticle::SinkOperator::operator=(arg1);
+	};
+
 	// void osgParticle::DomainOperator::computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
 	void public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4) {
 		return osgParticle::DomainOperator::computeNewBasis(arg1, arg2, arg3, arg4);
@@ -326,6 +331,13 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,81629555)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -402,6 +414,32 @@ public:
 		self->public_kill(P, insideDomain);
 
 		return 0;
+	}
+
+	// osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1) function, expected prototype:\nosgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgParticle::SinkOperator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::SinkOperator >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgParticle::SinkOperator::public_op_assign function");
+		}
+		const osgParticle::SinkOperator & _arg1=*_arg1_ptr;
+
+		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::SinkOperator* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::SinkOperator >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
@@ -504,6 +542,7 @@ public:
 		static const luaL_Reg wrapper_lib[] = {
 		{"protected_getValue",_bind_public_getValue},
 		{"protected_kill",_bind_public_kill},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_computeNewBasis",_bind_public_computeNewBasis},
 		{"protected_ignore",_bind_public_ignore},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},

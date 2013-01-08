@@ -129,7 +129,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,5626651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::ObserverNodePath::ObserverNodePath()
@@ -348,6 +355,32 @@ public:
 
 
 	// Operator binds:
+	// osg::ObserverNodePath & osg::ObserverNodePath::operator=(const osg::ObserverNodePath & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ObserverNodePath & osg::ObserverNodePath::operator=(const osg::ObserverNodePath & rhs) function, expected prototype:\nosg::ObserverNodePath & osg::ObserverNodePath::operator=(const osg::ObserverNodePath & rhs)\nClass arguments details:\narg 1 ID = 5626651\n");
+		}
+
+		const osg::ObserverNodePath* rhs_ptr=(Luna< osg::ObserverNodePath >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::ObserverNodePath::operator= function");
+		}
+		const osg::ObserverNodePath & rhs=*rhs_ptr;
+
+		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ObserverNodePath & osg::ObserverNodePath::operator=(const osg::ObserverNodePath &). Got : '%s'",typeid(Luna< osg::ObserverNodePath >::check(L,1)).name());
+		}
+		const osg::ObserverNodePath* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::ObserverNodePath >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -375,6 +408,7 @@ luna_RegType LunaTraits< osg::ObserverNodePath >::methods[] = {
 	{"getRefNodePath", &luna_wrapper_osg_ObserverNodePath::_bind_getRefNodePath},
 	{"getNodePath", &luna_wrapper_osg_ObserverNodePath::_bind_getNodePath},
 	{"empty", &luna_wrapper_osg_ObserverNodePath::_bind_empty},
+	{"op_assign", &luna_wrapper_osg_ObserverNodePath::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_ObserverNodePath::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_ObserverNodePath::_bind___eq},
 	{0,0}

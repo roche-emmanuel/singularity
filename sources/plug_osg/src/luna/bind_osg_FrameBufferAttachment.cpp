@@ -230,7 +230,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,90669884) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::FrameBufferAttachment::FrameBufferAttachment()
@@ -662,6 +669,32 @@ public:
 
 
 	// Operator binds:
+	// osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy) function, expected prototype:\nosg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment & copy)\nClass arguments details:\narg 1 ID = 90669884\n");
+		}
+
+		const osg::FrameBufferAttachment* copy_ptr=(Luna< osg::FrameBufferAttachment >::check(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osg::FrameBufferAttachment::operator= function");
+		}
+		const osg::FrameBufferAttachment & copy=*copy_ptr;
+
+		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::FrameBufferAttachment & osg::FrameBufferAttachment::operator=(const osg::FrameBufferAttachment &). Got : '%s'",typeid(Luna< osg::FrameBufferAttachment >::check(L,1)).name());
+		}
+		const osg::FrameBufferAttachment* lret = &self->operator=(copy);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::FrameBufferAttachment >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -692,6 +725,7 @@ luna_RegType LunaTraits< osg::FrameBufferAttachment >::methods[] = {
 	{"getTextureLevel", &luna_wrapper_osg_FrameBufferAttachment::_bind_getTextureLevel},
 	{"getTexture3DZOffset", &luna_wrapper_osg_FrameBufferAttachment::_bind_getTexture3DZOffset},
 	{"getTextureArrayLayer", &luna_wrapper_osg_FrameBufferAttachment::_bind_getTextureArrayLayer},
+	{"op_assign", &luna_wrapper_osg_FrameBufferAttachment::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_FrameBufferAttachment::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_FrameBufferAttachment::_bind___eq},
 	{0,0}

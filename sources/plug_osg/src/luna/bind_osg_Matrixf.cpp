@@ -971,7 +971,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 17 valid operators)
+	// (found 19 valid operators)
 	inline static bool _lg_typecheck___lt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1006,6 +1006,22 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!(Luna< osg::Matrixf >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -3921,6 +3937,67 @@ public:
 		return 0;
 	}
 
+	// osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs)
+	static int _bind_op_assign_overload_1(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf & rhs)\nClass arguments details:\narg 1 ID = 18903840\n");
+		}
+
+		const osg::Matrixf* rhs_ptr=(Luna< osg::Matrixf >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Matrixf::operator= function");
+		}
+		const osg::Matrixf & rhs=*rhs_ptr;
+
+		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixf &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+		}
+		const osg::Matrixf* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrixf >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other)
+	static int _bind_op_assign_overload_2(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other) function, expected prototype:\nosg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd & other)\nClass arguments details:\narg 1 ID = 18903838\n");
+		}
+
+		const osg::Matrixd* other_ptr=(Luna< osg::Matrixd >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in osg::Matrixf::operator= function");
+		}
+		const osg::Matrixd & other=*other_ptr;
+
+		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Matrixf & osg::Matrixf::operator=(const osg::Matrixd &). Got : '%s'",typeid(Luna< osg::Matrixf >::check(L,1)).name());
+		}
+		const osg::Matrixf* lret = &self->operator=(other);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrixf >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Matrixf::operator=
+	static int _bind_op_assign(lua_State *L) {
+		if (_lg_typecheck_op_assign_overload_1(L)) return _bind_op_assign_overload_1(L);
+		if (_lg_typecheck_op_assign_overload_2(L)) return _bind_op_assign_overload_2(L);
+
+		luaL_error(L, "error in function operator=, cannot match any of the overloads for function operator=:\n  operator=(const osg::Matrixf &)\n  operator=(const osg::Matrixd &)\n");
+		return 0;
+	}
+
 	// osg::Vec3f osg::Matrixf::operator*(const osg::Vec3f & v) const
 	static int _bind___mul_overload_1(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_1(L)) {
@@ -4320,6 +4397,7 @@ luna_RegType LunaTraits< osg::Matrixf >::methods[] = {
 	{"__eq", &luna_wrapper_osg_Matrixf::_bind___eq},
 	{"op_neq", &luna_wrapper_osg_Matrixf::_bind_op_neq},
 	{"op_call", &luna_wrapper_osg_Matrixf::_bind_op_call},
+	{"op_assign", &luna_wrapper_osg_Matrixf::_bind_op_assign},
 	{"__mul", &luna_wrapper_osg_Matrixf::_bind___mul},
 	{"op_mult", &luna_wrapper_osg_Matrixf::_bind_op_mult},
 	{"__div", &luna_wrapper_osg_Matrixf::_bind___div},

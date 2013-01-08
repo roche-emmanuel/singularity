@@ -239,10 +239,23 @@ function Class:getProtectedFunctions()
 	funcs:append(self:getFunctions{"Operator","Protected","NonVirtual"})	
 	
 	for _,v in self:getBases():sequence() do
-		funcs:append(v:getProtectedFunctions()) 
+		funcs:append(v:getProtectedFunctions());
 	end
 	
-	return funcs
+	local result = ItemSet()
+	local names = Set()
+	
+	for _, func in funcs:sequence() do
+		local name = func:getLuaName()
+		if names:contains(name) then
+			self:warn("Ignoring protected function ",func:getFullName()," in class ", self:getFullName(), " as masked by previous function with same name.");
+		else
+			names:push_back(name)
+			result:push_back(func)
+		end
+	end
+	
+	return result
 end
 
 --- Check if this class should be ignored.

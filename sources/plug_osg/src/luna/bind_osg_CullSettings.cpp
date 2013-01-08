@@ -412,7 +412,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::CullSettings::CullSettings()
@@ -1374,6 +1381,32 @@ public:
 
 
 	// Operator binds:
+	// osg::CullSettings & osg::CullSettings::operator=(const osg::CullSettings & settings)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullSettings & osg::CullSettings::operator=(const osg::CullSettings & settings) function, expected prototype:\nosg::CullSettings & osg::CullSettings::operator=(const osg::CullSettings & settings)\nClass arguments details:\narg 1 ID = 31435107\n");
+		}
+
+		const osg::CullSettings* settings_ptr=(Luna< osg::CullSettings >::check(L,2));
+		if( !settings_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg settings in osg::CullSettings::operator= function");
+		}
+		const osg::CullSettings & settings=*settings_ptr;
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::CullSettings & osg::CullSettings::operator=(const osg::CullSettings &). Got : '%s'",typeid(Luna< osg::CullSettings >::check(L,1)).name());
+		}
+		const osg::CullSettings* lret = &self->operator=(settings);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::CullSettings >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1434,6 +1467,7 @@ luna_RegType LunaTraits< osg::CullSettings >::methods[] = {
 	{"write", &luna_wrapper_osg_CullSettings::_bind_write},
 	{"base_setDefaults", &luna_wrapper_osg_CullSettings::_bind_base_setDefaults},
 	{"base_inheritCullSettings", &luna_wrapper_osg_CullSettings::_bind_base_inheritCullSettings},
+	{"op_assign", &luna_wrapper_osg_CullSettings::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_CullSettings::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_CullSettings::_bind___eq},
 	{"getTable", &luna_wrapper_osg_CullSettings::_bind_getTable},

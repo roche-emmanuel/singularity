@@ -164,7 +164,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::RenderInfo::RenderInfo()
@@ -508,6 +515,32 @@ public:
 
 
 	// Operator binds:
+	// osg::RenderInfo & osg::RenderInfo::operator=(const osg::RenderInfo & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RenderInfo & osg::RenderInfo::operator=(const osg::RenderInfo & rhs) function, expected prototype:\nosg::RenderInfo & osg::RenderInfo::operator=(const osg::RenderInfo & rhs)\nClass arguments details:\narg 1 ID = 2286263\n");
+		}
+
+		const osg::RenderInfo* rhs_ptr=(Luna< osg::RenderInfo >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::RenderInfo::operator= function");
+		}
+		const osg::RenderInfo & rhs=*rhs_ptr;
+
+		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::RenderInfo & osg::RenderInfo::operator=(const osg::RenderInfo &). Got : '%s'",typeid(Luna< osg::RenderInfo >::check(L,1)).name());
+		}
+		const osg::RenderInfo* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::RenderInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -539,6 +572,7 @@ luna_RegType LunaTraits< osg::RenderInfo >::methods[] = {
 	{"getCurrentCamera", &luna_wrapper_osg_RenderInfo::_bind_getCurrentCamera},
 	{"setUserData", &luna_wrapper_osg_RenderInfo::_bind_setUserData},
 	{"getUserData", &luna_wrapper_osg_RenderInfo::_bind_getUserData},
+	{"op_assign", &luna_wrapper_osg_RenderInfo::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_RenderInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_RenderInfo::_bind___eq},
 	{0,0}

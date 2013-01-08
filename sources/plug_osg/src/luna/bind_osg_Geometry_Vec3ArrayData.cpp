@@ -105,7 +105,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,80248523) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Geometry::Vec3ArrayData::Vec3ArrayData()
@@ -209,6 +216,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Geometry::Vec3ArrayData & osg::Geometry::Vec3ArrayData::operator=(const osg::Geometry::Vec3ArrayData & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geometry::Vec3ArrayData & osg::Geometry::Vec3ArrayData::operator=(const osg::Geometry::Vec3ArrayData & rhs) function, expected prototype:\nosg::Geometry::Vec3ArrayData & osg::Geometry::Vec3ArrayData::operator=(const osg::Geometry::Vec3ArrayData & rhs)\nClass arguments details:\narg 1 ID = 80248523\n");
+		}
+
+		const osg::Geometry::Vec3ArrayData* rhs_ptr=(Luna< osg::Geometry::Vec3ArrayData >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Geometry::Vec3ArrayData::operator= function");
+		}
+		const osg::Geometry::Vec3ArrayData & rhs=*rhs_ptr;
+
+		osg::Geometry::Vec3ArrayData* self=(Luna< osg::Geometry::Vec3ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geometry::Vec3ArrayData & osg::Geometry::Vec3ArrayData::operator=(const osg::Geometry::Vec3ArrayData &). Got : '%s'",typeid(Luna< osg::Geometry::Vec3ArrayData >::check(L,1)).name());
+		}
+		const osg::Geometry::Vec3ArrayData* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry::Vec3ArrayData >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -231,6 +264,7 @@ const int LunaTraits< osg::Geometry::Vec3ArrayData >::uniqueIDs[] = {80248523,0}
 
 luna_RegType LunaTraits< osg::Geometry::Vec3ArrayData >::methods[] = {
 	{"empty", &luna_wrapper_osg_Geometry_Vec3ArrayData::_bind_empty},
+	{"op_assign", &luna_wrapper_osg_Geometry_Vec3ArrayData::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_Geometry_Vec3ArrayData::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Geometry_Vec3ArrayData::_bind___eq},
 	{0,0}

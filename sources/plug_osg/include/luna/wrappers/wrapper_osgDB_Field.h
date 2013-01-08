@@ -29,6 +29,16 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// osgDB::Field & osgDB::Field::operator=(const osgDB::Field & ic)
+	osgDB::Field & operator=(const osgDB::Field & ic) {
+		if(_obj.pushFunction("op_assign")) {
+			_obj.pushArg(&ic);
+			return *(_obj.callFunction<osgDB::Field*>());
+		}
+
+		return Field::operator=(ic);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgDB::Field::_init()

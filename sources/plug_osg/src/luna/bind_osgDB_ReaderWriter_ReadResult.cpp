@@ -235,7 +235,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25279089) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osgDB::ReaderWriter::ReadResult::ReadResult(const std::string & m)
@@ -825,6 +832,32 @@ public:
 
 
 	// Operator binds:
+	// osgDB::ReaderWriter::ReadResult & osgDB::ReaderWriter::ReadResult::operator=(const osgDB::ReaderWriter::ReadResult & rr)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult & osgDB::ReaderWriter::ReadResult::operator=(const osgDB::ReaderWriter::ReadResult & rr) function, expected prototype:\nosgDB::ReaderWriter::ReadResult & osgDB::ReaderWriter::ReadResult::operator=(const osgDB::ReaderWriter::ReadResult & rr)\nClass arguments details:\narg 1 ID = 25279089\n");
+		}
+
+		const osgDB::ReaderWriter::ReadResult* rr_ptr=(Luna< osgDB::ReaderWriter::ReadResult >::check(L,2));
+		if( !rr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rr in osgDB::ReaderWriter::ReadResult::operator= function");
+		}
+		const osgDB::ReaderWriter::ReadResult & rr=*rr_ptr;
+
+		osgDB::ReaderWriter::ReadResult* self=(Luna< osgDB::ReaderWriter::ReadResult >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult & osgDB::ReaderWriter::ReadResult::operator=(const osgDB::ReaderWriter::ReadResult &). Got : '%s'",typeid(Luna< osgDB::ReaderWriter::ReadResult >::check(L,1)).name());
+		}
+		const osgDB::ReaderWriter::ReadResult* lret = &self->operator=(rr);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -872,6 +905,7 @@ luna_RegType LunaTraits< osgDB::ReaderWriter::ReadResult >::methods[] = {
 	{"notHandled", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_notHandled},
 	{"notFound", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_notFound},
 	{"notEnoughMemory", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_notEnoughMemory},
+	{"op_assign", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind___eq},
 	{0,0}

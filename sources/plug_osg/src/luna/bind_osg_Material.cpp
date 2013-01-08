@@ -444,7 +444,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Material::Material()
@@ -1600,6 +1607,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Material & osg::Material::operator=(const osg::Material & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Material & osg::Material::operator=(const osg::Material & rhs) function, expected prototype:\nosg::Material & osg::Material::operator=(const osg::Material & rhs)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Material* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Material >(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Material::operator= function");
+		}
+		const osg::Material & rhs=*rhs_ptr;
+
+		osg::Material* self=Luna< osg::Referenced >::checkSubType< osg::Material >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Material & osg::Material::operator=(const osg::Material &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Material* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Material >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1669,6 +1702,7 @@ luna_RegType LunaTraits< osg::Material >::methods[] = {
 	{"base_compare", &luna_wrapper_osg_Material::_bind_base_compare},
 	{"base_getModeUsage", &luna_wrapper_osg_Material::_bind_base_getModeUsage},
 	{"base_apply", &luna_wrapper_osg_Material::_bind_base_apply},
+	{"op_assign", &luna_wrapper_osg_Material::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_Material::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Material::_bind_getTable},
 	{0,0}

@@ -211,6 +211,11 @@ public:
 		return osg::Uniform::removeParent(object);
 	};
 
+	// osg::Uniform & osg::Uniform::operator=(const osg::Uniform & arg1)
+	osg::Uniform & public_op_assign(const osg::Uniform & arg1) {
+		return osg::Uniform::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -253,6 +258,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -367,6 +379,32 @@ public:
 		return 0;
 	}
 
+	// osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1) function, expected prototype:\nosg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Uniform* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Uniform::public_op_assign function");
+		}
+		const osg::Uniform & _arg1=*_arg1_ptr;
+
+		wrapper_osg_Uniform* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Uniform & osg::Uniform::public_op_assign(const osg::Uniform &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Uniform* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Uniform >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -413,6 +451,7 @@ public:
 		{"protected_allocateDataArray",_bind_public_allocateDataArray},
 		{"protected_addParent",_bind_public_addParent},
 		{"protected_removeParent",_bind_public_removeParent},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

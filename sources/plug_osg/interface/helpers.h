@@ -42,7 +42,17 @@ protected:
 
 }
 
+class osg::ref_ptr<osg::Array> {
+};
+
+class osg::ref_ptr<osg::Image> {
+};
+
+class osg::ref_ptr<osg::PrimitiveSet> {
+};
+
 namespace osg {
+
 
 typedef NodeList RefNodePath;
 

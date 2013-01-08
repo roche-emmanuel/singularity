@@ -58,6 +58,11 @@ public:
 		return osgUtil::CubeMapGenerator::vector_to_color(vec);
 	};
 
+	// osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::operator=(const osgUtil::CubeMapGenerator & arg1)
+	osgUtil::CubeMapGenerator & public_op_assign(const osgUtil::CubeMapGenerator & arg1) {
+		return osgUtil::CubeMapGenerator::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -84,6 +89,13 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -156,6 +168,32 @@ public:
 		return 1;
 	}
 
+	// osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1) function, expected prototype:\nosgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgUtil::CubeMapGenerator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::CubeMapGenerator::public_op_assign function");
+		}
+		const osgUtil::CubeMapGenerator & _arg1=*_arg1_ptr;
+
+		wrapper_osgUtil_CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CubeMapGenerator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::public_op_assign(const osgUtil::CubeMapGenerator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::CubeMapGenerator* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::CubeMapGenerator >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -199,6 +237,7 @@ public:
 		static const luaL_Reg wrapper_lib[] = {
 		{"protected_set_pixel",_bind_public_set_pixel},
 		{"protected_vector_to_color",_bind_public_vector_to_color},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

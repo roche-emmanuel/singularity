@@ -468,6 +468,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::View::Slave >::Register(L);
 	Luna< osg::View::Slave::UpdateSlaveCallback >::Register(L);
 	Luna< osg::Viewport >::Register(L);
+	Luna< osg::ref_ptr< osg::Array > >::Register(L);
+	Luna< osg::ref_ptr< osg::Image > >::Register(L);
+	Luna< osg::ref_ptr< osg::PrimitiveSet > >::Register(L);
 	Luna< osg::Vec2Array >::Register(L);
 	Luna< osg::Vec3Array >::Register(L);
 	Luna< osg::Vec4Array >::Register(L);

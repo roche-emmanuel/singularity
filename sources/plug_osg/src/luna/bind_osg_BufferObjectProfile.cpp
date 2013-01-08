@@ -68,7 +68,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
 	inline static bool _lg_typecheck___lt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -77,6 +77,13 @@ public:
 	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,12032151) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,12032151) ) return false;
@@ -209,6 +216,32 @@ public:
 		return 1;
 	}
 
+	// osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs) function, expected prototype:\nosg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile & rhs)\nClass arguments details:\narg 1 ID = 12032151\n");
+		}
+
+		const osg::BufferObjectProfile* rhs_ptr=(Luna< osg::BufferObjectProfile >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::BufferObjectProfile::operator= function");
+		}
+		const osg::BufferObjectProfile & rhs=*rhs_ptr;
+
+		osg::BufferObjectProfile* self=(Luna< osg::BufferObjectProfile >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::BufferObjectProfile & osg::BufferObjectProfile::operator=(const osg::BufferObjectProfile &). Got : '%s'",typeid(Luna< osg::BufferObjectProfile >::check(L,1)).name());
+		}
+		const osg::BufferObjectProfile* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::BufferObjectProfile >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -233,6 +266,7 @@ luna_RegType LunaTraits< osg::BufferObjectProfile >::methods[] = {
 	{"setProfile", &luna_wrapper_osg_BufferObjectProfile::_bind_setProfile},
 	{"__lt", &luna_wrapper_osg_BufferObjectProfile::_bind___lt},
 	{"__eq", &luna_wrapper_osg_BufferObjectProfile::_bind___eq},
+	{"op_assign", &luna_wrapper_osg_BufferObjectProfile::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_BufferObjectProfile::_bind_dynCast},
 	{0,0}
 };

@@ -186,6 +186,11 @@ public:
 
 
 	// Protected non-virtual methods:
+	// osgParticle::AngularAccelOperator & osgParticle::AngularAccelOperator::operator=(const osgParticle::AngularAccelOperator & arg1)
+	osgParticle::AngularAccelOperator & public_op_assign(const osgParticle::AngularAccelOperator & arg1) {
+		return osgParticle::AngularAccelOperator::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -198,6 +203,13 @@ public:
 
 
 	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -214,6 +226,32 @@ public:
 
 
 	// Protected non-virtual function binds:
+	// osgParticle::AngularAccelOperator & osgParticle::AngularAccelOperator::public_op_assign(const osgParticle::AngularAccelOperator & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::AngularAccelOperator & osgParticle::AngularAccelOperator::public_op_assign(const osgParticle::AngularAccelOperator & arg1) function, expected prototype:\nosgParticle::AngularAccelOperator & osgParticle::AngularAccelOperator::public_op_assign(const osgParticle::AngularAccelOperator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgParticle::AngularAccelOperator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::AngularAccelOperator >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgParticle::AngularAccelOperator::public_op_assign function");
+		}
+		const osgParticle::AngularAccelOperator & _arg1=*_arg1_ptr;
+
+		wrapper_osgParticle_AngularAccelOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_AngularAccelOperator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::AngularAccelOperator & osgParticle::AngularAccelOperator::public_op_assign(const osgParticle::AngularAccelOperator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::AngularAccelOperator* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::AngularAccelOperator >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -255,6 +293,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

@@ -354,6 +354,11 @@ public:
 		return osg::Drawable::getNumChildrenRequiringEventTraversal();
 	};
 
+	// osg::Drawable & osg::Drawable::operator=(const osg::Drawable & arg1)
+	osg::Drawable & public_op_assign(const osg::Drawable & arg1) {
+		return osg::Drawable::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -439,6 +444,13 @@ public:
 	inline static bool _lg_typecheck_public_getNumChildrenRequiringEventTraversal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -688,6 +700,32 @@ public:
 		return 1;
 	}
 
+	// osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1) function, expected prototype:\nosg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Drawable* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::public_op_assign function");
+		}
+		const osg::Drawable & _arg1=*_arg1_ptr;
+
+		wrapper_osgText_Text3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_Text3D >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Drawable* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Drawable >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -740,6 +778,7 @@ public:
 		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
 		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
 		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

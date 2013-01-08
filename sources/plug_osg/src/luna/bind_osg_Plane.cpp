@@ -304,7 +304,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 5 valid operators)
+	// (found 6 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1139,6 +1146,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Plane & osg::Plane::operator=(const osg::Plane & pl)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Plane & osg::Plane::operator=(const osg::Plane & pl) function, expected prototype:\nosg::Plane & osg::Plane::operator=(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n");
+		}
+
+		const osg::Plane* pl_ptr=(Luna< osg::Plane >::check(L,2));
+		if( !pl_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Plane::operator= function");
+		}
+		const osg::Plane & pl=*pl_ptr;
+
+		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Plane & osg::Plane::operator=(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+		}
+		const osg::Plane* lret = &self->operator=(pl);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Plane >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool osg::Plane::operator==(const osg::Plane & plane) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -1295,6 +1328,7 @@ luna_RegType LunaTraits< osg::Plane >::methods[] = {
 	{"intersect", &luna_wrapper_osg_Plane::_bind_intersect},
 	{"transform", &luna_wrapper_osg_Plane::_bind_transform},
 	{"transformProvidingInverse", &luna_wrapper_osg_Plane::_bind_transformProvidingInverse},
+	{"op_assign", &luna_wrapper_osg_Plane::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_Plane::_bind___eq},
 	{"op_neq", &luna_wrapper_osg_Plane::_bind_op_neq},
 	{"__lt", &luna_wrapper_osg_Plane::_bind___lt},

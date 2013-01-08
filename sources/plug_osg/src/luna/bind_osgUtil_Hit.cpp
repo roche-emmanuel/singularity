@@ -174,7 +174,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 1 valid operators)
+	// (found 2 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,16095945) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___lt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -606,6 +613,32 @@ public:
 
 
 	// Operator binds:
+	// osgUtil::Hit & osgUtil::Hit::operator=(const osgUtil::Hit & hit)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Hit & osgUtil::Hit::operator=(const osgUtil::Hit & hit) function, expected prototype:\nosgUtil::Hit & osgUtil::Hit::operator=(const osgUtil::Hit & hit)\nClass arguments details:\narg 1 ID = 16095945\n");
+		}
+
+		const osgUtil::Hit* hit_ptr=(Luna< osgUtil::Hit >::check(L,2));
+		if( !hit_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg hit in osgUtil::Hit::operator= function");
+		}
+		const osgUtil::Hit & hit=*hit_ptr;
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::Hit & osgUtil::Hit::operator=(const osgUtil::Hit &). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		const osgUtil::Hit* lret = &self->operator=(hit);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Hit >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool osgUtil::Hit::operator<(const osgUtil::Hit & hit) const
 	static int _bind___lt(lua_State *L) {
 		if (!_lg_typecheck___lt(L)) {
@@ -665,6 +698,7 @@ luna_RegType LunaTraits< osgUtil::Hit >::methods[] = {
 	{"getInverseMatrix", &luna_wrapper_osgUtil_Hit::_bind_getInverseMatrix},
 	{"getVecIndexList", &luna_wrapper_osgUtil_Hit::_bind_getVecIndexList},
 	{"getPrimitiveIndex", &luna_wrapper_osgUtil_Hit::_bind_getPrimitiveIndex},
+	{"op_assign", &luna_wrapper_osgUtil_Hit::_bind_op_assign},
 	{"__lt", &luna_wrapper_osgUtil_Hit::_bind___lt},
 	{"dynCast", &luna_wrapper_osgUtil_Hit::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_Hit::_bind___eq},

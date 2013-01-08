@@ -147,7 +147,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::FrameStamp::FrameStamp()
@@ -352,6 +359,32 @@ public:
 
 
 	// Operator binds:
+	// osg::FrameStamp & osg::FrameStamp::operator=(const osg::FrameStamp & fs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::FrameStamp & osg::FrameStamp::operator=(const osg::FrameStamp & fs) function, expected prototype:\nosg::FrameStamp & osg::FrameStamp::operator=(const osg::FrameStamp & fs)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::FrameStamp* fs_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
+		if( !fs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fs in osg::FrameStamp::operator= function");
+		}
+		const osg::FrameStamp & fs=*fs_ptr;
+
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::FrameStamp & osg::FrameStamp::operator=(const osg::FrameStamp &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::FrameStamp* lret = &self->operator=(fs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::FrameStamp >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -380,6 +413,7 @@ luna_RegType LunaTraits< osg::FrameStamp >::methods[] = {
 	{"setSimulationTime", &luna_wrapper_osg_FrameStamp::_bind_setSimulationTime},
 	{"getSimulationTime", &luna_wrapper_osg_FrameStamp::_bind_getSimulationTime},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_FrameStamp::_bind_base_setThreadSafeRefUnref},
+	{"op_assign", &luna_wrapper_osg_FrameStamp::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_FrameStamp::_bind___eq},
 	{"getTable", &luna_wrapper_osg_FrameStamp::_bind_getTable},
 	{0,0}

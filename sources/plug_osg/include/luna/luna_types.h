@@ -8441,6 +8441,60 @@ public:
 };
 
 template<>
+class LunaTraits< osg::ref_ptr< osg::Array > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::Array >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::Array >* obj);
+	typedef osg::ref_ptr< osg::Array > parent_t;
+	typedef osg::ref_ptr< osg::Array > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ref_ptr< osg::Image > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::Image >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::Image >* obj);
+	typedef osg::ref_ptr< osg::Image > parent_t;
+	typedef osg::ref_ptr< osg::Image > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ref_ptr< osg::PrimitiveSet > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::PrimitiveSet >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::PrimitiveSet >* obj);
+	typedef osg::ref_ptr< osg::PrimitiveSet > parent_t;
+	typedef osg::ref_ptr< osg::PrimitiveSet > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< osg::Vec2Array > {
 public:
 	static const char className[];
@@ -16163,6 +16217,27 @@ template<>
 class LunaType< 94812983 > {
 public:
 	typedef osg::View::Slave type;
+	
+};
+
+template<>
+class LunaType< 74215671 > {
+public:
+	typedef osg::ref_ptr< osg::Array > type;
+	
+};
+
+template<>
+class LunaType< 15557275 > {
+public:
+	typedef osg::ref_ptr< osg::Image > type;
+	
+};
+
+template<>
+class LunaType< 88770621 > {
+public:
+	typedef osg::ref_ptr< osg::PrimitiveSet > type;
 	
 };
 

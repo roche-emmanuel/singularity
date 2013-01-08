@@ -346,11 +346,6 @@ public:
 		return osg::Texture::computeInternalFormatWithImage(image);
 	};
 
-	// void osg::Texture::computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const
-	void public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const {
-		return osg::Texture::computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
-	};
-
 	// void osg::Texture::computeInternalFormatType() const
 	void public_computeInternalFormatType() const {
 		return osg::Texture::computeInternalFormatType();
@@ -435,17 +430,6 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_computeRequiredTextureDimensions(lua_State *L) {
-		if( lua_gettop(L)!=6 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,50169651) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -592,37 +576,6 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeInternalFormatWithImage(const osg::Image &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeInternalFormatWithImage(image);
-
-		return 0;
-	}
-
-	// void osg::Texture::public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const
-	static int _bind_public_computeRequiredTextureDimensions(lua_State *L) {
-		if (!_lg_typecheck_public_computeRequiredTextureDimensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const function, expected prototype:\nvoid osg::Texture::public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
-		}
-
-		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
-		if( !state_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Texture::public_computeRequiredTextureDimensions function");
-		}
-		osg::State & state=*state_ptr;
-		const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
-		if( !image_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg image in osg::Texture::public_computeRequiredTextureDimensions function");
-		}
-		const osg::Image & image=*image_ptr;
-		int width=(int)lua_tointeger(L,4);
-		int height=(int)lua_tointeger(L,5);
-		int numMipmapLevels=(int)lua_tointeger(L,6);
-
-		wrapper_osg_Texture3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture3D >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeRequiredTextureDimensions(osg::State &, const osg::Image &, int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 
 		return 0;
 	}
@@ -918,7 +871,6 @@ public:
 		static const luaL_Reg wrapper_lib[] = {
 		{"protected_applyTexImage3D",_bind_public_applyTexImage3D},
 		{"protected_computeInternalFormatWithImage",_bind_public_computeInternalFormatWithImage},
-		{"protected_computeRequiredTextureDimensions",_bind_public_computeRequiredTextureDimensions},
 		{"protected_computeInternalFormatType",_bind_public_computeInternalFormatType},
 		{"protected_applyTexParameters",_bind_public_applyTexParameters},
 		{"protected_isHardwareMipmapGenerationEnabled",_bind_public_isHardwareMipmapGenerationEnabled},

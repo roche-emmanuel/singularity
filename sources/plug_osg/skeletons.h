@@ -1555,6 +1555,15 @@ namespace osg {
 	class Viewport: public osg::StateAttribute {
 	};
 
+	class ref_ptr< osg::Array > {
+	};
+
+	class ref_ptr< osg::Image > {
+	};
+
+	class ref_ptr< osg::PrimitiveSet > {
+	};
+
 	class Vec2Array: public osg::Array {
 	};
 

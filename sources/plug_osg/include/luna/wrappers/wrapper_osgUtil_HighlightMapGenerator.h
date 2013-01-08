@@ -51,6 +51,11 @@ public:
 
 
 	// Protected non-virtual methods:
+	// osgUtil::HighlightMapGenerator & osgUtil::HighlightMapGenerator::operator=(const osgUtil::HighlightMapGenerator & arg1)
+	osgUtil::HighlightMapGenerator & public_op_assign(const osgUtil::HighlightMapGenerator & arg1) {
+		return osgUtil::HighlightMapGenerator::operator=(arg1);
+	};
+
 	// void osgUtil::CubeMapGenerator::set_pixel(int index, int c, int r, const osg::Vec4f & color)
 	void public_set_pixel(int index, int c, int r, const osg::Vec4f & color) {
 		return osgUtil::CubeMapGenerator::set_pixel(index, c, r, color);
@@ -73,6 +78,13 @@ public:
 
 
 	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_public_set_pixel(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -106,6 +118,32 @@ public:
 
 
 	// Protected non-virtual function binds:
+	// osgUtil::HighlightMapGenerator & osgUtil::HighlightMapGenerator::public_op_assign(const osgUtil::HighlightMapGenerator & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::HighlightMapGenerator & osgUtil::HighlightMapGenerator::public_op_assign(const osgUtil::HighlightMapGenerator & arg1) function, expected prototype:\nosgUtil::HighlightMapGenerator & osgUtil::HighlightMapGenerator::public_op_assign(const osgUtil::HighlightMapGenerator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgUtil::HighlightMapGenerator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HighlightMapGenerator >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::HighlightMapGenerator::public_op_assign function");
+		}
+		const osgUtil::HighlightMapGenerator & _arg1=*_arg1_ptr;
+
+		wrapper_osgUtil_HighlightMapGenerator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_HighlightMapGenerator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::HighlightMapGenerator & osgUtil::HighlightMapGenerator::public_op_assign(const osgUtil::HighlightMapGenerator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::HighlightMapGenerator* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::HighlightMapGenerator >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osgUtil::CubeMapGenerator::public_set_pixel(int index, int c, int r, const osg::Vec4f & color)
 	static int _bind_public_set_pixel(lua_State *L) {
 		if (!_lg_typecheck_public_set_pixel(L)) {
@@ -200,6 +238,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_set_pixel",_bind_public_set_pixel},
 		{"protected_vector_to_color",_bind_public_vector_to_color},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},

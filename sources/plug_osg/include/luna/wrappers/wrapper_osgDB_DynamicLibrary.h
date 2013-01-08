@@ -47,6 +47,11 @@ public:
 		return osgDB::DynamicLibrary::getLibraryHandle(libraryName);
 	};
 
+	// osgDB::DynamicLibrary & osgDB::DynamicLibrary::operator=(const osgDB::DynamicLibrary & arg1)
+	osgDB::DynamicLibrary & public_op_assign(const osgDB::DynamicLibrary & arg1) {
+		return osgDB::DynamicLibrary::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -63,6 +68,13 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -100,6 +112,32 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< void >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::DynamicLibrary & osgDB::DynamicLibrary::public_op_assign(const osgDB::DynamicLibrary & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::DynamicLibrary & osgDB::DynamicLibrary::public_op_assign(const osgDB::DynamicLibrary & arg1) function, expected prototype:\nosgDB::DynamicLibrary & osgDB::DynamicLibrary::public_op_assign(const osgDB::DynamicLibrary & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgDB::DynamicLibrary* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgDB::DynamicLibrary::public_op_assign function");
+		}
+		const osgDB::DynamicLibrary & _arg1=*_arg1_ptr;
+
+		wrapper_osgDB_DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_DynamicLibrary >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::DynamicLibrary & osgDB::DynamicLibrary::public_op_assign(const osgDB::DynamicLibrary &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::DynamicLibrary* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::DynamicLibrary >::push(L,lret,false);
 
 		return 1;
 	}
@@ -146,6 +184,7 @@ public:
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
 		{"protected_getLibraryHandle",_bind_public_getLibraryHandle},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

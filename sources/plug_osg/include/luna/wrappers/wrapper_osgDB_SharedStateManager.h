@@ -158,11 +158,6 @@ public:
 		return osgDB::SharedStateManager::find(sa);
 	};
 
-	// osg::StateSet * osgDB::SharedStateManager::find(osg::StateSet * ss)
-	osg::StateSet * public_find(osg::StateSet * ss) {
-		return osgDB::SharedStateManager::find(ss);
-	};
-
 	// void osgDB::SharedStateManager::setStateSet(osg::StateSet * ss, osg::Object * object)
 	void public_setStateSet(osg::StateSet * ss, osg::Object * object) {
 		return osgDB::SharedStateManager::setStateSet(ss, object);
@@ -207,19 +202,10 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_find_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_find(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2)) ) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_find_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -315,8 +301,8 @@ public:
 	}
 
 	// osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa)
-	static int _bind_public_find_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_find_overload_1(L)) {
+	static int _bind_public_find(lua_State *L) {
+		if (!_lg_typecheck_public_find(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa) function, expected prototype:\nosg::StateAttribute * osgDB::SharedStateManager::public_find(osg::StateAttribute * sa)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -334,37 +320,6 @@ public:
 		Luna< osg::StateAttribute >::push(L,lret,false);
 
 		return 1;
-	}
-
-	// osg::StateSet * osgDB::SharedStateManager::public_find(osg::StateSet * ss)
-	static int _bind_public_find_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_find_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::StateSet * osgDB::SharedStateManager::public_find(osg::StateSet * ss) function, expected prototype:\nosg::StateSet * osgDB::SharedStateManager::public_find(osg::StateSet * ss)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::StateSet* ss=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
-
-		wrapper_osgDB_SharedStateManager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_SharedStateManager >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::StateSet * osgDB::SharedStateManager::public_find(osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::StateSet * lret = self->public_find(ss);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::StateSet >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osgDB::SharedStateManager::public_find
-	static int _bind_public_find(lua_State *L) {
-		if (_lg_typecheck_public_find_overload_1(L)) return _bind_public_find_overload_1(L);
-		if (_lg_typecheck_public_find_overload_2(L)) return _bind_public_find_overload_2(L);
-
-		luaL_error(L, "error in function public_find, cannot match any of the overloads for function public_find:\n  public_find(osg::StateAttribute *)\n  public_find(osg::StateSet *)\n");
-		return 0;
 	}
 
 	// void osgDB::SharedStateManager::public_setStateSet(osg::StateSet * ss, osg::Object * object)
@@ -450,7 +405,6 @@ public:
 		{"protected_shareTexture",_bind_public_shareTexture},
 		{"protected_shareStateSet",_bind_public_shareStateSet},
 		{"protected_process",_bind_public_process},
-		{"protected_find",_bind_public_find},
 		{"protected_find",_bind_public_find},
 		{"protected_setStateSet",_bind_public_setStateSet},
 		{"protected_shareTextures",_bind_public_shareTextures},

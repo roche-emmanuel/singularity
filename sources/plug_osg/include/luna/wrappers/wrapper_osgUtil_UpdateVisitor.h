@@ -233,6 +233,11 @@ public:
 		return osgUtil::UpdateVisitor::handle_geode_callbacks(geode);
 	};
 
+	// osgUtil::UpdateVisitor & osgUtil::UpdateVisitor::operator=(const osgUtil::UpdateVisitor & arg1)
+	osgUtil::UpdateVisitor & public_op_assign(const osgUtil::UpdateVisitor & arg1) {
+		return osgUtil::UpdateVisitor::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -260,6 +265,13 @@ public:
 	}
 
 	inline static bool _lg_typecheck_public_handle_geode_callbacks(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
@@ -347,6 +359,32 @@ public:
 		return 0;
 	}
 
+	// osgUtil::UpdateVisitor & osgUtil::UpdateVisitor::public_op_assign(const osgUtil::UpdateVisitor & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::UpdateVisitor & osgUtil::UpdateVisitor::public_op_assign(const osgUtil::UpdateVisitor & arg1) function, expected prototype:\nosgUtil::UpdateVisitor & osgUtil::UpdateVisitor::public_op_assign(const osgUtil::UpdateVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgUtil::UpdateVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::UpdateVisitor >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::UpdateVisitor::public_op_assign function");
+		}
+		const osgUtil::UpdateVisitor & _arg1=*_arg1_ptr;
+
+		wrapper_osgUtil_UpdateVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_UpdateVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::UpdateVisitor & osgUtil::UpdateVisitor::public_op_assign(const osgUtil::UpdateVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::UpdateVisitor* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::UpdateVisitor >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -391,6 +429,7 @@ public:
 		{"protected_handle_callbacks",_bind_public_handle_callbacks},
 		{"protected_handle_callbacks_and_traverse",_bind_public_handle_callbacks_and_traverse},
 		{"protected_handle_geode_callbacks",_bind_public_handle_geode_callbacks},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

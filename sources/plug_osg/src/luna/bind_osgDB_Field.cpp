@@ -320,7 +320,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,7546407) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osgDB::Field::Field()
@@ -1021,6 +1028,32 @@ public:
 
 
 	// Operator binds:
+	// osgDB::Field & osgDB::Field::operator=(const osgDB::Field & ic)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Field & osgDB::Field::operator=(const osgDB::Field & ic) function, expected prototype:\nosgDB::Field & osgDB::Field::operator=(const osgDB::Field & ic)\nClass arguments details:\narg 1 ID = 7546407\n");
+		}
+
+		const osgDB::Field* ic_ptr=(Luna< osgDB::Field >::check(L,2));
+		if( !ic_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ic in osgDB::Field::operator= function");
+		}
+		const osgDB::Field & ic=*ic_ptr;
+
+		osgDB::Field* self=(Luna< osgDB::Field >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::Field & osgDB::Field::operator=(const osgDB::Field &). Got : '%s'",typeid(Luna< osgDB::Field >::check(L,1)).name());
+		}
+		const osgDB::Field* lret = &self->operator=(ic);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::Field >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1070,6 +1103,7 @@ luna_RegType LunaTraits< osgDB::Field >::methods[] = {
 	{"matchFloat", &luna_wrapper_osgDB_Field::_bind_matchFloat},
 	{"getFloat", &luna_wrapper_osgDB_Field::_bind_getFloat},
 	{"calculateFieldType", &luna_wrapper_osgDB_Field::_bind_calculateFieldType},
+	{"op_assign", &luna_wrapper_osgDB_Field::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osgDB_Field::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_Field::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_Field::_bind_getTable},

@@ -118,7 +118,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 4 valid operators)
+	// (found 5 valid operators)
 	inline static bool _lg_typecheck_op_call_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -132,6 +132,13 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903788) ) return false;
 		return true;
 	}
 
@@ -377,6 +384,32 @@ public:
 		return 0;
 	}
 
+	// osg::Matrix2 & osg::Matrix2::operator=(const osg::Matrix2 & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Matrix2 & osg::Matrix2::operator=(const osg::Matrix2 & rhs) function, expected prototype:\nosg::Matrix2 & osg::Matrix2::operator=(const osg::Matrix2 & rhs)\nClass arguments details:\narg 1 ID = 18903788\n");
+		}
+
+		const osg::Matrix2* rhs_ptr=(Luna< osg::Matrix2 >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Matrix2::operator= function");
+		}
+		const osg::Matrix2 & rhs=*rhs_ptr;
+
+		osg::Matrix2* self=(Luna< osg::Matrix2 >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Matrix2 & osg::Matrix2::operator=(const osg::Matrix2 &). Got : '%s'",typeid(Luna< osg::Matrix2 >::check(L,1)).name());
+		}
+		const osg::Matrix2* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrix2 >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// float & osg::Matrix2::operator[](int i)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
@@ -451,6 +484,7 @@ luna_RegType LunaTraits< osg::Matrix2 >::methods[] = {
 	{"ptr", &luna_wrapper_osg_Matrix2::_bind_ptr},
 	{"makeIdentity", &luna_wrapper_osg_Matrix2::_bind_makeIdentity},
 	{"op_call", &luna_wrapper_osg_Matrix2::_bind_op_call},
+	{"op_assign", &luna_wrapper_osg_Matrix2::_bind_op_assign},
 	{"op_index", &luna_wrapper_osg_Matrix2::_bind_op_index},
 	{"dynCast", &luna_wrapper_osg_Matrix2::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Matrix2::_bind___eq},

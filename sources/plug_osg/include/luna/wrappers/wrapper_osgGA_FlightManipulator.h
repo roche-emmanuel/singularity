@@ -743,11 +743,6 @@ public:
 		return osgGA::FirstPersonManipulator::moveForward(distance);
 	};
 
-	// void osgGA::FirstPersonManipulator::moveForward(const osg::Quat & rotation, const double distance)
-	void public_moveForward(const osg::Quat & rotation, const double distance) {
-		return osgGA::FirstPersonManipulator::moveForward(rotation, distance);
-	};
-
 	// void osgGA::FirstPersonManipulator::moveRight(const double distance)
 	void public_moveRight(const double distance) {
 		return osgGA::FirstPersonManipulator::moveRight(distance);
@@ -793,16 +788,6 @@ public:
 		return osgGA::StandardManipulator::rotateYawPitch(rotation, yaw, pitch, localUp);
 	};
 
-	// static void osgGA::StandardManipulator::fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)
-	static void public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver) {
-		return osgGA::StandardManipulator::fixVerticalAxis(rotation, localUp, disallowFlipOver);
-	};
-
-	// static void osgGA::StandardManipulator::fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)
-	static void public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver) {
-		return osgGA::StandardManipulator::fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
-	};
-
 	// static int osgGA::StandardManipulator::allocateRelativeFlag()
 	static int public_allocateRelativeFlag() {
 		return osgGA::StandardManipulator::allocateRelativeFlag();
@@ -825,19 +810,10 @@ public:
 
 
 	// Protected non-virtual checkers:
-	inline static bool _lg_typecheck_public_moveForward_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_moveForward(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_moveForward_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
-		if( (!(Luna< osg::Quat >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -875,40 +851,12 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_fixVerticalAxis_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_fixVerticalAxis(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,80263306) ) return false;
-		if( (!(Luna< osg::Quat >::check(L,3))) ) return false;
 		if( lua_isboolean(L,4)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_fixVerticalAxis_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,80263306) ) return false;
-		if( (!(Luna< osg::Quat >::check(L,1))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
-		if( lua_isboolean(L,3)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_fixVerticalAxis_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=5 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
-		if( (!(Luna< osg::Vec3d >::check(L,1))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
-		if( (!(Luna< osg::Vec3d >::check(L,4))) ) return false;
-		if( lua_isboolean(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -967,8 +915,8 @@ public:
 
 	// Protected non-virtual function binds:
 	// void osgGA::FirstPersonManipulator::public_moveForward(const double distance)
-	static int _bind_public_moveForward_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_moveForward_overload_1(L)) {
+	static int _bind_public_moveForward(lua_State *L) {
+		if (!_lg_typecheck_public_moveForward(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::public_moveForward(const double distance) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::public_moveForward(const double distance)\nClass arguments details:\n");
 		}
@@ -982,39 +930,6 @@ public:
 		}
 		self->public_moveForward(distance);
 
-		return 0;
-	}
-
-	// void osgGA::FirstPersonManipulator::public_moveForward(const osg::Quat & rotation, const double distance)
-	static int _bind_public_moveForward_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_moveForward_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::public_moveForward(const osg::Quat & rotation, const double distance) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::public_moveForward(const osg::Quat & rotation, const double distance)\nClass arguments details:\narg 1 ID = 80263306\n");
-		}
-
-		const osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,2));
-		if( !rotation_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg rotation in osgGA::FirstPersonManipulator::public_moveForward function");
-		}
-		const osg::Quat & rotation=*rotation_ptr;
-		double distance=(double)lua_tonumber(L,3);
-
-		wrapper_osgGA_FlightManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_FlightManipulator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::public_moveForward(const osg::Quat &, const double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_moveForward(rotation, distance);
-
-		return 0;
-	}
-
-	// Overload binder for osgGA::FirstPersonManipulator::public_moveForward
-	static int _bind_public_moveForward(lua_State *L) {
-		if (_lg_typecheck_public_moveForward_overload_1(L)) return _bind_public_moveForward_overload_1(L);
-		if (_lg_typecheck_public_moveForward_overload_2(L)) return _bind_public_moveForward_overload_2(L);
-
-		luaL_error(L, "error in function public_moveForward, cannot match any of the overloads for function public_moveForward:\n  public_moveForward(const double)\n  public_moveForward(const osg::Quat &, const double)\n");
 		return 0;
 	}
 
@@ -1118,8 +1033,8 @@ public:
 	}
 
 	// void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)
-	static int _bind_public_fixVerticalAxis_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_fixVerticalAxis_overload_1(L)) {
+	static int _bind_public_fixVerticalAxis(lua_State *L) {
+		if (!_lg_typecheck_public_fixVerticalAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) function, expected prototype:\nvoid osgGA::StandardManipulator::public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 80263306\n");
 		}
@@ -1143,84 +1058,6 @@ public:
 		}
 		self->public_fixVerticalAxis(eye, rotation, disallowFlipOver);
 
-		return 0;
-	}
-
-	// static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)
-	static int _bind_public_fixVerticalAxis_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_fixVerticalAxis_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 80263306\narg 2 ID = 92303202\n");
-		}
-
-		osg::Quat* rotation_ptr=(Luna< osg::Quat >::check(L,1));
-		if( !rotation_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg rotation in osgGA::StandardManipulator::public_fixVerticalAxis function");
-		}
-		osg::Quat & rotation=*rotation_ptr;
-		const osg::Vec3d* localUp_ptr=(Luna< osg::Vec3d >::check(L,2));
-		if( !localUp_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_fixVerticalAxis function");
-		}
-		const osg::Vec3d & localUp=*localUp_ptr;
-		bool disallowFlipOver=(bool)(lua_toboolean(L,3)==1);
-
-		wrapper_osgGA_FlightManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_FlightManipulator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(osg::Quat &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_fixVerticalAxis(rotation, localUp, disallowFlipOver);
-
-		return 0;
-	}
-
-	// static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)
-	static int _bind_public_fixVerticalAxis_overload_3(lua_State *L) {
-		if (!_lg_typecheck_public_fixVerticalAxis_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver) function, expected prototype:\nstatic void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)\nClass arguments details:\narg 1 ID = 92303202\narg 2 ID = 92303202\narg 3 ID = 92303202\narg 4 ID = 92303202\n");
-		}
-
-		const osg::Vec3d* forward_ptr=(Luna< osg::Vec3d >::check(L,1));
-		if( !forward_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg forward in osgGA::StandardManipulator::public_fixVerticalAxis function");
-		}
-		const osg::Vec3d & forward=*forward_ptr;
-		const osg::Vec3d* up_ptr=(Luna< osg::Vec3d >::check(L,2));
-		if( !up_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg up in osgGA::StandardManipulator::public_fixVerticalAxis function");
-		}
-		const osg::Vec3d & up=*up_ptr;
-		osg::Vec3d* newUp_ptr=(Luna< osg::Vec3d >::check(L,3));
-		if( !newUp_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg newUp in osgGA::StandardManipulator::public_fixVerticalAxis function");
-		}
-		osg::Vec3d & newUp=*newUp_ptr;
-		const osg::Vec3d* localUp_ptr=(Luna< osg::Vec3d >::check(L,4));
-		if( !localUp_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_fixVerticalAxis function");
-		}
-		const osg::Vec3d & localUp=*localUp_ptr;
-		bool disallowFlipOver=(bool)(lua_toboolean(L,5)==1);
-
-		wrapper_osgGA_FlightManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_FlightManipulator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void osgGA::StandardManipulator::public_fixVerticalAxis(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, const osg::Vec3d &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
-
-		return 0;
-	}
-
-	// Overload binder for osgGA::StandardManipulator::public_fixVerticalAxis
-	static int _bind_public_fixVerticalAxis(lua_State *L) {
-		if (_lg_typecheck_public_fixVerticalAxis_overload_1(L)) return _bind_public_fixVerticalAxis_overload_1(L);
-		if (_lg_typecheck_public_fixVerticalAxis_overload_2(L)) return _bind_public_fixVerticalAxis_overload_2(L);
-		if (_lg_typecheck_public_fixVerticalAxis_overload_3(L)) return _bind_public_fixVerticalAxis_overload_3(L);
-
-		luaL_error(L, "error in function public_fixVerticalAxis, cannot match any of the overloads for function public_fixVerticalAxis:\n  public_fixVerticalAxis(osg::Vec3d &, osg::Quat &, bool)\n  public_fixVerticalAxis(osg::Quat &, const osg::Vec3d &, bool)\n  public_fixVerticalAxis(const osg::Vec3d &, const osg::Vec3d &, osg::Vec3d &, const osg::Vec3d &, bool)\n");
 		return 0;
 	}
 
@@ -1376,7 +1213,6 @@ public:
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
 		{"protected_moveForward",_bind_public_moveForward},
-		{"protected_moveForward",_bind_public_moveForward},
 		{"protected_moveRight",_bind_public_moveRight},
 		{"protected_moveUp",_bind_public_moveUp},
 		{"protected_addMouseEvent",_bind_public_addMouseEvent},
@@ -1386,8 +1222,6 @@ public:
 		{"protected_getRelativeFlag",_bind_public_getRelativeFlag},
 		{"protected_setRelativeFlag",_bind_public_setRelativeFlag},
 		{"protected_rotateYawPitch",_bind_public_rotateYawPitch},
-		{"protected_fixVerticalAxis",_bind_public_fixVerticalAxis},
-		{"protected_fixVerticalAxis",_bind_public_fixVerticalAxis},
 		{"protected_allocateRelativeFlag",_bind_public_allocateRelativeFlag},
 		{"protected_getManipulatorName",_bind_public_getManipulatorName},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},

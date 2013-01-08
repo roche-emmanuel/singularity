@@ -345,7 +345,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::CullingSet::CullingSet()
@@ -1219,6 +1226,32 @@ public:
 
 
 	// Operator binds:
+	// osg::CullingSet & osg::CullingSet::operator=(const osg::CullingSet & cs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullingSet & osg::CullingSet::operator=(const osg::CullingSet & cs) function, expected prototype:\nosg::CullingSet & osg::CullingSet::operator=(const osg::CullingSet & cs)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,2));
+		if( !cs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::operator= function");
+		}
+		const osg::CullingSet & cs=*cs_ptr;
+
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::CullingSet & osg::CullingSet::operator=(const osg::CullingSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::CullingSet* lret = &self->operator=(cs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::CullingSet >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1261,6 +1294,7 @@ luna_RegType LunaTraits< osg::CullingSet >::methods[] = {
 	{"popOccludersCurrentMask", &luna_wrapper_osg_CullingSet::_bind_popOccludersCurrentMask},
 	{"computePixelSizeVector", &luna_wrapper_osg_CullingSet::_bind_computePixelSizeVector},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_CullingSet::_bind_base_setThreadSafeRefUnref},
+	{"op_assign", &luna_wrapper_osg_CullingSet::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_CullingSet::_bind___eq},
 	{"getTable", &luna_wrapper_osg_CullingSet::_bind_getTable},
 	{0,0}

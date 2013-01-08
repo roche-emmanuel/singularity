@@ -286,7 +286,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,26652350) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Polytope::Polytope()
@@ -1051,6 +1058,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv) function, expected prototype:\nosg::Polytope & osg::Polytope::operator=(const osg::Polytope & cv)\nClass arguments details:\narg 1 ID = 26652350\n");
+		}
+
+		const osg::Polytope* cv_ptr=(Luna< osg::Polytope >::check(L,2));
+		if( !cv_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cv in osg::Polytope::operator= function");
+		}
+		const osg::Polytope & cv=*cv_ptr;
+
+		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Polytope & osg::Polytope::operator=(const osg::Polytope &). Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+		}
+		const osg::Polytope* lret = &self->operator=(cv);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Polytope >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1093,6 +1126,7 @@ luna_RegType LunaTraits< osg::Polytope >::methods[] = {
 	{"containsAllOf", &luna_wrapper_osg_Polytope::_bind_containsAllOf},
 	{"transform", &luna_wrapper_osg_Polytope::_bind_transform},
 	{"transformProvidingInverse", &luna_wrapper_osg_Polytope::_bind_transformProvidingInverse},
+	{"op_assign", &luna_wrapper_osg_Polytope::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_Polytope::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Polytope::_bind___eq},
 	{0,0}

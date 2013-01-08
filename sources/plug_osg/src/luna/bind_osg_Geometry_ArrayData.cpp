@@ -105,7 +105,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,26680564) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Geometry::ArrayData::ArrayData()
@@ -209,6 +216,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData & rhs) function, expected prototype:\nosg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData & rhs)\nClass arguments details:\narg 1 ID = 26680564\n");
+		}
+
+		const osg::Geometry::ArrayData* rhs_ptr=(Luna< osg::Geometry::ArrayData >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Geometry::ArrayData::operator= function");
+		}
+		const osg::Geometry::ArrayData & rhs=*rhs_ptr;
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData &). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		const osg::Geometry::ArrayData* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry::ArrayData >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -231,6 +264,7 @@ const int LunaTraits< osg::Geometry::ArrayData >::uniqueIDs[] = {26680564,0};
 
 luna_RegType LunaTraits< osg::Geometry::ArrayData >::methods[] = {
 	{"empty", &luna_wrapper_osg_Geometry_ArrayData::_bind_empty},
+	{"op_assign", &luna_wrapper_osg_Geometry_ArrayData::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_Geometry_ArrayData::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Geometry_ArrayData::_bind___eq},
 	{0,0}

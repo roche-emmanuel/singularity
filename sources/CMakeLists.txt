@@ -31,7 +31,7 @@ IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
-# ADD_SUBDIRECTORY(plug_osg)
+ADD_SUBDIRECTORY(plug_osg)
 # ADD_SUBDIRECTORY(plug_osgWX)
 # ADD_SUBDIRECTORY(plug_spice)
 # ADD_SUBDIRECTORY(plug_norad)
@@ -40,7 +40,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_spark)
 # ADD_SUBDIRECTORY(plug_tuio)
 # ADD_SUBDIRECTORY(plug_vlc)
-ADD_SUBDIRECTORY(plug_atb)
+# ADD_SUBDIRECTORY(plug_atb)
 
 
 ADD_SUBDIRECTORY(sgt_launcher)

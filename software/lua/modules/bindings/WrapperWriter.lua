@@ -7,6 +7,7 @@ local tm = require "bindings.TypeManager"
 
 local utils = require "utils"
 
+local Vector = require "std.Vector"
 local Set = require "std.Set"
 
 function Class:initialize(options)
@@ -240,8 +241,10 @@ function Class:writeHeader()
 	end
 	buf:newLine()
 	
+	local origNames = Vector();
 	for _,func in notVirtualFuncs:sequence() do
-		func:setName("public_" .. func:getName())
+		origNames:push_back(func:getName());
+		func:setName("public_" .. func:getLuaName())
 	end
 	
 	buf:writeLine("// Protected non-virtual checkers:")
@@ -252,8 +255,9 @@ function Class:writeHeader()
 	buf:writeForAll(notVirtualFuncs,self._writeBind,self._writeOverloadBind)
 	buf:newLine()
 	
-	for _,func in notVirtualFuncs:sequence() do
-		func:setName(func:getName():sub(8))
+	for k,func in notVirtualFuncs:sequence() do
+		-- func:setName(func:getName():sub(8))
+		func:setName(origNames[k])
 	end
 	
 	-- Now write the registeration table:
@@ -262,7 +266,7 @@ function Class:writeHeader()
 	if not notVirtualFuncs:empty() then
 		buf:writeSubLine("static const luaL_Reg wrapper_lib[] = {")
 		for _,func in notVirtualFuncs:sequence() do
-			buf:writeSubLine('{"protected_${1}",_bind_public_${1}},',func:getName())
+			buf:writeSubLine('{"protected_${1}",_bind_public_${1}},',func:getLuaName())
 		end
 		buf:writeSubLine("{NULL,NULL}")
 		buf:writeSubLine("};")

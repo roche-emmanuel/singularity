@@ -72,7 +72,14 @@ public:
 	// Function checkers:
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,17496146) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::PagedLOD::PerRangeData::PerRangeData()
@@ -115,6 +122,32 @@ public:
 	// Function binds:
 
 	// Operator binds:
+	// osg::PagedLOD::PerRangeData & osg::PagedLOD::PerRangeData::operator=(const osg::PagedLOD::PerRangeData & prd)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PagedLOD::PerRangeData & osg::PagedLOD::PerRangeData::operator=(const osg::PagedLOD::PerRangeData & prd) function, expected prototype:\nosg::PagedLOD::PerRangeData & osg::PagedLOD::PerRangeData::operator=(const osg::PagedLOD::PerRangeData & prd)\nClass arguments details:\narg 1 ID = 17496146\n");
+		}
+
+		const osg::PagedLOD::PerRangeData* prd_ptr=(Luna< osg::PagedLOD::PerRangeData >::check(L,2));
+		if( !prd_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg prd in osg::PagedLOD::PerRangeData::operator= function");
+		}
+		const osg::PagedLOD::PerRangeData & prd=*prd_ptr;
+
+		osg::PagedLOD::PerRangeData* self=(Luna< osg::PagedLOD::PerRangeData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::PagedLOD::PerRangeData & osg::PagedLOD::PerRangeData::operator=(const osg::PagedLOD::PerRangeData &). Got : '%s'",typeid(Luna< osg::PagedLOD::PerRangeData >::check(L,1)).name());
+		}
+		const osg::PagedLOD::PerRangeData* lret = &self->operator=(prd);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PagedLOD::PerRangeData >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -136,6 +169,7 @@ const int LunaTraits< osg::PagedLOD::PerRangeData >::hash = 17496146;
 const int LunaTraits< osg::PagedLOD::PerRangeData >::uniqueIDs[] = {17496146,0};
 
 luna_RegType LunaTraits< osg::PagedLOD::PerRangeData >::methods[] = {
+	{"op_assign", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind___eq},
 	{0,0}

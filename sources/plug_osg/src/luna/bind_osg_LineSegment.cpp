@@ -269,7 +269,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::LineSegment::LineSegment()
@@ -855,6 +862,32 @@ public:
 
 
 	// Operator binds:
+	// osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,2));
+		if( !seg_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg seg in osg::LineSegment::operator= function");
+		}
+		const osg::LineSegment & seg=*seg_ptr;
+
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::LineSegment & osg::LineSegment::operator=(const osg::LineSegment &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::LineSegment* lret = &self->operator=(seg);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::LineSegment >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -883,6 +916,7 @@ luna_RegType LunaTraits< osg::LineSegment >::methods[] = {
 	{"intersect", &luna_wrapper_osg_LineSegment::_bind_intersect},
 	{"mult", &luna_wrapper_osg_LineSegment::_bind_mult},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_LineSegment::_bind_base_setThreadSafeRefUnref},
+	{"op_assign", &luna_wrapper_osg_LineSegment::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_LineSegment::_bind___eq},
 	{"getTable", &luna_wrapper_osg_LineSegment::_bind_getTable},
 	{0,0}

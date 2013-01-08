@@ -314,7 +314,314 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 40 valid operators)
+	inline static bool _lg_typecheck_op_write_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_11(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_12(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_13(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_14(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,32567652) ) return false;
+		if( (!(Luna< osgDB::ObjectGLenum >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_15(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,23791141) ) return false;
+		if( (!(Luna< osgDB::ObjectProperty >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_16(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,60066730) ) return false;
+		if( (!(Luna< osgDB::ObjectMark >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_17(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303169) ) return false;
+		if( (!(Luna< osg::Vec2b >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_18(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303200) ) return false;
+		if( (!(Luna< osg::Vec3b >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_19(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303231) ) return false;
+		if( (!(Luna< osg::Vec4b >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_20(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,61400540) ) return false;
+		if( (!(Luna< osg::Vec4ub >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_21(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303186) ) return false;
+		if( (!(Luna< osg::Vec2s >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_22(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303217) ) return false;
+		if( (!(Luna< osg::Vec3s >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_23(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303248) ) return false;
+		if( (!(Luna< osg::Vec4s >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_24(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
+		if( (!(Luna< osg::Vec2f >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_25(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_26(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
+		if( (!(Luna< osg::Vec4f >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_27(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303171) ) return false;
+		if( (!(Luna< osg::Vec2d >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_28(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_29(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303233) ) return false;
+		if( (!(Luna< osg::Vec4d >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_30(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
+		if( (!(Luna< osg::Quat >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_31(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
+		if( (!(Luna< osg::Plane >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_32(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!(Luna< osg::Matrixf >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_33(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_34(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_35(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_36(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_37(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_38(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,74215671) ) return false;
+		if( (!(Luna< osg::ref_ptr< osg::Array > >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_39(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,15557275) ) return false;
+		if( (!(Luna< osg::ref_ptr< osg::Image > >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_40(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,88770621) ) return false;
+		if( (!(Luna< osg::ref_ptr< osg::PrimitiveSet > >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osgDB::OutputStream::OutputStream(const osgDB::Options * options)
@@ -1068,6 +1375,1013 @@ public:
 
 
 	// Operator binds:
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(bool b)
+	static int _bind_op_write_overload_1(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(bool b) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(bool b)\nClass arguments details:\n");
+		}
+
+		bool b=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(bool). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(b);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(char c)
+	static int _bind_op_write_overload_2(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(char c) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(char c)\nClass arguments details:\n");
+		}
+
+		char c=(char)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(char). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(c);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned char c)
+	static int _bind_op_write_overload_3(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned char c) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned char c)\nClass arguments details:\n");
+		}
+
+		unsigned char c = (unsigned char)(lua_tointeger(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned char). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(c);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(short s)
+	static int _bind_op_write_overload_4(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(short s) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(short s)\nClass arguments details:\n");
+		}
+
+		short s=(short)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(short). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(s);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned short s)
+	static int _bind_op_write_overload_5(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned short s) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned short s)\nClass arguments details:\n");
+		}
+
+		unsigned short s=(unsigned short)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned short). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(s);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(int i)
+	static int _bind_op_write_overload_6(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(int i) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(int i)\nClass arguments details:\n");
+		}
+
+		int i=(int)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(int). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(i);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned int i)
+	static int _bind_op_write_overload_7(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned int i) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned int i)\nClass arguments details:\n");
+		}
+
+		unsigned int i=(unsigned int)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned int). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(i);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(long l)
+	static int _bind_op_write_overload_8(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(long l) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(long l)\nClass arguments details:\n");
+		}
+
+		long l=(long)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(long). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(l);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned long l)
+	static int _bind_op_write_overload_9(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned long l) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned long l)\nClass arguments details:\n");
+		}
+
+		unsigned long l=(unsigned long)lua_tointeger(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(unsigned long). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(l);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(float f)
+	static int _bind_op_write_overload_10(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(float f) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(float f)\nClass arguments details:\n");
+		}
+
+		float f=(float)lua_tonumber(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(float). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(f);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(double d)
+	static int _bind_op_write_overload_11(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_11(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(double d) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(double d)\nClass arguments details:\n");
+		}
+
+		double d=(double)lua_tonumber(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(double). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(d);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const std::string & s)
+	static int _bind_op_write_overload_12(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_12(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const std::string & s) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const std::string & s)\nClass arguments details:\n");
+		}
+
+		std::string s(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const std::string &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(s);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const char * s)
+	static int _bind_op_write_overload_13(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_13(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const char * s) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const char * s)\nClass arguments details:\n");
+		}
+
+		const char * s=(const char *)lua_tostring(L,2);
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const char *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(s);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectGLenum & value)
+	static int _bind_op_write_overload_14(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_14(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectGLenum & value) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectGLenum & value)\nClass arguments details:\narg 1 ID = 32567652\n");
+		}
+
+		const osgDB::ObjectGLenum* value_ptr=(Luna< osgDB::ObjectGLenum >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::OutputStream::operator<< function");
+		}
+		const osgDB::ObjectGLenum & value=*value_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectGLenum &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(value);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectProperty & prop)
+	static int _bind_op_write_overload_15(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_15(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectProperty & prop) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectProperty & prop)\nClass arguments details:\narg 1 ID = 23791141\n");
+		}
+
+		const osgDB::ObjectProperty* prop_ptr=(Luna< osgDB::ObjectProperty >::check(L,2));
+		if( !prop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg prop in osgDB::OutputStream::operator<< function");
+		}
+		const osgDB::ObjectProperty & prop=*prop_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectProperty &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(prop);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectMark & mark)
+	static int _bind_op_write_overload_16(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_16(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectMark & mark) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectMark & mark)\nClass arguments details:\narg 1 ID = 60066730\n");
+		}
+
+		const osgDB::ObjectMark* mark_ptr=(Luna< osgDB::ObjectMark >::check(L,2));
+		if( !mark_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mark in osgDB::OutputStream::operator<< function");
+		}
+		const osgDB::ObjectMark & mark=*mark_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osgDB::ObjectMark &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(mark);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2b & v)
+	static int _bind_op_write_overload_17(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_17(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2b & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2b & v)\nClass arguments details:\narg 1 ID = 92303169\n");
+		}
+
+		const osg::Vec2b* v_ptr=(Luna< osg::Vec2b >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec2b & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2b &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3b & v)
+	static int _bind_op_write_overload_18(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_18(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3b & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3b & v)\nClass arguments details:\narg 1 ID = 92303200\n");
+		}
+
+		const osg::Vec3b* v_ptr=(Luna< osg::Vec3b >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec3b & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3b &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4b & v)
+	static int _bind_op_write_overload_19(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_19(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4b & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4b & v)\nClass arguments details:\narg 1 ID = 92303231\n");
+		}
+
+		const osg::Vec4b* v_ptr=(Luna< osg::Vec4b >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec4b & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4b &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4ub & v)
+	static int _bind_op_write_overload_20(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_20(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4ub & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4ub & v)\nClass arguments details:\narg 1 ID = 61400540\n");
+		}
+
+		const osg::Vec4ub* v_ptr=(Luna< osg::Vec4ub >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec4ub & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4ub &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2s & v)
+	static int _bind_op_write_overload_21(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_21(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2s & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2s & v)\nClass arguments details:\narg 1 ID = 92303186\n");
+		}
+
+		const osg::Vec2s* v_ptr=(Luna< osg::Vec2s >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec2s & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2s &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3s & v)
+	static int _bind_op_write_overload_22(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_22(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3s & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3s & v)\nClass arguments details:\narg 1 ID = 92303217\n");
+		}
+
+		const osg::Vec3s* v_ptr=(Luna< osg::Vec3s >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec3s & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3s &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4s & v)
+	static int _bind_op_write_overload_23(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_23(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4s & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4s & v)\nClass arguments details:\narg 1 ID = 92303248\n");
+		}
+
+		const osg::Vec4s* v_ptr=(Luna< osg::Vec4s >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec4s & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4s &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2f & v)
+	static int _bind_op_write_overload_24(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_24(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2f & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2f & v)\nClass arguments details:\narg 1 ID = 92303173\n");
+		}
+
+		const osg::Vec2f* v_ptr=(Luna< osg::Vec2f >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec2f & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2f &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3f & v)
+	static int _bind_op_write_overload_25(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_25(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3f & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3f & v)\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* v_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec3f & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3f &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4f & v)
+	static int _bind_op_write_overload_26(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_26(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4f & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4f & v)\nClass arguments details:\narg 1 ID = 92303235\n");
+		}
+
+		const osg::Vec4f* v_ptr=(Luna< osg::Vec4f >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec4f & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4f &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2d & v)
+	static int _bind_op_write_overload_27(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_27(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2d & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2d & v)\nClass arguments details:\narg 1 ID = 92303171\n");
+		}
+
+		const osg::Vec2d* v_ptr=(Luna< osg::Vec2d >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec2d & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec2d &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3d & v)
+	static int _bind_op_write_overload_28(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_28(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3d & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3d & v)\nClass arguments details:\narg 1 ID = 92303202\n");
+		}
+
+		const osg::Vec3d* v_ptr=(Luna< osg::Vec3d >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec3d & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec3d &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4d & v)
+	static int _bind_op_write_overload_29(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_29(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4d & v) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4d & v)\nClass arguments details:\narg 1 ID = 92303233\n");
+		}
+
+		const osg::Vec4d* v_ptr=(Luna< osg::Vec4d >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Vec4d & v=*v_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Vec4d &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Quat & q)
+	static int _bind_op_write_overload_30(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_30(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Quat & q) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Quat & q)\nClass arguments details:\narg 1 ID = 80263306\n");
+		}
+
+		const osg::Quat* q_ptr=(Luna< osg::Quat >::check(L,2));
+		if( !q_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg q in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Quat & q=*q_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Quat &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(q);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Plane & p)
+	static int _bind_op_write_overload_31(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_31(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Plane & p) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Plane & p)\nClass arguments details:\narg 1 ID = 86970521\n");
+		}
+
+		const osg::Plane* p_ptr=(Luna< osg::Plane >::check(L,2));
+		if( !p_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg p in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Plane & p=*p_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Plane &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(p);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixf & mat)
+	static int _bind_op_write_overload_32(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_32(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixf & mat) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixf & mat)\nClass arguments details:\narg 1 ID = 18903840\n");
+		}
+
+		const osg::Matrixf* mat_ptr=(Luna< osg::Matrixf >::check(L,2));
+		if( !mat_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mat in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Matrixf & mat=*mat_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixf &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(mat);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixd & mat)
+	static int _bind_op_write_overload_33(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_33(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixd & mat) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixd & mat)\nClass arguments details:\narg 1 ID = 18903838\n");
+		}
+
+		const osg::Matrixd* mat_ptr=(Luna< osg::Matrixd >::check(L,2));
+		if( !mat_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mat in osgDB::OutputStream::operator<< function");
+		}
+		const osg::Matrixd & mat=*mat_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Matrixd &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(mat);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Array * a)
+	static int _bind_op_write_overload_34(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_34(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Array * a) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Array * a)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Array* a=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Array *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(a);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Image * img)
+	static int _bind_op_write_overload_35(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_35(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Image * img) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Image * img)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Image* img=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Image *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(img);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::PrimitiveSet * p)
+	static int _bind_op_write_overload_36(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_36(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::PrimitiveSet * p) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::PrimitiveSet * p)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::PrimitiveSet* p=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::PrimitiveSet *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(p);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Object * obj)
+	static int _bind_op_write_overload_37(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_37(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Object * obj) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Object * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::Object *). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(obj);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Array > & ptr)
+	static int _bind_op_write_overload_38(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_38(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Array > & ptr) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Array > & ptr)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Array > ptr = dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Array > &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(ptr);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Image > & ptr)
+	static int _bind_op_write_overload_39(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_39(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Image > & ptr) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Image > & ptr)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Image > ptr = dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::Image > &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(ptr);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::PrimitiveSet > & ptr)
+	static int _bind_op_write_overload_40(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_40(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::PrimitiveSet > & ptr) function, expected prototype:\nosgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::PrimitiveSet > & ptr)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::PrimitiveSet > ptr = dynamic_cast< osg::PrimitiveSet* >(Luna< osg::Referenced >::check(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::OutputStream & osgDB::OutputStream::operator<<(const osg::ref_ptr< osg::PrimitiveSet > &). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::OutputStream* lret = &self->operator<<(ptr);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::OutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::OutputStream::operator<<
+	static int _bind_op_write(lua_State *L) {
+		if (_lg_typecheck_op_write_overload_1(L)) return _bind_op_write_overload_1(L);
+		if (_lg_typecheck_op_write_overload_2(L)) return _bind_op_write_overload_2(L);
+		if (_lg_typecheck_op_write_overload_3(L)) return _bind_op_write_overload_3(L);
+		if (_lg_typecheck_op_write_overload_4(L)) return _bind_op_write_overload_4(L);
+		if (_lg_typecheck_op_write_overload_5(L)) return _bind_op_write_overload_5(L);
+		if (_lg_typecheck_op_write_overload_6(L)) return _bind_op_write_overload_6(L);
+		if (_lg_typecheck_op_write_overload_7(L)) return _bind_op_write_overload_7(L);
+		if (_lg_typecheck_op_write_overload_8(L)) return _bind_op_write_overload_8(L);
+		if (_lg_typecheck_op_write_overload_9(L)) return _bind_op_write_overload_9(L);
+		if (_lg_typecheck_op_write_overload_10(L)) return _bind_op_write_overload_10(L);
+		if (_lg_typecheck_op_write_overload_11(L)) return _bind_op_write_overload_11(L);
+		if (_lg_typecheck_op_write_overload_12(L)) return _bind_op_write_overload_12(L);
+		if (_lg_typecheck_op_write_overload_13(L)) return _bind_op_write_overload_13(L);
+		if (_lg_typecheck_op_write_overload_14(L)) return _bind_op_write_overload_14(L);
+		if (_lg_typecheck_op_write_overload_15(L)) return _bind_op_write_overload_15(L);
+		if (_lg_typecheck_op_write_overload_16(L)) return _bind_op_write_overload_16(L);
+		if (_lg_typecheck_op_write_overload_17(L)) return _bind_op_write_overload_17(L);
+		if (_lg_typecheck_op_write_overload_18(L)) return _bind_op_write_overload_18(L);
+		if (_lg_typecheck_op_write_overload_19(L)) return _bind_op_write_overload_19(L);
+		if (_lg_typecheck_op_write_overload_20(L)) return _bind_op_write_overload_20(L);
+		if (_lg_typecheck_op_write_overload_21(L)) return _bind_op_write_overload_21(L);
+		if (_lg_typecheck_op_write_overload_22(L)) return _bind_op_write_overload_22(L);
+		if (_lg_typecheck_op_write_overload_23(L)) return _bind_op_write_overload_23(L);
+		if (_lg_typecheck_op_write_overload_24(L)) return _bind_op_write_overload_24(L);
+		if (_lg_typecheck_op_write_overload_25(L)) return _bind_op_write_overload_25(L);
+		if (_lg_typecheck_op_write_overload_26(L)) return _bind_op_write_overload_26(L);
+		if (_lg_typecheck_op_write_overload_27(L)) return _bind_op_write_overload_27(L);
+		if (_lg_typecheck_op_write_overload_28(L)) return _bind_op_write_overload_28(L);
+		if (_lg_typecheck_op_write_overload_29(L)) return _bind_op_write_overload_29(L);
+		if (_lg_typecheck_op_write_overload_30(L)) return _bind_op_write_overload_30(L);
+		if (_lg_typecheck_op_write_overload_31(L)) return _bind_op_write_overload_31(L);
+		if (_lg_typecheck_op_write_overload_32(L)) return _bind_op_write_overload_32(L);
+		if (_lg_typecheck_op_write_overload_33(L)) return _bind_op_write_overload_33(L);
+		if (_lg_typecheck_op_write_overload_34(L)) return _bind_op_write_overload_34(L);
+		if (_lg_typecheck_op_write_overload_35(L)) return _bind_op_write_overload_35(L);
+		if (_lg_typecheck_op_write_overload_36(L)) return _bind_op_write_overload_36(L);
+		if (_lg_typecheck_op_write_overload_37(L)) return _bind_op_write_overload_37(L);
+		if (_lg_typecheck_op_write_overload_38(L)) return _bind_op_write_overload_38(L);
+		if (_lg_typecheck_op_write_overload_39(L)) return _bind_op_write_overload_39(L);
+		if (_lg_typecheck_op_write_overload_40(L)) return _bind_op_write_overload_40(L);
+
+		luaL_error(L, "error in function operator<<, cannot match any of the overloads for function operator<<:\n  operator<<(bool)\n  operator<<(char)\n  operator<<(unsigned char)\n  operator<<(short)\n  operator<<(unsigned short)\n  operator<<(int)\n  operator<<(unsigned int)\n  operator<<(long)\n  operator<<(unsigned long)\n  operator<<(float)\n  operator<<(double)\n  operator<<(const std::string &)\n  operator<<(const char *)\n  operator<<(const osgDB::ObjectGLenum &)\n  operator<<(const osgDB::ObjectProperty &)\n  operator<<(const osgDB::ObjectMark &)\n  operator<<(const osg::Vec2b &)\n  operator<<(const osg::Vec3b &)\n  operator<<(const osg::Vec4b &)\n  operator<<(const osg::Vec4ub &)\n  operator<<(const osg::Vec2s &)\n  operator<<(const osg::Vec3s &)\n  operator<<(const osg::Vec4s &)\n  operator<<(const osg::Vec2f &)\n  operator<<(const osg::Vec3f &)\n  operator<<(const osg::Vec4f &)\n  operator<<(const osg::Vec2d &)\n  operator<<(const osg::Vec3d &)\n  operator<<(const osg::Vec4d &)\n  operator<<(const osg::Quat &)\n  operator<<(const osg::Plane &)\n  operator<<(const osg::Matrixf &)\n  operator<<(const osg::Matrixd &)\n  operator<<(const osg::Array *)\n  operator<<(const osg::Image *)\n  operator<<(const osg::PrimitiveSet *)\n  operator<<(const osg::Object *)\n  operator<<(const osg::ref_ptr< osg::Array > &)\n  operator<<(const osg::ref_ptr< osg::Image > &)\n  operator<<(const osg::ref_ptr< osg::PrimitiveSet > &)\n");
+		return 0;
+	}
+
 
 };
 
@@ -1123,6 +2437,7 @@ luna_RegType LunaTraits< osgDB::OutputStream >::methods[] = {
 	{"useDecMode", &luna_wrapper_osgDB_OutputStream::_bind_useDecMode},
 	{"beginBracket", &luna_wrapper_osgDB_OutputStream::_bind_beginBracket},
 	{"endBracket", &luna_wrapper_osgDB_OutputStream::_bind_endBracket},
+	{"op_write", &luna_wrapper_osgDB_OutputStream::_bind_op_write},
 	{"dynCast", &luna_wrapper_osgDB_OutputStream::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_OutputStream::_bind___eq},
 	{0,0}

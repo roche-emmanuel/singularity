@@ -309,11 +309,6 @@ public:
 		return osgText::Text::getActiveFont();
 	};
 
-	// const osgText::Font * osgText::Text::getActiveFont() const
-	const osgText::Font * public_getActiveFont() const {
-		return osgText::Text::getActiveFont();
-	};
-
 	// bool osgText::Text::computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const
 	bool public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const {
 		return osgText::Text::computeAverageGlyphWidthAndHeight(avg_width, avg_height);
@@ -444,6 +439,11 @@ public:
 		return osg::Drawable::getNumChildrenRequiringEventTraversal();
 	};
 
+	// osg::Drawable & osg::Drawable::operator=(const osg::Drawable & arg1)
+	osg::Drawable & public_op_assign(const osg::Drawable & arg1) {
+		return osg::Drawable::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -462,13 +462,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_getActiveFont_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_getActiveFont_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_public_getActiveFont(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -670,6 +664,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_public_signalObserversAndDelete(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -705,8 +706,8 @@ public:
 	}
 
 	// osgText::Font * osgText::Text::public_getActiveFont()
-	static int _bind_public_getActiveFont_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_getActiveFont_overload_1(L)) {
+	static int _bind_public_getActiveFont(lua_State *L) {
+		if (!_lg_typecheck_public_getActiveFont(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Text::public_getActiveFont() function, expected prototype:\nosgText::Font * osgText::Text::public_getActiveFont()\nClass arguments details:\n");
 		}
@@ -723,36 +724,6 @@ public:
 		Luna< osgText::Font >::push(L,lret,false);
 
 		return 1;
-	}
-
-	// const osgText::Font * osgText::Text::public_getActiveFont() const
-	static int _bind_public_getActiveFont_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_getActiveFont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgText::Font * osgText::Text::public_getActiveFont() const function, expected prototype:\nconst osgText::Font * osgText::Text::public_getActiveFont() const\nClass arguments details:\n");
-		}
-
-
-		wrapper_osgText_FadeText* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_FadeText >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgText::Font * osgText::Text::public_getActiveFont() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		const osgText::Font * lret = self->public_getActiveFont();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgText::Font >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osgText::Text::public_getActiveFont
-	static int _bind_public_getActiveFont(lua_State *L) {
-		if (_lg_typecheck_public_getActiveFont_overload_1(L)) return _bind_public_getActiveFont_overload_1(L);
-		if (_lg_typecheck_public_getActiveFont_overload_2(L)) return _bind_public_getActiveFont_overload_2(L);
-
-		luaL_error(L, "error in function public_getActiveFont, cannot match any of the overloads for function public_getActiveFont:\n  public_getActiveFont()\n  public_getActiveFont()\n");
-		return 0;
 	}
 
 	// bool osgText::Text::public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const
@@ -1355,6 +1326,32 @@ public:
 		return 1;
 	}
 
+	// osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1) function, expected prototype:\nosg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Drawable* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::public_op_assign function");
+		}
+		const osg::Drawable & _arg1=*_arg1_ptr;
+
+		wrapper_osgText_FadeText* self=Luna< osg::Referenced >::checkSubType< wrapper_osgText_FadeText >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Drawable & osg::Drawable::public_op_assign(const osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Drawable* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Drawable >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -1398,7 +1395,6 @@ public:
 		static const luaL_Reg wrapper_lib[] = {
 		{"protected_init",_bind_public_init},
 		{"protected_getActiveFont",_bind_public_getActiveFont},
-		{"protected_getActiveFont",_bind_public_getActiveFont},
 		{"protected_computeAverageGlyphWidthAndHeight",_bind_public_computeAverageGlyphWidthAndHeight},
 		{"protected_computeBackdropPositions",_bind_public_computeBackdropPositions},
 		{"protected_computeBackdropBoundingBox",_bind_public_computeBackdropBoundingBox},
@@ -1425,6 +1421,7 @@ public:
 		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
 		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
 		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}

@@ -356,6 +356,11 @@ public:
 		return osgUtil::CullVisitor::createOrReuseRenderLeaf(drawable, projection, matrix, depth);
 	};
 
+	// osgUtil::CullVisitor & osgUtil::CullVisitor::operator=(const osgUtil::CullVisitor & arg1)
+	osgUtil::CullVisitor & public_op_assign(const osgUtil::CullVisitor & arg1) {
+		return osgUtil::CullVisitor::operator=(arg1);
+	};
+
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
 		return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
@@ -401,6 +406,13 @@ public:
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
 		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -507,6 +519,32 @@ public:
 		return 1;
 	}
 
+	// osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1) function, expected prototype:\nosgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgUtil::CullVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::CullVisitor >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::CullVisitor::public_op_assign function");
+		}
+		const osgUtil::CullVisitor & _arg1=*_arg1_ptr;
+
+		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::CullVisitor & osgUtil::CullVisitor::public_op_assign(const osgUtil::CullVisitor &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::CullVisitor* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::CullVisitor >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -595,6 +633,7 @@ public:
 		{"protected_handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
 		{"protected_handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
 		{"protected_createOrReuseRenderLeaf",_bind_public_createOrReuseRenderLeaf},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{"protected_computeFrustumVolume",_bind_public_computeFrustumVolume},

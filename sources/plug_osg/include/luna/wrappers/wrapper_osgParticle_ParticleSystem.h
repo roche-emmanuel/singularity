@@ -316,6 +316,11 @@ public:
 		return osgParticle::ParticleSystem::render_vertex_array(renderInfo);
 	};
 
+	// osgParticle::ParticleSystem & osgParticle::ParticleSystem::operator=(const osgParticle::ParticleSystem & arg1)
+	osgParticle::ParticleSystem & public_op_assign(const osgParticle::ParticleSystem & arg1) {
+		return osgParticle::ParticleSystem::operator=(arg1);
+	};
+
 	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
 	void public_setBound(const osg::BoundingBoxd & bb) const {
 		return osg::Drawable::setBound(bb);
@@ -383,6 +388,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -522,6 +534,32 @@ public:
 		self->public_render_vertex_array(renderInfo);
 
 		return 0;
+	}
+
+	// osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1) function, expected prototype:\nosgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgParticle::ParticleSystem* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::ParticleSystem >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgParticle::ParticleSystem::public_op_assign function");
+		}
+		const osgParticle::ParticleSystem & _arg1=*_arg1_ptr;
+
+		wrapper_osgParticle_ParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ParticleSystem >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::ParticleSystem & osgParticle::ParticleSystem::public_op_assign(const osgParticle::ParticleSystem &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::ParticleSystem* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::ParticleSystem >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const
@@ -705,6 +743,7 @@ public:
 		{"protected_update_bounds",_bind_public_update_bounds},
 		{"protected_single_pass_render",_bind_public_single_pass_render},
 		{"protected_render_vertex_array",_bind_public_render_vertex_array},
+		{"protected_op_assign",_bind_public_op_assign},
 		{"protected_setBound",_bind_public_setBound},
 		{"protected_addParent",_bind_public_addParent},
 		{"protected_removeParent",_bind_public_removeParent},

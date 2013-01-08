@@ -357,7 +357,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2696163) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_op_index(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1170,6 +1177,32 @@ public:
 
 
 	// Operator binds:
+	// osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator=(const osgDB::FieldReaderIterator & ic)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator=(const osgDB::FieldReaderIterator & ic) function, expected prototype:\nosgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator=(const osgDB::FieldReaderIterator & ic)\nClass arguments details:\narg 1 ID = 2696163\n");
+		}
+
+		const osgDB::FieldReaderIterator* ic_ptr=(Luna< osgDB::FieldReaderIterator >::check(L,2));
+		if( !ic_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ic in osgDB::FieldReaderIterator::operator= function");
+		}
+		const osgDB::FieldReaderIterator & ic=*ic_ptr;
+
+		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator=(const osgDB::FieldReaderIterator &). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+		}
+		const osgDB::FieldReaderIterator* lret = &self->operator=(ic);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::FieldReaderIterator >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// osgDB::Field & osgDB::FieldReaderIterator::operator[](int pos)
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
@@ -1247,6 +1280,7 @@ luna_RegType LunaTraits< osgDB::FieldReaderIterator >::methods[] = {
 	{"matchSequence", &luna_wrapper_osgDB_FieldReaderIterator::_bind_matchSequence},
 	{"readSequence", &luna_wrapper_osgDB_FieldReaderIterator::_bind_readSequence},
 	{"base_eof", &luna_wrapper_osgDB_FieldReaderIterator::_bind_base_eof},
+	{"op_assign", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_assign},
 	{"op_index", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_index},
 	{"op_add", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_add},
 	{"dynCast", &luna_wrapper_osgDB_FieldReaderIterator::_bind_dynCast},
