@@ -35,7 +35,7 @@ function Class:createWebView(options)
 end
 
 function Class:createWebImage(options)
-	local WebImage = require "web.WebImage"
+	local WebImage = require "gui.web.WebImage"
 	local res = WebImage(options)
 	return res;
 end

@@ -9,15 +9,19 @@ function Class:initialize(options)
 
 	local intf = Interface{root=self:getFrame()}
 
+	self:buildInterface(intf,options)
+	
+	self:getFrame():Layout()
+
+	self:setupEventHandlers()
+end
+
+function Class:buildInterface(intf, options)
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	local ctrl, canvas = intf:addOSGCtrl{prop=2,handlers=options.handlers}
 	intf:addOutputPanel{}
 	intf:popParent(true)
-	
-	self:getFrame():Layout()
 	self._canvas = canvas;
-
-	self:setupEventHandlers()
 end
 
 function Class:loadModel(filename)
@@ -81,6 +85,10 @@ end
 
 function Class:getViewer()
 	return self._canvas:getViewer()
+end
+
+function Class:getCanvas()
+	return self._canvas
 end
 
 function Class:setupEventHandlers()

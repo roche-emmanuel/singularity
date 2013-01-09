@@ -1,7 +1,7 @@
 local Class = require("classBuilder"){name="WebImage",bases="base.Object"};
 
 local Event = require "base.Event"
-local webman = require "web.WebManager"
+local webman = require "gui.web.WebManager"
 local osg = require "osg"
 local gl = require "luagl"
 local prof = require "debugging.Profiler"

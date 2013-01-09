@@ -121,6 +121,7 @@ function Class:__call(options)
 				--self:info("Adding auto wrapped function: ",name)
 				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
 				result[name] = function(self, ...) 
+					--log:info("Calling method ",wname,"...")
 					local obj = self._wrappers[index]
 					return obj[wname](obj, ...) 
 				end
@@ -148,6 +149,10 @@ function Class:__call(options)
 		end			
 	end
 	
+	function result:delete()
+		self:debug2_v("Deleting ",self._CLASSNAME_," object.")
+	end
+
 	-- return the resulting class:
 	return result;
 end

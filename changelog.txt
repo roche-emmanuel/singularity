@@ -41,3 +41,5 @@
 - Added support for custom initialize() procedure using child overloaded methods.
 - Added key handlers for osg canvas and ATB contexts.
 - Added texture Y coordinate inversion support in osg.Tools programs (used for VLC image display).
+- Fixed issue with unreferenced initial NodeVisitor for OSGCanvas.
+- Moved web modules in gui.

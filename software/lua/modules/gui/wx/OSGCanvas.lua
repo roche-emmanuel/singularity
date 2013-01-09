@@ -51,6 +51,10 @@ function Class:create(options)
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
+	self._viewer:getCamera():setViewport(0,0,1,1);
+	
+	-- Need to render one frame here to avoid the NODE_VISITOR initial traversal with unreferenced object.
+	self:getViewer():frame()
 	
 	-- self._viewer:setThreadingModel(osgViewer.ViewerBase.SingleThreaded);
 	

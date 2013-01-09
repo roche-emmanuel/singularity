@@ -1,7 +1,7 @@
 local Class = require("classBuilder"){name="WebTile",bases="osg.BasicNode"};
 
 local Event = require "base.Event"
-local webman = require "web.WebManager"
+local webman = require "gui.web.WebManager"
 local tools = require "osg.Tools"
 
 function Class:initialize(options)
@@ -17,6 +17,8 @@ function Class:initialize(options)
 	
 	self:setCullingActive(false);
 
+	self:info("DOne creating webtile.")
+	
 	--self:dirtyBound()
 end
 
