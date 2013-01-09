@@ -134,15 +134,17 @@ function Class:createTexture2DProgram(options)
 	vs:setShaderSource(default_quad_vs);
 	
 	local fs = osg.Shader(osg.Shader.FRAGMENT);	
-	fs:setShaderSource([[
+	local coords = options.invertY and "vec2(coords.x, 1.0 - coords.y)" or "coords"
+	
+	fs:setShaderSource(([[
 uniform sampler2D tex;	
 varying vec2 coords;
 
 void main() {
-    vec4 color = texture2DLod(tex,coords,0.0);  
+    vec4 color = texture2DLod(tex,%s,0.0);  
     gl_FragColor = color;
 }
-	]]);
+	]]):format(coords));
 	
 	prog:addShader(vs)
 	prog:addShader(fs)	
@@ -166,16 +168,18 @@ function Class:createTextureRectProgram(options)
 	vs:setShaderSource(default_quad_vs);
 	
 	local fs = osg.Shader(osg.Shader.FRAGMENT);	
+	local coordy = options.invertY and "(1.0 - coords.y)" or "coords.y"
+	
 	fs:setShaderSource(([[
 uniform sampler2DRect tex;
 
 varying vec2 coords;
 
 void main() {
-    vec4 color = texture2DRect(tex,vec2(coords.x*%.1f,coords.y*%.1f));  
+    vec4 color = texture2DRect(tex,vec2(coords.x*%.1f,%s*%.1f));  
     gl_FragColor = color;
 }
-	]]):format(options.texture:getTextureWidth(),options.texture:getTextureHeight()));
+	]]):format(options.texture:getTextureWidth(),coordy,options.texture:getTextureHeight()));
 	
 	--self:info("Texture width:",options.texture:getTextureWidth(),", texture height:",options.texture:getTextureHeight());
 	
@@ -252,8 +256,8 @@ function Class:createScreenQuad(options)
 	if img then
 		local tex=self:createTexture{image=img}
 		ss:setTextureAttributeAndModes(0,tex);
-		self:createTextureRectProgram{stateSet=ss,texture=tex}
-		--self:createTexture2DProgram{stateSet=ss,texture=tex}
+		self:createTextureRectProgram{stateSet=ss,texture=tex,invertY=options.invertY}
+		--self:createTexture2DProgram{stateSet=ss,texture=tex,invertY=options.invertY}
 	else
 		self:createColorProgram{stateSet=ss}
 	end

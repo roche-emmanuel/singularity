@@ -22,7 +22,7 @@ function Class:initialize(options)
 	--img:play();
 
 	-- local geode = tools:createScreenQuad{image=tools:getImage("tests/data/wave.bmp")}
-	local geode = tools:createScreenQuad{image=img}
+	local geode = tools:createScreenQuad{image=img,invertY=true}
 	
 	self:info("Adding geode to scenegraph...")
 	self:getRoot():addChild(geode);
