@@ -59,6 +59,10 @@ function Class:__call(options)
 		obj =  oo.rawnew(self,obj)
 		obj._TRACE_ = options.name
 		
+		if result.new then
+			result.new(obj,opt)
+		end
+		
 		if not instance then
 			obj:doInitialize(opt)
 		end

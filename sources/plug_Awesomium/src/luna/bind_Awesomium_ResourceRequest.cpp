@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<Awesomium::ResourceRequest,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -278,11 +278,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::method(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->method();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->method();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -320,11 +318,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::referrer(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->referrer();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->referrer();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -362,11 +358,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::extra_headers(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->extra_headers();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->extra_headers();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}

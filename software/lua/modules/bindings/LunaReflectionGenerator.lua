@@ -1102,7 +1102,7 @@ function ReflectionGenerator.generate(options)
 	tc:setFromLuaConverter("const std::wstring &",stdWStringFromLua)
 	
 	tc:setFromLuaConverter("WebString %*",stdAWEStringFromLua)
-	tc:setFromLuaConverter("WebString ",stdAWEStringFromLua)
+	tc:setFromLuaConverter("WebString$",stdAWEStringFromLua)
 	tc:setFromLuaConverter("WebString &",stdAWEStringFromLua)
 	tc:setFromLuaConverter("const WebString &",stdAWEStringFromLua)
 	
@@ -1123,7 +1123,7 @@ function ReflectionGenerator.generate(options)
 	tc:setToLuaConverter("^const std::wstring &$",stdWStringToLua)
 
 	tc:setToLuaConverter("WebString %*",stdAWEStringToLua)
-	tc:setToLuaConverter("WebString ",stdAWEStringToLua)
+	tc:setToLuaConverter("WebString$",stdAWEStringToLua)
 	tc:setToLuaConverter("WebString &$",stdAWEStringToLua)
 	tc:setToLuaConverter("^const WebString &$",stdAWEStringToLua)
 	

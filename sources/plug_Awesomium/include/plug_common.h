@@ -40,4 +40,29 @@ struct luna_caster<Awesomium::Surface, dstType> {
 	};
 };
 
+namespace sgt {
+
+inline void pushValue(lua_State* L, const WebString* arg) {
+	if (!arg) {
+		lua_pushnil(L);
+		return;
+	}
+	
+	std::string lret_str = Awesomium::ToString(*arg);
+	lua_pushlstring(L,lret_str.data(),lret_str.size());
+}
+
+inline void pushValue(lua_State* L, const WebString& arg) {
+	std::string lret_str = Awesomium::ToString(arg);
+	lua_pushlstring(L,lret_str.data(),lret_str.size());
+}
+
+template <>
+inline WebString getValue(lua_State* L, int index) {
+	std::string str = lua_tostring(L,index);
+	return Awesomium::ToWebString(str);
+};
+
+};
+
 #endif

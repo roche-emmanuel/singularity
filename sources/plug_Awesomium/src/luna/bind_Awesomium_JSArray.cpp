@@ -139,7 +139,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18109170) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_op_index_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -402,6 +409,32 @@ public:
 
 
 	// Operator binds:
+	// Awesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray & rhs) function, expected prototype:\nAwesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray & rhs)\nClass arguments details:\narg 1 ID = 18109170\n");
+		}
+
+		const Awesomium::JSArray* rhs_ptr=(Luna< Awesomium::JSArray >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in Awesomium::JSArray::operator= function");
+		}
+		const Awesomium::JSArray & rhs=*rhs_ptr;
+
+		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray &). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
+		}
+		const Awesomium::JSArray* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< Awesomium::JSArray >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// Awesomium::JSValue & Awesomium::JSArray::operator[](unsigned int idx)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
@@ -484,6 +517,7 @@ luna_RegType LunaTraits< Awesomium::JSArray >::methods[] = {
 	{"Insert", &luna_wrapper_Awesomium_JSArray::_bind_Insert},
 	{"Erase", &luna_wrapper_Awesomium_JSArray::_bind_Erase},
 	{"Clear", &luna_wrapper_Awesomium_JSArray::_bind_Clear},
+	{"op_assign", &luna_wrapper_Awesomium_JSArray::_bind_op_assign},
 	{"op_index", &luna_wrapper_Awesomium_JSArray::_bind_op_index},
 	{"dynCast", &luna_wrapper_Awesomium_JSArray::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_JSArray::_bind___eq},

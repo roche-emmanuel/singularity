@@ -21,6 +21,14 @@ function Class:initialize(options)
 	--self:getEventManager():addListener(Event.FRAME,self)	
 end
 
+function Class:getWidth()
+	return self._image:s()
+end
+
+function Class:getHeight()
+	return self._image:t()
+end
+
 function Class:getWebView()
 	return self._webView;
 end

@@ -165,7 +165,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 3 valid operators)
+	// (found 4 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isstring(L,2)==0) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -536,17 +543,37 @@ public:
 		const char * data=(const char *)lua_tostring(L,1);
 		unsigned int len=(unsigned int)lua_tointeger(L,2);
 
-		Awesomium::WebString stack_lret = Awesomium::WebString::CreateFromUTF8(data, len);
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = Awesomium::WebString::CreateFromUTF8(data, len);
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
 
 
 	// Operator binds:
+	// Awesomium::WebString & Awesomium::WebString::operator=(const Awesomium::WebString & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString & Awesomium::WebString::operator=(const Awesomium::WebString & rhs) function, expected prototype:\nAwesomium::WebString & Awesomium::WebString::operator=(const Awesomium::WebString & rhs)\nClass arguments details:\narg 1 ID = 13938525\n");
+		}
+
+		std::string rhs_str(lua_tostring(L,2),lua_objlen(L,2));
+		Awesomium::WebString rhs = Awesomium::ToWebString(rhs_str);
+
+		Awesomium::WebString* self=(Luna< Awesomium::WebString >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebString::operator=(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebString >::check(L,1)).name());
+		}
+		Awesomium::WebString & lret = self->operator=(rhs);
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
+
+		return 1;
+	}
+
 	// bool Awesomium::WebString::operator==(const Awesomium::WebString & other) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -641,6 +668,7 @@ luna_RegType LunaTraits< Awesomium::WebString >::methods[] = {
 	{"Clear", &luna_wrapper_Awesomium_WebString::_bind_Clear},
 	{"ToUTF8", &luna_wrapper_Awesomium_WebString::_bind_ToUTF8},
 	{"CreateFromUTF8", &luna_wrapper_Awesomium_WebString::_bind_CreateFromUTF8},
+	{"op_assign", &luna_wrapper_Awesomium_WebString::_bind_op_assign},
 	{"__eq", &luna_wrapper_Awesomium_WebString::_bind___eq},
 	{"op_neq", &luna_wrapper_Awesomium_WebString::_bind_op_neq},
 	{"__lt", &luna_wrapper_Awesomium_WebString::_bind___lt},

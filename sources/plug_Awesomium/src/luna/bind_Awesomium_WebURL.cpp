@@ -129,7 +129,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 3 valid operators)
+	// (found 4 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,3243885) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -256,11 +263,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::spec() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->spec();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->spec();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -278,11 +283,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::scheme() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->scheme();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->scheme();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -300,11 +303,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::username() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->username();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->username();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -322,11 +323,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::password() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->password();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->password();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -344,11 +343,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::host() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->host();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->host();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -366,11 +363,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::port() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->port();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->port();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -388,11 +383,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::path() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->path();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->path();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -410,11 +403,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::query() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->query();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->query();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -432,11 +423,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::anchor() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->anchor();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->anchor();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -454,17 +443,41 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebURL::filename() const. Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->filename();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->filename();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
 
 
 	// Operator binds:
+	// Awesomium::WebURL & Awesomium::WebURL::operator=(const Awesomium::WebURL & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::WebURL & Awesomium::WebURL::operator=(const Awesomium::WebURL & rhs) function, expected prototype:\nAwesomium::WebURL & Awesomium::WebURL::operator=(const Awesomium::WebURL & rhs)\nClass arguments details:\narg 1 ID = 3243885\n");
+		}
+
+		const Awesomium::WebURL* rhs_ptr=(Luna< Awesomium::WebURL >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in Awesomium::WebURL::operator= function");
+		}
+		const Awesomium::WebURL & rhs=*rhs_ptr;
+
+		Awesomium::WebURL* self=(Luna< Awesomium::WebURL >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL & Awesomium::WebURL::operator=(const Awesomium::WebURL &). Got : '%s'",typeid(Luna< Awesomium::WebURL >::check(L,1)).name());
+		}
+		const Awesomium::WebURL* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< Awesomium::WebURL >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool Awesomium::WebURL::operator==(const Awesomium::WebURL & other) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -570,6 +583,7 @@ luna_RegType LunaTraits< Awesomium::WebURL >::methods[] = {
 	{"query", &luna_wrapper_Awesomium_WebURL::_bind_query},
 	{"anchor", &luna_wrapper_Awesomium_WebURL::_bind_anchor},
 	{"filename", &luna_wrapper_Awesomium_WebURL::_bind_filename},
+	{"op_assign", &luna_wrapper_Awesomium_WebURL::_bind_op_assign},
 	{"__eq", &luna_wrapper_Awesomium_WebURL::_bind___eq},
 	{"op_neq", &luna_wrapper_Awesomium_WebURL::_bind_op_neq},
 	{"__lt", &luna_wrapper_Awesomium_WebURL::_bind___lt},

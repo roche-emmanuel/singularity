@@ -230,7 +230,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,36991498) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// Awesomium::JSValue::JSValue()
@@ -542,11 +549,9 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSValue::ToString() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->ToString();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->ToString();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -744,6 +749,32 @@ public:
 
 
 	// Operator binds:
+	// Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs) function, expected prototype:\nAwesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs)\nClass arguments details:\narg 1 ID = 36991498\n");
+		}
+
+		const Awesomium::JSValue* rhs_ptr=(Luna< Awesomium::JSValue >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in Awesomium::JSValue::operator= function");
+		}
+		const Awesomium::JSValue & rhs=*rhs_ptr;
+
+		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue &). Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+		}
+		const Awesomium::JSValue* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< Awesomium::JSValue >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -782,6 +813,7 @@ luna_RegType LunaTraits< Awesomium::JSValue >::methods[] = {
 	{"ToObject", &luna_wrapper_Awesomium_JSValue::_bind_ToObject},
 	{"Undefined", &luna_wrapper_Awesomium_JSValue::_bind_Undefined},
 	{"Null", &luna_wrapper_Awesomium_JSValue::_bind_Null},
+	{"op_assign", &luna_wrapper_Awesomium_JSValue::_bind_op_assign},
 	{"dynCast", &luna_wrapper_Awesomium_JSValue::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_JSValue::_bind___eq},
 	{0,0}

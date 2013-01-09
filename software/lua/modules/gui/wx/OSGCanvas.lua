@@ -90,6 +90,26 @@ keyMap[wx.WXK_UP] = osgGA.GUIEventAdapter.KEY_Up;
 keyMap[wx.WXK_DOWN] = osgGA.GUIEventAdapter.KEY_Down;
 keyMap[wx.WXK_LEFT] = osgGA.GUIEventAdapter.KEY_Left;
 keyMap[wx.WXK_RIGHT] = osgGA.GUIEventAdapter.KEY_Right;
+keyMap[wx.WXK_BACK] = osgGA.GUIEventAdapter.KEY_BackSpace;
+keyMap[wx.WXK_TAB] = osgGA.GUIEventAdapter.KEY_Tab;
+keyMap[wx.WXK_RETURN] = osgGA.GUIEventAdapter.KEY_Return;
+keyMap[wx.WXK_ESCAPE] = osgGA.GUIEventAdapter.KEY_Escape 
+keyMap[wx.WXK_SPACE] = osgGA.GUIEventAdapter.KEY_Space
+keyMap[wx.WXK_DELETE] = osgGA.GUIEventAdapter.KEY_Delete
+keyMap[wx.WXK_START] = osgGA.GUIEventAdapter.KEY_Start 
+keyMap[wx.WXK_CANCEL] = osgGA.GUIEventAdapter.KEY_Cancel
+keyMap[wx.WXK_CLEAR] = osgGA.GUIEventAdapter.KEY_Clear
+keyMap[wx.WXK_MENU] = osgGA.GUIEventAdapter.KEY_Menu
+keyMap[wx.WXK_PAUSE] = osgGA.GUIEventAdapter.KEY_Pause
+keyMap[wx.WXK_END] = osgGA.GUIEventAdapter.KEY_End
+keyMap[wx.WXK_HOME] = osgGA.GUIEventAdapter.KEY_Home
+keyMap[wx.WXK_SELECT] = osgGA.GUIEventAdapter.KEY_Select
+keyMap[wx.WXK_PRINT] = osgGA.GUIEventAdapter.KEY_Print
+keyMap[wx.WXK_EXECUTE] = osgGA.GUIEventAdapter.KEY_Execute
+keyMap[wx.WXK_SNAPSHOT] = osgGA.GUIEventAdapter.KEY_Snapshot
+keyMap[wx.WXK_INSERT] = osgGA.GUIEventAdapter.KEY_Insert
+keyMap[wx.WXK_HELP] = osgGA.GUIEventAdapter.KEY_Help
+
 
 function Class:adaptKeyCode(key)
 	return keyMap[key] or key
@@ -130,7 +150,7 @@ function Class:connectHandlers()
 	end
 	
 	local keyDownHandler = function(intf,event)
-		--self._gw:getEventQueue():keyRelease(self:adaptKeyCode(event:GetKeyCode()));
+		--self._gw:getEventQueue():keyPress(self:adaptKeyCode(event:GetKeyCode()));
 		event:Skip();
 	end
 
