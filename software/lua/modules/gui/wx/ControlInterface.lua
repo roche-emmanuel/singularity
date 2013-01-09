@@ -9,7 +9,8 @@ local winman = require "gui.wx.WindowManager"
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
-	 
+	self:info("Executing initialize for ControlInterface...")
+
 end
 
 function Class:close()

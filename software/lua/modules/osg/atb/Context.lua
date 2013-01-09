@@ -22,19 +22,21 @@ function Class:initialize(options)
 	self._eventHandler = osgGA.GUIEventHandler{
 		handle = function(tt,ea,aa)
 			--self:info("I'm in the event handler.")
-			if requestedEvents[ea:getEventType()] then
+			local etype = ea:getEventType()
+			if requestedEvents[etype] then
 				self._events:push_back(ea);
 			end
 			
-			if (ea:getEventType()==osgGA.GUIEventAdapter.PUSH) then
+			if (etype==osgGA.GUIEventAdapter.PUSH or etype==osgGA.GUIEventAdapter.KEYDOWN) then
 				local x = ea:getX();
 				local y = ea:getWindowHeight() - ea:getY();
-				
-				-- self:info("Checking position: x=",x,", y=",y)
+				--if etype==osgGA.GUIEventAdapter.KEYDOWN then
+				--	self:info("Checking position: x=",x,", y=",y)
+				--end
 				self._currentWindow = self:getWindowUnderMouse(x,y)
 			end
 			
-			if (ea:getEventType()==osgGA.GUIEventAdapter.RELEASE) then
+			if (etype==osgGA.GUIEventAdapter.RELEASE or etype==osgGA.GUIEventAdapter.KEYUP) then
 				self._currentWindow = nil
 			end
 			

@@ -128,4 +128,16 @@ function Class:initialize(options)
 	self:home()
 end
 
+function Class:setupEventHandlers()
+	self:info("Setting up event handlers from ATB app.")
+	local manager = require "osg.atb.Manager"
+	local context = manager:getContext()
+	
+	self:getViewer():getCamera():setFinalDrawCallback( context:getDrawCallback() );
+
+	self:getViewer():addEventHandler( context:getEventHandler() );
+	self:getViewer():addEventHandler( osgViewer.StatsHandler() )	
+	self:getViewer():addEventHandler( osgViewer.WindowSizeHandler() )
+end
+
 return Class 

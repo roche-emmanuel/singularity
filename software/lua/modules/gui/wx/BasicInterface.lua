@@ -13,6 +13,8 @@ wx.wxInitAllImageHandlers() -- init all image handlers.
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
+	self:info("Executing initialize for BasicInterface...")
+	
 	self._sizerStack = Vector() -- stack of sizers.
 	self._parentStack = Vector() -- stack of parent windows.
 	self._licensedObjects = Vector() 

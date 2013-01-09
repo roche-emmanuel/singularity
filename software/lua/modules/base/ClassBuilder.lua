@@ -5,6 +5,7 @@ require("logger"):debug0_v("Generating class ",className)
 local oo = require "loop.cached"
 
 local Object = require "base.Object"
+local log = require "logger"
 
 local Class = oo.class({},Object)
 Class.CLASS_NAME = className
@@ -42,8 +43,6 @@ function Class:__call(options)
 		table.insert(bases,type(base)=="string" and require(base) or base)
 	end
 	
-
-	
 	self:debug0_v("Generating class for ",options.name)
 	local result = oo.class({},unpack(bases))
 	result.CLASS_NAME = options.name -- kept for backward compatibility (see binding modules for instance)
@@ -59,13 +58,28 @@ function Class:__call(options)
 		
 		obj =  oo.rawnew(self,obj)
 		obj._TRACE_ = options.name
-				
-		-- Call the initialize function if any:
-		if obj.initialize then
-			obj:initialize(opt)
+		
+		if not instance then
+			obj:doInitialize(opt)
 		end
-				
+		
 		return obj 
+	end
+
+	function result:doInitialize(opt,class)
+		class = class or oo.classof(self)
+		
+		for _,base in oo.supers(class) do
+			if base.doInitialize then
+				base.doInitialize(self,opt,base)
+			end
+		end
+		
+		--log:info("Calling doInitialize for class ", class._CLASSNAME_ or "[unnamed]")
+
+		if class.initialize then
+			class.initialize(self,opt)
+		end
 	end
 	
 	function result:release()

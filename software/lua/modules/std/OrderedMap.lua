@@ -4,10 +4,7 @@ local Map = require "std.Map"
 local Set = require "std.Set"
 
 function Class:initialize(options)
-	self._keys = Set()
-	if options then
-		self:fromTable()
-	end
+	self._keys = self._keys or Set()
 end
 
 --- Set an item in the map:
@@ -66,6 +63,7 @@ end
 --- Clear the content of the vector
 function Class:clear()
     self._data = {}
+	self._keys = self._keys or Set() -- this might not be initialized when calling from table in the initialize function.
     self._keys:clear()
 end
 

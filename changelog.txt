@@ -38,4 +38,5 @@
 - Added support to find ATB window under mouse.
 - Separating ATB event handling from OSG default handling.
 - Added support for assign operator (operator=)
-
+- Added support for custom initialize() procedure using child overloaded methods.
+- Added key handlers for osg canvas and ATB contexts.

@@ -11,7 +11,7 @@ local prof = require "debugging.Profiler"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
-	self:debug4("Initializing mainframe.")
+	self:info("Initializing mainframe.")
 	
 	options = options or {}
 	self._onStartFunc = options.onStart;

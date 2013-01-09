@@ -26,12 +26,12 @@ function Class:initialize(options)
 	
 	self._attribs = options.attribs or {wx.WX_GL_RGBA,wx.WX_GL_DOUBLEBUFFER}
 		
-	self:create()
+	self:create(options)
 	
 	self:debug4("OSG Canvas initialization done.")
 end
 
-function Class:create()
+function Class:create(options)
 	
 	self._window = osgWX.createGLCanvas(self._parent,wx.wxID_ANY,self._attribs)
 	self:check(self._window,"Invalid wxGLCanvas")
@@ -51,10 +51,12 @@ function Class:create()
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
-	--self._viewer:setThreadingModel(osgViewer.ViewerBase.SingleThreaded);
 	
-	self._viewer:addEventHandler( osgViewer.StatsHandler() )	
-	self._viewer:addEventHandler( osgViewer.WindowSizeHandler() )
+	-- self._viewer:setThreadingModel(osgViewer.ViewerBase.SingleThreaded);
+	
+	for _,h in ipairs(options.handlers or {}) do
+		self._viewer:addEventHandler( h );
+	end
 	
 	-- connect the event handlers for the canvas:
 	self._intf:connectHandler(self._window,wx.wxEVT_SIZE,function(intf,event)
@@ -72,8 +74,21 @@ function Class:create()
 	
 	self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
 		self:info("Removing graphics context from osg canvas.");
-		self._viewer:getCamera():setGraphicsContext(nil);
+		self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion.
 	end}
+end
+
+local keyMap = {}
+keyMap[wx.WXK_CONTROL] = osgGA.GUIEventAdapter.KEY_Control_L;
+keyMap[wx.WXK_SHIFT] = osgGA.GUIEventAdapter.KEY_Shift_L;
+keyMap[wx.WXK_ALT] = osgGA.GUIEventAdapter.KEY_Alt_L;
+keyMap[wx.WXK_UP] = osgGA.GUIEventAdapter.KEY_Up;
+keyMap[wx.WXK_DOWN] = osgGA.GUIEventAdapter.KEY_Down;
+keyMap[wx.WXK_LEFT] = osgGA.GUIEventAdapter.KEY_Left;
+keyMap[wx.WXK_RIGHT] = osgGA.GUIEventAdapter.KEY_Right;
+
+function Class:adaptKeyCode(key)
+	return keyMap[key] or key
 end
 
 function Class:connectHandlers()
@@ -84,36 +99,44 @@ function Class:connectHandlers()
 	local mouseDownHandler = function(intf,event)
     	--self:info("Sending mouse down event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
 		self._gw:getEventQueue():mouseButtonPress(event:GetX(), event:GetY(), event:GetButton())
-		--self._viewer:getCamera():setClearColor(osg.Vec4f(0.0,1.0,0.0,1.0))
-		--self._viewer:eventTraversal()
 		event:Skip();
 	end
 	
 	local mouseUpHandler = function(intf,event)
     	--self:info("Sending mouse up event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
 		self._gw:getEventQueue():mouseButtonRelease(event:GetX(), event:GetY(), event:GetButton())
-		--self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
-		--self._viewer:eventTraversal()
 		event:Skip();
 	end
 	
 	local mouseWheelHandler = function(intf,event)
     	--self:info("Sending mouse wheel event: ",event:GetWheelRotation()>0.0 and "DOWN" or "UP")
 		self._gw:getEventQueue():mouseScroll(event:GetWheelRotation()>0.0 and osgGA.GUIEventAdapter.SCROLL_DOWN or osgGA.GUIEventAdapter.SCROLL_UP);
-		--self._viewer:eventTraversal()
 		event:Skip();
 	end
 
 	local mouseMotionHandler = function(intf,event)
     	--self:info("Sending mouse motion event: X=",event:GetX(),", Y=",event:GetY())
 		self._gw:getEventQueue():mouseMotion(event:GetX(), event:GetY());
-		--self._viewer:eventTraversal()
 		event:Skip();
 	end
 
+	local keyUpHandler = function(intf,event)
+		self._gw:getEventQueue():keyRelease(self:adaptKeyCode(event:GetKeyCode()));
+		event:Skip();
+	end
 	
+	local keyDownHandler = function(intf,event)
+		--self._gw:getEventQueue():keyRelease(self:adaptKeyCode(event:GetKeyCode()));
+		event:Skip();
+	end
+
+	local charHandler = function(intf,event)
+		self._gw:getEventQueue():keyPress(self:adaptKeyCode(event:GetKeyCode()));
+		event:Skip();
+	end
+
 	local win = self._window
-	-- local win = self._parent
+	
 	self._intf:connectHandler(win,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
 	self._intf:connectHandler(win,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
 	self._intf:connectHandler(win,wx.wxEVT_RIGHT_DOWN,mouseDownHandler)
@@ -122,6 +145,10 @@ function Class:connectHandlers()
 	self._intf:connectHandler(win,wx.wxEVT_RIGHT_UP,mouseUpHandler)
 	self._intf:connectHandler(win,wx.wxEVT_MOUSEWHEEL,mouseWheelHandler)
 	self._intf:connectHandler(win,wx.wxEVT_MOTION,mouseMotionHandler)
+	
+	self._intf:connectHandler(win,wx.wxEVT_KEY_UP,keyUpHandler)
+	self._intf:connectHandler(win,wx.wxEVT_KEY_DOWN,keyDownHandler)
+	self._intf:connectHandler(win,wx.wxEVT_CHAR,charHandler)
 end
 
 function Class:onFrame()

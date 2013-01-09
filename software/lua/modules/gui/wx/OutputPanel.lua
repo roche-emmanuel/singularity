@@ -13,12 +13,12 @@ function Class:initialize(options)
 
 	self:createWrapper(sgt.LogSink)
 	
-	sgt.LogManager.instance():addSink(self:getWrapper())
-
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:create()
-		
+
+	sgt.LogManager.instance():addSink(self:getWrapper())
+	
 	self:debug4("OutputPanel initialization done.")
 end
 
