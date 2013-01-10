@@ -223,7 +223,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,26059272) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxNativeFontInfo::wxNativeFontInfo()
@@ -729,6 +736,32 @@ public:
 
 
 	// Operator binds:
+	// wxNativeFontInfo & wxNativeFontInfo::operator=(const wxNativeFontInfo & info)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxNativeFontInfo & wxNativeFontInfo::operator=(const wxNativeFontInfo & info) function, expected prototype:\nwxNativeFontInfo & wxNativeFontInfo::operator=(const wxNativeFontInfo & info)\nClass arguments details:\narg 1 ID = 26059272\n");
+		}
+
+		const wxNativeFontInfo* info_ptr=(Luna< wxNativeFontInfo >::check(L,2));
+		if( !info_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg info in wxNativeFontInfo::operator= function");
+		}
+		const wxNativeFontInfo & info=*info_ptr;
+
+		wxNativeFontInfo* self=(Luna< wxNativeFontInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxNativeFontInfo & wxNativeFontInfo::operator=(const wxNativeFontInfo &). Got : '%s'",typeid(Luna< wxNativeFontInfo >::check(L,1)).name());
+		}
+		const wxNativeFontInfo* lret = &self->operator=(info);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxNativeFontInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -772,6 +805,7 @@ luna_RegType LunaTraits< wxNativeFontInfo >::methods[] = {
 	{"ToString", &luna_wrapper_wxNativeFontInfo::_bind_ToString},
 	{"FromUserString", &luna_wrapper_wxNativeFontInfo::_bind_FromUserString},
 	{"ToUserString", &luna_wrapper_wxNativeFontInfo::_bind_ToUserString},
+	{"op_assign", &luna_wrapper_wxNativeFontInfo::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxNativeFontInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxNativeFontInfo::_bind___eq},
 	{0,0}

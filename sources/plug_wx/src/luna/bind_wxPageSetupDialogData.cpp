@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -282,7 +282,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxPageSetupDialogData::wxPageSetupDialogData()
@@ -923,6 +930,32 @@ public:
 
 
 	// Operator binds:
+	// wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxPageSetupDialogData* data_ptr=(Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,2));
+		if( !data_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg data in wxPageSetupDialogData::operator= function");
+		}
+		const wxPageSetupDialogData & data=*data_ptr;
+
+		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxPageSetupDialogData* lret = &self->operator=(data);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPageSetupDialogData >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -972,6 +1005,7 @@ luna_RegType LunaTraits< wxPageSetupDialogData >::methods[] = {
 	{"SetPaperId", &luna_wrapper_wxPageSetupDialogData::_bind_SetPaperId},
 	{"SetPaperSize", &luna_wrapper_wxPageSetupDialogData::_bind_SetPaperSize},
 	{"base_GetClassInfo", &luna_wrapper_wxPageSetupDialogData::_bind_base_GetClassInfo},
+	{"op_assign", &luna_wrapper_wxPageSetupDialogData::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxPageSetupDialogData::_bind___eq},
 	{"getTable", &luna_wrapper_wxPageSetupDialogData::_bind_getTable},
 	{0,0}

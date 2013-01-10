@@ -125,11 +125,14 @@ protected:
 		return wxAuiNotebook::AddPendingEvent(event);
 	};
 
-	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	// wxWindow * wxAuiNotebook::DoRemovePage(size_t arg1)
 	wxWindow * DoRemovePage(size_t arg1) {
-		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
-		_obj.pushArg(arg1);
-		return (_obj.callFunction<wxWindow*>());
+		if(_obj.pushFunction("DoRemovePage")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<wxWindow*>());
+		}
+
+		return wxAuiNotebook::DoRemovePage(arg1);
 	};
 
 public:
@@ -1121,13 +1124,6 @@ public:
 		return wxAuiNotebook::SetImageList(imageList);
 	};
 
-	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
-	int GetPageImage(size_t nPage) const {
-		THROW_IF(!_obj.pushFunction("GetPageImage"),"No implementation for abstract function wxBookCtrlBase::GetPageImage");
-		_obj.pushArg(nPage);
-		return (_obj.callFunction<int>());
-	};
-
 	// void wxBookCtrlBase::SetPageSize(const wxSize & size)
 	void SetPageSize(const wxSize & size) {
 		if(_obj.pushFunction("SetPageSize")) {
@@ -1147,6 +1143,16 @@ public:
 		}
 
 		return wxAuiNotebook::HitTest(pt, flags);
+	};
+
+	// int wxAuiNotebook::GetPageImage(size_t nPage) const
+	int GetPageImage(size_t nPage) const {
+		if(_obj.pushFunction("GetPageImage")) {
+			_obj.pushArg(nPage);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxAuiNotebook::GetPageImage(nPage);
 	};
 
 	// bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & text, bool select, int imageId)

@@ -12,6 +12,14 @@ function Class:initialize(options)
 	self._parent = options.parent or intf:getCurrentParent()
 end
 
+function Class:createPanel(parent)
+	local panel = wx.wxPanel:new(parent,wx.wxID_ANY);	
+    local sizer = wx.wxBoxSizer:new(wx.wxVERTICAL)
+    panel:SetSizer(sizer)
+	
+	return panel
+end
+
 function Class:getWindow()
 	return self._window;
 end

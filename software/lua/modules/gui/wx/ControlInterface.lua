@@ -462,6 +462,16 @@ function Class:addTimePickerCtrl(options)
     return self:addControl(ctrl,options)
 end
 
+--[[
+function Class:addAuiNotebook(options)
+    local ctrl = wx.wxAuiNotebook:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultDateTime,wx.wxDefaultPosition,options.style or wx.wxAUI_NB_DEFAULT_STYLE)
+	
+    options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
+
+    return self:addControl(ctrl,options)
+end
+]]
+
 function Class:addSTCCtrl(options)
 	local ctrl = wx.wxStyledTextCtrl:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or 0);
 	return self:addControl(ctrl,options)

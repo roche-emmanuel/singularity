@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -174,7 +174,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxCursor::wxCursor()
@@ -401,6 +408,32 @@ public:
 
 
 	// Operator binds:
+	// wxCursor & wxCursor::operator=(const wxCursor & cursor)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCursor & wxCursor::operator=(const wxCursor & cursor) function, expected prototype:\nwxCursor & wxCursor::operator=(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
+		if( !cursor_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxCursor::operator= function");
+		}
+		const wxCursor & cursor=*cursor_ptr;
+
+		wxCursor* self=Luna< wxObject >::checkSubType< wxCursor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxCursor & wxCursor::operator=(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxCursor* lret = &self->operator=(cursor);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxCursor >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -425,6 +458,7 @@ luna_RegType LunaTraits< wxCursor >::methods[] = {
 	{"IsOk", &luna_wrapper_wxCursor::_bind_IsOk},
 	{"base_GetClassInfo", &luna_wrapper_wxCursor::_bind_base_GetClassInfo},
 	{"base_IsOk", &luna_wrapper_wxCursor::_bind_base_IsOk},
+	{"op_assign", &luna_wrapper_wxCursor::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxCursor::_bind___eq},
 	{"getTable", &luna_wrapper_wxCursor::_bind_getTable},
 	{0,0}

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -339,8 +339,15 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
 	inline static bool _lg_typecheck_op_neq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
@@ -1106,6 +1113,32 @@ public:
 		return 1;
 	}
 
+	// wxColour & wxColour::operator=(const wxColour & colour)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxColour & wxColour::operator=(const wxColour & colour) function, expected prototype:\nwxColour & wxColour::operator=(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
+		if( !colour_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxColour::operator= function");
+		}
+		const wxColour & colour=*colour_ptr;
+
+		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxColour & wxColour::operator=(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxColour* lret = &self->operator=(colour);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxColour >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool wxColour::operator==(const wxColour & colour) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -1176,6 +1209,7 @@ luna_RegType LunaTraits< wxColour >::methods[] = {
 	{"base_IsOk", &luna_wrapper_wxColour::_bind_base_IsOk},
 	{"base_Red", &luna_wrapper_wxColour::_bind_base_Red},
 	{"op_neq", &luna_wrapper_wxColour::_bind_op_neq},
+	{"op_assign", &luna_wrapper_wxColour::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxColour::_bind___eq},
 	{"getTable", &luna_wrapper_wxColour::_bind_getTable},
 	{0,0}

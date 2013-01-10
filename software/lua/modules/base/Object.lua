@@ -193,4 +193,12 @@ function Object:getEventManager()
 	return self._eventManager;
 end
 
+function Object:getWindowManager()
+	if not self._windowManager then
+		self._windowManager = require("gui.wx.WindowManager")
+	end
+	
+	return self._windowManager;
+end
+
 return Object

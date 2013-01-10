@@ -44,3 +44,4 @@
 - Fixed issue with unreferenced initial NodeVisitor for OSGCanvas.
 - Moved web modules in gui.
 - Added support for "new" function call in class construction process.
+- Changed default size for OSG Test apps.

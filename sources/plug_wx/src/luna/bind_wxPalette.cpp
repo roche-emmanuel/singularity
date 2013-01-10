@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -181,7 +181,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxPalette::wxPalette()
@@ -450,6 +457,32 @@ public:
 
 
 	// Operator binds:
+	// wxPalette & wxPalette::operator=(const wxPalette & palette)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPalette & wxPalette::operator=(const wxPalette & palette) function, expected prototype:\nwxPalette & wxPalette::operator=(const wxPalette & palette)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxPalette* palette_ptr=(Luna< wxObject >::checkSubType< wxPalette >(L,2));
+		if( !palette_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg palette in wxPalette::operator= function");
+		}
+		const wxPalette & palette=*palette_ptr;
+
+		wxPalette* self=Luna< wxObject >::checkSubType< wxPalette >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPalette & wxPalette::operator=(const wxPalette &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxPalette* lret = &self->operator=(palette);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPalette >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -479,6 +512,7 @@ luna_RegType LunaTraits< wxPalette >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxPalette::_bind_base_GetClassInfo},
 	{"base_GetColoursCount", &luna_wrapper_wxPalette::_bind_base_GetColoursCount},
 	{"base_IsOk", &luna_wrapper_wxPalette::_bind_base_IsOk},
+	{"op_assign", &luna_wrapper_wxPalette::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxPalette::_bind___eq},
 	{"getTable", &luna_wrapper_wxPalette::_bind_getTable},
 	{0,0}

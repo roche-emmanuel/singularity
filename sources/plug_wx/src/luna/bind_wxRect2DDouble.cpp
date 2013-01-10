@@ -411,7 +411,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,21099623) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1610,6 +1617,32 @@ public:
 
 
 	// Operator binds:
+	// wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect) function, expected prototype:\nwxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect)\nClass arguments details:\narg 1 ID = 21099623\n");
+		}
+
+		const wxRect2DDouble* rect_ptr=(Luna< wxRect2DDouble >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRect2DDouble::operator= function");
+		}
+		const wxRect2DDouble & rect=*rect_ptr;
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble &). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		const wxRect2DDouble* lret = &self->operator=(rect);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRect2DDouble >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool wxRect2DDouble::operator==(const wxRect2DDouble & rect) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -1723,6 +1756,7 @@ luna_RegType LunaTraits< wxRect2DDouble >::methods[] = {
 	{"Union", &luna_wrapper_wxRect2DDouble::_bind_Union},
 	{"CreateUnion", &luna_wrapper_wxRect2DDouble::_bind_CreateUnion},
 	{"Scale", &luna_wrapper_wxRect2DDouble::_bind_Scale},
+	{"op_assign", &luna_wrapper_wxRect2DDouble::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxRect2DDouble::_bind___eq},
 	{"op_neq", &luna_wrapper_wxRect2DDouble::_bind_op_neq},
 	{"dynCast", &luna_wrapper_wxRect2DDouble::_bind_dynCast},

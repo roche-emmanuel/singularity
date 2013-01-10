@@ -80,7 +80,14 @@ public:
 	// Function checkers:
 
 	// Operator checkers:
-	// (found 4 valid operators)
+	// (found 5 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,40755714) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_op_add_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -169,6 +176,32 @@ public:
 	// Function binds:
 
 	// Operator binds:
+	// wxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n");
+		}
+
+		const wxRealPoint* pt_ptr=(Luna< wxRealPoint >::check(L,2));
+		if( !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxRealPoint::operator= function");
+		}
+		const wxRealPoint & pt=*pt_ptr;
+
+		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator=(const wxRealPoint &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+		}
+		const wxRealPoint* lret = &self->operator=(pt);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRealPoint >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// wxRealPoint & wxRealPoint::operator+=(const wxRealPoint & pt)
 	static int _bind_op_add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_1(L)) {
@@ -312,6 +345,7 @@ const int LunaTraits< wxRealPoint >::hash = 40755714;
 const int LunaTraits< wxRealPoint >::uniqueIDs[] = {40755714,0};
 
 luna_RegType LunaTraits< wxRealPoint >::methods[] = {
+	{"op_assign", &luna_wrapper_wxRealPoint::_bind_op_assign},
 	{"op_add", &luna_wrapper_wxRealPoint::_bind_op_add},
 	{"op_sub", &luna_wrapper_wxRealPoint::_bind_op_sub},
 	{"dynCast", &luna_wrapper_wxRealPoint::_bind_dynCast},

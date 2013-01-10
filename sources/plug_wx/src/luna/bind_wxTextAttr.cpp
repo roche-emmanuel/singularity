@@ -723,7 +723,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,37117058) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxTextAttr::wxTextAttr()
@@ -2729,6 +2736,29 @@ public:
 
 
 	// Operator binds:
+	// void wxTextAttr::operator=(const wxTextAttr & attr)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttr::operator=(const wxTextAttr & attr) function, expected prototype:\nvoid wxTextAttr::operator=(const wxTextAttr & attr)\nClass arguments details:\narg 1 ID = 37117058\n");
+		}
+
+		const wxTextAttr* attr_ptr=(Luna< wxTextAttr >::check(L,2));
+		if( !attr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg attr in wxTextAttr::operator= function");
+		}
+		const wxTextAttr & attr=*attr_ptr;
+
+		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttr::operator=(const wxTextAttr &). Got : '%s'",typeid(Luna< wxTextAttr >::check(L,1)).name());
+		}
+		self->operator=(attr);
+
+		return 0;
+	}
+
 
 };
 
@@ -2847,6 +2877,7 @@ luna_RegType LunaTraits< wxTextAttr >::methods[] = {
 	{"SetTextEffectFlags", &luna_wrapper_wxTextAttr::_bind_SetTextEffectFlags},
 	{"SetTextEffects", &luna_wrapper_wxTextAttr::_bind_SetTextEffects},
 	{"SetURL", &luna_wrapper_wxTextAttr::_bind_SetURL},
+	{"op_assign", &luna_wrapper_wxTextAttr::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxTextAttr::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTextAttr::_bind___eq},
 	{0,0}

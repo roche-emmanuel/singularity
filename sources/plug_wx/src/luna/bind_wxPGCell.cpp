@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -238,7 +238,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxPGCell::wxPGCell()
@@ -735,6 +742,32 @@ public:
 
 
 	// Operator binds:
+	// wxPGCell & wxPGCell::operator=(const wxPGCell & other)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGCell & wxPGCell::operator=(const wxPGCell & other) function, expected prototype:\nwxPGCell & wxPGCell::operator=(const wxPGCell & other)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxPGCell* other_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in wxPGCell::operator= function");
+		}
+		const wxPGCell & other=*other_ptr;
+
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPGCell & wxPGCell::operator=(const wxPGCell &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxPGCell* lret = &self->operator=(other);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGCell >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -772,6 +805,7 @@ luna_RegType LunaTraits< wxPGCell >::methods[] = {
 	{"SetEmptyData", &luna_wrapper_wxPGCell::_bind_SetEmptyData},
 	{"IsInvalid", &luna_wrapper_wxPGCell::_bind_IsInvalid},
 	{"base_GetClassInfo", &luna_wrapper_wxPGCell::_bind_base_GetClassInfo},
+	{"op_assign", &luna_wrapper_wxPGCell::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxPGCell::_bind___eq},
 	{"getTable", &luna_wrapper_wxPGCell::_bind_getTable},
 	{0,0}

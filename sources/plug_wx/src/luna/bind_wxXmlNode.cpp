@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxXmlNode,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -419,7 +419,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,64848530) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxXmlNode::wxXmlNode(wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)
@@ -1307,6 +1314,32 @@ public:
 
 
 	// Operator binds:
+	// wxXmlNode & wxXmlNode::operator=(const wxXmlNode & node)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxXmlNode & wxXmlNode::operator=(const wxXmlNode & node) function, expected prototype:\nwxXmlNode & wxXmlNode::operator=(const wxXmlNode & node)\nClass arguments details:\narg 1 ID = 64848530\n");
+		}
+
+		const wxXmlNode* node_ptr=(Luna< wxXmlNode >::check(L,2));
+		if( !node_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg node in wxXmlNode::operator= function");
+		}
+		const wxXmlNode & node=*node_ptr;
+
+		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxXmlNode & wxXmlNode::operator=(const wxXmlNode &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+		}
+		const wxXmlNode* lret = &self->operator=(node);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxXmlNode >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1362,6 +1395,7 @@ luna_RegType LunaTraits< wxXmlNode >::methods[] = {
 	{"base_InsertChild", &luna_wrapper_wxXmlNode::_bind_base_InsertChild},
 	{"base_InsertChildAfter", &luna_wrapper_wxXmlNode::_bind_base_InsertChildAfter},
 	{"base_RemoveChild", &luna_wrapper_wxXmlNode::_bind_base_RemoveChild},
+	{"op_assign", &luna_wrapper_wxXmlNode::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxXmlNode::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxXmlNode::_bind___eq},
 	{"getTable", &luna_wrapper_wxXmlNode::_bind_getTable},

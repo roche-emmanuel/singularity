@@ -17,7 +17,8 @@ local core = require "core"
 
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
-local App = require "gui.web.TestApp"
+-- local App = require "gui.web.TestApp"
+local App = require "gui.web.BookApp"
 local app = App{profileFile="test_web_profile.log"}
 
 app:run()

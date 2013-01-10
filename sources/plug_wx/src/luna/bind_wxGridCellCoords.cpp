@@ -84,7 +84,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -234,6 +241,32 @@ public:
 
 
 	// Operator binds:
+	// wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other) function, expected prototype:\nwxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other)\nClass arguments details:\narg 1 ID = 6476046\n");
+		}
+
+		const wxGridCellCoords* other_ptr=(Luna< wxGridCellCoords >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in wxGridCellCoords::operator= function");
+		}
+		const wxGridCellCoords & other=*other_ptr;
+
+		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords &). Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+		}
+		const wxGridCellCoords* lret = &self->operator=(other);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellCoords >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool wxGridCellCoords::operator==(const wxGridCellCoords & other) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -308,6 +341,7 @@ luna_RegType LunaTraits< wxGridCellCoords >::methods[] = {
 	{"GetCol", &luna_wrapper_wxGridCellCoords::_bind_GetCol},
 	{"SetCol", &luna_wrapper_wxGridCellCoords::_bind_SetCol},
 	{"Set", &luna_wrapper_wxGridCellCoords::_bind_Set},
+	{"op_assign", &luna_wrapper_wxGridCellCoords::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxGridCellCoords::_bind___eq},
 	{"op_neq", &luna_wrapper_wxGridCellCoords::_bind_op_neq},
 	{"dynCast", &luna_wrapper_wxGridCellCoords::_bind_dynCast},

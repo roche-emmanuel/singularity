@@ -5,11 +5,22 @@ local wx = require "wx"
 local Set = require "std.Set"
 
 local Scheduler = require "gui.wx.Scheduler" -- ensure the scheduler gets initialized.
+local Event = require "base.Event"
 
 -- Main class to manager all the windows/interfaces.
 function Class:initialize(options)
 	self._interfaces = Set();
 	self._lastID = wx.wxID_HIGHEST+100
+	
+	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+end
+
+function Class:onAppClosing()
+	-- release all the images:
+	if self._auiManager then
+		self:info("Uninitializing AuiManager.")
+		self._auiManager:UnInit()
+	end
 end
 
 -- Return a new ID wxWIdgets ID which is incremented on each call.
@@ -26,12 +37,16 @@ function Class:getMainFrame()
 	return self._mainFrame
 end
 
-function Class:getAUIManager()
-	return nil -- no AUI manager by default.
+function Class:getAuiManager()
+	if not self._auiManager then
+		self._auiManager = wx.wxAuiManager();
+	end
+	
+	return self._auiManager -- no AUI manager by default.
 end
 
 function Class:togglePane(intf,doShow)
-	local mgr = self:getAUIManager()
+	local mgr = self:getAuiManager()
 	if not mgr then
 		return -- nothing to do.
 	end

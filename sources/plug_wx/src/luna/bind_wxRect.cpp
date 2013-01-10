@@ -386,7 +386,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
 	inline static bool _lg_typecheck_op_add(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -395,6 +395,13 @@ public:
 	}
 
 	inline static bool _lg_typecheck_op_mult(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
@@ -1508,6 +1515,32 @@ public:
 		return 1;
 	}
 
+	// wxRect & wxRect::operator=(const wxRect & rect)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRect & wxRect::operator=(const wxRect & rect) function, expected prototype:\nwxRect & wxRect::operator=(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+		}
+
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRect::operator= function");
+		}
+		const wxRect & rect=*rect_ptr;
+
+		wxRect* self=(Luna< wxRect >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxRect & wxRect::operator=(const wxRect &). Got : '%s'",typeid(Luna< wxRect >::check(L,1)).name());
+		}
+		const wxRect* lret = &self->operator=(rect);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRect >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1560,6 +1593,7 @@ luna_RegType LunaTraits< wxRect >::methods[] = {
 	{"Union", &luna_wrapper_wxRect::_bind_Union},
 	{"op_add", &luna_wrapper_wxRect::_bind_op_add},
 	{"op_mult", &luna_wrapper_wxRect::_bind_op_mult},
+	{"op_assign", &luna_wrapper_wxRect::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxRect::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxRect::_bind___eq},
 	{0,0}

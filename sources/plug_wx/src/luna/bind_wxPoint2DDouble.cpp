@@ -150,10 +150,17 @@ public:
 
 
 	// Operator checkers:
-	// (found 5 valid operators)
+	// (found 6 valid operators)
 	inline static bool _lg_typecheck___unm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,87062627) ) return false;
 		return true;
 	}
 
@@ -527,6 +534,32 @@ public:
 		return 1;
 	}
 
+	// wxPoint2DDouble & wxPoint2DDouble::operator=(const wxPoint2DDouble & pt)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPoint2DDouble & wxPoint2DDouble::operator=(const wxPoint2DDouble & pt) function, expected prototype:\nwxPoint2DDouble & wxPoint2DDouble::operator=(const wxPoint2DDouble & pt)\nClass arguments details:\narg 1 ID = 87062627\n");
+		}
+
+		const wxPoint2DDouble* pt_ptr=(Luna< wxPoint2DDouble >::check(L,2));
+		if( !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxPoint2DDouble::operator= function");
+		}
+		const wxPoint2DDouble & pt=*pt_ptr;
+
+		wxPoint2DDouble* self=(Luna< wxPoint2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPoint2DDouble & wxPoint2DDouble::operator=(const wxPoint2DDouble &). Got : '%s'",typeid(Luna< wxPoint2DDouble >::check(L,1)).name());
+		}
+		const wxPoint2DDouble* lret = &self->operator=(pt);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPoint2DDouble >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// wxPoint2DDouble & wxPoint2DDouble::operator+=(const wxPoint2DDouble & pt)
 	static int _bind_op_add(lua_State *L) {
 		if (!_lg_typecheck_op_add(L)) {
@@ -660,6 +693,7 @@ luna_RegType LunaTraits< wxPoint2DDouble >::methods[] = {
 	{"GetDotProduct", &luna_wrapper_wxPoint2DDouble::_bind_GetDotProduct},
 	{"GetCrossProduct", &luna_wrapper_wxPoint2DDouble::_bind_GetCrossProduct},
 	{"__unm", &luna_wrapper_wxPoint2DDouble::_bind___unm},
+	{"op_assign", &luna_wrapper_wxPoint2DDouble::_bind_op_assign},
 	{"op_add", &luna_wrapper_wxPoint2DDouble::_bind_op_add},
 	{"op_sub", &luna_wrapper_wxPoint2DDouble::_bind_op_sub},
 	{"__eq", &luna_wrapper_wxPoint2DDouble::_bind___eq},

@@ -447,7 +447,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,15778700) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1724,6 +1731,32 @@ public:
 
 
 	// Operator binds:
+	// wxRect2DInt & wxRect2DInt::operator=(const wxRect2DInt & rect)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRect2DInt & wxRect2DInt::operator=(const wxRect2DInt & rect) function, expected prototype:\nwxRect2DInt & wxRect2DInt::operator=(const wxRect2DInt & rect)\nClass arguments details:\narg 1 ID = 15778700\n");
+		}
+
+		const wxRect2DInt* rect_ptr=(Luna< wxRect2DInt >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRect2DInt::operator= function");
+		}
+		const wxRect2DInt & rect=*rect_ptr;
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxRect2DInt & wxRect2DInt::operator=(const wxRect2DInt &). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		const wxRect2DInt* lret = &self->operator=(rect);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRect2DInt >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool wxRect2DInt::operator==(const wxRect2DInt & rect) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -1837,6 +1870,7 @@ luna_RegType LunaTraits< wxRect2DInt >::methods[] = {
 	{"Union", &luna_wrapper_wxRect2DInt::_bind_Union},
 	{"CreateUnion", &luna_wrapper_wxRect2DInt::_bind_CreateUnion},
 	{"Scale", &luna_wrapper_wxRect2DInt::_bind_Scale},
+	{"op_assign", &luna_wrapper_wxRect2DInt::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxRect2DInt::_bind___eq},
 	{"op_neq", &luna_wrapper_wxRect2DInt::_bind_op_neq},
 	{"dynCast", &luna_wrapper_wxRect2DInt::_bind_dynCast},
